@@ -1,0 +1,1282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lean proofs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"], ["$$", "$$"]] },
+                   options: { skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"] } };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<nav class="top" aria-label="Site">
+  <a class="site" href="../index.html">Feedback-channel findings</a>
+  <a href="../notes/index.html">Notes</a>
+  <a href="../lean/index.html">Lean proofs</a>
+  <a href="../notes/feedback_channel_journey_2026-10-11_13.html">Journey</a>
+  <a href="https://github.com/MoralityLabAI/EvalMath/tree/d62a0f42fa2a7ba8634a7802d9682ee99c048291">Source</a>
+</nav>
+<main>
+<h1>Lean claims</h1>
+<p>Each row links a result in the notes to the Lean theorem that proves it. Fidelity says how the Lean
+statement relates to the note: <em>full</em> (the claim as the note states it), <em>special case</em> (which one),
+or <em>supporting lemma</em> (what remains). Every theorem here is listed in <code>axioms_check.lean</code>, whose
+output is only <code>propext</code>, <code>Classical.choice</code> and <code>Quot.sound</code>: no <code>sorry</code>, no added axioms, no
+compiled-code evaluation. Line numbers refer to this commit.</p>
+<h2>The lattice note (<code>paper/evaluation_feedback_lattice.md</code>, version 0.6)</h2>
+<p>Every theorem below is listed in <code>axioms_lattice.lean</code>. <code>#print axioms</code> gives
+<code>[propext, Classical.choice, Quot.sound]</code> for 49 of them and <code>[propext, Quot.sound]</code> for
+<code>prop7_context_pair</code>. The files contain no <code>sorry</code>, no new axioms and no compiled-code
+evaluation. Concrete values come from <code>decide</code> (multisets, finite sets) and <code>norm_num</code> (rationals).</p>
+<p><strong>Programme model (<code>FeedbackChannel.PatchDP</code>).</strong> A state is a multiset of pairs <code>(n, F)</code> with
+<code>F ≤ n</code> (<code>Valid</code>). A patch picks a category with <code>n ≥ 1</code>. It hits with probability <code>F/n</code>, leaving
+<code>(n-1, F-1)</code>, and otherwise leaves <code>(n-1, F)</code>. <code>val H s</code> is the Bellman minimum of the expected
+patches to <code>H</code> hits, computed with fuel equal to the items left (<code>dp</code>, <code>val_succ</code>). It differs
+from the Python <code>_optimal_value</code> in two ways, and neither changes a value on a feasible state:
+(i) categories with <code>F = 0</code> stay in the state and may be patched, a wasted patch, which the note's
+policy class allows; (ii) an infeasible state (more hits needed than failures left) has the junk
+value 0, and every theorem assumes feasibility. <code>val_le_pval</code> shows that no legal stationary
+policy (a function of hits needed and state) does better than <code>val</code>. Randomised and
+history-dependent policies are not modelled. The values agree with the Python programme on every
+witness state.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Note</th>
+<th>Claim (label as in the note)</th>
+<th>Lean theorem (fully qualified)</th>
+<th>File:line</th>
+<th>Fidelity</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>§3</td>
+<td>Theorem 10: one hit, optimum <code>min_c (n_c+1)/(F_c+1)</code></td>
+<td><code>FeedbackChannel.PatchDP.theorem10</code></td>
+<td>FeedbackChannel/PatchDP.lean:299</td>
+<td>full</td>
+<td><code>IsLeast</code> over the categories with <code>F_c ≥ 1</code>, for a valid state with at least one failure. Proved by the note's induction on items (<code>val_one_le_finisher</code>:192, <code>le_val_one</code>:233). <strong>Underspecified in the note:</strong> the minimum has to be restricted to <code>F_c ≥ 1</code>. Python does this (<code>one_hit_value</code>); read literally the formula is wrong, e.g. <code>{(1,0),(10,1)}</code> gives 2 instead of 11/2. The note's &quot;any other <code>c′</code>&quot; step also leaves out <code>F_{c′} = 0</code> (it divides by <code>F_{c′}</code>), and the proof handles that case separately.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Theorem 10: optimum in evaluation form</td>
+<td><code>FeedbackChannel.PatchDP.val_one_eq</code></td>
+<td>FeedbackChannel/PatchDP.lean:316</td>
+<td>supporting lemma</td>
+<td>Used for every one-hit value of a concrete state.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Theorem 10: &quot;attained by patching a category of minimal (n+1)/(F+1) until it hits and never switching&quot;</td>
+<td><code>FeedbackChannel.PatchDP.theorem10_attained</code></td>
+<td>FeedbackChannel/PatchDP.lean:351</td>
+<td>full</td>
+<td>For a best finisher: patching it first is optimal; after a miss it stays a best finisher; the never-switching cost <code>stick n F</code> equals the optimum.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>&quot;Sticking with c costs 1+(1−F/n) n/(F+1) = (n+1)/(F+1)&quot;</td>
+<td><code>FeedbackChannel.PatchDP.stick_eq</code></td>
+<td>FeedbackChannel/PatchDP.lean:328</td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Theorem 10 witness: in <code>{(2,1),(16,9)}</code> the rates are 1/2 &lt; 9/16, yet (2,1) first costs 3/2 against 53/32</td>
+<td><code>FeedbackChannel.PatchDP.one_hit_rate_witness</code></td>
+<td>FeedbackChannel/PatchDP.lean:399</td>
+<td>full</td>
+<td>Finite.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Bellman equation of <code>optimal_adaptive_value</code></td>
+<td><code>FeedbackChannel.PatchDP.val_succ</code>, <code>FeedbackChannel.PatchDP.val_eq_of_cert</code></td>
+<td>FeedbackChannel/PatchDP.lean:112, 139</td>
+<td>supporting lemma</td>
+<td>Definition of the programme; certificate form for exact evaluation.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>The programme is a lower bound for every policy</td>
+<td><code>FeedbackChannel.PatchDP.val_le_pval</code></td>
+<td>FeedbackChannel/PatchDP.lean:551</td>
+<td>supporting lemma</td>
+<td>Stationary deterministic legal policies only. A policy's cost is also at least the continuation value of its own first patch.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 4, one category: <code>E[T] = H(n+1)/(F+1)</code> (negative-hypergeometric mean)</td>
+<td><code>FeedbackChannel.PatchDP.val_single</code></td>
+<td>FeedbackChannel/PatchDP.lean:439</td>
+<td>full</td>
+<td>For <code>H ≤ F ≤ n</code>. With one category the programme has a single choice, so <code>val</code> is the expected stopping time of patching uniformly at random without replacement (first-step analysis). A combinatorial statement over random <code>F</code>-subsets is not formalized.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 4: <code>E[T] = N_{&lt;j} + H_j(n_j+1)/(F_j+1)</code> for the static schedule</td>
+<td><code>FeedbackChannel.PatchStatic.prop4_staticT</code></td>
+<td>FeedbackChannel/PatchStatic.lean:207</td>
+<td>full</td>
+<td>Holds for every fixed order, the greedy order included. <code>staticT</code> is the expected stopping time by first-step analysis (<code>sdp</code>), with earlier categories patched completely (<code>staticT_skip</code>:164, <code>staticT_within</code>:136). The split <code>pre ++ c :: post</code> with <code>F(pre) &lt; H ≤ F(pre)+F_j</code> is the note's <code>j</code>.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 4: the expected score reaches the ceiling at <code>m* = N_{&lt;j} + H_j n_j/F_j</code></td>
+<td><code>FeedbackChannel.PatchStatic.prop4_crossing</code></td>
+<td>FeedbackChannel/PatchStatic.lean:254</td>
+<td>full</td>
+<td><code>curve</code> is the piecewise-linear fill curve (<code>expected_hits_after</code>): it equals <code>H</code> at <code>m*</code> and is below <code>H</code> at every earlier count. At whole counts inside a category it is the hypergeometric mean (<code>curve_single</code>:240, from Prop 3).</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 4: <code>m* − E[T] = H_j(n_j−F_j)/(F_j(F_j+1)) ∈ [0, m*/(F_j+1))</code></td>
+<td><code>FeedbackChannel.PatchStatic.prop4_gap</code></td>
+<td>FeedbackChannel/PatchStatic.lean:328</td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 4 numbers: one category, <code>m*/n = (1−ε−v)/(1−v) = 8/13</code>, <code>E[T] = 204/7</code></td>
+<td><code>FeedbackChannel.PatchStatic.prop4_one_category</code></td>
+<td>FeedbackChannel/PatchStatic.lean:361</td>
+<td>full</td>
+<td><code>n=50, F=13, H=8, ε=1/10, v=37/50</code>. Also checks that <code>val 8 {(50,13)} = 204/7</code>. Deriving <code>H = 8</code> from the noise ceiling (insertions note) is not formalized.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 4 numbers: singleton categories, both equal <code>H</code>, share 4/25</td>
+<td><code>FeedbackChannel.PatchStatic.prop4_singletons</code></td>
+<td>FeedbackChannel/PatchStatic.lean:370</td>
+<td>full</td>
+<td>13 failing and 37 passing singletons, failures first.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 3: the j-th patch hits with unconditional probability <code>F_c/n_c</code> for every j</td>
+<td><code>FeedbackChannel.PatchStatic.prop3_hitProb</code></td>
+<td>FeedbackChannel/PatchStatic.lean:32</td>
+<td>full</td>
+<td>The conditional probability <code>(F_c−h)/(n_c−j+1)</code> is the model's transition (<code>rate</code> of the remaining pair).</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 3: <code>m_c</code> patches hit <code>m_c F_c/n_c</code> in expectation (hypergeometric mean)</td>
+<td><code>FeedbackChannel.PatchStatic.prop3_expHits</code></td>
+<td>FeedbackChannel/PatchStatic.lean:65</td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 3: filling categories in decreasing order of <code>F_c/n_c</code> maximizes expected hits at every patch count</td>
+<td><code>FeedbackChannel.PatchGreedy.prop3_greedy</code></td>
+<td>FeedbackChannel/PatchGreedy.lean:218</td>
+<td>full</td>
+<td><code>IsGreatest</code> over all allocations of total <code>M</code>, fractional ones included, at every <code>0 ≤ M ≤ n</code>. The value of an allocation is <code>Σ m_c F_c/n_c</code>, which by Prop 3 does not depend on the order of the patches. The proof uses a Lagrangian bound (<code>curve_le_dual</code>:57, <code>curve_eq_dual</code>:85, <code>alloc_le_dual</code>:142), not the note's exchange argument.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 5: if <code>γ′</code> refines <code>γ</code> then <code>m*(γ′) ≤ m*(γ)</code> for every failure pattern</td>
+<td><code>FeedbackChannel.PatchGreedy.prop5</code></td>
+<td>FeedbackChannel/PatchGreedy.lean:336</td>
+<td>full</td>
+<td>Slightly stronger than stated: the coarse schedule may use any order. A category map is given as its list of <code>(n_c, F_c)</code>. <code>Refines</code> groups the fine categories into one part per coarse category, whose counts add up. The key step is <code>curve_mono_refine</code>:298 (the coarse curve lies below the fine greedy curve), which plays the role of the note's proportional allocation.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>&quot;The stopping time under the static schedule is not monotone&quot;: <code>(4,2)</code>, H=2 gives 10/3; <code>(2,1),(2,1)</code> gives 7/2</td>
+<td><code>FeedbackChannel.PatchStatic.static_not_monotone</code></td>
+<td>FeedbackChannel/PatchStatic.lean:391</td>
+<td>full</td>
+<td>Finite. The six-item example (record <code>001101</code>) is not formalized.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Lemma 9 (pair commutation)</td>
+<td><code>FeedbackChannel.PatchDP.lemma9</code></td>
+<td>FeedbackChannel/PatchDP.lean:493</td>
+<td>full</td>
+<td><code>twoPatch</code> is <code>two_patch_value</code>. The hypothesis <code>H ≥ 2</code> is not needed for the algebraic identity; it is kept because <code>twoPatch</code> models the two-patch run only when <code>H ≥ 2</code>.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 7 values: H=2, (2,1) before (4,2) is 5/2 against 8/3 in <code>{(1,1),(2,1),(4,2)}</code> and 19/6 against 37/12 in <code>{(2,1),(4,2)}</code></td>
+<td><code>FeedbackChannel.PatchWitness.prop7_note_values</code></td>
+<td>FeedbackChannel/PatchWitness.lean:2148</td>
+<td>full</td>
+<td>The values are computed from the programme's definition. 325 generated lemmas evaluate every reachable state.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 7 values, second witness (H=3, ten items, five failures, four categories)</td>
+<td><code>FeedbackChannel.PatchWitness3.prop7_note_context_values</code></td>
+<td>FeedbackChannel/PatchWitness3.lean:1913</td>
+<td>full</td>
+<td>9/2 against 55/12, and 25/6 against 49/12. Also checks the totals.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 7: &quot;No such rule is optimal&quot;: the note's proof</td>
+<td><code>FeedbackChannel.PatchWitness.prop7_note_pair_insufficient</code></td>
+<td>FeedbackChannel/PatchWitness.lean:2159</td>
+<td>supporting lemma</td>
+<td><strong>Gap in the note's proof.</strong> In <code>{(1,1),(2,1),(4,2)}</code> the category <code>(1,1)</code> is also optimal (5/2). So the ranking <code>(1,1)</code> over <code>(4,2)</code> over <code>(2,1)</code> makes an optimal first patch in both of the note's states. The same holds for the second witness, where <code>(1,1)</code> ties <code>(4,2)</code> at 49/12. A reversal refutes an index rule only when the preferred category is the unique optimum.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 7 (own counts), corrected witness pair</td>
+<td><code>FeedbackChannel.PatchWitness.prop7_own_counts</code></td>
+<td>FeedbackChannel/PatchWitness.lean:2178</td>
+<td>full</td>
+<td><code>{(2,1),(2,1),(4,2)}</code> (3 against 37/12) and <code>{(2,1),(4,2)}</code>, H=2, both with unique optima. Holds for every strict index (<code>key (2,1) ≠ key (4,2)</code>), i.e. a fixed tie-break, which the note's &quot;ranks the same way&quot; presupposes. With state-dependent tie-breaking no index rule can be refuted.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 7 (own counts), policy form: the rule's expected cost exceeds the optimum</td>
+<td><code>FeedbackChannel.PatchWitness.prop7_own_counts_policy</code></td>
+<td>FeedbackChannel/PatchWitness.lean:2199</td>
+<td>full</td>
+<td>Via <code>val_le_pval</code>.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 7 with totals and category count, corrected witness pair</td>
+<td><code>FeedbackChannel.PatchWitness.prop7_with_context</code></td>
+<td>FeedbackChannel/PatchWitness.lean:2226</td>
+<td>full</td>
+<td><code>{(2,1),(2,1),(4,1),(4,2)}</code> and <code>{(2,1),(3,1),(3,1),(4,2)}</code>, H=2. They agree on items (12), failures (5) and categories (4) (<code>prop7_context_pair</code>:2213), so this covers both richer contexts. The enumeration counts (30/125/120 reversals) are not formalized; they count reversals, not refuting pairs.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>Prop 8 witness: <code>{(2,1),(5,2)}</code>, H=2, (5,2) first 69/20, (2,1) first 7/2</td>
+<td><code>FeedbackChannel.PatchWitness.prop8_witness</code></td>
+<td>FeedbackChannel/PatchWitness.lean:2252</td>
+<td>full</td>
+<td>Finite; 69/20 is the optimum. The counts (82, 131) are not formalized.</td>
+</tr>
+<tr>
+<td>§3</td>
+<td>&quot;Greedy is not optimal&quot;: <code>(4,2),(2,1)</code>, H=2, greedy 19/6 against 37/12</td>
+<td><code>FeedbackChannel.PatchWitness.greedy_not_optimal</code></td>
+<td>FeedbackChannel/PatchWitness.lean:2263</td>
+<td>special case</td>
+<td>Every legal policy that patches <code>(2,1)</code> first, as greedy does when rates tie, costs at least 19/6, more than 37/12. Greedy's exact value 19/6 is not proved.</td>
+</tr>
+<tr>
+<td>§2</td>
+<td>Prop 2c: <code>Φ(γ)∨Φ(γ′) = Φ(γ∨γ′)</code> iff <code>I(γ,γ′)</code> is acyclic</td>
+<td><code>FeedbackChannel.LatticeJoin.prop2c</code></td>
+<td>FeedbackChannel/LatticeJoin.lean:476</td>
+<td>full</td>
+<td>Category maps are labelings <code>ι → R</code>, <code>ι → C</code>. Records are <code>ι → Bool</code>. &quot;Equal row and column counts iff equal cell counts, for all records&quot; iff Mathlib's <code>SimpleGraph.IsAcyclic</code> holds for the bipartite intersection graph on <code>R ⊕ C</code>.</td>
+</tr>
+<tr>
+<td>§2</td>
+<td>Prop 2c in lattice form (Setoid kernels; the note's <code>∨</code> is Mathlib's <code>⊓</code>)</td>
+<td><code>FeedbackChannel.LatticeJoin.prop2c_setoid</code></td>
+<td>FeedbackChannel/LatticeJoin.lean:501</td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>§2</td>
+<td>Prop 2c core: on the box `0 ≤ w ≤</td>
+<td>cell</td>
+<td>`, margins determine the cell weights iff the graph is acyclic</td>
+<td><code>FeedbackChannel.LatticeJoin.margins_determine_iff_acyclic</code></td>
+<td>FeedbackChannel/LatticeJoin.lean:317</td>
+</tr>
+<tr>
+<td>§2</td>
+<td>Prop 2c core, integer weights (no box)</td>
+<td><code>FeedbackChannel.LatticeJoin.margins_determine_int_iff</code></td>
+<td>FeedbackChannel/LatticeJoin.lean:301</td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>§2</td>
+<td>Prop 2c: &quot;cell counts determine margins, so the refined channel is always at least as fine&quot;</td>
+<td><code>FeedbackChannel.LatticeJoin.cells_determine_margins</code></td>
+<td>FeedbackChannel/LatticeJoin.lean:467</td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>§2</td>
+<td>Prop 2c witness: rows `{0,1}</td>
+<td>{2,3}<code>, columns </code>{0,2}</td>
+<td>{1,3}<code>, records </code>1001<code>, </code>0110`</td>
+<td><code>FeedbackChannel.LatticeJoin.prop2c_four_cycle_witness</code></td>
+<td>FeedbackChannel/LatticeJoin.lean:511</td>
+</tr>
+<tr>
+<td>§1</td>
+<td>Prop 1: <code>p ≤ q</code> implies <code>TV(p#P,p#Q) ≤ TV(q#P,q#Q)</code></td>
+<td><code>FeedbackChannel.LatticeOrder.prop1_mono</code></td>
+<td>FeedbackChannel/LatticeOrder.lean:35</td>
+<td>full</td>
+<td>Records are any finite type and channels are functions; <code>TV</code> is `max_U</td>
+</tr>
+<tr>
+<td>§1</td>
+<td>Prop 1 converse: if <code>p ≰ q</code>, point masses give TV 1 through <code>p</code> and 0 through <code>q</code></td>
+<td><code>FeedbackChannel.LatticeOrder.prop1_converse</code></td>
+<td>FeedbackChannel/LatticeOrder.lean:62</td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>§2</td>
+<td>Prop 2: <code>Φ(γ) ≤ Φ(γ′)</code> iff <code>γ ≤ γ′</code> (order embedding)</td>
+<td><code>FeedbackChannel.LatticeOrder.prop2</code></td>
+<td>FeedbackChannel/LatticeOrder.lean:126</td>
+<td>full</td>
+<td>Labelings; <code>Φ</code> is the per-block pass counts.</td>
+</tr>
+<tr>
+<td>§2</td>
+<td>Prop 2 endpoint: <code>Φ(singletons)</code> = item-level</td>
+<td><code>FeedbackChannel.LatticeOrder.prop2_item_level</code></td>
+<td>FeedbackChannel/LatticeOrder.lean:156</td>
+<td>full</td>
+<td>The <code>score_only</code> endpoint holds by definition (one block gives the total pass count) and is not stated separately.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Not formalized:</strong> Proposition 2b (meets are preserved; it needs the &quot;transpositions along a
+connected graph&quot; argument), Proposition 6 (the optimal adaptive schedule is monotone; it needs a
+model of policies under coarser information), the commit-until-hit witness, the claim that greedy
+is optimal when every failure must be hit, the lattice fixtures, and every enumeration count.</p>
+<h2>The training-signal, judge-measurement and gold-calibration notes</h2>
+<p>Modules <code>FeedbackChannel/Signal.lean</code>, <code>Judge.lean</code>, <code>Raters.lean</code>, <code>RatersJacobian.lean</code> (no
+dependencies between them; build order as listed). <code>axioms_algebra.lean</code> prints the axioms of every
+theorem below; all 75 report exactly <code>[propext, Classical.choice, Quot.sound]</code>. No <code>sorry</code>,
+<code>admit</code>, <code>native_decide</code> or added axioms. Fresh build of the four modules: 26 s.</p>
+<p>Fidelity: <strong>full</strong> = the note's claim with its quantifiers and hypotheses (sometimes stronger);
+<strong>special case</strong> = a restricted instance (stated which); <strong>supporting</strong> = a lemma the claim rests
+on (stated what remains). Paths are relative to <code>lean/</code>.</p>
+<p>Notes: TS = <code>paper/rl_training_signal_limits.md</code>; INS = <code>paper/evaluation_feedback_insertions.md</code>;
+JM = <code>paper/judge_shared_error_measurement.md</code>; GC = <code>paper/gold_calibration_second_grader.md</code>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Note</th>
+<th>Claim (label as in the note)</th>
+<th>Lean theorem (fully qualified)</th>
+<th>File:line</th>
+<th>Fidelity</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TS</td>
+<td>L1/L2 counting core</td>
+<td><code>FeedbackChannel.Signal.Strategy.card_le_pow</code></td>
+<td>FeedbackChannel/Signal.lean:69</td>
+<td>supporting</td>
+<td>Adaptive strategies are depth-<code>q</code> decision trees (<code>Strategy</code>); if every candidate's answers lie in a set of <code>m</code> values and the output separates candidates, <code>#cands ≤ m^q</code>. L1 and L2 are instances.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L1: a deterministic channel with <code>m</code> images separates at most <code>m^q</code> hypotheses in <code>q</code> episodes</td>
+<td><code>FeedbackChannel.Signal.L1_card_le</code></td>
+<td>FeedbackChannel/Signal.lean:112</td>
+<td>full</td>
+<td>Episodes may be chosen adaptively; hypothesis <code>h</code> and action <code>x</code> give the step record <code>record h x</code>, the loop sees <code>ch (record h x)</code>; <code>m = #(image of ch)</code>.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L1: at least <code>⌈log H / log m⌉</code> episodes</td>
+<td><code>FeedbackChannel.Signal.L1_episodes</code></td>
+<td>FeedbackChannel/Signal.lean:122</td>
+<td>full</td>
+<td>Real-log ceiling form, and <code>Nat.clog m H ≤ q</code> for <code>m ≥ 2</code>. Uses <code>ceil_log_div_le_of_le_pow</code> (Signal.lean:85). For <code>m ≤ 1</code> the real-log form holds by Lean's <code>log 1 = 0</code>, <code>x/0 = 0</code>.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L1 example: <code>T = 3</code>, eight hypotheses: ≥ 3 outcome-reward episodes</td>
+<td><code>FeedbackChannel.Signal.L1_example_outcome</code></td>
+<td>FeedbackChannel/Signal.lean:135</td>
+<td>full</td>
+<td>Lower bound only, as the note claims.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L1 example: ≥ 1 process-reward episode</td>
+<td><code>FeedbackChannel.Signal.L1_example_process</code></td>
+<td>FeedbackChannel/Signal.lean:151</td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L1: partial credit and first-failure are incomparable (neither factors through the other)</td>
+<td><code>FeedbackChannel.Signal.L1_incomparable</code></td>
+<td>FeedbackChannel/Signal.lean:183</td>
+<td>full</td>
+<td>Proved for every <code>T ≥ 2</code> (the note checks <code>T ≤ 5</code>). For <code>T ≤ 1</code> the two channels coincide, so <code>T ≥ 2</code> is necessary. <code>m = T + 1</code> for these channels is not formalized.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L2: each score query returns one of <code>f + 1</code> values</td>
+<td><code>FeedbackChannel.Signal.patchedScore_mem</code></td>
+<td>FeedbackChannel/Signal.lean:236</td>
+<td>supporting</td>
+<td>Query = patch a subset <code>Q</code>, read the number of passing items; with `</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L2 lower bound: <code>(f+1)^q ≥ C(n, f)</code></td>
+<td><code>FeedbackChannel.Signal.L2_lower_bound</code></td>
+<td>FeedbackChannel/Signal.lean:253</td>
+<td>full</td>
+<td>Any adaptive strategy of <code>q</code> score queries whose output separates the failure sets of size <code>f</code>.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L2: <code>q_min(n,f) ≥ ⌈log C(n,f) / log(f+1)⌉</code></td>
+<td><code>FeedbackChannel.Signal.L2_qmin</code></td>
+<td>FeedbackChannel/Signal.lean:269</td>
+<td>full</td>
+<td>For strategies whose output is the failure set; also <code>Nat.clog (f+1) C(n,f) ≤ q</code> for <code>f ≥ 1</code>. The halving upper bound <code>f⌈log₂ n⌉ + 1</code> and the exact minimax values are not formalized.</td>
+</tr>
+<tr>
+<td>TS / INS</td>
+<td>Ceiling law: a predictor blind to flips at rate <code>ε &lt; 1/2</code> does not exceed <code>1 - ε</code></td>
+<td><code>FeedbackChannel.Signal.L3_ceiling</code></td>
+<td>FeedbackChannel/Signal.lean:288</td>
+<td>special case</td>
+<td>Per item: right on the true label with probability <code>c ≤ 1</code> gives observed accuracy <code>≤ 1 - ε</code> (for <code>ε ≤ 1/2</code>). Averaging over items is not stated.</td>
+</tr>
+<tr>
+<td>TS / INS</td>
+<td>L3, blind memorization: crosses the ceiling iff share <code>&gt; (1 - ε - v)/(1 - v)</code></td>
+<td><code>FeedbackChannel.Signal.L3_blind</code></td>
+<td>FeedbackChannel/Signal.lean:302</td>
+<td>full</td>
+<td>From the insertions note's score <code>m/n + (1 - m/n) v</code> (<code>blindScore</code>), <code>v &lt; 1</code>.</td>
+</tr>
+<tr>
+<td>TS / INS</td>
+<td>L3, patching failures: crosses iff share <code>&gt; 1 - ε - v</code></td>
+<td><code>FeedbackChannel.Signal.L3_patch</code></td>
+<td>FeedbackChannel/Signal.lean:310</td>
+<td>full</td>
+<td>From the note's score <code>v + m/n</code> (<code>patchScore</code>).</td>
+</tr>
+<tr>
+<td>INS</td>
+<td>Patching failures: same threshold <code>(1 - ε - v)/(1 - v)</code> as a share of the failed items</td>
+<td><code>FeedbackChannel.Signal.L3_patch_share_of_failed</code></td>
+<td>FeedbackChannel/Signal.lean:316</td>
+<td>full</td>
+<td><code>v &lt; 1</code>.</td>
+</tr>
+<tr>
+<td>INS</td>
+<td>Score after patching failed items is <code>v + m/n</code></td>
+<td><code>FeedbackChannel.Signal.L3_patch_count</code></td>
+<td>FeedbackChannel/Signal.lean:324</td>
+<td>supporting</td>
+<td>Item-level derivation of the formula the note states: `</td>
+</tr>
+<tr>
+<td>INS</td>
+<td>Score after blind memorization is <code>m/n + (1 - m/n) v</code></td>
+<td><code>FeedbackChannel.Signal.L3_blind_average</code></td>
+<td>FeedbackChannel/Signal.lean:337</td>
+<td>supporting</td>
+<td>Item-level derivation: averaged over all <code>C(n, m)</code> memorized sets of size <code>m</code>, `</td>
+</tr>
+<tr>
+<td>TS / INS</td>
+<td>L3 fixture: <code>v = 37/50</code>; thresholds <code>8/13</code> (blind) and <code>4/25</code> (patching), <code>= 8/13</code> of failed items</td>
+<td><code>FeedbackChannel.Signal.L3_fixture</code>, <code>FeedbackChannel.Signal.L3_fixture_thresholds</code></td>
+<td>FeedbackChannel/Signal.lean:382, :392</td>
+<td>full</td>
+<td><code>v</code> computed from clean accuracy <code>4/5</code> and judge error <code>1/10</code>; the second theorem states the fixture as the three crossing equivalences.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L4 identity <code>a(1-ε₀) + (1-a)ε₁ = a - ε + 2(1-a)ε₁</code></td>
+<td><code>FeedbackChannel.Signal.L4_identity</code></td>
+<td>FeedbackChannel/Signal.lean:411</td>
+<td>full</td>
+<td><code>ring</code> identity.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L4: excess over the independent judge is <code>2(1-a)(ε₁ - ε)</code></td>
+<td><code>FeedbackChannel.Signal.L4_excess</code></td>
+<td>FeedbackChannel/Signal.lean:417</td>
+<td>full</td>
+<td>Independent judge = same marginal <code>ε</code> on both kinds of item.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L4: reaches the ceiling <code>1 - ε</code> iff <code>ε₁ ≥ 1/2</code></td>
+<td><code>FeedbackChannel.Signal.L4_ceiling_iff</code></td>
+<td>FeedbackChannel/Signal.lean:424</td>
+<td>full</td>
+<td>Needs <code>a &lt; 1</code> (stated for <code>a &lt; 1</code>, so <code>a = 0</code> is included). At <code>a = 1</code> the observed accuracy is always <code>1 - ε</code>, so &quot;whatever <code>a</code>&quot; needs that exclusion.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L4: feasibility caps <code>ε₁</code> at <code>ε/(1-a)</code></td>
+<td><code>FeedbackChannel.Signal.L4_cap</code></td>
+<td>FeedbackChannel/Signal.lean:433</td>
+<td>full</td>
+<td>Stated multiplied out: <code>(1-a)ε₁ ≤ ε</code> from <code>a, ε₀ ≥ 0</code>.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L4: ceiling reachable without memorization iff <code>ε ≥ (1-a)/2</code></td>
+<td><code>FeedbackChannel.Signal.L4_reachable_iff</code></td>
+<td>FeedbackChannel/Signal.lean:438</td>
+<td>full</td>
+<td><code>0 &lt; a &lt; 1</code>, <code>ε ≤ 1</code>; feasible = <code>ε₀, ε₁ ∈ [0,1]</code> with marginal <code>ε</code>. For <code>ε &gt; (1+a)/2</code> the witness must take <code>ε₀ = 1</code>, <code>ε₁ &gt; 1/2</code>; <code>ε₁ = 1/2</code> alone does not work there.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L4: most correlated feasible judge reports <code>a + ε</code> at most</td>
+<td><code>FeedbackChannel.Signal.L4_observed_le</code></td>
+<td>FeedbackChannel/Signal.lean:474</td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L4 fixture: <code>37/50</code>, <code>9/10</code> (the ceiling), inflation <code>4/25</code></td>
+<td><code>FeedbackChannel.Signal.L4_fixture</code></td>
+<td>FeedbackChannel/Signal.lean:482</td>
+<td>full</td>
+<td>Most correlated judge <code>(ε₀, ε₁) = (0, 1/2)</code> has marginal <code>1/10</code>.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L6: Bayes value under <code>g</code> ≥ value under any <code>f</code> that factors through <code>g</code></td>
+<td><code>FeedbackChannel.Signal.L6_garbling</code></td>
+<td>FeedbackChannel/Signal.lean:517</td>
+<td>full</td>
+<td>Finite types; arbitrary real prior, likelihood of records given types, and utility (no sign condition needed); value = max over all decision rules.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>L6, garbling direction of Blackwell's order (stochastic)</td>
+<td><code>FeedbackChannel.Signal.L6_garbling_stochastic</code></td>
+<td>FeedbackChannel/Signal.lean:545</td>
+<td>full (strengthening)</td>
+<td>Stochastic channel <code>G</code>, Markov kernel <code>K</code> (non-negative, rows sum to 1): value of <code>K ∘ G</code> ≤ value of <code>G</code>. The strict cases of L6 are not formalized.</td>
+</tr>
+<tr>
+<td>JM</td>
+<td>Proposition 1 (bookkeeping identity)</td>
+<td><code>FeedbackChannel.Judge.prop1_bookkeeping</code></td>
+<td>FeedbackChannel/Judge.lean:25</td>
+<td>full</td>
+<td>Every table <code>(R₀,R₁,W₀,W₁)</code> with <code>m &gt; 0</code>, including <code>W = 0</code> (Lean's <code>x/0 = 0</code> is the note's convention).</td>
+</tr>
+<tr>
+<td>JM</td>
+<td>Model of §5 (gold flips independent of <code>C, J</code>)</td>
+<td><code>FeedbackChannel.Judge.model_params</code></td>
+<td>FeedbackChannel/Judge.lean:84</td>
+<td>supporting</td>
+<td>The eight-cell law has <code>Pr[C] = a</code>, <code>Pr[¬J] = aε₀ + (1-a)ε₁</code>.</td>
+</tr>
+<tr>
+<td>JM</td>
+<td>Proposition 2: <code>a'</code>, <code>ε'</code>, <code>W₁'/m</code>; agreement invariant</td>
+<td><code>FeedbackChannel.Judge.prop2</code></td>
+<td>FeedbackChannel/Judge.lean:91</td>
+<td>full</td>
+<td>Each measured rate is a sum over the eight latent cells <code>(C, J, F)</code>.</td>
+</tr>
+<tr>
+<td>JM</td>
+<td>Proposition 2, inversion</td>
+<td><code>FeedbackChannel.Judge.prop2_inverse</code></td>
+<td>FeedbackChannel/Judge.lean:102</td>
+<td>full</td>
+<td><code>η ≠ 1/2</code>; <code>a ≠ 1</code> for <code>ε₁</code>.</td>
+</tr>
+<tr>
+<td>JM / TS A2</td>
+<td>Corollary (gold-noise identity): <code>(ε₁' - ε')(1 - a') = η(1-η)(2a-1)(1-2ε)</code></td>
+<td><code>FeedbackChannel.Judge.gold_noise_excess</code></td>
+<td>FeedbackChannel/Judge.lean:118</td>
+<td>full</td>
+<td>Independent judge in the note's sense <code>ε₁ = ε</code>; stated as <code>W₁'/m - ε'(1-a')</code>, the measured covariance of the two errors.</td>
+</tr>
+<tr>
+<td>JM</td>
+<td>Corollary with <code>ε₁' = (W₁'/m)/(1 - a')</code></td>
+<td><code>FeedbackChannel.Judge.gold_noise_excess_rate</code></td>
+<td>FeedbackChannel/Judge.lean:127</td>
+<td>full</td>
+<td><code>a' ≠ 1</code>.</td>
+</tr>
+<tr>
+<td>JM</td>
+<td>Excess positive when <code>a &gt; 1/2</code>, <code>ε &lt; 1/2</code></td>
+<td><code>FeedbackChannel.Judge.gold_noise_excess_pos</code></td>
+<td>FeedbackChannel/Judge.lean:137</td>
+<td>full</td>
+<td>Also needs <code>0 &lt; η &lt; 1</code>.</td>
+</tr>
+<tr>
+<td>JM</td>
+<td>Fixture <code>η = 1/20</code>: <code>a' = 77/100</code>, <code>ε' = 7/50</code>, <code>ε₁' = 11/46</code>, excess <code>57/575</code>; shared judge inverts to <code>1/2</code></td>
+<td><code>FeedbackChannel.Judge.fixture</code></td>
+<td>FeedbackChannel/Judge.lean:144</td>
+<td>full</td>
+<td>&quot;Excess <code>57/575</code>&quot; is <code>ε₁' - ε'</code>; the Corollary's quantity there is <code>57/2500</code>.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Model: conditional independence multiplies</td>
+<td><code>FeedbackChannel.Raters.expect_prod_on</code></td>
+<td>FeedbackChannel/Raters.lean:53</td>
+<td>supporting</td>
+<td>Two-class model on <code>n</code> raters; every moment below is a sum over the <code>2^n</code> report vectors. <code>mass_one</code> (:75): the table sums to 1.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Proposition 1 (Walsh coefficients `p̂_S = τ^{[</td>
+<td>S</td>
+<td>odd]} ∏ d_i`)</td>
+<td><code>FeedbackChannel.Raters.prop1_walsh</code></td>
+<td>FeedbackChannel/Raters.lean:93</td>
+</tr>
+<tr>
+<td>GC</td>
+<td><code>κ_ij = 2A_ij - 1 = (1-2e_i)(1-2e_j)</code></td>
+<td><code>FeedbackChannel.Raters.kappa_eq</code></td>
+<td>FeedbackChannel/Raters.lean:113</td>
+<td>full</td>
+<td><code>A_ij</code> is the agreement probability computed from the table; <code>agree_eq</code> (:127) gives <code>A_ij = 1 - e_i - e_j + 2e_ie_j</code>.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Proposition 2: <code>(1-2e_i)² = κ_ij κ_ik / κ_jk</code> if <code>κ_jk ≠ 0</code></td>
+<td><code>FeedbackChannel.Raters.prop2_three_rater</code></td>
+<td>FeedbackChannel/Raters.lean:136</td>
+<td>full</td>
+<td>Any three distinct raters among <code>n</code>.</td>
+</tr>
+<tr>
+<td>GC / JM</td>
+<td><code>(1-2η₁)² = κ₁₂ κ₁C / κ₂C</code></td>
+<td><code>FeedbackChannel.Raters.prop2_gold</code></td>
+<td>FeedbackChannel/Raters.lean:146</td>
+<td>full</td>
+<td>Raters <code>(G₁, G₂, C)</code> = indices <code>(0, 1, 2)</code>.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Proposition 3: <code>M₁κ₂₃ = M₂κ₁₃ = M₃κ₁₂ = P</code></td>
+<td><code>FeedbackChannel.Raters.prop3_constraints</code></td>
+<td>FeedbackChannel/Raters.lean:152</td>
+<td>full</td>
+<td>Forward direction. The converse (a table satisfying the constraints comes from exactly one parameter point) is not formalized; nor is the three-rater copying residual of §3.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>§7 label switching</td>
+<td><code>FeedbackChannel.Raters.label_switch</code></td>
+<td>FeedbackChannel/Raters.lean:81</td>
+<td>full</td>
+<td><code>(π, α, β)</code> and <code>(1-π, 1-β, 1-α)</code> give the same table.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Proposition 4: <code>c_ij = uδ_iδ_j</code></td>
+<td><code>FeedbackChannel.Raters.prop4_cov</code></td>
+<td>FeedbackChannel/Raters.lean:291</td>
+<td>full</td>
+<td><code>c_ij = p_ij - p_ip_j</code> with the raw moments of the table (<code>pm_eq</code>, :267).</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Proposition 4: <code>k₃ = u(1-2π)δ₁δ₂δ₃</code></td>
+<td><code>FeedbackChannel.Raters.prop4_k3</code></td>
+<td>FeedbackChannel/Raters.lean:297</td>
+<td>full</td>
+<td><code>k₃</code> in the note's raw form <code>p₁₂₃ - Σp_ip_jk + 2p₁p₂p₃</code>.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Proposition 4: <code>R² = k₃² + 4c₁₂c₁₃c₂₃ = u²δ₁²δ₂²δ₃²</code></td>
+<td><code>FeedbackChannel.Raters.prop4_R2</code></td>
+<td>FeedbackChannel/Raters.lean:306</td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Proposition 4: <code>π = (R-k₃)/(2R)</code>, <code>s_i = p_i + (R+k₃)/(2c_jk)</code>, <code>t_i = p_i - (R-k₃)/(2c_jk)</code></td>
+<td><code>FeedbackChannel.Raters.prop4_solution</code></td>
+<td>FeedbackChannel/Raters.lean:329</td>
+<td>full</td>
+<td>Hypotheses <code>δ₁δ₂δ₃ &gt; 0</code> and <code>0 &lt; π &lt; 1</code> (the latter is part of the note's identifiability condition, needed for <code>R &gt; 0</code>); <code>R = √(k₃² + 4c₁₂c₁₃c₂₃)</code> from the table. All three raters. Core algebra in <code>solve_rater</code> (:314).</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>§7 asymmetric inversion: measured <code>a'</code>, <code>ε'</code>, <code>w</code>; agreement invariant</td>
+<td><code>FeedbackChannel.Raters.asym_measured</code></td>
+<td>FeedbackChannel/Raters.lean:537</td>
+<td>full</td>
+<td>Derived from the sixteen latent cells <code>(Y, C, J, F)</code> with class-dependent controller accuracy and gold flip rate.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>§7 asymmetric inversion: <code>ε₁ = (E_a(w-G_a) + G_a(ε'-F))/Δ</code>, <code>ε₀ = (G_b(ε'-F) - E_b(w-G_a))/Δ</code></td>
+<td><code>FeedbackChannel.Raters.asym_inversion</code></td>
+<td>FeedbackChannel/Raters.lean:563</td>
+<td>full</td>
+<td><code>Δ ≠ 0</code>.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>§7: symmetric case <code>Δ = a(1-a)(1-2η)</code></td>
+<td><code>FeedbackChannel.Raters.asym_delta_symm</code></td>
+<td>FeedbackChannel/Raters.lean:577</td>
+<td>full</td>
+<td>Reduction to the judge note's inversion beyond <code>Δ</code> is not separately stated.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Proposition 5: `k_S = μ_{</td>
+<td>S</td>
+<td>} ∏_{i∈S} δ_i`</td>
+<td><code>FeedbackChannel.Raters.prop5</code></td>
+<td>FeedbackChannel/Raters.lean:192</td>
+</tr>
+<tr>
+<td>GC</td>
+<td><code>μ₂ = u</code>, <code>μ₃ = u(1-2π)</code>, <code>μ₄ = u(1-3u)</code></td>
+<td><code>FeedbackChannel.Raters.mu_two</code>, <code>.mu_three</code>, <code>.mu_four</code></td>
+<td>FeedbackChannel/Raters.lean:182–184</td>
+<td>full</td>
+<td><code>μ_k = π(1-π)^k + (1-π)(-π)^k</code>.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>§8, the six equalities</td>
+<td><code>FeedbackChannel.Raters.six_equalities</code></td>
+<td>FeedbackChannel/Raters.lean:235</td>
+<td>full</td>
+<td>Hold identically on the four-rater model; built from <code>cmom_pair</code> (:204), <code>cmom_triple</code> (:208), <code>k1234_eq</code> (:227).</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>§8 copying grader: <code>c₁₂ = uδ₁δ̃₂ + ρV₁</code>, other covariances product form</td>
+<td><code>FeedbackChannel.Raters.covCopy_eq</code></td>
+<td>FeedbackChannel/Raters.lean:458</td>
+<td>full</td>
+<td>Model <code>probCopy</code>: rater 2 copies rater 1 with probability <code>ρ</code>, else grades independently. Moments are sums over the 16 cells (<code>meanCopy_0..3</code> :410–426, <code>massCopy</code> :439, <code>covCopy_raw</code> :445).</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>§8 copying grader: <code>c₁₂c₃₄ - c₁₃c₂₄ = ρV₁c₃₄</code> and <code>c₁₃c₂₄ = c₁₄c₂₃</code></td>
+<td><code>FeedbackChannel.Raters.copy_grader_residual</code></td>
+<td>FeedbackChannel/Raters.lean:473</td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>GC</td>
+<td>§8: any <code>ρ &gt; 0</code> detected when <code>V₁ &gt; 0</code>, <code>0 &lt; π &lt; 1</code>, <code>δ₃δ₄ ≠ 0</code>, at <code>π = 1/2</code> too</td>
+<td><code>FeedbackChannel.Raters.copy_grader_detected</code></td>
+<td>FeedbackChannel/Raters.lean:483</td>
+<td>full</td>
+<td>Stated with <code>ρ ≠ 0</code>, <code>V₁ ≠ 0</code>.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Proposition 6(b): the <code>6 × 6</code> minor on <code>(c₂₄, c₃₄, k₁₂₄, k₁₃₄, k₂₃₄, k₁₂₃₄)</code> is lower triangular</td>
+<td><code>FeedbackChannel.RatersJacobian.minor_eq</code></td>
+<td>FeedbackChannel/RatersJacobian.lean:47</td>
+<td>full</td>
+<td>Entries are Lean's partial derivatives (<code>deriv</code> along coordinate lines) of the residual map, not entered by hand. Residuals are &quot;left side minus right side&quot; of the note's equalities; lower-triangular row order puts <code>c₁₃c₂₄ - c₁₄c₂₃</code> first.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Proposition 6(b): determinant <code>-c₁₂⁴c₁₃²</code></td>
+<td><code>FeedbackChannel.RatersJacobian.minor_det</code></td>
+<td>FeedbackChannel/RatersJacobian.lean:60</td>
+<td>full</td>
+<td>At every point. The sign depends on the row order and residual orientation above; with the other tetrad first the determinant is <code>+c₁₂⁴c₁₃²</code>.</td>
+</tr>
+<tr>
+<td>GC</td>
+<td>Proposition 6(b): the <code>6 × 15</code> Jacobian has rank 6 wherever <code>c₁₂c₁₃ ≠ 0</code>, model or not</td>
+<td><code>FeedbackChannel.RatersJacobian.jac_rank</code></td>
+<td>FeedbackChannel/RatersJacobian.lean:70</td>
+<td>full</td>
+<td>The 15 centred moments are taken as free real coordinates; that they are coordinates on the simplex is not formalized. Proposition 6(a) (parameter Jacobian rank 9) and the &quot;zero set of six independent functions&quot; conclusion are not formalized.</td>
+</tr>
+</tbody>
+</table></div>
+<h2>The selection-law and multi-generation notes</h2>
+<p>Lean formalizations of results in <code>paper/evaluation_feedback_multigen.md</code> (draft 0.5, &quot;multigen&quot;)
+and <code>paper/selection_law_kl_containment.md</code> (draft 0.3, &quot;selection-KL&quot;). Nine modules under
+<code>FeedbackChannel/</code>, built in this order (each imports only narrow Mathlib modules):</p>
+<p><code>MultigenRunningMax MultigenHoeffding MultigenGate MultigenMixed MultigenCountDominance SelectionKTwo SelectionContainment SelectionTieRules SelectionTieFree</code></p>
+<p><code>axioms_selection.lean</code> prints the axioms of every theorem below. All of them depend on at most
+<code>propext</code>, <code>Classical.choice</code>, <code>Quot.sound</code>. The files contain no <code>sorry</code>, <code>admit</code>, <code>native_decide</code> or new axioms.</p>
+<p>Fidelity: <strong>full</strong> = the note's claim with its quantifiers and hypotheses; <strong>special case</strong> = a
+restriction, named in Remarks; <strong>supporting lemma</strong> = a step of the note's proof, with what remains.
+Probabilities and expectations are finite sums against product weights (i.i.d. draws). Where a
+statement is about an abstract chain, Remarks says which property of the binomial instance is
+taken as a hypothesis rather than derived.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Note</th>
+<th>Claim (label as in the note)</th>
+<th>Lean theorem (fully qualified)</th>
+<th>File:line</th>
+<th>Fidelity</th>
+<th>Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>multigen</td>
+<td>Prop. 1, update rule: with <code>t ≡ 0</code>, <code>c_G = max(c_0, M_1, …, M_G)</code></td>
+<td><code>FeedbackChannel.MultigenRunningMax.chain_naive</code></td>
+<td><code>FeedbackChannel/MultigenRunningMax.lean:66</code></td>
+<td>full</td>
+<td><code>step</code>/<code>chain</code> encode §1's policy &quot;accept iff <code>M &gt; c + t(c)</code>&quot; for any <code>t</code>.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 1: the reported count is the maximum of the <code>GK + 1</code> draws</td>
+<td><code>FeedbackChannel.MultigenRunningMax.naive_reported_eq_max</code></td>
+<td><code>FeedbackChannel/MultigenRunningMax.lean:102</code></td>
+<td>full</td>
+<td>Draws indexed by <code>Option (Fin G × Fin K)</code>; <code>none</code> is the initial incumbent; <code>M_g</code> is the max of generation <code>g</code>'s <code>K</code> candidates.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 1, law: <code>c_G</code> is distributed as the max of <code>GK + 1</code> i.i.d. draws</td>
+<td><code>FeedbackChannel.MultigenRunningMax.prob_reported_le</code></td>
+<td><code>FeedbackChannel/MultigenRunningMax.lean:229</code></td>
+<td>full</td>
+<td><code>P(c_G ≤ j) = F(j)^{GK+1}</code> for i.i.d. draws with any law on <code>{0..n}</code> (<code>Bin(n, p)</code> included).</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 1: <code>ρ_G = selection_inflation(n, GK+1, p).readout_gap</code></td>
+<td><code>FeedbackChannel.MultigenRunningMax.expect_reported_eq_expect_max</code></td>
+<td><code>FeedbackChannel/MultigenRunningMax.lean:248</code></td>
+<td>full</td>
+<td><code>E[c_G] = E[max of GK + 1 i.i.d. draws]</code>; with <code>expect_reported</code> (<code>:240</code>) and <code>expect_max</code> (<code>:198</code>) both equal <code>∑_{j&lt;n} (1 - F(j)^{GK+1})</code>.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 1, max of i.i.d. draws: <code>P(max ≤ j) = F(j)^m</code></td>
+<td><code>FeedbackChannel.MultigenRunningMax.prob_all_le</code></td>
+<td><code>FeedbackChannel/MultigenRunningMax.lean:160</code></td>
+<td>supporting lemma</td>
+<td>Product-law computation behind the two rows above.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 1 (i): <code>ρ_G</code> non-decreasing in <code>G</code></td>
+<td><code>FeedbackChannel.MultigenRunningMax.expect_reported_mono</code></td>
+<td><code>FeedbackChannel/MultigenRunningMax.lean:321</code></td>
+<td>full</td>
+<td>Via <code>aSeq_mono</code> (<code>:274</code>): a maximum over more draws.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 1 (ii): increments non-increasing</td>
+<td><code>FeedbackChannel.MultigenRunningMax.aSeq_increment_antitone</code></td>
+<td><code>FeedbackChannel/MultigenRunningMax.lean:283</code></td>
+<td>full</td>
+<td>In <code>m</code>; increment written in tail form <code>∑_j F(j)^m (1 - F(j))</code> (<code>aSeq_succ_sub</code>, <code>:265</code>) rather than <code>E[(X - M_m)^+]</code> (equal, not proved equal here). Per-generation form: <code>expect_reported_increment_antitone</code> (<code>:328</code>).</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 1 (iii): <code>P(c_G = n) = 1 - (1 - p^n)^{GK+1}</code></td>
+<td><code>FeedbackChannel.MultigenRunningMax.binomial_prob_reported_eq_top</code></td>
+<td><code>FeedbackChannel/MultigenRunningMax.lean:385</code></td>
+<td>full</td>
+<td>General law: <code>prob_reported_eq_top</code> (<code>:343</code>), <code>1 - F(n-1)^{GK+1}</code>.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 1 (iii): for fixed <code>n</code> and <code>0 &lt; p &lt; 1</code>, <code>ρ_G ↑ 1 - p</code></td>
+<td><code>FeedbackChannel.MultigenRunningMax.tendsto_gap</code></td>
+<td><code>FeedbackChannel/MultigenRunningMax.lean:393</code></td>
+<td>full</td>
+<td><code>n ≥ 1</code>, <code>K ≥ 1</code>, <code>0 &lt; p ≤ 1</code>; monotonicity is (i).</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 4 (null, coupling): <code>c^t_G ≤ c^0_G</code> pointwise</td>
+<td><code>FeedbackChannel.MultigenRunningMax.chain_le_chain_naive</code></td>
+<td><code>FeedbackChannel/MultigenRunningMax.lean:76</code></td>
+<td>special case</td>
+<td>Pointwise ordering on the same draws only; <code>ρ^t ≤ ρ^0</code> and <code>α^t ≤ α^0</code> follow by taking expectations, not stated.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 5, first bound: <code>ρ_G ≤ √(ln(GK + 1)/(2n))</code></td>
+<td><code>FeedbackChannel.MultigenHoeffding.prop5_hoeffding</code></td>
+<td><code>FeedbackChannel/MultigenHoeffding.lean:260</code></td>
+<td>full</td>
+<td>Every <code>n ≥ 1</code>, <code>K</code>, <code>G</code>, <code>p ∈ [0, 1]</code>. For any <code>m ≥ 1</code> i.i.d. draws: <code>max_gap_le_hoeffding</code> (<code>:189</code>).</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 5 proof: Hoeffding's lemma for one Bernoulli</td>
+<td><code>FeedbackChannel.MultigenHoeffding.bernoulli_hoeffding</code></td>
+<td><code>FeedbackChannel/MultigenHoeffding.lean:34</code></td>
+<td>supporting lemma</td>
+<td>From Mathlib's <code>ProbabilityTheory.hasSubgaussianMGF_of_mem_Icc</code> on the two-point law. Uses the deprecated <code>PMF.bernoulli</code> (warning only).</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 5 proof: <code>E e^{λ(X - np)} ≤ e^{λ²n/8}</code></td>
+<td><code>FeedbackChannel.MultigenHoeffding.binomial_mgf_le</code></td>
+<td><code>FeedbackChannel/MultigenHoeffding.lean:83</code></td>
+<td>supporting lemma</td>
+<td>Closed form of the binomial mgf: <code>binomial_mgf</code> (<code>:67</code>).</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 5 proof: maximal inequality (Jensen, then <code>max ≤ ∑</code>)</td>
+<td><code>FeedbackChannel.MultigenHoeffding.maximal_inequality</code></td>
+<td><code>FeedbackChannel/MultigenHoeffding.lean:124</code></td>
+<td>supporting lemma</td>
+<td><code>λ(E max - c) ≤ ln m + ln E e^{λ(X - c)}</code> for every real <code>λ</code>.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 7: one generation changes the gap by <code>E[((M - c)/n - δ) 1_accept]</code></td>
+<td><code>FeedbackChannel.MultigenGate.gapChange_eq</code></td>
+<td><code>FeedbackChannel/MultigenGate.lean:41</code></td>
+<td>full</td>
+<td>Any finite law of <code>M</code> (the note's is the max of <code>K</code> <code>Bin(n, p_inc + δ)</code>); gap = count/n − true value.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 7: <code>Δρ_naive - Δρ_gate = E[((M - c)/n - δ) 1{c &lt; M ≤ c + t(c)}]</code></td>
+<td><code>FeedbackChannel.MultigenGate.naive_sub_gate</code></td>
+<td><code>FeedbackChannel/MultigenGate.lean:56</code></td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 7 (i): <code>δ ≤ 1/n</code> ⇒ difference <code>≥ 0</code></td>
+<td><code>FeedbackChannel.MultigenGate.naive_sub_gate_nonneg</code></td>
+<td><code>FeedbackChannel/MultigenGate.lean:70</code></td>
+<td>full</td>
+<td><code>n ≥ 1</code>, law non-negative with mass one.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 7 (ii): <code>δ ≥ t(c)/n</code> ⇒ difference <code>≤ 0</code></td>
+<td><code>FeedbackChannel.MultigenGate.naive_sub_gate_nonpos</code></td>
+<td><code>FeedbackChannel/MultigenGate.lean:90</code></td>
+<td>full</td>
+<td></td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 7: both (i) and (ii) ⇒ difference zero</td>
+<td><code>FeedbackChannel.MultigenGate.naive_sub_gate_eq_zero</code></td>
+<td><code>FeedbackChannel/MultigenGate.lean:110</code></td>
+<td>full</td>
+<td>The <code>n = 8, z = 1</code> cells.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 7 (iii): otherwise the sign depends on the law of <code>M</code></td>
+<td><code>FeedbackChannel.MultigenGate.sign_undetermined</code></td>
+<td><code>FeedbackChannel/MultigenGate.lean:119</code></td>
+<td>special case</td>
+<td>For <code>1/n &lt; δ &lt; t/n</code>, point masses at <code>c + 1</code> and <code>c + t</code> give both signs (arbitrary finite laws). The note's binomial-max example (<code>n = 16, K = 2, c = 8</code>) is a finite check, not formalized.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>§6 mixed laws: <code>W^a_k = (P u_k - Q u_k)</code> for the rule with <code>a(c) = a</code></td>
+<td><code>FeedbackChannel.MultigenMixed.kernel_sub_u</code></td>
+<td><code>FeedbackChannel/MultigenMixed.lean:197</code></td>
+<td>supporting lemma</td>
+<td></td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>§6 mixed laws: one naive step <code>s_{k+1} = (1 - H) s_k - W^{m-1}_k</code></td>
+<td><code>FeedbackChannel.MultigenMixed.s_succ</code></td>
+<td><code>FeedbackChannel/MultigenMixed.lean:207</code></td>
+<td>supporting lemma</td>
+<td></td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>§6 mixed laws: window-sum recursion <code>W^a_k = (1-H)W^a_{k-1} + E^a_{k-1} + ∑ρ W^{m-1}_{k-1}(y) - B_a W^{m-1}_{k-1}(x)</code></td>
+<td><code>FeedbackChannel.MultigenMixed.window_recursion</code></td>
+<td><code>FeedbackChannel/MultigenMixed.lean:241</code></td>
+<td>full</td>
+<td><code>a &lt; m</code>. Chain abstracted as an arbitrary finite joint law <code>ρ(i, J, ℓ)</code> of (best count, landing level), mass one per level; covers <code>drift_kernel</code>'s <code>q_μ Bin(n, p(i+μ))(J) S_J</code> for every gain law.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>§6 mixed laws: <code>E^a ≥ 0</code></td>
+<td><code>FeedbackChannel.MultigenMixed.E_nonneg</code></td>
+<td><code>FeedbackChannel/MultigenMixed.lean:264</code></td>
+<td>full</td>
+<td>Hypotheses as the note uses them: gains <code>≥ 0</code> (<code>ρ ≠ 0 ⇒ ℓ ≥ i</code>) and <code>H</code> non-decreasing in the level. The latter is assumed, not derived from the binomial levels.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>§6 mixed laws: &quot;(L1) holds for every law&quot;; full-window slacks <code>W^{m-1} ≥ 0</code></td>
+<td><code>FeedbackChannel.MultigenMixed.full_window_nonneg</code></td>
+<td><code>FeedbackChannel/MultigenMixed.lean:329</code></td>
+<td>full</td>
+<td>Same hypotheses. Standard form <code>s_{k+1} ≤ (1 - H) s_k</code>: <code>MultigenMixed.L1</code> (<code>:335</code>). Weaker hypothesis (landing levels have <code>H(ℓ) ≥ H(i)</code>): <code>full_window_nonneg_of_landing</code> (<code>:279</code>).</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>§6 mixed laws: at <code>c = m - 2</code>, <code>W_k = A W_{k-1} + E_{k-1}</code></td>
+<td><code>FeedbackChannel.MultigenMixed.distance_two_closure</code></td>
+<td><code>FeedbackChannel/MultigenMixed.lean:359</code></td>
+<td>full</td>
+<td>Exact identity, every gain law.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>§6 mixed laws: <code>W_k ≥ 0</code> at <code>c = m - 2</code>, &quot;a theorem two below the target for every gain law&quot;</td>
+<td><code>FeedbackChannel.MultigenMixed.distance_two_nonneg</code></td>
+<td><code>FeedbackChannel/MultigenMixed.lean:369</code></td>
+<td>full</td>
+<td>Hypotheses as for <code>E_nonneg</code>.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>§6 / overview: count ordering proved from states two steps below the target</td>
+<td><code>FeedbackChannel.MultigenMixed.gated_le_naive_near_target</code></td>
+<td><code>FeedbackChannel/MultigenMixed.lean:392</code></td>
+<td>full</td>
+<td><code>(Q u_k)(x) ≤ (P u_k)(x)</code> for every threshold rule at every state with <code>c ≥ m - 2</code>, objective <code>1{c ≥ m}</code>.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 9: <code>E^t_x[ψ(c_g)] ≤ E^0_x[ψ(c_g)]</code> for non-decreasing <code>ψ</code>, every rule, state, <code>g</code></td>
+<td><code>FeedbackChannel.MultigenCountDominance.gated_expect_le</code></td>
+<td><code>FeedbackChannel/MultigenCountDominance.lean:468</code></td>
+<td>full</td>
+<td>Fixed-gain chain abstracted: draw law <code>π_i</code> per level, acceptance moves the level to <code>nx i &lt; L</code> (a top level may absorb). The proof's one property of the binomial, &quot;best of <code>K</code> stochastically non-decreasing in the level&quot;, is the hypothesis <code>hstoch : P(M_i ≥ m) ≤ P(M_{nx i} ≥ m)</code>; it is not derived from <code>Bin(n, p)</code> here. <code>ψ</code> enters as <code>ψ(min c n)</code>, which equals <code>ψ(c)</code> on counts.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 9: stochastic dominance of the count (hitting form)</td>
+<td><code>FeedbackChannel.MultigenCountDominance.gated_hit_le</code></td>
+<td><code>FeedbackChannel/MultigenCountDominance.lean:378</code></td>
+<td>full</td>
+<td><code>P^t_x(c_g ≥ m) ≤ P^0_x(c_g ≥ m)</code>; same hypothesis.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 9: one gated step then naive steps is dominated, <code>QP^kψ ≤ P^{k+1}ψ</code></td>
+<td><code>FeedbackChannel.MultigenCountDominance.one_gated_step_le</code></td>
+<td><code>FeedbackChannel/MultigenCountDominance.lean:357</code></td>
+<td>special case</td>
+<td>For the hitting indicators <code>ψ = 1{c ≥ m}</code>. The general <code>ψ</code> follows by linearity but is not stated.</td>
+</tr>
+<tr>
+<td>multigen</td>
+<td>Prop. 9 proof: (L1), (L2), (L3), (L4)</td>
+<td><code>FeedbackChannel.MultigenCountDominance.L1</code>, <code>FeedbackChannel.MultigenCountDominance.L2</code>, <code>FeedbackChannel.MultigenCountDominance.L3</code>, <code>FeedbackChannel.MultigenCountDominance.L4</code></td>
+<td><code>FeedbackChannel/MultigenCountDominance.lean:159</code>, <code>:230</code>, <code>:262</code>, <code>:269</code></td>
+<td>supporting lemma</td>
+<td>(L3) through the note's comparison sequence <code>R</code> (<code>R_le_s</code>, <code>s_le_R</code>); (L4) for every window <code>a</code>.</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>D.5 (<code>K = 2</code>): `M_n(2) = ½ E</td>
+<td>S - n</td>
+<td><code>, </code>S ~ Bin(2n, ½)`</td>
+<td><code>FeedbackChannel.SelectionKTwo.M2_eq_half_meanAbsDev</code></td>
+<td><code>FeedbackChannel/SelectionKTwo.lean:195</code></td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>D.5: de Moivre `E</td>
+<td>S - n</td>
+<td>= n C(2n, n)/4ⁿ`</td>
+<td><code>FeedbackChannel.SelectionKTwo.meanAbsDev_eq</code></td>
+<td><code>FeedbackChannel/SelectionKTwo.lean:123</code></td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>D.5: <code>a_n(2)² = n C(2n, n)²/(4·16ⁿ)</code></td>
+<td><code>FeedbackChannel.SelectionKTwo.aSq_eq</code></td>
+<td><code>FeedbackChannel/SelectionKTwo.lean:272</code></td>
+<td>full</td>
+<td><code>a_n = M_n/√n</code>.</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>D.5: <code>a_{n+1}²/a_n² = (2n + 1)²/(4n(n + 1)) = 1 + 1/(4n(n + 1)) &gt; 1</code></td>
+<td><code>FeedbackChannel.SelectionKTwo.aSq_succ_div</code></td>
+<td><code>FeedbackChannel/SelectionKTwo.lean:291</code></td>
+<td>full</td>
+<td><code>n ≥ 1</code>; with <code>step_ratio_eq</code> (<code>:310</code>) and <code>step_ratio_gt_one</code> (<code>:316</code>).</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>D.5: <code>a_n(2)</code> strictly increasing</td>
+<td><code>FeedbackChannel.SelectionKTwo.a_strictMonoOn</code></td>
+<td><code>FeedbackChannel/SelectionKTwo.lean:340</code></td>
+<td>full</td>
+<td>On <code>n ≥ 1</code>.</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>D.5: <code>a_n(2) ↑ 1/(2√π)</code> (Wallis)</td>
+<td><code>FeedbackChannel.SelectionKTwo.tendsto_a</code></td>
+<td><code>FeedbackChannel/SelectionKTwo.lean:390</code></td>
+<td>full</td>
+<td><code>a_n² = n/(4(2n + 1)W_n)</code> with Mathlib's Wallis product (<code>aSq_eq_wallis</code>, <code>:350</code>); <code>a_n² → 1/(4π)</code> (<code>tendsto_aSq</code>, <code>:366</code>).</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>D.5: <code>r(n, 2, ½)</code> increases strictly to <code>c₂</code>, <code>sup_n = c₂</code></td>
+<td><code>FeedbackChannel.SelectionKTwo.r_strictMonoOn</code>, <code>FeedbackChannel.SelectionKTwo.tendsto_r</code>, <code>FeedbackChannel.SelectionKTwo.r_lt_lim</code></td>
+<td><code>FeedbackChannel/SelectionKTwo.lean:413</code>, <code>:422</code>, <code>:432</code></td>
+<td>special case</td>
+<td><code>r = 2a_n/√(2λ₂)</code>; the limit is stated as <code>1/(√π √(2λ₂))</code> and is never attained. Equating it with <code>c₂ = E[M₂]/√(2λ₂)</code> needs the Gaussian value <code>E[M₂] = 1/√π</code>, which is not formalized.</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>Theorem A: for every tie rule, <code>π_K(ω) = p₀(ω) m_K(S ω)/q(S ω)</code></td>
+<td><code>FeedbackChannel.SelectionTieRules.keptLaw_eq</code></td>
+<td><code>FeedbackChannel/SelectionTieRules.lean:163</code></td>
+<td>full</td>
+<td>Tie rule: a function of the score vector and of independent randomness on a finite type, with the kept index in the argmax set. This covers the first-index and uniform rules. Proved by a weight-preserving swap of the kept record (<code>swap_sum</code>, <code>:89</code>), the combinatorial form of the conditioning argument. <code>P(max score = s) = F(s)^K - F(s-)^K</code>: <code>prob_max_score_eq</code> (<code>:55</code>).</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>Theorem A: <code>KL(π_K ‖ p₀) = KL(m_K ‖ q)</code></td>
+<td><code>FeedbackChannel.SelectionContainment.kl_record_eq_kl_scores</code></td>
+<td><code>FeedbackChannel/SelectionContainment.lean:428</code></td>
+<td>full</td>
+<td><code>kl μ ν = ∑ μ log(μ/ν)</code>, the KL divergence for <code>μ ≪ ν</code> (true for <code>π_K ≪ p₀</code>).</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>Theorem B: for every finite <code>p₀</code>, score, <code>K</code> and tie rule, <code>KL(π_K ‖ p₀) ≤ ln K - (K - 1)/K</code></td>
+<td><code>FeedbackChannel.SelectionTieRules.theoremB_every_tie_rule</code></td>
+<td><code>FeedbackChannel/SelectionTieRules.lean:188</code></td>
+<td>full</td>
+<td><code>K ≥ 1</code>, <code>p₀ ≥ 0</code> with mass one, real-valued score; tie randomness on a finite type. Formula form: <code>SelectionContainment.theoremB</code> (<code>:457</code>).</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>Theorem B: equality iff <code>K = 1</code></td>
+<td><code>FeedbackChannel.SelectionTieRules.theoremB_every_tie_rule_eq_iff</code></td>
+<td><code>FeedbackChannel/SelectionTieRules.lean:197</code></td>
+<td>full</td>
+<td>Strict for <code>K ≥ 2</code>: <code>SelectionContainment.theoremB_strict</code> (<code>:465</code>); formula form <code>theoremB_eq_iff</code> (<code>:473</code>).</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>Theorem B, score form: <code>KL(m_K ‖ q) ≤ λ_K</code> (<code>&lt; λ_K</code> for <code>K ≥ 2</code>)</td>
+<td><code>FeedbackChannel.SelectionContainment.kl_scores_le</code></td>
+<td><code>FeedbackChannel/SelectionContainment.lean:295</code></td>
+<td>full</td>
+<td>Every finite score law (atoms <code>T</code>, masses <code>q</code>). Strict form: <code>kl_scores_lt</code> (<code>:311</code>).</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>Theorem B proof, steps (ii)–(iii): Jensen removes the jitter</td>
+<td><code>FeedbackChannel.SelectionContainment.atom_le</code></td>
+<td><code>FeedbackChannel/SelectionContainment.lean:183</code></td>
+<td>supporting lemma</td>
+<td>Replaces the jitter with an atom-wise tangent-line Jensen: <code>(b^K - a^K) ln((b^K - a^K)/(b - a)) ≤ G(b) - G(a)</code>, <code>G' = h ln h</code> (<code>hasDerivAt_G</code>, <code>:76</code>). The sum telescopes (<code>telescope</code>, <code>:247</code>) to <code>G(1) - G(0) = λ_K</code> (<code>G_one</code>, <code>:58</code>). Strict for <code>K ≥ 2</code>: <code>atom_lt</code> (<code>:195</code>).</td>
+</tr>
+<tr>
+<td>selection-KL</td>
+<td>Theorem B, step (ii): tie-free value <code>∫₀¹ K u^{K-1} ln(K u^{K-1}) du = ln K - (K - 1)/K</code></td>
+<td><code>FeedbackChannel.SelectionTieFree.tieFree_integral</code></td>
+<td><code>FeedbackChannel/SelectionTieFree.lean:31</code></td>
+<td>supporting lemma</td>
+<td>The integral identity only. The claim that every atomless score law attains <code>λ_K</code> (the density computation) is not formalized.</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Not formalized</h2>
+<ul>
+<li>multigen Prop. 5, second (Bernstein) bound.</li>
+<li>multigen Prop. 8 (dominance in true value). Props. 2, 3 and 6, and the finite surveys, were outside the assignment.</li>
+<li>multigen Prop. 7 (iii) for binomial-max laws specifically; Prop. 9 with the binomial stochastic
+monotonicity derived rather than assumed. The analogous <code>H</code>-monotonicity hypothesis in §6 is also assumed.</li>
+<li>selection-KL Theorem B supremum (uniform laws on <code>N</code> atoms tend to <code>λ_K</code>) and attainment by atomless laws; D.5 for
+<code>K = 3</code> and the <code>K ≥ 4</code> material; Theorems C and D.1–D.4.</li>
+</ul>
+<h2>Notes on the sources found while formalizing</h2>
+<ul>
+<li>selection-KL D.5: the telescoped form <code>a_n(2)² = (1/16) ∏_{j&lt;n} (2j+1)²/((2j)(2j+2))</code> has a
+zero denominator at <code>j = 0</code>; the product must run over <code>1 ≤ j &lt; n</code> (from <code>a_1(2)² = 1/16</code>).</li>
+<li>multigen §6 (0.5): &quot;(L1) holds for every law&quot; is a theorem, not only a finite check. Under
+gains <code>≥ 0</code> and <code>H</code> non-decreasing in the level, the fixed-gain induction carries over unchanged
+(<code>full_window_nonneg</code>).</li>
+<li>multigen Prop. 1 (ii) states the increment as <code>E[(X - M_m)^+]</code>; the formalization uses the
+equivalent tail form <code>∑_j F(j)^m (1 - F(j))</code>.</li>
+<li>multigen Prop. 5: the maximal-inequality step needs no <code>λ &gt; 0</code> once it is written as
+<code>λ(E max - c) ≤ ln m + ln E e^{λ(X - c)}</code>. Positivity is needed only to divide by <code>λ</code>.</li>
+</ul>
+<h2>Sources</h2>
+<ul class="notes-list">
+<li><a href="FeedbackChannel.html">lean/FeedbackChannel.lean</a></li>
+<li><a href="FeedbackChannel/Judge.html">lean/FeedbackChannel/Judge.lean</a></li>
+<li><a href="FeedbackChannel/LatticeJoin.html">lean/FeedbackChannel/LatticeJoin.lean</a></li>
+<li><a href="FeedbackChannel/LatticeOrder.html">lean/FeedbackChannel/LatticeOrder.lean</a></li>
+<li><a href="FeedbackChannel/MultigenCountDominance.html">lean/FeedbackChannel/MultigenCountDominance.lean</a></li>
+<li><a href="FeedbackChannel/MultigenGate.html">lean/FeedbackChannel/MultigenGate.lean</a></li>
+<li><a href="FeedbackChannel/MultigenHoeffding.html">lean/FeedbackChannel/MultigenHoeffding.lean</a></li>
+<li><a href="FeedbackChannel/MultigenMixed.html">lean/FeedbackChannel/MultigenMixed.lean</a></li>
+<li><a href="FeedbackChannel/MultigenRunningMax.html">lean/FeedbackChannel/MultigenRunningMax.lean</a></li>
+<li><a href="FeedbackChannel/PatchDP.html">lean/FeedbackChannel/PatchDP.lean</a></li>
+<li><a href="FeedbackChannel/PatchGreedy.html">lean/FeedbackChannel/PatchGreedy.lean</a></li>
+<li><a href="FeedbackChannel/PatchStatic.html">lean/FeedbackChannel/PatchStatic.lean</a></li>
+<li><a href="FeedbackChannel/PatchWitness.html">lean/FeedbackChannel/PatchWitness.lean</a></li>
+<li><a href="FeedbackChannel/PatchWitness3.html">lean/FeedbackChannel/PatchWitness3.lean</a></li>
+<li><a href="FeedbackChannel/Raters.html">lean/FeedbackChannel/Raters.lean</a></li>
+<li><a href="FeedbackChannel/RatersJacobian.html">lean/FeedbackChannel/RatersJacobian.lean</a></li>
+<li><a href="FeedbackChannel/SelectionContainment.html">lean/FeedbackChannel/SelectionContainment.lean</a></li>
+<li><a href="FeedbackChannel/SelectionKTwo.html">lean/FeedbackChannel/SelectionKTwo.lean</a></li>
+<li><a href="FeedbackChannel/SelectionTieFree.html">lean/FeedbackChannel/SelectionTieFree.lean</a></li>
+<li><a href="FeedbackChannel/SelectionTieRules.html">lean/FeedbackChannel/SelectionTieRules.lean</a></li>
+<li><a href="FeedbackChannel/Signal.html">lean/FeedbackChannel/Signal.lean</a></li>
+<li><a href="FeedbackChannel/Smoke.html">lean/FeedbackChannel/Smoke.lean</a></li>
+<li><a href="axioms_check.html">lean/axioms_check.lean</a></li>
+</ul>
+</main>
+<footer>
+  Built from <a href="https://github.com/MoralityLabAI/EvalMath/tree/d62a0f42fa2a7ba8634a7802d9682ee99c048291">MoralityLabAI/EvalMath@d62a0f4</a>. Every number in these notes is exact
+  arithmetic on declared quantities; no model, judge or grader was run. Each module's verifier regenerates
+  its receipt with the SHA-256 of its sources.
+</footer>
+</body>
+</html>

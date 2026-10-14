@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reviewing EvalMath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css">
+<script>
+window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"], ["$$", "$$"]] },
+                   options: { skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"] } };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<nav class="top" aria-label="Site">
+  <a class="site" href="../index.html">Feedback-channel findings</a>
+  <a href="../notes/index.html">Notes</a>
+  <a href="../lean/index.html">Lean proofs</a>
+  <a href="../notes/feedback_channel_journey_2026-10-11_13.html">Journey</a>
+  <a href="https://github.com/MoralityLabAI/EvalMath/tree/d62a0f42fa2a7ba8634a7802d9682ee99c048291">Source</a>
+</nav>
+<main>
+<p class="meta">Source: <a href="https://github.com/MoralityLabAI/EvalMath/blob/d62a0f42fa2a7ba8634a7802d9682ee99c048291/REVIEW.md">REVIEW.md</a></p>
+<h1>Reviewing EvalMath</h1>
+<p>This guide is for a reviewer, human or model, asked to check this repository. The work was produced by
+a lead model delegating to subagents. Every delegated result was rerun and, for the sharpest claims,
+checked with independent code; the <a href="../notes/feedback_channel_journey_2026-10-11_13.html">journey map</a> and
+the redacted <a href="https://github.com/MoralityLabAI/EvalMath/blob/d62a0f42fa2a7ba8634a7802d9682ee99c048291/docs/session_logs/2026-10-11_feedback_channel/README.md">session log</a> show how. That
+process found many errors, so assume more remain. The most useful review finds them.</p>
+<h2>What to check</h2>
+<ol>
+<li><strong>Every claim labelled <em>algebraic identity</em>.</strong> Is it proved for every parameter its statement
+covers, including boundary cases? Earlier errors clustered at boundaries: categories with no
+failures, accuracy exactly 1, horizons of one step, product indices starting at zero, ties between
+optimal actions.</li>
+<li><strong>Every claim labelled <em>finite verified example</em>.</strong> Is it described as finite everywhere it is
+used, including in the synthesis? Is any grid regularity promoted to a theorem anywhere?</li>
+<li><strong>The Lean formalizations.</strong> For each row of <a href="https://github.com/MoralityLabAI/EvalMath/blob/d62a0f42fa2a7ba8634a7802d9682ee99c048291/lean/CLAIMS.md"><code>lean/CLAIMS.md</code></a>, does the Lean
+statement say what the note says, with the same quantifiers and hypotheses? A row labelled <em>full</em>
+that is weaker than the note is a bug, and so is a hypothesis that makes the theorem trivial.</li>
+<li><strong>The computer-assisted proof</strong> in <a href="../notes/selection_law_kl_containment.html"><code>paper/selection_law_kl_containment.md</code></a>
+D.5 (<em>K</em> = 4 to 30). Check the constants' derivation, the directed rounding, and the two cited
+inputs (Robbins' Stirling bounds; Poisson summation, cited from memory).</li>
+<li><strong>The counterexamples.</strong> Each is stated exactly; re-derive at least the gate counterexample in
+<a href="../notes/evaluation_feedback_multigen.html"><code>paper/evaluation_feedback_multigen.md</code></a> §6 and
+Counterexample 9 in <a href="../notes/leak_topology.html"><code>paper/leak_topology.md</code></a> with your own code.</li>
+<li><strong>The receipts.</strong> <code>python scripts/check_receipts.py --all</code> should report every receipt as
+regenerating identically apart from its timestamp, with matching source hashes.</li>
+<li><strong>The synthesis.</strong> Does <a href="../index.html"><code>paper/feedback_channel_findings.md</code></a>
+state each result no more strongly than its note does?</li>
+</ol>
+<h2>Results to test first</h2>
+<ul>
+<li>Training-signal L4: observed accuracy a − ε + 2(1 − a)ε₁ reaches the ceiling without memorization
+iff ε₁ ≥ ½, for <em>a</em> &lt; 1.</li>
+<li>Reuse inflation: the running maximum of <em>GK</em> + 1 draws and the bound √(ln(<em>GK</em> + 1)/(2<em>n</em>)).</li>
+<li>Theorem B: KL(best-of-<em>K</em> ‖ base) ≤ ln <em>K</em> − (<em>K</em> − 1)/<em>K</em> for every finite law and tie rule.</li>
+<li>Lattice Theorems 10 and 11 and Corollary 14 (committing until a hit is optimal iff <em>H</em> ≤ 2).</li>
+<li>Multigen Proposition 10 and the two-gain counterexample.</li>
+<li>Gold calibration: the six four-rater equalities, the copying-grader residual, and the coverage of the
+§11 interval.</li>
+<li>Leak topology Theorem 1 (fibre dimension equals the cycle rank) and Counterexample 9.</li>
+</ul>
+<h2>How to report</h2>
+<p>For a wrong claim, give the note, the claim's label and an exact witness: parameters, state, and the
+values on each side. For a gap in a proof, name the step and what it assumes. For a Lean fidelity
+problem, give the theorem name and the hypothesis or quantifier that differs. Please keep findings
+separate from suggestions.</p>
+<h2>Scope</h2>
+<p>Nothing here is evidence about any real model, judge or grader. The session log was redacted of private
+material unrelated to this work; its README states the rules and the checks made.</p>
+</main>
+<footer>
+  Built from <a href="https://github.com/MoralityLabAI/EvalMath/tree/d62a0f42fa2a7ba8634a7802d9682ee99c048291">MoralityLabAI/EvalMath@d62a0f4</a>. Every number in these notes is exact
+  arithmetic on declared quantities; no model, judge or grader was run. Each module's verifier regenerates
+  its receipt with the SHA-256 of its sources.
+</footer>
+</body>
+</html>

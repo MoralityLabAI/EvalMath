@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback-Channel Findings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"], ["$$", "$$"]] },
+                   options: { skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"] } };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<nav class="top" aria-label="Site">
+  <a class="site" href="index.html">Feedback-channel findings</a>
+  <a href="notes/index.html">Notes</a>
+  <a href="lean/index.html">Lean proofs</a>
+  <a href="notes/feedback_channel_journey_2026-10-11_13.html">Journey</a>
+  <a href="https://github.com/MoralityLabAI/EvalMath/tree/d62a0f42fa2a7ba8634a7802d9682ee99c048291">Source</a>
+</nav>
+<main>
+<h1>What the feedback-channel programme has established</h1>
+<p>Draft 0.2 — 2026-10-14 (0.1 the same day). A synthesis of the exact modules, written so a reader can see
+the whole picture before opening any one note. Every statement below points to the note that proves or
+checks it, and carries that note's evidence level: <em>algebraic identity</em> (proved for every parameter),
+<em>finite verified example</em> (checked on enumerated cases only), <em>synthetic mechanism result</em> (a property
+of a toy chain), or <em>cited</em> (taken from the literature). No model, policy, judge or grader was ever run.
+Every number is exact arithmetic on declared quantities.</p>
+<p>Draft 0.2 adds two things. <strong>Lean:</strong> each proved result now links to a Lean 4 theorem in
+<a href="https://github.com/MoralityLabAI/EvalMath/blob/d62a0f42fa2a7ba8634a7802d9682ee99c048291/lean/CLAIMS.md"><code>lean/</code></a>, with its fidelity to the note's statement (<em>full</em>, <em>special case</em> or
+<em>supporting lemma</em>); every linked theorem depends only on the axioms <code>propext</code>, <code>Classical.choice</code> and
+<code>Quot.sound</code>. A proved result without a link has not been formalized yet. <strong>New results:</strong> a fifth round
+of work on the open problems, reported in §§3–6 and §8.</p>
+<h2>1. The frame</h2>
+<p>The <a href="notes/evaluation_design_calculus.html">evaluation design calculus</a> writes an evaluation as a game, a policy
+class, data, a scoring rule, a judge, an access regime and a compute budget. The
+<a href="notes/evaluation_feedback_insertions.html">feedback insertions</a> add one operator, <code>Feedback</code>, which lets a loop
+read the judge's verdicts at one of three access classes: <em>sealed</em>, <em>score-only</em> (the aggregate score of
+a set) or <em>item-level</em> (which items passed).</p>
+<p>In that notation, reinforcement learning on environments is <code>Feedback</code> at item level, repeated over
+generations. The question &quot;does the RL paradigm keep yielding gains?&quot; becomes two questions about that
+channel. How much information does each round carry? And how much of the reported improvement is the
+loop fitting the evaluation rather than getting better? The
+<a href="notes/rl_training_signal_limits.html">training-signal note</a> states the conditions the paradigm's reported gains
+rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.</p>
+<h2>2. What a feedback channel can carry</h2>
+<ul>
+<li><strong>Bits per episode.</strong> A deterministic reward channel with <em>m</em> possible values gives at most log₂ <em>m</em>
+bits per episode. Outcome reward gives one bit; process reward on <em>T</em> steps gives up to <em>T</em>.
+<em>Algebraic identity</em> (<a href="notes/rl_training_signal_limits.html">signal note</a>, L1).
+Lean: <a href="lean/FeedbackChannel/Signal.html#L-112"><code>Signal.L1_card_le</code></a>, full, through a counting lemma for
+every adaptive strategy.</li>
+<li><strong>Score-only is not sealed.</strong> A loop that can score patches on chosen subsets recovers which items
+failed from aggregate scores alone, by group testing, in at most <em>f</em>⌈log₂ <em>n</em>⌉ + 1 queries for <em>f</em>
+failures among <em>n</em> items, and needs at least ⌈log C(<em>n</em>, <em>f</em>)/log(<em>f</em> + 1)⌉. So the number of score
+queries must be recorded, not only the access class. <em>Algebraic identity</em> for the bounds, <em>finite
+verified example</em> for the exact minimum (L2).
+Lean: <a href="lean/FeedbackChannel/Signal.html#L-253"><code>Signal.L2_lower_bound</code></a>, full (the lower bound).</li>
+<li><strong>Finer feedback is never worth less.</strong> For the loop's choice of which candidate to keep, a channel is
+worth at least as much as any channel that factors through it, for every prior and utility: the
+garbling direction of Blackwell's ordering. <em>Algebraic identity</em> (L6).
+Lean: <a href="lean/FeedbackChannel/Signal.html#L-517"><code>Signal.L6_garbling</code></a>, full, and a stochastic version.</li>
+</ul>
+<h2>3. When a reported score separates from the true one</h2>
+<ul>
+<li><strong>A judge that shares the controller's errors.</strong> Let the judge err with rate ε₁ on items the
+controller gets wrong and ε overall. Observed accuracy is a − ε + 2(1 − a)ε₁ for true accuracy <em>a</em>.
+For every <em>a</em> &lt; 1 it reaches the ceiling 1 − ε with no memorization at all exactly when ε₁ ≥ ½. A
+learned judge trained on the controller's outputs is where independence is least plausible.
+<em>Algebraic identity</em> (L4).
+Lean: <a href="lean/FeedbackChannel/Signal.html#L-424"><code>Signal.L4_ceiling_iff</code></a>, full.</li>
+<li><strong>How much patching a ceiling check misses.</strong> With clean accuracy 4/5 and judge error 1/10, a check for
+scores above the ceiling stays silent until 8/13 of the set is memorized blind, but only until 4/25 is
+patched when the loop knows which items failed. Between the two, the cost falls monotonically as the
+failure categories it can see get finer. <em>Algebraic identity</em>
+(<a href="notes/evaluation_feedback_insertions.html">insertions</a>; <a href="notes/evaluation_feedback_lattice.html">lattice</a>, Props 4–5).
+Lean: <a href="lean/FeedbackChannel/Signal.html#L-382"><code>Signal.L3_fixture</code></a> and
+<a href="lean/FeedbackChannel/PatchStatic.html#L-207"><code>PatchStatic.prop4_staticT</code></a>, full;
+<a href="lean/FeedbackChannel/PatchGreedy.html#L-336"><code>PatchGreedy.prop5</code></a>, full.</li>
+<li><strong>Reuse inflates like a running maximum.</strong> Keeping the best of <em>K</em> candidates for <em>G</em> generations on
+one reused set of <em>n</em> items, with no true differences between candidates, reports the maximum of
+<em>GK</em> + 1 draws. The phantom gain grows with <em>G</em>, with diminishing increments, and is bounded by
+√(ln(<em>GK</em> + 1)/(2<em>n</em>)). <em>Algebraic identity</em> (<a href="notes/evaluation_feedback_multigen.html">multigen</a>; L5).
+Lean: <a href="lean/FeedbackChannel/MultigenRunningMax.html#L-102"><code>MultigenRunningMax.naive_reported_eq_max</code></a>
+and <a href="lean/FeedbackChannel/MultigenHoeffding.html#L-260"><code>MultigenHoeffding.prop5_hoeffding</code></a>, full.</li>
+<li><strong>Perturbative candidates make it worse.</strong> When each candidate is a small perturbation of the current
+incumbent, as a policy update is, first-generation inflation is lower, but the accumulated gap is
+higher: the loop hill-climbs the fixed items. At <em>n</em> = 8, <em>K</em> = 2 after 20 generations the gap is
+0.455 for strongly correlated candidates against 0.365 for independent ones. <em>Synthetic mechanism
+result</em> (multigen §5).</li>
+<li><strong>What a threshold gate does, and when it can help.</strong> Gating means accepting a candidate only when it
+clears a threshold. When every true gain has one positive size, accepting any improvement is ahead of
+every threshold rule, in stochastic order, in both true level and accepted count (multigen Props 8–9).
+Version 0.6 extends this to every gain law with a single positive gain value, {0, <em>g</em>} with any chance
+of gaining nothing (Prop 10). With two positive gain values it fails. In <em>n</em> = 3, <em>K</em> = 1, levels
+(0, ¼, ¼, ¾), gains {0, 1, 3} with chances (3/5, 1/5, 1/5), a gate that rejects a count of one at count
+zero is ahead in the chance of reaching the top count from generation 28, in expected count from
+generation 39, and in the limiting true level, 2909/3968 against 8058689/11073200: it filters the small
+gain and waits for the large one. What a gate does to the phantom gap also depends on the gain law: a
+one-generation identity gives its sign (Prop 7). <em>Algebraic identity</em> for Props 7–10; <em>finite verified
+example</em> for the counterexamples, which the lead re-derived with an independent chain.
+Lean: <a href="lean/FeedbackChannel/MultigenCountDominance.html#L-468"><code>MultigenCountDominance.gated_expect_le</code></a>
+(Prop 9), <a href="lean/FeedbackChannel/MultigenGate.html#L-56"><code>MultigenGate.naive_sub_gate</code></a> (Prop 7) and
+<a href="lean/FeedbackChannel/MultigenMixed.html#L-369"><code>MultigenMixed.distance_two_nonneg</code></a>, full; Props 8
+and 10 not yet formalized.</li>
+</ul>
+<h2>4. Selection inside a divergence budget</h2>
+<ul>
+<li><strong>Best-of-<em>K</em> has a known KL cost.</strong> For every finite score law and every tie rule,
+KL(best-of-<em>K</em> ‖ base) ≤ ln <em>K</em> − (<em>K</em> − 1)/<em>K</em>, strictly for <em>K</em> ≥ 2. The KL bound this gives on the
+selection gap is tight in the limit: the ratio of gap to bound has supremum one. <em>Algebraic identity</em>
+(<a href="notes/selection_law_kl_containment.html">selection KL</a>, Theorems A–C).
+Lean: <a href="lean/FeedbackChannel/SelectionTieRules.html#L-188"><code>SelectionTieRules.theoremB_every_tie_rule</code></a>, full.</li>
+<li><strong>The approach to that limit is monotone.</strong> For <em>K</em> = 2 the ratio's square grows by exactly
+1 + 1/(4<em>n</em>(<em>n</em> + 1)) per step, a theorem; <em>K</em> = 3 reduces to it. Draft 0.4 proves the monotone approach
+at every <em>n</em> for <em>K</em> = 4 to 30 by an effective second-order bound: |√<em>n</em>·D_<em>n</em> − δ_K| ≤ C_K/<em>n</em> for
+<em>n</em> ≥ 400 with every constant an exact rational upper bound, plus the exact sweep below 400. Its
+inputs from the literature (Robbins' Stirling bounds, Poisson summation) are marked <em>cited</em>. The lead
+checked the bound's prediction independently with exact values at <em>n</em> = 100, 400, 600 and 900.
+Lean: <a href="lean/FeedbackChannel/SelectionKTwo.html#L-340"><code>SelectionKTwo.a_strictMonoOn</code></a> and
+<a href="lean/FeedbackChannel/SelectionKTwo.html#L-291"><code>SelectionKTwo.aSq_succ_div</code></a>, full for <em>K</em> = 2; <em>K</em> ≥ 4
+not yet formalized.</li>
+</ul>
+<h2>5. Disclosure has structure</h2>
+<ul>
+<li><strong>Leaks form a lattice.</strong> Feedback channels are partitions of the records the judge could return,
+ordered by refinement. Two category leaks observed separately reveal exactly what one joint leak does
+if and only if the bipartite graph of overlapping categories is a forest. A cycle is precisely where
+the separate leaks hide what the joint leak shows. So a ledger must record what the loop saw jointly.
+<em>Algebraic identity</em> (<a href="notes/evaluation_feedback_lattice.html">lattice</a>, Prop 2c).
+Lean: <a href="lean/FeedbackChannel/LatticeJoin.html#L-476"><code>LatticeJoin.prop2c</code></a>, full, at channel level.</li>
+<li><strong>What the cycles cost.</strong> The fibre of tables with given margins is the cycle space of that graph, of
+dimension β₁ = |<em>E</em>| − |<em>V</em>| + <em>c</em>, and the joint leak is exactly β₁ cell counts more than the separate
+one. Collision ratios and Bayes errors depend on more of the graph than β₁. <em>Algebraic identity</em>
+(<a href="notes/leak_topology.html">leak topology</a>, Theorems 1–5); the lead checked Theorem 1 independently on 400
+random pairs. Lean: not yet formalized.</li>
+<li><strong>Where &quot;topology&quot; is literal and where it is not.</strong> With three or more category maps, when the
+observation pattern has one minimal unobserved set, the fibre is a sum of top reduced homologies of
+links in the nerve of the block cover (Theorem 7). For separate observation an exact sequence gives
+the dimension (Theorem 8), but two triples of maps on six items with matching nerve homotopy data have
+separate fibres of dimension 0 and 1 (Counterexample 9, checked independently by the lead). There the
+word is nominal. Lean: not yet formalized.</li>
+<li><strong>Patching failures needs a search, not a rule.</strong> Filling categories in order of failure rate
+maximizes expected hits at every patch count (Prop 3). But for the expected number of patches to reach
+a target, no index rule is optimal: the better of two categories can flip with the rest of the state
+(Prop 7). With one hit needed the optimum is the smallest (<em>n</em>ᶜ + 1)/(<em>F</em>ᶜ + 1) over categories with at
+least one failure (Theorem 10). With two hits needed it has a closed form too: commit to one category
+until it hits, then to the best finisher (Theorem 11). Committing until a hit is optimal at every state
+exactly when at most two hits are needed (Corollary 14): the first failure at three hits appears only
+at category size 14, and beyond, the commit policy loses up to about one part in 739 on the grids
+checked. <em>Algebraic identity</em> for Props 3, 7 and Theorems 10–11; <em>finite verified example</em> for the
+rest; the lead checked Theorem 11 against an independent dynamic programme on 1,160 random states.
+Lean: <a href="lean/FeedbackChannel/PatchGreedy.html#L-218"><code>PatchGreedy.prop3_greedy</code></a>,
+<a href="lean/FeedbackChannel/PatchWitness.html#L-2178"><code>PatchWitness.prop7_own_counts</code></a> and
+<a href="lean/FeedbackChannel/PatchDP.html#L-299"><code>PatchDP.theorem10</code></a>, full; Theorem 11 not yet formalized.</li>
+<li><strong>The ledger is the type system.</strong> Over all 22,143 operator sequences of length at most four, a
+design is well typed exactly when its feedback ledger passes the audit. An offline rescoring of the
+readout set moves the readout gap like a memorizing feedback step and leaves no other trace.
+<em>Finite verified example</em> (<a href="notes/evaluation_feedback_composition.html">composition</a>).</li>
+</ul>
+<h2>6. Measuring the judge</h2>
+<ul>
+<li><strong>The shared error is measurable.</strong> A sealed gold-labelled sample, one read, a 2 × 2 table and exact
+binomial and Fisher tests estimate ε₁ with exact p-values and power
+(<a href="notes/judge_shared_error_measurement.html">judge measurement</a>).</li>
+<li><strong>Gold noise is a confound.</strong> If the gold labels are themselves wrong at rate η, an independent judge
+shows a measured shared-error excess, (ε₁′ − ε′)(1 − a′), of exactly η(1 − η)(2a − 1)(1 − 2ε). So the
+gold's error rate must be declared. <em>Algebraic identity</em>.
+Lean: <a href="lean/FeedbackChannel/Judge.html#L-118"><code>Judge.gold_noise_excess</code></a>, full.</li>
+<li><strong>Three raters identify that rate but cannot test independence.</strong> In the symmetric model, a second
+independent grader beside the gold grader and the controller gives the gold's error rate from the
+three pairwise agreements. In the asymmetric model the three-rater fit is exactly identified and has
+no test of independence, so a grader that copies the gold grader is absorbed into the fit.
+<em>Algebraic identity</em> (<a href="notes/gold_calibration_second_grader.html">gold calibration</a>, §§3–7).
+Lean: <a href="lean/FeedbackChannel/Raters.html#L-146"><code>Raters.prop2_gold</code></a>, full.</li>
+<li><strong>A fourth rater makes it testable.</strong> Four raters give exactly six testable equalities. A copying
+grader leaves a residual of ρ·V₁·c₃₄ on one of them, detectable even at a balanced prior where the
+three-rater check has no power. <em>Algebraic identity</em> (§8).
+Lean: <a href="lean/FeedbackChannel/Raters.html#L-235"><code>Raters.six_equalities</code></a>,
+<a href="lean/FeedbackChannel/Raters.html#L-473"><code>Raters.copy_grader_residual</code></a> and
+<a href="lean/FeedbackChannel/RatersJacobian.html#L-70"><code>RatersJacobian.jac_rank</code></a>, full.</li>
+<li><strong>Tests on finite samples are valid but weak.</strong> An integer kernel on four items has expectation
+exactly 24 times the tetrad for every distribution. A block sign test built on it has size at most α
+for every law under which the tetrad vanishes, with no plug-in; a Cantelli test is valid over a
+stated region. Neither has useful power against copying at the planning size of 742 items; at 4,000
+the sign test reaches 0.21 to 0.93 for copy rates ¼ to 1. <em>Algebraic identity</em> for the sizes, <em>finite
+verified example</em> for the powers (§10). Lean: not yet formalized.</li>
+<li><strong>An interval for ε₁ with proven coverage.</strong> Six conditionally binomial counts, Clopper–Pearson
+intervals (<em>cited</em>) and maps monotone in each coordinate give coverage at least 1 − α at every
+parameter of the symmetric model. The earlier joint statement's binomial plug-in understates the
+variance of the ε₁ estimate about 7.7-fold for an independent judge. <em>Algebraic identity</em> (§11). The
+bracketed asymmetric inversion is not monotone, by an exact witness; a certified enclosure replaces it
+(§12). Lean: not yet formalized.</li>
+</ul>
+<h2>7. What this says about the RL-scaling question</h2>
+<p>None of these limits bounds the true gain available from fresh environments with exact verifiers. What
+they do is locate every route by which a reported gain can appear without a true one, and price each
+route from quantities an evaluator can declare:</p>
+<ul>
+<li>the size of each scored set and how often it was reused (<em>n</em>, <em>G</em>, <em>K</em>);</li>
+<li>the access class, the number of score queries and patches, and the joint channel of any category-level
+signal;</li>
+<li>the judge's error and shared error rates, measured against gold whose own error rate is declared,
+with a fourth independent grader if independence is to be tested;</li>
+<li>a readout set that never fed the loop.</li>
+</ul>
+<p>Given those, the largest phantom gain is computable, and anything above it is real. That is the
+falsifiable form of the question: publish the ledger, and the bound either explains the reported gain or
+it does not. Of the five published claims in the <a href="notes/rsi_claims_atlas.html">atlas</a>, none supplies a
+generation-over-generation gain for model weights on a sealed readout, and none publishes these counts.</p>
+<h2>8. What is open</h2>
+<ol>
+<li><strong>The optimal patch policy at three or more hits.</strong> Committing is no longer optimal there, and no
+other structure is known. The decision problem is polynomial for a fixed number of categories or a
+fixed maximum size; whether it is hard in general is the natural complexity question, and no
+reduction has been attempted.</li>
+<li><strong>Best-of-<em>K</em> for <em>K</em> &gt; 40</strong> at every <em>n</em>, and a symbolic proof of the margin identity
+δ_K = c(K)·E[M_K]/2, which is checked by quadrature to 10⁻⁹.</li>
+<li><strong>Gating with two or more positive gain values.</strong> Which such laws let a gate win is not
+characterized, and time-varying gain schedules remain finite checks.</li>
+<li><strong>Finite-sample testing.</strong> Only the first tetrad is tested, and no test has useful power at planning
+sizes. The full sampling law of the ε₁ estimate is not derived.</li>
+<li><strong>Topology beyond the settled cases.</strong> For separate observation of three or more maps the dimension
+is given by an exact sequence but is not a homotopy invariant; whether some other natural complex
+captures it is open.</li>
+<li><strong>Lean.</strong> Proved but not yet formalized: Theorem 11 and Corollary 14 (lattice), Props 8 and 10
+(multigen), the <em>K</em> ≥ 4 monotone approach, the leak-topology theorems, and gold calibration §§10–12.</li>
+</ol>
+<h2>9. Corrections in this round</h2>
+<p>Formalizing in Lean and checking against independent code found these, each now fixed in its note:</p>
+<ul>
+<li>Lattice Theorem 10's minimum ranges only over categories with at least one failure.</li>
+<li>Lattice Proposition 7's witnesses tied for optimal; new witnesses have unique optima.</li>
+<li>The commit policy's loss was not &quot;below one part in a thousand&quot;: it reaches about one part in 739 just
+beyond the old grid.</li>
+<li>Multigen 0.5's &quot;(L2)–(L3) finite beyond {0, 1}&quot; is refuted by a two-gain counterexample, and draft 0.1
+of this note said a gate never speeds real progress, which holds only with one positive gain value.</li>
+<li>Selection D.5's product index starts at <em>j</em> = 1, and <em>K</em> = 8 does not inherit <em>K</em> = 4's status.</li>
+<li>The training-signal note's L1 incomparability needs <em>T</em> ≥ 2 and L4's ceiling condition needs <em>a</em> &lt; 1;
+the judge note's &quot;excess&quot; named the wrong quantity in its fixture.</li>
+</ul>
+<h2>10. Where to check</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Note</th>
+<th>Module</th>
+<th>Receipt</th>
+<th>Lean</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="notes/rl_training_signal_limits.html">training-signal limits</a></td>
+<td><code>evaluation_feedback_signal</code></td>
+<td><code>signal_v0_1.json</code></td>
+<td><a href="lean/FeedbackChannel/Signal.html"><code>Signal.lean</code></a></td>
+</tr>
+<tr>
+<td><a href="notes/evaluation_feedback_lattice.html">lattice</a></td>
+<td><code>evaluation_feedback_lattice</code></td>
+<td><code>lattice_v0_7.json</code></td>
+<td><a href="https://github.com/MoralityLabAI/EvalMath/blob/d62a0f42fa2a7ba8634a7802d9682ee99c048291/lean/CLAIMS.md"><code>Patch*.lean</code>, <code>Lattice*.lean</code></a></td>
+</tr>
+<tr>
+<td><a href="notes/leak_topology.html">leak topology</a></td>
+<td><code>evaluation_leak_topology</code></td>
+<td><code>leak_topology_v0_1.json</code></td>
+<td>none yet</td>
+</tr>
+<tr>
+<td><a href="notes/evaluation_feedback_multigen.html">multigen</a></td>
+<td><code>evaluation_feedback_multigen</code></td>
+<td><code>multigen_v0_6.json</code></td>
+<td><a href="https://github.com/MoralityLabAI/EvalMath/blob/d62a0f42fa2a7ba8634a7802d9682ee99c048291/lean/CLAIMS.md"><code>Multigen*.lean</code></a></td>
+</tr>
+<tr>
+<td><a href="notes/evaluation_feedback_composition.html">composition</a></td>
+<td><code>evaluation_feedback_composition</code></td>
+<td><code>composition_v0_1.json</code></td>
+<td>none</td>
+</tr>
+<tr>
+<td><a href="notes/selection_law_kl_containment.html">selection KL</a></td>
+<td><code>evaluation_selection_kl</code></td>
+<td><code>selection_kl_v0_4.json</code></td>
+<td><a href="https://github.com/MoralityLabAI/EvalMath/blob/d62a0f42fa2a7ba8634a7802d9682ee99c048291/lean/CLAIMS.md"><code>Selection*.lean</code></a></td>
+</tr>
+<tr>
+<td><a href="notes/judge_shared_error_measurement.html">judge measurement</a></td>
+<td><code>evaluation_judge_measurement</code></td>
+<td><code>judge_v0_1.json</code></td>
+<td><a href="lean/FeedbackChannel/Judge.html"><code>Judge.lean</code></a></td>
+</tr>
+<tr>
+<td><a href="notes/gold_calibration_second_grader.html">gold calibration</a></td>
+<td><code>evaluation_gold_calibration</code></td>
+<td><code>gold_v0_4.json</code></td>
+<td><a href="https://github.com/MoralityLabAI/EvalMath/blob/d62a0f42fa2a7ba8634a7802d9682ee99c048291/lean/CLAIMS.md"><code>Raters*.lean</code></a></td>
+</tr>
+</tbody>
+</table></div>
+<p>Modules are under <code>src/spiral_ln/</code>, receipts under <code>output/&lt;module&gt;/</code>. Each verifier script under
+<code>scripts/</code> regenerates its receipt, which records the SHA-256 of its sources. The whole suite runs with
+<code>PYTHONPATH=src .venv/Scripts/python.exe -m pytest tests -q</code>. <a href="https://github.com/MoralityLabAI/EvalMath/blob/d62a0f42fa2a7ba8634a7802d9682ee99c048291/lean/CLAIMS.md"><code>lean/CLAIMS.md</code></a>
+lists all 202 formalized theorems; <code>lean/axioms_check.lean</code> prints their axioms. The
+<a href="notes/feedback_channel_journey_2026-10-11_13.html">journey map</a> records how each result was reached,
+including the false claims that were found and corrected along the way.</p>
+</main>
+<footer>
+  Built from <a href="https://github.com/MoralityLabAI/EvalMath/tree/d62a0f42fa2a7ba8634a7802d9682ee99c048291">MoralityLabAI/EvalMath@d62a0f4</a>. Every number in these notes is exact
+  arithmetic on declared quantities; no model, judge or grader was run. Each module's verifier regenerates
+  its receipt with the SHA-256 of its sources.
+</footer>
+</body>
+</html>
