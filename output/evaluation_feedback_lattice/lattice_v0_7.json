@@ -1,0 +1,2576 @@
+{
+  "schema_version": "0.7",
+  "generated_at_utc": "2026-10-14T04:49:30.207138+00:00",
+  "evidence_status": "exact_synthetic_fixtures_not_model_or_agent_evidence",
+  "checks": {
+    "two_hit_optimum_is_the_commit_closed_form_with_its_minimizers_first": true,
+    "two_hit_score_hockey_stick_closed_form_matches_its_sum": true,
+    "switch_after_miss_identity_exact_and_slack_nonnegative_at_two_hits": true,
+    "one_pass_in_a_single_failure_category_worth_at_most_one_half": true,
+    "single_failure_categories_cost_the_smallest_half_sizes": true,
+    "commit_until_hit_fails_at_three_hits_and_at_every_larger_requirement": true,
+    "commit_until_hit_gap_exceeds_a_tenth_of_a_percent_beyond_the_grid": true,
+    "commit_until_hit_gaps_on_the_grid_need_at_least_three_hits": true,
+    "two_categories_commit_until_hit_optimal_with_nonnegative_slack_on_the_grid": true,
+    "commit_until_hit_optimal_with_at_most_two_failures_per_category_on_the_grid": true,
+    "two_patches_in_different_categories_commute_when_two_hits_remain": true,
+    "no_extremal_rule_covers_the_optimal_first_patch": true,
+    "lowest_of_three_rates_never_uniquely_optimal_on_the_grid": true,
+    "both_grid_regularities_refuted_beyond_the_grid": true,
+    "one_hit_value_is_the_best_finisher_closed_form": true,
+    "highest_rate_first_not_optimal_at_one_hit_witness": true,
+    "commit_until_hit_not_optimal_beyond_one_hit_but_within_a_tenth_of_a_percent": true,
+    "no_index_rule_on_own_counts_and_hits_needed": true,
+    "no_index_rule_even_with_global_totals": true,
+    "version_0_6_index_witnesses_tie_with_a_third_category": true,
+    "optimal_first_patch_can_have_lower_hit_probability": true,
+    "meet_preserved_on_every_pair_up_to_five_items": true,
+    "join_preserved_iff_intersection_graph_is_forest": true,
+    "cycle_witnesses_confused_by_joint_leak_only": true,
+    "optimal_at_most_greedy_at_most_static_over_all_203_maps": true,
+    "greedy_optimal_when_one_hit_remains": true,
+    "all_hits_needed_is_policy_invariant": true,
+    "greedy_adaptive_not_optimal_four_item_witness": true,
+    "optimal_adaptive_monotone_along_refinement": true,
+    "fifteen_partitions_of_two_item_records": true,
+    "lattice_data_processing_law_holds_exhaustively": true,
+    "tv_domination_characterizes_the_order": true,
+    "join_and_meet_are_lattice_operations": true,
+    "existing_classes_are_bottom_middle_top": true,
+    "category_map_is_order_embedding": true,
+    "category_order_is_partial": true,
+    "category_map_does_not_preserve_joins": true,
+    "score_only_recovers_eight_thirteenths": true,
+    "item_level_recovers_four_twentyfifths": true,
+    "score_only_expected_patches_is_204_over_7": true,
+    "crossing_nonincreasing_along_fifty_item_chain": true,
+    "expected_patches_nonincreasing_along_fifty_item_chain": true,
+    "crossing_bounds_static_bounds_adaptive_on_chain": true,
+    "crossing_error_identity_and_bound_on_six_items": true,
+    "crossing_monotone_over_all_203_maps": true,
+    "adaptive_at_most_static_over_all_203_maps": true,
+    "static_expectation_not_monotone_four_item_witness": true,
+    "category_ledger_records_partitions_and_breaches": true
+  },
+  "all_passed": true,
+  "lattice": {
+    "convention": "p <= q when q refines p; bottom = one block (sealed); top = discrete (item_level); join = common refinement; meet = finest common coarsening",
+    "items": 2,
+    "record_count": 4,
+    "bell_number": 15,
+    "grid_size": 10,
+    "distribution_pairs": 100,
+    "ordered_pairs_below": 60,
+    "ordered_pairs_not_below": 165,
+    "law_holds_on_every_comparable_pair": true,
+    "domination_fails_on_every_noncomparable_pair": true,
+    "join_and_meet_satisfy_lattice_definitions": true,
+    "join_meet_tv_bounds_hold": true,
+    "sealed_is_bottom": true,
+    "item_level_is_top": true,
+    "score_only_strictly_between": true,
+    "existing_access_kernels_match": true,
+    "sealed": [
+      [
+        "00",
+        "01",
+        "10",
+        "11"
+      ]
+    ],
+    "score_only": [
+      [
+        "00"
+      ],
+      [
+        "01",
+        "10"
+      ],
+      [
+        "11"
+      ]
+    ],
+    "item_level": [
+      [
+        "00"
+      ],
+      [
+        "01"
+      ],
+      [
+        "10"
+      ],
+      [
+        "11"
+      ]
+    ]
+  },
+  "category_order": {
+    "endpoints_are_score_only_and_item_level": true,
+    "order_embedding_exhaustive": {
+      "3": true,
+      "4": true
+    },
+    "category_maps_checked": {
+      "3": 5,
+      "4": 15
+    },
+    "join_preserved_pairs": {
+      "3": 25,
+      "4": 219
+    },
+    "meet_preserved_pairs": {
+      "3": 25,
+      "4": 225
+    },
+    "ordered_pairs": {
+      "3": 25,
+      "4": 225
+    },
+    "incomparable_pair": {
+      "A": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "B": [
+        [
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "neither_refines": true,
+      "fail_item_0_vs_fail_item_1": {
+        "A": "0",
+        "B": "1"
+      },
+      "fail_item_1_vs_fail_item_2": {
+        "A": "1",
+        "B": "0"
+      },
+      "A_separates_second_pair_only": true,
+      "B_separates_first_pair_only": true
+    },
+    "join_failure": {
+      "rows": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "columns": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "refined_categories_give_item_level": true,
+      "joint_leak_strictly_coarser": true,
+      "records_confused_by_joint_leak": [
+        "0110",
+        "1001"
+      ],
+      "tv_through_joint_leak": "0",
+      "tv_through_refined_categories": "1"
+    }
+  },
+  "category_lattice": {
+    "3": {
+      "ordered_pairs": 25,
+      "meet_preserved": 25,
+      "join_preserved": 25,
+      "forest_pairs": 25,
+      "join_preserved_iff_forest_pairs": 25,
+      "non_forest_pairs": 0,
+      "cycle_witnesses_valid": 0
+    },
+    "4": {
+      "ordered_pairs": 225,
+      "meet_preserved": 225,
+      "join_preserved": 219,
+      "forest_pairs": 219,
+      "join_preserved_iff_forest_pairs": 225,
+      "non_forest_pairs": 6,
+      "cycle_witnesses_valid": 6
+    },
+    "5": {
+      "ordered_pairs": 2704,
+      "meet_preserved": 2704,
+      "join_preserved": 2494,
+      "forest_pairs": 2494,
+      "join_preserved_iff_forest_pairs": 2704,
+      "non_forest_pairs": 210,
+      "cycle_witnesses_valid": 210
+    }
+  },
+  "ceiling_cost": {
+    "setting": {
+      "items": 50,
+      "observed_accuracy": "37/50",
+      "noise_ceiling": "9/10",
+      "failures": 13,
+      "hits_needed": "8",
+      "hits_needed_integer": 8
+    },
+    "failed_items": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48
+    ],
+    "chain": [
+      {
+        "block_size": 50,
+        "categories": 1,
+        "counts": [
+          [
+            50,
+            13
+          ]
+        ],
+        "schedule": [
+          0
+        ],
+        "expected_score_crossing": "400/13",
+        "crossing_share_of_set": "8/13",
+        "expected_patches_static": "204/7",
+        "static_share_of_set": "102/175",
+        "expected_patches_adaptive": "204/7",
+        "adaptive_share_of_set": "102/175"
+      },
+      {
+        "block_size": 25,
+        "categories": 2,
+        "counts": [
+          [
+            25,
+            7
+          ],
+          [
+            25,
+            6
+          ]
+        ],
+        "schedule": [
+          0,
+          1
+        ],
+        "expected_score_crossing": "175/6",
+        "crossing_share_of_set": "7/12",
+        "expected_patches_static": "201/7",
+        "static_share_of_set": "201/350",
+        "expected_patches_adaptive": "2182862400379/85131970000",
+        "adaptive_share_of_set": "2182862400379/4256598500000"
+      },
+      {
+        "block_size": 10,
+        "categories": 5,
+        "counts": [
+          [
+            10,
+            3
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            10,
+            3
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            10,
+            3
+          ]
+        ],
+        "schedule": [
+          0,
+          2,
+          4,
+          1,
+          3
+        ],
+        "expected_score_crossing": "80/3",
+        "crossing_share_of_set": "8/15",
+        "expected_patches_static": "51/2",
+        "static_share_of_set": "51/100",
+        "expected_patches_adaptive": "3292919/155520",
+        "adaptive_share_of_set": "3292919/7776000"
+      },
+      {
+        "block_size": 5,
+        "categories": 10,
+        "counts": [
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "schedule": [
+          0,
+          4,
+          8,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          9
+        ],
+        "expected_score_crossing": "25",
+        "crossing_share_of_set": "1/2",
+        "expected_patches_static": "23",
+        "static_share_of_set": "23/50",
+        "expected_patches_adaptive": "18",
+        "adaptive_share_of_set": "9/25"
+      },
+      {
+        "block_size": 2,
+        "categories": 25,
+        "counts": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "schedule": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19,
+          21,
+          23
+        ],
+        "expected_score_crossing": "16",
+        "crossing_share_of_set": "8/25",
+        "expected_patches_static": "31/2",
+        "static_share_of_set": "31/100",
+        "expected_patches_adaptive": "12",
+        "adaptive_share_of_set": "6/25"
+      },
+      {
+        "block_size": 1,
+        "categories": 50,
+        "counts": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "schedule": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          13,
+          14,
+          15,
+          17,
+          18,
+          19,
+          21,
+          22,
+          23,
+          25,
+          26,
+          27,
+          29,
+          30,
+          31,
+          33,
+          34,
+          35,
+          37,
+          38,
+          39,
+          41,
+          42,
+          43,
+          45,
+          46,
+          47,
+          49
+        ],
+        "expected_score_crossing": "8",
+        "crossing_share_of_set": "4/25",
+        "expected_patches_static": "8",
+        "static_share_of_set": "4/25",
+        "expected_patches_adaptive": "8",
+        "adaptive_share_of_set": "4/25"
+      }
+    ],
+    "score_only_share_matches_random_threshold": true,
+    "item_level_share_matches_targeted_threshold": true,
+    "score_only_expected_patches_closed_form": true,
+    "crossing_nonincreasing_along_chain": true,
+    "static_nonincreasing_along_chain": true,
+    "adaptive_nonincreasing_along_chain": true,
+    "adaptive_at_most_static_along_chain": true,
+    "crossing_at_least_static_along_chain": true
+  },
+  "small_set_enumeration": {
+    "items": 6,
+    "category_maps": 203,
+    "patterns": 63,
+    "cases_per_map": 120,
+    "refining_pairs": 2268,
+    "error_identity_and_bound_hold": true,
+    "adaptive_at_most_static": true,
+    "crossing_monotone_along_refinement": true,
+    "static_monotone_along_refinement": false,
+    "static_witness": {
+      "fine_map": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "coarse_map": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "record": "001101",
+      "hits_needed": 3,
+      "fine": "11/2",
+      "coarse": "21/4"
+    },
+    "adaptive_monotone_along_refinement": true,
+    "adaptive_witness": null,
+    "four_item_static_counterexample": {
+      "coarse": [
+        [
+          4,
+          2
+        ]
+      ],
+      "fine": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "hits_needed": 2,
+      "crossing": [
+        "4",
+        "4"
+      ],
+      "static": [
+        "10/3",
+        "7/2"
+      ],
+      "adaptive": [
+        "10/3",
+        "3"
+      ]
+    },
+    "four_item_static_refinement_costs_more": true,
+    "four_item_crossing_and_adaptive_do_not": true
+  },
+  "greedy_vs_optimal": {
+    "items": 6,
+    "category_maps": 203,
+    "cases_per_map": 162,
+    "refining_pairs": 2268,
+    "optimal_le_greedy_le_static": true,
+    "greedy_equals_optimal_for_one_hit": true,
+    "greedy_equals_optimal_equals_closed_form_for_all_hits": true,
+    "cases_where_greedy_strictly_worse": 180,
+    "first_witness": {
+      "map": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "record": "001101",
+      "hits_needed": 2,
+      "counts": [
+        [
+          4,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "greedy": "19/6",
+      "optimal": "37/12",
+      "optimal_first": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    "optimal_monotone_along_refinement": true,
+    "greedy_monotone_along_refinement": true,
+    "four_item_witness": {
+      "counts": [
+        [
+          4,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "hits_needed": 2,
+      "greedy": "19/6",
+      "optimal": "37/12",
+      "optimal_first": [
+        [
+          4,
+          2
+        ]
+      ],
+      "greedy_first": [
+        2,
+        1
+      ]
+    }
+  },
+  "index_rules": {
+    "own_counts": {
+      "max_size": 5,
+      "max_categories": 4,
+      "context": "own_counts",
+      "states": 33915,
+      "reversals": 30,
+      "first": {
+        "A": [
+          2,
+          1
+        ],
+        "B": [
+          4,
+          2
+        ],
+        "hits_needed": 2,
+        "context": [],
+        "A_first_better_in": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "A_first_values": [
+          "5/2",
+          "8/3"
+        ],
+        "B_first_better_in": [
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "B_first_values": [
+          "19/6",
+          "37/12"
+        ]
+      },
+      "refuting_pairs": 8,
+      "first_refuting": {
+        "A": [
+          2,
+          1
+        ],
+        "B": [
+          4,
+          2
+        ],
+        "hits_needed": 2,
+        "context": [],
+        "A_uniquely_optimal_in": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "A_values": [
+          "3",
+          "37/12"
+        ],
+        "B_uniquely_optimal_in": [
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "B_values": [
+          "37/12",
+          "19/6"
+        ]
+      }
+    },
+    "with_totals": {
+      "max_size": 5,
+      "max_categories": 4,
+      "context": "with_totals",
+      "states": 33915,
+      "reversals": 125,
+      "first": {
+        "A": [
+          2,
+          1
+        ],
+        "B": [
+          4,
+          2
+        ],
+        "hits_needed": 2,
+        "context": [
+          10,
+          5
+        ],
+        "A_first_better_in": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "A_first_values": [
+          "5/2",
+          "8/3"
+        ],
+        "B_first_better_in": [
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "B_first_values": [
+          "19/6",
+          "37/12"
+        ]
+      },
+      "refuting_pairs": 18,
+      "first_refuting": {
+        "A": [
+          2,
+          1
+        ],
+        "B": [
+          4,
+          2
+        ],
+        "hits_needed": 2,
+        "context": [
+          10,
+          5
+        ],
+        "A_uniquely_optimal_in": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "A_values": [
+          "3",
+          "37/12"
+        ],
+        "B_uniquely_optimal_in": [
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "B_values": [
+          "37/12",
+          "19/6"
+        ]
+      }
+    },
+    "with_totals_and_category_count": {
+      "max_size": 5,
+      "max_categories": 4,
+      "context": "with_totals_and_category_count",
+      "states": 33915,
+      "reversals": 120,
+      "first": {
+        "A": [
+          2,
+          1
+        ],
+        "B": [
+          4,
+          2
+        ],
+        "hits_needed": 2,
+        "context": [
+          12,
+          5,
+          4
+        ],
+        "A_first_better_in": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "A_first_values": [
+          "5/2",
+          "8/3"
+        ],
+        "B_first_better_in": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "B_first_values": [
+          "19/6",
+          "37/12"
+        ]
+      },
+      "refuting_pairs": 12,
+      "first_refuting": {
+        "A": [
+          2,
+          1
+        ],
+        "B": [
+          4,
+          2
+        ],
+        "hits_needed": 2,
+        "context": [
+          12,
+          5,
+          4
+        ],
+        "A_uniquely_optimal_in": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "A_values": [
+          "3",
+          "37/12"
+        ],
+        "B_uniquely_optimal_in": [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "B_values": [
+          "37/12",
+          "19/6"
+        ]
+      }
+    },
+    "rate_violations": {
+      "states": 33915,
+      "violations": 82,
+      "min_hits_needed": 2,
+      "first": {
+        "hits_needed": 2,
+        "state": [
+          [
+            2,
+            1
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "optimal_first": [
+          [
+            5,
+            2
+          ]
+        ],
+        "values": [
+          [
+            [
+              2,
+              1
+            ],
+            "7/2"
+          ],
+          [
+            [
+              5,
+              2
+            ],
+            "69/20"
+          ]
+        ]
+      }
+    },
+    "greedy": {
+      "states": 33915,
+      "greedy_suboptimal": 131
+    },
+    "unique_optimum_witness": {
+      "A": [
+        2,
+        1
+      ],
+      "B": [
+        4,
+        2
+      ],
+      "hits_needed": 2,
+      "A_uniquely_optimal_in": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "A_values": [
+        [
+          [
+            2,
+            1
+          ],
+          "3"
+        ],
+        [
+          [
+            4,
+            2
+          ],
+          "37/12"
+        ]
+      ],
+      "B_uniquely_optimal_in": [
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "B_values": [
+        [
+          [
+            2,
+            1
+          ],
+          "19/6"
+        ],
+        [
+          [
+            4,
+            2
+          ],
+          "37/12"
+        ]
+      ],
+      "holds": true
+    },
+    "totals_unique_optimum_witness": {
+      "A": [
+        2,
+        1
+      ],
+      "B": [
+        4,
+        2
+      ],
+      "hits_needed": 2,
+      "A_uniquely_optimal_in": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "A_values": [
+        [
+          [
+            2,
+            1
+          ],
+          "3"
+        ],
+        [
+          [
+            4,
+            1
+          ],
+          "29/8"
+        ],
+        [
+          [
+            4,
+            2
+          ],
+          "37/12"
+        ]
+      ],
+      "B_uniquely_optimal_in": [
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "B_values": [
+        [
+          [
+            2,
+            1
+          ],
+          "19/6"
+        ],
+        [
+          [
+            3,
+            1
+          ],
+          "7/2"
+        ],
+        [
+          [
+            4,
+            2
+          ],
+          "37/12"
+        ]
+      ],
+      "holds": true,
+      "same_totals_and_category_count": true
+    },
+    "version_0_6_witnesses_tie": {
+      "own_counts_state": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "own_counts_values": [
+        [
+          [
+            1,
+            1
+          ],
+          "5/2"
+        ],
+        [
+          [
+            2,
+            1
+          ],
+          "5/2"
+        ],
+        [
+          [
+            4,
+            2
+          ],
+          "8/3"
+        ]
+      ],
+      "own_counts_optimal": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "totals_state": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "totals_values": [
+        [
+          [
+            1,
+            1
+          ],
+          "49/12"
+        ],
+        [
+          [
+            2,
+            1
+          ],
+          "25/6"
+        ],
+        [
+          [
+            3,
+            1
+          ],
+          "9/2"
+        ],
+        [
+          [
+            4,
+            2
+          ],
+          "49/12"
+        ]
+      ],
+      "totals_optimal": [
+        [
+          1,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "holds": true
+    },
+    "lower_rate_witness": {
+      "state": [
+        [
+          2,
+          1
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "hits_needed": 2,
+      "values": [
+        [
+          [
+            2,
+            1
+          ],
+          "7/2"
+        ],
+        [
+          [
+            5,
+            2
+          ],
+          "69/20"
+        ]
+      ],
+      "rates": [
+        [
+          [
+            2,
+            1
+          ],
+          "1/2"
+        ],
+        [
+          [
+            5,
+            2
+          ],
+          "2/5"
+        ]
+      ],
+      "holds": true
+    }
+  },
+  "policy_structure": {
+    "states": 33915,
+    "commutation": {
+      "pairs_checked": 114835,
+      "violations": 0
+    },
+    "optimal_outside_extremal_rules": 54,
+    "extremal_witness": {
+      "hits_needed": 2,
+      "state": [
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "optimal_first": [
+        [
+          4,
+          2
+        ]
+      ]
+    },
+    "equal_rates_largest_not_optimal": 4,
+    "equal_rate_witness": {
+      "hits_needed": 2,
+      "state": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "optimal_first": [
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    "lowest_of_three_rates_uniquely_optimal": 0,
+    "lowest_witness": null
+  },
+  "conjecture_refutations": {
+    "equal_rates_larger_first": {
+      "state": [
+        [
+          3,
+          2
+        ],
+        [
+          6,
+          4
+        ]
+      ],
+      "hits_needed": 2,
+      "values": [
+        [
+          [
+            3,
+            2
+          ],
+          "13/5"
+        ],
+        [
+          [
+            6,
+            4
+          ],
+          "121/45"
+        ]
+      ],
+      "refuted": true
+    },
+    "lowest_rate_never_uniquely_optimal": {
+      "state": [
+        [
+          5,
+          3
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          9,
+          6
+        ]
+      ],
+      "hits_needed": 3,
+      "values": [
+        [
+          [
+            5,
+            3
+          ],
+          "21/5"
+        ],
+        [
+          [
+            8,
+            5
+          ],
+          "1675/392"
+        ],
+        [
+          [
+            9,
+            6
+          ],
+          "443/105"
+        ]
+      ],
+      "rates": [
+        [
+          [
+            5,
+            3
+          ],
+          "3/5"
+        ],
+        [
+          [
+            8,
+            5
+          ],
+          "5/8"
+        ],
+        [
+          [
+            9,
+            6
+          ],
+          "2/3"
+        ]
+      ],
+      "refuted": true
+    }
+  },
+  "one_hit": {
+    "states": 91389,
+    "closed_form_mismatches": 0,
+    "zero_failure_category_excluded": {
+      "state": [
+        [
+          1,
+          0
+        ],
+        [
+          10,
+          1
+        ]
+      ],
+      "value": "11/2",
+      "dynamic_programme": "11/2",
+      "minimum_over_every_category": "2",
+      "holds": true
+    },
+    "best_finisher_not_optimal_first": 0,
+    "rate_versus_finisher_witness": {
+      "state": [
+        [
+          2,
+          1
+        ],
+        [
+          16,
+          9
+        ]
+      ],
+      "values": [
+        [
+          [
+            2,
+            1
+          ],
+          "3/2"
+        ],
+        [
+          [
+            16,
+            9
+          ],
+          "53/32"
+        ]
+      ],
+      "rates": [
+        [
+          [
+            2,
+            1
+          ],
+          "1/2"
+        ],
+        [
+          [
+            16,
+            9
+          ],
+          "9/16"
+        ]
+      ],
+      "finishers": [
+        [
+          [
+            2,
+            1
+          ],
+          "3/2"
+        ],
+        [
+          [
+            16,
+            9
+          ],
+          "17/10"
+        ]
+      ],
+      "highest_rate_first_is_worse": true
+    }
+  },
+  "commit_until_hit": {
+    "states": 39060,
+    "commit_until_hit_suboptimal": 82,
+    "suboptimal_by_hits_needed": [
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        18
+      ],
+      [
+        7,
+        20
+      ],
+      [
+        8,
+        16
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        4
+      ],
+      [
+        11,
+        1
+      ]
+    ],
+    "first_witness": {
+      "hits_needed": 4,
+      "state": [
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          6,
+          3
+        ]
+      ],
+      "optimal": "763/120",
+      "committed": "509/80"
+    },
+    "largest_relative_gap": "1/1526",
+    "largest_witness": {
+      "hits_needed": 4,
+      "state": [
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          6,
+          3
+        ]
+      ],
+      "optimal": "763/120",
+      "committed": "509/80"
+    },
+    "one_hit_always_commits": true
+  },
+  "two_hits": {
+    "states": 4487,
+    "value_mismatches": 0,
+    "first_choice_mismatches": 0,
+    "commit_until_hit_mismatches": 0,
+    "closed_form_checked": 3186,
+    "closed_form_mismatches": 0,
+    "larger_states": [
+      {
+        "state": [
+          [
+            9,
+            3
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            15,
+            6
+          ],
+          [
+            20,
+            5
+          ]
+        ],
+        "two_hit_value": "32/7",
+        "dynamic_programme": "32/7",
+        "first_choices": [
+          [
+            15,
+            6
+          ]
+        ]
+      },
+      {
+        "state": [
+          [
+            6,
+            1
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            13,
+            13
+          ],
+          [
+            18,
+            2
+          ]
+        ],
+        "two_hit_value": "2",
+        "dynamic_programme": "2",
+        "first_choices": [
+          [
+            13,
+            13
+          ]
+        ]
+      },
+      {
+        "state": [
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            14,
+            3
+          ],
+          [
+            16,
+            7
+          ]
+        ],
+        "two_hit_value": "17/4",
+        "dynamic_programme": "17/4",
+        "first_choices": [
+          [
+            16,
+            7
+          ]
+        ]
+      }
+    ],
+    "larger_states_agree": true,
+    "greedy_witness_scores": [
+      [
+        [
+          2,
+          1
+        ],
+        "19/6"
+      ],
+      [
+        [
+          4,
+          2
+        ],
+        "37/12"
+      ]
+    ],
+    "greedy_witness_reproduced": true
+  },
+  "switch_after_miss": {
+    "pairs_checked": 15650,
+    "identity_failures": 0,
+    "two_hit_negative_slack": 0,
+    "two_hit_profitable_switches": 0,
+    "single_failure_first_rows": 5300,
+    "single_failure_delta_above_half": 0,
+    "profitable_switches_by_hits_needed": [],
+    "most_negative_slack": "-1/12",
+    "most_negative_slack_at": {
+      "hits_needed": 3,
+      "state": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "first": [
+        4,
+        2
+      ],
+      "second": [
+        3,
+        1
+      ]
+    }
+  },
+  "two_categories": {
+    "max_size": 8,
+    "states": 4440,
+    "commit_until_hit_gaps": 0,
+    "first_gap": null,
+    "optimal_patches_followed_by_a_miss": 3894,
+    "optimal_patch_not_optimal_after_its_miss": 0,
+    "switch_slacks_checked": 6384,
+    "negative_switch_slacks": 0
+  },
+  "commit_boundary": {
+    "largest_gap_found": {
+      "state": [
+        [
+          10,
+          2
+        ],
+        [
+          12,
+          2
+        ],
+        [
+          19,
+          3
+        ]
+      ],
+      "hits_needed": 4,
+      "optimal": "7477604/479655",
+      "committed": "22463159/1438965",
+      "gap": "30347/1438965",
+      "relative_gap": "30347/22432812",
+      "optimal_first": [
+        [
+          10,
+          2
+        ]
+      ]
+    },
+    "largest_gap_exceeds_one_part_in_a_thousand": true,
+    "three_hit_witness": {
+      "state": [
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          14,
+          7
+        ]
+      ],
+      "hits_needed": 3,
+      "optimal": "1055429/205920",
+      "committed": "351823/68640",
+      "gap": "1/5148",
+      "relative_gap": "40/1055429",
+      "first_patch_values": [
+        [
+          [
+            4,
+            2
+          ],
+          "1055429/205920"
+        ],
+        [
+          [
+            5,
+            2
+          ],
+          "2483/480"
+        ],
+        [
+          [
+            14,
+            7
+          ],
+          "113/22"
+        ]
+      ],
+      "after_a_miss_in_(4,2)": [
+        [
+          [
+            3,
+            2
+          ],
+          "15577/3432"
+        ],
+        [
+          [
+            5,
+            2
+          ],
+          "139/30"
+        ],
+        [
+          [
+            14,
+            7
+          ],
+          "46727/10296"
+        ]
+      ],
+      "switch_after_miss": {
+        "hits_needed": 3,
+        "state": [
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            14,
+            7
+          ]
+        ],
+        "first": [
+          4,
+          2
+        ],
+        "second": [
+          14,
+          7
+        ],
+        "switch": "1055429/205920",
+        "commit_first": "351823/68640",
+        "commit_second": "113/22",
+        "commit_first_after_miss": "15577/3432",
+        "commit_second_after_miss": "46727/10296",
+        "delta": "6157/10296",
+        "rho": "5801/11440",
+        "slack": "-2291/205920",
+        "identity_holds": true,
+        "switch_beats_both_commits": true
+      }
+    },
+    "three_hit_witness_holds": true,
+    "padded": [
+      {
+        "state": [
+          [
+            1,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            14,
+            7
+          ]
+        ],
+        "hits_needed": 4,
+        "optimal": "1261349/205920",
+        "committed": "420463/68640"
+      },
+      {
+        "state": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            14,
+            7
+          ]
+        ],
+        "hits_needed": 5,
+        "optimal": "1467269/205920",
+        "committed": "489103/68640"
+      },
+      {
+        "state": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            14,
+            7
+          ]
+        ],
+        "hits_needed": 6,
+        "optimal": "1673189/205920",
+        "committed": "557743/68640"
+      }
+    ],
+    "padding_preserves_the_gap": true
+  },
+  "commit_until_hit_at_most_two_failures": {
+    "states": 21318,
+    "commit_until_hit_suboptimal": 0,
+    "suboptimal_by_hits_needed": [],
+    "first_witness": null,
+    "largest_relative_gap": "0",
+    "largest_witness": null,
+    "one_hit_always_commits": true
+  },
+  "single_failure": {
+    "states": 1760,
+    "closed_form_mismatches": 0
+  },
+  "category_ledger": {
+    "respected": {
+      "selection": {
+        "S": {
+          "declared_access": "item_level",
+          "size": 6,
+          "score_queries": 3,
+          "patches": 0,
+          "distinct_patched": 0,
+          "patch_share": "0",
+          "retired_at_generation": null,
+          "breaches": [],
+          "selection_scores_usable_as_endpoints": false
+        }
+      },
+      "readout": {
+        "R": {
+          "size": 6,
+          "readouts": 1,
+          "readout_generations": [
+            3
+          ],
+          "breaches": [],
+          "endpoint_status": "evaluable"
+        }
+      },
+      "identifier_scope": "recorded overlap only; independence is not certified",
+      "declarations_respected": true,
+      "category_feedback": {
+        "S": {
+          "events": [
+            {
+              "generation": 1,
+              "blocks": 1,
+              "block_sizes": [
+                6
+              ],
+              "partition": [
+                [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3",
+                  "s4",
+                  "s5"
+                ]
+              ],
+              "leak_class": "score_only",
+              "within_declared_categories": true
+            },
+            {
+              "generation": 2,
+              "blocks": 2,
+              "block_sizes": [
+                3,
+                3
+              ],
+              "partition": [
+                [
+                  "s0",
+                  "s1",
+                  "s2"
+                ],
+                [
+                  "s3",
+                  "s4",
+                  "s5"
+                ]
+              ],
+              "leak_class": "category",
+              "within_declared_categories": true
+            }
+          ],
+          "breaches": [],
+          "declared_categories": [
+            [
+              "s0",
+              "s1",
+              "s2"
+            ],
+            [
+              "s3",
+              "s4",
+              "s5"
+            ]
+          ]
+        },
+        "R": {
+          "events": [],
+          "breaches": [],
+          "declared_categories": null
+        }
+      }
+    },
+    "leaking": {
+      "selection": {
+        "S": {
+          "declared_access": "item_level",
+          "size": 6,
+          "score_queries": 5,
+          "patches": 1,
+          "distinct_patched": 1,
+          "patch_share": "1/6",
+          "retired_at_generation": null,
+          "breaches": [],
+          "selection_scores_usable_as_endpoints": false
+        }
+      },
+      "readout": {
+        "R": {
+          "size": 6,
+          "readouts": 1,
+          "readout_generations": [
+            3
+          ],
+          "breaches": [],
+          "endpoint_status": "evaluable"
+        }
+      },
+      "identifier_scope": "recorded overlap only; independence is not certified",
+      "declarations_respected": false,
+      "category_feedback": {
+        "S": {
+          "events": [
+            {
+              "generation": 1,
+              "blocks": 1,
+              "block_sizes": [
+                6
+              ],
+              "partition": [
+                [
+                  "s0",
+                  "s1",
+                  "s2",
+                  "s3",
+                  "s4",
+                  "s5"
+                ]
+              ],
+              "leak_class": "score_only",
+              "within_declared_categories": true
+            },
+            {
+              "generation": 2,
+              "blocks": 2,
+              "block_sizes": [
+                3,
+                3
+              ],
+              "partition": [
+                [
+                  "s0",
+                  "s1",
+                  "s2"
+                ],
+                [
+                  "s3",
+                  "s4",
+                  "s5"
+                ]
+              ],
+              "leak_class": "category",
+              "within_declared_categories": true
+            },
+            {
+              "generation": 4,
+              "blocks": 3,
+              "block_sizes": [
+                1,
+                2,
+                3
+              ],
+              "partition": [
+                [
+                  "s0"
+                ],
+                [
+                  "s1",
+                  "s2"
+                ],
+                [
+                  "s3",
+                  "s4",
+                  "s5"
+                ]
+              ],
+              "leak_class": "category",
+              "within_declared_categories": false
+            }
+          ],
+          "breaches": [
+            "category feedback finer than declared categories at generation 4"
+          ],
+          "declared_categories": [
+            [
+              "s0",
+              "s1",
+              "s2"
+            ],
+            [
+              "s3",
+              "s4",
+              "s5"
+            ]
+          ]
+        },
+        "R": {
+          "events": [],
+          "breaches": [],
+          "declared_categories": null
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "scripts/verify_evaluation_feedback_lattice.py": "589bdcb5b4a0ca84902c441d80bd65f05cc31bf07ad74846bf260a5b97be69a3",
+    "src/spiral_ln/evaluation_feedback_lattice.py": "7ab7b28ba261851b97fe7e972ab3eb78c01df79146eb283caf4f24f25a049966",
+    "src/spiral_ln/evaluation_game_feedback.py": "39bc7dfdeb6bdb34646acb9a177a8f6be8c9526bde01ba03f681843cf8844fc4",
+    "src/spiral_ln/evaluation_game_testbed.py": "6c681810694a9837ec61ca49bec423bbd8673e02a4f4a73e85e2bb4b5706ae36"
+  }
+}
