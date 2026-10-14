@@ -63,6 +63,42 @@ def source_hashes(receipt: dict) -> dict:
     return {}
 
 
+FLOAT_TOLERANCE = 1e-12  # relative; floats in receipts are display values of library functions
+
+
+def differences(a, b, path="", out=None, limit=8):
+    """Paths where two receipts differ. Exact values (strings, integers, fractions written as strings,
+    booleans) must match exactly; floats may differ by FLOAT_TOLERANCE relative, because exp, log and
+    erfc are not correctly rounded and can differ in the last bit between platforms' math libraries."""
+    out = [] if out is None else out
+    if len(out) >= limit:
+        return out
+    if isinstance(a, dict) and isinstance(b, dict):
+        for key in sorted(set(a) | set(b)):
+            if key not in a or key not in b:
+                out.append(f"{path}/{key} (present on one side only)")
+            else:
+                differences(a[key], b[key], f"{path}/{key}", out, limit)
+    elif isinstance(a, list) and isinstance(b, list):
+        if len(a) != len(b):
+            out.append(f"{path} (length {len(a)} vs {len(b)})")
+        else:
+            for i, (x, y) in enumerate(zip(a, b)):
+                differences(x, y, f"{path}[{i}]", out, limit)
+    elif isinstance(a, float) and isinstance(b, float):
+        if abs(a - b) > FLOAT_TOLERANCE * max(1.0, abs(a), abs(b)):
+            out.append(f"{path} ({a!r} vs {b!r})")
+    elif a != b:
+        out.append(f"{path} ({str(a)[:80]!r} vs {str(b)[:80]!r})")
+    return out
+
+
+def annotate(level: str, title: str, message: str) -> None:
+    """Under GitHub Actions, also emit an annotation, which the public API shows without a login."""
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        print(f"::{level} title={title}::{message.replace(chr(10), ' ')[:900]}", flush=True)
+
+
 def all_checks_true(receipt: dict):
     checks = receipt.get("checks")
     if isinstance(checks, dict):
@@ -102,15 +138,21 @@ def main() -> int:
                     a, b = dict(committed), dict(fresh)
                     a.pop("generated_at_utc", None)
                     b.pop("generated_at_utc", None)
-                    reproduced = a == b
-                    if not reproduced:
-                        differing = sorted(k for k in set(a) | set(b) if a.get(k) != b.get(k))
-                        line += f"; REGENERATED DIFFERS in {differing[:6]}"
-                    else:
+                    if a == b:
+                        reproduced = True
                         line += "; regenerates identically"
+                    else:
+                        diff = differences(a, b)
+                        reproduced = not diff
+                        line += ("; regenerates within float tolerance" if reproduced
+                                 else f"; REGENERATED DIFFERS at {diff}")
         ok = ok_checks and not stale and reproduced is not False
+        if not ok:
+            annotate("error", f"receipt {name}", line)
         failures += not ok
         print(("ok   " if ok else "FAIL ") + line, flush=True)
+    annotate("notice" if not failures else "error", "receipts",
+             f"{len(names) - failures} of {len(names)} receipts verified")
     print(f"{len(names) - failures} of {len(names)} receipts verified")
     return 1 if failures else 0
 
