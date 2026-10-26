@@ -26,6 +26,16 @@ candidate outcomes inspected, and independently checks 210 hidden-message
 cases and 80 complete adaptive query policies. A finite Bellman recurrence
 optimizes public query choices and terminal covert messaging jointly.
 
+New: [stochastic feedback and full-filtration ordering](paper/stochastic_full_filtration.md)
+extends adaptive selection risk to rational noisy query responses and private
+signals arriving before or after query selection. Two individually 5%-calibrated
+events yield 7.5% post-selection risk with an early private signal, versus
+6.25% with the same signal received after one public query. A separate exact
+stopping-time witness demonstrates why one-step expectation validity must
+be checked in the actor's full information filtration. The source-hashed
+receipt verifies independent finite oracles; no physical acquisition claim
+is made.
+
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 ## Layout
