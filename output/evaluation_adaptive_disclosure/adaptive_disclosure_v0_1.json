@@ -1,0 +1,285 @@
+{
+  "schema_version": "0.1",
+  "generated_at_utc": "2026-10-26T12:43:33.876458+00:00",
+  "checks": {
+    "interval_optima_formula_exhaustive": true,
+    "one_hot_eight_three_adaptive_is_one": true,
+    "one_hot_eight_three_fixed_is_three_quarters": true,
+    "one_hot_eight_three_8436_schedules": true,
+    "one_hot_adaptive_transcript_reaches_eight": true,
+    "one_hot_fixed_transcript_reaches_six": true,
+    "one_hot_fixed_collision_ratio": true,
+    "one_hot_adaptive_collision_ratio": true,
+    "one_hot_8_adaptive_prefix_collision": true,
+    "one_hot_8_conditional_alphabet_bound": true,
+    "direct_record_enumeration_agrees": true,
+    "decision_tree_prefix_collision_mono": true,
+    "reachable_leaf_alphabet_bound": true,
+    "path_equations_exact": true,
+    "full_query_union_can_hide_on_branch": true,
+    "branchwise_prefix_exact": true,
+    "path_right_hand_side_matters": true,
+    "verified_full_prior_sample_count": true,
+    "verified_interval_grid_count": true
+  },
+  "all_passed": true,
+  "finite_grid_n_1_to_8_budget_0_to_3": [
+    [
+      1,
+      0,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      2,
+      1,
+      1
+    ],
+    [
+      1,
+      3,
+      1,
+      1
+    ],
+    [
+      2,
+      0,
+      1,
+      1
+    ],
+    [
+      2,
+      1,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      3,
+      2,
+      2
+    ],
+    [
+      3,
+      0,
+      1,
+      1
+    ],
+    [
+      3,
+      1,
+      2,
+      2
+    ],
+    [
+      3,
+      2,
+      3,
+      3
+    ],
+    [
+      3,
+      3,
+      3,
+      3
+    ],
+    [
+      4,
+      0,
+      1,
+      1
+    ],
+    [
+      4,
+      1,
+      2,
+      2
+    ],
+    [
+      4,
+      2,
+      4,
+      4
+    ],
+    [
+      4,
+      3,
+      4,
+      4
+    ],
+    [
+      5,
+      0,
+      1,
+      1
+    ],
+    [
+      5,
+      1,
+      2,
+      2
+    ],
+    [
+      5,
+      2,
+      4,
+      4
+    ],
+    [
+      5,
+      3,
+      5,
+      5
+    ],
+    [
+      6,
+      0,
+      1,
+      1
+    ],
+    [
+      6,
+      1,
+      2,
+      2
+    ],
+    [
+      6,
+      2,
+      4,
+      4
+    ],
+    [
+      6,
+      3,
+      6,
+      6
+    ],
+    [
+      7,
+      0,
+      1,
+      1
+    ],
+    [
+      7,
+      1,
+      2,
+      2
+    ],
+    [
+      7,
+      2,
+      4,
+      4
+    ],
+    [
+      7,
+      3,
+      7,
+      6
+    ],
+    [
+      8,
+      0,
+      1,
+      1
+    ],
+    [
+      8,
+      1,
+      2,
+      2
+    ],
+    [
+      8,
+      2,
+      4,
+      4
+    ],
+    [
+      8,
+      3,
+      8,
+      6
+    ]
+  ],
+  "direct_record_cases_checked": 20,
+  "case_sha256": "17d78c3a8ee1a312ce81af5bf1ef0c1491bc85bf7f0ec376caac63d2ae26eea1",
+  "witness": {
+    "n": 8,
+    "query_budget": 3,
+    "query_bank": "contiguous intervals",
+    "prior": "one-hot uniform on eight positions",
+    "adaptive_success": "1",
+    "fixed_success": "3/4",
+    "adaptive_collision_probability": "1/8",
+    "fixed_collision_probability": "7/32",
+    "adaptive_optimal_tree": {
+      "query": 3,
+      "branches": {
+        "0": {
+          "query": 5,
+          "branches": {
+            "0": {
+              "query": 6,
+              "branches": {
+                "0": null,
+                "1": null
+              }
+            },
+            "1": {
+              "query": 4,
+              "branches": {
+                "0": null,
+                "1": null
+              }
+            }
+          }
+        },
+        "1": {
+          "query": 1,
+          "branches": {
+            "0": {
+              "query": 2,
+              "branches": {
+                "0": null,
+                "1": null
+              }
+            },
+            "1": {
+              "query": 0,
+              "branches": {
+                "0": null,
+                "1": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "fixed_best_query_indices": [
+      1,
+      10,
+      22
+    ]
+  },
+  "source_sha256": {
+    "src/spiral_ln/evaluation_adaptive_disclosure.py": "2dc60a82a1d5bf3bae5bf43b00a151c103b17421e5b479f77e11ba2fd9d4d8cd",
+    "tests/test_evaluation_adaptive_disclosure.py": "0a8b690a35a3eb0176df15963db25c5e020a3cdd3357af8858f0d5a2e5ff7650",
+    "scripts/verify_evaluation_adaptive_disclosure.py": "5d57221e8b7606fd206f85eddebc0d7d87a2624c4c77a13382c835d9cf3ff3b4"
+  }
+}
