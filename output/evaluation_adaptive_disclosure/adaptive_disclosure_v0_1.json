@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "generated_at_utc": "2026-10-26T12:53:14.245585+00:00",
+  "generated_at_utc": "2026-10-26T12:58:52.801698+00:00",
   "checks": {
     "interval_optima_formula_exhaustive": true,
     "one_hot_eight_three_adaptive_is_one": true,
@@ -13,6 +13,9 @@
     "one_hot_8_adaptive_prefix_collision": true,
     "one_hot_8_conditional_alphabet_bound": true,
     "unrestricted_fixed_queries_eliminate_gap": true,
+    "iid_six_bits_three_rounds_adaptive_gain": true,
+    "iid_seven_bits_three_rounds_adaptive_gain": true,
+    "iid_adaptive_direct_oracle_agrees": true,
     "direct_record_enumeration_agrees": true,
     "decision_tree_prefix_collision_mono": true,
     "reachable_leaf_alphabet_bound": true,
@@ -219,7 +222,41 @@
     ]
   ],
   "direct_record_cases_checked": 20,
-  "case_sha256": "17d78c3a8ee1a312ce81af5bf1ef0c1491bc85bf7f0ec376caac63d2ae26eea1",
+  "iid_fair_bit_cases": [
+    {
+      "n": 6,
+      "budget": 3,
+      "adaptive_success": "39/64",
+      "fixed_success": "17/32",
+      "adaptive_leaves": 39,
+      "fixed_leaves": 34,
+      "adaptive_collision_probability": "85/2048",
+      "fixed_collision_probability": "21/512",
+      "fixed_schedule_indices": [
+        1,
+        8,
+        17
+      ],
+      "fixed_schedules_enumerated": 1771
+    },
+    {
+      "n": 7,
+      "budget": 3,
+      "adaptive_success": "27/64",
+      "fixed_success": "3/8",
+      "adaptive_leaves": 54,
+      "fixed_leaves": 48,
+      "adaptive_collision_probability": "143/4096",
+      "fixed_collision_probability": "17/512",
+      "fixed_schedule_indices": [
+        2,
+        10,
+        17
+      ],
+      "fixed_schedules_enumerated": 4060
+    }
+  ],
+  "case_sha256": "dac4df3d6e62b964c511b0cffa6b76c293a46b3888e9eb9cc8c4abe193559120",
   "witness": {
     "n": 8,
     "query_budget": 3,
@@ -280,7 +317,7 @@
   },
   "source_sha256": {
     "src/spiral_ln/evaluation_adaptive_disclosure.py": "2dc60a82a1d5bf3bae5bf43b00a151c103b17421e5b479f77e11ba2fd9d4d8cd",
-    "tests/test_evaluation_adaptive_disclosure.py": "05ef60506723b4e0d37c57c1850f712a9b7694d08ff1e1c7ba7ceeb740d45c13",
-    "scripts/verify_evaluation_adaptive_disclosure.py": "ed0399eb07eb087c7af27d4b14570c9c2aa135d7bd660697ef41b015f02e9690"
+    "tests/test_evaluation_adaptive_disclosure.py": "596f625f2c0128789801d5d76873b2cc4590967c0d7e836da93ada6520514fd7",
+    "scripts/verify_evaluation_adaptive_disclosure.py": "9694178bfd2ecfda550e2c39e9b2bef828fbae0e62503a0761cf66e61f4c8cfc"
   }
 }
