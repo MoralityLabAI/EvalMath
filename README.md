@@ -10,6 +10,13 @@ formalized, a Lean 4 proof. No model, judge or grader is run anywhere in this re
 It states each result, its evidence level and its Lean theorem, and lists what is open. A rendered copy
 of the notes is published at <https://moralitylabai.github.io/EvalMath/>.
 
+New: [adaptive selection risk and continuation sufficiency](paper/selection_risk_continuations.md)
+computes exact false-authorization risk after a feedback transcript, with an independently
+enumerated two-query example rising from 5% pre-query risk to 7.5% under fixed
+queries and 10% under adaptive queries. A finite procedural state machine
+demonstrates why source-revocation identity and amendment chronology must
+survive compression under its declared future-event contract.
+
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 ## Layout
