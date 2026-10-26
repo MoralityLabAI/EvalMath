@@ -10,6 +10,12 @@ formalized, a Lean 4 proof. No model, judge or grader is run anywhere in this re
 It states each result, its evidence level and its Lean theorem, and lists what is open. A rendered copy
 of the notes is published at <https://moralitylabai.github.io/EvalMath/>.
 
+New: [adaptive disclosure](paper/adaptive_disclosure.md) derives exact pathwise
+feedback fibres, conditional collision reductions and an optimal-query recurrence.
+For a uniform one-hot item on a line, k adaptive interval queries identify up to
+2^k locations, versus 2k with fixed queries (within the number of locations).
+The paper includes independent exact enumeration and the reproducible receipt.
+
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 ## Layout
