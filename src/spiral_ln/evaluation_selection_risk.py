@@ -226,6 +226,87 @@ def compress_contingency(model: NullModel) -> NullModel:
     )
 
 
+
+@dataclass(frozen=True)
+class RiskProjection:
+    """Exact posterior contingency plus a procedural audit-machine state.
+
+    Valid only under a fixed query bank, event family and machine contract.
+    Masses are unnormalised nonnegative integers; zero-mass rows are absent.
+    """
+    histogram: tuple[tuple[tuple[int, ...], tuple[bool, ...], int], ...]
+    audit_state: int
+
+    def __post_init__(self):
+        if (not self.histogram or type(self.audit_state) is not int
+                or self.audit_state < 0 or len(set((q, e) for q, e, _ in self.histogram))
+                != len(self.histogram)
+                or any(type(m) is not int or m < 1 for _, _, m in self.histogram)):
+            raise ValueError("nonempty distinct positive histogram required")
+        k = len(self.histogram[0][0])
+        j = len(self.histogram[0][1])
+        if (not k or not j or any(len(q) != k or len(e) != j
+                                for q, e, _ in self.histogram)):
+            raise ValueError("consistent positive query/event dimensions required")
+
+
+def risk_projection(model: NullModel, machine: AuditMachine, audit_state: int = 0) -> RiskProjection:
+    if type(audit_state) is not int or not 0 <= audit_state < len(machine.outputs):
+        raise ValueError("unknown procedural state")
+    return RiskProjection(contingency_histogram(model), audit_state)
+
+
+def projection_risk(state: RiskProjection) -> Fraction:
+    total = sum(mass for _, _, mass in state.histogram)
+    event_count = len(state.histogram[0][1])
+    return Fraction(max(sum(mass for _, bits, mass in state.histogram if bits[j])
+                        for j in range(event_count)), total)
+
+
+def projection_output(state: RiskProjection, machine: AuditMachine):
+    if not 0 <= state.audit_state < len(machine.outputs):
+        raise ValueError("procedural state outside declared machine")
+    return machine.outputs[state.audit_state], projection_risk(state)
+
+
+def projection_event(state: RiskProjection, machine: AuditMachine, event: str) -> RiskProjection:
+    if event not in machine.events or not 0 <= state.audit_state < len(machine.outputs):
+        raise ValueError("unknown audit event or state")
+    nxt = machine.transitions[state.audit_state][machine.events.index(event)]
+    return RiskProjection(state.histogram, nxt)
+
+
+def projection_query(state: RiskProjection, machine: AuditMachine, index: int):
+    """Each response yields its posterior state; query observation records VIEW.
+
+    The caller must use this method for *every* disclosed query. An undisclosed
+    look that bypasses this interface is outside the certified filtration.
+    """
+    if type(index) is not int or not 0 <= index < len(state.histogram[0][0]):
+        raise ValueError("unknown query")
+    if "VIEW" not in machine.events:
+        raise ValueError("audit machine must record the observation event")
+    groups: dict[int, list] = {}
+    for row in state.histogram:
+        groups.setdefault(row[0][index], []).append(row)
+    next_audit = machine.transitions[state.audit_state][machine.events.index("VIEW")]
+    return {answer: RiskProjection(tuple(rows), next_audit)
+            for answer, rows in sorted(groups.items())}
+
+
+def projection_postquery_risk(state: RiskProjection, index: int) -> Fraction:
+    """Risk with one more query whose response is seen before event selection."""
+    if type(index) is not int or not 0 <= index < len(state.histogram[0][0]):
+        raise ValueError("unknown query")
+    groups: dict[int, list] = {}
+    for row in state.histogram:
+        groups.setdefault(row[0][index], []).append(row)
+    total = sum(mass for _, _, mass in state.histogram)
+    return Fraction(sum(max(sum(m for _, bits, m in rows if bits[j])
+                            for j in range(len(state.histogram[0][1])))
+                        for rows in groups.values()), total)
+
+
 def dependent_five_percent_models() -> tuple[NullModel, NullModel]:
     """Same two nominal 5% event rates, different post-query selection risks.
 
