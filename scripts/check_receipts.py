@@ -44,6 +44,8 @@ RECEIPTS = {
               "output/evaluation_judge_measurement/judge_v0_1.json", [], False),
     "leak_topology": ("scripts/verify_evaluation_leak_topology.py",
                       "output/evaluation_leak_topology/leak_topology_v0_1.json", [], False),
+    "selection_risk": ("scripts/verify_evaluation_selection_risk.py",
+                       "output/evaluation_selection_risk/selection_risk_v0_1.json", [], False),
     "selection_kl": ("scripts/verify_evaluation_selection_kl.py",
                      "output/evaluation_selection_kl/selection_kl_v0_4.json", [], False),
     "gold_calibration": ("scripts/verify_evaluation_gold_calibration.py",
