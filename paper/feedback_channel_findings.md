@@ -174,6 +174,23 @@ rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.
   A Bellman law optimizes public query selection with the covert signal held
   until the final step. *Algebraic identity* under that information contract.
   ([covert-feedback note](covert_feedback_risk.md)); no new Lean formalization.
+- **The timing of hidden information changes stochastic selection risk.** With
+  exact finite rational public-query kernels and independently drawn private
+  signals conditioned on one fixed null world, two Bellman recurrences give
+  optimal event-selection risk for private-before-query and
+  public-query-before-private schedules. Two individually 5%-calibrated
+  false-positive events in an eight-world fixture yield 3/40 (7.5%) risk
+  with a private signal before one noisy query, and 1/16 (6.25%) if it arrives
+  after query choice. A coarse one-step martingale with expected wealth one
+  attains stopped expectation 5/4 under a 75%-accurate private time-zero
+  signal. Its original fixed-process threshold-crossing bound still holds.
+  Worlds with identical event and all channel-likelihood profiles can be
+  merged without changing any future optimal risk under this fixed
+  information vocabulary. *Algebraic identity* for the finite recurrences
+  and compression; *finite verified example* for the witnesses, 192 independent
+  one-round oracle comparisons, 144 policy replays and 40 compression fixtures.
+  ([stochastic full-filtration note](stochastic_full_filtration.md)); no Lean
+  formalization or real acquisition-time attestation.
 
 ## 6. Measuring the judge
 
