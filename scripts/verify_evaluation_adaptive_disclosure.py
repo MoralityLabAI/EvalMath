@@ -50,6 +50,40 @@ def verify():
         transcript_profile(p8, unrestricted, unrestricted_tree)["leaves"] == 8)
 
 
+    # Fair independent item bits: an empirical adaptive separation without
+    # the one-hot conditional prior. Both optimizers are exhaustive and exact.
+    iid_cases = []
+    checks["iid_six_bits_three_rounds_adaptive_gain"] = True
+    checks["iid_seven_bits_three_rounds_adaptive_gain"] = True
+    checks["iid_adaptive_direct_oracle_agrees"] = True
+    for n, expected_adaptive, expected_fixed, expected_adaptive_leaves, expected_fixed_leaves in (
+        (6, Q(39, 64), Q(17, 32), 39, 34),
+        (7, Q(27, 64), Q(3, 8), 54, 48),
+    ):
+        prior, bank = fair_bit_prior((1,) * n), interval_bank(n)
+        adaptive, fixed = adaptive_optimum(prior, bank, 3), fixed_optimum(prior, bank, 3)
+        ap = transcript_profile(prior, bank, adaptive["tree"])
+        fp = transcript_profile(prior, bank, fixed_tree(prior, bank, fixed["schedule"]))
+        target = "iid_six_bits_three_rounds_adaptive_gain" if n == 6 else "iid_seven_bits_three_rounds_adaptive_gain"
+        checks[target] &= (
+            adaptive["bayes_success"] == expected_adaptive and
+            fixed["bayes_success"] == expected_fixed and
+            ap["leaves"] == expected_adaptive_leaves and
+            fp["leaves"] == expected_fixed_leaves and
+            expected_adaptive > expected_fixed)
+        checks["iid_adaptive_direct_oracle_agrees"] &= (
+            ap == direct_bit_profile(prior.capacities, bank, adaptive["tree"]))
+        iid_cases.append({
+            "n": n, "budget": 3,
+            "adaptive_success": str(adaptive["bayes_success"]),
+            "fixed_success": str(fixed["bayes_success"]),
+            "adaptive_leaves": ap["leaves"], "fixed_leaves": fp["leaves"],
+            "adaptive_collision_probability": str(ap["observed_collision_probability"]),
+            "fixed_collision_probability": str(fp["observed_collision_probability"]),
+            "fixed_schedule_indices": fixed["schedule"],
+            "fixed_schedules_enumerated": fixed["schedules_checked"],
+        })
+
     # Separate oracle enumerates literal item-bit records rather than cell counts.
     direct_compared = 0
     direct_cases = []
@@ -103,12 +137,13 @@ def verify():
 
     checks["verified_full_prior_sample_count"] = direct_compared == 20
     checks["verified_interval_grid_count"] = len(grid) == 32
-    case_sha = sha256(json.dumps((grid, direct_cases), separators=(",", ":")).encode()).hexdigest()
+    case_sha = sha256(json.dumps((grid, direct_cases, iid_cases), separators=(",", ":")).encode()).hexdigest()
     return {
         "checks": checks,
         "all_passed": all(checks.values()),
         "finite_grid_n_1_to_8_budget_0_to_3": grid,
         "direct_record_cases_checked": direct_compared,
+        "iid_fair_bit_cases": iid_cases,
         "case_sha256": case_sha,
         "witness": {
             "n": 8, "query_budget": 3, "query_bank": "contiguous intervals",
