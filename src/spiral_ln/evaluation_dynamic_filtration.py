@@ -295,8 +295,11 @@ def doubling_process(n: int) -> dict:
 def rare_run_law(epsilon, n: int) -> PrivateSignalLaw:
     """n i.i.d. Bernoulli(epsilon) public bits; private H = number of leading successes (n + 1 symbols).
 
-    With rare_run_process, the private stopper obtains n(1 - epsilon) + 1, which approaches the
-    alphabet bound n + 1 as epsilon -> 0; the leakage certificate equals n + 1 exactly.
+    With rare_run_process, the private stopper obtains n(1 - epsilon) + 1 for every epsilon. The
+    information value V of the law is rare_run_value: 1 + (n - 1)(1 - epsilon) + max(1 - epsilon,
+    epsilon), which equals n(1 - epsilon) + 1 only for epsilon <= 1/2 (for larger epsilon the path
+    whose first failure is at the last step is the maximiser). Both approach the alphabet bound
+    n + 1 as epsilon -> 0; the leakage certificate equals n + 1 for every epsilon.
     """
     e = _rational(epsilon)
     if not 0 < e < 1 or type(n) is not int or n < 1:
@@ -311,6 +314,14 @@ def rare_run_law(epsilon, n: int) -> PrivateSignalLaw:
             p *= e if b else 1 - e
         mass[(bits, lead)] = p
     return PrivateSignalLaw((2,) * n, n + 1, mass)
+
+
+def rare_run_value(epsilon, n: int) -> Q:
+    """Closed form of private_stopping_value(rare_run_law(epsilon, n)): 1 + (n-1)(1-e) + max(1-e, e)."""
+    e = _rational(epsilon)
+    if not 0 < e < 1 or type(n) is not int or n < 1:
+        raise ValueError("epsilon in (0, 1) and a positive horizon required")
+    return 1 + (n - 1) * (1 - e) + max(1 - e, e)
 
 
 def rare_run_process(epsilon, n: int) -> dict:
@@ -409,7 +420,8 @@ class ControlModel:
 
 
 def private_kernel(model_states: int, kernels, symbols: int, mode: str, table) -> dict:
-    """Build a private kernel of a declared dependence: 'none', 'latent' (table[s]), 'data' (table[y_all])."""
+    """Build a private kernel of a declared dependence: 'none', 'latent' (table[s]), 'data' (table[y_all]),
+    'both' (table[(s, y_all)])."""
     ys = list(product(*[range(len(k[0])) for k in kernels]))
     out = {}
     for s in range(model_states):
@@ -420,8 +432,10 @@ def private_kernel(model_states: int, kernels, symbols: int, mode: str, table) -
                 out[(s, y)] = tuple(table[s])
             elif mode == "data":
                 out[(s, y)] = tuple(table[y])
+            elif mode == "both":
+                out[(s, y)] = tuple(table[(s, y)])
             else:
-                raise ValueError("mode must be none, latent or data")
+                raise ValueError("mode must be none, latent, data or both")
     return out
 
 
@@ -431,7 +445,11 @@ def actor_value(model: ControlModel, rounds: int, timing: str, family: str):
     timing 'before': the private symbol of a round is seen before the actor chooses to stop or
     which query to ask; 'after': the actor commits first, sees the public response, then the
     private symbol. family 'pointwise' or 'calibrated'. State = (actor unnormalised posterior
-    over the previous latent state with E folded in, public unnormalised posterior).
+    over the previous latent state with E folded in, public unnormalised posterior). The chain
+    makes one transition before every round, including the first, so S_1 ~ prior * transition.
+    The calibrated factor divides by the predictive of the response-only public filter (the
+    declared kernels filtered on the recorded responses with the recorded queries taken as
+    given), which is the public posterior predictive for every public query policy.
     """
     if timing not in ("before", "after") or family not in ("pointwise", "calibrated"):
         raise ValueError("timing before/after and family pointwise/calibrated")

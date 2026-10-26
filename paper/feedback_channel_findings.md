@@ -215,7 +215,7 @@ rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.
   subset filters, with no redundancy among the three for two sources.
   *Algebraic identity* for the bounds, closed form, immunity, chronology and
   static-quotient theorems; *finite verified example* for the witnesses, 200
-  random laws, 489 brute-force stopping comparisons, 24 control models, 150
+  random laws, 489 brute-force stopping comparisons, 32 control models, 150
   chronologies, 300 audit-state pairs and the two-source Markov irredundancy.
   ([dynamic-filtration validity note](dynamic_filtration_validity.md)); no
   Lean formalization or acquisition-time attestation.
@@ -320,7 +320,7 @@ Formalizing in Lean and checking against independent code found these, each now 
 | [selection KL](selection_law_kl_containment.md) | `evaluation_selection_kl` | `selection_kl_v0_4.json` | [`Selection*.lean`](../lean/CLAIMS.md) |
 | [judge measurement](judge_shared_error_measurement.md) | `evaluation_judge_measurement` | `judge_v0_1.json` | [`Judge.lean`](../lean/FeedbackChannel/Judge.lean) |
 | [gold calibration](gold_calibration_second_grader.md) | `evaluation_gold_calibration` | `gold_v0_4.json` | [`Raters*.lean`](../lean/CLAIMS.md) |
-| [dynamic-filtration validity](dynamic_filtration_validity.md) | `evaluation_dynamic_filtration` | `dynamic_filtration_v0_1.json` | none |
+| [dynamic-filtration validity](dynamic_filtration_validity.md) | `evaluation_dynamic_filtration` | `dynamic_filtration_v0_2.json` | none |
 
 Modules are under `src/spiral_ln/`, receipts under `output/<module>/`. Each verifier script under
 `scripts/` regenerates its receipt, which records the SHA-256 of its sources. The whole suite runs with

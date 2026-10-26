@@ -16,7 +16,7 @@ from spiral_ln.evaluation_dynamic_filtration import (
     enumerate_private_stopping_times, fair_bit_sources, is_public_supermartingale,
     leakage_certificate, markov_factor_witnesses, martingale_from_terminal, peek_law,
     per_source_projective_likelihood, private_kernel, private_stopping_value,
-    rare_run_law, rare_run_process, rare_success_law, revocation_policy_value,
+    rare_run_law, rare_run_process, rare_run_value, rare_success_law, revocation_policy_value,
     sequential_private_value, single_source_after_view_value, static_factor_witness,
     static_histories_equivalent, total_variation_value, worst_stopped_expectation,
 )
@@ -101,13 +101,19 @@ def verify():
     checks["doubling_one_plus_half_horizon_n_1_to_5"] = all(
         v == (True, 1 + Q(n, 2), 1 + Q(n, 2), Q(2 ** n), Q(1)) for n, v in doubling.items())
     rare_run = {}
-    for n in range(1, 5):
-        for e in (Q(1, 2), Q(1, 10), Q(1, 1000)):
+    for n in range(1, 6):
+        for e in (Q(1, 2), Q(1, 10), Q(1, 1000), Q(2, 3), Q(3, 4), Q(9, 10)):
             law, proc = rare_run_law(e, n), rare_run_process(e, n)
             rare_run[(n, e)] = (worst_stopped_expectation(law, proc)["value"],
                                 private_stopping_value(law), leakage_certificate(law), law.private_symbols)
-    checks["rare_run_alphabet_bound_sharp_n_1_to_4"] = all(
-        v == (n * (1 - e) + 1, n * (1 - e) + 1, Q(n + 1), n + 1) for (n, e), v in rare_run.items())
+    checks["rare_run_alphabet_bound_sharp_n_1_to_5"] = all(
+        v == (n * (1 - e) + 1, rare_run_value(e, n), Q(n + 1), n + 1)
+        and (v[1] == v[0]) == (e <= Q(1, 2)) for (n, e), v in rare_run.items())
+    checks["rare_run_referee_cases_above_one_half"] = (
+        private_stopping_value(rare_run_law(Q(3, 4), 1)) == Q(7, 4)
+        and private_stopping_value(rare_run_law(Q(2, 3), 1)) == Q(5, 3)
+        and private_stopping_value(rare_run_law(Q(3, 4), 2)) == Q(2)
+        and private_stopping_value(rare_run_law(Q(9, 10), 3)) == Q(21, 10))
 
     # --- A3. random laws: closed form, bound chain, brute force, sequential arrival --------
     rng = random.Random(26102701)
@@ -190,6 +196,36 @@ def verify():
     checks["24_control_models_leakage_certificate_bounds_all_values"] = bounded
     checks["24_control_models_independent_noise_worthless"] = noise
     checks["control_inflation_witnessed_in_each_vulnerable_class"] = all(c > 0 for c in inflated.values())
+    rng = random.Random(1733)
+    both_immune = both_bounded = True
+    both_inflated = 0
+    both_cases = []
+    for trial in range(8):
+        states, queries, alphabet = 3, 2, 2
+        prior = rdist(rng, states)
+        transition = tuple(rdist(rng, states) for _ in range(states))
+        if trial % 2 == 0:
+            transition = tuple(tuple(Q(int(i == j)) for j in range(states)) for i in range(states))
+        kernels = tuple(tuple(rdist(rng, alphabet) for _ in range(states)) for _ in range(queries))
+        weights = tuple(rdist(rng, alphabet) for _ in range(queries))
+        ys = list(product(range(alphabet), repeat=queries))
+        private = private_kernel(states, kernels, 2, "both",
+                                 {(s, y): rdist(rng, 2) for s in range(states) for y in ys})
+        model = ControlModel(prior, transition, kernels, private, weights)
+        cert = control_leakage_certificate(model, 2)
+        row = {}
+        for timing in ("before", "after"):
+            for family in ("pointwise", "calibrated"):
+                v = actor_value(model, 2, timing, family)
+                row[f"{family}/both/{timing}"] = str(v)
+                both_bounded &= v <= cert
+                if family == "pointwise" and timing == "after":
+                    both_immune &= v <= 1
+                if family == "pointwise" and timing == "before":
+                    both_inflated += v > 1
+        both_cases.append(row)
+    checks["8_three_state_both_mode_models_posthoc_immune"] = both_immune
+    checks["8_three_state_both_mode_models_leakage_bounded_and_prepeek_inflates"] = both_bounded and both_inflated > 0
 
     # --- C. revocation chronologies ------------------------------------------------------
     one, two = fair_bit_sources(1), fair_bit_sources(2)
@@ -271,12 +307,12 @@ def verify():
         and m["single"][frozenset({1})][0] == m["single"][frozenset({1})][1]
         and m["single"][frozenset({0})] == ((Q(1, 6), Q(5, 6)), (Q(5, 26), Q(21, 26))))
 
-    fingerprint = sha256(json.dumps((law_cases, control_cases, chron_cases),
+    fingerprint = sha256(json.dumps((law_cases, control_cases, both_cases, chron_cases),
                                     separators=(",", ":")).encode("utf-8")).hexdigest()
     return {
         "all_passed": all(checks.values()), "checks": checks,
         "random_private_signal_laws": 200, "brute_force_stopping_comparisons": brute_count,
-        "control_models": 24, "revocation_chronologies": 150, "static_equivalence_pairs": 300,
+        "control_models": 24, "three_state_both_mode_models": 8, "revocation_chronologies": 150, "static_equivalence_pairs": 300,
         "case_sha256": fingerprint,
         "fixture": {
             "peek_values": {str(p): str(v) for p, v in peek.items()},
@@ -301,7 +337,7 @@ def main():
         "tests/test_evaluation_dynamic_filtration.py",
         "scripts/verify_evaluation_dynamic_filtration.py",
     )
-    report = {"schema_version": "0.1",
+    report = {"schema_version": "0.2",
               "generated_at_utc": datetime.now(timezone.utc).isoformat(),
               **verify(),
               "source_sha256": {name: sha256((root / name).read_bytes()).hexdigest()

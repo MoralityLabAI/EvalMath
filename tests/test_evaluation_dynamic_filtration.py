@@ -10,7 +10,7 @@ from spiral_ln.evaluation_dynamic_filtration import (
     enumerate_private_stopping_times, fair_bit_sources, is_public_supermartingale,
     leakage_certificate, markov_factor_witnesses, markov_subset_filter,
     martingale_from_terminal, peek_law, per_source_projective_likelihood,
-    private_kernel, private_stopping_value, rare_run_law, rare_run_process,
+    private_kernel, private_stopping_value, rare_run_law, rare_run_process, rare_run_value,
     rare_success_law, revocation_policy_value, sequential_private_value,
     single_source_after_view_value, static_factor_witness,
     static_histories_equivalent, static_subset_posterior, total_variation_value,
@@ -92,14 +92,18 @@ def test_doubling_value_is_one_plus_half_horizon():
 
 def test_rare_run_law_is_sharp_for_alphabet_bound():
     for n in (1, 2, 3):
-        for eps in (Q(1, 2), Q(1, 10)):
+        for eps in (Q(1, 2), Q(1, 10), Q(2, 3), Q(3, 4), Q(9, 10)):
             law, process = rare_run_law(eps, n), rare_run_process(eps, n)
             assert is_public_supermartingale(law, process)
             assert law.private_symbols == n + 1
             value = worst_stopped_expectation(law, process)["value"]
             assert value == n * (1 - eps) + 1
-            assert private_stopping_value(law) == value
+            assert private_stopping_value(law) == rare_run_value(eps, n) >= value
+            assert (private_stopping_value(law) == value) == (eps <= Q(1, 2))
             assert leakage_certificate(law) == n + 1
+    # the referee's cases: the all-success path is not the maximiser above one half
+    assert private_stopping_value(rare_run_law(Q(3, 4), 1)) == Q(7, 4)
+    assert private_stopping_value(rare_run_law(Q(9, 10), 3)) == Q(21, 10)
 
 
 def test_random_laws_bound_chain_and_brute_force():
@@ -179,6 +183,21 @@ def test_prepeek_and_calibrated_factors_can_inflate_but_respect_leakage():
             assert value <= control_leakage_certificate(model, 2) <= 4
             inflated[name] |= value > 1
     assert all(inflated.values())
+
+
+def test_three_state_both_mode_immunity_and_pre_peek():
+    rng = random.Random(17)
+    inflated = False
+    for trial in range(6):
+        prior, transition, kernels, weights = random_control(rng, 3, 2, 2, trial % 2 == 0)
+        ys = list(product(range(2), repeat=2))
+        both = private_kernel(3, kernels, 2, "both", {(s, y): rdist(rng, 2) for s in range(3) for y in ys})
+        model = ControlModel(prior, transition, kernels, both, weights)
+        assert actor_value(model, 2, "after", "pointwise") <= 1
+        value = actor_value(model, 2, "before", "pointwise")
+        assert value <= control_leakage_certificate(model, 2)
+        inflated |= value > 1
+    assert inflated
 
 
 def test_independent_private_noise_never_inflates():
