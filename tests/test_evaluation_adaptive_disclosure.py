@@ -54,6 +54,24 @@ def test_all_8_location_interval_optima_and_certified_gap():
     assert tree_as_data(a["tree"]) is not None
 
 
+def test_unrestricted_subset_queries_remove_the_interval_gap():
+    # Three fixed, non-contiguous bit-position queries encode all eight locations.
+    prior = one_hot_prior(8)
+    code_queries = tuple(tuple((i >> bit) & 1 for i in range(8)) for bit in range(3))
+    profile = transcript_profile(prior, code_queries, fixed_tree(prior, code_queries, (0, 1, 2)))
+    assert profile["leaves"] == 8 and profile["bayes_success"] == 1
+    assert profile["joint_collision_probability"] == Q(1, 8)
+
+
+def test_arbitrary_positive_integer_prior_weights():
+    prior = FinitePrior((1, 1), ((0, 0), (0, 1), (1, 0), (1, 1)), (1, 2, 3, 7))
+    bank = ((1, 0), (0, 1))
+    adaptive = adaptive_optimum(prior, bank, 1)
+    fixed = fixed_optimum(prior, bank, 1)
+    assert adaptive["bayes_success"] == fixed["bayes_success"] == Q(10, 13)
+    assert transcript_profile(prior, bank, adaptive["tree"])["bayes_success"] == Q(10, 13)
+
+
 def test_law_exhaustively_against_both_optimizers():
     for n, k in ((1, 0), (1, 2), (2, 1), (3, 1), (3, 2), (4, 2),
                  (5, 2), (5, 3), (6, 2), (6, 3), (7, 3), (8, 3)):
