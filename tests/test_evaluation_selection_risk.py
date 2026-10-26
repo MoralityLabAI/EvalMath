@@ -10,7 +10,8 @@ from spiral_ln.evaluation_selection_risk import (
     exhaustive_two_round_optimum, fixed_fibres, fixed_optimum, full_information_risk,
     hidden_prepeek_risk, no_feedback_risk, one_step_profile, partition_refinement,
     policy_fibres, policy_risk, root_and_amendment_machine, run_events,
-    selection_mass, state_bits, transcript,
+    selection_mass, state_bits, transcript, risk_projection, projection_risk,
+    projection_output, projection_event, projection_query, projection_postquery_risk,
 )
 
 
@@ -190,3 +191,48 @@ def test_malformed_models_and_policy_are_rejected():
         hidden_prepeek_risk(0, Q(1, 20))
     with pytest.raises(ValueError):
         state_bits(0)
+
+
+def test_joint_projection_preserves_conditional_risk_and_amendment_status():
+    machine = root_and_amendment_machine(3)
+    active = run_events(machine, 0, ("GRANT_0",))[0]
+    for null in (*dependent_five_percent_models(), risk_advantage_fixture()):
+        original = risk_projection(null, machine, active)
+        compressed = risk_projection(compress_contingency(null), machine, active)
+        assert original == compressed
+        assert projection_risk(original) == no_feedback_risk(null)
+        assert projection_output(original, machine) == (("GO", "eligible"), no_feedback_risk(null))
+        for q, query in enumerate(null.queries):
+            responses = projection_query(original, machine, q)
+            assert set(responses) == set(query)
+            total = sum(null.weights)
+            weighted_risk = sum(
+                sum(null.weights[i] for i, value in enumerate(query) if value == response)
+                * projection_risk(state)
+                for response, state in responses.items()
+            ) / total
+            assert weighted_risk == projection_postquery_risk(original, q)
+            for response, state in responses.items():
+                assert projection_output(state, machine)[0] == ("GO", "eligible")
+                amendment = projection_event(state, machine, "AMEND")
+                assert projection_output(amendment, machine)[0] == ("GO", "exploratory")
+                assert projection_risk(amendment) == projection_risk(state)
+                for second in range(len(null.queries)):
+                    deeper = projection_query(state, machine, second)
+                    assert all(projection_output(x, machine)[0][0] == "GO" for x in deeper.values())
+    first = risk_projection(dependent_five_percent_models()[0], machine, active)
+    # A prospective amendment before looking preserves eligibility under the contract.
+    prior_amend = projection_event(first, machine, "AMEND")
+    assert all(projection_output(x, machine)[0][1] == "eligible"
+               for x in projection_query(prior_amend, machine, 0).values())
+
+
+def test_invalid_projection_query_and_machine_rejected():
+    machine = root_and_amendment_machine(1)
+    p = risk_projection(dependent_five_percent_models()[0], machine)
+    with pytest.raises(ValueError):
+        projection_query(p, machine, 1)
+    with pytest.raises(ValueError):
+        projection_postquery_risk(p, -1)
+    with pytest.raises(ValueError):
+        projection_event(p, machine, "FAKE")
