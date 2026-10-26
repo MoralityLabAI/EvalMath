@@ -3,7 +3,7 @@
 The attacker may compute a covert symbol as an arbitrary function of the full
 null world and the public transcript, then select one false-positive event
 using only that symbol and transcript. The number of covert symbols per
-public transcript is bounded by `messages`. This is an *adversarial upper
+public transcript is bounded by ``messages``. This is an *adversarial upper
 bound* under that explicit alphabet assumption, not evidence that an actor's
 actual information flow has such a bound.
 
