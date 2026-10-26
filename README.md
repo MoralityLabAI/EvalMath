@@ -36,6 +36,21 @@ be checked in the actor's full information filtration. The source-hashed
 receipt verifies independent finite oracles; no physical acquisition claim
 is made.
 
+New: [validity under the actor's filtration](paper/dynamic_filtration_validity.md)
+answers when a public e-process stays safe for decisions taken with private
+information. Pointwise-valid factors on clean kernels are immune to any private
+information about the latent state and to any information received after the
+draw it concerns, but not to a pre-peek; factors calibrated only to the public
+posterior are immune to nothing. Otherwise a private signal inflates the stopped
+expectation by at most exp of its maximal leakage from the public transcript,
+at most its alphabet size, with an exact closed form for the information value
+and a per-process exact worst case. A source revocation recorded before its
+source is viewed is free; recorded after, it is a post-selection with exact
+cost (3/2 for one fair bit). The Bayesian belief state is not
+revocation-sufficient: a static world needs one projective likelihood per
+source, a Markov latent state the subset filters, none of which is redundant
+for two sources. No Lean theorem, no acquisition-time attestation.
+
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 ## Layout

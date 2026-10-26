@@ -1,0 +1,234 @@
+{
+  "schema_version": "0.1",
+  "generated_at_utc": "2026-10-26T16:28:10.257301+00:00",
+  "all_passed": true,
+  "checks": {
+    "peek_law_stopped_values": true,
+    "peek_law_closed_form_and_leakage": true,
+    "peek_three_quarters_value_below_leakage": true,
+    "rare_success_two_minus_epsilon": true,
+    "doubling_one_plus_half_horizon_n_1_to_5": true,
+    "rare_run_alphabet_bound_sharp_n_1_to_4": true,
+    "200_random_laws_bound_chain_1_V_leakage_L": true,
+    "200_random_laws_extreme_points_attain_closed_form": true,
+    "random_laws_one_step_total_variation_form": true,
+    "random_laws_brute_force_stopping_times": true,
+    "random_laws_sequential_arrival_monotone": true,
+    "60_independent_private_symbols_value_one": true,
+    "24_control_models_pointwise_immune_latent_or_posthoc": true,
+    "24_control_models_leakage_certificate_bounds_all_values": true,
+    "24_control_models_independent_noise_worthless": true,
+    "control_inflation_witnessed_in_each_vulnerable_class": true,
+    "fair_bit_revocation_witnesses": true,
+    "150_chronologies_safe_implies_no_inflation": true,
+    "150_chronologies_later_slot_weakly_increases": true,
+    "150_single_source_closed_form_E_max_F_1": true,
+    "static_pooled_equal_leave_one_out_differ": true,
+    "300_static_equivalence_iff_per_source_projective_likelihoods": true,
+    "markov_two_source_subset_filters_irredundant": true
+  },
+  "random_private_signal_laws": 200,
+  "brute_force_stopping_comparisons": 489,
+  "control_models": 24,
+  "revocation_chronologies": 150,
+  "static_equivalence_pairs": 300,
+  "case_sha256": "5488590c33e93e3bbc7650565a7d06eaeef7ce594cd46297fe8bcc226f915b4e",
+  "fixture": {
+    "peek_values": {
+      "0": "3/2",
+      "1/4": "5/4",
+      "1/2": "1",
+      "3/4": "5/4",
+      "1": "3/2"
+    },
+    "doubling": {
+      "1": [
+        "3/2",
+        "3/2",
+        "2",
+        "1"
+      ],
+      "2": [
+        "2",
+        "2",
+        "4",
+        "1"
+      ],
+      "3": [
+        "5/2",
+        "5/2",
+        "8",
+        "1"
+      ],
+      "4": [
+        "3",
+        "3",
+        "16",
+        "1"
+      ],
+      "5": [
+        "7/2",
+        "7/2",
+        "32",
+        "1"
+      ]
+    },
+    "rare_run": {
+      "1,1/2": [
+        "3/2",
+        "3/2",
+        "2",
+        "2"
+      ],
+      "1,1/10": [
+        "19/10",
+        "19/10",
+        "2",
+        "2"
+      ],
+      "1,1/1000": [
+        "1999/1000",
+        "1999/1000",
+        "2",
+        "2"
+      ],
+      "2,1/2": [
+        "2",
+        "2",
+        "3",
+        "3"
+      ],
+      "2,1/10": [
+        "14/5",
+        "14/5",
+        "3",
+        "3"
+      ],
+      "2,1/1000": [
+        "1499/500",
+        "1499/500",
+        "3",
+        "3"
+      ],
+      "3,1/2": [
+        "5/2",
+        "5/2",
+        "4",
+        "4"
+      ],
+      "3,1/10": [
+        "37/10",
+        "37/10",
+        "4",
+        "4"
+      ],
+      "3,1/1000": [
+        "3997/1000",
+        "3997/1000",
+        "4",
+        "4"
+      ],
+      "4,1/2": [
+        "3",
+        "3",
+        "5",
+        "5"
+      ],
+      "4,1/10": [
+        "23/5",
+        "23/5",
+        "5",
+        "5"
+      ],
+      "4,1/1000": [
+        "1249/250",
+        "1249/250",
+        "5",
+        "5"
+      ]
+    },
+    "control_inflation_counts": {
+      "pointwise/data/before": 12,
+      "calibrated/latent/before": 13,
+      "calibrated/latent/after": 11,
+      "calibrated/data/after": 14
+    },
+    "fair_bits": {
+      "one_after_view": "3/2",
+      "two_both_after": "9/4",
+      "two_cyclic_cross_policy": "5/4",
+      "two_triangular": "1"
+    },
+    "markov_witnesses": {
+      "pooled": {
+        "0,1": [
+          [
+            "21/26",
+            "5/26"
+          ],
+          [
+            "5/6",
+            "1/6"
+          ]
+        ],
+        "0": [
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "1/2"
+          ]
+        ],
+        "1": [
+          [
+            "5/6",
+            "1/6"
+          ],
+          [
+            "5/6",
+            "1/6"
+          ]
+        ]
+      },
+      "single": {
+        "0,1": [
+          [
+            "1/2",
+            "1/2"
+          ],
+          [
+            "1/2",
+            "1/2"
+          ]
+        ],
+        "0": [
+          [
+            "1/6",
+            "5/6"
+          ],
+          [
+            "5/26",
+            "21/26"
+          ]
+        ],
+        "1": [
+          [
+            "5/6",
+            "1/6"
+          ],
+          [
+            "5/6",
+            "1/6"
+          ]
+        ]
+      }
+    }
+  },
+  "source_sha256": {
+    "src/spiral_ln/evaluation_dynamic_filtration.py": "2f77d617fe0ff9a8141bd662cbfd703c6f7e05b1a5d057ae28b651854dc78e38",
+    "tests/test_evaluation_dynamic_filtration.py": "086eb42180208c024ca9f58432021ca7379e0e6453a2643a8a86c9fd2baa7779",
+    "scripts/verify_evaluation_dynamic_filtration.py": "b4f6e6428c91eee5111e0c66e30eaabb597e55c207002690d87d71c941238951"
+  }
+}

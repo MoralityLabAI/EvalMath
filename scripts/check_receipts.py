@@ -50,6 +50,8 @@ RECEIPTS = {
                         "output/evaluation_covert_feedback/covert_feedback_v0_2.json", [], False),
     "full_filtration": ("scripts/verify_evaluation_full_filtration.py",
                         "output/evaluation_full_filtration/full_filtration_v0_1.json", [], False),
+    "dynamic_filtration": ("scripts/verify_evaluation_dynamic_filtration.py",
+                           "output/evaluation_dynamic_filtration/dynamic_filtration_v0_1.json", [], False),
     "selection_kl": ("scripts/verify_evaluation_selection_kl.py",
                      "output/evaluation_selection_kl/selection_kl_v0_4.json", [], False),
     "gold_calibration": ("scripts/verify_evaluation_gold_calibration.py",
