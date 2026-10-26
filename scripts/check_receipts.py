@@ -47,7 +47,7 @@ RECEIPTS = {
     "selection_risk": ("scripts/verify_evaluation_selection_risk.py",
                        "output/evaluation_selection_risk/selection_risk_v0_1.json", [], False),
     "covert_feedback": ("scripts/verify_evaluation_covert_feedback.py",
-                        "output/evaluation_covert_feedback/covert_feedback_v0_1.json", [], False),
+                        "output/evaluation_covert_feedback/covert_feedback_v0_2.json", [], False),
     "selection_kl": ("scripts/verify_evaluation_selection_kl.py",
                      "output/evaluation_selection_kl/selection_kl_v0_4.json", [], False),
     "gold_calibration": ("scripts/verify_evaluation_gold_calibration.py",
