@@ -63,6 +63,11 @@ def _contains(source: str, *tokens: str) -> bool:
     return all(token in source for token in tokens)
 
 
+def _lean_endpoint_signature(source: str) -> str:
+    """Compare exact printed proposition syntax, independent of whitespace."""
+    return "".join(_section(source, "theorem exact_count_and_sat ", ":= by").split())
+
+
 def validate_claim_contracts(claims: dict[str, Any]) -> None:
     """Reject evidence promotion or a missing width/density boundary."""
     _require(set(claims) == set(CLAIM_CONTRACTS), "claim IDs changed")
@@ -125,6 +130,8 @@ def analyze_source_text(sources: dict[str, str]) -> dict[str, bool]:
                              "end OAI.Algorithms.SubexponentialSAT.SqrtLogSpace")
     checks["comparator_is_admitted_specification"] = re.search(
         r":=\s*by\s+sorry\b", specification) is not None
+    checks["comparator_matches_implemented_type"] = (
+        _lean_endpoint_signature(comparator) == _lean_endpoint_signature(final))
     config = json.loads(sources["lean_config"])
     checks["comparator_points_to_endpoint"] = (
         config.get("solution_module") == "OAI.Algorithms.SubexponentialSAT.Main" and

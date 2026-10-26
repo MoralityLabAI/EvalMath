@@ -64,6 +64,7 @@
     "lean_declared_axiom_inspection": true,
     "lean_rho_theorem_separate": true,
     "comparator_is_admitted_specification": true,
+    "comparator_matches_implemented_type": true,
     "comparator_points_to_endpoint": true,
     "comparator_permitted_axioms": true,
     "scope_document_admits_weaker_lean": true,
@@ -79,10 +80,10 @@
   ],
   "schema_version": "0.1",
   "source_sha256": {
-    "src/spiral_ln/proof_fidelity.py": "f35fbb17bd8b56d5c0c6822539da9ce876d32a73f445487cdf4ea564e868efaf",
+    "src/spiral_ln/proof_fidelity.py": "8c4dcd0bee504b0f4294235cd5445c8eb90f711427857dfa191d3615b0446e49",
     "scripts/verify_proof_fidelity_openai_eth.py": "ed59d4ad3fd43eca9f7ae0cd32b223da8e27a9019b3723924827131a78f67f0f",
     "configs/openai_eth_fidelity.json": "b2cb35fc438642201de73e502869b3abeb1e1cd167ca318f6907978e34ae126c",
-    "paper/proof_fidelity_openai_eth.md": "d88d1e46e0585540f65cfef7ba760f4e2d5626f02e8f6e1f721e876e1e562723"
+    "paper/proof_fidelity_openai_eth.md": "9153497b1f24ee4c14169f799c3ba7c5bc1fe46567f2fcc1bec1585987719e0a"
   },
   "generated_at_utc": "2026-10-27T00:00:00+00:00"
 }

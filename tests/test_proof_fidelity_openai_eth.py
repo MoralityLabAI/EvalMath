@@ -129,3 +129,13 @@ def test_manifest_cannot_rebind_sources_or_commit():
     bad["sources"]["lean_final"]["upstream_path"] = "lean/something-else.lean"
     with pytest.raises(FidelityError, match="upstream path"):
         run_audit(ROOT, bad)
+
+
+def test_comparator_type_drift_is_detected():
+    sources = _sources()
+    token = "visitedSpace intermediate"
+    assert token in sources["lean_comparator"]
+    sources["lean_comparator"] = sources["lean_comparator"].replace(
+        token, "visitedBytes intermediate", 1)
+    with pytest.raises(FidelityError, match="comparator_matches_implemented_type"):
+        analyze_source_text(sources)

@@ -21,6 +21,8 @@ Run `PYTHONPATH=src python scripts/verify_proof_fidelity_openai_eth.py` to inspe
 | Comparator | [`ComparatorChallenges/SubexponentialSAT.lean`](https://github.com/openai/math/blob/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/lean/ComparatorChallenges/SubexponentialSAT.lean) | The corresponding theorem *specification* contains `sorry` | Explicit specification placeholder; the actual proof is in `Final.lean` |
 | Upstream formalization scope | [`lean/docs/378.md`](https://github.com/openai/math/blob/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/lean/docs/378.md) | Explicitly distinguishes the Lean `loglog^2` exponent from the manuscript's sharper `loglog` and sparse `1` bounds | Upstream documentation, consistent with file inspection |
 
+The whitespace-normalized theorem signature of `exact_count_and_sat` matches its comparator specification exactly in these pinned files. This equality covers the written hypotheses and conclusion, independently of the proof term.
+
 The Lean file also contains `exact_count_eth`, which transports the machine theorem to a bound in `n + F.card` with `rho(n)`. This is useful for connecting input encoding to the conventional parameterization. The Lean CNF type is a finite set of finite sets of literals on `Fin n`. It normalizes duplicate literals and clauses, preserving satisfaction counts over the declared variables. Matching this input model to every syntactic choice in the manuscript remains an explicit fidelity obligation.
 
 ## Implication, formal boundary, and the verification gap
