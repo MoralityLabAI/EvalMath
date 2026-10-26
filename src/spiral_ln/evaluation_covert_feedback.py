@@ -187,3 +187,88 @@ def minimum_full_exposure_messages(model: NullModel, fibres=None) -> dict:
     assert covert_risk(model, budget, public)["risk"] == full_information_risk(model)
     return {"messages": budget, "per_public_leaf": tuple(thresholds),
             "covering_event_sets": tuple(covers)}
+
+
+def adaptive_covert_optimum(model: NullModel, budget: int, messages: int) -> dict:
+    """Exact joint choice of adaptive public queries and terminal covert signal.
+
+    A fixed hidden message alphabet is available *after* all public queries.
+    Only public responses govern subsequent public query choices. Public
+    queries may stop early. The base-case terminal value is maximum coverage,
+    so the recursion is a finite Bellman equality under these assumptions.
+    """
+    from functools import lru_cache
+    from spiral_ln.evaluation_selection_risk import _split
+    if type(budget) is not int or budget < 0:
+        raise ValueError("budget must be a nonnegative integer")
+    if type(messages) is not int or messages < 1:
+        raise ValueError("messages must be a positive integer")
+
+    @lru_cache(None)
+    def solve(worlds: tuple[int, ...], steps: int):
+        best, _ = best_event_cover(model, worlds, messages)
+        winning = QueryNode()
+        if steps:
+            for qi in range(len(model.queries)):
+                groups = _split(model, worlds, qi)
+                if len(groups) == 1:
+                    continue
+                children = tuple((answer, solve(part, steps - 1))
+                                 for answer, part in groups)
+                gain = sum(result[0] for _, result in children)
+                if gain > best:
+                    best = gain
+                    winning = QueryNode(qi, tuple((answer, result[1])
+                                                  for answer, result in children))
+        return best, winning
+
+    mass, tree = solve(tuple(range(len(model.weights))), budget)
+    assert covert_tree_risk(model, tree, messages)["risk"] == Fraction(mass, model.total)
+    return {"risk": Fraction(mass, model.total), "tree": tree,
+            "covered_mass": mass, "subproblems": solve.cache_info().currsize}
+
+
+def fixed_covert_optimum(model: NullModel, budget: int, messages: int) -> dict:
+    """Exhaustive fixed public schedules with optimal terminal covert messaging."""
+    from itertools import combinations_with_replacement
+    from spiral_ln.evaluation_selection_risk import fixed_fibres
+    if type(budget) is not int or budget < 0:
+        raise ValueError("budget must be a nonnegative integer")
+    if type(messages) is not int or messages < 1:
+        raise ValueError("messages must be a positive integer")
+    best = covert_risk(model, messages)["risk"]
+    schedule = ()
+    checked = 1
+    for k in range(1, budget + 1):
+        for candidate in combinations_with_replacement(range(len(model.queries)), k):
+            value = covert_risk(model, messages, fixed_fibres(model, candidate))["risk"]
+            checked += 1
+            if value > best:
+                best, schedule = value, candidate
+    return {"risk": best, "schedule": schedule,
+            "schedules_checked": checked}
+
+
+def brute_two_round_covert_optimum(model: NullModel, messages: int) -> Fraction:
+    """Independent oracle: enumerate public two-stage plans and secret labels.
+
+    Each first query leads to separately selected second queries (or stopping).
+    For terminal selection, enumerate covert *world-to-symbol* functions rather
+    than use the maximum-coverage formula. Exponential; small states only.
+    """
+    from spiral_ln.evaluation_selection_risk import _split
+    all_worlds = tuple(range(len(model.weights)))
+    best = brute_force_covert_risk(model, messages)
+    for first in range(len(model.queries)):
+        parts = _split(model, all_worlds, first)
+        for plan in product(range(-1, len(model.queries)), repeat=len(parts)):
+            leafs = []
+            for (_, group), second in zip(parts, plan):
+                if second == -1:
+                    leafs.append(group)
+                else:
+                    leafs.extend(part for _, part in _split(model, group, second))
+            candidate = brute_force_covert_risk(model, messages, leafs)
+            if candidate > best:
+                best = candidate
+    return best
