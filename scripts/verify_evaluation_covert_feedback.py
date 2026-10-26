@@ -16,7 +16,8 @@ from spiral_ln.evaluation_selection_risk import (
 from spiral_ln.evaluation_covert_feedback import (
     brute_force_covert_risk, covert_risk, covert_tree_risk,
     covert_witness_labels, independent_boolean_null,
-    minimum_full_exposure_messages,
+    minimum_full_exposure_messages, adaptive_covert_optimum,
+    fixed_covert_optimum, brute_two_round_covert_optimum,
 )
 
 
@@ -65,6 +66,37 @@ def verify() -> dict:
     checks["existing_query_tree_adapter"] = (
         covert_tree_risk(iid, policy, 2)["risk"] == Q(1141, 8000))
 
+    # Joint public adaptive querying with terminal covert messages: an exact
+    # Bellman recurrence cross-checked by complete *policy* plus *hidden-label*
+    # enumeration, with no DP or coverage implementation imported by the oracle.
+    checks["iid_joint_public_covert_risk"] = (
+        adaptive_covert_optimum(iid, 0, 2)["risk"] == Q(39, 400)
+        and fixed_covert_optimum(iid, 1, 2)["risk"] == Q(1141, 8000)
+        and adaptive_covert_optimum(iid, 1, 2)["risk"] == Q(1141, 8000)
+        and adaptive_covert_optimum(iid, 2, 1)["risk"] == Q(1141, 8000))
+    joint_rng = random.Random(74022)
+    joint_cases = []
+    joint_agree = joint_ordered = True
+    for size in range(2, 6):
+        for _ in range(10):
+            model = NullModel(tuple(joint_rng.randrange(1, 7) for _ in range(size)),
+                              tuple(tuple(bool(joint_rng.randrange(2)) for _ in range(size))
+                                    for _ in range(3)),
+                              tuple(tuple(joint_rng.randrange(2) for _ in range(size))
+                                    for _ in range(2)))
+            for symbols in (1, 2):
+                adaptive = adaptive_covert_optimum(model, 2, symbols)["risk"]
+                fixed = fixed_covert_optimum(model, 2, symbols)["risk"]
+                direct = brute_two_round_covert_optimum(model, symbols)
+                joint_agree &= adaptive == direct
+                joint_ordered &= fixed <= adaptive <= full_information_risk(model)
+                joint_cases.append((size, symbols, str(adaptive), str(fixed),
+                                    model.weights, tuple(tuple(int(x) for x in e)
+                                                         for e in model.events), model.queries))
+    checks["80_independent_joint_public_secret_oracles"] = (
+        joint_agree and len(joint_cases) == 80)
+    checks["80_joint_risk_monotonicity_cases"] = joint_ordered
+
     # Randomized *deterministic-seed* finite exact comparisons against a
     # separately coded oracle that enumerates hidden message assignments.
     rng = random.Random(2601026)
@@ -95,10 +127,13 @@ def verify() -> dict:
         covert_risk(NullModel((1,), ((False,),), ((0,),)), 1)["risk"] == 0
         and covert_risk(NullModel((1,), ((True,),), ((0,),)), 5)["risk"] == 1)
     digest = sha256(json.dumps(cases, separators=(',', ':')).encode()).hexdigest()
+    joint_digest = sha256(json.dumps(joint_cases, separators=(',', ':')).encode()).hexdigest()
     return {
         "checks": checks, "all_passed": all(checks.values()),
         "independent_oracle_comparisons": total,
         "seeded_models": len(cases), "case_sha256": digest,
+        "joint_independent_policy_oracles": len(joint_cases),
+        "joint_case_sha256": joint_digest,
         "nominal_event_rate": "1/20",
         "disjoint_one_bit": "1/10",
         "shared_one_bit": "1/20",
@@ -118,7 +153,7 @@ def main() -> int:
     sources = ("src/spiral_ln/evaluation_covert_feedback.py",
                "tests/test_evaluation_covert_feedback.py",
                "scripts/verify_evaluation_covert_feedback.py")
-    report = {"schema_version": "0.1",
+    report = {"schema_version": "0.2",
               "generated_at_utc": datetime.now(timezone.utc).isoformat(),
               **verify(),
               "source_sha256": {p: sha256((root / p).read_bytes()).hexdigest()
