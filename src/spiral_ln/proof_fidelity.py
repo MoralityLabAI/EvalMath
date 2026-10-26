@@ -8,6 +8,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from fractions import Fraction
 from pathlib import Path
 from typing import Any
 
@@ -149,6 +150,41 @@ def analyze_source_text(sources: dict[str, str]) -> dict[str, bool]:
     return checks
 
 
+def verify_hermite_valuation_grid(max_a: int = 7) -> int:
+    """Finite, exact probe of the manuscript's tapered-Hermite v2 identity.
+
+    Uses the *signed* residue grid S = [-2^a, ..., 2^a-1]. For each
+    1 <= u <= a, u <= M <= u+5 and node t with q_t > 0, computes
+    v2(E_t(0)) directly as a sum over nodes, and independently via
+    the manuscript's grouped-valuation expression. No symbolic proof.
+    """
+    def valuation(value: int) -> int:
+        value = abs(value)
+        _require(value > 0, "2-adic valuation of zero")
+        return (value & -value).bit_length() - 1
+
+    total = 0
+    for a in range(1, max_a + 1):
+        L = 1 << a
+        S = range(-L, L)
+        for u in range(1, a + 1):
+            for M in range(u, u + 6):
+                h = (3 * M + u - 1) // u
+                q = lambda i: h * max(0, u - i)
+                for t in S:
+                    if t == 0 or valuation(t) >= u:
+                        continue
+                    i, D = valuation(t), L >> valuation(t)
+                    direct = sum(q(valuation(z)) * (valuation(z) - valuation(t-z))
+                                 for z in S if z != 0 and z != t)
+                    grouped = sum((Fraction(D * j, 1 << j) * (q(i+j) - q(i))
+                                   for j in range(1, a-i+1)), Fraction(0))
+                    _require(direct == grouped, f"Hermite valuation identity failed: {(a,u,M,t)}")
+                    _require(direct >= -6 * D * h, f"Hermite loss bound failed: {(a,u,M,t)}")
+                    total += 1
+    return total
+
+
 def run_audit(root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
     """Validate frozen source bytes, inspect statements, and enforce fidelity labels."""
     _require(manifest.get("schema_version") == "0.1", "unsupported manifest schema")
@@ -185,6 +221,8 @@ def run_audit(root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
     checks = analyze_source_text(sources)
     checks["seven_git_blob_pins"] = len(pins) == 7
     checks["evidence_labels_fail_closed"] = True  # validate_claim_contracts raised on mismatch
+    hermite_cases = verify_hermite_valuation_grid()
+    checks["hermite_valuation_finite_grid"] = hermite_cases == 15492
     checks["three_exponents_have_strict_audit_order"] = (
         manifest["claims"]["paper_fixed_density"]["scale"] == "sqrtlog" and
         manifest["claims"]["paper_general_bound"]["scale"] == "loglog" and
@@ -197,6 +235,9 @@ def run_audit(root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
         "source_git_blob_sha": pins,
         "checks": checks,
         "all_passed": all(checks.values()),
+        "finite_probes": {"hermite_valuation_cases": hermite_cases,
+                          "grid": "1<=a<=7; 1<=u<=a; u<=M<=u+5; q_t>0",
+                          "evidence": "finite_verified_example"},
         "open_obligations": [
             "rebuild the entire upstream Lean import closure and inspect #print axioms output",
             "independently audit tensor packing, 2-adic Hermite precision, and recursion cost",

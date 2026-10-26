@@ -70,6 +70,7 @@
     "scope_document_admits_weaker_lean": true,
     "seven_git_blob_pins": true,
     "evidence_labels_fail_closed": true,
+    "hermite_valuation_finite_grid": true,
     "three_exponents_have_strict_audit_order": true
   },
   "all_passed": true,
@@ -80,10 +81,15 @@
   ],
   "schema_version": "0.1",
   "source_sha256": {
-    "src/spiral_ln/proof_fidelity.py": "8c4dcd0bee504b0f4294235cd5445c8eb90f711427857dfa191d3615b0446e49",
+    "src/spiral_ln/proof_fidelity.py": "76897ca2727ca9c698f8585319d2bd13016cbe6667f071bdc26277f2ed9a7d10",
     "scripts/verify_proof_fidelity_openai_eth.py": "ed59d4ad3fd43eca9f7ae0cd32b223da8e27a9019b3723924827131a78f67f0f",
     "configs/openai_eth_fidelity.json": "b2cb35fc438642201de73e502869b3abeb1e1cd167ca318f6907978e34ae126c",
-    "paper/proof_fidelity_openai_eth.md": "9153497b1f24ee4c14169f799c3ba7c5bc1fe46567f2fcc1bec1585987719e0a"
+    "paper/proof_fidelity_openai_eth.md": "f819cbb8f4a0f1cbb78874503cbd1d9e92467312745add0faaa2db17d989cbe0"
   },
-  "generated_at_utc": "2026-10-27T00:00:00+00:00"
+  "generated_at_utc": "2026-10-27T00:00:00+00:00",
+  "finite_probes": {
+    "hermite_valuation_cases": 15492,
+    "grid": "1<=a<=7; 1<=u<=a; u<=M<=u+5; q_t>0",
+    "evidence": "finite_verified_example"
+  }
 }

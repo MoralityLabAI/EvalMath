@@ -139,3 +139,8 @@ def test_comparator_type_drift_is_detected():
         token, "visitedBytes intermediate", 1)
     with pytest.raises(FidelityError, match="comparator_matches_implemented_type"):
         analyze_source_text(sources)
+
+
+def test_tapered_hermite_valuation_exact_grid():
+    from spiral_ln.proof_fidelity import verify_hermite_valuation_grid
+    assert verify_hermite_valuation_grid() == 15492

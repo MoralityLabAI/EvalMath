@@ -35,6 +35,8 @@ The formal Lean endpoint corresponds to the weaker exponent, and the sharper rat
 
 The mathematically highest-value audit is `quantitative-contraction.tex`'s **tapered Hermite recovery** (`lem:tapered-hermite`): check the valuation identity, truncation orders, powers-of-two precision loss, and reconstruction under the exact ring. The packing lemma's port-incidence construction and the recurrence turning a contraction on `M` wires into child networks with at most `M/8` wires are separate obligations. In the counting reduction, check that the clause network has `O_k(n+m)` edges, that variable-equality gadgets count each satisfying assignment once, and that a residue modulo `2^(n+1)` preserves an exact count at most `2^n`.
 
+A finite exact check of the tapered-Hermite valuation identity and its lower bound covers **15,492** choices of `(a,u,M,t)` with `1 <= a <= 7`, `1 <= u <= a`, `u <= M <= u+5` and positive node multiplicity. The code calculates the valuation from the original product's factors and separately from the grouped-valuation expression, using rational arithmetic and the signed residue grid `{-2^a, ..., 2^a - 1}`. All enumerated cases agree. Evidence level: **finite verified example**.
+
 An independent Lean audit should pin Mathlib and the Lean toolchain, run `lake build` on the upstream commit, replay the `#print axioms` commands, and compare exact theorem types after elaboration. There is a further trust boundary between validating a *theorem statement* and validating that it faithfully encodes an intended algorithm and its runtime cost model. A source-hashed receipt documents this distinction; it does not close the remaining proof obligations.
 
 ## Falsification cases
