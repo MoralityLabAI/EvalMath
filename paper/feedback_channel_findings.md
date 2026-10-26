@@ -125,6 +125,17 @@ rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.
   the dimension (Theorem 8), but two triples of maps on six items with matching nerve homotopy data have
   separate fibres of dimension 0 and 1 (Counterexample 9, checked independently by the lead). There the
   word is nominal. Lean: not yet formalized.
+- **Adaptive disclosure composes pathwise.** In a finite deterministic subset-sum feedback
+  tree, each transcript fibre consists exactly of the feasible tables satisfying the
+  queries encountered on that path. Collision probability has an exact posterior-mass
+  formula with a nonnegative reduction at each round. The Bayes-optimal policy obeys
+  an exact dynamic programme. For a uniformly located single marked item and interval
+  queries, k fixed queries distinguish at most 2k locations, whereas k adaptive
+  queries distinguish 2^k (capped by the number of locations). At eight locations
+  and three queries the best fixed identification success is 3/4; adaptive success
+  is 1. *Algebraic identity* under the one-hot model; *finite verified example*
+  for 32 enumerated (n,k) cases and 20 independent bit-record checks.
+  ([adaptive disclosure](adaptive_disclosure.md)); no Lean formalization yet.
 - **Patching failures needs a search, not a rule.** Filling categories in order of failure rate
   maximizes expected hits at every patch count (Prop 3). But for the expected number of patches to reach
   a target, no index rule is optimal: the better of two categories can flip with the rest of the state
