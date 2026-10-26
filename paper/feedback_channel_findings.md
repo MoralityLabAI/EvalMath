@@ -143,6 +143,22 @@ rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.
   readout set moves the readout gap like a memorizing feedback step and leaves no other trace.
   *Finite verified example* ([composition](evaluation_feedback_composition.md)).
 
+- **Adaptive feedback changes selection risk under calibrated null events.** For a
+  finite null and false-authorization events, choosing the reported event after
+  seeing a transcript has exact risk equal to the sum, over transcript cells,
+  of the largest false-positive event mass in each cell. Two laws with identical
+  per-event 5% rates have different post-query risks (5% versus 10%) because of
+  dependence. In a five-atom, three-event fixture, two fixed queries give
+  maximum risk 3/40, while two adaptive queries achieve 4/40; the no-query risk
+  is 1/20. A joint query-response/event histogram suffices for all future
+  deterministic queries under a **fixed** query and event vocabulary. A separate
+  revocation/amendment machine with m independently revocable roots has exactly
+  3×2^m continuation classes, requiring m+2 bits. *Algebraic identity* for the
+  finite risk formula, sufficiency and declared automaton lower bound;
+  *finite verified example* for the five-atom witness and exhaustive searches.
+  ([selection-risk continuation note](selection_risk_continuations.md)).
+  No real evaluator, physical sampling claim or Lean formalization is included.
+
 ## 6. Measuring the judge
 
 - **The shared error is measurable.** A sealed gold-labelled sample, one read, a 2 × 2 table and exact
