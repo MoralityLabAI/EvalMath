@@ -169,7 +169,10 @@ rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.
   (14.2625%). The hidden encoder is allowed to inspect all candidate
   outcomes, so these bounds depend on a separately established information
   alphabet limit. *Algebraic identity* for the formula and bounds;
-  *finite verified example* for the numbers and 210 independent comparisons.
+  *finite verified example* for the numbers, 210 independent hidden-message
+  comparisons, and 80 independently enumerated public adaptive policies.
+  A Bellman law optimizes public query selection with the covert signal held
+  until the final step. *Algebraic identity* under that information contract.
   ([covert-feedback note](covert_feedback_risk.md)); no new Lean formalization.
 
 ## 6. Measuring the judge
