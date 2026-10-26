@@ -27,10 +27,18 @@ CLAIM_CONTRACTS = {
     "comparator_specification": ("specification", "loglog_squared", "exact_count_polyspace"),
 }
 
-REQUIRED_SOURCES = {
-    "manuscript", "tensor_reduction", "tensor_contraction",
-    "lean_final", "lean_comparator", "lean_config", "lean_scope",
+FROZEN_UPSTREAM_COMMIT = "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a"
+FROZEN_SOURCE_BLOBS = {
+    "manuscript": ("preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/main_full_version.tex", "f7af85e623b58e0ca9f4b9416916d442defa963a"),
+    "tensor_reduction": ("preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-reduction.tex", "80389ac39d987133b71b2ddc2593e6fcdd99871a"),
+    "tensor_contraction": ("preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-contraction.tex", "51ba54efc29f51bbc0426f848003030da484f354"),
+    "lean_final": ("lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Final.lean", "a69635a2492e06a26f2e33d4251edd1e21ba3332"),
+    "lean_comparator": ("lean/ComparatorChallenges/SubexponentialSAT.lean", "a8d5ff3a3e80323675b1f2d1ea611560b783e9ca"),
+    "lean_config": ("lean/ComparatorChallenges/SubexponentialSAT.json", "d4cc9e7074e900c1aa6371151cfd234c121a0b82"),
+    "lean_scope": ("lean/docs/378.md", "223bbe187394bffca8a2c7ba1656538bfba26e3b"),
 }
+REQUIRED_SOURCES = set(FROZEN_SOURCE_BLOBS)
+
 
 
 def git_blob_sha(data: bytes) -> str:
@@ -139,23 +147,32 @@ def run_audit(root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
     _require(manifest.get("schema_version") == "0.1", "unsupported manifest schema")
     _require(manifest.get("upstream_repo") == "openai/math", "wrong upstream repository")
     commit = manifest.get("upstream_commit", "")
-    _require(bool(re.fullmatch(r"[a-f0-9]{40}", commit)), "un-pinned upstream revision")
+    _require(commit == FROZEN_UPSTREAM_COMMIT, "upstream revision differs from frozen commit")
     _require(set(manifest.get("sources", {})) == REQUIRED_SOURCES, "missing or extra source roles")
     validate_claim_contracts(manifest.get("claims", {}))
+    for role, spec in manifest["sources"].items():
+        expected_path, expected_sha = FROZEN_SOURCE_BLOBS[role]
+        _require(spec.get("upstream_path") == expected_path,
+                 f"source {role}: upstream path differs from frozen source")
+        _require(spec.get("git_blob_sha") == expected_sha,
+                 f"source {role}: manifest blob differs from frozen source")
     sources: dict[str, str] = {}
     pins: dict[str, str] = {}
     for role, spec in sorted(manifest["sources"].items()):
         rel = spec.get("path", "")
         _require(rel.startswith("fixtures/external/openai_eth_20261025/") and
                  ".." not in Path(rel).parts, f"source {role}: unsafe fixture path")
+        expected_path, expected_sha = FROZEN_SOURCE_BLOBS[role]
+        _require(spec.get("upstream_path") == expected_path,
+                 f"source {role}: upstream path differs from frozen source")
+        _require(spec.get("git_blob_sha") == expected_sha,
+                 f"source {role}: manifest blob differs from frozen source")
         path = root / rel
         _require(path.is_file(), f"source {role}: missing archived blob: {rel}")
         contents = path.read_bytes()
         digest = git_blob_sha(contents)
-        _require(digest == spec.get("git_blob_sha"),
+        _require(digest == expected_sha,
                  f"source {role}: Git blob differs from pinned upstream")
-        _require(spec.get("upstream_path", "").startswith(("preprints/", "lean/")),
-                 f"source {role}: missing upstream path")
         sources[role] = contents.decode("utf-8")
         pins[role] = digest
     checks = analyze_source_text(sources)

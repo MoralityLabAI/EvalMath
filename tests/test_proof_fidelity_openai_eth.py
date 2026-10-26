@@ -113,3 +113,19 @@ def test_comparator_sorry_is_distinct_from_actual_proof():
     source["lean_final"] = source["lean_final"].replace("  exact hrun", "  sorry", 1)
     with pytest.raises(FidelityError, match="lean_endpoint_has_explicit_proof"):
         analyze_source_text(source)
+
+
+def test_manifest_cannot_rebind_sources_or_commit():
+    case = _manifest()
+    bad = copy.deepcopy(case)
+    bad["upstream_commit"] = "0" * 40
+    with pytest.raises(FidelityError, match="upstream revision"):
+        run_audit(ROOT, bad)
+    bad = copy.deepcopy(case)
+    bad["sources"]["lean_final"]["git_blob_sha"] = "0" * 40
+    with pytest.raises(FidelityError, match="manifest blob"):
+        run_audit(ROOT, bad)
+    bad = copy.deepcopy(case)
+    bad["sources"]["lean_final"]["upstream_path"] = "lean/something-else.lean"
+    with pytest.raises(FidelityError, match="upstream path"):
+        run_audit(ROOT, bad)

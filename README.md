@@ -74,7 +74,7 @@ The [OpenAI ETH claim crosswalk](paper/proof_fidelity_openai_eth.md) compares th
 headline, manuscript theorem and sharper tensor bounds with the actual Lean
 endpoint and admitted comparator specification. It archives seven original
 upstream sources at a pinned Git commit and includes 21 structural checks,
-nine pytest cases, adversarial overclaim tests, and a source-hashed receipt.
+ten pytest cases, adversarial overclaim tests, and a source-hashed receipt.
 
 `python scripts/check_receipts.py --only openai_eth_fidelity`
 rechecks the archive offline. This tests source integrity and claim fidelity;
