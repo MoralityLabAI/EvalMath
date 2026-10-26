@@ -133,8 +133,12 @@ rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.
   queries, k fixed queries distinguish at most 2k locations, whereas k adaptive
   queries distinguish 2^k (capped by the number of locations). At eight locations
   and three queries the best fixed identification success is 3/4; adaptive success
-  is 1. *Algebraic identity* under the one-hot model; *finite verified example*
-  for 32 enumerated (n,k) cases and 20 independent bit-record checks.
+  is 1. Under independent fair item bits, the best three-query adaptive
+  interval policy on six cells identifies the entire table with probability
+  39/64, against 34/64 for the best fixed schedule; on seven cells the figures
+  are 54/128 and 48/128. *Algebraic identity* for the general transcript and
+  one-hot theorems; *finite verified example* for the independent-bit witnesses,
+  32 one-hot (n,k) optimizations and literal-record checks.
   ([adaptive disclosure](adaptive_disclosure.md)); no Lean formalization yet.
 - **Patching failures needs a search, not a rule.** Filling categories in order of failure rate
   maximizes expected hits at every patch count (Prop 3). But for the expected number of patches to reach
