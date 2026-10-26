@@ -54,6 +54,25 @@ def test_all_8_location_interval_optima_and_certified_gap():
     assert tree_as_data(a["tree"]) is not None
 
 
+def test_independent_fair_bits_have_adaptive_interval_advantage():
+    # A genuinely independent-item prior also permits adaptive gains.
+    for n, adaptive_value, fixed_value, adaptive_leaves, fixed_leaves in (
+        (6, Q(39, 64), Q(17, 32), 39, 34),
+        (7, Q(27, 64), Q(3, 8), 54, 48),
+    ):
+        prior, queries = fair_bit_prior((1,) * n), interval_bank(n)
+        adaptive, fixed = adaptive_optimum(prior, queries, 3), fixed_optimum(prior, queries, 3)
+        assert adaptive["bayes_success"] == adaptive_value
+        assert fixed["bayes_success"] == fixed_value
+        assert adaptive_value > fixed_value
+        report = transcript_profile(prior, queries, adaptive["tree"])
+        assert report["leaves"] == adaptive_leaves
+        assert report == direct_bit_profile(prior.capacities, queries, adaptive["tree"])
+        fixed_report = transcript_profile(prior, queries, fixed_tree(prior, queries, fixed["schedule"]))
+        assert fixed_report["leaves"] == fixed_leaves
+        assert fixed_report["bayes_success"] == fixed_value
+
+
 def test_unrestricted_subset_queries_remove_the_interval_gap():
     # Three fixed, non-contiguous bit-position queries encode all eight locations.
     prior = one_hot_prior(8)
