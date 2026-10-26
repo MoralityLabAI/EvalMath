@@ -17,6 +17,13 @@ queries and 10% under adaptive queries. A finite procedural state machine
 demonstrates why source-revocation identity and amendment chronology must
 survive compression under its declared future-event contract.
 
+New: [bounded covert-feedback risk](paper/covert_feedback_risk.md) establishes
+an exact weighted maximum-coverage law for the information that a hidden message
+can add after a public feedback transcript. With at most L hidden symbols,
+false-authorization risk is at most L times public risk, a sharp bound. The
+finite oracle distinguishes message capacity from the number of unseen
+candidate outcomes inspected, and independently checks 210 small cases.
+
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 ## Layout
