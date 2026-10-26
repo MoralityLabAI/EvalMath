@@ -158,6 +158,19 @@ rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.
   *finite verified example* for the five-atom witness and exhaustive searches.
   ([selection-risk continuation note](selection_risk_continuations.md)).
   No real evaluator, physical sampling claim or Lean formalization is included.
+- **A bounded covert message has an exact selection-risk cost.** Given a public
+  evaluation transcript and an unrecorded message with at most L possible
+  values per public transcript, maximum false-authorization risk is weighted
+  maximum coverage of at most L false-positive events in each transcript
+  fibre. It lies between the public risk and min(full-information risk,
+  L times public risk), with a sharp factor-L witness. Under three independent
+  nominal 5% events, one covert bit raises risk from 5% to 39/400 (9.75%);
+  revealing one event publicly plus one covert bit gives the full 1141/8000
+  (14.2625%). The hidden encoder is allowed to inspect all candidate
+  outcomes, so these bounds depend on a separately established information
+  alphabet limit. *Algebraic identity* for the formula and bounds;
+  *finite verified example* for the numbers and 210 independent comparisons.
+  ([covert-feedback note](covert_feedback_risk.md)); no new Lean formalization.
 
 ## 6. Measuring the judge
 
