@@ -136,3 +136,134 @@ def optimal(model: StochasticNull, budget: int, timing: str):
         return best, action
 
     raw, tree = solve(tuple(Q(w) for w in model.weights), budget)
+    return {"risk": raw / model.total, "weighted_risk": raw,
+            "policy": tree, "posterior_states": solve.cache_info().currsize}
+
+
+def policy_risk_direct(model: StochasticNull, policy) -> Q:
+    """Separate policy evaluator: sum probability of each world/outcome path.
+
+    This checks policy certificates via path enumeration instead of the DP's
+    posterior-caching recurrence.
+    """
+    def walk(world, node, probability):
+        typ = node[0]
+        if typ == "test":
+            return probability if model.events[node[1]][world] else Q(0)
+        if typ == "private":
+            return sum((walk(world, subtree, probability * model.private[world][h])
+                        for h, subtree in node[1]), Q(0))
+        if typ == "query":
+            kernel = model.queries[node[1]][world]
+            return sum((walk(world, subtree, probability * kernel[y])
+                        for y, subtree in node[2]), Q(0))
+        raise ValueError("malformed policy node")
+
+    return sum((Q(w) * walk(i, policy, Q(1))
+                for i, w in enumerate(model.weights)), Q(0)) / model.total
+
+
+def fixed_schedule_risk(model: StochasticNull, schedule) -> Q:
+    """Terminal Bayes value for predetermined queries with all H,Y revealed.
+
+    Signal timing becomes irrelevant once query choices are fixed, because all
+    kernel draws are conditionally independent given the world. Allows repeats.
+    """
+    schedule = tuple(schedule)
+    if any(type(q) is not int or q < 0 or q >= len(model.queries) for q in schedule):
+        raise ValueError("invalid query schedule")
+    histories = [tuple(Q(w) for w in model.weights)]
+    for q in schedule:
+        next_histories = []
+        for current in histories:
+            for h in range(model.private_symbols):
+                for y in range(len(model.queries[q][0])):
+                    updated = tuple(current[i] * model.private[i][h] * model.queries[q][i][y]
+                                    for i in range(len(current)))
+                    if any(updated):
+                        next_histories.append(updated)
+        histories = next_histories
+    return sum((_event_mass(model, mass)[0] for mass in histories), Q(0)) / model.total
+
+
+def fixed_optimum(model: StochasticNull, budget: int) -> dict:
+    if type(budget) is not int or budget < 0:
+        raise ValueError("budget must be nonnegative")
+    best, schedule, count = fixed_schedule_risk(model, ()), (), 1
+    for length in range(1, budget + 1):
+        for chosen in product(range(len(model.queries)), repeat=length):
+            current = fixed_schedule_risk(model, chosen)
+            count += 1
+            if current > best:
+                best, schedule = current, chosen
+    return {"risk": best, "schedule": schedule, "schedules_checked": count}
+
+
+def independent_one_round_oracle(model: StochasticNull, timing: str) -> Q:
+    """Enumerate query allocations to hidden symbols and every possible answer.
+
+    Uses raw world and outcome sums, then independently chooses the best event
+    at the leaf. Small finite models only. No call to optimal or fixed_optimum.
+    """
+    if timing not in ("before", "after"):
+        raise ValueError("invalid timing")
+    def payoff(q, hidden):
+        score = Q(0)
+        for y in range(len(model.queries[q][0])):
+            choices = [sum((Q(w) * model.private[i][hidden] *
+                            model.queries[q][i][y] for i, w in enumerate(model.weights)
+                            if event[i]), Q(0)) for event in model.events]
+            score += max(choices)
+        return score
+
+    base = max(sum((Q(w) for i, w in enumerate(model.weights) if event[i]), Q(0))
+               for event in model.events)
+    if timing == "before":
+        best = base
+        for plan in product(range(-1, len(model.queries)), repeat=model.private_symbols):
+            value = Q(0)
+            for h, q in enumerate(plan):
+                if q < 0:
+                    value += max(sum((Q(w) * model.private[i][h]
+                                      for i, w in enumerate(model.weights) if event[i]), Q(0))
+                                 for event in model.events)
+                else:
+                    value += payoff(q, h)
+            best = max(best, value)
+        return best / model.total
+    best = base
+    for q in range(len(model.queries)):
+        value = sum(payoff(q, h) for h in range(model.private_symbols))
+        best = max(best, value)
+    return best / model.total
+
+
+def compress_equivalent_worlds(model: StochasticNull):
+    """Sum weights of worlds with identical event and all channel likelihoods.
+
+    Exact for every future policy in this fixed i.i.d.-conditional-on-world
+    channel family. The grouping is independent of any particular policy.
+    """
+    index = {}
+    weights = []
+    events = [[] for _ in model.events]
+    queries = [[] for _ in model.queries]
+    private = []
+    for i, w in enumerate(model.weights):
+        key = (tuple(e[i] for e in model.events), model.private[i],
+               tuple(q[i] for q in model.queries))
+        if key in index:
+            weights[index[key]] += w
+            continue
+        index[key] = len(weights)
+        weights.append(w)
+        for j, e in enumerate(model.events):
+            events[j].append(e[i])
+        for j, q in enumerate(model.queries):
+            queries[j].append(q[i])
+        private.append(model.private[i])
+    return StochasticNull(tuple(weights), tuple(tuple(e) for e in events),
+                          tuple(tuple(q) for q in queries), tuple(private))
+
+
+def noisy_selector_fixture(accuracy=Q(3, 4)):
