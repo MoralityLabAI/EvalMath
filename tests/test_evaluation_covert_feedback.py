@@ -129,3 +129,38 @@ def test_minimum_full_exposure_alphabet_matches_set_cover():
     shared, disjoint = dependent_five_percent_models()
     assert minimum_full_exposure_messages(shared)["messages"] == 1
     assert minimum_full_exposure_messages(disjoint)["messages"] == 2
+
+
+def test_joint_adaptive_public_queries_and_terminal_hidden_signal():
+    from spiral_ln.evaluation_covert_feedback import adaptive_covert_optimum, fixed_covert_optimum
+    iid = independent_boolean_null(3)
+    assert adaptive_covert_optimum(iid, 0, 2)["risk"] == Q(39, 400)
+    assert adaptive_covert_optimum(iid, 1, 2)["risk"] == Q(1141, 8000)
+    assert fixed_covert_optimum(iid, 1, 2)["risk"] == Q(1141, 8000)
+    assert adaptive_covert_optimum(iid, 2, 1)["risk"] == Q(1141, 8000)
+    assert fixed_covert_optimum(iid, 2, 1)["risk"] == Q(1141, 8000)
+    assert adaptive_covert_optimum(iid, 3, 3)["risk"] == Q(1141, 8000)
+    for bad in (-1, 1.5, True):
+        with pytest.raises(ValueError):
+            adaptive_covert_optimum(iid, bad, 2)
+        with pytest.raises(ValueError):
+            fixed_covert_optimum(iid, bad, 2)
+
+
+def test_joint_adaptive_dp_matches_independent_full_plan_search():
+    from spiral_ln.evaluation_covert_feedback import (
+        adaptive_covert_optimum, brute_two_round_covert_optimum, fixed_covert_optimum,
+    )
+    rng = random.Random(74022)
+    for n in range(2, 6):
+        for _ in range(10):
+            model = NullModel(tuple(rng.randrange(1, 7) for _ in range(n)),
+                              tuple(tuple(bool(rng.randrange(2)) for _ in range(n))
+                                    for _ in range(3)),
+                              tuple(tuple(rng.randrange(2) for _ in range(n))
+                                    for _ in range(2)))
+            for messages in (1, 2):
+                adaptive = adaptive_covert_optimum(model, 2, messages)["risk"]
+                fixed = fixed_covert_optimum(model, 2, messages)["risk"]
+                assert adaptive == brute_two_round_covert_optimum(model, messages)
+                assert fixed <= adaptive <= full_information_risk(model)
