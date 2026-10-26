@@ -22,7 +22,9 @@ an exact weighted maximum-coverage law for the information that a hidden message
 can add after a public feedback transcript. With at most L hidden symbols,
 false-authorization risk is at most L times public risk, a sharp bound. The
 finite oracle distinguishes message capacity from the number of unseen
-candidate outcomes inspected, and independently checks 210 small cases.
+candidate outcomes inspected, and independently checks 210 hidden-message
+cases and 80 complete adaptive query policies. A finite Bellman recurrence
+optimizes public query choices and terminal covert messaging jointly.
 
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
