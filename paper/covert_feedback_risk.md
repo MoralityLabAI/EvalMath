@@ -1,6 +1,6 @@
 # Risk from bounded covert evaluation feedback
 
-**Draft 0.1 | 2026-10-26.** A narrowly specified extension of [post-selection risk](selection_risk_continuations.md), motivated by the full-filtration and acquisition-order assumptions in `patrickdugan/beyond-bayes` ACE v0.6–v0.10. Source: `src/spiral_ln/evaluation_covert_feedback.py`; independently structured tests: `tests/test_evaluation_covert_feedback.py`; verifier: `scripts/verify_evaluation_covert_feedback.py`; exact receipt: `output/evaluation_covert_feedback/covert_feedback_v0_1.json`.
+**Draft 0.2 | 2026-10-26.** A narrowly specified extension of [post-selection risk](selection_risk_continuations.md), motivated by the full-filtration and acquisition-order assumptions in `patrickdugan/beyond-bayes` ACE v0.6–v0.10. Source: `src/spiral_ln/evaluation_covert_feedback.py`; independently structured tests: `tests/test_evaluation_covert_feedback.py`; verifier: `scripts/verify_evaluation_covert_feedback.py`; exact receipt: `output/evaluation_covert_feedback/covert_feedback_v0_2.json`.
 
 **Evidence labels:** The finite identities and sharp bounds below are *algebraic identities*, with paper proofs. All numerical witnesses and 210 independently enumerated comparisons are *finite verified examples*. No learner, judge, real instrument or model was run. No new Lean formalization is claimed. The ideas are instances of classical Bayes decision theory and weighted maximum coverage, not an assertion of priority over that literature.
 
@@ -62,7 +62,32 @@ The last row reaches full-information selection risk. Under this particular null
 
 These numbers are finite verified examples. Their values are derived from the explicit Boolean event distribution, with probabilities \(1-(19/20)^2=39/400\) and \(1-(19/20)^3=1141/8000\). The events are abstract false positives under a declared null; they are not measured failure rates of a real evaluator.
 
-## 4. Cross-repository implications and proof boundaries
+## 4. Joint public-query optimization with terminal covert signaling
+
+**Theorem 4 (finite Bellman law).** Assume that the public agent can choose the next query using only the previous *public* responses, and receives its \(L\)-symbol covert message only after the final public query. For a nonempty subset \(B\subseteq\Omega\), define the unnormalized terminal value
+
+\[
+V_0(B;L)=\max_{S\subseteq[m],\ 1\le |S|\le L}\sum_{\omega\in B\cap\cup_{j\in S}E_j}w_\omega.
+\]
+
+With at most \(k\ge1\) additional public queries from a finite bank \(\mathcal Q\), the exact optimal value is
+
+\[
+\boxed{V_k(B;L)=\max\left\{V_0(B;L),\ \max_{q\in\mathcal Q}\sum_{a:\, B_{q,a}\ne\varnothing}V_{k-1}(B_{q,a};L)\right\},}
+\qquad B_{q,a}=\{\omega\in B:q(\omega)=a\}.
+\]
+
+The unconditional optimal risk is \(V_k(\Omega;L)/W\).
+
+*Proof.* An optimal controller may stop immediately and obtain \(V_0\). Otherwise its first query \(q\) partitions \(B\) into the reachable response sets \(B_{q,a}\). The controller selects a continuation independently for each observed response. Exactly \(k-1\) public queries remain per response, so backward induction yields the sum of optimal child values. The terminal covert message is optimized independently within each resulting leaf by Theorem 1. All query decisions depend on public history, as required. \(\square\) **Evidence: algebraic identity.**
+
+For three IID 5% false-positive events, with the public query bank consisting of a constant and each individual test outcome, zero public queries and one covert bit yield risk \(39/400\). One public query plus a covert bit yields \(1141/8000\); two public queries with no covert feedback also yield \(1141/8000\). **Finite verified examples** with explicit optimal trees. Eighty seeded small models were checked by an *independent whole-policy enumerator* that tries each first public query, each response-contingent second query or stop, and every complete covert message assignment, rather than calling the Bellman recursion or weighted coverage routine.
+
+For the five-atom example of [selection-risk continuation](selection_risk_continuations.md), a two-public-query budget with no covert access has fixed-query optimum \(3/40\) and adaptive optimum \(1/10\), while a single public query plus one terminal covert bit reaches \(1/10\). These relations depend on the chosen query bank and the event structure; no general substitutability law between public queries and covert message bits is claimed.
+
+An unrecorded signal that also informs *intermediate* public query choices violates this theorem's policy-information contract. Its accessible query histories must then be modeled using an expanded filtration and a new decision tree.
+
+## 5. Cross-repository implications and proof boundaries
 
 1. **EvalMath.** A public query partition determines \(R_1(T)\). Adding a covert alphabet yields the exact maximum-coverage functional \(R_L(T)\); the existing adaptive-query tree can supply public fibres. To analyze an auditor who also uses hidden information when choosing *future public queries*, model the combined actor's actual query policy and information filtration, rather than applying an exogenous public partition blindly.
 2. **Beyond-Bayes ACE.** A signed reservation, risk-spend ledger and source signature authenticate a recorded history under stated trust assumptions. They alone cannot upper-bound a covert encoder's available alphabet or show that source values were generated after reservation. ACE's sequential familywise guarantee still requires conditional validity relative to *all* prior actual information. A nominal \(\alpha\) assigned to each candidate event need not be the null risk of its outcome-dependent selected event.
@@ -70,13 +95,13 @@ These numbers are finite verified examples. Their values are derived from the ex
 
 Recent formal work directly relevant to this boundary is Choe and Ramdas, *Combining Evidence Across Filtrations*, **JRSS-B** 88(4), 1492–1514 (2026), https://doi.org/10.1093/jrsssb/qkag058. They study the failure of coarse-filtration e-process validity in a finer information filtration and methods using adjusters to restore such validity. The current finite-risk result neither constructs an adjuster nor establishes an anytime-valid e-process theorem. The result is best interpreted as a bounded finite decision-risk calculation motivating which filtration an ACE certificate needs to cover.
 
-**Next mathematical target:** optimize \(R_L(T)\) jointly over *public adaptive query policies* with a fixed budget and a specified covert channel model; then compare outcome-dependent side channels against ACE's conditional-null e-process assumption. Any formal novelty claim should be tested against information-constrained statistical decision theory, adaptive-data-analysis bounds and the 2026 filtration-lifting literature.
+**Next mathematical target:** extend the finite model to stochastic/noisy responses and side information that can affect intermediate query choices, with an explicit full-filtration conditional-null contract. Compare the resulting error guarantees against ACE's e-process requirements. Any formal novelty claim should be tested against information-constrained statistical decision theory, adaptive-data-analysis bounds and the 2026 filtration-lifting literature.
 
-## 5. Reproduce
+## 6. Reproduce
 
 ```bash
 python -m pytest tests/test_evaluation_covert_feedback.py -q
 python scripts/check_receipts.py --only covert_feedback
 ```
 
-The verifier regenerates a receipt containing 16 checks, 70 seeded null models, **210** comparisons to the independent hidden-assignment oracle, monotonicity/bound checks and exact SHA-256 source hashes. It makes no use of clocks, external assets, cryptographic signatures or network data. The source model is small, deterministic, and intended for independent replication.
+The verifier regenerates a schema-v0.2 receipt containing 19 checks, 70 seeded null models, **210** covert message-assignment comparisons and **80** independent two-round joint-policy comparisons to the independent hidden-assignment oracle, monotonicity/bound checks and exact SHA-256 source hashes. It makes no use of clocks, external assets, cryptographic signatures or network data. The source model is small, deterministic, and intended for independent replication.
