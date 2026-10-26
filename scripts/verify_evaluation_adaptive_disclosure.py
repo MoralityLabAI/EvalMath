@@ -44,6 +44,11 @@ def verify():
     checks["one_hot_8_adaptive_prefix_collision"] = prefix_collision_sequence(p8, b8, adaptive8["tree"]) == (
         Q(1), Q(1, 2), Q(1, 4), Q(1, 8))
     checks["one_hot_8_conditional_alphabet_bound"] = reachable_alphabet_bound(p8, b8, adaptive8["tree"])["product_bound"] == 8
+    unrestricted = tuple(tuple((i >> bit) & 1 for i in range(8)) for bit in range(3))
+    unrestricted_tree = fixed_tree(p8, unrestricted, (0, 1, 2))
+    checks["unrestricted_fixed_queries_eliminate_gap"] = (
+        transcript_profile(p8, unrestricted, unrestricted_tree)["leaves"] == 8)
+
 
     # Separate oracle enumerates literal item-bit records rather than cell counts.
     direct_compared = 0
