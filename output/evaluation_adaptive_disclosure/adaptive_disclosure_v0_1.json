@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1",
-  "generated_at_utc": "2026-10-26T12:43:33.876458+00:00",
+  "generated_at_utc": "2026-10-26T12:53:14.245585+00:00",
   "checks": {
     "interval_optima_formula_exhaustive": true,
     "one_hot_eight_three_adaptive_is_one": true,
@@ -12,6 +12,7 @@
     "one_hot_adaptive_collision_ratio": true,
     "one_hot_8_adaptive_prefix_collision": true,
     "one_hot_8_conditional_alphabet_bound": true,
+    "unrestricted_fixed_queries_eliminate_gap": true,
     "direct_record_enumeration_agrees": true,
     "decision_tree_prefix_collision_mono": true,
     "reachable_leaf_alphabet_bound": true,
@@ -279,7 +280,7 @@
   },
   "source_sha256": {
     "src/spiral_ln/evaluation_adaptive_disclosure.py": "2dc60a82a1d5bf3bae5bf43b00a151c103b17421e5b479f77e11ba2fd9d4d8cd",
-    "tests/test_evaluation_adaptive_disclosure.py": "0a8b690a35a3eb0176df15963db25c5e020a3cdd3357af8858f0d5a2e5ff7650",
-    "scripts/verify_evaluation_adaptive_disclosure.py": "5d57221e8b7606fd206f85eddebc0d7d87a2624c4c77a13382c835d9cf3ff3b4"
+    "tests/test_evaluation_adaptive_disclosure.py": "05ef60506723b4e0d37c57c1850f712a9b7694d08ff1e1c7ba7ceeb740d45c13",
+    "scripts/verify_evaluation_adaptive_disclosure.py": "ed0399eb07eb087c7af27d4b14570c9c2aa135d7bd660697ef41b015f02e9690"
   }
 }
