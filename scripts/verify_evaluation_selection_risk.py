@@ -14,7 +14,8 @@ from spiral_ln.evaluation_selection_risk import (
     dependent_five_percent_models, distinguish, exhaustive_two_round_optimum,
     fixed_optimum, full_information_risk, hidden_prepeek_risk, no_feedback_risk,
     one_step_profile, partition_refinement, root_and_amendment_machine,
-    run_events, state_bits,
+    run_events, state_bits, risk_projection, projection_risk,
+    projection_output, projection_event, projection_query, projection_postquery_risk,
 )
 
 
@@ -106,6 +107,33 @@ def verify() -> dict:
         machine.outputs[root_a] == machine.outputs[root_b]
         and run_events(machine, root_a, ("REVOKE_0",))[1][0] == "STOP"
         and run_events(machine, root_b, ("REVOKE_0",))[1][0] == "GO")
+
+    # A risk projection combines the sufficient contingency histogram with
+    # a continuation-equivalent procedural state. Every query records VIEW.
+    starter = run_events(machine, 0, ("GRANT_0",))[0]
+    projected_shared = risk_projection(shared, machine, starter)
+    projected_disjoint = risk_projection(disjoint, machine, starter)
+    checks["joint_projection_same_present_different_future_risk"] = (
+        projection_output(projected_shared, machine) ==
+        projection_output(projected_disjoint, machine) == (("GO", "eligible"), Q(1, 20))
+        and projection_postquery_risk(projected_shared, 0) == Q(1, 20)
+        and projection_postquery_risk(projected_disjoint, 0) == Q(1, 10))
+    checks["joint_projection_records_view_before_late_amendment"] = (
+        all(projection_output(projection_event(state, machine, "AMEND"), machine)[0]
+            == ("GO", "exploratory")
+            for state in projection_query(projected_shared, machine, 0).values()))
+    checks["joint_projection_preobservation_amendment_preserves_status"] = (
+        all(projection_output(state, machine)[0] == ("GO", "eligible")
+            for state in projection_query(projection_event(projected_shared, machine, "AMEND"), machine, 0).values()))
+    checks["joint_projection_risk_state_updates_by_conditioning"] = (
+        sum(sum(shared.weights[i] for i, v in enumerate(shared.queries[0]) if v == answer)
+            * projection_risk(state)
+            for answer, state in projection_query(projected_shared, machine, 0).items())
+        / shared.total == Q(1, 20)
+        and sum(sum(disjoint.weights[i] for i, v in enumerate(disjoint.queries[0]) if v == answer)
+            * projection_risk(state)
+            for answer, state in projection_query(projected_disjoint, machine, 0).items())
+        / disjoint.total == Q(1, 10))
 
     digest = sha256(json.dumps(cases, separators=(",", ":")).encode("utf-8")).hexdigest()
     return {
