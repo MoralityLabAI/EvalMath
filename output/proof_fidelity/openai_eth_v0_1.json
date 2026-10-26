@@ -1,0 +1,88 @@
+{
+  "upstream_repo": "openai/math",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "evidence_status": "pinned_source_structural_audit; no_independent_kernel_build",
+  "claim_crosswalk": {
+    "headline": {
+      "evidence": "title",
+      "scale": "none",
+      "subject": "eth_false"
+    },
+    "lean_exact_count": {
+      "evidence": "lean_statement",
+      "scale": "loglog_squared",
+      "subject": "exact_count_polyspace",
+      "scope": "fixed k>=2; normalized finite-set CNF",
+      "kernel_rebuilt": false
+    },
+    "paper_general_bound": {
+      "evidence": "manuscript",
+      "scale": "loglog",
+      "subject": "exact_count_polyspace",
+      "scope": "fixed k>=2; arbitrary clauses"
+    },
+    "paper_fixed_density": {
+      "evidence": "manuscript",
+      "scale": "sqrtlog",
+      "subject": "exact_count_polyspace",
+      "condition": "m <= D*n; D fixed"
+    },
+    "paper_tensor_contraction": {
+      "evidence": "manuscript",
+      "scale": "sqrtlog",
+      "subject": "tensor_contraction",
+      "formalized_in_case": false
+    },
+    "comparator_specification": {
+      "evidence": "specification",
+      "scale": "loglog_squared",
+      "subject": "exact_count_polyspace"
+    }
+  },
+  "source_git_blob_sha": {
+    "lean_comparator": "a8d5ff3a3e80323675b1f2d1ea611560b783e9ca",
+    "lean_config": "d4cc9e7074e900c1aa6371151cfd234c121a0b82",
+    "lean_final": "a69635a2492e06a26f2e33d4251edd1e21ba3332",
+    "lean_scope": "223bbe187394bffca8a2c7ba1656538bfba26e3b",
+    "manuscript": "f7af85e623b58e0ca9f4b9416916d442defa963a",
+    "tensor_contraction": "51ba54efc29f51bbc0426f848003030da484f354",
+    "tensor_reduction": "80389ac39d987133b71b2ddc2593e6fcdd99871a"
+  },
+  "checks": {
+    "paper_title": true,
+    "paper_main_exact_count": true,
+    "paper_general_exponent": true,
+    "paper_fixed_density_exponent": true,
+    "paper_weaker_exponent_visible": true,
+    "tensor_network_hypotheses": true,
+    "tensor_network_exponent": true,
+    "tensor_density_reduction": true,
+    "tensor_recursive_precision_lemma": true,
+    "lean_exact_count_and_space_statement": true,
+    "lean_endpoint_has_explicit_proof": true,
+    "lean_final_contains_no_sorry": true,
+    "lean_declared_axiom_inspection": true,
+    "lean_rho_theorem_separate": true,
+    "comparator_is_admitted_specification": true,
+    "comparator_points_to_endpoint": true,
+    "comparator_permitted_axioms": true,
+    "scope_document_admits_weaker_lean": true,
+    "seven_git_blob_pins": true,
+    "evidence_labels_fail_closed": true,
+    "three_exponents_have_strict_audit_order": true
+  },
+  "all_passed": true,
+  "open_obligations": [
+    "rebuild the entire upstream Lean import closure and inspect #print axioms output",
+    "independently audit tensor packing, 2-adic Hermite precision, and recursion cost",
+    "check manuscript-to-formal input normalization and explicit algorithmic correspondence"
+  ],
+  "schema_version": "0.1",
+  "source_sha256": {
+    "src/spiral_ln/proof_fidelity.py": "191adb01955974aac6f2c34e83c844dfab79d490c61782c27ca3c921fe5c7dc0",
+    "scripts/verify_proof_fidelity_openai_eth.py": "ed59d4ad3fd43eca9f7ae0cd32b223da8e27a9019b3723924827131a78f67f0f",
+    "configs/openai_eth_fidelity.json": "b2cb35fc438642201de73e502869b3abeb1e1cd167ca318f6907978e34ae126c",
+    "paper/proof_fidelity_openai_eth.md": "d88d1e46e0585540f65cfef7ba760f4e2d5626f02e8f6e1f721e876e1e562723"
+  },
+  "generated_at_utc": "2026-10-27T00:00:00+00:00"
+}
