@@ -267,6 +267,7 @@ def compress_equivalent_worlds(model: StochasticNull):
 
 
 def noisy_selector_fixture(accuracy=Q(3, 4)):
+    """Four equiprobable worlds (selector S, target bit A).
 
     A private signal reveals S. Query q_s reveals A through a binary symmetric
     channel of accuracy p when S=s; otherwise it returns erasure symbol 2.
