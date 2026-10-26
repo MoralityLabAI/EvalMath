@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1",
+  "generated_at_utc": "2026-10-26T14:18:14.171630+00:00",
+  "checks": {
+    "marginals_equal_public_risk_equal": true,
+    "correlated_one_hidden_bit_remains_five_percent": true,
+    "disjoint_one_hidden_bit_doubles_risk": true,
+    "dependence_changes_minimum_hidden_alphabet": true,
+    "factor_two_bound_is_sharp": true,
+    "covert_witness_realizes_upper_bound": true,
+    "iid_marginals_exact": true,
+    "iid_one_bit_risk": true,
+    "iid_two_bit_full_risk": true,
+    "public_one_bit_plus_covert_one_bit_reaches_full": true,
+    "min_hidden_alphabet_three_to_two_after_public_bit": true,
+    "existing_query_tree_adapter": true,
+    "210_independent_hidden_assignment_oracles": true,
+    "70_monotone_alphabet_sequences": true,
+    "210_coverage_and_factor_bounds": true,
+    "fair_zero_one_boundary": true
+  },
+  "all_passed": true,
+  "independent_oracle_comparisons": 210,
+  "seeded_models": 70,
+  "case_sha256": "dbe890e6bdbf5288efe31061c4ebddd3ab8cb0ba28bcbf3f6577c00cfc5743c4",
+  "nominal_event_rate": "1/20",
+  "disjoint_one_bit": "1/10",
+  "shared_one_bit": "1/20",
+  "iid_three_events_hidden_one_bit": "39/400",
+  "iid_three_events_full_exposure": "1141/8000",
+  "public_bit_plus_hidden_bit": "1141/8000",
+  "minimum_messages_sealed": 3,
+  "minimum_messages_after_first_public_bit": 2,
+  "source_sha256": {
+    "src/spiral_ln/evaluation_covert_feedback.py": "bd4c8bfa2fb02522b56883d6891499e56d35950e8bedd53fb8e0249146a61995",
+    "tests/test_evaluation_covert_feedback.py": "43c6bf74da19d150a670e12cb1f1fc4d1df7086fda0f2e7abc17be55004dd66a",
+    "scripts/verify_evaluation_covert_feedback.py": "a638608dba4eb95643d8b19fa722ddf88d1d55b1e049e53d31921d27352609c5"
+  }
+}
