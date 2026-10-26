@@ -267,3 +267,89 @@ def compress_equivalent_worlds(model: StochasticNull):
 
 
 def noisy_selector_fixture(accuracy=Q(3, 4)):
+
+    A private signal reveals S. Query q_s reveals A through a binary symmetric
+    channel of accuracy p when S=s; otherwise it returns erasure symbol 2.
+    Final false-event choice E0={A=0}, E1={A=1}.
+    """
+    if type(accuracy) not in (int, Q) or not Q(0) <= accuracy <= 1:
+        raise ValueError("accuracy must be an exact probability")
+    p = Q(accuracy)
+    states = tuple(product((0, 1), repeat=2))
+    events = (tuple(a == 0 for s, a in states), tuple(a == 1 for s, a in states))
+    kernels = []
+    for chosen in (0, 1):
+        rows = []
+        for s, a in states:
+            if s != chosen:
+                rows.append((Q(0), Q(0), Q(1)))
+            else:
+                rows.append((p if a == 0 else 1 - p,
+                             p if a == 1 else 1 - p, Q(0)))
+        kernels.append(tuple(rows))
+    secret = tuple((Q(int(s == 0)), Q(int(s == 1))) for s, a in states)
+    return StochasticNull((1,) * 4, events, tuple(kernels), secret)
+
+
+def peeked_evalue(accuracy=Q(3, 4)):
+    """Coarse one-step martingale spoiled by a prior private glimpse.
+
+    M0=1, M1=2X for X fair. H guesses X correctly with probability p,
+    available at time 0 to a richer actor. Actor can stop at 0 or 1 based on H.
+    Compute all four stopping rules, conditional e-factor expectations and
+    the exact best stopped expectation.
+    """
+    if type(accuracy) not in (int, Q) or not 0 <= accuracy <= 1:
+        raise ValueError("accuracy must be an exact probability")
+    p = Q(accuracy)
+    joint = {(x, h): Q(1, 2) * (p if h == x else 1 - p)
+             for x, h in product((0, 1), repeat=2)}
+    expectations = {}
+    for tau0, tau1 in product((0, 1), repeat=2):
+        expectations[(tau0, tau1)] = sum(
+            (mass * ((2 * x) if (tau0 if h == 0 else tau1) else 1)
+             for (x, h), mass in joint.items()), Q(0))
+    conditional = tuple(
+        sum((joint[x, h] * 2 * x for x in (0, 1)), Q(0)) /
+        sum((joint[x, h] for x in (0, 1)), Q(0))
+        for h in (0, 1))
+    best = max(expectations.values())
+    assert best == Q(1, 2) + max(p, 1 - p)
+    return {"coarse_one_step_expectation": Q(1),
+            "conditional_factor_expectations": conditional,
+            "all_rich_stopping_values": expectations,
+            "best_rich_stopping_expectation": best,
+            "one_step_conditional_scale": max(conditional)}
+
+
+def rare_noisy_selector_fixture(accuracy=Q(3, 4), trigger_denominator: int = 10):
+    """Two tests individually calibrated to 1/(2d), with a rare shared trigger.
+
+    World (S,A,R), S and A fair independent bits, P(R=1)=1/d. The actor
+    privately sees S; a query only reports noisy A if addressed to S.
+    False-positive event j occurs precisely when R=1 and A=j.
+    """
+    if type(trigger_denominator) is not int or trigger_denominator < 2:
+        raise ValueError("trigger_denominator must be an integer >=2")
+    base = noisy_selector_fixture(accuracy)
+    states = tuple(product((0, 1), repeat=3))
+    weights = tuple(1 if r else trigger_denominator - 1 for _, _, r in states)
+    events = tuple(tuple(bool(r and a == j) for s, a, r in states) for j in (0, 1))
+    kernels = tuple(tuple(base.queries[q][2 * s + a] for s, a, r in states)
+                    for q in range(2))
+    private = tuple(base.private[2 * s + a] for s, a, r in states)
+    return StochasticNull(weights, events, kernels, private)
+
+
+def lift_deterministic_model(model):
+    """Embed existing EvalMath integer-response NullModel into point kernels.
+
+    Respects each query's distinct sorted response symbols. Used as a
+    cross-check against the preexisting deterministic optimal-policy code.
+    """
+    kernels = []
+    for q in model.queries:
+        alphabet = tuple(sorted(set(q)))
+        kernels.append(tuple(tuple(Q(int(q[w] == y)) for y in alphabet)
+                             for w in range(len(model.weights))))
+    return StochasticNull(model.weights, model.events, tuple(kernels))
