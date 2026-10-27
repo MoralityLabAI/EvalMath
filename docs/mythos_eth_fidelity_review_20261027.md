@@ -1,6 +1,14 @@
 # Mythos Max independent review: ETH proof-fidelity case
 
-Review dated 2026-10-27; concerns [EvalMath PR #10](https://github.com/MoralityLabAI/EvalMath/pull/10). This records independent review findings, with no alteration of source-hashed receipts. **Merge is blocked pending receipt regeneration by its writer.**
+Review dated 2026-10-27; concerns [EvalMath PR #10](https://github.com/MoralityLabAI/EvalMath/pull/10). This records independent review findings, with no alteration of source-hashed receipts. **At the time of this review, merge was blocked pending receipt regeneration by its writer.**
+
+## Resolution recorded after review (2026-10-27)
+
+The receipt-provenance blocker is **resolved** by [GitHub Actions run 40425987970](https://github.com/MoralityLabAI/EvalMath/actions/runs/40425987970) and bot commit [`f904d40`](https://github.com/MoralityLabAI/EvalMath/commit/f904d4034fb2a4abe066e232940d7d368699543c). The canonical verifier wrote `output/proof_fidelity/openai_eth_v0_2.json`; the v0.1 receipt was retired. The job printed `15 passed` and `27 all true; sources 5 match; regenerates identically`.
+
+The audit now includes ten source blobs, archiving all four manuscript build inputs and the relevant implementation-side Lean runtime definitions. The comparator's count, encoding, space and runtime formulas receive exact source checks, with negative controls. The previous three tautological pass flags were removed; the duplicate frozen-source assertions were consolidated. The paper now states the standard fixed-width 3-CNF normalization argument. A one-time regeneration workflow is removed after its successful use.
+
+A full independent *elaborated Lean comparator* replay and mathematical proof of the sharper tensor-contraction bound remain review tasks. Clearing the receipt issue does not certify those theorems.
 
 ## Reproduced evidence
 
