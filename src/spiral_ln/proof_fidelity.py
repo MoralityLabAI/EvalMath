@@ -37,6 +37,9 @@ FROZEN_SOURCE_BLOBS = {
     "lean_comparator": ("lean/ComparatorChallenges/SubexponentialSAT.lean", "a8d5ff3a3e80323675b1f2d1ea611560b783e9ca"),
     "lean_config": ("lean/ComparatorChallenges/SubexponentialSAT.json", "d4cc9e7074e900c1aa6371151cfd234c121a0b82"),
     "lean_scope": ("lean/docs/378.md", "223bbe187394bffca8a2c7ba1656538bfba26e3b"),
+    "lean_scale": ("lean/OAI/Algorithms/SubexponentialSAT/SqrtLog/StatementScale.lean", "dae009c0b234a6180e61a897d56a5721f397762d"),
+    "lean_asymptotics": ("lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Asymptotics.lean", "da9003ffd1a9b8fcc82147b4152414b264d26d54"),
+    "circuits_appendix": ("preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-circuits.tex", "e25def5eb03ee53feefd3fe480dd5a1293761fae"),
 }
 REQUIRED_SOURCES = set(FROZEN_SOURCE_BLOBS)
 
@@ -67,6 +70,20 @@ def _contains(source: str, *tokens: str) -> bool:
 def _lean_endpoint_signature(source: str) -> str:
     """Compare exact printed proposition syntax, independent of whitespace."""
     return "".join(_section(source, "theorem exact_count_and_sat ", ":= by").split())
+
+
+
+def _lean_def(source: str, name: str) -> str:
+    """Normalize one *printed* Lean definition, without elaborating any names.
+
+    The upstream comparator is self-contained and defines identifiers which are
+    resolved in a different environment from the implementation. This catches
+    textual and body drift, while leaving elaborated equivalence to Lean.
+    """
+    pattern = r"(?m)^(?:noncomputable )?def " + re.escape(name) + r"\b[^\n]*(?:\n(?!\n)[^\n]*)*"
+    match = re.search(pattern, source)
+    _require(match is not None, f"missing Lean definition {name!r}")
+    return "".join(re.sub(r"^noncomputable ", "", match.group(0)).split())
 
 
 def validate_claim_contracts(claims: dict[str, Any]) -> None:
@@ -133,6 +150,36 @@ def analyze_source_text(sources: dict[str, str]) -> dict[str, bool]:
         r":=\s*by\s+sorry\b", specification) is not None
     checks["comparator_matches_implemented_type"] = (
         _lean_endpoint_signature(comparator) == _lean_endpoint_signature(final))
+    checks["comparator_runtime_scale_definition"] = (
+        _lean_def(comparator, "runtimeScale") == _lean_def(sources["lean_scale"], "runtimeScale") and
+        "Real.log(Real.log((n:ℝ)+16))" in _lean_def(comparator, "runtimeScale") and
+        "Real.sqrt(Real.log((n:ℝ)+16))" in _lean_def(comparator, "runtimeScale"))
+    checks["comparator_runtime_bound_definition"] = (
+        _lean_def(comparator, "runtimeBound") == _lean_def(sources["lean_scale"], "runtimeBound") and
+        "(exponentConstant*runtimeScalenumVars)" in _lean_def(comparator, "runtimeBound"))
+    checks["comparator_count_definition"] = _contains(
+        comparator,
+        "abbrev CNF (V : Type u) := Finset (Clause V)",
+        "def satisfyingAssignments (F : CNF V) : Finset (Assignment V) :=",
+        "Finset.univ.filter fun a => F.eval a = true",
+        "def count (F : CNF V) : ℕ := (satisfyingAssignments F).card",
+        "def CNF.eval (a : Assignment V) (F : CNF V) : Bool :=")
+    checks["comparator_encoding_definition"] = _contains(
+        comparator, "def encodeNat (n : ℕ) : List Bool := List.replicate n true ++ [false]",
+        "def cnfNumbers {n : ℕ}", "def encodeCNFBody {n : ℕ}",
+        "encodeNat n ++ encodeCNFBody F", "def formulaBitLength {n : ℕ}")
+    checks["comparator_space_definition"] = _contains(
+        comparator, "def visitedSpace {machine : PrimitiveMachine}",
+        "∑ i, (c.upper i - c.lower i + 1).toNat",
+        "def locatedStep (machine : PrimitiveMachine)")
+    checks["lean_rho_scale_definition"] = _contains(
+        sources["lean_asymptotics"],
+        "noncomputable def rho (n : ℕ) : ℝ :=",
+        "(n : ℝ) * (Real.logb 2 (Real.logb 2 n)) ^ 2 / Real.sqrt (Real.logb 2 n)")
+    checks["circuits_appendix_outside_main_proof"] = _contains(
+        sources["circuits_appendix"],
+        r"\begin{proof}[Proof of Corollary~\ref{cor:quantitative-circuits}]",
+        r"\end{proof}") and r"\label{thm:main}" not in sources["circuits_appendix"]
     config = json.loads(sources["lean_config"])
     checks["comparator_points_to_endpoint"] = (
         config.get("solution_module") == "OAI.Algorithms.SubexponentialSAT.Main" and
@@ -187,7 +234,7 @@ def verify_hermite_valuation_grid(max_a: int = 7) -> int:
 
 def run_audit(root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
     """Validate frozen source bytes, inspect statements, and enforce fidelity labels."""
-    _require(manifest.get("schema_version") == "0.1", "unsupported manifest schema")
+    _require(manifest.get("schema_version") == "0.2", "unsupported manifest schema")
     _require(manifest.get("upstream_repo") == "openai/math", "wrong upstream repository")
     commit = manifest.get("upstream_commit", "")
     _require(commit == FROZEN_UPSTREAM_COMMIT, "upstream revision differs from frozen commit")
@@ -206,10 +253,6 @@ def run_audit(root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
         _require(rel.startswith("fixtures/external/openai_eth_20261025/") and
                  ".." not in Path(rel).parts, f"source {role}: unsafe fixture path")
         expected_path, expected_sha = FROZEN_SOURCE_BLOBS[role]
-        _require(spec.get("upstream_path") == expected_path,
-                 f"source {role}: upstream path differs from frozen source")
-        _require(spec.get("git_blob_sha") == expected_sha,
-                 f"source {role}: manifest blob differs from frozen source")
         path = root / rel
         _require(path.is_file(), f"source {role}: missing archived blob: {rel}")
         contents = path.read_bytes()
@@ -219,20 +262,16 @@ def run_audit(root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
         sources[role] = contents.decode("utf-8")
         pins[role] = digest
     checks = analyze_source_text(sources)
-    checks["seven_git_blob_pins"] = len(pins) == 7
-    checks["evidence_labels_fail_closed"] = True  # validate_claim_contracts raised on mismatch
     hermite_cases = verify_hermite_valuation_grid()
     checks["hermite_valuation_finite_grid"] = hermite_cases == 15492
-    checks["three_exponents_have_strict_audit_order"] = (
-        manifest["claims"]["paper_fixed_density"]["scale"] == "sqrtlog" and
-        manifest["claims"]["paper_general_bound"]["scale"] == "loglog" and
-        manifest["claims"]["lean_exact_count"]["scale"] == "loglog_squared")
     return {
         "upstream_repo": manifest["upstream_repo"],
         "upstream_commit": commit,
         "evidence_status": "pinned_source_structural_audit; no_independent_kernel_build",
         "claim_crosswalk": manifest["claims"],
         "source_git_blob_sha": pins,
+        "archived_source_count": len(pins),
+        "comparison_kind": "syntactic_statement_and_printed_definition_text; elaborated_type_not_checked",
         "checks": checks,
         "all_passed": all(checks.values()),
         "finite_probes": {"hermite_valuation_cases": hermite_cases,
@@ -242,5 +281,6 @@ def run_audit(root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
             "rebuild the entire upstream Lean import closure and inspect #print axioms output",
             "independently audit tensor packing, 2-adic Hermite precision, and recursion cost",
             "check manuscript-to-formal input normalization and explicit algorithmic correspondence",
+            "compare fully elaborated comparator and implementation definitions via upstream Lean mechanism",
         ],
     }

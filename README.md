@@ -72,9 +72,11 @@ mention other Spiral modules (the hive lab, the identity attestation notes), tho
 
 The [OpenAI ETH claim crosswalk](paper/proof_fidelity_openai_eth.md) compares the
 headline, manuscript theorem and sharper tensor bounds with the actual Lean
-endpoint and admitted comparator specification. It archives seven original
-upstream sources at a pinned Git commit and includes 23 structural checks,
-twelve pytest cases, adversarial overclaim tests, and a source-hashed receipt.
+endpoint and admitted comparator specification. It archives ten original
+upstream sources at a pinned Git commit, including implementation-side runtime definitions and
+all manuscript input files. The case has 27 substantive structural checks,
+fifteen pytest cases, adversarial overclaim tests, and a source-hashed receipt.
+The comparator signature match is syntactic; elaborated type equivalence requires Lean.
 
 `python scripts/check_receipts.py --only openai_eth_fidelity`
 rechecks the archive offline. This tests source integrity and claim fidelity;

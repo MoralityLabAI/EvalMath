@@ -19,13 +19,14 @@ SOURCE_PATHS = (
     "scripts/verify_proof_fidelity_openai_eth.py",
     "configs/openai_eth_fidelity.json",
     "paper/proof_fidelity_openai_eth.md",
+    "tests/test_proof_fidelity_openai_eth.py",
 )
 
 
 def make_report(root: Path = ROOT) -> dict:
     config = json.loads((root / MANIFEST).read_text(encoding="utf-8"))
     result = run_audit(root, config)
-    result["schema_version"] = "0.1"
+    result["schema_version"] = "0.2"
     result["source_sha256"] = {
         name: hashlib.sha256((root / name).read_bytes()).hexdigest() for name in SOURCE_PATHS
     }

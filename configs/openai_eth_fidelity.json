@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "upstream_repo": "openai/math",
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
   "sources": {
@@ -37,6 +37,21 @@
       "path": "fixtures/external/openai_eth_20261025/378.md",
       "upstream_path": "lean/docs/378.md",
       "git_blob_sha": "223bbe187394bffca8a2c7ba1656538bfba26e3b"
+    },
+    "lean_scale": {
+      "path": "fixtures/external/openai_eth_20261025/StatementScale.lean",
+      "upstream_path": "lean/OAI/Algorithms/SubexponentialSAT/SqrtLog/StatementScale.lean",
+      "git_blob_sha": "dae009c0b234a6180e61a897d56a5721f397762d"
+    },
+    "lean_asymptotics": {
+      "path": "fixtures/external/openai_eth_20261025/Asymptotics.lean",
+      "upstream_path": "lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Asymptotics.lean",
+      "git_blob_sha": "da9003ffd1a9b8fcc82147b4152414b264d26d54"
+    },
+    "circuits_appendix": {
+      "path": "fixtures/external/openai_eth_20261025/quantitative-circuits.tex",
+      "upstream_path": "preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-circuits.tex",
+      "git_blob_sha": "e25def5eb03ee53feefd3fe480dd5a1293761fae"
     }
   },
   "claims": {

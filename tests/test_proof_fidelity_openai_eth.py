@@ -66,7 +66,10 @@ def test_claim_ladder_covers_all_evidence_roles():
 def test_pinned_archive_and_statement_audit():
     report = run_audit(ROOT, _manifest())
     assert report["all_passed"]
-    assert len(report["checks"]) >= 19
+    assert len(report["checks"]) == 27
+    assert report["archived_source_count"] == 10
+    assert "elaborated_type_not_checked" in report["comparison_kind"]
+    assert "evidence_labels_fail_closed" not in report["checks"]
     assert report["checks"]["comparator_is_admitted_specification"]
     assert report["checks"]["lean_final_contains_no_sorry"]
     assert "no_independent_kernel_build" in report["evidence_status"]
@@ -144,3 +147,47 @@ def test_comparator_type_drift_is_detected():
 def test_tapered_hermite_valuation_exact_grid():
     from spiral_ln.proof_fidelity import verify_hermite_valuation_grid
     assert verify_hermite_valuation_grid() == 15492
+
+
+def test_runtime_scale_fidelity_to_actual_upstream_definition():
+    sources = _sources()
+    assert analyze_source_text(sources)["comparator_runtime_scale_definition"]
+    a = copy.deepcopy(sources)
+    a["lean_comparator"] = a["lean_comparator"].replace(
+        "(Real.log (Real.log ((n : ℝ) + 16))) ^ 2 /",
+        "(Real.log (Real.log ((n : ℝ) + 16))) ^ 3 /", 1)
+    with pytest.raises(FidelityError, match="comparator_runtime_scale_definition"):
+        analyze_source_text(a)
+    b = copy.deepcopy(sources)
+    b["lean_scale"] = b["lean_scale"].replace(
+        "(Real.log (Real.log ((n : ℝ) + 16))) ^ 2 /",
+        "(Real.log (Real.log ((n : ℝ) + 16))) ^ 3 /", 1)
+    with pytest.raises(FidelityError, match="comparator_runtime_scale_definition"):
+        analyze_source_text(b)
+
+
+def test_count_and_space_definitions_are_part_of_the_evidence():
+    sources = _sources()
+    changed = copy.deepcopy(sources)
+    changed["lean_comparator"] = changed["lean_comparator"].replace(
+        "def count (F : CNF V) : ℕ := (satisfyingAssignments F).card",
+        "def count (F : CNF V) : ℕ := (satisfyingAssignments F).card + 1", 1)
+    with pytest.raises(FidelityError, match="comparator_count_definition"):
+        analyze_source_text(changed)
+    changed = copy.deepcopy(sources)
+    changed["lean_comparator"] = changed["lean_comparator"].replace(
+        "∑ i, (c.upper i - c.lower i + 1).toNat",
+        "∑ i, (c.upper i - c.lower i + 2).toNat", 1)
+    with pytest.raises(FidelityError, match="comparator_space_definition"):
+        analyze_source_text(changed)
+
+
+def test_rho_and_circuits_appendix_scopes_are_inspected():
+    sources = _sources()
+    assert analyze_source_text(sources)["circuits_appendix_outside_main_proof"]
+    changed = copy.deepcopy(sources)
+    changed["lean_asymptotics"] = changed["lean_asymptotics"].replace(
+        "(Real.logb 2 (Real.logb 2 n)) ^ 2",
+        "(Real.logb 2 (Real.logb 2 n)) ^ 3", 1)
+    with pytest.raises(FidelityError, match="lean_rho_scale_definition"):
+        analyze_source_text(changed)
