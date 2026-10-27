@@ -157,21 +157,18 @@ def analyze_source_text(sources: dict[str, str]) -> dict[str, bool]:
     checks["comparator_runtime_bound_definition"] = (
         _lean_def(comparator, "runtimeBound") == _lean_def(sources["lean_scale"], "runtimeBound") and
         "(exponentConstant*runtimeScalenumVars)" in _lean_def(comparator, "runtimeBound"))
-    checks["comparator_count_definition"] = _contains(
-        comparator,
-        "abbrev CNF (V : Type u) := Finset (Clause V)",
-        "def satisfyingAssignments (F : CNF V) : Finset (Assignment V) :=",
-        "Finset.univ.filter fun a => F.eval a = true",
-        "def count (F : CNF V) : ℕ := (satisfyingAssignments F).card",
-        "def CNF.eval (a : Assignment V) (F : CNF V) : Bool :=")
-    checks["comparator_encoding_definition"] = _contains(
-        comparator, "def encodeNat (n : ℕ) : List Bool := List.replicate n true ++ [false]",
-        "def cnfNumbers {n : ℕ}", "def encodeCNFBody {n : ℕ}",
-        "encodeNat n ++ encodeCNFBody F", "def formulaBitLength {n : ℕ}")
-    checks["comparator_space_definition"] = _contains(
-        comparator, "def visitedSpace {machine : PrimitiveMachine}",
-        "∑ i, (c.upper i - c.lower i + 1).toNat",
-        "def locatedStep (machine : PrimitiveMachine)")
+    checks["comparator_count_definition"] = (
+        _lean_def(comparator, "count") == "defcount(F:CNFV):ℕ:=(satisfyingAssignmentsF).card" and
+        _lean_def(comparator, "satisfyingAssignments") == "defsatisfyingAssignments(F:CNFV):Finset(AssignmentV):=Finset.univ.filterfuna=>F.evala=true" and
+        _lean_def(comparator, "CNF.eval") == "defCNF.eval(a:AssignmentV)(F:CNFV):Bool:=decide(∀C∈F,C.evala=true)")
+    checks["comparator_encoding_definition"] = (
+        _lean_def(comparator, "encodeCNF") == "defencodeCNF{n:ℕ}(F:SAT.CNF(Finn)):ListBool:=encodeNatn++encodeCNFBodyF" and
+        _lean_def(comparator, "formulaBitLength") == "defformulaBitLength{n:ℕ}(F:SAT.CNF(Finn)):ℕ:=(encodeCNFF).length" and
+        _contains(comparator, "def encodeNat (n : ℕ) : List Bool := List.replicate n true ++ [false]",
+                  "def cnfNumbers {n : ℕ}", "def encodeCNFBody {n : ℕ}"))
+    checks["comparator_space_definition"] = (
+        _lean_def(comparator, "visitedSpace") == "defvisitedSpace{machine:PrimitiveMachine}(c:LocatedCfgmachine):ℕ:=∑i,(c.upperi-c.loweri+1).toNat" and
+        _contains(comparator, "def locatedStep (machine : PrimitiveMachine)"))
     checks["lean_rho_scale_definition"] = _contains(
         sources["lean_asymptotics"],
         "noncomputable def rho (n : ℕ) : ℝ :=",
