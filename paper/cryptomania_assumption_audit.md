@@ -142,3 +142,7 @@ Boolean assertions. Every seeded benchmark instance is deterministic; all
 arithmetic in the Bayesian example is rational. To add a new assumption,
 enter its implication only after checking the exact computational model and
 direction of the reduction, then add a counterexample-oriented unit test.
+
+## Follow-up: cipher encoding transfer
+
+[CA-02: ETH counting to cipher inversion](crypto_encoding_bridge.md) adds exact Boolean gate-to-CNF witnesses, XOR-eliminated quadratic systems, the manuscript-only sparse-polynomial lemma's precise syntactic gate, and a published NIST AES-128 circuit census. Review it independently of the CA-01 five-world credence ledger.
