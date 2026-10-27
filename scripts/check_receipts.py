@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "agency_persistence": ("scripts/verify_agency_persistence.py",
+                           "output/agency_persistence/persistence_v1.json", [], False),
     "agency_worlds": ("scripts/verify_agency_worlds.py",
                       "output/agency_worlds/agency_v1.json", [], False),
     "design_calculus": ("scripts/verify_evaluation_design_calculus.py",
