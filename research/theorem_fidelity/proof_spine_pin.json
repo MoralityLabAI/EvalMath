@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "repository": "openai/math",
+  "commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "sources": {
+    "lean/OAI/Computability/UniqueGames/Theorem.lean": "5946d0262d07a5b1e55778ab984ecf9b6d5b8a4c",
+    "lean/OAI/Computability/UniqueGames/Reduction/FromMatrixGap.lean": "b1352bd041aa288e47dfc39a71112937a32aaa18",
+    "lean/OAI/Computability/UniqueGames/Reduction/ParameterSelection.lean": "3fa29a2f0fdc38c1314c8a692534d0065d7c728b",
+    "lean/OAI/Computability/UniqueGames/Decoding/MatrixGapFromInverseLemmas.lean": "022083f9676fcabcfaf258b02e6802d231097b51",
+    "lean/OAI/Computability/UniqueGames/Inverse/ShortcodeTheorem.lean": "987dde90a2066392996dfb04fc03cddc476b2601",
+    "lean/OAI/Computability/UniqueGames/Inverse/ShortcodeFromGrassmannLemmas.lean": "670a0c84d6e28478f617dd09ae0d1473c15bfdd1",
+    "lean/OAI/Computability/UniqueGames/Inverse/KMSAnalyticHybridEnergyLemmas.lean": "236cbbdff4e2cf2573d83f0c85e596419c49c4bf",
+    "lean/OAI/Computability/UniqueGames/Gadgets/Final.lean": "196706828e364a51eec3e2060b244874e047947a"
+  },
+  "environment": {
+    "lean/lean-toolchain": "ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5",
+    "lean/lakefile.lean": "cd24ca2ee09fb6fe33e82400534d9e60a616125b",
+    "lean/lake-manifest.json": "67d01d2717d0aaff59fb8814bb53581b961f42b4"
+  },
+  "expected_toolchain": "leanprover/lean4:v4.34.1",
+  "expected_mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+}
