@@ -1,0 +1,34 @@
+{
+  "all_passed": true,
+  "census": {
+    "all_signed_simple_K4_subgraphs": 729,
+    "c4_F2_2": {
+      "0": 64,
+      "1": 192
+    },
+    "checks": 1001,
+    "empty_edges_value": "1",
+    "k23_F2_2_gauge_classes": {
+      "0": 1,
+      "1": 9,
+      "2": 6
+    },
+    "method": "exhaustive integer enumeration"
+  },
+  "checks": {
+    "c4_partition": true,
+    "independent_oracle_agreement": true,
+    "k23_partition": true,
+    "signed_K4_count": true
+  },
+  "claim_level": "finite verified example",
+  "generated_at_utc": "2026-10-27T05:47:24.602583+00:00",
+  "schema_version": "0.1",
+  "scope": "F_2^s translation games only; no reduction or ETH proof",
+  "source_sha256": {
+    "paper/unique_games_topology_eth.md": "72d4343b3c4ddff0dd53d2a24370d4e81f1f069d33babba509d665cca1ef53cd",
+    "scripts/verify_unique_games_topology.py": "cbcbd63e6c50f947b74a037896fef75837dcfb0a91d57dc54cd42423dfcbe21f",
+    "src/spiral_ln/unique_games_topology.py": "2f0756e38fe1fdaf66cd6ac9660dfefc6cf4141d455f9a2104b582810c7cc9a8",
+    "tests/test_unique_games_topology.py": "4278ec51d80bf0e586ee93acb2407598157e093a8a4f8ec898534b664c3fe217"
+  }
+}
