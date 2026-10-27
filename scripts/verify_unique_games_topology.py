@@ -29,9 +29,11 @@ def main() -> int:
         "k23_partition": census["k23_F2_2_gauge_classes"] == {"0": 1, "1": 9, "2": 6},
         "signed_K4_count": census["all_signed_simple_K4_subgraphs"] == 729,
         "independent_oracle_agreement": census["checks"] == 1001,
+        "k4_histogram": census["k4_F2_deletion_hist"] == {"0": 393, "1": 328, "2": 8},
+        "packing_negative_controls": census["loose_fundamental_packing"] == {"k23_gauge_classes": 6, "signed_K4_subgraphs": 8},
     }
     report = {
-        "schema_version": "0.1",
+        "schema_version": "0.2",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "claim_level": "finite verified example",
         "scope": "F_2^s translation games only; no reduction or ETH proof",
