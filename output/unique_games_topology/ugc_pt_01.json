@@ -13,22 +13,33 @@
       "1": 9,
       "2": 6
     },
-    "method": "exhaustive integer enumeration"
+    "method": "exhaustive integer enumeration",
+    "k4_F2_deletion_hist": {
+      "0": 393,
+      "1": 328,
+      "2": 8
+    },
+    "loose_fundamental_packing": {
+      "k23_gauge_classes": 6,
+      "signed_K4_subgraphs": 8
+    }
   },
   "checks": {
     "c4_partition": true,
     "independent_oracle_agreement": true,
     "k23_partition": true,
-    "signed_K4_count": true
+    "signed_K4_count": true,
+    "k4_histogram": true,
+    "packing_negative_controls": true
   },
   "claim_level": "finite verified example",
-  "generated_at_utc": "2026-10-27T05:47:24.602583+00:00",
-  "schema_version": "0.1",
+  "generated_at_utc": "2026-10-27T05:57:48.202403+00:00",
+  "schema_version": "0.2",
   "scope": "F_2^s translation games only; no reduction or ETH proof",
   "source_sha256": {
-    "paper/unique_games_topology_eth.md": "72d4343b3c4ddff0dd53d2a24370d4e81f1f069d33babba509d665cca1ef53cd",
-    "scripts/verify_unique_games_topology.py": "cbcbd63e6c50f947b74a037896fef75837dcfb0a91d57dc54cd42423dfcbe21f",
-    "src/spiral_ln/unique_games_topology.py": "2f0756e38fe1fdaf66cd6ac9660dfefc6cf4141d455f9a2104b582810c7cc9a8",
-    "tests/test_unique_games_topology.py": "4278ec51d80bf0e586ee93acb2407598157e093a8a4f8ec898534b664c3fe217"
+    "paper/unique_games_topology_eth.md": "d267fd988874fa6f6c91830b324bb65cd6d51fb81deb5632fcf65283f500ef49",
+    "scripts/verify_unique_games_topology.py": "8ec9d89bb31fa9369d8c6628e8ddb7eff7a032d6a76fd6d9e9145aa9b78954b7",
+    "src/spiral_ln/unique_games_topology.py": "e0f5be380b63aefc2ca28035fa3a283eb516c369404ea6299cf319638fdec639",
+    "tests/test_unique_games_topology.py": "093e72f4a842a7827a0105ffba1ac9a741589535b6428141e12351fa4c8add0b"
   }
 }
