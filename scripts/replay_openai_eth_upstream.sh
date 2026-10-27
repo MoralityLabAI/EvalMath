@@ -56,7 +56,7 @@ pathlib.Path(sys.argv[2]).write_text(json.dumps({
     'landrun_source_pin': sys.argv[8],
     'script_exit_code': int(sys.argv[3]),
     'stages': stages,
-    'kernel_verified': any(s['name'] == 'axioms_check' and s['status'] == 'passed' for s in stages),
+    'kernel_verified': all(any(s['name'] == n and s['status'] == 'passed' for s in stages) for n in ('upstream_target_build', 'axioms_check', 'axiom_allowlist')),
     'comparator_verified': any(s['name'] == 'official_comparator' and s['status'] == 'passed' for s in stages),
 }, indent=2) + '\n')
 PY
@@ -88,6 +88,7 @@ if ! run_stage elan_install 900 bash -c '
   sha256sum "$1/elan-init.sh"
   bash "$1/elan-init.sh" -y --default-toolchain none
   "$HOME/.elan/bin/elan" toolchain install "$2"
+  "$HOME/.elan/bin/elan" default "$2"
   "$HOME/.elan/bin/lean" --version
   "$HOME/.elan/bin/lake" --version
 ' _ "$WORK_DIR" "$TOOLCHAIN"; then
@@ -99,6 +100,7 @@ if ! run_stage lake_cache 1800 bash -c '
   cd "$1/upstream/lean"
   lake exe cache get
   echo "mathlib-ref=$(git -C .lake/packages/mathlib rev-parse HEAD)"
+  test "$(git -C .lake/packages/mathlib rev-parse HEAD)" = "d13f23b723b8a846827a245b89c10fc7d3f11612"
 ' _ "$WORK_DIR"; then
   record official_comparator blocked 'lake cache unavailable'
   record upstream_target_build blocked 'lake cache unavailable'
