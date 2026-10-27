@@ -206,6 +206,30 @@
       "stage": "conditional_transfer_from_universal_algorithm",
       "source": "https://arxiv.org/abs/2610.06783",
       "scope": "Universal worst-case speedup also runs on sampled inputs in the same size and weight regime; check a construction's precise distribution and exponents."
+    },
+    {
+      "id": "majdoddin_20261012_3sum",
+      "proposition": "THREE_SUM_HYP",
+      "proposed_value": false,
+      "stage": "followup_research_preprint",
+      "source": "https://arxiv.org/abs/2610.17420",
+      "scope": "Improves deterministic 3SUM bound to n^(1.9945+o(1)) for the specified polynomially bounded integer input setting; follow-up to Alman-VW."
+    },
+    {
+      "id": "majdoddin_20261012_apsp",
+      "proposition": "APSP_HYP",
+      "proposed_value": false,
+      "stage": "followup_research_preprint",
+      "source": "https://arxiv.org/abs/2610.17420",
+      "scope": "Improves deterministic APSP/min-plus exponent to n^(2.9945+o(1)) in the paper's stated integer-weight setting."
+    },
+    {
+      "id": "karingula_lovett_20261011_3sum",
+      "proposition": "THREE_SUM_HYP",
+      "proposed_value": false,
+      "stage": "independent_simplified_preprint",
+      "source": "https://arxiv.org/abs/2610.15663",
+      "scope": "Simplified independent route to truly subquadratic 3SUM and subcubic APSP with weaker exponents; not a proof of cryptographic insecurity."
     }
   ],
   "protocol": {
