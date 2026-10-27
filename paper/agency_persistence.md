@@ -9,8 +9,7 @@ At epoch \(t\ge 1\), independently sample a uniformly random polarity \(\theta_t
 Let \(n_t=t+1\) denote the number of independent held-out decisions. The **sufficient fixed schedule** buys
 
 \[
-m_t=5b_t,\qquad b_t=\lceil\log_2(t+1)\rceil=\operatorname{bit\_length}(t),
-\]
+m_t=5b_t,\qquad b_t=\lceil\log_2(t+1)\rceil=\operatorname{bit\_length}(t),\]
 
 labeled calibration examples, each costing \(c=1/32\) reward units. The agent infers \(\theta_t\) by a majority vote over the observed calibration polarities \(s_i\oplus y_i\) (ties select 0), and predicts \(\hat s_j=y_j\oplus\hat\theta_t\) for each held-out item. The environment and success law are known; the *fresh* polarity and trial noises are not.
 
