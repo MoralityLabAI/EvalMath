@@ -43,6 +43,8 @@ FROZEN_SOURCE_BLOBS = {
 }
 REQUIRED_SOURCES = set(FROZEN_SOURCE_BLOBS)
 
+FROZEN_COMPARATOR_PRELUDE_SHA256 = "d9e3df547e4842138e46bc97e5e6939ea5d3b8e05d3636b272bc4d3580b5a834"
+
 
 
 def git_blob_sha(data: bytes) -> str:
@@ -65,6 +67,21 @@ def _section(source: str, left: str, right: str) -> str:
 
 def _contains(source: str, *tokens: str) -> bool:
     return all(token in source for token in tokens)
+
+
+def comparator_prelude_sha256(comparator: str) -> str:
+    """Comment-insensitive fingerprint of the comparator definitional prelude."""
+    marker = "theorem exact_count_and_sat "
+    _require(marker in comparator, "missing comparator theorem")
+    prelude = comparator.split(marker, 1)[0]
+    unblocked = re.sub(r"/-.*?-/", "", prelude, flags=re.DOTALL)
+    uncommented = re.sub(r"--[^\n]*", "", unblocked)
+    return hashlib.sha256(" ".join(uncommented.split()).encode("utf-8")).hexdigest()
+
+
+def manuscript_input_targets(manuscript: str) -> list[str]:
+    """Return the TeX input targets."""
+    return re.findall(r"\\input\{([^}]+)\}", manuscript)
 
 
 def _lean_endpoint_signature(source: str) -> str:
@@ -117,6 +134,11 @@ def analyze_source_text(sources: dict[str, str]) -> dict[str, bool]:
         main, r"m\le Dn", r"n/\sqrt{\log n}")
     checks["paper_weaker_exponent_visible"] = (
         r"\rho(n)=\frac{n(\log\log n)^2}{\sqrt{\log n}}" in paper)
+
+    stems = {Path(path).stem for path, _ in FROZEN_SOURCE_BLOBS.values()}
+    includes = manuscript_input_targets(paper)
+    checks["manuscript_input_closure_archived"] = (
+        len(includes) == 3 and all(Path(target).stem in stems for target in includes))
 
     red = sources["tensor_reduction"]
     tensor = _section(red, r"\begin{theorem}[Boolean tensor contraction]", r"\end{theorem}")
@@ -177,6 +199,8 @@ def analyze_source_text(sources: dict[str, str]) -> dict[str, bool]:
         sources["circuits_appendix"],
         r"\begin{proof}[Proof of Corollary~\ref{cor:quantitative-circuits}]",
         r"\end{proof}") and r"\label{thm:main}" not in sources["circuits_appendix"]
+    checks["comparator_definitional_prelude_pinned"] = (
+        comparator_prelude_sha256(comparator) == FROZEN_COMPARATOR_PRELUDE_SHA256)
     config = json.loads(sources["lean_config"])
     checks["comparator_points_to_endpoint"] = (
         config.get("solution_module") == "OAI.Algorithms.SubexponentialSAT.Main" and

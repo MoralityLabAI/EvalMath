@@ -10,7 +10,7 @@ import pytest
 
 from spiral_ln.proof_fidelity import (
     CLAIM_CONTRACTS, FidelityError, analyze_source_text, git_blob_sha,
-    run_audit, validate_claim_contracts,
+    run_audit, validate_claim_contracts, comparator_prelude_sha256,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -66,7 +66,7 @@ def test_claim_ladder_covers_all_evidence_roles():
 def test_pinned_archive_and_statement_audit():
     report = run_audit(ROOT, _manifest())
     assert report["all_passed"]
-    assert len(report["checks"]) == 27
+    assert len(report["checks"]) == 29
     assert report["archived_source_count"] == 10
     assert "elaborated_type_not_checked" in report["comparison_kind"]
     assert "evidence_labels_fail_closed" not in report["checks"]
@@ -191,3 +191,31 @@ def test_rho_and_circuits_appendix_scopes_are_inspected():
         "(Real.logb 2 (Real.logb 2 n)) ^ 3", 1)
     with pytest.raises(FidelityError, match="lean_rho_scale_definition"):
         analyze_source_text(changed)
+
+
+def test_comparator_prelude_detects_an_unchecked_definition_change():
+    source = _sources()
+    original = source["lean_comparator"]
+    mutated = original.replace("bits.foldr", "bits.foldl", 1)
+    assert original != mutated
+    source["lean_comparator"] = mutated
+    with pytest.raises(FidelityError, match="comparator_definitional_prelude_pinned"):
+        analyze_source_text(source)
+
+
+def test_comparator_prelude_ignores_doc_comment_only_changes():
+    source = _sources()
+    original = source["lean_comparator"]
+    source["lean_comparator"] = original.replace(
+        "import Mathlib", "import Mathlib\n/- unrelated documentation note -/", 1)
+    assert comparator_prelude_sha256(original) == comparator_prelude_sha256(
+        source["lean_comparator"])
+    assert analyze_source_text(source)["comparator_definitional_prelude_pinned"]
+
+
+def test_manuscript_include_closure_rejects_unarchived_input():
+    source = _sources()
+    assert analyze_source_text(source)["manuscript_input_closure_archived"]
+    source["manuscript"] += r"\input{unarchived-extra.tex}" + "\n"
+    with pytest.raises(FidelityError, match="manuscript_input_closure_archived"):
+        analyze_source_text(source)

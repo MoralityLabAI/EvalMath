@@ -29,3 +29,7 @@ Mythos independently confirmed the seven Git blob hashes against OpenAI's source
 ## Status
 
 The reviewer found no incorrect source SHA, no counterexample to the finite valuation identity, and no justified claim of a cryptanalytic break. The remaining risks concern evidence provenance, precise formal referents, and mathematical review of the tensor proof. Preserve this note even after correcting the report so the audit trail remains legible.
+
+## Mythos patch handoff, rebased (2026-10-27)
+
+The uploaded three-patch series targeted the old seven/eight-blob v0.1 state. Its definition-fidelity checks, complete TeX archive, tauntology cleanup, and canonical receipt regeneration were already represented in PR #10 v0.2. Its remaining whole-comparator-prelude digest and manuscript include-closure check were ported as independent checks, with three mutation tests. The repository keeps the canonical bot-generated v0.2 receipt; it is regenerated again after these checker changes. The separate RSITopology patch still needs repository-specific write access from GitHub's integration.
