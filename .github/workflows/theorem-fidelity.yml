@@ -33,3 +33,5 @@ jobs:
         run: python scripts/check_theorem_fidelity.py
       - name: Check five pinned upstream blobs and theorem contract
         run: python research/theorem_fidelity/upstream_contract.py --fetch
+      - name: Inspect eleven pinned upstream proof-spine and build blobs
+        run: python research/theorem_fidelity/proof_spine.py --fetch
