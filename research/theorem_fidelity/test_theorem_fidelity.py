@@ -1,5 +1,6 @@
 import unittest
 from fractions import Fraction
+from unittest.mock import patch
 from theorem_fidelity import (Edge, exp_polynomial_certificate, is_f2_translation,
                               optimum, permutation, satisfiable_3cnf,
                               score, simple_bipartite, validate)
@@ -8,6 +9,11 @@ from theorem_fidelity import (Edge, exp_polynomial_certificate, is_f2_translatio
 class TheoremFidelityTests(unittest.TestCase):
     def test_all_cases(self):
         self.assertEqual(len(validate()), 6)
+
+    def test_corrupt_witness_always_rejected(self):
+        with patch("theorem_fidelity.witnesses", return_value={"TF-01": {"actual_optimum": "999"}}):
+            with self.assertRaises(ArithmeticError):
+                validate()
 
     def test_empty_game_rejected(self):
         with self.assertRaises(ValueError):
