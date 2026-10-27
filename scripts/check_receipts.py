@@ -46,6 +46,8 @@ RECEIPTS = {
                       "output/evaluation_leak_topology/leak_topology_v0_1.json", [], False),
     "selection_kl": ("scripts/verify_evaluation_selection_kl.py",
                      "output/evaluation_selection_kl/selection_kl_v0_4.json", [], False),
+    "oqp27_fidelity": ("scripts/verify_evaluation_oqp27_fidelity.py",
+                     "output/evaluation_oqp27_fidelity/oqp27_v0_1.json", [], False),
     "gold_calibration": ("scripts/verify_evaluation_gold_calibration.py",
                          "output/evaluation_gold_calibration/gold_v0_4.json",
                          ["--sampling-size", "400", "--sampling-size", "742", "--joint-size", "4000",

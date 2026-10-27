@@ -1,0 +1,103 @@
+{
+  "all_passed": true,
+  "checks": {
+    "256_local_vertices": true,
+    "bgp_histogram": true,
+    "bgp_to_cglmp_universal_transfer_fails": true,
+    "bgp_to_cglmp_worst_regret": true,
+    "cglmp_histogram": true,
+    "cglmp_to_bgp_universal_transfer_fails": true,
+    "cglmp_to_bgp_worst_regret": true,
+    "existential_transfer_survives": true,
+    "local_bgp_bound": true,
+    "local_cglmp_bound": true,
+    "mutation_changed_bgp_coefficient_detected": true,
+    "mutation_missing_marginal_detected": true,
+    "mutation_missing_shift_detected": true,
+    "pbar_no_signalling": true,
+    "pbar_positive_in_all_cells": true,
+    "pbar_saturates_bgp": true,
+    "pplus_bgp_violation": true,
+    "pplus_fixed_cglmp_below_bound": true,
+    "pplus_no_signalling": true,
+    "shared_winners": true,
+    "vertex_scores_match_full_tables": true
+  },
+  "evidence_level": "finite verified example; local inequalities extend by affine convexity",
+  "external_theorems_not_replayed": [
+    "PSI projective CGLMP optimality / rigidity",
+    "PSI global noise comparison for m >= 955",
+    "PSI KL comparison for m >= 41",
+    "PSI four-outcome BGP facet dimension/rank and no-fusion proofs",
+    "PSI Lean comparator/kernel build"
+  ],
+  "generated_at_utc": "2026-10-27T09:27:59.915486+00:00",
+  "histogram": {
+    "bgp": {
+      "-1": 144,
+      "-2": 40,
+      "0": 72
+    },
+    "cglmp": {
+      "-10/3": 16,
+      "-2/3": 160,
+      "2": 80
+    }
+  },
+  "optimizer_transfer": {
+    "bgp_to_cglmp": {
+      "all_source_maximizers_transfer": false,
+      "counterexample": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "shared": 24,
+      "some_source_maximizer_transfers": true,
+      "source_winners": 72,
+      "target_winners": 80,
+      "worst_target_regret": "16/3"
+    },
+    "cglmp_to_bgp": {
+      "all_source_maximizers_transfer": false,
+      "counterexample": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shared": 24,
+      "some_source_maximizer_transfers": true,
+      "source_winners": 80,
+      "target_winners": 72,
+      "worst_target_regret": "2"
+    }
+  },
+  "rational_witness": {
+    "fixed_cglmp_local_bound": "2",
+    "pbar_bgp": "0",
+    "pbar_min_probability": "1/72",
+    "pplus_bgp": "1/144",
+    "pplus_cglmp": "1/9",
+    "pplus_min_probability": "1/72"
+  },
+  "schema_version": "0.1",
+  "scope": "exact finite (2,2,4) deterministic Bell vertices; convex-hull local validity",
+  "source": {
+    "commit": "da37af2ae174687403fbd97e9673c819edee71fd",
+    "git_blobs": {
+      "oqp27-cglmp-inequalities/lean/CGLMPBounds/BGP/Facet.lean": "096475ee8611beb3d7bdcd24fd540e23a6c062a4",
+      "oqp27-cglmp-inequalities/lean/CGLMPBounds/Defs/BGP.lean": "8a1bc93bd4b237112f90a2d170ebd09ac3885644",
+      "oqp27-cglmp-inequalities/lean/CGLMPBounds/Defs/CGLMP.lean": "3889781d058966e336305d8a646cfbb8aaa98bdf",
+      "oqp27-cglmp-inequalities/lean/docs/FIDELITY.md": "10f3e7c3ce2672b25555ee851f0f9c18cb9a52b3"
+    },
+    "repository": "physical-superintelligence/oqp-batch-2026"
+  },
+  "source_sha256": {
+    "paper/evaluation_oqp27_objective_fidelity.md": "e42ceeb5a122ec670388e5a978cedfed4969f98b05a1c898f5e97d6779d1b03e",
+    "scripts/verify_evaluation_oqp27_fidelity.py": "ee8fbfaefc33b0ebaea59ea8653d68658123669e8cd3cde66c322bcf5f39a5b0",
+    "src/spiral_ln/evaluation_oqp27_fidelity.py": "ed9df38b00b40d8f61de9eafca0673682d80ac1b54e95e90894ce010b82c3a87",
+    "tests/test_evaluation_oqp27_fidelity.py": "a35a52adb7dd7341b68be566b152a74fb6c36b186f272ad5d4a541f53cfc84ea"
+  }
+}
