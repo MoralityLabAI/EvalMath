@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "source_blobs": {
+    "research/theorem_fidelity/theorem_fidelity.py": "4bd949a5fc38e2908f66b05ed820b5d463a15670",
+    "research/theorem_fidelity/upstream_contract.py": "33edd9eee4e89b2979d5621fbf21bc8c9c6a2be7",
+    "research/theorem_fidelity/upstream_pin.json": "6b76b0976d11fe794acc905c61e061dbfa23e025",
+    "lean/FeedbackChannel/TheoremFidelity.lean": "f5046ccf568703f5f473d0827179d595ed092308"
+  },
+  "evidence": {
+    "TF-01": "exact finite witness",
+    "TF-02": "exact finite witness in relaxed relation model",
+    "TF-03": "exact finite bipartite F2-translation witness",
+    "TF-04": "exhaustive one-variable three-slot 3CNF",
+    "TF-05": "symbolic unboundedness (Lean build required)",
+    "TF-06": "constructive binomial bound plus tested finite certificate"
+  },
+  "witnesses": {
+    "TF-01": {
+      "weak_existential_score": "0",
+      "actual_optimum": "1",
+      "valid_game": true
+    },
+    "TF-02": {
+      "universal_relation_permutation": false,
+      "universal_relation_optimum": "1"
+    },
+    "TF-03": {
+      "simple_bipartite": true,
+      "all_translations": true,
+      "optimum": "3/4"
+    },
+    "TF-04": {
+      "unsat_3cnf": true,
+      "trivial_language_accepts": true
+    },
+    "TF-05": {
+      "alphabet_n2": 4,
+      "alphabet_n3": 8,
+      "fixed_alphabet_false": true
+    },
+    "TF-06": {
+      "coefficient": 2,
+      "degree": 2,
+      "n": 97,
+      "k": 3,
+      "scale": 48,
+      "choose": 147440
+    }
+  },
+  "scope": "finite semantic cases and source-contract audit; no UGC hardness proof"
+}
