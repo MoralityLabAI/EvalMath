@@ -8,7 +8,10 @@ from spiral_ln.evaluation_frc_resonance import (
     min_entropy_coverage_cap, min_entropy_effective_support,
     necessary_queries, necessary_queries_by_coverage,
     optimal_coverage, oracle_coverage, train_on_selected,
-    uniform_depth_query_floor, verify, weakness_external_floor,
+    uniform_depth_query_floor, uniform_depth_query_floor_sharp,
+    sharp_coverage_threshold, optimal_randomized_power,
+    necessary_queries_sharp, necessary_queries_by_coverage_sharp,
+    verify, weakness_external_floor,
 )
 
 
@@ -128,3 +131,85 @@ def test_invalid_parameter_and_stronger_information_leaks():
     with pytest.raises(ValueError):
         design_trajectory("unknown", 2)
     assert verify()["all_passed"]
+
+
+def test_sharp_coverage_threshold_boundary_and_nonuniform_query_floor():
+    p = (Q(1, 2), Q(1, 4), Q(1, 8), Q(1, 8))
+    assert sharp_coverage_threshold(Q(0)) == 1
+    assert sharp_coverage_threshold(Q(1, 10)) == Q(8, 9)
+    assert sharp_coverage_threshold(Q(1, 4)) == Q(2, 3)
+    assert sharp_coverage_threshold(Q(1, 2)) == 0
+    assert sharp_coverage_threshold(Q(1)) == 0
+    assert necessary_queries_by_coverage_sharp(p, Q(1, 10)) == 4
+    assert necessary_queries_sharp(p, Q(1, 10)) == 2
+    assert necessary_queries_by_coverage(p, Q(1, 10)) == 3
+    for d in (Q(0), Q(1, 10), Q(1, 4), Q(1, 2), Q(3, 4), Q(1)):
+        assert necessary_queries_by_coverage_sharp(p, d) >= necessary_queries_by_coverage(p, d)
+
+
+def test_uniform_exponential_sharp_floor_and_attainable_randomized_witness():
+    for k in range(11):
+        prior = (Q(1, 2**k),) * 2**k
+        for delta in (Q(0), Q(1, 10), Q(1, 4), Q(1, 2), Q(3, 4), Q(1)):
+            expected = uniform_depth_query_floor_sharp(k, delta)
+            assert expected == necessary_queries_by_coverage_sharp(prior, delta)
+            assert expected >= uniform_depth_query_floor(k, delta)
+            assert optimal_randomized_power(prior, expected, delta) >= 1-delta
+            if expected:
+                assert optimal_randomized_power(prior, expected-1, delta) < 1-delta
+    assert uniform_depth_query_floor_sharp(8, Q(1, 10)) == 228
+    assert uniform_depth_query_floor_sharp(12, Q(1, 10)) == 3641
+
+
+def _strategies(size, depth):
+    """Exhaust all deterministic boolean decision trees for tiny sizes."""
+    if depth == 0:
+        return (False, True)
+    smaller = _strategies(size, depth-1)
+    return tuple((i, no, yes) for i in range(size) for no in smaller for yes in smaller)
+
+
+def _run_strategy(tree, hidden):
+    """hidden=None means benign; otherwise equality-oracle trigger index."""
+    while isinstance(tree, tuple):
+        index, no, yes = tree
+        tree = yes if hidden == index else no
+    return tree
+
+
+def test_exhaustive_adaptive_auditors_obey_sharp_seedwise_coupling():
+    p = (Q(1, 2), Q(1, 3), Q(1, 6))
+    q = 2
+    cov = optimal_coverage(p, q)
+    trees = _strategies(len(p), q)
+    # 2 -> 3*(3*4)^2=432 decision trees, including deliberate false positives.
+    assert len(trees) == 432
+    for tree in trees:
+        benign = Q(int(_run_strategy(tree, None)))
+        triggered = sum((px*int(_run_strategy(tree, x)) for x, px in enumerate(p)), Q(0))
+        assert triggered <= benign + (1-benign)*cov
+    # Every pair of tree seeds is a uniform randomized strategy.
+    observed = [(Q(int(_run_strategy(t, None))),
+                 sum((px*int(_run_strategy(t, x)) for x, px in enumerate(p)), Q(0)))
+                for t in trees]
+    for i in range(len(observed)):
+        for j in (i, (i+17) % len(observed), (i+131) % len(observed)):
+            false_alarm = (observed[i][0] + observed[j][0])/2
+            power = (observed[i][1] + observed[j][1])/2
+            assert power <= false_alarm + (1-false_alarm)*cov
+
+
+def test_randomized_achievability_is_exact_under_two_sided_constraints():
+    prior = (Q(1, 4),) * 4
+    delta = Q(1, 4)
+    assert necessary_queries_by_coverage_sharp(prior, delta) == 3
+    # One of four independent auditor coins rejects immediately. The other
+    # three scan {0,1,2} and reject only on a hit. Uniform-trigger detection:
+    reject_given_trigger = []
+    for target in range(4):
+        seed_outputs = [True] + [target in (0,1,2)]*3
+        reject_given_trigger.append(Q(sum(seed_outputs), 4))
+    power = sum((px*power_x for px,power_x in zip(prior,reject_given_trigger)),Q(0))
+    assert power == Q(13, 16) == optimal_randomized_power(prior, 3, delta)
+    assert delta <= delta and power >= 1-delta
+    assert optimal_randomized_power(prior, 2, delta) == Q(5, 8) < 1-delta
