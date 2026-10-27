@@ -91,9 +91,19 @@ def test_all_c4_labels_gauge_invariance_and_block_hamming():
         assert (cycle_signature(g)[0][1] == 0) == coboundary_zero(g)
 
 
+def test_fundamental_cycle_packing_is_strictly_weaker():
+    k4_all_ones = game(4, 1, tuple(__import__("itertools").combinations(range(4), 2)), (1,) * 6)
+    k23_distinct = game(5, 2, K23, (0, 0, 0, 1, 0, 2))
+    for witness in (k4_all_ones, k23_distinct):
+        assert minimum_bad_edges(witness)[0] == 2
+        assert fundamental_cycle_packing_bound(witness) == 1
+
+
 def test_full_exhaustive_receipt_counts():
     report = finite_census()
     assert report["checks"] == 1001
     assert report["c4_F2_2"] == {"0": 64, "1": 192}
     assert report["k23_F2_2_gauge_classes"] == {"0": 1, "1": 9, "2": 6}
     assert report["all_signed_simple_K4_subgraphs"] == 729
+    assert report["k4_F2_deletion_hist"] == {"0": 393, "1": 328, "2": 8}
+    assert report["loose_fundamental_packing"] == {"k23_gauge_classes": 6, "signed_K4_subgraphs": 8}
