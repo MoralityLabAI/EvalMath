@@ -1,6 +1,6 @@
 """Independent regression checks for the pinned-contract source signatures."""
 import unittest
-from upstream_contract import SIGNATURES, blob_sha, check_model, source_without_noncode
+from upstream_contract import SIGNATURES, blob_sha, check_model, source_without_noncode, theorem_head
 
 
 class UpstreamContractTests(unittest.TestCase):
@@ -47,6 +47,24 @@ class UpstreamContractTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             source_without_noncode('def s : String := "unfinished')
 
+
+    def test_comparator_theorem_head_mutation_detection(self):
+        actual = """namespace OAI
+theorem theorem11 (ε δ : ℝ) (hε : 0 < ε) :
+    Nonempty (BinaryGapReduction ε δ) :=
+  witness
+"""
+        comparator = """namespace OAI
+theorem theorem11
+    (ε δ : ℝ)
+    (hε : 0 < ε) : Nonempty (BinaryGapReduction ε δ) := by
+  sorry
+"""
+        self.assertEqual(theorem_head(actual), theorem_head(comparator))
+        mutated = comparator.replace("BinaryGapReduction ε δ", "BinaryGapReduction δ ε")
+        self.assertNotEqual(theorem_head(actual), theorem_head(mutated))
+        with self.assertRaises(ValueError):
+            theorem_head("theorem anotherName : True := by trivial")
 
     def test_all_signatures_are_unique(self):
         self.assertEqual(len(SIGNATURES), len(set(SIGNATURES)))
