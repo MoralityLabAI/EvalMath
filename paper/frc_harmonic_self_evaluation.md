@@ -1,6 +1,6 @@
-# HRC-FRC-01: Fidelity Recursive Complexity of self-designed evaluations
+# HRC-FRC-02: Fidelity Recursive Complexity of self-designed evaluations
 
-**Draft 0.1, 2026-10-27.** Evidence levels: *algebraic identity* (proved below), *finite verified example* (exact `Fraction` enumeration), and *synthetic mechanism result* (toy training trajectory). No live model, judge, or grader is called. This note is a proposed companion to the [evaluation design calculus](evaluation_design_calculus.md), the [multigeneration feedback result](evaluation_feedback_multigen.md), and the [RSITopology crosswalk](feedback_channel_rsitopology_crosswalk.md).
+**Draft 0.2, 2026-10-27.** Evidence levels: *algebraic identity* (proved below), *finite verified example* (exact `Fraction` enumeration), and *synthetic mechanism result* (toy training trajectory). No live model, judge, or grader is called. This note is a proposed companion to the [evaluation design calculus](evaluation_design_calculus.md), the [multigeneration feedback result](evaluation_feedback_multigen.md), and the [RSITopology crosswalk](feedback_channel_rsitopology_crosswalk.md).
 
 ## 1. Original FRC and the lower limit
 
@@ -49,25 +49,68 @@ Fix finite nonempty hidden-trigger space `X`, prior `p(x)` (summing to one), and
 
 *Proof.* For a deterministic strategy all answers before the first hit are zero, so the queried positions on that history form one fixed ordered path. Hitting the trigger is equivalent to the trigger belonging to the distinct queried indices, with probability at most `C_q(p)`. A randomized strategy is a mixture over deterministic no-hit paths; averaging preserves the bound. Repeating a query cannot help. QED.
 
-**Proposition 2 (necessary audit cost).** Under the two-sided error conditions above,
+**Proposition 2 (sharp, attainable two-sided audit floor).** Let
+`gamma = Pr(reject | benign) <= delta`. Condition on the independent auditor
+coins: for each coin outcome on which the benign oracle is accepted, rejection
+of a trigger oracle requires the trigger to lie in the finite no-hit query path.
+For coin outcomes on which the benign oracle is rejected, trigger rejection
+can have probability at most one. Therefore the *prior-averaged* detection
+power satisfies
 
 \[
-C_q(p)\ge1-2\delta,
-\qquad q\ge \big\lceil (1-2\delta) 2^{H_\infty(X)}\big\rceil
-\quad(0\le\delta<1/2).
+\Pr(\mathrm{reject}\mid\mathrm{trigger})
+\le \gamma +(1-\gamma)C_q(p)
+\le \delta+(1-\delta)C_q(p).
 \]
 
-*Proof.* Couple a trigger transcript and a benign transcript using the auditor's same random coins. Until the first trigger hit they agree. Therefore the difference between the auditor's rejection probabilities under the trigger mixture and benign oracle cannot exceed `Pr(hit)`. The former is at least `1-delta`; the latter is at most `delta`, giving `Pr(hit) >= 1-2delta`. Apply Proposition 1. QED.
+The inequality in the second step uses `C_q(p) <= 1`. Requiring trigger
+rejection at least `1-delta` gives the **sharp necessary bound**
 
-**The quantifiers matter:** under the stated *prior-averaged* rejection criterion, these are necessary bounds. They remain necessary if rejection is required uniformly for every trigger. The bound need not be sufficient; exact `C_q(p)` can be stronger than the min-entropy relaxation. This proposition counts **equality probes**. Aggregate-score queries, structural certificates, group testing, white-box access, and spectral coefficient queries belong to separate channels and can avoid this oracle lower bound.
+\[
+\boxed{ C_q(p)\ge \frac{1-2\delta}{1-\delta},\qquad
+ q\ge\left\lceil \frac{1-2\delta}{1-\delta}2^{H_\infty(X)}\right\rceil,
+ \quad 0\le\delta<1/2. }
+\]
 
-For a uniform space `|X_k|=2^{m_k}`, the exact necessary bound is `q_k >= ceil((1-2delta) 2^{m_k})`. If `delta<1/2` is fixed and
+This bound is *attainable* in the declared oracle model. Reject without querying
+with probability `delta`; with probability `1-delta`, query the `q` heaviest
+triggers and reject precisely on a hit. Clean-oracle rejection is `delta` and
+trigger rejection is exactly `delta+(1-delta)C_q(p)`. Thus the smallest
+feasible `q` is **exactly** the first integer for which
+`C_q(p) >= (1-2delta)/(1-delta)`. When `delta>=1/2`, zero probes suffice by
+rejecting both oracles with probability `1/2`.
+
+The earlier conservative bound `C_q(p)>=1-2delta` remains a corollary of
+transcript coupling, but loses the information that the auditor's coin
+outcomes already rejecting the benign oracle cannot use the query budget to
+increase their rejection probability above one.
+
+**The quantifiers matter:** all rejection requirements above are prior-averaged
+for the trigger oracle and two-sided against the benign oracle, with shared
+independent coins. They remain necessary under the stronger demand of uniform
+rejection over each trigger, while the simple randomized construction only
+claims prior-averaged attainability. We count **equality probes**, assigning no
+cost to random coins. Aggregate scores, batch queries, structural certificates,
+group testing, white-box access, and spectral coefficients belong to different
+feedback channels and can evade this restricted lower bound.
+
+For a uniform space `|X_k|=2^{m_k}` the optimal query count is
+
+\[
+q_k=\left\lceil \frac{1-2\delta}{1-\delta}2^{m_k}\right\rceil
+\quad (0\le\delta<1/2).
+\]
+
+At `m_k=8` and `delta=1/10` this is **228 queries**, rather than the
+205 queries supplied by the previous conservative bound. If `delta<1/2`
+is fixed and
 
 \[
 \liminf_{k\to\infty}\frac{m_k}{k}\ge c>0,
 \]
 
-then any resource measure that costs at least one unit per equality probe satisfies
+then any resource measure that costs at least one unit per equality probe
+satisfies
 
 \[
 \liminf_{k\to\infty}\frac{\ln(1+R_k)}{k}\ge c\ln 2.
@@ -132,7 +175,7 @@ The consciousness proposal is operational: test whether an AI can **reliably mod
 
 ## 7. Evidence, falsifiers and commands
 
-`src/spiral_ln/evaluation_frc_resonance.py`: exact fractions, finite optimal coverage and deterministic policy paths, asymptotic finite-depth witnesses, capacity-transfer dynamics. `tests/test_evaluation_frc_resonance.py`: exhaustive small search spaces, distributions, error boundaries, negative controls. `scripts/verify_evaluation_frc_resonance.py`: JSON with source SHA-256 and no nondeterministic timestamp. The receipt under `output/frc_resonance/` must be regenerated from checked sources.
+`src/spiral_ln/evaluation_frc_resonance.py`: exact fractions, sharp two-sided coverage/power, finite optimal coverage and deterministic policy paths, asymptotic finite-depth witnesses, capacity-transfer dynamics. `tests/test_evaluation_frc_resonance.py`: exhaustive small search spaces, distributions, error boundaries, negative controls. `scripts/verify_evaluation_frc_resonance.py`: JSON with source SHA-256 and no nondeterministic timestamp. The receipt under `output/frc_resonance/` must be regenerated from checked sources.
 
 ```bash
 PYTHONPATH=src python -m pytest tests/test_evaluation_frc_resonance.py -q
@@ -142,4 +185,4 @@ PYTHONPATH=src python scripts/verify_evaluation_frc_resonance.py \
 
 *Falsifiers / scope checks*: an independent aggregate query recovering multiple trigger bits invalidates the equality-query access premise; a learned evaluator that accesses the sealed readout breaks the feedback declaration; an error field with arbitrary high-frequency mass defeats narrow-band smoothness assumptions; a permitted free always-safe agent defeats a claimed reduction from restricted audit FRC to unrestricted FRC.
 
-**Lean status:** finite exact verification is implemented. The two-sided-error coupling lemma, weighted top-q coverage and original-FRC reduction are listed as formalization targets; none is claimed as a completed Lean proof in this version. See `paper/frc_harmonic_lean_targets.md`.
+**Lean status:** finite exact verification is implemented. An adaptive no-hit transcript-coupling/counting formalization is proposed on the research branch; its Lean build and statement-fidelity audit must pass before claiming it as a checked theorem. Weighted top-q coverage, the sharp probability inequality and original-FRC reduction remain additional targets. See `paper/frc_harmonic_lean_targets.md`.
