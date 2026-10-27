@@ -40,14 +40,19 @@
     }
   },
   "source_git_blob_sha": {
+    "circuits_appendix": "e25def5eb03ee53feefd3fe480dd5a1293761fae",
+    "lean_asymptotics": "da9003ffd1a9b8fcc82147b4152414b264d26d54",
     "lean_comparator": "a8d5ff3a3e80323675b1f2d1ea611560b783e9ca",
     "lean_config": "d4cc9e7074e900c1aa6371151cfd234c121a0b82",
     "lean_final": "a69635a2492e06a26f2e33d4251edd1e21ba3332",
+    "lean_scale": "dae009c0b234a6180e61a897d56a5721f397762d",
     "lean_scope": "223bbe187394bffca8a2c7ba1656538bfba26e3b",
     "manuscript": "f7af85e623b58e0ca9f4b9416916d442defa963a",
     "tensor_contraction": "51ba54efc29f51bbc0426f848003030da484f354",
     "tensor_reduction": "80389ac39d987133b71b2ddc2593e6fcdd99871a"
   },
+  "archived_source_count": 10,
+  "comparison_kind": "syntactic_statement_and_printed_definition_text; elaborated_type_not_checked",
   "checks": {
     "paper_title": true,
     "paper_main_exact_count": true,
@@ -65,31 +70,37 @@
     "lean_rho_theorem_separate": true,
     "comparator_is_admitted_specification": true,
     "comparator_matches_implemented_type": true,
+    "comparator_runtime_scale_definition": true,
+    "comparator_runtime_bound_definition": true,
+    "comparator_count_definition": true,
+    "comparator_encoding_definition": true,
+    "comparator_space_definition": true,
+    "lean_rho_scale_definition": true,
+    "circuits_appendix_outside_main_proof": true,
     "comparator_points_to_endpoint": true,
     "comparator_permitted_axioms": true,
     "scope_document_admits_weaker_lean": true,
-    "seven_git_blob_pins": true,
-    "evidence_labels_fail_closed": true,
-    "hermite_valuation_finite_grid": true,
-    "three_exponents_have_strict_audit_order": true
+    "hermite_valuation_finite_grid": true
   },
   "all_passed": true,
-  "open_obligations": [
-    "rebuild the entire upstream Lean import closure and inspect #print axioms output",
-    "independently audit tensor packing, 2-adic Hermite precision, and recursion cost",
-    "check manuscript-to-formal input normalization and explicit algorithmic correspondence"
-  ],
-  "schema_version": "0.1",
-  "source_sha256": {
-    "src/spiral_ln/proof_fidelity.py": "76897ca2727ca9c698f8585319d2bd13016cbe6667f071bdc26277f2ed9a7d10",
-    "scripts/verify_proof_fidelity_openai_eth.py": "ed59d4ad3fd43eca9f7ae0cd32b223da8e27a9019b3723924827131a78f67f0f",
-    "configs/openai_eth_fidelity.json": "b2cb35fc438642201de73e502869b3abeb1e1cd167ca318f6907978e34ae126c",
-    "paper/proof_fidelity_openai_eth.md": "f819cbb8f4a0f1cbb78874503cbd1d9e92467312745add0faaa2db17d989cbe0"
-  },
-  "generated_at_utc": "2026-10-27T00:00:00+00:00",
   "finite_probes": {
     "hermite_valuation_cases": 15492,
     "grid": "1<=a<=7; 1<=u<=a; u<=M<=u+5; q_t>0",
     "evidence": "finite_verified_example"
-  }
+  },
+  "open_obligations": [
+    "rebuild the entire upstream Lean import closure and inspect #print axioms output",
+    "independently audit tensor packing, 2-adic Hermite precision, and recursion cost",
+    "check manuscript-to-formal input normalization and explicit algorithmic correspondence",
+    "compare fully elaborated comparator and implementation definitions via upstream Lean mechanism"
+  ],
+  "schema_version": "0.2",
+  "source_sha256": {
+    "src/spiral_ln/proof_fidelity.py": "3cdcd8ed95953ad2d580572bfef2d15c595c2a4e97521b38c3ec7fce15951d60",
+    "scripts/verify_proof_fidelity_openai_eth.py": "693dd38feb7619e1c8a53b8d3d499b229e8257e00a4f9092006c24c408c8fc8e",
+    "configs/openai_eth_fidelity.json": "d3b7aed7a2286a0e9d589fd44f2b17b3a89988bcd1069d9f29305a5f6c2414a0",
+    "paper/proof_fidelity_openai_eth.md": "b94c93b88b93b2ba93d3bdbbdd5d80b7fe14e9731b59ad9421067a092c436a2f",
+    "tests/test_proof_fidelity_openai_eth.py": "9f2b8499a5ecd6fbfe5ab3156b811752ab341b99539b80c30d17fc82e3e11227"
+  },
+  "generated_at_utc": "2026-10-27T00:22:46.035268+00:00"
 }
