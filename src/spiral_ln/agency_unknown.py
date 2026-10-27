@@ -299,7 +299,7 @@ def fixture() -> dict[str, object]:
     first = state(prior, 1, 0)
     same = state(prior, 2, 0)
     different = state(prior, 1, 1)
-    seen = tuple((k, identification_success(prior, Q(1), k)) for k in (1, 2, 4, 8, 16))
+    seen = tuple((k, identification_success(prior, Q(1, 2), k)) for k in (1, 2, 4, 8, 16))
     checks = {
         "one_label_q_uninformative": one_label_posterior_invariant(prior),
         "two_label_same_event_probability": Q(3, 4) == sum(
@@ -316,7 +316,7 @@ def fixture() -> dict[str, object]:
         "oracle_gap_nonnegative": episode["expected_oracle_regret"] >= 0,
         "separated_rates_identifiable": all(agreement_probability(prior[i][0]) < agreement_probability(prior[i+1][0])
                                              for i in range(len(prior)-1)),
-        "exact_identification_converges_in_fixture": seen[-1][1] >= seen[0][1],
+        "exact_identification_converges_in_fixture": seen[-1][1] > seen[0][1],
     }
     return {
         "schema_version": "1.0",
