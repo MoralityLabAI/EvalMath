@@ -10,6 +10,12 @@ formalized, a Lean 4 proof. No model, judge or grader is run anywhere in this re
 It states each result, its evidence level and its Lean theorem, and lists what is open. A rendered copy
 of the notes is published at <https://moralitylabai.github.io/EvalMath/>.
 
+**New (2026-10-27):** [Cryptomania assumption audit](paper/cryptomania_assumption_audit.md)
+tracks the five-world implication graph, evidence-gated ETH/3SUM/APSP hardness routes,
+exact-rational Bayesian scenarios and an exact toy-#SAT control.
+Reproduce with `PYTHONPATH=src python -m pytest -q tests/test_cryptomania_audit.py`
+and `PYTHONPATH=src python scripts/verify_cryptomania_audit.py`.
+
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 ## Layout
