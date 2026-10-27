@@ -19,19 +19,19 @@
   },
   "evidence": "finite_verified_example_and_algebraic_identity",
   "min_entropy_uniform_audit_floor": {
+    "12": 3277,
     "2": 4,
     "4": 13,
-    "8": 205,
-    "12": 3277
+    "8": 205
   },
   "model_evaluations": 0,
   "schema_version": "hrc-frc-02.0",
   "sharp_prior_averaged_two_sided_threshold": "8/9",
   "sharp_uniform_audit_floor": {
+    "12": 3641,
     "2": 4,
     "4": 15,
-    "8": 228,
-    "12": 3641
+    "8": 228
   },
   "source_sha256": {
     "paper/frc_harmonic_self_evaluation.md": "213e75a212c3601f8f166d5f691ade5e95c42e2450356d3bdb9c590e26b46f9b",
