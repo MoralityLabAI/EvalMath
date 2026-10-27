@@ -213,3 +213,11 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.SelectionTieRules.theoremB_every_tie_rule
 #print axioms FeedbackChannel.SelectionTieRules.theoremB_every_tie_rule_eq_iff
 #print axioms FeedbackChannel.SelectionTieFree.tieFree_integral
+
+-- TFAF independent semantic witnesses (research/theorem_fidelity/)
+#print axioms FeedbackChannel.TheoremFidelity.tf01_exists_bad_not_all_bad
+#print axioms FeedbackChannel.TheoremFidelity.tf02_universal_not_function
+#print axioms FeedbackChannel.TheoremFidelity.tf03_cycle_optimum_three
+#print axioms FeedbackChannel.TheoremFidelity.tf04_unsat_three_cnf
+#print axioms FeedbackChannel.TheoremFidelity.tf05_exponential_alphabet_unbounded
+#print axioms FeedbackChannel.TheoremFidelity.tf06_exponential_construction_example
