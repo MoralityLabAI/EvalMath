@@ -1,4 +1,4 @@
-"""Regenerate the exact HRC-FRC-01 synthetic receipt, with source hashes."""
+"""Regenerate the exact HRC-FRC-02 synthetic receipt, with source hashes."""
 from __future__ import annotations
 
 import argparse
@@ -23,7 +23,7 @@ def main() -> int:
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     payload = {
-        "schema_version": "hrc-frc-01.1",
+        "schema_version": "hrc-frc-02.0",
         **verify(),
         "source_sha256": {name: sha256((root / name).read_bytes()).hexdigest() for name in SOURCES},
     }
