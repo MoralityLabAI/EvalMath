@@ -33,12 +33,78 @@ SIGNATURES = {
 }
 
 
+
+def source_without_noncode(source: str) -> str:
+    """Mask Lean line comments, nested block comments, and quoted strings.
+
+    This is lexical defense against signature spoofing in comments/strings,
+    not a substitute for parsing, elaboration, or semantic verification.
+    """
+    output: list[str] = []
+    index = 0
+    depth = 0
+    quoted = False
+
+    def mask(text: str) -> None:
+        output.extend("\n" if char == "\n" else " " for char in text)
+
+    while index < len(source):
+        if depth:
+            if source.startswith("/-", index):
+                depth += 1
+                mask(source[index:index + 2])
+                index += 2
+            elif source.startswith("-/", index):
+                depth -= 1
+                mask(source[index:index + 2])
+                index += 2
+            else:
+                mask(source[index])
+                index += 1
+            continue
+        if quoted:
+            if source[index] == "\\" and index + 1 < len(source):
+                mask(source[index:index + 2])
+                index += 2
+            elif source[index] == '"':
+                mask('"')
+                quoted = False
+                index += 1
+            else:
+                mask(source[index])
+                index += 1
+            continue
+        if source.startswith("--", index):
+            end = source.find("\n", index)
+            if end < 0:
+                end = len(source)
+            mask(source[index:end])
+            index = end
+            continue
+        if source.startswith("/-", index):
+            depth = 1
+            mask(source[index:index + 2])
+            index += 2
+            continue
+        if source[index] == '"':
+            quoted = True
+            mask(source[index])
+            index += 1
+            continue
+        output.append(source[index])
+        index += 1
+    if depth or quoted:
+        raise ValueError("unterminated Lean comment or string in pinned source")
+    return "".join(output)
+
+
 def blob_sha(data: bytes) -> str:
     return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
 
 
 def check_model(text: str) -> dict[str, bool]:
-    return {name: re.search(pattern, text) is not None
+    code = source_without_noncode(text)
+    return {name: re.search(pattern, code) is not None
             for name, pattern in SIGNATURES.items()}
 
 
@@ -53,17 +119,20 @@ def audit(sources: dict[str, bytes], pin: dict) -> dict:
     checks = check_model(model)
     if not all(checks.values()):
         raise ValueError(f"model signature failures: {[k for k, v in checks.items() if not v]}")
-    theorem = sources[THEOREM].decode("utf-8")
-    challenge = sources[CHALLENGE].decode("utf-8")
-    main = sources[MAIN].decode("utf-8")
+    theorem = source_without_noncode(sources[THEOREM].decode("utf-8"))
+    challenge = source_without_noncode(sources[CHALLENGE].decode("utf-8"))
+    main = source_without_noncode(sources[MAIN].decode("utf-8"))
     config = json.loads(sources[CONFIG])
-    assert "theorem theorem11 (ε δ : ℝ)" in theorem
-    assert "Theorem.exists_binaryGapReduction ε δ hε hεhalf hδ hδhalf" in theorem
+    if "theorem theorem11 (ε δ : ℝ)" not in theorem:
+        raise ValueError("missing actual theorem11 declaration")
+    if "Theorem.exists_binaryGapReduction ε δ hε hεhalf hδ hδhalf" not in theorem:
+        raise ValueError("missing actual theorem11 construction reference")
     if re.search(r"\b(sorry|admit)\b", theorem):
         raise ValueError("unexpected placeholder in actual theorem source")
     if not re.search(r"\b(sorry|admit)\b", challenge):
         raise ValueError("challenge template no longer has the expected placeholder")
-    assert "import OAI.Computability.UniqueGames.Theorem" in main
+    if not re.search(r"(?m)^\s*import OAI\.Computability\.UniqueGames\.Theorem\s*$", main):
+        raise ValueError("solution entry module missing theorem import")
     if config["theorem_names"] != [pin["expected_theorem"]]:
         raise ValueError("comparator theorem name changed")
     if config["solution_module"] != pin["expected_solution_module"]:
