@@ -83,7 +83,7 @@ def min_entropy_coverage_cap(prior: Sequence[Q], query_budget: int) -> Q:
 
 
 def necessary_queries(prior: Sequence[Q], delta: Q) -> int:
-    """Necessary q for a two-sided delta-auditor via min-entropy.
+    """Conservative (non-sharp) q bound via min-entropy.
 
     The auditor must accept a clean oracle with probability >=1-delta and
     reject a trigger oracle with probability >=1-delta *averaged over p*.
@@ -97,7 +97,7 @@ def necessary_queries(prior: Sequence[Q], delta: Q) -> int:
 
 
 def necessary_queries_by_coverage(prior: Sequence[Q], delta: Q) -> int:
-    """Sharper necessary q using the exact sum of q largest prior masses."""
+    """Conservative exact-coverage floor, sharpened by necessary_queries_by_coverage_sharp."""
     p = _prior(prior)
     d = _prob(delta, "delta")
     requirement = max(Q(0), Q(1) - 2 * d)
@@ -105,6 +105,62 @@ def necessary_queries_by_coverage(prior: Sequence[Q], delta: Q) -> int:
         if optimal_coverage(p, q) >= requirement:
             return q
     raise AssertionError("full enumeration must cover the prior")
+
+
+def sharp_coverage_threshold(delta: Q) -> Q:
+    """Tight two-sided, prior-averaged equality-oracle coverage threshold.
+
+    If the auditor falsely rejects the benign oracle with chance gamma<=delta,
+    any single-trigger rejection event has chance <= gamma+(1-gamma)*C_q.
+    The inequality follows seed by seed: accepting the benign oracle means
+    rejection requires a trigger in the at-most-q no-hit queries. For delta<1/2,
+    sensitivity >=1-delta requires C_q >= (1-2delta)/(1-delta).
+    This bound is attainable with independent randomness that rejects outright
+    with chance delta and otherwise probes the q heaviest triggers.
+    """
+    d = _prob(delta, "delta")
+    return Q(0) if d >= Q(1, 2) else (1 - 2*d) / (1 - d)
+
+
+def optimal_randomized_power(prior: Sequence[Q], query_budget: int, delta: Q) -> Q:
+    """Sharp maximum prior-averaged trigger detection at clean false-alarm <=delta.
+
+    Achieved by immediate random false alarm with mass delta, and otherwise
+    scanning the q highest-mass trigger locations with equality queries.
+    No account is made of cost of random coins; only queries cost resources.
+    """
+    p = _prior(prior)
+    q = _count(query_budget, "query budget")
+    d = _prob(delta, "delta")
+    return d + (1-d)*optimal_coverage(p, q)
+
+
+def necessary_queries_sharp(prior: Sequence[Q], delta: Q) -> int:
+    """Min-entropy relaxation of the sharp two-sided necessary query count."""
+    p = _prior(prior)
+    requirement = sharp_coverage_threshold(delta)
+    return ceil_fraction(requirement / max(p))
+
+
+def necessary_queries_by_coverage_sharp(prior: Sequence[Q], delta: Q) -> int:
+    """Exact minimum number of equality queries, attained with random rejection.
+
+    Under the declared prior-averaged two-sided error constraint, the optimal
+    detection probability with q queries is delta + (1-delta) C_q(p), hence
+    this minimum is both necessary and sufficient in this restricted model.
+    """
+    p = _prior(prior)
+    requirement = sharp_coverage_threshold(delta)
+    for q in range(len(p) + 1):
+        if optimal_coverage(p, q) >= requirement:
+            return q
+    raise AssertionError("full trigger enumeration covers every valid prior")
+
+
+def uniform_depth_query_floor_sharp(depth: int, delta: Q) -> int:
+    """Exact min q for uniform 2^depth triggers under two-sided errors."""
+    k = _count(depth, "depth")
+    return ceil_fraction(sharp_coverage_threshold(delta) * 2**k)
 
 
 def uniform_depth_query_floor(depth: int, delta: Q) -> int:
@@ -230,6 +286,16 @@ def verify() -> dict:
         and necessary_queries_by_coverage(p, Q(1, 10)) == 3
     )
     checks["uniform_8_delta_point_one"] = uniform_depth_query_floor(8, Q(1, 10)) == 205
+    checks["sharp_threshold_8_over_9"] = sharp_coverage_threshold(Q(1, 10)) == Q(8, 9)
+    checks["sharp_uniform_8_floor_228"] = uniform_depth_query_floor_sharp(8, Q(1, 10)) == 228
+    checks["sharp_nonuniform_requires_four_queries"] = (
+        necessary_queries_by_coverage_sharp(p, Q(1, 10)) == 4
+        and necessary_queries_by_coverage(p, Q(1, 10)) == 3
+    )
+    checks["sharp_attainable_bound"] = (
+        optimal_randomized_power((Q(1,4),)*4, 3, Q(1,4)) == Q(13, 16)
+        and optimal_randomized_power((Q(1,4),)*4, 2, Q(1,4)) == Q(5, 8)
+    )
     checks["calibration_partition"] = fidelity_certificate(Q(1, 10), Q(1, 20)) == Q(17, 20)
     initial = DesignState(Q(11, 20), Q(9, 20))
     self_path = design_trajectory("self_confirming", 12)
@@ -244,12 +310,15 @@ def verify() -> dict:
     )
     checks["external_gap_detected"] = self_path["final"].second < weak_path["final"].second
     floors = {str(k): uniform_depth_query_floor(k, Q(1, 10)) for k in (2, 4, 8, 12)}
+    sharp_floors = {str(k): uniform_depth_query_floor_sharp(k, Q(1, 10)) for k in (2, 4, 8, 12)}
     return {
         "evidence": "finite_verified_example_and_algebraic_identity",
         "model_evaluations": 0,
         "checks": checks,
         "all_passed": all(checks.values()),
         "min_entropy_uniform_audit_floor": floors,
+        "sharp_uniform_audit_floor": sharp_floors,
+        "sharp_prior_averaged_two_sided_threshold": str(sharp_coverage_threshold(Q(1, 10))),
         "two_task": {
             "rate": str(Q(1, 4)),
             "generations": 12,
