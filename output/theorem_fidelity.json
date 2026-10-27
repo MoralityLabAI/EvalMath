@@ -2,7 +2,7 @@
   "schema": 1,
   "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
   "source_blobs": {
-    "research/theorem_fidelity/theorem_fidelity.py": "4bd949a5fc38e2908f66b05ed820b5d463a15670",
+    "research/theorem_fidelity/theorem_fidelity.py": "00d78c193d8e7dead08e75c735a0fb5dd4fe3349",
     "research/theorem_fidelity/upstream_contract.py": "9727cbab661bd75ac5c78378d13bfe27c23fb5dc",
     "research/theorem_fidelity/upstream_pin.json": "6b76b0976d11fe794acc905c61e061dbfa23e025",
     "lean/FeedbackChannel/TheoremFidelity.lean": "f5046ccf568703f5f473d0827179d595ed092308"
