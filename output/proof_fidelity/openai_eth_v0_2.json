@@ -59,6 +59,7 @@
     "paper_general_exponent": true,
     "paper_fixed_density_exponent": true,
     "paper_weaker_exponent_visible": true,
+    "manuscript_input_closure_archived": true,
     "tensor_network_hypotheses": true,
     "tensor_network_exponent": true,
     "tensor_density_reduction": true,
@@ -77,6 +78,7 @@
     "comparator_space_definition": true,
     "lean_rho_scale_definition": true,
     "circuits_appendix_outside_main_proof": true,
+    "comparator_definitional_prelude_pinned": true,
     "comparator_points_to_endpoint": true,
     "comparator_permitted_axioms": true,
     "scope_document_admits_weaker_lean": true,
@@ -96,11 +98,11 @@
   ],
   "schema_version": "0.2",
   "source_sha256": {
-    "src/spiral_ln/proof_fidelity.py": "3cdcd8ed95953ad2d580572bfef2d15c595c2a4e97521b38c3ec7fce15951d60",
+    "src/spiral_ln/proof_fidelity.py": "e8934df2e70413cd42a0d1d5061e5fedadedd73bfc2f9e93460c95dd95fdf3be",
     "scripts/verify_proof_fidelity_openai_eth.py": "693dd38feb7619e1c8a53b8d3d499b229e8257e00a4f9092006c24c408c8fc8e",
     "configs/openai_eth_fidelity.json": "d3b7aed7a2286a0e9d589fd44f2b17b3a89988bcd1069d9f29305a5f6c2414a0",
-    "paper/proof_fidelity_openai_eth.md": "b94c93b88b93b2ba93d3bdbbdd5d80b7fe14e9731b59ad9421067a092c436a2f",
-    "tests/test_proof_fidelity_openai_eth.py": "9f2b8499a5ecd6fbfe5ab3156b811752ab341b99539b80c30d17fc82e3e11227"
+    "paper/proof_fidelity_openai_eth.md": "d07b9c76fec18303bea6f5da76e46367b6b6bed2d36cbda4e1822adb2bbb5982",
+    "tests/test_proof_fidelity_openai_eth.py": "cbbd3da37e729c3e93ae7df5bd1d76ce6471d23097341b5defcfa9c73e0cef4c"
   },
-  "generated_at_utc": "2026-10-27T00:22:46.035268+00:00"
+  "generated_at_utc": "2026-10-27T01:38:44.227860+00:00"
 }
