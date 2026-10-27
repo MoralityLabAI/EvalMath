@@ -30,4 +30,4 @@ Comparator also recommends a systemd-run user sandbox restriction in addition to
 
 Only a completed upstream build, full axiom check and correctly scoped Comparator result can support a positive formal-verification verdict. An unavailable cache, incompatibility or pending workflow must never be treated as a mathematical error.
 
-Related: [replay protocol](eth_upstream_replay_protocol.md) and [Mythos second-pass report](../paper/proof_fidelity_openai_eth.md).
+Related: [replay protocol](eth_upstream_replay_protocol.md) and [Mythos second-pass report](eth_second_pass_20261027/REFEREE_REPORT_second_pass_20261027.md).
