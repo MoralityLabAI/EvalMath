@@ -7,7 +7,7 @@ import pytest
 
 from spiral_ln.crypto_encoding_bridge import (
     Circuit, count_cnf, eval_cnf, eval_poly, execute, local_output_cnf,
-    matches, nist_aes_cnf_census, poly_add, poly_mul, poly_to_cnf,
+    matches, nist_aes_cnf_census, nist_aes_pareto_frontier, poly_add, poly_mul, poly_to_cnf,
     sparse_lemma_inventory, system_to_cnf, tseitin, xor_eliminate,
     zero_count,
 )
@@ -174,3 +174,30 @@ def test_xor_elimination_quadratic_monomial_explosion_negative_control():
         assert all(eval_poly(poly, extension) == 0 for poly in polys) == matches(circ, bits)
         flipped = extension ^ (1 << 24)
         assert eval_poly(polys[0], flipped) == 1
+
+
+
+def test_nist_flat_aes_pareto_header_arithmetic():
+    gate_min, and_min = nist_aes_pareto_frontier()
+    assert (gate_min["and"], gate_min["xor"], gate_min["xnor"]) == (6400, 20840, 616)
+    assert (gate_min["gates"], gate_min["tseitin_variables"], gate_min["tseitin_clauses"]) == (
+        27856, 27984, 105152
+    )
+    assert (and_min["and"], and_min["xor"], and_min["xnor"]) == (5800, 23840, 4016)
+    assert (and_min["gates"], and_min["tseitin_variables"], and_min["tseitin_clauses"]) == (
+        33656, 33784, 128952
+    )
+    assert gate_min["gates"] < and_min["gates"]
+    assert and_min["unverified_xor_elimination_variable_count"] == 5928
+    assert gate_min["unverified_xor_elimination_variable_count"] == 6528
+    assert all(item["optimistic_cnf_exponent_proxy"] > 128 for item in (gate_min, and_min))
+    assert all(item["optimistic_sparse_exponent_proxy"] > 128 for item in (gate_min, and_min))
+
+
+def test_nist_published_variants_have_source_and_scope_distinctions():
+    options = nist_aes_pareto_frontier()
+    assert len(options) == 2
+    assert len({x["source_blob_sha1"] for x in options}) == 2
+    assert all(len(x["source_blob_sha1"]) == 40 for x in options)
+    assert all("/aes128-encipher-" in x["source"] for x in options)
+    assert all("not an SLP execution" in x["warning"] for x in options)
