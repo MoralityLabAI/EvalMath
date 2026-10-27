@@ -11,7 +11,7 @@ class TransitiveImportAuditTests(unittest.TestCase):
         src = '''public import OAI.Good OAI.AlsoGood
 /- import OAI.Bad /- sorry -/ -/
 -- import OAI.Nope
-def s : String := "axiom\\"sorry"
+def s : String := "axiom\\\"sorry"
 '''
         x = without_noncode(src)
         self.assertIn('import OAI.Good OAI.AlsoGood', x)
