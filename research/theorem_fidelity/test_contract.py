@@ -1,6 +1,6 @@
 """Independent regression checks for the pinned-contract source signatures."""
 import unittest
-from upstream_contract import SIGNATURES, blob_sha, check_model
+from upstream_contract import SIGNATURES, blob_sha, check_model, source_without_noncode
 
 
 class UpstreamContractTests(unittest.TestCase):
@@ -22,6 +22,31 @@ class UpstreamContractTests(unittest.TestCase):
         self.assertFalse(check_model(mutated)["polynomial_time"])
         mutated = model.replace("alphabetAtLeastTwo", "alphabetAtLeastOne")
         self.assertFalse(check_model(mutated)["fixed_alphabet"])
+
+
+    def test_comments_cannot_spoof_contract(self):
+        fake = """def healthy : Nat := 1
+/- nested /- structure BinaryGapReduction (ε δ : ℝ) where
+  alphabet : Nat
+  alphabetAtLeastTwo : 2 ≤ alphabet -/ -/
+-- soundness : ∀ input, ¬BinaryLanguage.language input →
+--    ∀ labeling, (countSatisfied labeling
+"""
+        flags = check_model(fake)
+        self.assertFalse(flags["fixed_alphabet"])
+        self.assertFalse(flags["soundness_forall"])
+        self.assertIn("def healthy : Nat := 1", source_without_noncode(fake))
+
+    def test_string_cannot_spoof_contract(self):
+        fake = 'def documentation : String := "nonempty : constraints ≠ []"'
+        self.assertFalse(check_model(fake)["nonempty_game"])
+
+    def test_unterminated_source_rejected(self):
+        with self.assertRaises(ValueError):
+            source_without_noncode("/- unfinished /- still nested -/")
+        with self.assertRaises(ValueError):
+            source_without_noncode('def s : String := "unfinished')
+
 
     def test_all_signatures_are_unique(self):
         self.assertEqual(len(SIGNATURES), len(set(SIGNATURES)))
