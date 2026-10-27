@@ -76,7 +76,9 @@ def test_average_hardness_does_not_prove_one_way_functions(data):
 def test_algorithmica_forces_all_stronger_hypotheses_false(data):
     status, _ = propagate(data, {"P_NE_NP": False})
     assert all(status[k] is False for k in
-               ("ETH", "SETH", "GAP_ETH", "OWF", "PKE", "AVG_HARD", "HASH_ETH"))
+               ("ETH", "SETH", "GAP_ETH", "OWF", "PKE", "AVG_HARD"))
+    # Fast decision algorithms do not automatically supply fast exact counters.
+    assert status["HASH_ETH"] is None
 
 
 def test_orthogonal_hypothesis_remains_unknown(data):
