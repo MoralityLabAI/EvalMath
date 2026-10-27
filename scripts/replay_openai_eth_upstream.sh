@@ -113,8 +113,12 @@ comparator_tools_ok=1
 if ! run_stage landrun_install 900 bash -c '
   set -euo pipefail
   go install "github.com/zouuup/landrun/cmd/landrun@$1"
-  "$(go env GOPATH)/bin/landrun" --help | head -n 10
-' _ "$LANDRUN_PIN"; then
+  landrun_bin="$(go env GOPATH)/bin/landrun"
+  test -x "$landrun_bin"
+  "$landrun_bin" --version
+  "$landrun_bin" --help > "$2/landrun-help.txt"
+  sed -n '1,10p' "$2/landrun-help.txt"
+' _ "$LANDRUN_PIN" "$WORK_DIR"; then
   comparator_tools_ok=0
 fi
 if ! run_stage comparator_tool_build 1200 bash -c '
@@ -132,7 +136,7 @@ if ! run_stage comparator_tool_build 1200 bash -c '
 fi
 
 if [[ "$comparator_tools_ok" -eq 1 ]]; then
-  if ! run_stage official_comparator 1800 bash -c '
+  if ! run_stage official_comparator 5400 bash -c '
     set -euo pipefail
     export COMPARATOR_LANDRUN="$(go env GOPATH)/bin/landrun"
     export COMPARATOR_LEAN4EXPORT="$1/lean4export/.lake/build/bin/lean4export"
@@ -145,7 +149,7 @@ else
   record official_comparator blocked 'comparator/landrun tools unavailable'
 fi
 
-if ! run_stage upstream_target_build 1800 bash -c '
+if ! run_stage upstream_target_build 5400 bash -c '
   set -euo pipefail
   cd "$1/upstream/lean"
   lake build OAI.Algorithms.SubexponentialSAT.Main
@@ -171,13 +175,25 @@ fi
 run_stage axiom_allowlist 30 python3 - "$RESULT_DIR/axioms_check.log" <<'PY'
 import pathlib, re, sys
 log = pathlib.Path(sys.argv[1]).read_text()
-name = 'OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.exact_count_and_sat'
-found = re.search(r'(?m)^' + re.escape(name) + r'\s+depends on axioms:\s*\[([^\]]*)\]', log)
-if not found:
-    raise SystemExit('No exact endpoint axiom report found; cannot assert kernel axiom status')
-actual = {s.strip() for s in found.group(1).split(',') if s.strip()}
+names = (
+    'OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.exact_count_and_sat',
+    'OAI.Algorithms.SubexponentialSAT.SqrtLogSpace.exact_count_eth',
+)
 allowed = {'propext', 'Quot.sound', 'Classical.choice'}
-if not actual.issubset(allowed):
-    raise SystemExit(f'Unexpected axioms {sorted(actual - allowed)}')
-print('Axiom report accepted:', sorted(actual))
+for name in names:
+    found = re.search(r'(?m)^' + re.escape(name) + r'\s+depends on axioms:\s*\[([^\]]*)\]', log)
+    no_axioms = re.search(r'(?m)^' + re.escape(name) + r'\s+does not depend on any axioms', log)
+    if not found and not no_axioms:
+        raise SystemExit(f'No axiom report for {name}; cannot assert kernel axiom status')
+    actual = {s.strip() for s in found.group(1).split(',') if s.strip()} if found else set()
+    if not actual.issubset(allowed):
+        raise SystemExit(f'{name}: unexpected axioms {sorted(actual - allowed)}')
+    print(f'{name}: accepted axioms {sorted(actual)}')
 PY
+
+# A passing kernel build cannot conceal a failed or blocked Comparator stage.
+# Persist all measured kernel results before exiting with an inconclusive verdict.
+if ! awk -F '\t' '$1 == "official_comparator" && $2 == "passed" {ok=1} END {exit !ok}' "$STATUS_TSV"; then
+  echo 'Comparator unavailable or failed; inspect its stage log and trust boundary.' >&2
+  exit 15
+fi

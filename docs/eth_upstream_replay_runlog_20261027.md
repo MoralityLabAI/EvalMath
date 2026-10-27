@@ -18,9 +18,13 @@ The machine-readable summary correctly recorded kernel_verified=false and compar
 
 Commit [8c9c488](https://github.com/MoralityLabAI/EvalMath/commit/8c9c488c54cb970b8a29ac0b05ed55bb528435d2) fixes the elan default, verifies the Mathlib SHA, and tightens kernel_verified to require the upstream theorem build, axiom inspection, and explicit axiom allowlist check.
 
-## Attempt 2: verification in progress
+## Attempt 2: failed tooling probe and timed-out build, inconclusive
 
-[Run 40441313119](https://github.com/MoralityLabAI/EvalMath/actions/runs/40441313119) is the corrected attempt. Its independently pinned upstream replay was **in progress at the last inspection**, neither passed nor failed on its mathematical merits. It must produce separate outcomes for Comparator, the upstream theorem module and the final axiom check.
+[Run 40441313119](https://github.com/MoralityLabAI/EvalMath/actions/runs/40441313119) completed with workflow conclusion **failure**. Pinned upstream checkout, Lean 4.34.1 installation, Mathlib cache (8,908 files), and Comparator binary compilation (16 jobs) passed. Landrun itself installed, but the subsequent `landrun --help | head -n 10` probe exited **141 (SIGPIPE)** under `pipefail`; the Comparator did not execute. The upstream target build reached 9,824 / 12,014 jobs when its 1,800-second stage timeout fired (**exit 124**). Therefore `axioms_check` was blocked. The receipts recorded `kernel_verified=false` and `comparator_verified=false`. See [artifact 12708020001](https://github.com/MoralityLabAI/EvalMath/actions/runs/40441313119/artifacts/12708020001). This is a tooling/runtime failure, **not** evidence of a substantive mathematical proof error.
+
+## Attempt 3: repaired replay awaiting CI verdict
+
+The follow-up patch avoids the SIGPIPE probe, adds a syntax preflight, gives both Comparator and the upstream target build 90-minute stage budgets within a 210-minute job, checks the axiom allowlist for **both** theorem endpoints, and returns a failing workflow conclusion if Comparator never passed. Upstream OpenAI and verification-tool source pins remain unchanged. An independent proof-verification claim requires successful measured stages with the recorded sandbox limitations.
 
 ## Additional trust boundaries
 

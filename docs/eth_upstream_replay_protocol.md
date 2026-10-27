@@ -19,7 +19,7 @@ The comparator tool versions follow publicly documented pins in `leanprover/lean
 2. Install upstream toolchain and fetch Mathlib cache with the *pinned* Lake project, without running `lake update`.
 3. Attempt official Comparator **before** independently compiling the solution's module. Its trusted comparator statement is self-contained. `landrun` is attempted, but the broader comparator sandbox assumptions (including the user `systemd-run` isolation recommended by its developers) must be assessed separately. Even a comparator exit 0 is therefore scoped to the recorded execution environment.
 4. Compile `OAI.Algorithms.SubexponentialSAT.Main` with Lake. If the build passes, import the compiled theorem in an extra local source file and run `#check` and `#print axioms` on `exact_count_and_sat` and `exact_count_eth`.
-5. Parse the printed axioms, failing if the exact endpoint's list is absent or includes anything outside `{propext, Quot.sound, Classical.choice}`.
+5. Parse the printed axioms for **both endpoints**, failing if either report is absent or includes anything outside `{propext, Quot.sound, Classical.choice}`.
 
 Scripts live at `scripts/replay_openai_eth_upstream.sh`. The job uploads raw per-stage logs, a status ledger, and `summary.json` **even if stages fail**. `summary.json`'s `kernel_verified` and `comparator_verified` booleans are only true when the corresponding measured stages pass; otherwise use the failure codes and logs.
 
@@ -30,7 +30,7 @@ Scripts live at `scripts/replay_openai_eth_upstream.sh`. The job uploads raw per
 - **Official comparator passed:** same statement and axiom allowlist accepted under the recorded comparator setup (subject to its sandbox and toolchain trust conditions).
 - **Cache, tool install, build or comparator failure:** classify as infrastructure/compatibility or mathematical error only after examining the exact log. Failed setup is **not** a counterexample.
 
-GitHub CI job time budget is 100 minutes; stages have individual timeouts. The first failure is recorded. The target exists in a very large Lean/Lake repository with numerous third-party dependencies. This workflow intentionally does *not* change those dependencies to make a result easier to obtain, and may be resource constrained.
+GitHub CI job time budget is 210 minutes. Comparator and upstream-target build each have a 90-minute timeout; the other stages have separate limits. A nonzero Comparator conclusion yields a failing workflow even when kernel and axiom stages separately pass. The first failure is recorded. The target exists in a very large Lean/Lake repository with numerous third-party dependencies. This workflow intentionally does *not* change those dependencies to make a result easier to obtain, and may be resource constrained.
 
 Source: https://github.com/openai/math/tree/7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a/lean
 Comparator: https://github.com/leanprover/comparator
