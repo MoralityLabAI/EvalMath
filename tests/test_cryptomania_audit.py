@@ -218,3 +218,25 @@ def test_benchmark_report_is_repeatable_and_control_rejoins_components():
     assert all(row["exactly_equal"] for row in first)
     assert all(row["components"] == [row["variables"]] for row in first if row["linked_control"])
     assert all(len(row["components"]) > 1 for row in first if not row["linked_control"])
+
+
+def test_receipt_regenerates_without_timestamps_or_missing_source_hashes():
+    import importlib.util
+    import hashlib
+
+    verifier_path = MANIFEST.parents[0].parent / "scripts/verify_cryptomania_audit.py"
+    spec = importlib.util.spec_from_file_location("cryptomania_verify_fixture", verifier_path)
+    module = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(module)
+
+    for scenario in ("unadjudicated", "eth_only", "accept_october_2026_reports"):
+        a = module.make_receipt(scenario)
+        b = module.make_receipt(scenario)
+        assert a == b
+        assert a["all_passed"] is True
+        assert len(a["checks"]) >= 10
+        assert "generated_at_utc" not in a
+        assert all((module.ROOT / rel).exists() for rel in a["source_sha256"])
+        assert all(hashlib.sha256((module.ROOT / rel).read_bytes()).hexdigest() == digest
+                   for rel, digest in a["source_sha256"].items())
