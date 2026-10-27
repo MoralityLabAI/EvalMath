@@ -15,6 +15,38 @@ The ComparatorChallenges/UniqueGamesTheorem.lean challenge template intentionall
 
 The pinned BinaryGapReduction contract places its alphabet, coordinate isomorphism and polynomial-time machine outside the input quantifier. It also requires permutation tables, nonempty simple bipartite instances, F2 translation constraints, existential completeness, and universal soundness. The source checker compares twelve specific field signatures plus the theorem entry and comparator manifest. These are textual checks; full Lean elaboration and proof dependency auditing remain separate.
 
+
+## Pinned proof-spine and comparator equivalence audit
+
+The selected proof spine is pinned in `proof_spine_pin.json`: eight Lean modules
+plus `lean-toolchain`, `lakefile.lean`, and `lake-manifest.json`. Run:
+
+~~~bash
+python research/theorem_fidelity/proof_spine.py --fetch
+~~~
+
+This verifies eleven Git blob SHA-1s, selected executable declaration/reference
+anchors, direct module imports, the Lean version, and the Mathlib revision.
+Comments and quoted strings are masked for textual checks. The audit follows
+`theorem11` through matrix-gap construction, the shortcode inverse principle,
+KMS expansion, and the fourth-moment theorem. All other imported modules are
+outside the source-spine scope.
+
+The existing five-file contract audit also enforces **byte-for-byte identity**
+between the comparator's copied model and the actual `Model.lean` definitions
+(except the final `end OAI`). It normalizes whitespace in the full
+`theorem11` declaration and compares the challenge against the solution
+theorem entry. This is stronger than checking isolated signature fragments,
+although it remains a textual result.
+
+The GitHub workflow `.github/workflows/unique-games-lean-replay.yml` attempts
+a separate, bounded Lean compilation of the pinned *actual* theorem module,
+then runs `#print axioms OAI.UniqueGamesTheorem.theorem11`. It checks the
+reported dependencies against `propext`, `Classical.choice`, and
+`Quot.sound`. A successful workflow is required before claiming that the
+upstream theorem was independently elaborated here. The scoped source check
+itself establishes no Lean kernel property.
+
 ## Six adversarial statement mutations
 
 | ID | Mutation | Verified illustration |
