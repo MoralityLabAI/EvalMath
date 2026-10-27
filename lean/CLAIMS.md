@@ -232,3 +232,23 @@ taken as a hypothesis rather than derived.
   equivalent tail form `∑_j F(j)^m (1 - F(j))`.
 - multigen Prop. 5: the maximal-inequality step needs no `λ > 0` once it is written as
   `λ(E max - c) ≤ ln m + ln E e^{λ(X - c)}`. Positivity is needed only to divide by `λ`.
+
+## Restricted FRC adaptive-query coupling (HRC-FRC-02)
+
+Theorem statements are in FeedbackChannel/FRCAdaptiveAudit.lean, compiled as
+part of the FeedbackChannel library. Every named theorem is listed in
+axioms_check.lean. The scope is a single-index Boolean equality oracle. No
+model weights, real gradient updates, subjective consciousness, or unrestricted
+existential FRC minimization appear in the formalized theorem statements.
+
+| Paper claim | Lean theorem | Fidelity | Scope and outstanding work |
+|---|---|---|---|
+| Proposition 1: before a hit the oracle transcript agrees with benign | FeedbackChannel.FRC.run_trigger_eq_clean_of_not_mem | full for finite deterministic decision trees | Final decision equality when the hidden trigger is outside the no-hit path |
+| Adaptive query count: no more than q decision-changing triggers | FeedbackChannel.FRC.changedTriggers_card_le | full for uniform finite single-trigger count | Includes adaptive query selection and repeated queries |
+| Randomized uniform-seed transcript coupling | FeedbackChannel.FRC.randomized_rejection_bound_sharp | supporting lemma | Counts rejection pairs over independent, equally likely seeds, retaining the clean-rejecting seed conditional; real-valued weighted priors and the exact rational delta constant remain to be formalized |
+| Conservative integer two-sided floor | FeedbackChannel.FRC.randomized_audit_floor | supporting lemma | Integer numerator budgets for clean/trigger rejection pairs; weaker than the sharp seed-level count |
+| Restricted exponential liminf and unrestricted FRC reduction | none | unformalized | Needs explicit resource reduction and real-asymptotic proof |
+
+No general FRC theorem is asserted by this row. Deterministic trees are represented
+using the existing FeedbackChannel.Signal.Strategy type.
+

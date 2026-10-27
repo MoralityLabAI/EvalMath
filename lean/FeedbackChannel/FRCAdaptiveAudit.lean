@@ -128,4 +128,38 @@ theorem randomized_audit_floor {n q : ℕ} {Seed : Type*} [Fintype Seed]
     (le_trans (randomized_rejection_bound auditor)
       (Nat.add_le_add_right hclean (q * Fintype.card Seed)))
 
+
+/-- Sharp deterministic counting lemma: a benign-rejecting seed contributes
+at most n triggered rejections, while a benign-accepting seed contributes at
+most q. The earlier n+q bound is a deliberately conservative relaxation. -/
+theorem rejectedTriggers_card_le_sharp {n q : ℕ} (s : Auditor n q) :
+    (rejectedTriggers s).card ≤
+      (if s.run (cleanOracle (n := n)) then n else q) := by
+  cases hc : s.run (cleanOracle (n := n)) with
+  | false =>
+      have hbound : (rejectedTriggers s).card ≤ q := by
+        simpa [hc] using rejectedTriggers_card_le s
+      simpa [hc] using hbound
+  | true =>
+      have hbound : (rejectedTriggers s).card ≤ n := by
+        calc
+          (rejectedTriggers s).card ≤ (Finset.univ : Finset (Fin n)).card :=
+            Finset.card_le_card (Finset.filter_subset _ _)
+          _ = n := by simp
+      simpa [hc] using hbound
+
+/-- Exact finite uniform-seed sharp coupling: a randomized auditor is
+a mixture of deterministic adaptive trees with an independent random seed.
+The sum on the right counts clean-rejecting seeds with weight n and all
+other seeds with weight q. Probability-weighted priors remain a separate
+formalization target. -/
+theorem randomized_rejection_bound_sharp {n q : ℕ} {Seed : Type*} [Fintype Seed]
+    (auditor : Seed → Auditor n q) :
+    (∑ seed : Seed, (rejectedTriggers (auditor seed)).card) ≤
+      ∑ seed : Seed,
+        (if (auditor seed).run (cleanOracle (n := n)) then n else q) := by
+  apply Finset.sum_le_sum
+  intro seed _
+  exact rejectedTriggers_card_le_sharp (auditor seed)
+
 end FeedbackChannel.FRC
