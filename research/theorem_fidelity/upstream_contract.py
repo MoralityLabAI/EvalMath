@@ -102,6 +102,23 @@ def blob_sha(data: bytes) -> str:
     return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
 
 
+
+def theorem_head(source: str) -> str:
+    """Normalized theorem11 declaration, excluding the proof expression.
+
+    A textual comparison between two Lean files is an executable consistency
+    guard. It does not establish kernel-level or semantic equivalence.
+    """
+    code = source_without_noncode(source)
+    match = re.search(r"\btheorem\s+theorem11\s*\(", code)
+    if match is None:
+        raise ValueError("missing theorem11 declaration")
+    proof_start = code.find(":=", match.start())
+    if proof_start < 0:
+        raise ValueError("theorem11 declaration has no proof separator")
+    return re.sub(r"\s+", "", code[match.start():proof_start])
+
+
 def check_model(text: str) -> dict[str, bool]:
     code = source_without_noncode(text)
     return {name: re.search(pattern, code) is not None
@@ -116,6 +133,16 @@ def audit(sources: dict[str, bytes], pin: dict) -> dict:
         if actual != expected:
             raise ValueError(f"blob mismatch for {path}: expected {expected}, found {actual}")
     model = sources[MODEL].decode("utf-8")
+    challenge_full = sources[CHALLENGE].decode("utf-8")
+    theorem_full = sources[THEOREM].decode("utf-8")
+    # The comparator duplicates the model declarations and adds theorem11.
+    suffix = "end OAI\n"
+    if not model.endswith(suffix):
+        raise ValueError("actual Model.lean has an unexpected terminal namespace")
+    if not challenge_full.startswith(model[:-len(suffix)]):
+        raise ValueError("comparator's copied model differs byte-for-byte from actual Model.lean")
+    if theorem_head(challenge_full) != theorem_head(theorem_full):
+        raise ValueError("comparator theorem11 statement differs from implemented theorem11")
     checks = check_model(model)
     if not all(checks.values()):
         raise ValueError(f"model signature failures: {[k for k, v in checks.items() if not v]}")
@@ -140,6 +167,8 @@ def audit(sources: dict[str, bytes], pin: dict) -> dict:
     if sorted(config["permitted_axioms"]) != sorted(["propext", "Quot.sound", "Classical.choice"]):
         raise ValueError("comparator permitted axioms changed")
     return {"pinned_commit": pin["commit"], "blob_sha_verified": len(sources),
+            "comparator_model_byte_equal": True,
+            "implemented_theorem_head_equal": True,
             "contract_signatures_passed": sorted(checks),
             "solution_theorem_source_no_placeholder": True,
             "challenge_template_placeholder_expected": True,
