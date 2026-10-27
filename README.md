@@ -67,6 +67,16 @@ in every receipt, and the paths in the session log, stay valid. The design-calcu
 testbed and the Prime Intellect atlas predate this programme and come from Spiral's `main`; where they
 mention other Spiral modules (the hive lab, the identity attestation notes), those live in Spiral.
 
+## Cryptomania and bounded agency (research draft)
+
+The [FAW-01 finite agency witness](paper/agency_without_cryptomania.md) and
+[FAW-02 persistence and regret proofs](paper/agency_persistence.md) study
+resource-bounded decision-making without cryptographic hardness premises.
+Their evidence is exact synthetic probability and paper arguments, with
+no empirical model run, Lean proof or conclusion about theological claims.
+The associated [draft PR #16](https://github.com/MoralityLabAI/EvalMath/pull/16)
+remains open for review.
+
 ## License
 
 Apache License 2.0; see [`LICENSE`](LICENSE).
