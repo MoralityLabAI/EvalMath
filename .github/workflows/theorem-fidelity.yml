@@ -25,6 +25,10 @@ jobs:
           python-version: "3.12"
       - name: Offline exact witnesses and mutation tests
         run: python -m unittest discover -s research/theorem_fidelity -p 'test_*.py' -v
+      - name: Verify witness invariants with Python assertions disabled
+        run: |
+          PYTHONOPTIMIZE=1 python -m unittest discover -s research/theorem_fidelity -p 'test_*.py' -v
+          PYTHONOPTIMIZE=1 python scripts/check_theorem_fidelity.py
       - name: Recompute local source-hash receipt
         run: python scripts/check_theorem_fidelity.py
       - name: Check five pinned upstream blobs and theorem contract
