@@ -78,9 +78,12 @@ def exp_polynomial_certificate(coefficient: int, degree: int) -> dict[str, int]:
     k = degree + 1
     scale = (2 ** k) * factorial(k)
     n = max(2 * k, coefficient * scale + 1)
-    assert n >= 2 * k and n > coefficient * scale
-    assert comb(n, k) * scale >= n ** k
-    assert n ** k > coefficient * (n ** degree) * scale
+    if n < 2 * k or n <= coefficient * scale:
+        raise ArithmeticError("certificate n violates binomial-bound preconditions")
+    if comb(n, k) * scale < n ** k:
+        raise ArithmeticError("binomial lower bound failed")
+    if n ** k <= coefficient * (n ** degree) * scale:
+        raise ArithmeticError("exponential-growth certificate inequality failed")
     return {"coefficient": coefficient, "degree": degree, "n": n, "k": k,
             "scale": scale, "choose": comb(n, k)}
 
@@ -112,15 +115,21 @@ def witnesses() -> dict:
 
 
 def validate() -> dict:
+    """Unconditionally check the full exact receipt, including under python -O."""
     w = witnesses()
-    assert w["TF-01"] == {"weak_existential_score": "0", "actual_optimum": "1", "valid_game": True}
-    assert w["TF-02"] == {"universal_relation_permutation": False,
-                          "universal_relation_optimum": "1"}
-    assert w["TF-03"] == {"simple_bipartite": True, "all_translations": True,
-                          "optimum": "3/4"}
-    assert w["TF-04"] == {"unsat_3cnf": True, "trivial_language_accepts": True}
-    assert w["TF-05"]["fixed_alphabet_false"] is True
-    assert w["TF-06"]["n"] > 2 * w["TF-06"]["scale"]
+    expected = {
+        "TF-01": {"weak_existential_score": "0", "actual_optimum": "1", "valid_game": True},
+        "TF-02": {"universal_relation_permutation": False,
+                  "universal_relation_optimum": "1"},
+        "TF-03": {"simple_bipartite": True, "all_translations": True,
+                  "optimum": "3/4"},
+        "TF-04": {"unsat_3cnf": True, "trivial_language_accepts": True},
+        "TF-05": {"alphabet_n2": 4, "alphabet_n3": 8,
+                  "fixed_alphabet_false": True},
+        "TF-06": exp_polynomial_certificate(2, 2),
+    }
+    if w != expected:
+        raise ArithmeticError(f"theorem-fidelity witness mismatch: {w!r} != {expected!r}")
     return w
 
 
