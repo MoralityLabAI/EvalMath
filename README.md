@@ -12,6 +12,9 @@ of the notes is published at <https://moralitylabai.github.io/EvalMath/>.
 
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
+**Theorem fidelity research:** [`research/theorem_fidelity/`](research/theorem_fidelity/README.md) contains exact Unique Games statement-mutation fixtures, independent Lean witnesses, an upstream source pin and a hashed receipt. Its status is a semantic benchmark seed, not an independent proof audit.
+
+
 ## Layout
 
 | Path | Contents |

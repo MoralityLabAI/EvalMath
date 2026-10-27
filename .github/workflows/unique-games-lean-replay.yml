@@ -1,0 +1,82 @@
+name: unique-games-lean-replay
+
+on:
+  pull_request:
+    paths:
+      - "research/theorem_fidelity/proof_spine.py"
+      - "research/theorem_fidelity/proof_spine_pin.json"
+      - "research/theorem_fidelity/test_proof_spine.py"
+      - ".github/workflows/unique-games-lean-replay.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: unique-games-replay-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pinned-lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout EvalMath audit harness
+        uses: actions/checkout@v4
+        with:
+          path: evalmath
+          persist-credentials: false
+      - name: Checkout immutable upstream proof source
+        uses: actions/checkout@v4
+        with:
+          repository: openai/math
+          ref: 7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a
+          path: upstream
+          persist-credentials: false
+      - name: Verify exact upstream SHA and source contract
+        run: |
+          test "$(git -C upstream rev-parse HEAD)" = 7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a
+          python3 evalmath/research/theorem_fidelity/proof_spine.py --snapshot upstream
+          python3 evalmath/research/theorem_fidelity/upstream_contract.py --snapshot upstream
+      - name: Compile the pinned actual theorem entry
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: upstream/lean
+          build: "true"
+          build-args: "OAI.Computability.UniqueGames.Theorem"
+          test: "false"
+          lint: "false"
+          use-github-cache: "false"
+          use-mathlib-cache: "true"
+      - name: Kernel-facing theorem axiom footprint
+        working-directory: upstream/lean
+        shell: bash
+        run: |
+          cat > UniqueGamesTFAFReplay.lean <<'LEAN'
+          import OAI.Computability.UniqueGames.Theorem
+          #check OAI.UniqueGamesTheorem.theorem11
+          #print axioms OAI.UniqueGamesTheorem.theorem11
+          LEAN
+          lake env lean UniqueGamesTFAFReplay.lean | tee unique-games-axioms.log
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          text = Path("unique-games-axioms.log").read_text()
+          pattern = r"OAI\.UniqueGamesTheorem\.theorem11.*?axioms:\s*\[([^\]]*)\]"
+          matches = re.findall(pattern, text, re.S)
+          if len(matches) != 1:
+              raise SystemExit("expected exactly one theorem11 axiom report")
+          axes = {a.strip() for a in matches[0].split(",") if a.strip()}
+          allowed = {"propext", "Classical.choice", "Quot.sound"}
+          if axes - allowed:
+              raise SystemExit("unexpected theorem axiom dependencies: " + repr(axes - allowed))
+          print("theorem11 audited axiom dependencies:", sorted(axes))
+          PY
+      - name: Upload axiom evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unique-games-lean-axioms
+          path: upstream/lean/unique-games-axioms.log
+          if-no-files-found: ignore
+          retention-days: 30

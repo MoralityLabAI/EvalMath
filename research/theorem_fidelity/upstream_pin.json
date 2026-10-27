@@ -1,0 +1,13 @@
+{
+  "repository": "openai/math",
+  "commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "sources": {
+    "lean/OAI/Computability/UniqueGames/Model.lean": "748ef33de28fd4154206ab82f501e72cdb7b439b",
+    "lean/OAI/Computability/UniqueGames/Theorem.lean": "5946d0262d07a5b1e55778ab984ecf9b6d5b8a4c",
+    "lean/OAI/Computability/UniqueGames/Main.lean": "5f568e978156537b8ed92bcceb02943b2751a898",
+    "lean/ComparatorChallenges/UniqueGamesTheorem.lean": "5e0e18daac92b039a30dc500decc576b91fddb91",
+    "lean/ComparatorChallenges/UniqueGamesTheorem.json": "9eafa9cbbd76b1d3bbaa0ad85fe3a6af483cd78b"
+  },
+  "expected_theorem": "OAI.UniqueGamesTheorem.theorem11",
+  "expected_solution_module": "OAI.Computability.UniqueGames.Main"
+}

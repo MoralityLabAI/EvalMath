@@ -1,0 +1,37 @@
+name: theorem-fidelity
+
+on:
+  pull_request:
+    paths:
+      - "research/theorem_fidelity/**"
+      - "tests/test_theorem_fidelity.py"
+      - "scripts/check_theorem_fidelity.py"
+      - "output/theorem_fidelity.json"
+      - "lean/FeedbackChannel/TheoremFidelity.lean"
+      - "lean/FeedbackChannel.lean"
+      - "lean/axioms_check.lean"
+      - "lean/CLAIMS.md"
+      - ".github/workflows/theorem-fidelity.yml"
+  workflow_dispatch:
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Offline exact witnesses and mutation tests
+        run: python -m unittest discover -s research/theorem_fidelity -p 'test_*.py' -v
+      - name: Verify witness invariants with Python assertions disabled
+        run: |
+          PYTHONOPTIMIZE=1 python -m unittest discover -s research/theorem_fidelity -p 'test_*.py' -v
+          PYTHONOPTIMIZE=1 python scripts/check_theorem_fidelity.py
+      - name: Recompute local source-hash receipt
+        run: python scripts/check_theorem_fidelity.py
+      - name: Check five pinned upstream blobs and theorem contract
+        run: python research/theorem_fidelity/upstream_contract.py --fetch
+      - name: Inspect eleven pinned upstream proof-spine and build blobs
+        run: python research/theorem_fidelity/proof_spine.py --fetch
