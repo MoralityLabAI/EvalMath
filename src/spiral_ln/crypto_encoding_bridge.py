@@ -251,3 +251,46 @@ def nist_aes_cnf_census() -> dict:
         "unverified_xor_elimination_variable_count_ceiling": s["key_bits"] + s["and"],
         "proxy_warning": "C=1 exponent proxy; theorem has unknown large constants and no finite-scale efficiency guarantee; eliminating XORs may densify polynomials",
     }
+
+
+# Source-pinned Pareto points in NIST's full AES-128 Encipher circuit catalogue.
+# The 256 circuit inputs split into 128 key bits and 128 plaintext bits.
+NIST_AES_FRONTIER = (
+    {
+        "id": "fewest_total_gates_in_nist_subset",
+        "and": 6400, "xor": 20840, "xnor": 616,
+        "source_blob_sha1": "6875e0d6f5878f9cbab255d62ebaad6848cb6c53",
+        "source": "https://github.com/usnistgov/Circuits/blob/8366158a4324ef902ce740f29ddc9f7ebb1018b2/data/slp/aes/aes-encipher/aes128-encipher-a6400-ad50-g27856-gd286-xx21456-616.circ.txt",
+    },
+    {
+        "id": "fewest_and_gates_in_nist_subset",
+        "and": 5800, "xor": 23840, "xnor": 4016,
+        "source_blob_sha1": "a1dbbb143b13f8bb7c9e5f7b3e0f3d5c27785eae",
+        "source": "https://github.com/usnistgov/Circuits/blob/8366158a4324ef902ce740f29ddc9f7ebb1018b2/data/slp/aes/aes-encipher/aes128-encipher-a5800-ad50-g33656-gd388-xx27856-4016.circ.txt",
+    },
+)
+
+
+def nist_aes_pareto_frontier() -> tuple[dict, ...]:
+    """Two published options, not a claim of global optimality.
+
+    Counts use verified gate headers; full SLP replay remains outstanding.
+    """
+    results = []
+    for variant in NIST_AES_FRONTIER:
+        gate_count = variant["and"] + variant["xor"] + variant["xnor"]
+        n = 128 + gate_count
+        m = 3 * variant["and"] + 4 * (variant["xor"] + variant["xnor"]) + 128
+        nonlinear_n = 128 + variant["and"]
+        results.append({
+            **variant, "key_bits": 128, "output_pins": 128,
+            "gates": gate_count,
+            "tseitin_variables": n, "tseitin_clauses": m,
+            "unverified_xor_elimination_variable_count": nonlinear_n,
+            "optimistic_cnf_exponent_proxy": round(n / sqrt(log2(n)), 3),
+            "optimistic_sparse_exponent_proxy": round(
+                nonlinear_n * log2(log2(nonlinear_n)) / sqrt(log2(nonlinear_n)), 3
+            ),
+            "warning": "header-source census, not an SLP execution or finite-time theorem bound",
+        })
+    return tuple(results)
