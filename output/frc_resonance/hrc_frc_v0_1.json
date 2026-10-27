@@ -1,0 +1,45 @@
+{
+  "all_passed": true,
+  "checks": {
+    "calibration_partition": true,
+    "external_gap_detected": true,
+    "metaprediction_matches_selected": true,
+    "minentropy_weaker": true,
+    "path_duplicates_no_gain": true,
+    "self_confirming_exact_closed_form": true,
+    "self_confirming_score_rises": true,
+    "sharper_bound_differs": true,
+    "topq_exact_nonuniform": true,
+    "uniform_8_delta_point_one": true,
+    "weakness_floor_holds": true
+  },
+  "evidence": "finite_verified_example_and_algebraic_identity",
+  "min_entropy_uniform_audit_floor": {
+    "12": 3277,
+    "2": 4,
+    "4": 13,
+    "8": 205
+  },
+  "model_evaluations": 0,
+  "schema_version": "hrc-frc-01.1",
+  "source_sha256": {
+    "paper/frc_harmonic_self_evaluation.md": "78c6474967605d87caddcf6d03e84aa065df01d0c02c2dd787eefb91d925aaeb",
+    "scripts/verify_evaluation_frc_resonance.py": "8db44ccd006bc06c2c7b2a72049309967bacd8e55ce4188da8e04829f15469e5",
+    "src/spiral_ln/evaluation_frc_resonance.py": "de86eae413daa932050b96d479163d85e495d0dd6e4b2d27f992d09be3a5773a",
+    "tests/test_evaluation_frc_resonance.py": "d73dd4a851d998f2b191ca1d45d824a670924bb9d46cde7bde45b053ea7d4d13"
+  },
+  "two_task": {
+    "generations": 12,
+    "rate": "1/4",
+    "self_confirming_closed_form_external": "9/20 * (3/4)^k",
+    "self_confirming_final": [
+      "330761351/335544320",
+      "4782969/335544320"
+    ],
+    "weakness_external_global_floor": "3/8",
+    "weakness_seeking_final": [
+      "191511851/335544320",
+      "144032469/335544320"
+    ]
+  }
+}
