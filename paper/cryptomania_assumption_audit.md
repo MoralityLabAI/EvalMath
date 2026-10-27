@@ -62,6 +62,8 @@ zero-weight k-clique hypothesis in its stated parameter regime.
 
 * ETH source: https://openai.com/index/building-scientific-understanding-with-academic-communities/
 * Alman and Vassilevska Williams: https://arxiv.org/abs/2610.06783
+* Majdoddin's improved bounds (3SUM 1.9945, APSP 2.9945, plus o(1)): https://arxiv.org/abs/2610.17420
+* Karingula and Lovett's independent simplified route: https://arxiv.org/abs/2610.15663
 * Canonical five-world chain: https://researchmap.jp/shuichi.hirahara/published_papers/40816859/attachment_file.pdf
 * Fine-grained PKE dependence: https://eprint.iacr.org/2019/625.pdf
 
