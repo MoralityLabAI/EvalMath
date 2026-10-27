@@ -8,6 +8,10 @@
     "path_duplicates_no_gain": true,
     "self_confirming_exact_closed_form": true,
     "self_confirming_score_rises": true,
+    "sharp_attainable_bound": true,
+    "sharp_nonuniform_requires_four_queries": true,
+    "sharp_threshold_8_over_9": true,
+    "sharp_uniform_8_floor_228": true,
     "sharper_bound_differs": true,
     "topq_exact_nonuniform": true,
     "uniform_8_delta_point_one": true,
@@ -15,18 +19,25 @@
   },
   "evidence": "finite_verified_example_and_algebraic_identity",
   "min_entropy_uniform_audit_floor": {
-    "12": 3277,
     "2": 4,
     "4": 13,
-    "8": 205
+    "8": 205,
+    "12": 3277
   },
   "model_evaluations": 0,
-  "schema_version": "hrc-frc-01.1",
+  "schema_version": "hrc-frc-02.0",
+  "sharp_prior_averaged_two_sided_threshold": "8/9",
+  "sharp_uniform_audit_floor": {
+    "2": 4,
+    "4": 15,
+    "8": 228,
+    "12": 3641
+  },
   "source_sha256": {
-    "paper/frc_harmonic_self_evaluation.md": "78c6474967605d87caddcf6d03e84aa065df01d0c02c2dd787eefb91d925aaeb",
-    "scripts/verify_evaluation_frc_resonance.py": "8db44ccd006bc06c2c7b2a72049309967bacd8e55ce4188da8e04829f15469e5",
-    "src/spiral_ln/evaluation_frc_resonance.py": "de86eae413daa932050b96d479163d85e495d0dd6e4b2d27f992d09be3a5773a",
-    "tests/test_evaluation_frc_resonance.py": "d73dd4a851d998f2b191ca1d45d824a670924bb9d46cde7bde45b053ea7d4d13"
+    "paper/frc_harmonic_self_evaluation.md": "213e75a212c3601f8f166d5f691ade5e95c42e2450356d3bdb9c590e26b46f9b",
+    "scripts/verify_evaluation_frc_resonance.py": "4c630cf683adbee107c71c6e9eb70b7b31e458c628372a84d6c31b969c3d4ee7",
+    "src/spiral_ln/evaluation_frc_resonance.py": "65bdc9ea86a40a9492ad547924e000d5ad6882903d800751ea299a39f0025b5d",
+    "tests/test_evaluation_frc_resonance.py": "64a3a21cb54304bdf715f01f3da5d761c76cef8d8b73e1f69a03146ed3e56183"
   },
   "two_task": {
     "generations": 12,
