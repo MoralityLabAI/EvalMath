@@ -184,6 +184,7 @@ def finite_census() -> dict:
 
     k23_pairs = ((0, 2), (1, 2), (0, 3), (1, 3), (0, 4), (1, 4))
     k23_hist: dict[str, int] = {}
+    k23_loose = 0
     zero = _game(5, 2, k23_pairs, (0,) * 6)
     _, tree, _, _ = _forest(zero)
     chords = tuple(i for i in range(6) if i not in tree)
@@ -195,13 +196,17 @@ def finite_census() -> dict:
         val, _ = optimum_by_labels(game)
         bad, _ = minimum_bad_edges(game)
         assert val == Fraction(6 - bad, 6)
-        assert fundamental_cycle_packing_bound(game) <= bad
+        packing = fundamental_cycle_packing_bound(game)
+        assert packing <= bad
+        k23_loose += int(packing < bad)
         assert betti_one(game) == 2
         k23_hist[str(bad)] = k23_hist.get(str(bad), 0) + 1
         checks += 1
 
     all_pairs = tuple(combinations(range(4), 2))
     k4_count = 0
+    k4_loose = 0
+    k4_bad_hist: dict[str, int] = {}
     for flags in product((None, 0, 1), repeat=len(all_pairs)):
         edges = tuple(Edge(u, v, flag) for (u, v), flag in zip(all_pairs, flags)
                       if flag is not None)
@@ -211,10 +216,16 @@ def finite_census() -> dict:
         assert val == cosystolic_value(game)
         assert val == (Fraction(len(edges) - bad, len(edges)) if edges else Fraction(1))
         assert (bad == 0) == coboundary_zero(game)
-        assert fundamental_cycle_packing_bound(game) <= bad
+        packing = fundamental_cycle_packing_bound(game)
+        assert packing <= bad
+        k4_loose += int(packing < bad)
+        k4_bad_hist[str(bad)] = k4_bad_hist.get(str(bad), 0) + 1
         assert betti_one(game) == len(cycle_signature(game))
         k4_count += 1
         checks += 1
     return {"checks": checks, "c4_F2_2": c4_hist,
             "k23_F2_2_gauge_classes": k23_hist, "all_signed_simple_K4_subgraphs": k4_count,
-            "empty_edges_value": "1", "method": "exhaustive integer enumeration"}
+            "empty_edges_value": "1", "method": "exhaustive integer enumeration",
+            "k4_F2_deletion_hist": k4_bad_hist,
+            "loose_fundamental_packing": {"k23_gauge_classes": k23_loose,
+                                          "signed_K4_subgraphs": k4_loose}}
