@@ -232,3 +232,18 @@ taken as a hypothesis rather than derived.
   equivalent tail form `∑_j F(j)^m (1 - F(j))`.
 - multigen Prop. 5: the maximal-inequality step needs no `λ > 0` once it is written as
   `λ(E max - c) ≤ ln m + ln E e^{λ(X - c)}`. Positivity is needed only to divide by `λ`.
+
+## Theorem Fidelity Under Adversarial Formalization (TFAF)
+
+The following independent toy theorems formalize semantic mutation witnesses from `research/theorem_fidelity/`. They are deliberately **not** claims that OpenAI's full Unique Games proof compiles, that its transitive dependency graph is axiom-free, or that these finite examples prove NP-hardness. The upstream commit and comparison sources are pinned in `research/theorem_fidelity/upstream_pin.json`.
+
+| Fixture | Lean declaration | Fidelity | Scope |
+|---|---|---|---|
+| TF-01 soundness quantifier | `FeedbackChannel.TheoremFidelity.tf01_exists_bad_not_all_bad` | full finite witness | A bad labeling can coexist with a satisfiable edge |
+| TF-02 permutation | `FeedbackChannel.TheoremFidelity.tf02_universal_not_function` | full finite witness | A universal relation cannot be a function |
+| TF-03 gap | `FeedbackChannel.TheoremFidelity.tf03_cycle_optimum_three` | full finite witness | Inconsistent bipartite F2 translation cycle has optimum 3/4 |
+| TF-04 3SAT domain | `FeedbackChannel.TheoremFidelity.tf04_unsat_three_cnf` | full finite witness | Repeated-literal contradiction in three-slot 3CNF |
+| TF-05 fixed alphabet | `FeedbackChannel.TheoremFidelity.tf05_exponential_alphabet_unbounded` | supporting lemma | Symbolic non-uniformity of 2^n alphabet family |
+| TF-06 runtime | `FeedbackChannel.TheoremFidelity.tf06_exponential_construction_example` | special case | Single finite exponential-vs-quadratic witness; general asymptotic argument remains outside Lean |
+
+The new declarations appear in `lean/axioms_check.lean`, where the existing axiom whitelist checker must accept their reports. A CI build of the pinned EvalMath Lean toolchain is required before treating these declarations as independently kernel verified.
