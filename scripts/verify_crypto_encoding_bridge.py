@@ -9,7 +9,7 @@ from pathlib import Path
 
 from spiral_ln.crypto_encoding_bridge import (
     Circuit, count_cnf, eval_poly, local_output_cnf, matches,
-    nist_aes_cnf_census, sparse_lemma_inventory, tseitin, xor_eliminate,
+    nist_aes_cnf_census, nist_aes_pareto_frontier, sparse_lemma_inventory, tseitin, xor_eliminate,
     zero_count,
 )
 
@@ -62,6 +62,7 @@ def make_receipt() -> dict:
     dense_inventory = sparse_lemma_inventory(dense_n, dense_eq, 2, 2)
 
     aes = nist_aes_cnf_census()
+    frontier = nist_aes_pareto_frontier()
     checks = {
         "tseitin_toy_exact_count": count_boolean == count_direct,
         "xor_eliminated_toy_exact_count": count_algebraic == count_direct,
@@ -76,6 +77,13 @@ def make_receipt() -> dict:
         "nist_aes_gate_census": aes["gates"] == 28_600,
         "nist_aes_tseitin_census": aes["tseitin_variables"] == 28_728 and aes["tseitin_clauses"] == 108_128,
         "nist_aes_subexp_proxy_above_bruteforce": aes["optimistic_fixed_density_exponent_proxy"] > aes["key_bits"],
+        "nist_frontier_header_count": [(x["gates"], x["tseitin_variables"], x["tseitin_clauses"]) for x in frontier] == [
+            (27856, 27984, 105152), (33656, 33784, 128952)
+        ],
+        "nist_and_minimum_changes_coordinate_budget": (
+            frontier[1]["unverified_xor_elimination_variable_count"] == 5928
+            and frontier[1]["gates"] > frontier[0]["gates"]
+        ),
     }
     return {
         "schema_version": "crypto-encoding-bridge-v1",
@@ -102,6 +110,7 @@ def make_receipt() -> dict:
         "sparse_lemma_positive_control": lin_inventory,
         "sparse_lemma_negative_control": dense_inventory,
         "nist_aes_128_census": aes,
+        "nist_pareto_frontier_census": list(frontier),
         "warning": "No real cipher cryptanalysis, executable ETH implementation, key search, or practical speedup is claimed.",
     }
 
