@@ -28,6 +28,8 @@ Two separate oracles are cross-checked: (A) enumerate all vertex labelings, gaug
 
 In the `K_2,3` example, set all spanning-tree shifts to zero and its two chord shifts to `(h_1,h_2)`. The class `(1,1)` needs one deletion, while `(1,2)` needs two, even though each has two nonzero fundamental holonomies. This falsifies the tempting rule that counting nonzero fundamental cycles equals the cosystolic norm.
 
+The exhaustive packing audit finds strict underestimation in **6 of 16** K₂,₃ gauge classes and **8 of 729** signed K4 subgraphs. An especially simple K4 counterexample has all six shifts equal to 1: it needs two edge deletions, but its maximum edge-disjoint **fundamental** obstructed-cycle packing has size one. Its two-oracle distance is exactly 2. The packing calculation is deliberately limited to the chosen fundamental cycle basis; adding all simple cycles is a distinct possible strengthening.
+
 ```bash
 PYTHONPATH=src python -m pytest -q tests/test_unique_games_topology.py
 PYTHONPATH=src python scripts/verify_unique_games_topology.py --output /tmp/unique_games_topology.json
