@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-10-27T05:09:49.665994+00:00",
+  "generated_at_utc": "2026-10-27T05:16:54.795508+00:00",
   "channel_accuracy": "3/4",
   "hidden_polarity_prior": [
     "1/2",
@@ -64,6 +64,6 @@
     "src/spiral_ln/agency_worlds.py": "f372da6e25335147dc991664e6dddbe59f10048452c41c1f15c6a13e7ba6abb7",
     "tests/test_agency_worlds.py": "f9695762f7967ed402541915c105dac7b9b71c30ec6134411b18e0b45e3bafb2",
     "scripts/verify_agency_worlds.py": "efc27440a8924877908cd466648eb42ad0bcac2ea62555a7370ca8a60a52e2ac",
-    "paper/agency_without_cryptomania.md": "625bcb40765908e7916ec6e357dd318f0eab4cb01fba71a4e82a9b86c11afd88"
+    "paper/agency_without_cryptomania.md": "e46d22e50a775d85ddf3d7677c65af390d8588ce164e3229718f71fbd7d015b8"
   }
 }
