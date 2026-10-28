@@ -1,0 +1,15 @@
+{
+  "evidence_level": "finite_verified_example",
+  "lean_kernel_check": false,
+  "memory_cases": 1512,
+  "overwrite_checks": 1512,
+  "rotation_checks": 1512,
+  "schema_version": 1,
+  "source_sha256": {
+    "paper/qwenputer_contract.md": "064c4b692f47ebd402ed1c1da820f7d41ba5914fe5eaaedbbe9b0ace808e0627",
+    "scripts/verify_qwenputer_contract.py": "372112c32904c377de1b0d061981dcf784a02c95edec7e6a3e858ef5ccc6bd72",
+    "src/spiral_ln/qwenputer_contract.py": "137ebb01b20da465092f3bd3dc9c53a75d58568d686376c4f7dc11bae4f10f8c",
+    "tests/test_qwenputer_contract.py": "680aeebeed29c06d09b6ea39d16ccd80ce8284248e0f14c9a33b553fe89ccd83"
+  },
+  "upstream_model_run": false
+}
