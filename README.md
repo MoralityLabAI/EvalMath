@@ -20,6 +20,47 @@ For a uniform one-hot item on a line, k adaptive interval queries identify up to
 2^k locations, versus 2k with fixed queries (within the number of locations).
 The paper includes independent exact enumeration and the reproducible receipt.
 
+New: [adaptive selection risk and continuation sufficiency](paper/selection_risk_continuations.md)
+computes exact false-authorization risk after a feedback transcript, with an independently
+enumerated two-query example rising from 5% pre-query risk to 7.5% under fixed
+queries and 10% under adaptive queries. A finite procedural state machine
+demonstrates why source-revocation identity and amendment chronology must
+survive compression under its declared future-event contract.
+
+New: [bounded covert-feedback risk](paper/covert_feedback_risk.md) establishes
+an exact weighted maximum-coverage law for the information that a hidden message
+can add after a public feedback transcript. With at most L hidden symbols,
+false-authorization risk is at most L times public risk, a sharp bound. The
+finite oracle distinguishes message capacity from the number of unseen
+candidate outcomes inspected, and independently checks 210 hidden-message
+cases and 80 complete adaptive query policies. A finite Bellman recurrence
+optimizes public query choices and terminal covert messaging jointly.
+
+New: [stochastic feedback and full-filtration ordering](paper/stochastic_full_filtration.md)
+extends adaptive selection risk to rational noisy query responses and private
+signals arriving before or after query selection. Two individually 5%-calibrated
+events yield 7.5% post-selection risk with an early private signal, versus
+6.25% with the same signal received after one public query. A separate exact
+stopping-time witness demonstrates why one-step expectation validity must
+be checked in the actor's full information filtration. The source-hashed
+receipt verifies independent finite oracles; no physical acquisition claim
+is made.
+
+New: [validity under the actor's filtration](paper/dynamic_filtration_validity.md)
+answers when a public e-process stays safe for decisions taken with private
+information. Pointwise-valid factors on clean kernels are immune to any private
+information about the latent state and to any information received after the
+draw it concerns, but not to a pre-peek; factors calibrated only to the public
+posterior are immune to nothing. Otherwise a private signal inflates the stopped
+expectation by at most exp of its maximal leakage from the public transcript,
+at most its alphabet size, with an exact closed form for the information value
+and a per-process exact worst case. A source revocation recorded before its
+source is viewed is free; recorded after, it is a post-selection with exact
+cost (3/2 for one fair bit). The Bayesian belief state is not
+revocation-sufficient: a static world needs one projective likelihood per
+source, a Markov latent state the subset filters, none of which is redundant
+for two sources. No Lean theorem, no acquisition-time attestation.
+
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 ## Layout
