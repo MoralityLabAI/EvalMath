@@ -27,6 +27,12 @@ ROOT = Path(__file__).resolve().parents[1]
 RECEIPTS = {
     "openai_eth_fidelity": ("scripts/verify_proof_fidelity_openai_eth.py",
                              "output/proof_fidelity/openai_eth_v0_2.json", [], False),
+    "agency_unknown": ("scripts/verify_agency_unknown.py",
+                       "output/agency_unknown/unknown_v1.json", [], False),
+    "agency_persistence": ("scripts/verify_agency_persistence.py",
+                           "output/agency_persistence/persistence_v1.json", [], False),
+    "agency_worlds": ("scripts/verify_agency_worlds.py",
+                      "output/agency_worlds/agency_v1.json", [], False),
     "design_calculus": ("scripts/verify_evaluation_design_calculus.py",
                         "output/evaluation_design_calculus/v0_verification.json", [], False),
     "prime_atlas": ("scripts/verify_prime_eval_atlas.py",

@@ -146,6 +146,20 @@ The comparator signature match is syntactic; elaborated type equivalence require
 rechecks the archive offline. This tests source integrity and claim fidelity;
 it is not a mathematical referee report or a substitute for a full Lean rebuild.
 
+## Cryptomania and bounded agency (research draft)
+
+The [FAW-01 finite agency witness](paper/agency_without_cryptomania.md),
+[FAW-02 persistence and regret proofs](paper/agency_persistence.md), and
+[FAW-03 unknown-reliability Bayesian experiment design](paper/agency_unknown_reliability.md)
+study resource-bounded decision-making without cryptographic hardness premises.
+FAW-03 distinguishes one-label nonidentifiability from two-label channel
+identification and derives a finite-horizon adaptive stopping policy that
+improves reward by conserving calibration labels. These are synthetic exact
+probability and paper arguments, without empirical model runs, Lean proofs or
+conclusions about theological claims.
+The associated [draft PR #16](https://github.com/MoralityLabAI/EvalMath/pull/16)
+remains open for review.
+
 ## License
 
 Apache License 2.0; see [`LICENSE`](LICENSE).
