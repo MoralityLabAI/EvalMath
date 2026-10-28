@@ -8,14 +8,13 @@ Research import, 2026-10-28. Canonical mathematical note and exploratory Python 
 
 This imported research sandbox is separate from EvalMath's exact-arithmetic production modules under `src/spiral_ln`. Its Euclidean norms and concentration formula use ordinary floating-point arithmetic. The tight-rollout test uses `assertAlmostEqual(..., places=12)`. Numeric outputs are exploratory estimates; they carry no outward-rounding or interval certificate. In particular, the phrase “certified lower bound” in the original reference docstring describes the real-arithmetic inequality, whose floating-point evaluation needs a separate rounding audit.
 
-The [staged Compactification-Theory companion](compactification_theory_handoff/note/intervention-preserving-compactification.md) covers the capacity/precision interpretation. Its [experiment protocol](compactification_theory_handoff/experiments/interventional-compactification/README.md) specifies prospective SAE/VPD/percolation comparisons and points back to this implementation. Both files are staged here for their intended repository because the GitHub integration rejected the Compactification-Theory write with HTTP 403 (`Resource not accessible by integration`). That repository remains unchanged. Existing EvalLang owners retain their language and implementation work. E10's frozen selector comparison remains unchanged.
+The [Compactification-Theory companion](https://github.com/MoralityLabAI/Compactification-Theory/blob/main/note/intervention-preserving-compactification.md) owns the capacity/precision interpretation. Its [experiment protocol](https://github.com/MoralityLabAI/Compactification-Theory/blob/main/experiments/interventional-compactification/README.md) specifies prospective SAE/VPD/percolation comparisons and points back to this implementation. Existing EvalLang owners retain their language and implementation work. E10's frozen selector comparison remains unchanged.
 
 ## Contents and replay
 
 - `RESEARCH.md`: fiber obstruction, approximate factorization, behavioral quotient, trajectory bound, covering-number adaptation, falsifiers, and Lean handoff.
 - `reference.py` and `test_reference.py`: the original v0.1 numeric reference and its five tests.
 - `verify.py`: regenerates or checks the source-hashed receipt and fails on a failed, skipped, missing, or extra test.
-- `compactification_theory_handoff/`: the companion note and IC-01 protocol, laid out at their intended destination paths. Their hashes are included in the receipt.
 
 From the repository root:
 
@@ -36,10 +35,6 @@ The state must include everything needed for the declared transition semantics: 
 A worst-case causal certificate needs certified bounds and coverage. Held-out averages support the named sampling distribution. Argmax preservation in a closed loop requires a margin check at each decision, together with compatible tie and action semantics.
 
 Promotion into `src/spiral_ln`, `tests`, `scripts`, `output`, and `paper` should add exact-rational deterministic fixtures, fail-closed numeric validation, a rounding policy for irrational norms/concentration terms, and the normal central receipt integration. Lean claims must follow the existing theorem-fidelity process. This import makes no new implementation claim for EvalLang.
-
-## Compactification-Theory handoff
-
-The intended destination paths are `note/intervention-preserving-compactification.md` and `experiments/interventional-compactification/README.md`. The companion pins the canonical EvalMath reference at `adeb45fbb6b611e0e1fc38989e28f0d4d621698b`. To publish later with authorized write access, first check the destination head and both paths for newer work, then apply only these additions. No branch or pull request was created in Compactification-Theory.
 
 ## Provenance
 
