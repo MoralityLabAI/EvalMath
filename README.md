@@ -14,6 +14,12 @@ New: [capacity-sensitive leakage](paper/leak_capacity.md) certifies when a posit
 feedback fibre produces an actual binary-record collision at declared cell capacities,
 and computes exact collision probabilities with two independent finite algorithms.
 
+New: [adaptive disclosure](paper/adaptive_disclosure.md) derives exact pathwise
+feedback fibres, conditional collision reductions and an optimal-query recurrence.
+For a uniform one-hot item on a line, k adaptive interval queries identify up to
+2^k locations, versus 2k with fixed queries (within the number of locations).
+The paper includes independent exact enumeration and the reproducible receipt.
+
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 ## Layout

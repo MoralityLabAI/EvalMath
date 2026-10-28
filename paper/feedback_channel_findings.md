@@ -135,6 +135,21 @@ rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.
   a single cell. *Algebraic identity* for the general capacity and collision criteria;
   *finite verified example* for the grid. ([capacity supplement](leak_capacity.md));
   no Lean formalization yet.
+- **Adaptive disclosure composes pathwise.** In a finite deterministic subset-sum feedback
+  tree, each transcript fibre consists exactly of the feasible tables satisfying the
+  queries encountered on that path. Collision probability has an exact posterior-mass
+  formula with a nonnegative reduction at each round. The Bayes-optimal policy obeys
+  an exact dynamic programme. For a uniformly located single marked item and interval
+  queries, k fixed queries distinguish at most 2k locations, whereas k adaptive
+  queries distinguish 2^k (capped by the number of locations). At eight locations
+  and three queries the best fixed identification success is 3/4; adaptive success
+  is 1. Under independent fair item bits, the best three-query adaptive
+  interval policy on six cells identifies the entire table with probability
+  39/64, against 34/64 for the best fixed schedule; on seven cells the figures
+  are 54/128 and 48/128. *Algebraic identity* for the general transcript and
+  one-hot theorems; *finite verified example* for the independent-bit witnesses,
+  32 one-hot (n,k) optimizations and literal-record checks.
+  ([adaptive disclosure](adaptive_disclosure.md)); no Lean formalization yet.
 - **Patching failures needs a search, not a rule.** Filling categories in order of failure rate
   maximizes expected hits at every patch count (Prop 3). But for the expected number of patches to reach
   a target, no index rule is optimal: the better of two categories can flip with the rest of the state
