@@ -125,6 +125,31 @@ rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.
   the dimension (Theorem 8), but two triples of maps on six items with matching nerve homotopy data have
   separate fibres of dimension 0 and 1 (Counterexample 9, checked independently by the lead). There the
   word is nominal. Lean: not yet formalized.
+- **Finite cell capacities decide actual leakage.** For any collection of jointly observed
+  category margins, separate feedback confuses two distinct feasible cell tables precisely when
+  its integer margin kernel has a nonzero vector bounded by the cell capacities. An exact
+  kernel-lattice sum computes the ratio of separate to joint collision probabilities. Among
+  193 three-map supports in a 2×2×2 grid, 99 have positive rational fibres, but only 91 have
+  binary-record collisions at unit capacity; the remaining eight admit collisions when
+  capacity reaches two. One five-cell witness shifts its ratio from 1 to 49/48 by doubling
+  a single cell. *Algebraic identity* for the general capacity and collision criteria;
+  *finite verified example* for the grid. ([capacity supplement](leak_capacity.md));
+  no Lean formalization yet.
+- **Adaptive disclosure composes pathwise.** In a finite deterministic subset-sum feedback
+  tree, each transcript fibre consists exactly of the feasible tables satisfying the
+  queries encountered on that path. Collision probability has an exact posterior-mass
+  formula with a nonnegative reduction at each round. The Bayes-optimal policy obeys
+  an exact dynamic programme. For a uniformly located single marked item and interval
+  queries, k fixed queries distinguish at most 2k locations, whereas k adaptive
+  queries distinguish 2^k (capped by the number of locations). At eight locations
+  and three queries the best fixed identification success is 3/4; adaptive success
+  is 1. Under independent fair item bits, the best three-query adaptive
+  interval policy on six cells identifies the entire table with probability
+  39/64, against 34/64 for the best fixed schedule; on seven cells the figures
+  are 54/128 and 48/128. *Algebraic identity* for the general transcript and
+  one-hot theorems; *finite verified example* for the independent-bit witnesses,
+  32 one-hot (n,k) optimizations and literal-record checks.
+  ([adaptive disclosure](adaptive_disclosure.md)); no Lean formalization yet.
 - **Patching failures needs a search, not a rule.** Filling categories in order of failure rate
   maximizes expected hits at every patch count (Prop 3). But for the expected number of patches to reach
   a target, no index rule is optimal: the better of two categories can flip with the rest of the state
@@ -142,6 +167,83 @@ rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.
   design is well typed exactly when its feedback ledger passes the audit. An offline rescoring of the
   readout set moves the readout gap like a memorizing feedback step and leaves no other trace.
   *Finite verified example* ([composition](evaluation_feedback_composition.md)).
+
+- **Adaptive feedback changes selection risk under calibrated null events.** For a
+  finite null and false-authorization events, choosing the reported event after
+  seeing a transcript has exact risk equal to the sum, over transcript cells,
+  of the largest false-positive event mass in each cell. Two laws with identical
+  per-event 5% rates have different post-query risks (5% versus 10%) because of
+  dependence. In a five-atom, three-event fixture, two fixed queries give
+  maximum risk 3/40, while two adaptive queries achieve 4/40; the no-query risk
+  is 1/20. A joint query-response/event histogram suffices for all future
+  deterministic queries under a **fixed** query and event vocabulary. A separate
+  revocation/amendment machine with m independently revocable roots has exactly
+  3×2^m continuation classes, requiring m+2 bits. *Algebraic identity* for the
+  finite risk formula, sufficiency and declared automaton lower bound;
+  *finite verified example* for the five-atom witness and exhaustive searches.
+  ([selection-risk continuation note](selection_risk_continuations.md)).
+  No real evaluator, physical sampling claim or Lean formalization is included.
+- **A bounded covert message has an exact selection-risk cost.** Given a public
+  evaluation transcript and an unrecorded message with at most L possible
+  values per public transcript, maximum false-authorization risk is weighted
+  maximum coverage of at most L false-positive events in each transcript
+  fibre. It lies between the public risk and min(full-information risk,
+  L times public risk), with a sharp factor-L witness. Under three independent
+  nominal 5% events, one covert bit raises risk from 5% to 39/400 (9.75%);
+  revealing one event publicly plus one covert bit gives the full 1141/8000
+  (14.2625%). The hidden encoder is allowed to inspect all candidate
+  outcomes, so these bounds depend on a separately established information
+  alphabet limit. *Algebraic identity* for the formula and bounds;
+  *finite verified example* for the numbers, 210 independent hidden-message
+  comparisons, and 80 independently enumerated public adaptive policies.
+  A Bellman law optimizes public query selection with the covert signal held
+  until the final step. *Algebraic identity* under that information contract.
+  ([covert-feedback note](covert_feedback_risk.md)); no new Lean formalization.
+- **The timing of hidden information changes stochastic selection risk.** With
+  exact finite rational public-query kernels and independently drawn private
+  signals conditioned on one fixed null world, two Bellman recurrences give
+  optimal event-selection risk for private-before-query and
+  public-query-before-private schedules. Two individually 5%-calibrated
+  false-positive events in an eight-world fixture yield 3/40 (7.5%) risk
+  with a private signal before one noisy query, and 1/16 (6.25%) if it arrives
+  after query choice. A coarse one-step martingale with expected wealth one
+  attains stopped expectation 5/4 under a 75%-accurate private time-zero
+  signal. Its original fixed-process threshold-crossing bound still holds.
+  Worlds with identical event and all channel-likelihood profiles can be
+  merged without changing any future optimal risk under this fixed
+  information vocabulary. *Algebraic identity* for the finite recurrences
+  and compression; *finite verified example* for the witnesses, 192 independent
+  one-round oracle comparisons, 144 policy replays and 40 compression fixtures.
+  ([stochastic full-filtration note](stochastic_full_filtration.md)); no Lean
+  formalization or real acquisition-time attestation.
+- **Private information inflates a public e-process by at most its maximal
+  leakage, and not at all when the factors are pointwise valid on clean
+  evidence.** For a private symbol H with L values known to the actor, every
+  nonnegative public supermartingale M with M₀ ≤ 1 and every stopping time of
+  the enlarged filtration has E[M_τ] ≤ V ≤ Σ_h max_g P(H=h | transcript g)
+  = exp ℒ(G→H) ≤ L, with the exact closed form
+  V = max_g Σ_h max_t P(H=h | g_{≤t}); V = 1 iff H is independent of the
+  transcript; the alphabet bound is sharp. The PR #8 one-step witness has
+  V = 5/4 < 3/2 = exp ℒ < 2 = L. With a latent Markov state, clean query
+  kernels and factors of null mean at most one in *every* latent state, the
+  public e-process is a supermartingale in the actor's own filtration under
+  any private information about the latent state, any private query choice
+  and any post-hoc private information, so no adjustment is needed; a private
+  pre-peek at the upcoming draw, or factors calibrated only to the public
+  posterior, break this. A source revocation recorded before that source is
+  viewed never inflates the reported product; recorded after, the exact
+  worst case is computable and equals E[max(F,1)] for one source (3/2 for a
+  fair bit; 9/4 for two; 5/4 for a cyclic cross-revocation policy that never
+  consults a source's own value). Under revocation the belief state is not
+  continuation-sufficient: a static world needs the per-source projective
+  likelihoods (exactly, as a minimal quotient); a Markov latent state the
+  subset filters, with no redundancy among the three for two sources.
+  *Algebraic identity* for the bounds, closed form, immunity, chronology and
+  static-quotient theorems; *finite verified example* for the witnesses, 200
+  random laws, 489 brute-force stopping comparisons, 32 control models, 150
+  chronologies, 300 audit-state pairs and the two-source Markov irredundancy.
+  ([dynamic-filtration validity note](dynamic_filtration_validity.md)); no
+  Lean formalization or acquisition-time attestation.
 
 ## 6. Measuring the judge
 
@@ -212,6 +314,10 @@ generation-over-generation gain for model weights on a sealed readout, and none 
    captures it is open.
 6. **Lean.** Proved but not yet formalized: Theorem 11 and Corollary 14 (lattice), Props 8 and 10
    (multigen), the *K* ≥ 4 monotone approach, the leak-topology theorems, and gold calibration §§10–12.
+7. **Revocable provenance with three or more sources under a mixing latent chain.** The 2^m − 1
+   subset filters are sufficient; whether any can be dropped for m ≥ 3 is open (for m = 2 none can).
+   An exact closed form for the actor's value in the vulnerable classes of the control model, beyond
+   dynamic programming, is also open ([dynamic-filtration validity](dynamic_filtration_validity.md) §8).
 
 ## 9. Corrections in this round
 
@@ -239,6 +345,7 @@ Formalizing in Lean and checking against independent code found these, each now 
 | [selection KL](selection_law_kl_containment.md) | `evaluation_selection_kl` | `selection_kl_v0_4.json` | [`Selection*.lean`](../lean/CLAIMS.md) |
 | [judge measurement](judge_shared_error_measurement.md) | `evaluation_judge_measurement` | `judge_v0_1.json` | [`Judge.lean`](../lean/FeedbackChannel/Judge.lean) |
 | [gold calibration](gold_calibration_second_grader.md) | `evaluation_gold_calibration` | `gold_v0_4.json` | [`Raters*.lean`](../lean/CLAIMS.md) |
+| [dynamic-filtration validity](dynamic_filtration_validity.md) | `evaluation_dynamic_filtration` | `dynamic_filtration_v0_2.json` | none |
 
 Modules are under `src/spiral_ln/`, receipts under `output/<module>/`. Each verifier script under
 `scripts/` regenerates its receipt, which records the SHA-256 of its sources. The whole suite runs with

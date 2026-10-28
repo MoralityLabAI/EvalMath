@@ -1,0 +1,323 @@
+{
+  "generated_at_utc": "2026-10-27T05:55:04.544266+00:00",
+  "schema_version": "1.0",
+  "mechanism": "fresh_uniform_polarity_each_epoch; sealed_heldout_feedback",
+  "signal_reliability": "3/4",
+  "label_cost": "1/32",
+  "fixed_schedule": "m_t=5*bit_length(t)",
+  "heldout_schedule": "n_t=t+1",
+  "five_label_cher_bound_squared": "243/1024",
+  "finite_horizon_reports": [
+    {
+      "horizon": 1,
+      "heldout_trials": 2,
+      "scheduled_calibration_labels": 5,
+      "label_upper_bound": 5,
+      "schedule_oracle_regret": "53/512",
+      "schedule_avg_oracle_regret": "53/1024",
+      "schedule_regret_bound_per_trial": "1/4",
+      "schedule_net_gain_over_chance": "123/512",
+      "schedule_net_gain_per_trial": "123/1024",
+      "optimized_calibration_labels": 3,
+      "optimized_oracle_regret": "5/32",
+      "optimized_avg_oracle_regret": "5/64",
+      "optimized_regret_bound_per_trial": "21/64",
+      "optimized_net_gain_over_chance": "1/4",
+      "optimized_net_gain_per_trial": "1/8",
+      "certificates": {
+        "stage_certificates": true,
+        "optimizer_certificates": true,
+        "heldout_count": true,
+        "labels_at_most_5Tlog": true,
+        "cumulative_regret_at_most_T_over_2": true,
+        "average_regret_at_most_inverse_horizon": true,
+        "baseline_gain_identity": true,
+        "normalized_net_lower_bound": true,
+        "optimal_net_dominates_schedule": true,
+        "optimal_regret_bound": true,
+        "optimal_average_regret_bound": true,
+        "schedule_positive_net": true,
+        "optimized_positive_net": true
+      }
+    },
+    {
+      "horizon": 2,
+      "heldout_trials": 5,
+      "scheduled_calibration_labels": 15,
+      "label_upper_bound": 20,
+      "schedule_oracle_regret": "46375/262144",
+      "schedule_avg_oracle_regret": "9275/262144",
+      "schedule_regret_bound_per_trial": "1/5",
+      "schedule_net_gain_over_chance": "158425/262144",
+      "schedule_net_gain_per_trial": "31685/262144",
+      "optimized_calibration_labels": 8,
+      "optimized_oracle_regret": "319/1024",
+      "optimized_avg_oracle_regret": "319/5120",
+      "optimized_regret_bound_per_trial": "13/40",
+      "optimized_net_gain_over_chance": "705/1024",
+      "optimized_net_gain_per_trial": "141/1024",
+      "certificates": {
+        "stage_certificates": true,
+        "optimizer_certificates": true,
+        "heldout_count": true,
+        "labels_at_most_5Tlog": true,
+        "cumulative_regret_at_most_T_over_2": true,
+        "average_regret_at_most_inverse_horizon": true,
+        "baseline_gain_identity": true,
+        "normalized_net_lower_bound": true,
+        "optimal_net_dominates_schedule": true,
+        "optimal_regret_bound": true,
+        "optimal_average_regret_bound": true,
+        "schedule_positive_net": true,
+        "optimized_positive_net": true
+      }
+    },
+    {
+      "horizon": 4,
+      "heldout_trials": 14,
+      "scheduled_calibration_labels": 40,
+      "label_upper_bound": 60,
+      "schedule_oracle_regret": "85365373/268435456",
+      "schedule_avg_oracle_regret": "85365373/3758096384",
+      "schedule_regret_bound_per_trial": "1/7",
+      "schedule_net_gain_over_chance": "518614403/268435456",
+      "schedule_net_gain_per_trial": "518614403/3758096384",
+      "optimized_calibration_labels": 22,
+      "optimized_oracle_regret": "5153/8192",
+      "optimized_avg_oracle_regret": "5153/114688",
+      "optimized_regret_bound_per_trial": "31/112",
+      "optimized_net_gain_over_chance": "17887/8192",
+      "optimized_net_gain_per_trial": "17887/114688",
+      "certificates": {
+        "stage_certificates": true,
+        "optimizer_certificates": true,
+        "heldout_count": true,
+        "labels_at_most_5Tlog": true,
+        "cumulative_regret_at_most_T_over_2": true,
+        "average_regret_at_most_inverse_horizon": true,
+        "baseline_gain_identity": true,
+        "normalized_net_lower_bound": true,
+        "optimal_net_dominates_schedule": true,
+        "optimal_regret_bound": true,
+        "optimal_average_regret_bound": true,
+        "schedule_positive_net": true,
+        "optimized_positive_net": true
+      }
+    },
+    {
+      "horizon": 8,
+      "heldout_trials": 44,
+      "scheduled_calibration_labels": 105,
+      "label_upper_bound": 160,
+      "schedule_oracle_regret": "74179081871/137438953472",
+      "schedule_avg_oracle_regret": "74179081871/6047313952768",
+      "schedule_regret_bound_per_trial": "1/11",
+      "schedule_net_gain_over_chance": "986677840241/137438953472",
+      "schedule_net_gain_per_trial": "986677840241/6047313952768",
+      "optimized_calibration_labels": 60,
+      "optimized_oracle_regret": "2720507/2097152",
+      "optimized_avg_oracle_regret": "2720507/92274688",
+      "optimized_regret_bound_per_trial": "9/44",
+      "optimized_net_gain_over_chance": "16416005/2097152",
+      "optimized_net_gain_per_trial": "16416005/92274688",
+      "certificates": {
+        "stage_certificates": true,
+        "optimizer_certificates": true,
+        "heldout_count": true,
+        "labels_at_most_5Tlog": true,
+        "cumulative_regret_at_most_T_over_2": true,
+        "average_regret_at_most_inverse_horizon": true,
+        "baseline_gain_identity": true,
+        "normalized_net_lower_bound": true,
+        "optimal_net_dominates_schedule": true,
+        "optimal_regret_bound": true,
+        "optimal_average_regret_bound": true,
+        "schedule_positive_net": true,
+        "optimized_positive_net": true
+      }
+    },
+    {
+      "horizon": 16,
+      "heldout_trials": 152,
+      "scheduled_calibration_labels": 270,
+      "label_upper_bound": 400,
+      "schedule_oracle_regret": "548015945261849/562949953421312",
+      "schedule_avg_oracle_regret": "548015945261849/85568392920039424",
+      "schedule_regret_bound_per_trial": "1/19",
+      "schedule_net_gain_over_chance": "16094192052755687/562949953421312",
+      "schedule_net_gain_per_trial": "16094192052755687/85568392920039424",
+      "optimized_calibration_labels": 158,
+      "optimized_oracle_regret": "93097547/33554432",
+      "optimized_avg_oracle_regret": "93097547/5100273664",
+      "optimized_regret_bound_per_trial": "41/304",
+      "optimized_net_gain_over_chance": "1016295861/33554432",
+      "optimized_net_gain_per_trial": "1016295861/5100273664",
+      "certificates": {
+        "stage_certificates": true,
+        "optimizer_certificates": true,
+        "heldout_count": true,
+        "labels_at_most_5Tlog": true,
+        "cumulative_regret_at_most_T_over_2": true,
+        "average_regret_at_most_inverse_horizon": true,
+        "baseline_gain_identity": true,
+        "normalized_net_lower_bound": true,
+        "optimal_net_dominates_schedule": true,
+        "optimal_regret_bound": true,
+        "optimal_average_regret_bound": true,
+        "schedule_positive_net": true,
+        "optimized_positive_net": true
+      }
+    },
+    {
+      "horizon": 32,
+      "heldout_trials": 560,
+      "scheduled_calibration_labels": 675,
+      "label_upper_bound": 960,
+      "schedule_oracle_regret": "117804885426777433/72057594037927936",
+      "schedule_avg_oracle_regret": "117804885426777433/40352252661239644160",
+      "schedule_regret_bound_per_trial": "1/35",
+      "schedule_net_gain_over_chance": "8450293405645591207/72057594037927936",
+      "schedule_net_gain_per_trial": "8450293405645591207/40352252661239644160",
+      "optimized_calibration_labels": 414,
+      "optimized_oracle_regret": "24583160911/4294967296",
+      "optimized_avg_oracle_regret": "24583160911/2405181685760",
+      "optimized_regret_bound_per_trial": "23/280",
+      "optimized_net_gain_over_chance": "521146121137/4294967296",
+      "optimized_net_gain_per_trial": "521146121137/2405181685760",
+      "certificates": {
+        "stage_certificates": true,
+        "optimizer_certificates": true,
+        "heldout_count": true,
+        "labels_at_most_5Tlog": true,
+        "cumulative_regret_at_most_T_over_2": true,
+        "average_regret_at_most_inverse_horizon": true,
+        "baseline_gain_identity": true,
+        "normalized_net_lower_bound": true,
+        "optimal_net_dominates_schedule": true,
+        "optimal_regret_bound": true,
+        "optimal_average_regret_bound": true,
+        "schedule_positive_net": true,
+        "optimized_positive_net": true
+      }
+    },
+    {
+      "horizon": 64,
+      "heldout_trials": 2144,
+      "scheduled_calibration_labels": 1640,
+      "label_upper_bound": 2240,
+      "schedule_oracle_regret": "1778341719620366629487/590295810358705651712",
+      "schedule_avg_oracle_regret": "1778341719620366629487/1265594217409064917270528",
+      "schedule_regret_bound_per_trial": "1/67",
+      "schedule_net_gain_over_chance": "284367552351762198037905/590295810358705651712",
+      "schedule_net_gain_per_trial": "284367552351762198037905/1265594217409064917270528",
+      "optimized_calibration_labels": 1048,
+      "optimized_oracle_regret": "12992021482201/1099511627776",
+      "optimized_avg_oracle_regret": "12992021482201/2357352929951744",
+      "optimized_regret_bound_per_trial": "51/1072",
+      "optimized_net_gain_over_chance": "540337205196071/1099511627776",
+      "optimized_net_gain_per_trial": "540337205196071/2357352929951744",
+      "certificates": {
+        "stage_certificates": true,
+        "optimizer_certificates": true,
+        "heldout_count": true,
+        "labels_at_most_5Tlog": true,
+        "cumulative_regret_at_most_T_over_2": true,
+        "average_regret_at_most_inverse_horizon": true,
+        "baseline_gain_identity": true,
+        "normalized_net_lower_bound": true,
+        "optimal_net_dominates_schedule": true,
+        "optimal_regret_bound": true,
+        "optimal_average_regret_bound": true,
+        "schedule_positive_net": true,
+        "optimized_positive_net": true
+      }
+    }
+  ],
+  "fixed_budget_lower_bound_controls": [
+    [
+      "2/3",
+      0,
+      "1/6"
+    ],
+    [
+      "2/3",
+      1,
+      "1/9"
+    ],
+    [
+      "2/3",
+      3,
+      "1/81"
+    ],
+    [
+      "2/3",
+      8,
+      "1/19683"
+    ],
+    [
+      "3/4",
+      0,
+      "1/4"
+    ],
+    [
+      "3/4",
+      1,
+      "1/8"
+    ],
+    [
+      "3/4",
+      3,
+      "1/128"
+    ],
+    [
+      "3/4",
+      8,
+      "1/131072"
+    ],
+    [
+      "4/5",
+      0,
+      "3/10"
+    ],
+    [
+      "4/5",
+      1,
+      "3/25"
+    ],
+    [
+      "4/5",
+      3,
+      "3/625"
+    ],
+    [
+      "4/5",
+      8,
+      "3/1953125"
+    ]
+  ],
+  "checks": {
+    "stage_certificates": true,
+    "horizon_certificates": true,
+    "first_budget_five": true,
+    "power_of_two_boundary_budgets": true,
+    "first_epoch_exact_accuracy": true,
+    "every_tested_epoch_positive_net": true,
+    "optimized_nets_dominate": true,
+    "finite_fixed_budget_regret_floor": true,
+    "fresh_polarity_prevents_cross_epoch_transfer": true,
+    "shared_polarity_allows_transfer": true,
+    "uninformative_signal_negative_control": true
+  },
+  "all_passed": true,
+  "evidence_level": "algebraic_argument_plus_finite_exact_tests",
+  "theological_hypothesis_identified": false,
+  "public_key_cryptography_assumed": false,
+  "empirical_agents_evaluated": false,
+  "lean_formalized": false,
+  "source_sha256": {
+    "src/spiral_ln/agency_persistence.py": "f460122e0bc70f1f14433db4d67793be4720c4e04f0de8161a4e4123cef57efe",
+    "tests/test_agency_persistence.py": "e12b8eaa5e03335d79906a0a0bc02a03bfd60776785f102894520be597010ed0",
+    "scripts/verify_agency_persistence.py": "2f27fa4e64f4192e98907a924577172760a373c62619c3dcf38eced7ed2a40ee",
+    "paper/agency_persistence.md": "9bf7d223d070d351c0c03dbf644a49ebe7c6cdbf5c456b24872ef9d758f5a76b"
+  }
+}

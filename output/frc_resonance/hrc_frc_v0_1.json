@@ -1,0 +1,56 @@
+{
+  "all_passed": true,
+  "checks": {
+    "calibration_partition": true,
+    "external_gap_detected": true,
+    "metaprediction_matches_selected": true,
+    "minentropy_weaker": true,
+    "path_duplicates_no_gain": true,
+    "self_confirming_exact_closed_form": true,
+    "self_confirming_score_rises": true,
+    "sharp_attainable_bound": true,
+    "sharp_nonuniform_requires_four_queries": true,
+    "sharp_threshold_8_over_9": true,
+    "sharp_uniform_8_floor_228": true,
+    "sharper_bound_differs": true,
+    "topq_exact_nonuniform": true,
+    "uniform_8_delta_point_one": true,
+    "weakness_floor_holds": true
+  },
+  "evidence": "finite_verified_example_and_algebraic_identity",
+  "min_entropy_uniform_audit_floor": {
+    "12": 3277,
+    "2": 4,
+    "4": 13,
+    "8": 205
+  },
+  "model_evaluations": 0,
+  "schema_version": "hrc-frc-02.0",
+  "sharp_prior_averaged_two_sided_threshold": "8/9",
+  "sharp_uniform_audit_floor": {
+    "12": 3641,
+    "2": 4,
+    "4": 15,
+    "8": 228
+  },
+  "source_sha256": {
+    "paper/frc_harmonic_self_evaluation.md": "213e75a212c3601f8f166d5f691ade5e95c42e2450356d3bdb9c590e26b46f9b",
+    "scripts/verify_evaluation_frc_resonance.py": "4c630cf683adbee107c71c6e9eb70b7b31e458c628372a84d6c31b969c3d4ee7",
+    "src/spiral_ln/evaluation_frc_resonance.py": "65bdc9ea86a40a9492ad547924e000d5ad6882903d800751ea299a39f0025b5d",
+    "tests/test_evaluation_frc_resonance.py": "64a3a21cb54304bdf715f01f3da5d761c76cef8d8b73e1f69a03146ed3e56183"
+  },
+  "two_task": {
+    "generations": 12,
+    "rate": "1/4",
+    "self_confirming_closed_form_external": "9/20 * (3/4)^k",
+    "self_confirming_final": [
+      "330761351/335544320",
+      "4782969/335544320"
+    ],
+    "weakness_external_global_floor": "3/8",
+    "weakness_seeking_final": [
+      "191511851/335544320",
+      "144032469/335544320"
+    ]
+  }
+}
