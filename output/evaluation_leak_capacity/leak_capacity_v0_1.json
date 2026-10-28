@@ -1,0 +1,42 @@
+{
+  "schema_version": "0.1",
+  "generated_at_utc": "2026-10-26T10:58:18.259559+00:00",
+  "checks": {
+    "193_surjective_cube_supports": true,
+    "all_lattice_direct_comparisons": true,
+    "all_pair_joint_graph_comparisons": true,
+    "99_positive_rational_kernels": true,
+    "91_strict_binary_leaks": true,
+    "8_rational_but_binary_silent": true,
+    "nonlocal_unit_invisible": true,
+    "nonlocal_uniform_threshold_two": true,
+    "nonlocal_one_cell_doubled_ratio": true,
+    "nonlocal_doubled_joint_cp": true,
+    "nonlocal_doubled_separate_cp": true,
+    "nonlocal_oracle": true,
+    "comparison_count": true
+  },
+  "all_passed": true,
+  "support_count": 193,
+  "total_independent_comparisons": 772,
+  "strict_unit_support_count": 91,
+  "rational_kernel_count": 99,
+  "rational_but_unit_silent_count": 8,
+  "case_sha256": "19ce352a6d797e38a754a6926a4bcfccaee0aa728f1be61e1132288b2adb09d7",
+  "nonlocal_unit_ratio": "1",
+  "nonlocal_doubled_ratio": "49/48",
+  "nonlocal_doubled_joint_cp": "3/128",
+  "nonlocal_doubled_separate_cp": "49/2048",
+  "nonlocal_first_move": [
+    1,
+    -2,
+    1,
+    1,
+    -1
+  ],
+  "source_sha256": {
+    "src/spiral_ln/evaluation_leak_capacity.py": "7203c239b6eac8d13b35f19b10af1317fb90ad23fe28fe71a3c3f27fd9ced40e",
+    "scripts/verify_evaluation_leak_capacity.py": "c31a10ad723744249ead11a475de1b24fab31f69e72f6b6cfc0f57c1a5ef6f05",
+    "tests/test_evaluation_leak_capacity.py": "3d99046c9e6fada2084091ffeaabab8cb58c8b0ceb920a5e135a7f550066646c"
+  }
+}
