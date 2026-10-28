@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "openai_eth_fidelity": ("scripts/verify_proof_fidelity_openai_eth.py",
+                             "output/proof_fidelity/openai_eth_v0_2.json", [], False),
     "design_calculus": ("scripts/verify_evaluation_design_calculus.py",
                         "output/evaluation_design_calculus/v0_verification.json", [], False),
     "prime_atlas": ("scripts/verify_prime_eval_atlas.py",
@@ -44,6 +46,18 @@ RECEIPTS = {
               "output/evaluation_judge_measurement/judge_v0_1.json", [], False),
     "leak_topology": ("scripts/verify_evaluation_leak_topology.py",
                       "output/evaluation_leak_topology/leak_topology_v0_1.json", [], False),
+    "leak_capacity": ("scripts/verify_evaluation_leak_capacity.py",
+                      "output/evaluation_leak_capacity/leak_capacity_v0_1.json", [], False),
+    "adaptive_disclosure": ("scripts/verify_evaluation_adaptive_disclosure.py",
+                            "output/evaluation_adaptive_disclosure/adaptive_disclosure_v0_1.json", [], False),
+    "selection_risk": ("scripts/verify_evaluation_selection_risk.py",
+                       "output/evaluation_selection_risk/selection_risk_v0_1.json", [], False),
+    "covert_feedback": ("scripts/verify_evaluation_covert_feedback.py",
+                        "output/evaluation_covert_feedback/covert_feedback_v0_2.json", [], False),
+    "full_filtration": ("scripts/verify_evaluation_full_filtration.py",
+                        "output/evaluation_full_filtration/full_filtration_v0_1.json", [], False),
+    "dynamic_filtration": ("scripts/verify_evaluation_dynamic_filtration.py",
+                           "output/evaluation_dynamic_filtration/dynamic_filtration_v0_2.json", [], False),
     "selection_kl": ("scripts/verify_evaluation_selection_kl.py",
                      "output/evaluation_selection_kl/selection_kl_v0_4.json", [], False),
     "gold_calibration": ("scripts/verify_evaluation_gold_calibration.py",
