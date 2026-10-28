@@ -1,0 +1,38 @@
+{
+  "checks": [
+    {
+      "id": "test_reference.CompactificationTests.test_exact_quotient",
+      "status": "passed"
+    },
+    {
+      "id": "test_reference.CompactificationTests.test_finite_horizon_bound_tight_for_additive_error",
+      "status": "passed"
+    },
+    {
+      "id": "test_reference.CompactificationTests.test_near_fiber_falsifier",
+      "status": "passed"
+    },
+    {
+      "id": "test_reference.CompactificationTests.test_observationally_perfect_but_causally_wrong",
+      "status": "passed"
+    },
+    {
+      "id": "test_reference.CompactificationTests.test_statistical_bound",
+      "status": "passed"
+    }
+  ],
+  "evidence": "synthetic floating-point sanity checks",
+  "lean_compilation": "not_performed",
+  "real_model_experiments": "not_performed",
+  "repository_wide_ci": "not_verified_by_this_receipt",
+  "rigorous_rounding_certificate": false,
+  "schema": "evalmath.interventional_compactification.reference.v1",
+  "source_sha256": {
+    "README.md": "03777d932ac44e5328776d2917295747c245aa05b838f28992c2a79b2156c8c0",
+    "RESEARCH.md": "e6c3c8e423d765406c5097be08aac6451631f2c23117c18f6745920dfc07782d",
+    "reference.py": "3d91513c36c289039efa8c486d30d890947a11e31d872a4243e4bed9f3f78049",
+    "test_reference.py": "00bc2079622d72b37da8a7269d05e8f3afbde5fd5791f7ea07b031008fbbbf21",
+    "verify.py": "fe45bc34332ea41af1bb26ff5c6f403bb83c86c786bd64c636d1b4ada7143a38"
+  },
+  "test_count": 5
+}
