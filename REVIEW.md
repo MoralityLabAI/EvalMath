@@ -47,6 +47,18 @@ values on each side. For a gap in a proof, name the step and what it assumes. Fo
 problem, give the theorem name and the hypothesis or quantifier that differs. Please keep findings
 separate from suggestions.
 
+## External claim-fidelity review
+
+The [OpenAI ETH case study](paper/proof_fidelity_openai_eth.md) has a separate
+source-integrity audit. Reviewers should distinguish the admitted comparator
+specification from the actual Lean implementation, check the square-root-log
+versus log-log-squared exponent scopes, compare the implementation-side runtime
+scale with the comparator's *printed* definitions, and rerun its v0.2 receipt.
+Exact syntactic signatures are only a preliminary comparison; inspect their
+elaborated referents with Lean before asserting full semantic fidelity. Upstream Lean
+kernel compilation and the manuscript-only tensor contraction remain outside
+the automated source checker.
+
 ## Scope
 
 Nothing here is evidence about any real model, judge or grader. The session log was redacted of private

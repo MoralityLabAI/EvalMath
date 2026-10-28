@@ -118,6 +118,21 @@ in every receipt, and the paths in the session log, stay valid. The design-calcu
 testbed and the Prime Intellect atlas predate this programme and come from Spiral's `main`; where they
 mention other Spiral modules (the hive lab, the identity attestation notes), those live in Spiral.
 
+
+## External proof-fidelity case study
+
+The [OpenAI ETH claim crosswalk](paper/proof_fidelity_openai_eth.md) compares the
+headline, manuscript theorem and sharper tensor bounds with the actual Lean
+endpoint and admitted comparator specification. It archives ten original
+upstream sources at a pinned Git commit, including implementation-side runtime definitions and
+all manuscript input files. The case has 29 substantive structural checks,
+eighteen pytest cases, adversarial overclaim tests, and a source-hashed receipt.
+The comparator signature match is syntactic; elaborated type equivalence requires Lean.
+
+`python scripts/check_receipts.py --only openai_eth_fidelity`
+rechecks the archive offline. This tests source integrity and claim fidelity;
+it is not a mathematical referee report or a substitute for a full Lean rebuild.
+
 ## License
 
 Apache License 2.0; see [`LICENSE`](LICENSE).
