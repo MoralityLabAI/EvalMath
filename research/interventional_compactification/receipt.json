@@ -26,15 +26,13 @@
   "real_model_experiments": "not_performed",
   "repository_wide_ci": "not_verified_by_this_receipt",
   "rigorous_rounding_certificate": false,
-  "schema": "evalmath.interventional_compactification.reference.v2",
+  "schema": "evalmath.interventional_compactification.reference.v1",
   "source_sha256": {
-    "README.md": "8418ee0ea3a8fef7a738b21b58e25a0f81e33a18629df890f3c17ecd56277360",
+    "README.md": "03777d932ac44e5328776d2917295747c245aa05b838f28992c2a79b2156c8c0",
     "RESEARCH.md": "e6c3c8e423d765406c5097be08aac6451631f2c23117c18f6745920dfc07782d",
-    "compactification_theory_handoff/experiments/interventional-compactification/README.md": "2ae4bb775612e101d3742e9220145876c4463256c717489195a054c3bd7b8107",
-    "compactification_theory_handoff/note/intervention-preserving-compactification.md": "d2bfcee7b8e9e23840e1301b91b709fa91a9281061c38897fdb3adffd03ba73d",
     "reference.py": "3d91513c36c289039efa8c486d30d890947a11e31d872a4243e4bed9f3f78049",
     "test_reference.py": "00bc2079622d72b37da8a7269d05e8f3afbde5fd5791f7ea07b031008fbbbf21",
-    "verify.py": "611f82c084beb4fd66b5df58a376c5b05f66dd8829335890b771c9d037abd003"
+    "verify.py": "fe45bc34332ea41af1bb26ff5c6f403bb83c86c786bd64c636d1b4ada7143a38"
   },
   "test_count": 5
 }
