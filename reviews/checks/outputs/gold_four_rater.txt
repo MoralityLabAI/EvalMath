@@ -1,0 +1,23 @@
+six four-rater equalities hold identically: [True, True, True, True, True, True]  [OK]
+copy grader: c12c34 - c13c24 = rho V1 c34 : True ; c13c24 = c14c23 : True  [OK]
+
+Sign test (Test B), copying grader at the §8 fixture, one-sided alpha=1/20:
+  rho=1/4: tau=513/320000 (= 513/80000 rho: True); P(Z=+1)=0.056488 P(Z=-1)=0.046870; power m=742 0.074, 4000 0.212, 10000 0.4165
+  rho=1/2: tau=513/160000 (= 513/80000 rho: True); P(Z=+1)=0.067892 P(Z=-1)=0.048655; power m=742 0.140, 4000 0.519, 10000 0.8694
+  rho=3/4: tau=1539/320000 (= 513/80000 rho: True); P(Z=+1)=0.079997 P(Z=-1)=0.051141; power m=742 0.227, 4000 0.788, 10000 0.9896
+  rho=1: tau=513/80000 (= 513/80000 rho: True); P(Z=+1)=0.092801 P(Z=-1)=0.054326; power m=742 0.326, 4000 0.930, 10000 0.9996
+  null (rho=0): P(Z=+1)=22895240409/500000000000 P(Z=-1)=22895240409/500000000000 equal: True  [OK] size control
+  zeta_1-type ratio check: P0(Z!=0) = 0.091581
+
+Non-specificity: difficulty heterogeneity WITHOUT copying (raters cond. independent given (Y,D)):
+  P(hard)=1/2, error-rate factors easy 1/2 / hard 3/2: tau=+0.000773 (copy rho=1 gives +0.006413); one-sided sign-test power m=742 0.049, 4000 0.103, 10000 0.174
+  P(hard)=1/3, error-rate factors easy 1/4 / hard 5/2: tau=+0.003591 (copy rho=1 gives +0.006413); one-sided sign-test power m=742 0.190, 4000 0.723, 10000 0.978
+  P(hard)=1/2, error-rate factors easy 0 / hard 2: tau=+0.003178 (copy rho=1 gives +0.006413); one-sided sign-test power m=742 0.152, 4000 0.579, 10000 0.916
+  => the tetrad test rejects conditional independence given a BINARY latent; it does not identify copying.
+
+Discriminant: second tetrad c13c24 - c14c23 (zero under copying between G1,G2; nonzero under heterogeneity)
+  copy rho=1          : tetrad1 = +0.006412, tetrad2 = +0.000000
+  copy rho=1/2        : tetrad1 = +0.003206, tetrad2 = +0.000000
+  het (1/2,1/2,3/2)   : tetrad1 = +0.000773, tetrad2 = +0.000223
+  het (1/3,1/4,5/2)   : tetrad1 = +0.003591, tetrad2 = +0.000891
+  het (1/2,0,2)       : tetrad1 = +0.003178, tetrad2 = +0.000806

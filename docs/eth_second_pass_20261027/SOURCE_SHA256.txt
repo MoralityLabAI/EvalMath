@@ -1,0 +1,4 @@
+# SHA-256 of source material supplied to this conversation (not all bytes vendored here)
+a82efa8be61a420406270b724f4c988dbc216f2ad0a8257be0fcaff35b85e2f2  referee_second_pass_20261027.zip
+cb9bd03e81b175b06b5f22a2831acc516649c0bcdb97dd1172c1017f9d92b32b  REFEREE_REPORT_second_pass_20261027.md (original within ZIP)
+d3ad7a990250dd9461e6910aa2d0d13ad77eed0acd7fed24609dae0f54cc26be  second_pass_repro_20261027.tar.xz (local deterministic repackage of original scripts/logs)

@@ -1,0 +1,7 @@
+K=4: n=1..1500: D_n>0 fails at none; a_n^2 strictly increasing fails at none
+K=5: n=1..1500: D_n>0 fails at none; a_n^2 strictly increasing fails at none
+K=6: n=1..1500: D_n>0 fails at none; a_n^2 strictly increasing fails at none
+K=7: n=1..1500: D_n>0 fails at none; a_n^2 strictly increasing fails at none
+K=8: n=1..1500: D_n>0 fails at none; a_n^2 strictly increasing fails at none
+K=9: n=1..1500: D_n>0 fails at none; a_n^2 strictly increasing fails at none
+K=10: n=1..1500: D_n>0 fails at none; a_n^2 strictly increasing fails at none

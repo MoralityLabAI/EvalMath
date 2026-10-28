@@ -1,0 +1,17 @@
+coordinate-surjective supports of 2x2x2: 193  [OK]
+separate observation: positive rational kernel 99 (PR: 99); unit-capacity collisions 91 (PR: 91); silent 8 (PR: 8); silent ones colliding at capacity 2: 8 (PR: 8)
+  [OK] counts reproduce
+Proposition 3 on 99 certificates: ||z||_inf <= max minor <= r^(r/2), support <= r+1, in kernel: 99 hold  [OK]
+  certificate sup-norm vs true minimal sup-norm of a nonzero integer kernel vector: distribution of (cert, min, maxminor): [(1, 1, 1), (1, 1, 2), (2, 1, 2), (2, 2, 2)]
+  the RREF certificate equals the true minimum in 96 of 99 supports
+
+Five-cell witness (000),(001),(011),(101),(110):
+  unit: joint 1/32, separate 1/32, ratio 1   [OK] ratio 1
+  (1,2,1,1,1): joint 3/128, separate 49/2048, ratio 49/48   [OK] 3/128, 49/2048, 49/48
+  Theorem 2 lattice sum at (1,2,1,1,1): 49/2048  [OK]
+
+Theorem 2 (collision law) vs direct enumeration on random supports/sizes/patterns:
+  60 random cases, mismatches 0  [OK]
+
+Pair-joint + third separate: rational kernel > 0 implies a unit-capacity collision?
+  579 cases, violations 0  [OK]
