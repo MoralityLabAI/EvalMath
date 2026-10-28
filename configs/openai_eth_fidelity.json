@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.2",
+  "upstream_repo": "openai/math",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "sources": {
+    "manuscript": {
+      "path": "fixtures/external/openai_eth_20261025/main_full_version.tex",
+      "upstream_path": "preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/main_full_version.tex",
+      "git_blob_sha": "f7af85e623b58e0ca9f4b9416916d442defa963a"
+    },
+    "tensor_reduction": {
+      "path": "fixtures/external/openai_eth_20261025/quantitative-reduction.tex",
+      "upstream_path": "preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-reduction.tex",
+      "git_blob_sha": "80389ac39d987133b71b2ddc2593e6fcdd99871a"
+    },
+    "tensor_contraction": {
+      "path": "fixtures/external/openai_eth_20261025/quantitative-contraction.tex",
+      "upstream_path": "preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-contraction.tex",
+      "git_blob_sha": "51ba54efc29f51bbc0426f848003030da484f354"
+    },
+    "lean_final": {
+      "path": "fixtures/external/openai_eth_20261025/Final.lean",
+      "upstream_path": "lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Final.lean",
+      "git_blob_sha": "a69635a2492e06a26f2e33d4251edd1e21ba3332"
+    },
+    "lean_comparator": {
+      "path": "fixtures/external/openai_eth_20261025/SubexponentialSAT.lean",
+      "upstream_path": "lean/ComparatorChallenges/SubexponentialSAT.lean",
+      "git_blob_sha": "a8d5ff3a3e80323675b1f2d1ea611560b783e9ca"
+    },
+    "lean_config": {
+      "path": "fixtures/external/openai_eth_20261025/SubexponentialSAT.json",
+      "upstream_path": "lean/ComparatorChallenges/SubexponentialSAT.json",
+      "git_blob_sha": "d4cc9e7074e900c1aa6371151cfd234c121a0b82"
+    },
+    "lean_scope": {
+      "path": "fixtures/external/openai_eth_20261025/378.md",
+      "upstream_path": "lean/docs/378.md",
+      "git_blob_sha": "223bbe187394bffca8a2c7ba1656538bfba26e3b"
+    },
+    "lean_scale": {
+      "path": "fixtures/external/openai_eth_20261025/StatementScale.lean",
+      "upstream_path": "lean/OAI/Algorithms/SubexponentialSAT/SqrtLog/StatementScale.lean",
+      "git_blob_sha": "dae009c0b234a6180e61a897d56a5721f397762d"
+    },
+    "lean_asymptotics": {
+      "path": "fixtures/external/openai_eth_20261025/Asymptotics.lean",
+      "upstream_path": "lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Asymptotics.lean",
+      "git_blob_sha": "da9003ffd1a9b8fcc82147b4152414b264d26d54"
+    },
+    "circuits_appendix": {
+      "path": "fixtures/external/openai_eth_20261025/quantitative-circuits.tex",
+      "upstream_path": "preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/quantitative-circuits.tex",
+      "git_blob_sha": "e25def5eb03ee53feefd3fe480dd5a1293761fae"
+    }
+  },
+  "claims": {
+    "headline": {
+      "evidence": "title",
+      "scale": "none",
+      "subject": "eth_false"
+    },
+    "lean_exact_count": {
+      "evidence": "lean_statement",
+      "scale": "loglog_squared",
+      "subject": "exact_count_polyspace",
+      "scope": "fixed k>=2; normalized finite-set CNF",
+      "kernel_rebuilt": false
+    },
+    "paper_general_bound": {
+      "evidence": "manuscript",
+      "scale": "loglog",
+      "subject": "exact_count_polyspace",
+      "scope": "fixed k>=2; arbitrary clauses"
+    },
+    "paper_fixed_density": {
+      "evidence": "manuscript",
+      "scale": "sqrtlog",
+      "subject": "exact_count_polyspace",
+      "condition": "m <= D*n; D fixed"
+    },
+    "paper_tensor_contraction": {
+      "evidence": "manuscript",
+      "scale": "sqrtlog",
+      "subject": "tensor_contraction",
+      "formalized_in_case": false
+    },
+    "comparator_specification": {
+      "evidence": "specification",
+      "scale": "loglog_squared",
+      "subject": "exact_count_polyspace"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": "0.1",
+  "generated_at_utc": "2026-10-26T14:03:25.778946+00:00",
+  "checks": {
+    "marginal_five_percent_rates_match": true,
+    "same_current_decision_risk": true,
+    "different_risk_after_one_observation": true,
+    "each_event_at_most_five_percent": true,
+    "two_rounds_nominal_five_percent": true,
+    "two_rounds_fixed_seven_point_five_percent": true,
+    "two_rounds_adaptive_ten_percent": true,
+    "two_rounds_full_information_bound_is_tight": true,
+    "two_rounds_independent_policy_enumerator": true,
+    "post_selection_prepeek_exact": true,
+    "192_independent_two_round_exhaustive_checks": true,
+    "192_risk_monotonicity_checks": true,
+    "192_contingency_compression_checks": true,
+    "3_times_2_power_m_minimal_classes": true,
+    "m_plus_two_minimal_bits": true,
+    "276_independent_pairwise_continuation_witnesses": true,
+    "same_current_label_amendment_order_counterexample": true,
+    "same_GO_distinct_revocable_roots": true,
+    "joint_projection_same_present_different_future_risk": true,
+    "joint_projection_records_view_before_late_amendment": true,
+    "joint_projection_preobservation_amendment_preserves_status": true,
+    "joint_projection_risk_state_updates_by_conditioning": true
+  },
+  "all_passed": true,
+  "independent_policy_comparisons": 192,
+  "continuation_pair_witnesses": 276,
+  "model_samples_sha256": "1dc0a240c53d8775eff389263d7e3d4ef2562e7322eb17b1e4f7eadbfd335534",
+  "nominal_five_percent": "1/20",
+  "fixed_two_queries": "3/40",
+  "adaptive_two_queries": "1/10",
+  "correlated_one_query": "1/20",
+  "disjoint_one_query": "1/10",
+  "prepeek_twenty_candidates": "67267626542454041806644399/104857600000000000000000000",
+  "audit_minimal_classes_by_roots": [
+    [
+      1,
+      6,
+      3
+    ],
+    [
+      2,
+      12,
+      4
+    ],
+    [
+      3,
+      24,
+      5
+    ],
+    [
+      4,
+      48,
+      6
+    ]
+  ],
+  "exact_fixed_schedule": [
+    0,
+    1
+  ],
+  "adaptive_two_query_tree": "QueryNode(query=2, branches=((0, QueryNode(query=0, branches=((0, QueryNode(query=None, branches=())), (1, QueryNode(query=None, branches=()))))), (1, QueryNode(query=1, branches=((0, QueryNode(query=None, branches=())), (1, QueryNode(query=None, branches=())))))))",
+  "source_sha256": {
+    "src/spiral_ln/evaluation_selection_risk.py": "103e1b930e06f43e4ac5408bbeb1648b108befff84d038fcd7b77951f4ca633b",
+    "tests/test_evaluation_selection_risk.py": "c945a7f41f0f6f79ba66dcc645543383d1d45259e1d0d6867fc0c213facc1790",
+    "scripts/verify_evaluation_selection_risk.py": "fd9dab9a3401bcb39cea70c112b8d08676f2cb56418a41857b3109eb530a7e2c"
+  }
+}

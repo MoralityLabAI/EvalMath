@@ -1,0 +1,112 @@
+{
+  "generated_at_utc": "2026-10-27T06:36:43.149400+00:00",
+  "schema_version": "1.0",
+  "mechanism": "q_shared_across_epochs; fresh_uniform_theta; sealed_heldout_feedback",
+  "prior": [
+    [
+      "1/2",
+      "1/2"
+    ],
+    [
+      "1",
+      "1/2"
+    ]
+  ],
+  "posterior_after_one_label": [
+    [
+      "1/2",
+      "1/2"
+    ],
+    [
+      "1",
+      "1/2"
+    ]
+  ],
+  "posterior_after_agree": [
+    [
+      "1/2",
+      "1/3"
+    ],
+    [
+      "1",
+      "2/3"
+    ]
+  ],
+  "posterior_after_disagree": [
+    [
+      "1/2",
+      "1"
+    ],
+    [
+      "1",
+      "0"
+    ]
+  ],
+  "same_pair_probability": "3/4",
+  "single_label_epoch_value": "1/2",
+  "adaptive_epoch_result": {
+    "epochs": 13,
+    "heldout_trials": 72,
+    "value_over_chance": "7",
+    "first_action": "buy",
+    "first_stop_value": "6",
+    "first_buy_value": "7",
+    "expected_gold_labels": "11",
+    "expected_heldout_correct": "54",
+    "expected_oracle_correct": "54",
+    "expected_oracle_regret": "0",
+    "expected_label_cost": "11",
+    "value_identity": true,
+    "policy_states": 114
+  },
+  "pair_identification": [
+    [
+      1,
+      "1/2"
+    ],
+    [
+      2,
+      "3/4"
+    ],
+    [
+      4,
+      "15/16"
+    ],
+    [
+      8,
+      "247/256"
+    ],
+    [
+      16,
+      "64839/65536"
+    ]
+  ],
+  "checks": {
+    "one_label_q_uninformative": true,
+    "two_label_same_event_probability": true,
+    "same_pair_updates_q": true,
+    "different_pair_identifies_noisy_channel": true,
+    "one_label_accuracy": true,
+    "fixed_one_label_net": true,
+    "global_optimal_first_action_buy": true,
+    "forward_utility_identity": true,
+    "expected_global_gain_is_seven": true,
+    "no_early_experiment_gain_six": true,
+    "gold_label_budget_bounded": true,
+    "oracle_gap_nonnegative": true,
+    "separated_rates_identifiable": true,
+    "exact_identification_converges_in_fixture": true
+  },
+  "all_passed": true,
+  "evidence_level": "algebraic_proof_and_finite_exact_bayes_planning",
+  "real_agent_evidence": false,
+  "cryptographic_world_identified": false,
+  "theological_hypothesis_identified": false,
+  "lean_formalized": false,
+  "source_sha256": {
+    "src/spiral_ln/agency_unknown.py": "c9413b626a075f6f2657fb5c96db4c601f893425650d529a3edbd7462714e057",
+    "tests/test_agency_unknown.py": "5c970eae121520e795b86688be81cded994f5fb8aea88fe2e13e98fdfb1c71cb",
+    "scripts/verify_agency_unknown.py": "6cd28c21f289e2df9760334b05a1a3078e45cf24738d64d0072b219fddb5c761",
+    "paper/agency_unknown_reliability.md": "420243562fa438e951c686654684af40a77e741fdb24f583130937dc06714231"
+  }
+}

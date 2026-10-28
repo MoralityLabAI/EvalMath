@@ -1,0 +1,19 @@
+lambda_2 = 0.193147, lambda_3 = 0.431946
+
+N=3 records, K=2: 8 deterministic choice functions
+  max KL over refinement (transitive) rules : 0.166086   (lambda_K = 0.193147)
+  max KL over non-transitive rules          : 0.136032
+    at p0 = [0.602, 0.398, 0.0]
+  [OK] no rule found with KL > lambda_K
+
+N=4 records, K=2: 64 deterministic choice functions
+  max KL over refinement (transitive) rules : 0.177401   (lambda_K = 0.193147)
+  max KL over non-transitive rules          : 0.166086
+    at p0 = [0.2269, 0.0, 0.4299, 0.3432]
+  [OK] no rule found with KL > lambda_K
+
+N=3 records, K=3: 192 deterministic choice functions
+  max KL over refinement (transitive) rules : 0.379419   (lambda_K = 0.431946)
+  max KL over non-transitive rules          : 0.343194
+    at p0 = [0.468, 0.1595, 0.3725]
+  [OK] no rule found with KL > lambda_K

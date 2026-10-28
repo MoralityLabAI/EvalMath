@@ -1,0 +1,108 @@
+{
+  "upstream_repo": "openai/math",
+  "upstream_commit": "7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a",
+  "evidence_status": "pinned_source_structural_audit; no_independent_kernel_build",
+  "claim_crosswalk": {
+    "headline": {
+      "evidence": "title",
+      "scale": "none",
+      "subject": "eth_false"
+    },
+    "lean_exact_count": {
+      "evidence": "lean_statement",
+      "scale": "loglog_squared",
+      "subject": "exact_count_polyspace",
+      "scope": "fixed k>=2; normalized finite-set CNF",
+      "kernel_rebuilt": false
+    },
+    "paper_general_bound": {
+      "evidence": "manuscript",
+      "scale": "loglog",
+      "subject": "exact_count_polyspace",
+      "scope": "fixed k>=2; arbitrary clauses"
+    },
+    "paper_fixed_density": {
+      "evidence": "manuscript",
+      "scale": "sqrtlog",
+      "subject": "exact_count_polyspace",
+      "condition": "m <= D*n; D fixed"
+    },
+    "paper_tensor_contraction": {
+      "evidence": "manuscript",
+      "scale": "sqrtlog",
+      "subject": "tensor_contraction",
+      "formalized_in_case": false
+    },
+    "comparator_specification": {
+      "evidence": "specification",
+      "scale": "loglog_squared",
+      "subject": "exact_count_polyspace"
+    }
+  },
+  "source_git_blob_sha": {
+    "circuits_appendix": "e25def5eb03ee53feefd3fe480dd5a1293761fae",
+    "lean_asymptotics": "da9003ffd1a9b8fcc82147b4152414b264d26d54",
+    "lean_comparator": "a8d5ff3a3e80323675b1f2d1ea611560b783e9ca",
+    "lean_config": "d4cc9e7074e900c1aa6371151cfd234c121a0b82",
+    "lean_final": "a69635a2492e06a26f2e33d4251edd1e21ba3332",
+    "lean_scale": "dae009c0b234a6180e61a897d56a5721f397762d",
+    "lean_scope": "223bbe187394bffca8a2c7ba1656538bfba26e3b",
+    "manuscript": "f7af85e623b58e0ca9f4b9416916d442defa963a",
+    "tensor_contraction": "51ba54efc29f51bbc0426f848003030da484f354",
+    "tensor_reduction": "80389ac39d987133b71b2ddc2593e6fcdd99871a"
+  },
+  "archived_source_count": 10,
+  "comparison_kind": "syntactic_statement_and_printed_definition_text; elaborated_type_not_checked",
+  "checks": {
+    "paper_title": true,
+    "paper_main_exact_count": true,
+    "paper_general_exponent": true,
+    "paper_fixed_density_exponent": true,
+    "paper_weaker_exponent_visible": true,
+    "manuscript_input_closure_archived": true,
+    "tensor_network_hypotheses": true,
+    "tensor_network_exponent": true,
+    "tensor_density_reduction": true,
+    "tensor_recursive_precision_lemma": true,
+    "lean_exact_count_and_space_statement": true,
+    "lean_endpoint_has_explicit_proof": true,
+    "lean_final_contains_no_sorry": true,
+    "lean_declared_axiom_inspection": true,
+    "lean_rho_theorem_separate": true,
+    "comparator_is_admitted_specification": true,
+    "comparator_matches_implemented_type": true,
+    "comparator_runtime_scale_definition": true,
+    "comparator_runtime_bound_definition": true,
+    "comparator_count_definition": true,
+    "comparator_encoding_definition": true,
+    "comparator_space_definition": true,
+    "lean_rho_scale_definition": true,
+    "circuits_appendix_outside_main_proof": true,
+    "comparator_definitional_prelude_pinned": true,
+    "comparator_points_to_endpoint": true,
+    "comparator_permitted_axioms": true,
+    "scope_document_admits_weaker_lean": true,
+    "hermite_valuation_finite_grid": true
+  },
+  "all_passed": true,
+  "finite_probes": {
+    "hermite_valuation_cases": 15492,
+    "grid": "1<=a<=7; 1<=u<=a; u<=M<=u+5; q_t>0",
+    "evidence": "finite_verified_example"
+  },
+  "open_obligations": [
+    "rebuild the entire upstream Lean import closure and inspect #print axioms output",
+    "independently audit tensor packing, 2-adic Hermite precision, and recursion cost",
+    "check manuscript-to-formal input normalization and explicit algorithmic correspondence",
+    "compare fully elaborated comparator and implementation definitions via upstream Lean mechanism"
+  ],
+  "schema_version": "0.2",
+  "source_sha256": {
+    "src/spiral_ln/proof_fidelity.py": "e8934df2e70413cd42a0d1d5061e5fedadedd73bfc2f9e93460c95dd95fdf3be",
+    "scripts/verify_proof_fidelity_openai_eth.py": "693dd38feb7619e1c8a53b8d3d499b229e8257e00a4f9092006c24c408c8fc8e",
+    "configs/openai_eth_fidelity.json": "d3b7aed7a2286a0e9d589fd44f2b17b3a89988bcd1069d9f29305a5f6c2414a0",
+    "paper/proof_fidelity_openai_eth.md": "d07b9c76fec18303bea6f5da76e46367b6b6bed2d36cbda4e1822adb2bbb5982",
+    "tests/test_proof_fidelity_openai_eth.py": "cbbd3da37e729c3e93ae7df5bd1d76ce6471d23097341b5defcfa9c73e0cef4c"
+  },
+  "generated_at_utc": "2026-10-27T01:38:44.227860+00:00"
+}

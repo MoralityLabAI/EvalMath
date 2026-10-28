@@ -1,0 +1,10 @@
+K=41: D_n>0 for n in [400,1160]: failures none
+K=42: D_n>0 for n in [400,1160]: failures none
+K=43: D_n>0 for n in [400,1160]: failures none
+K=44: D_n>0 for n in [400,1160]: failures none
+K=45: D_n>0 for n in [400,1160]: failures none
+K=46: D_n>0 for n in [400,1160]: failures none
+K=47: D_n>0 for n in [400,1160]: failures none
+K=48: D_n>0 for n in [400,1160]: failures none
+K=49: D_n>0 for n in [400,1160]: failures none
+K=50: D_n>0 for n in [400,1160]: failures none

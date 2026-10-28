@@ -213,3 +213,13 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.SelectionTieRules.theoremB_every_tie_rule
 #print axioms FeedbackChannel.SelectionTieRules.theoremB_every_tie_rule_eq_iff
 #print axioms FeedbackChannel.SelectionTieFree.tieFree_integral
+
+-- Restricted FRC adaptive equality-query coupling, HRC-FRC-02
+#print axioms FeedbackChannel.FRC.noHitPath_length
+#print axioms FeedbackChannel.FRC.run_trigger_eq_clean_of_not_mem
+#print axioms FeedbackChannel.FRC.changedTriggers_card_le
+#print axioms FeedbackChannel.FRC.rejectedTriggers_card_le
+#print axioms FeedbackChannel.FRC.randomized_rejection_bound
+#print axioms FeedbackChannel.FRC.randomized_audit_floor
+#print axioms FeedbackChannel.FRC.rejectedTriggers_card_le_sharp
+#print axioms FeedbackChannel.FRC.randomized_rejection_bound_sharp
