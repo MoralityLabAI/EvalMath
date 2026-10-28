@@ -1,0 +1,241 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-10-27",
+  "propositions": {
+    "P_NE_NP": "P differs from NP (classical, uniform deterministic time).",
+    "AVG_HARD": "DistNP is not contained in AvgP in the chosen classical distributional-complexity convention.",
+    "OWF": "Classical one-way functions exist.",
+    "PKE": "Classically secure public-key encryption exists.",
+    "ETH": "Exponential Time Hypothesis for bounded-width 3SAT (variable-based subexponential time).",
+    "SETH": "Strong Exponential Time Hypothesis.",
+    "GAP_ETH": "Gap-ETH for the corresponding classical SAT promise.",
+    "HASH_ETH": "Exact-counting #ETH for bounded-width 3CNF.",
+    "THREE_SUM_HYP": "No truly subquadratic algorithm for polynomially bounded integer 3SUM.",
+    "APSP_HYP": "No truly subcubic algorithm for polynomially bounded integer-weight directed APSP.",
+    "ZWK_HYP": "Fine-grained worst-case zero-weight fixed-k clique hardness at exponent k-o(1).",
+    "ZWK_AVG_HYP": "Stated average-case fine-grained zero-weight fixed-k clique hardness, for distributions in the construction.",
+    "LWE_HARD": "Classical average-case LWE hardness in the parameter regime of a specified scheme.",
+    "ECDLP_HARD": "Classical ECDLP hardness for the parameter family under review."
+  },
+  "implications": [
+    [
+      "PKE",
+      "OWF"
+    ],
+    [
+      "OWF",
+      "AVG_HARD"
+    ],
+    [
+      "AVG_HARD",
+      "P_NE_NP"
+    ],
+    [
+      "ETH",
+      "P_NE_NP"
+    ],
+    [
+      "ETH",
+      "HASH_ETH"
+    ],
+    [
+      "SETH",
+      "ETH"
+    ],
+    [
+      "GAP_ETH",
+      "ETH"
+    ]
+  ],
+  "worlds": {
+    "Algorithmica": {
+      "P_NE_NP": false,
+      "AVG_HARD": false,
+      "OWF": false,
+      "PKE": false
+    },
+    "Heuristica": {
+      "P_NE_NP": true,
+      "AVG_HARD": false,
+      "OWF": false,
+      "PKE": false
+    },
+    "Pessiland": {
+      "P_NE_NP": true,
+      "AVG_HARD": true,
+      "OWF": false,
+      "PKE": false
+    },
+    "Minicrypt": {
+      "P_NE_NP": true,
+      "AVG_HARD": true,
+      "OWF": true,
+      "PKE": false
+    },
+    "Cryptomania": {
+      "P_NE_NP": true,
+      "AVG_HARD": true,
+      "OWF": true,
+      "PKE": true
+    }
+  },
+  "scenarios": {
+    "unadjudicated": {},
+    "accept_october_2026_reports": {
+      "ETH": false,
+      "HASH_ETH": false,
+      "THREE_SUM_HYP": false,
+      "APSP_HYP": false,
+      "ZWK_HYP": false,
+      "ZWK_AVG_HYP": false
+    },
+    "eth_only": {
+      "ETH": false
+    }
+  },
+  "routes": [
+    {
+      "id": "fine_grained_pke_zero_k_clique",
+      "summary": "Original fine-grained PKE hardness route through average-case zero-weight k-clique",
+      "premises": [
+        [
+          "ZWK_AVG_HYP"
+        ]
+      ]
+    },
+    {
+      "id": "fine_grained_pow_3sum",
+      "summary": "3SUM-based fine-grained proof-of-work hardness route",
+      "premises": [
+        [
+          "THREE_SUM_HYP"
+        ]
+      ]
+    },
+    {
+      "id": "fine_grained_pow_apsp",
+      "summary": "APSP-based fine-grained proof-of-work hardness route",
+      "premises": [
+        [
+          "APSP_HYP"
+        ]
+      ]
+    },
+    {
+      "id": "cvp_lower_bound_from_seth",
+      "summary": "Specified CVP lower bound conditional on SETH",
+      "premises": [
+        [
+          "SETH"
+        ]
+      ]
+    },
+    {
+      "id": "svp_lower_bound_from_gap_eth",
+      "summary": "Specified SVP lower bound conditional on Gap-ETH",
+      "premises": [
+        [
+          "GAP_ETH"
+        ]
+      ]
+    },
+    {
+      "id": "lwe_security_assumption",
+      "summary": "Classical LWE hardness premise for a proposed PKE parameter family",
+      "premises": [
+        [
+          "LWE_HARD"
+        ]
+      ]
+    },
+    {
+      "id": "ecdlp_security_assumption",
+      "summary": "Classical ECDLP hardness premise for a specified curve family",
+      "premises": [
+        [
+          "ECDLP_HARD"
+        ]
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "openai_eth_20261026",
+      "proposition": "ETH",
+      "proposed_value": false,
+      "stage": "announced_formalization_independent_replay_pending",
+      "source": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+      "scope": "Fixed-width CNF and uniform resource accounting must match the Lean endpoint; EvalMath PRs #10/#11 audit the seam."
+    },
+    {
+      "id": "openai_counting_20261026",
+      "proposition": "HASH_ETH",
+      "proposed_value": false,
+      "stage": "announced_formalization_independent_replay_pending",
+      "source": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+      "scope": "Exact #SAT on bounded-width 3CNF; manuscript and implemented bounds must be distinguished."
+    },
+    {
+      "id": "alman_vw_20261005_3sum",
+      "proposition": "THREE_SUM_HYP",
+      "proposed_value": false,
+      "stage": "research_preprint",
+      "source": "https://arxiv.org/abs/2610.06783",
+      "scope": "Integer 3SUM, polynomially bounded integers; O(n^1.9992) in original announcement."
+    },
+    {
+      "id": "alman_vw_20261005_apsp",
+      "proposition": "APSP_HYP",
+      "proposed_value": false,
+      "stage": "research_preprint",
+      "source": "https://arxiv.org/abs/2610.06783",
+      "scope": "Integer-weight directed APSP with polynomially bounded weights; O(n^2.9995)."
+    },
+    {
+      "id": "alman_vw_20261005_zwk",
+      "proposition": "ZWK_HYP",
+      "proposed_value": false,
+      "stage": "research_preprint",
+      "source": "https://arxiv.org/abs/2610.06783",
+      "scope": "Fixed-k zero-weight k-clique with polynomially bounded integer weights; worst-case speedup."
+    },
+    {
+      "id": "derived_avg_zwk_20261005",
+      "proposition": "ZWK_AVG_HYP",
+      "proposed_value": false,
+      "stage": "conditional_transfer_from_universal_algorithm",
+      "source": "https://arxiv.org/abs/2610.06783",
+      "scope": "Universal worst-case speedup also runs on sampled inputs in the same size and weight regime; check a construction's precise distribution and exponents."
+    },
+    {
+      "id": "majdoddin_20261012_3sum",
+      "proposition": "THREE_SUM_HYP",
+      "proposed_value": false,
+      "stage": "followup_research_preprint",
+      "source": "https://arxiv.org/abs/2610.17420",
+      "scope": "Improves deterministic 3SUM bound to n^(1.9945+o(1)) for the specified polynomially bounded integer input setting; follow-up to Alman-VW."
+    },
+    {
+      "id": "majdoddin_20261012_apsp",
+      "proposition": "APSP_HYP",
+      "proposed_value": false,
+      "stage": "followup_research_preprint",
+      "source": "https://arxiv.org/abs/2610.17420",
+      "scope": "Improves deterministic APSP/min-plus exponent to n^(2.9945+o(1)) in the paper's stated integer-weight setting."
+    },
+    {
+      "id": "karingula_lovett_20261011_3sum",
+      "proposition": "THREE_SUM_HYP",
+      "proposed_value": false,
+      "stage": "independent_simplified_preprint",
+      "source": "https://arxiv.org/abs/2610.15663",
+      "scope": "Simplified independent route to truly subquadratic 3SUM and subcubic APSP with weaker exponents; not a proof of cryptographic insecurity."
+    }
+  ],
+  "protocol": {
+    "evidence_rule": "Evidence entries are inert. Scenario assumptions are explicit and optional, never silently promoted from a publication.",
+    "implication_rule": "A=>B propagates A=true to B=true and B=false to A=false; the reverse inferences are prohibited.",
+    "route_rule": "A failed premise invalidates only that listed conditional route; it is not a cryptanalytic break.",
+    "world_rule": "World projections contain P_NE_NP, AVG_HARD, OWF, PKE only; ETH=false imposes no five-world elimination."
+  }
+}

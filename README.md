@@ -61,6 +61,12 @@ revocation-sufficient: a static world needs one projective likelihood per
 source, a Markov latent state the subset filters, none of which is redundant
 for two sources. No Lean theorem, no acquisition-time attestation.
 
+**New (2026-10-27):** [Cryptomania assumption audit](paper/cryptomania_assumption_audit.md)
+tracks the five-world implication graph, evidence-gated ETH/3SUM/APSP hardness routes,
+exact-rational Bayesian scenarios and an exact toy-#SAT control.
+Reproduce with `PYTHONPATH=src python -m pytest -q tests/test_cryptomania_audit.py`
+and `PYTHONPATH=src python scripts/verify_cryptomania_audit.py`.
+
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 ## Layout

@@ -1,0 +1,42 @@
+name: eth-crypto-encoding-bridge
+
+on:
+  push:
+    paths:
+      - "src/spiral_ln/crypto_encoding_bridge.py"
+      - "tests/test_crypto_encoding_bridge.py"
+      - "scripts/verify_crypto_encoding_bridge.py"
+      - "paper/crypto_encoding_bridge.md"
+      - ".github/workflows/eth-crypto-encoding-bridge.yml"
+  pull_request:
+    paths:
+      - "src/spiral_ln/crypto_encoding_bridge.py"
+      - "tests/test_crypto_encoding_bridge.py"
+      - "scripts/verify_crypto_encoding_bridge.py"
+      - "paper/crypto_encoding_bridge.md"
+      - ".github/workflows/eth-crypto-encoding-bridge.yml"
+  workflow_dispatch:
+
+jobs:
+  finite-encoding-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: python -m pip install -e ".[test]"
+      - name: Reproduce exact toy witnesses
+        run: python -m pytest -q tests/test_crypto_encoding_bridge.py
+      - name: Source-hashed crypto encoding receipt
+        run: |
+          mkdir -p output/crypto_encoding_bridge
+          python scripts/verify_crypto_encoding_bridge.py --output output/crypto_encoding_bridge/bridge_v1.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eth-crypto-encoding-evidence
+          path: output/crypto_encoding_bridge/*.json
+          if-no-files-found: warn

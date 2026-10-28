@@ -1,0 +1,46 @@
+name: cryptomania-assumption-audit
+
+on:
+  push:
+    paths:
+      - "configs/cryptomania_assumptions_v1.json"
+      - "src/spiral_ln/cryptomania_*.py"
+      - "tests/test_cryptomania_audit.py"
+      - "scripts/verify_cryptomania_audit.py"
+      - "paper/cryptomania_assumption_audit.md"
+      - ".github/workflows/cryptomania-assumption-audit.yml"
+  pull_request:
+    paths:
+      - "configs/cryptomania_assumptions_v1.json"
+      - "src/spiral_ln/cryptomania_*.py"
+      - "tests/test_cryptomania_audit.py"
+      - "scripts/verify_cryptomania_audit.py"
+      - "paper/cryptomania_assumption_audit.md"
+      - ".github/workflows/cryptomania-assumption-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: python -m pip install -e ".[test]"
+      - name: Adversarial logic and exact-count regression tests
+        run: python -m pytest -q tests/test_cryptomania_audit.py
+      - name: Generate independent scenario reports
+        run: |
+          mkdir -p output/cryptomania_audit
+          python scripts/verify_cryptomania_audit.py --scenario unadjudicated --output output/cryptomania_audit/unadjudicated.json
+          python scripts/verify_cryptomania_audit.py --scenario eth_only --output output/cryptomania_audit/eth_only.json
+          python scripts/verify_cryptomania_audit.py --scenario accept_october_2026_reports --output output/cryptomania_audit/accept_october_2026_reports.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cryptomania-assumption-audit
+          path: output/cryptomania_audit/*.json
+          if-no-files-found: warn
