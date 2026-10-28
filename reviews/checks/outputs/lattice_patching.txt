@@ -1,0 +1,6 @@
+Theorem 10 vs DP on 300 random states: mismatches 0  [OK]
+Theorem 11 vs DP on random two-hit states: mismatches 0  [OK]
+Corollary 14 witness ((4, 2), (5, 2), (14, 7)), H=3: V*=1055429/205920 (note 1055429/205920), commit=351823/68640 (note 351823/68640), gap=1/5148  [OK]
+one-in-739 witness ((10, 2), (12, 2), (19, 3)), H=4: V*=7477604/479655 (note 7477604/479655), commit=22463159/1438965 (note 22463159/1438965), rel gap 1/739.2  [OK]
+commit-until-hit witness ((4, 2), (4, 2), (6, 3)), H=4: V*=763/120 (note 763/120), commit=509/80 (note 509/80)  [OK]
+committing exact at H<=2 on 4040 (state,H) pairs with sizes<=6, <=3 categories: violations 0  [OK]
