@@ -125,6 +125,16 @@ rest on as five falsifiable axioms, A1 to A5, and derives a limit from each.
   the dimension (Theorem 8), but two triples of maps on six items with matching nerve homotopy data have
   separate fibres of dimension 0 and 1 (Counterexample 9, checked independently by the lead). There the
   word is nominal. Lean: not yet formalized.
+- **Finite cell capacities decide actual leakage.** For any collection of jointly observed
+  category margins, separate feedback confuses two distinct feasible cell tables precisely when
+  its integer margin kernel has a nonzero vector bounded by the cell capacities. An exact
+  kernel-lattice sum computes the ratio of separate to joint collision probabilities. Among
+  193 three-map supports in a 2×2×2 grid, 99 have positive rational fibres, but only 91 have
+  binary-record collisions at unit capacity; the remaining eight admit collisions when
+  capacity reaches two. One five-cell witness shifts its ratio from 1 to 49/48 by doubling
+  a single cell. *Algebraic identity* for the general capacity and collision criteria;
+  *finite verified example* for the grid. ([capacity supplement](leak_capacity.md));
+  no Lean formalization yet.
 - **Adaptive disclosure composes pathwise.** In a finite deterministic subset-sum feedback
   tree, each transcript fibre consists exactly of the feasible tables satisfying the
   queries encountered on that path. Collision probability has an exact posterior-mass
