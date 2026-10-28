@@ -76,6 +76,11 @@ recursive evaluation design, the lower-limit resource floor, exact hidden-trigge
 oracle bounds and false-resonance training controls. Its spectral counterpart
 is in `MoralityLabAI/RSITopology/HarmonicConsciousness`.
 
+**UGC-PT-01 research:** [`paper/unique_games_topology_eth.md`](paper/unique_games_topology_eth.md)
+connects finite translation Unique Games to graph cohomology and records an exhaustive 1001-instance
+census, two independent exact oracles, and a conditional ETH size audit. The OpenAI theorem's Lean
+statement is separately audited in [draft PR #13](https://github.com/MoralityLabAI/EvalMath/pull/13).
+
 ## Layout
 
 | Path | Contents |

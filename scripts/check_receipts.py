@@ -33,6 +33,8 @@ RECEIPTS = {
                            "output/agency_persistence/persistence_v1.json", [], False),
     "agency_worlds": ("scripts/verify_agency_worlds.py",
                       "output/agency_worlds/agency_v1.json", [], False),
+    "ugc_topology": ("scripts/verify_unique_games_topology.py",
+                     "output/unique_games_topology/ugc_pt_01.json", [], False),
     "design_calculus": ("scripts/verify_evaluation_design_calculus.py",
                         "output/evaluation_design_calculus/v0_verification.json", [], False),
     "prime_atlas": ("scripts/verify_prime_eval_atlas.py",
