@@ -10,7 +10,11 @@ import sys
 import unittest
 
 ROOT = Path(__file__).resolve().parent
-SOURCES = ("README.md", "RESEARCH.md", "reference.py", "test_reference.py", "verify.py")
+SOURCES = (
+    "README.md", "RESEARCH.md", "reference.py", "test_reference.py", "verify.py",
+    "compactification_theory_handoff/note/intervention-preserving-compactification.md",
+    "compactification_theory_handoff/experiments/interventional-compactification/README.md",
+)
 EXPECTED = {
     "test_reference.CompactificationTests.test_exact_quotient",
     "test_reference.CompactificationTests.test_observationally_perfect_but_causally_wrong",
@@ -43,7 +47,7 @@ def make_receipt() -> dict:
             or result.skipped or result.expectedFailures or result.unexpectedSuccesses):
         raise RuntimeError("reference replay failed or a case was skipped")
     return {
-        "schema": "evalmath.interventional_compactification.reference.v1",
+        "schema": "evalmath.interventional_compactification.reference.v2",
         "evidence": "synthetic floating-point sanity checks",
         "test_count": result.testsRun,
         "checks": [{"id": name, "status": "passed"} for name in sorted(ids)],
