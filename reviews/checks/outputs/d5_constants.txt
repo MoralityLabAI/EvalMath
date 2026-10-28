@@ -1,0 +1,12 @@
+  K=20: delta_K=0.288424212  c(K)E[M_K]/2=0.288424212  c(K)=0.308892 (note c(20)=0.30889)  [identity OK]
+  K=30: delta_K=0.415868990  c(K)E[M_K]/2=0.415868990  c(K)=0.407164  [identity OK]
+
+Effective bound |sqrt(n) D_n - delta_K| <= C_K/n at n=400, 900 (exact D_n, float delta_K):
+  K=4 n=400: sqrt(n)D_n=0.010614434 delta_K=0.010582273 dev=+3.216e-05 n*dev=+0.0129 C_K/n=1.853e-03  [OK]  ratio bound/|dev| = 57.6
+  K=4 n=900: sqrt(n)D_n=0.010596564 delta_K=0.010582273 dev=+1.429e-05 n*dev=+0.0129 C_K/n=8.237e-04  [OK]  ratio bound/|dev| = 57.6
+  K=10 n=400: sqrt(n)D_n=0.122805461 delta_K=0.122410188 dev=+3.953e-04 n*dev=+0.1581 C_K/n=2.780e-02  [OK]  ratio bound/|dev| = 70.3
+  K=10 n=900: sqrt(n)D_n=0.122585775 delta_K=0.122410188 dev=+1.756e-04 n*dev=+0.1580 C_K/n=1.235e-02  [OK]  ratio bound/|dev| = 70.4
+  K=20 n=400: sqrt(n)D_n=0.289464722 delta_K=0.288424212 dev=+1.041e-03 n*dev=+0.4162 C_K/n=1.140e-01  [OK]  ratio bound/|dev| = 109.5
+  K=20 n=900: sqrt(n)D_n=0.288886150 delta_K=0.288424212 dev=+4.619e-04 n*dev=+0.4157 C_K/n=5.065e-02  [OK]  ratio bound/|dev| = 109.7
+  K=30 n=400: sqrt(n)D_n=0.417484229 delta_K=0.415868990 dev=+1.615e-03 n*dev=+0.6461 C_K/n=2.593e-01  [OK]  ratio bound/|dev| = 160.5
+  K=30 n=900: sqrt(n)D_n=0.416585791 delta_K=0.415868990 dev=+7.168e-04 n*dev=+0.6451 C_K/n=1.152e-01  [OK]  ratio bound/|dev| = 160.8

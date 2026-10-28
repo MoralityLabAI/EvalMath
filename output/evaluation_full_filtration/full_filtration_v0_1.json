@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1",
+  "generated_at_utc": "2026-10-26T15:16:52.968468+00:00",
+  "all_passed": true,
+  "checks": {
+    "rare_two_tests_individually_five_percent": true,
+    "early_selection_risk_seven_point_five_percent": true,
+    "late_selection_risk_six_point_two_five_percent": true,
+    "late_equals_fixed_one_round": true,
+    "two_late_rounds_recover_early_value": true,
+    "noisy_one_round_early_vs_late": true,
+    "direct_noisy_policy_certificate": true,
+    "one_round_independent_calibrated_oracle": true,
+    "coarse_one_step_martingale": true,
+    "fine_information_stopping_exceeds_one": true,
+    "fine_conditional_factor_fails": true,
+    "one_step_conditional_scale": true,
+    "fair_peek_is_valid": true,
+    "perfect_peek_stopped_expectation": true,
+    "192_independent_one_round_oracles": true,
+    "96_timing_order_cases": true,
+    "144_independent_direct_policy_replays": true,
+    "24_two_round_timing_order_cases": true,
+    "24_budget_monotonicity_cases": true,
+    "40_merged_world_compression_cases": true
+  },
+  "one_round_independent_oracle_comparisons": 192,
+  "policy_certificate_replays": 144,
+  "world_compression_fixtures": 40,
+  "case_sha256": "216110d1b5d892ae0dd4f671f4d471baf2e5a8989e4085ebf616883d844251da",
+  "fixture": {
+    "nominal_each_test": "1/20",
+    "before_one_round_risk": "3/40",
+    "after_one_round_risk": "1/16",
+    "before_two_round_risk": "3/40",
+    "after_two_round_risk": "3/40",
+    "coarse_one_step_evalue": "1",
+    "rich_stopped_evalue": "5/4",
+    "conditional_factors": [
+      "1/2",
+      "3/2"
+    ],
+    "peek_accuracy": "3/4",
+    "query_accuracy": "3/4"
+  },
+  "source_sha256": {
+    "src/spiral_ln/evaluation_full_filtration.py": "cb316eb7cf7470989931903ef724a620042ffad6d2fbd2c042bf486bbd12849a",
+    "tests/test_evaluation_full_filtration.py": "c1138d8921a9b566feb398a3604b6fd9c225819aff0edbc5d5a629f7613ffb3b",
+    "scripts/verify_evaluation_full_filtration.py": "be67bf7dc8afb5c7541bb4d81dd7c1c2f10b01ece21e3fc8e7b1fdbbc9bcf958"
+  }
+}
