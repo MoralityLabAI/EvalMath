@@ -69,6 +69,13 @@ and `PYTHONPATH=src python scripts/verify_cryptomania_audit.py`.
 
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
+## Self-designed evaluation and FRC
+
+The [HRC-FRC-01 extension](paper/frc_harmonic_self_evaluation.md) studies
+recursive evaluation design, the lower-limit resource floor, exact hidden-trigger
+oracle bounds and false-resonance training controls. Its spectral counterpart
+is in `MoralityLabAI/RSITopology/HarmonicConsciousness`.
+
 ## Layout
 
 | Path | Contents |
