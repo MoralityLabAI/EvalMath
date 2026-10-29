@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "40_seeded_random_kernel_world_checks": true,
+    "deadline_and_fail_closed_cases": true,
+    "independent_4800_cylinder_comparisons": true,
+    "normal_tests": true,
+    "optimized_tests": true,
+    "whole_adaptive_policy_tree_enumeration": true
+  },
+  "declared_pairwise_checks": 4800,
+  "evidence_level": "finite verified example; handwritten conditional theorem",
+  "lean_compilation": false,
+  "neural_measurements": 0,
+  "schema": "irc02-exact-v0.1",
+  "seeded_random_kernels": 40,
+  "source_sha256": {
+    "paper/interface_relative_compactification.md": "3d8f68667f2cb0ef42fbb752a7950432621d5d906f8336988a479cb6c193859b",
+    "scripts/verify_interface_relative_compactification.py": "25424641e3bb6279a8ee3492803b426446fb7e3fe6b098cd5c19bb4f4a4598f2",
+    "src/spiral_ln/interface_relative_compactification.py": "775d31ea436fc584d3c03289e15189c78a8edca641efbf355f3b7b34c204093e",
+    "tests/test_interface_relative_compactification.py": "c2715cc5a012b29eb71ce4c5bf2b2fb4656a73ff489f53c9350ef87de03390e6"
+  },
+  "test_runs": {
+    "normal": {
+      "passed": true,
+      "tests": 16
+    },
+    "optimized": {
+      "passed": true,
+      "tests": 16
+    }
+  }
+}
