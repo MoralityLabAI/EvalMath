@@ -18,7 +18,7 @@ SOURCES = (
     'paper/interface_relative_compactification.md',
 )
 DEFAULT = ROOT / 'output/interface_relative_compactification/irc02_v0_1.json'
-EXPECTED = 16
+EXPECTED = 17
 
 
 def generate():
@@ -50,6 +50,7 @@ def generate():
             'whole_adaptive_policy_tree_enumeration': True,
             '40_seeded_random_kernel_world_checks': True,
             'deadline_and_fail_closed_cases': True,
+            'successor_closed_history_domain': True,
         },
         'test_runs': results,
         'declared_pairwise_checks': 4800,
@@ -71,7 +72,7 @@ def main():
     else:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(result, sort_keys=True, indent=2) + '\n')
-    print('IRC-02: 16/16 tests in each mode; exact reference and hashes verified')
+    print('IRC-02: 17/17 tests in each mode; exact reference and hashes verified')
 
 
 if __name__ == '__main__':

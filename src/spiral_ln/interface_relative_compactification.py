@@ -184,6 +184,64 @@ def switch_machine() -> Machine:
     return Machine(states,modes,acts,kernels)
 
 
+
+def reachable_history_closure(machine: Machine,
+                              seeds: tuple[tuple[tuple[F, ...], str, int], ...]):
+    """Close finite posterior seeds under every legal positive-probability continuation.
+
+    A history state is (belief, public mode, remaining integer deadline).
+    Terminal branches end the episode and do not create live successor states.
+    Finite action/feedback alphabets and strictly positive durations ensure
+    termination. This closure is required for a *dynamic* quotient on an
+    explicitly scoped finite set of histories.
+    """
+    if not seeds:
+        raise ValueError("nonempty seed domain required")
+    seen = set()
+    queue = []
+    for b, q, d in seeds:
+        machine.admissible(q, d)  # validate public stratum, including bool deadlines
+        if (len(b) != len(machine.states)
+                or any(type(x) is not F or x < 0 for x in b)
+                or sum(b, F(0)) != 1):
+            raise ValueError("invalid seed posterior")
+        item = (b, q, d)
+        if item not in seen:
+            seen.add(item)
+            queue.append(item)
+    while queue:
+        b, q, d = queue.pop()
+        for a in machine.admissible(q, d):
+            for event, probability, post in successors(machine, b, q, d, a):
+                if not event[-1] and probability > 0:
+                    item = (post, event[3], d - event[2])
+                    if item not in seen:
+                        seen.add(item)
+                        queue.append(item)
+    return tuple(sorted(seen, key=lambda x: (x[1], x[2], x[0])))
+
+
+def graded_minimum_code_bits(machine: Machine,
+                             histories: tuple[tuple[tuple[F, ...], str, int], ...]):
+    """Minimum live code bits when public (mode, deadline) are free side input.
+
+    Caller supplies a finite successor-closed history domain. A fresh seed set
+    should first go through reachable_history_closure. Returns code bits and
+    exact per-stratum class counts, avoiding floating log2 calculations.
+    """
+    if not histories:
+        raise ValueError("nonempty closed history domain required")
+    domain = set(histories)
+    if domain != set(reachable_history_closure(machine, histories)):
+        raise ValueError("history domain lacks positive-probability successors")
+    signatures = {}
+    for b, q, d in histories:
+        signatures.setdefault((q, d), set()).add(predictive_signature(machine, b, q, d))
+    counts = {stratum: len(sig) for stratum, sig in signatures.items()}
+    maximum = max(counts.values())
+    return (maximum - 1).bit_length(), counts
+
+
 def class_count(machine: Machine, beliefs: tuple[tuple[F,...], ...], mode: str, time: int) -> int:
     return len({predictive_signature(machine,b,mode,time) for b in beliefs})
 

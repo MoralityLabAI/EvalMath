@@ -20,7 +20,7 @@ Here `y` and **reward `r` are both public observations**. Their joint feedback t
 
 A positive-probability history `h` fixes the current `(q,d)` and a posterior `b_h` over `S`. A continuation policy `sigma` is a causal tree mapping **future public feedback** to a legal action or stop. When two histories are compared, `sigma` is the same tree in each experiment: its private control logic cannot branch on which original history was supplied. The law of its entire public action/feedback/reward/time/termination trace is denoted `L_h^sigma`.
 
-The finite exact-cardinality claim assumes a separately **declared finite set** `H_(q,d)` of candidate positive-probability histories in each stratum. This is satisfied by a fixed finite initial-seed set, bounded decision horizon, finite observations and actions, after taking reachable histories. All encoders and decoders see `(q,d)` at zero *variable-state* cost, but delivery/storage of these values must be charged in an end-to-end implementation.
+The finite dynamic quotient and exact-cardinality claim assumes a separately **declared finite successor-closed set** `H_(q,d)` of candidate positive-probability histories in each stratum. Whenever a legal action produces a positive-probability continuing event, its successor history must also belong to the corresponding next stratum. Starting from finitely many seeds, closure follows from the bounded integer deadline, finite actions and feedback, and strictly positive durations. A nonclosed candidate set still supports a one-shot lower bound on separating its initial histories, but does **not** provide a transition-closed dynamic quotient on that set. All encoders and decoders see `(q,d)` at zero *variable-state* cost, while delivery/storage of these values must be charged in an end-to-end implementation.
 
 ## 2. Predictive equivalence theorem
 
@@ -35,7 +35,7 @@ h\equiv_{q,d}h'\iff \forall\sigma\in\Sigma_{q,d}:\quad
 
 1. This is an equivalence relation and the coarsest partition preserving all declared future trace laws.
 2. If `h == h'` in this equivalence and `a` is legal, immediate public-event probabilities agree. After any event `e` with positive probability, the successor posteriors are equivalent at public `(q',d-ell)`. Consequently the quotient has a graded stochastic transition kernel, conditional on the observed event.
-3. With `N_(q,d)` equivalence classes in a finite declared history set, the minimum number of **fixed-length mutable state bits**, reusing the public stratum field, is
+3. With `N_(q,d)` equivalence classes in a finite successor-closed declared history set, the minimum number of **fixed-length mutable state bits**, reusing the public stratum field, is
 
    \[
    \boxed{M_{\min}=\left\lceil\log_2\left(\max_{q,d} N_{q,d}\right)\right\rceil.}
@@ -83,9 +83,9 @@ All values here are exact for the stated toy contracts:
 
 Canonical code: `src/spiral_ln/interface_relative_compactification.py`. Tests: `tests/test_interface_relative_compactification.py`. Source-hashed receipt: `output/interface_relative_compactification/irc02_v0_1.json`. Regenerator: `scripts/verify_interface_relative_compactification.py`.
 
-The reference computes rational Bayesian successors; exhaustive action/feedback cylinder laws; a separate **raw hidden-state-mass** cylinder oracle without Bayesian updating; recursive predictive signatures; an exact Bellman oracle with the option to stop; and a shortest distinguishing cylinder compiled to a legal conditional policy tree. Test code also enumerates every deterministic feedback-adaptive policy tree for the two-round fixture and computes its whole trace distribution by direct hidden-state propagation.
+The reference computes the finite positive-probability successor closure of candidate histories, validates dynamic quotient closure and exact code bits, rational Bayesian successors; exhaustive action/feedback cylinder laws; a separate **raw hidden-state-mass** cylinder oracle without Bayesian updating; recursive predictive signatures; an exact Bellman oracle with the option to stop; and a shortest distinguishing cylinder compiled to a legal conditional policy tree. Test code also enumerates every deterministic feedback-adaptive policy tree for the two-round fixture and computes its whole trace distribution by direct hidden-state propagation.
 
-Tests include 4,800 declared pairwise equivalence comparisons on the fixed binary-probe family, 60 direct-world cross-checks on that family, 40 seeded random small two-mode kernels, timing/legality failures, and the HC-01 deterministic specialization. Reproduction is required in normal and `python -O` modes. Exact tests are finite evidence for the implementation; the preceding general statement is a handwritten proof until Lean review.
+Tests include successor-closure and exact graded code-bit checks, 4,800 declared pairwise equivalence comparisons on the fixed binary-probe family, 60 direct-world cross-checks on that family, 40 seeded random small two-mode kernels, timing/legality failures, and the HC-01 deterministic specialization. Reproduction is required in normal and `python -O` modes. Exact tests are finite evidence for the implementation; the preceding general statement is a handwritten proof until Lean review.
 
 ```bash
 PYTHONPATH=src python -m unittest discover -s tests -p 'test_interface_relative_compactification.py' -v

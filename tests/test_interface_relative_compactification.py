@@ -238,6 +238,29 @@ class IRC02Extended(unittest.TestCase):
                             direct_world_cylinders(machine,c,'q',d))
 
 
+
+class IRC02Closure(unittest.TestCase):
+    def test_successor_closed_domain_and_graded_bits(self):
+        from spiral_ln.interface_relative_compactification import (
+            reachable_history_closure, graded_minimum_code_bits)
+        m = feedback_machine()
+        start = ((F(1, 2), F(1, 2)), 'q', 2)
+        closed = reachable_history_closure(m, (start,))
+        self.assertGreater(len(closed), 3)
+        self.assertEqual(reachable_history_closure(m, closed), closed)
+        bits, classes = graded_minimum_code_bits(m, closed)
+        self.assertEqual(classes[('q', 2)], 1)
+        self.assertEqual(classes[('q', 1)], 2)
+        self.assertEqual(classes[('q', 0)], 1)
+        self.assertEqual(bits, 1)
+        with self.assertRaisesRegex(ValueError, 'lacks positive-probability successors'):
+            graded_minimum_code_bits(m, (start,))
+        with self.assertRaises(ValueError):
+            reachable_history_closure(m, (((F(1), F(0)), 'q', True),))
+        with self.assertRaises(ValueError):
+            reachable_history_closure(m, (((F(1), F(-1)), 'q', 2),))
+
+
 class IRC02Witness(unittest.TestCase):
     def test_adaptive_witness_replay_and_legality(self):
         m=delayed_machine()
