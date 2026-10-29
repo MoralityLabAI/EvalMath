@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "irc02": ("scripts/verify_interface_relative_compactification.py",
+              "output/interface_relative_compactification/irc02_v0_1.json", [], False),
     "openai_eth_fidelity": ("scripts/verify_proof_fidelity_openai_eth.py",
                              "output/proof_fidelity/openai_eth_v0_2.json", [], False),
     "agency_unknown": ("scripts/verify_agency_unknown.py",
