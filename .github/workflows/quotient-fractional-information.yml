@@ -1,0 +1,29 @@
+name: QI-03 fractional information-cover audit
+permissions:
+  contents: read
+
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/evaluation_quotient_fractional_cover.py'
+      - 'tests/test_evaluation_quotient_fractional_cover.py'
+      - 'paper/active_quotient_fractional_information.md'
+      - '.github/workflows/quotient-fractional-information.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/evaluation_quotient_fractional_cover.py'
+      - 'tests/test_evaluation_quotient_fractional_cover.py'
+      - 'paper/active_quotient_fractional_information.md'
+      - '.github/workflows/quotient-fractional-information.yml'
+  workflow_dispatch:
+jobs:
+  exact-fraction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 127 exhaustive families and exact primal dual certificate audits
+        run: PYTHONPATH=src python -m unittest discover -s tests -p 'test_evaluation_quotient_fractional_cover.py' -v
