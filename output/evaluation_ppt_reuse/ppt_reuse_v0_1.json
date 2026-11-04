@@ -1,0 +1,75 @@
+{
+  "checks": {
+    "all_candidate_ratio_interval_follows_mean_event": true,
+    "fixed_utility_equal_true_prefix_values": true,
+    "maximal_ess_still_has_selection_bias": true,
+    "prefix_selected_false_risk_three_quarters": true,
+    "prefix_selected_mean_73_over_192": true,
+    "prefix_selection_increment_13_over_480": true,
+    "two_utility_marginal_true_half": true,
+    "two_utility_selected_five_eighths": true,
+    "utility_adaptive_tail_one_half": true,
+    "utility_fixed_tail_one_quarter": true,
+    "utility_formula_agrees_all_n_1_to_7": true,
+    "utility_reuse_gap_one_eighth": true
+  },
+  "evidence": "exact finite toy and algebraic identities; no empirical BFT evaluation or Lean theorem",
+  "fixed_utility_prefix_selection": {
+    "extra_over_first_estimator": "13/480",
+    "fixed_estimate_means": [
+      "113/320",
+      "113/320"
+    ],
+    "fixed_false_risks": [
+      "1/2",
+      "1/2"
+    ],
+    "max_ess": "2",
+    "min_ess": "32/25",
+    "selected_estimate_mean": "73/192",
+    "selected_false_risk": "3/4",
+    "selected_true_mean": "11/32",
+    "selection_optimism": "7/192",
+    "true_values": [
+      "11/32",
+      "11/32"
+    ],
+    "worlds": 16
+  },
+  "name": "PPT-EVAL-01",
+  "passed": true,
+  "ratio_interval_audit": {
+    "all_interval_coverage_probability": "1",
+    "selected_interval_coverage_probability": "1",
+    "uniform_event_implies_all_intervals": true,
+    "uniform_mean_event_probability": "7/8"
+  },
+  "sample_reuse_utility": {
+    "extra_over_first_estimator": "1/8",
+    "fixed_estimate_means": [
+      "1/2",
+      "1/2"
+    ],
+    "fixed_false_risks": [
+      "1/4",
+      "1/4"
+    ],
+    "max_ess": "2",
+    "min_ess": "2",
+    "selected_estimate_mean": "5/8",
+    "selected_false_risk": "1/2",
+    "selected_true_mean": "1/2",
+    "selection_optimism": "1/8",
+    "true_values": [
+      "1/2",
+      "1/2"
+    ],
+    "worlds": 4
+  },
+  "source_sha256": {
+    "scripts/verify_evaluation_ppt_reuse.py": "4fa765614729e6fd645e538a1d117e4e54c2fa9c5b6d2bfdcaca99c37c6d1464",
+    "src/spiral_ln/evaluation_ppt_reuse.py": "9ee596339270c0a54bff653079cc05ceabba860d86e1255ca23032146f2b4c4f",
+    "tests/test_evaluation_ppt_reuse.py": "ea6be4ee744f5b4893a3b58370344b4124d9c7a21785915df6d7002bd531e267"
+  },
+  "version": "0.1"
+}

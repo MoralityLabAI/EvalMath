@@ -62,6 +62,8 @@ RECEIPTS = {
                             "output/evaluation_adaptive_disclosure/adaptive_disclosure_v0_1.json", [], False),
     "selection_risk": ("scripts/verify_evaluation_selection_risk.py",
                        "output/evaluation_selection_risk/selection_risk_v0_1.json", [], False),
+    "ppt_reuse": ("scripts/verify_evaluation_ppt_reuse.py",
+                  "output/evaluation_ppt_reuse/ppt_reuse_v0_1.json", [], False),
     "covert_feedback": ("scripts/verify_evaluation_covert_feedback.py",
                         "output/evaluation_covert_feedback/covert_feedback_v0_2.json", [], False),
     "full_filtration": ("scripts/verify_evaluation_full_filtration.py",
