@@ -105,5 +105,5 @@ To reproduce:
 
 ## References
 
-- Kaufmann, Cappé & Garivier (2016), *On the Complexity of Best-Arm Identification in Multi-Armed Bandit Models*, [JMLR 17(1)](https://jmlr.org/papers/v17/14-066.html); see the change-of-distributions lemma.
+- Kaufmann, Cappé & Garivier (2016), *On the Complexity of Best-Arm Identification in Multi-Armed Bandit Models*, [JMLR 17(1)](https://www.jmlr.org/beta/papers/v17/kaufman16a.html); see the change-of-distributions lemma.
 - Lattimore & Szepesvári (2020), *Bandit Algorithms*, Chapter 15.1, [book page](https://tor-lattimore.com/downloads/book/book.pdf), for divergence decomposition and information-theoretic lower bounds.
