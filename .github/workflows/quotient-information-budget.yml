@@ -1,0 +1,29 @@
+name: QI-02 adaptive quotient KL budget audit
+permissions:
+  contents: read
+
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/evaluation_quotient_information_budget.py'
+      - 'tests/test_evaluation_quotient_information_budget.py'
+      - 'paper/active_quotient_information_budget.md'
+      - '.github/workflows/quotient-information-budget.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/evaluation_quotient_information_budget.py'
+      - 'tests/test_evaluation_quotient_information_budget.py'
+      - 'paper/active_quotient_information_budget.md'
+      - '.github/workflows/quotient-information-budget.yml'
+  workflow_dispatch:
+jobs:
+  finite-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compare full adaptive transcript KL against independent pull decomposition
+        run: PYTHONPATH=src python -m unittest discover -s tests -p 'test_evaluation_quotient_information_budget.py' -v
