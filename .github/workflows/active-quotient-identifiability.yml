@@ -1,0 +1,28 @@
+name: Active quotient identifiability finite audit
+permissions:
+  contents: read
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/evaluation_active_quotient_identification.py'
+      - 'tests/test_evaluation_active_quotient_identification.py'
+      - 'paper/active_quotient_identifiability.md'
+      - '.github/workflows/active-quotient-identifiability.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/evaluation_active_quotient_identification.py'
+      - 'tests/test_evaluation_active_quotient_identification.py'
+      - 'paper/active_quotient_identifiability.md'
+      - '.github/workflows/active-quotient-identifiability.yml'
+  workflow_dispatch:
+jobs:
+  exact-finite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Finite candidate-world and adaptive evidence tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -p 'test_evaluation_active_quotient_identification.py' -v
