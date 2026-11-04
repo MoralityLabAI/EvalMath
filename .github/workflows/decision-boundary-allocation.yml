@@ -1,0 +1,29 @@
+name: QI-04 actual quotient boundary information audit
+permissions:
+  contents: read
+
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/evaluation_decision_boundary_allocation.py'
+      - 'tests/test_evaluation_decision_boundary_allocation.py'
+      - 'paper/active_quotient_decision_boundary.md'
+      - '.github/workflows/decision-boundary-allocation.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/evaluation_decision_boundary_allocation.py'
+      - 'tests/test_evaluation_decision_boundary_allocation.py'
+      - 'paper/active_quotient_decision_boundary.md'
+      - '.github/workflows/decision-boundary-allocation.yml'
+  workflow_dispatch:
+jobs:
+  finite-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit quotient boundary and exact rational LP allocation
+        run: PYTHONPATH=src python -m unittest discover -s tests -p 'test_evaluation_decision_boundary_allocation.py' -v
