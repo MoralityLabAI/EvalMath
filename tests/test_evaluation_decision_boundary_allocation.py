@@ -15,8 +15,10 @@ class DecisionBoundaryTests(unittest.TestCase):
         for mask in range(64):
             world = rate_table_from_mask(mask)
             exact = exact_quotient_radius(world, 1)
-            direct = min(max(abs(p-q) for row in world for p in row)
-                         for q in (Q(i,20) for i in range(21)))
+            direct = max(
+                min(max(abs(row[a]-q) for row in world)
+                    for q in (Q(i,20) for i in range(21)))
+                for a in range(len(world[0])))
             self.assertEqual(exact, direct)
             mixed = any(len({row[a] for row in world}) == 2 for a in range(2))
             self.assertEqual(exact > TV_TOLERANCE, mixed)
