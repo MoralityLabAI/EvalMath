@@ -77,7 +77,7 @@ def main():
     dest = ROOT / args.output
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(f"{len(receipt['checks'])} checks passed; receipt: {dest.relative_to(ROOT)}")
+    print(f"{len(receipt['checks'])} checks passed; receipt: {dest.relative_to(ROOT) if dest.is_relative_to(ROOT) else dest}")
 
 
 if __name__ == "__main__":
