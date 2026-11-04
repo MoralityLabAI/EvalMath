@@ -1,4 +1,5 @@
 """UG-FID-02: independent spectral oracle and exact syndrome enumeration."""
+from collections import Counter
 from fractions import Fraction
 from itertools import product
 
@@ -26,10 +27,24 @@ def test_frustrated_four_cycle_exact_eigenspaces():
     g = cycle((0, 0, 0, 1))
     spectrum = satisfaction_spectrum(g)
     assert len(spectrum) == 4 ** 4
-    assert set(spectrum) <= {Fraction(1, 4), Fraction(3, 4)}
+    # F_2^2 has four labels. Binary parity does not restrict the number
+    # of failed edges to odd values for this vector-valued alphabet.
+    assert Counter(spectrum) == {
+        Fraction(0): 80, Fraction(1, 4): 112,
+        Fraction(1, 2): 48, Fraction(3, 4): 16,
+    }
     assert diagonal_operator_norm(g) == Fraction(3, 4)
     assert frustration_ground_energy(g) == Fraction(1, 4)
     assert minimum_curvature_repair(g)[0] == 1
+
+
+def test_binary_cycle_has_different_spectral_multiplicities():
+    g = TranslationGame(4, 1, tuple(
+        Edge(u, v, c) for (u, v), c in zip(C4, (0, 0, 0, 1))
+    ))
+    assert Counter(satisfaction_spectrum(g)) == {
+        Fraction(1, 4): 8, Fraction(3, 4): 8,
+    }
 
 
 def test_all_four_cycle_shifts_spectral_holonomy_and_block_weight():
