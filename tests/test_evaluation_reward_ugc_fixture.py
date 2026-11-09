@@ -2,7 +2,7 @@
 from fractions import Fraction as Q
 from itertools import product
 
-from spiral_ln.evaluation_leak_topology import margins_of, box, cycle_rank
+from spiral_ln.evaluation_leak_topology import margins_of, cell_counts, box, cycle_rank
 from spiral_ln.evaluation_reward_ugc_fixture import bipartite_goodhart_fixture
 from spiral_ln.evaluation_reward_hacking_topology import (
     minimum_gold_audit, cycle_alias_witness, reconstruct_gold,
@@ -66,7 +66,7 @@ def test_gold_can_be_reconstructed_from_public_category_margins():
     # Gold equals the intersection column-zero margin.
     for x in box(graph["sizes"]):
         y=margins_of(graph,x)
-        gold=x[0]+x[1]
+        gold=x[0]+x[4]
         assert gold==y[2]  # row vertices 0,1, then first column index 2
         assert reconstruct_gold(graph,x,formula)==gold
 
@@ -78,6 +78,8 @@ def test_proxy_score_only_ledger_can_cause_regret_while_gold_score_is_public():
     b=_score(game,r["high_proxy_low_gold_assignment"])
     assert (sum(a),sum(b))==(5,7)
     assert (a[0]+a[1],b[0]+b[1])==(2,1)
-    y_a=margins_of(r["disclosure_graph"],a)
-    y_b=margins_of(r["disclosure_graph"],b)
+    table_a=cell_counts(r["disclosure_graph"],"".join(str(x) for x in a))
+    table_b=cell_counts(r["disclosure_graph"],"".join(str(x) for x in b))
+    y_a=margins_of(r["disclosure_graph"],table_a)
+    y_b=margins_of(r["disclosure_graph"],table_b)
     assert (y_a[2],y_b[2])==(2,1)
