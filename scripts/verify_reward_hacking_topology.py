@@ -45,6 +45,14 @@ from spiral_ln.evaluation_reward_hacking_retry import (
 from spiral_ln.evaluation_reward_hacking_retry_guard import (
     certify_retry_control,select_retry_control,
 )
+from spiral_ln.evaluation_reward_hacking_stateful import (
+    MutableEvaluator,optimal_stateful_attack,
+    worst_state_false_approval_rate,conditional_stateful_harm_bound,
+)
+from spiral_ln.evaluation_reward_hacking_stateful_guard import (
+    choose_stateful_attestor,benign_stateful_profile,
+    required_preprobe_detection_for_baseline_hazard,
+)
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -67,6 +75,8 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_hacking_joint_audit.py",
     "src/spiral_ln/evaluation_reward_hacking_retry.py",
     "src/spiral_ln/evaluation_reward_hacking_retry_guard.py",
+    "src/spiral_ln/evaluation_reward_hacking_stateful.py",
+    "src/spiral_ln/evaluation_reward_hacking_stateful_guard.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -78,6 +88,8 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_hacking_joint_audit.py",
     "tests/test_evaluation_reward_hacking_retry.py",
     "tests/test_evaluation_reward_hacking_retry_guard.py",
+    "tests/test_evaluation_reward_hacking_stateful.py",
+    "tests/test_evaluation_reward_hacking_stateful_guard.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -296,6 +308,55 @@ def receipt() -> dict:
     assert proposed.benign_expected_safe_authorizations==Q(9,5)
     assert tighter.benign_expected_safe_authorizations==Q(171,100)
 
+    weak_stateful=MutableEvaluator()
+    medium_stateful=MutableEvaluator(
+        alarm_if_compromised_before_probe=Q(1,2),
+        alarm_if_intact_before_probe=Q(1,20),
+    )
+    strong_stateful=MutableEvaluator(
+        alarm_if_compromised_before_probe=Q(3,4),
+        alarm_if_intact_before_probe=Q(1,10),
+    )
+    weak_attack=optimal_stateful_attack(retry_game,2,weak_stateful)
+    assert weak_attack.max_harm==Q(13,60)
+    assert weak_attack.first_action=="tamper"
+    safe_drift=optimal_stateful_attack(
+        retry_game,2,MutableEvaluator(
+            allow_tamper=False,compromise_after_safe_approval=1,
+        ),
+    )
+    guarded_drift=optimal_stateful_attack(
+        retry_game,2,MutableEvaluator(
+            allow_tamper=False,compromise_after_safe_approval=1,
+            alarm_if_compromised_before_probe=Q(3,4),
+        ),
+    )
+    assert safe_drift.max_harm==Q(29,75)
+    assert guarded_drift.max_harm==Q(14,75)
+    assert required_preprobe_detection_for_baseline_hazard(weak_stateful)==Q(3,4)
+    assert worst_state_false_approval_rate(strong_stateful)==Q(1,5)
+    assert conditional_stateful_harm_bound(strong_stateful,2)==Q(9,25)
+
+    attestor_bank=(weak_stateful,medium_stateful,strong_stateful)
+    common_attestor=dict(
+        minimum_benign_safe_authorization=Q(9,10),
+        minimum_benign_expected_safe_authorizations=Q(17,10),
+    )
+    selected_medium=choose_stateful_attestor(
+        retry_game,2,attestor_bank,
+        maximum_cumulative_harm=Q(7,40),**common_attestor
+    )
+    selected_strong=choose_stateful_attestor(
+        retry_game,2,attestor_bank,
+        maximum_cumulative_harm=Q(4,25),**common_attestor
+    )
+    assert selected_medium is not None and selected_medium.channel==medium_stateful
+    assert selected_strong is not None and selected_strong.channel==strong_stateful
+    assert selected_medium.attack_harm==Q(5149,30000)
+    assert selected_medium.benign_expected_safe_authorizations==Q(741,400)
+    assert selected_strong.attack_harm==Q(393,2500)
+    assert selected_strong.benign_expected_safe_authorizations==Q(171,100)
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -312,7 +373,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.5",
+        "schema":"RHT-01.6",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -358,6 +419,51 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "mutable_reward_evaluator":{
+            "gold_worlds":3,
+            "intact_false_accept":"1/5",
+            "compromised_false_accept":"4/5",
+            "tamper_success":"3/4",
+            "two_call_intentional_tamper":{
+                "adaptive_harm":str(weak_attack.max_harm),
+                "best_fixed_harm":str(weak_attack.best_fixed_harm),
+                "first_actor_action":weak_attack.first_action,
+            },
+            "two_call_incidental_safe_approval_drift":{
+                "without_preprobe_attestation":str(safe_drift.max_harm),
+                "with_three_quarters_compromised_detection":str(guarded_drift.max_harm),
+            },
+            "root_attestation":{
+                "sufficient_detection_to_restore_baseline_hazard":str(
+                    required_preprobe_detection_for_baseline_hazard(weak_stateful)
+                ),
+                "three_quarters_detection_worst_conditional_hazard":str(
+                    worst_state_false_approval_rate(strong_stateful)
+                ),
+                "two_probe_hazard_upper_bound":str(
+                    conditional_stateful_harm_bound(strong_stateful,2)
+                ),
+            },
+            "two_sided_detector_selection":{
+                "harm_cap_7_over_40":{
+                    "chosen_compromised_detection":"1/2",
+                    "chosen_intact_false_alarm":"1/20",
+                    "optimal_attack_risk":str(selected_medium.attack_harm),
+                    "benign_safe_authorizations":str(
+                        selected_medium.benign_expected_safe_authorizations
+                    ),
+                },
+                "harm_cap_4_over_25":{
+                    "chosen_compromised_detection":"3/4",
+                    "chosen_intact_false_alarm":"1/10",
+                    "optimal_attack_risk":str(selected_strong.attack_harm),
+                    "benign_safe_authorizations":str(
+                        selected_strong.benign_expected_safe_authorizations
+                    ),
+                },
+            },
+            "scope":"fixed gold-reference world; hidden binary mutable judge integrity; conditional independent attestation and verdict rates; actor-visible alarms/verdicts; no actual model",
         },
         "sequential_reward_audit":{
             "worlds":3,
