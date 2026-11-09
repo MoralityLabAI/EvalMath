@@ -33,6 +33,10 @@ from spiral_ln.evaluation_reward_hacking_adaptive_feedback import (
     protected_auditor_optimum, MixedAuditNode,
     mixed_disclosure_attack_risk,
 )
+from spiral_ln.evaluation_reward_hacking_joint_audit import (
+    optimum_joint_audit, one_hot_sealed_zero_harm_frontier,
+    evaluate_joint_audit,
+)
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -52,6 +56,7 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_hacking_multimap.py",
     "src/spiral_ln/evaluation_reward_hacking_audit_optimizer.py",
     "src/spiral_ln/evaluation_reward_hacking_adaptive_feedback.py",
+    "src/spiral_ln/evaluation_reward_hacking_joint_audit.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -60,6 +65,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_hacking_multimap.py",
     "tests/test_evaluation_reward_hacking_audit_optimizer.py",
     "tests/test_evaluation_reward_hacking_adaptive_feedback.py",
+    "tests/test_evaluation_reward_hacking_joint_audit.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -209,6 +215,37 @@ def receipt() -> dict:
     assert hidden_risk["risk"]==Q(1,3)
     assert leaked_risk["risk"]==Q(2,3)
 
+    joint=optimum_joint_audit(
+        three_worlds,max_queries=1,
+        minimum_benign_safe_authorization=Q(2,3),
+        maximum_public_attack_risk=Q(1,3),
+        maximum_expected_query_cost=Q(1),
+        maximum_authorized_unsafe_risk=Q(0),
+    )
+    assert joint is not None
+    assert joint.authorized_unsafe_risk==0
+    assert joint.benign_safe_authorization==Q(2,3)
+    assert joint.public_attack_risk_without_veto==Q(1,3)
+    assert joint.expected_query_cost==1
+    assert joint.policy.visibility=="sealed"
+    rechecked=evaluate_joint_audit(
+        three_worlds,joint.policy,
+        dict(joint.allowed_actions_by_private_trace),max_depth=1,
+    )
+    assert rechecked.authorized_unsafe_risk==joint.authorized_unsafe_risk
+    assert rechecked.benign_safe_authorization==joint.benign_safe_authorization
+
+    zero_harm_frontier=tuple(
+        one_hot_sealed_zero_harm_frontier(7,b)
+        for b in range(4)
+    )
+    assert tuple(f.maximum_zero_harm_benign_liveness
+                 for f in zero_harm_frontier)==(0,Q(4,7),Q(6,7),Q(1))
+    assert tuple(f.posterior_collision_probability
+                 for f in zero_harm_frontier)==(
+                     Q(1),Q(25,49),Q(13,49),Q(1,7),
+                 )
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -225,7 +262,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.3",
+        "schema":"RHT-01.4",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -271,6 +308,27 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "joint_audit_veto":{
+            "three_worlds":{
+                "maximum_authorized_unsafe_risk":str(joint.authorized_unsafe_risk),
+                "minimum_benign_safe_authorization":str(joint.benign_safe_authorization),
+                "pre_veto_public_leak_risk":str(joint.public_attack_risk_without_veto),
+                "expected_query_cost":str(joint.expected_query_cost),
+                "first_query_visibility":joint.policy.visibility,
+                "trees_enumerated":joint.trees_enumerated,
+                "gate_assignments_checked":joint.gate_assignments_checked,
+            },
+            "seven_world_zero_harm":{
+                "max_sealed_queries":[f.max_queries for f in zero_harm_frontier],
+                "benign_safe_authorization":[str(f.maximum_zero_harm_benign_liveness)
+                                             for f in zero_harm_frontier],
+                "posterior_collision":[str(f.posterior_collision_probability)
+                                       for f in zero_harm_frontier],
+                "private_leaf_sizes":[list(f.private_leaf_sizes)
+                                      for f in zero_harm_frontier],
+                "scope":"single attempted action, sealed queries, terminal audited veto, frozen gold",
+            },
         },
         "adaptive_disclosure":{
             "ugc_vertices":9,
