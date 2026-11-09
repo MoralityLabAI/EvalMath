@@ -245,7 +245,7 @@ def interval_query_bank(space:MultiMapSignals) -> tuple[tuple[int,...],...]:
         raise ValueError("requires two category maps")
     rows=sorted({c[0] for c in space.cells})
     columns=sorted({c[1] for c in space.cells})
-    if rows!=(0,1) or columns!=list(range(len(columns))):
+    if rows!=[0,1] or columns!=list(range(len(columns))):
         raise ValueError("requires row labels 0/1 and consecutive column labels")
     if len(space.cells)!=2*len(columns):
         raise ValueError("requires full K2,n intersection support")
