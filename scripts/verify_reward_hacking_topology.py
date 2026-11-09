@@ -19,6 +19,9 @@ from spiral_ln.evaluation_reward_hacking_topology import (
     cycle_periods,hidden_gold_width,circulation_oracle,minimum_gold_audit,
     proxy_optimization_regret,ugc_reachable_records,reconstruct_gold
 )
+from spiral_ln.evaluation_reward_hacking_guard import (
+    minimal_epsilon_gold_audit,robust_proxy_guard
+)
 from spiral_ln.evaluation_reward_path_gauge import (
     RewardPathGame,RewardTransition,boundary_relative_certificate,
     potential_if_exact,policy_rank_reversal
@@ -29,8 +32,10 @@ from spiral_ln.unique_games_topology import Edge,TranslationGame
 SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_hacking_topology.py",
     "src/spiral_ln/evaluation_reward_path_gauge.py",
+    "src/spiral_ln/evaluation_reward_hacking_guard.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
+    "tests/test_evaluation_reward_hacking_guard.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -59,6 +64,15 @@ def receipt() -> dict:
     assert exploit.worst_true_regret==1
     assert exploit.selected_proxy_score==3
     assert exploit.worst_selected_true_utility==0
+    epsilon_audit=minimal_epsilon_gold_audit(g,t,0)
+    assert epsilon_audit["count"]==cert["count"]==1
+    guarded=robust_proxy_guard(
+        g,tuple(reachable),(1,1,0,0),((1,0,0,0),),
+        max_regret=0,minimum_gold=1,
+    )
+    assert guarded.passed and guarded.worst_case_regret==0
+    assert guarded.selected_proxy_score==3
+    assert guarded.minimum_gold_level==1
 
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
@@ -85,6 +99,7 @@ def receipt() -> dict:
             "invisible_gold_fibre_width":str(width["maximum_width"]),
             "independent_max_circulation":str(independent_width),
             "min_targeted_extra_cell_disclosures":cert["count"],
+            "zero_tolerance_private_audit_count":epsilon_audit["count"],
         },
         "ugc_reward_hack":{
             "reachable_cell_records":len(reachable),
@@ -92,6 +107,13 @@ def receipt() -> dict:
             "worst_selected_true_utility":str(exploit.worst_selected_true_utility),
             "true_best":str(exploit.true_optimum),
             "worst_true_regret":str(exploit.worst_true_regret),
+        },
+        "guarded_ugc_selection":{
+            "passed":guarded.passed,
+            "selected_proxy_score":str(guarded.selected_proxy_score),
+            "worst_case_true_regret":str(guarded.worst_case_regret),
+            "minimum_gold_level":str(guarded.minimum_gold_level),
+            "condition":"true gold belongs to protected frozen uncertainty set",
         },
         "relative_gauge":{
             "safe_terminal_equal_potential":True,
