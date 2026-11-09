@@ -176,19 +176,22 @@ def test_independent_gold_utility_can_be_misranked_with_zero_alias():
     X=tuple(product((0,1),repeat=5))
     t=(0,1,0,0,0)
     assert gold_alias_report(s,t)["maximum_hidden_gold_width"]==0
-    # The proxy is a separately disclosed first-coordinate margin; it
-    # optimizes a legitimate visible category signal. The independently
-    # protected gold signal is a different count coordinate, so an
-    # arbitrarily bad policy preference could arise across distinct
-    # feedback classes even with an injective observable feedback channel.
+    # A legitimate *published* score based on the two first-map margins
+    # rewards category-one outcomes and penalizes category-zero outcomes.
+    # It achieves its maximum only when the protected cell x[1] is zero.
+    # Since the unit-capacity feedback is injective, this is pure
+    # cross-feedback Goodhart with zero hidden-fibre width.
     scores=[]
     for x in X:
         y=s.feedback(x)
-        proxy=y[0]  # zero-block of the first category
+        proxy=y[1]-y[0]
         gold=x[1]
         scores.append((proxy,gold,x))
-    assert max(p for p,_,_ in scores)>0
-    assert max(g for _,g,_ in scores)==1
+    best=max(p for p,_,_ in scores)
+    assert best==2
+    assert all(gold==0 for p,gold,_ in scores if p==best)
+    assert max(gold for _,gold,_ in scores)==1
+    assert any(gold==1 for p,gold,_ in scores if p<best)
 
 
 def test_invalid_faces_caps_roster_and_exponential_budget_fail_closed():
