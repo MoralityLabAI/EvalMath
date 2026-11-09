@@ -9,7 +9,7 @@ terminal labels. The proxy counts all satisfied constraints equally.
 The unique proxy-optimal *orbit* has unequal terminal labels and satisfies
 7/8 constraints but only 1/2 gold tests. A gold-optimal equal-terminal
 assignment satisfies five proxy constraints and 2/2 gold tests.
-The gold cochain is already exactly representable by category margins,
+The gold cochain is exactly representable by category margins,
 so every cohomological period of that gold signal is zero. This is a
 clean cross-fibre Goodhart exploit despite full true-score observability.
 """
@@ -38,7 +38,9 @@ def bipartite_goodhart_fixture():
         Edge(0,4,0), Edge(1,4,1),
         Edge(0,5,0), Edge(1,5,1),
     ))
-    true_weights = (1,1,0,0,0,0,0,0)
+    # graph_from_sizes canonicalizes cells in row-major order, unlike
+    # the input list grouped by intermediate vertex. Column w0 is cells 0,4.
+    true_weights = (1,0,0,0,1,0,0,0)
     proxy_margin_weights = (1,1,0,0,0,0)
     reachable = ugc_reachable_records(game, disclosure)
     report = proxy_optimization_regret(
