@@ -19,6 +19,7 @@ from spiral_ln.evaluation_reward_hacking_topology import (
     cycle_periods,hidden_gold_width,circulation_oracle,minimum_gold_audit,
     proxy_optimization_regret,ugc_reachable_records,reconstruct_gold
 )
+from spiral_ln.evaluation_reward_ugc_fixture import bipartite_goodhart_fixture
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -33,9 +34,11 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_hacking_topology.py",
     "src/spiral_ln/evaluation_reward_path_gauge.py",
     "src/spiral_ln/evaluation_reward_hacking_guard.py",
+    "src/spiral_ln/evaluation_reward_ugc_fixture.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
+    "tests/test_evaluation_reward_ugc_fixture.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -73,6 +76,12 @@ def receipt() -> dict:
     assert guarded.passed and guarded.worst_case_regret==0
     assert guarded.selected_proxy_score==3
     assert guarded.minimum_gold_level==1
+    simple_bipartite=bipartite_goodhart_fixture()
+    assert simple_bipartite["unguarded"].selected_proxy_score==7
+    assert simple_bipartite["unguarded"].true_optimum==2
+    assert simple_bipartite["unguarded"].worst_selected_true_utility==1
+    assert simple_bipartite["guarded"].selected_proxy_score==5
+    assert simple_bipartite["guarded"].minimum_gold_level==2
 
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
@@ -114,6 +123,16 @@ def receipt() -> dict:
             "worst_case_true_regret":str(guarded.worst_case_regret),
             "minimum_gold_level":str(guarded.minimum_gold_level),
             "condition":"true gold belongs to protected frozen uncertainty set",
+        },
+        "simple_bipartite_game":{
+            "vertices":simple_bipartite["constraint_game"].vertices,
+            "edges":len(simple_bipartite["constraint_game"].edges),
+            "unaltered_gold_observable_from_margins":True,
+            "proxy_optimum":str(simple_bipartite["unguarded"].selected_proxy_score),
+            "gold_at_proxy_optimum":str(simple_bipartite["unguarded"].worst_selected_true_utility),
+            "gold_optimum":str(simple_bipartite["unguarded"].true_optimum),
+            "gold_guarded_proxy_score":str(simple_bipartite["guarded"].selected_proxy_score),
+            "gold_guarded_utility":str(simple_bipartite["guarded"].minimum_gold_level),
         },
         "relative_gauge":{
             "safe_terminal_equal_potential":True,
