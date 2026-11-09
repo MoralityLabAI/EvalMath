@@ -179,38 +179,22 @@ def test_UGC_actor_roster_separation_can_save_private_audit():
 
 
 def test_reachable_two_rank_fibres_have_exact_hitting_cover():
+    # Explicitly freeze the complete unit-capacity roster on 12 cells.
+    # This exercises the reachable-record separator independently of the
+    # integer-margin dynamic-programming separator.
     s=twobytwobythree(cap=1)
     t=tuple(2 if c==(0,0,0) else 1 if c==(0,0,1) else 0
             for c in s.cells)
-    # Independent two-parameter checkerboard moves generate a small
-    # reachable roster with the same public feedback as zero.
-    z0=tuple(
-        (1 if c[:2] in ((0,0),(1,1)) else -1)
-        if c[2]==0 else
-        (-1 if c[:2] in ((0,0),(1,1)) else 1)
-        if c[2]==2 else 0
-        for c in s.cells
-    )
-    z1=tuple(
-        (1 if c[:2] in ((0,0),(1,1)) else -1)
-        if c[2]==1 else
-        (-1 if c[:2] in ((0,0),(1,1)) else 1)
-        if c[2]==2 else 0
-        for c in s.cells
-    )
-    candidates={tuple(0 for _ in s.cells)}
-    for z in (z0,z1):
-        assert all(v==0 for v in s.feedback(z))
-        candidates.add(tuple(max(v,0) for v in z))
-        candidates.add(tuple(max(-v,0) for v in z))
-    X=tuple(sorted(candidates))
+    X=tuple(product((0,1),repeat=len(s.cells)))
+    assert len(X)==4096
     r=maximum_reachable_gold(s,t,X)
-    assert r.maximum_width>0
+    assert r.maximum_width==2
     audit=minimum_private_gold_audit_lazy(
         s,t,reachable_records=X,max_rounds=50
     )
     assert audit.count==2
     assert audit.remaining_gold_width==0
+    assert audit.source_scope=="frozen-reachable-roster"
     assert audit.rounds>=2
 
 
