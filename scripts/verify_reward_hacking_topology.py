@@ -1,4 +1,4 @@
-"""RHT-01..05 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..10 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -37,6 +37,14 @@ from spiral_ln.evaluation_reward_hacking_joint_audit import (
     optimum_joint_audit, one_hot_sealed_zero_harm_frontier,
     evaluate_joint_audit,
 )
+from spiral_ln.evaluation_reward_hacking_retry import (
+    RetryAuditChannel,optimal_adaptive_retry,
+    conditional_harm_bound,marginal_harm_bound,
+    disjoint_marginal_failure_law,
+)
+from spiral_ln.evaluation_reward_hacking_retry_guard import (
+    certify_retry_control,select_retry_control,
+)
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -57,6 +65,8 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_hacking_audit_optimizer.py",
     "src/spiral_ln/evaluation_reward_hacking_adaptive_feedback.py",
     "src/spiral_ln/evaluation_reward_hacking_joint_audit.py",
+    "src/spiral_ln/evaluation_reward_hacking_retry.py",
+    "src/spiral_ln/evaluation_reward_hacking_retry_guard.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -66,6 +76,8 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_hacking_audit_optimizer.py",
     "tests/test_evaluation_reward_hacking_adaptive_feedback.py",
     "tests/test_evaluation_reward_hacking_joint_audit.py",
+    "tests/test_evaluation_reward_hacking_retry.py",
+    "tests/test_evaluation_reward_hacking_retry_guard.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -246,6 +258,44 @@ def receipt() -> dict:
                      Q(1),Q(25,49),Q(13,49),Q(1,7),
                  )
 
+    retry_game=one_hot_ugc_disclosure_game(3)
+    audit_noiseless_safe=RetryAuditChannel(Q(1,5),Q(0))
+    adaptive_2=optimal_adaptive_retry(retry_game,2,audit_noiseless_safe)
+    adaptive_3=optimal_adaptive_retry(retry_game,3,audit_noiseless_safe)
+    assert adaptive_2.harmful_authorization_probability==Q(14,75)
+    assert adaptive_2.best_fixed_harm_probability==Q(2,15)
+    assert adaptive_3.harmful_authorization_probability==Q(131,375)
+    assert adaptive_3.best_fixed_harm_probability==Q(1,5)
+    assert conditional_harm_bound((Q(1,5),)*5)==Q(2101,3125)
+    assert marginal_harm_bound((Q(1,5),)*5)==1
+    assert disjoint_marginal_failure_law((Q(1,5),)*5)==(Q(1,5),)*5+(Q(0),)
+
+    calibrated=RetryAuditChannel(Q(1,5),Q(1,10))
+    no_repeat=RetryAuditChannel(Q(1,5),Q(1,10),forbid_repeated_action=True)
+    lockout=RetryAuditChannel(Q(1,5),Q(1,10),lockout_after_rejection=True)
+    stop_after_approval=RetryAuditChannel(
+        Q(1,5),Q(1,10),stop_after_any_approval=True
+    )
+    retry_controls=(calibrated,no_repeat,lockout,stop_after_approval)
+    proposed=select_retry_control(
+        retry_game,2,retry_controls,
+        maximum_cumulative_harm=Q(7,50),
+        minimum_benign_any_safe_approval=Q(9,10),
+        minimum_benign_expected_authorizations=Q(3,2),
+    )
+    tighter=select_retry_control(
+        retry_game,2,retry_controls,
+        maximum_cumulative_harm=Q(13,100),
+        minimum_benign_any_safe_approval=Q(9,10),
+        minimum_benign_expected_authorizations=Q(3,2),
+    )
+    assert proposed is not None and proposed.channel==no_repeat
+    assert tighter is not None and tighter.channel==lockout
+    assert proposed.worst_adaptive_harm==Q(2,15)
+    assert tighter.worst_adaptive_harm==Q(19,150)
+    assert proposed.benign_expected_safe_authorizations==Q(9,5)
+    assert tighter.benign_expected_safe_authorizations==Q(171,100)
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -262,7 +312,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.4",
+        "schema":"RHT-01.5",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -308,6 +358,41 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "sequential_reward_audit":{
+            "worlds":3,
+            "false_authorization_per_unsafe_attempt":"1/5",
+            "perfect_safe_approval_two_attempts":{
+                "adaptive_harm":str(adaptive_2.harmful_authorization_probability),
+                "best_fixed_harm":str(adaptive_2.best_fixed_harm_probability),
+                "adaptive_policy_first_action":adaptive_2.first_action,
+            },
+            "perfect_safe_approval_three_attempts":{
+                "adaptive_harm":str(adaptive_3.harmful_authorization_probability),
+                "best_fixed_harm":str(adaptive_3.best_fixed_harm_probability),
+            },
+            "five_attempts":{
+                "history_conditional_bound":str(
+                    conditional_harm_bound((Q(1,5),)*5)
+                ),
+                "marginal_only_bound":str(
+                    marginal_harm_bound((Q(1,5),)*5)
+                ),
+            },
+            "two_sided_retry_controls":{
+                "licensed_false_reject":"1/10",
+                "maximum_harm_7_over_50_choice":"forbid_repeated_action",
+                "maximum_harm_7_over_50_risk":str(proposed.worst_adaptive_harm),
+                "maximum_harm_7_over_50_expected_safe_approvals":str(
+                    proposed.benign_expected_safe_authorizations
+                ),
+                "maximum_harm_13_over_100_choice":"lockout_after_rejection",
+                "maximum_harm_13_over_100_risk":str(tighter.worst_adaptive_harm),
+                "maximum_harm_13_over_100_expected_safe_approvals":str(
+                    tighter.benign_expected_safe_authorizations
+                ),
+            },
+            "assumptions":"fixed UGC latent world, licensed gold, history-conditional stationary independent veto noise, public approval and rejection, bounded retries",
         },
         "joint_audit_veto":{
             "three_worlds":{
