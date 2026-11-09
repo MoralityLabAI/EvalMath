@@ -11,6 +11,7 @@ on:
       - 'src/spiral_ln/evaluation_reward_hacking_multimap.py'
       - 'src/spiral_ln/evaluation_reward_hacking_audit_optimizer.py'
       - 'src/spiral_ln/evaluation_reward_hacking_adaptive_feedback.py'
+      - 'src/spiral_ln/evaluation_reward_hacking_joint_audit.py'
       - 'tests/test_evaluation_reward_hacking_topology.py'
       - 'tests/test_evaluation_reward_path_gauge.py'
       - 'tests/test_evaluation_reward_hacking_guard.py'
@@ -19,6 +20,7 @@ on:
       - 'tests/test_evaluation_reward_hacking_multimap.py'
       - 'tests/test_evaluation_reward_hacking_audit_optimizer.py'
       - 'tests/test_evaluation_reward_hacking_adaptive_feedback.py'
+      - 'tests/test_evaluation_reward_hacking_joint_audit.py'
       - 'paper/reward_hacking_cohomology.md'
       - 'scripts/verify_reward_hacking_topology.py'
       - '.github/workflows/reward-hacking-topology.yml'
@@ -32,6 +34,7 @@ on:
       - 'src/spiral_ln/evaluation_reward_hacking_multimap.py'
       - 'src/spiral_ln/evaluation_reward_hacking_audit_optimizer.py'
       - 'src/spiral_ln/evaluation_reward_hacking_adaptive_feedback.py'
+      - 'src/spiral_ln/evaluation_reward_hacking_joint_audit.py'
       - 'tests/test_evaluation_reward_hacking_topology.py'
       - 'tests/test_evaluation_reward_path_gauge.py'
       - 'tests/test_evaluation_reward_hacking_guard.py'
@@ -40,6 +43,7 @@ on:
       - 'tests/test_evaluation_reward_hacking_multimap.py'
       - 'tests/test_evaluation_reward_hacking_audit_optimizer.py'
       - 'tests/test_evaluation_reward_hacking_adaptive_feedback.py'
+      - 'tests/test_evaluation_reward_hacking_joint_audit.py'
       - 'paper/reward_hacking_cohomology.md'
       - 'scripts/verify_reward_hacking_topology.py'
       - '.github/workflows/reward-hacking-topology.yml'
@@ -61,6 +65,6 @@ jobs:
         run: python -m pip install -e '.[test]'
       - name: Reward-topology and UGC constraint-world controls
         run: |
-          python -m pytest -q tests/test_evaluation_reward_hacking_topology.py tests/test_evaluation_reward_path_gauge.py tests/test_evaluation_reward_hacking_guard.py tests/test_evaluation_reward_ugc_fixture.py tests/test_evaluation_reward_hacking_flow.py tests/test_evaluation_reward_hacking_multimap.py tests/test_evaluation_reward_hacking_audit_optimizer.py tests/test_evaluation_reward_hacking_adaptive_feedback.py
+          python -m pytest -q tests/test_evaluation_reward_hacking_topology.py tests/test_evaluation_reward_path_gauge.py tests/test_evaluation_reward_hacking_guard.py tests/test_evaluation_reward_ugc_fixture.py tests/test_evaluation_reward_hacking_flow.py tests/test_evaluation_reward_hacking_multimap.py tests/test_evaluation_reward_hacking_audit_optimizer.py tests/test_evaluation_reward_hacking_adaptive_feedback.py tests/test_evaluation_reward_hacking_joint_audit.py
       - name: Reproduce source-bound certificate
         run: python scripts/verify_reward_hacking_topology.py
