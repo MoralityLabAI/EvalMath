@@ -1,5 +1,5 @@
 """Reproducible finite cubic-graph scan checks."""
-from scripts.scan_game_space_phase import scan
+from spiral_ln.game_space_phase import scan
 
 
 def test_small_cubic_phase_scan_structure():
