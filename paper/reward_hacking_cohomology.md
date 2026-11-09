@@ -402,3 +402,74 @@ A fourth, independent decision check still tests whether maximizing the visible 
 - The exact source-bound RHT receipt and six-minute focused CI retain separate claim scopes for finite enumeration, algebraic identities and UGC manuscript dependence.
 
 Markov bases and Graver bases for multiway contingency tables offer established tools for accelerating general bounded integer-fibre enumeration. They may reveal a tractable regime for the protected-audit problem under specific marginal grammars; the present bounded kernel algorithm is exponential. Relevant primary foundations include Diaconis and Sturmfels, [Algebraic Algorithms for Sampling from Conditional Distributions](https://www.jstor.org/stable/120181), *Annals of Statistics* 26 (1998), and Sullivant, [Algebraic Statistics](https://math.berkeley.edu/~bernd/owl.pdf) (Markov-basis treatment). The potential *research novelty* lies in jointly pricing sealed adaptive audits, a policy-reachable outcome grammar, and an independently validated gold signal under repeated proxy optimization.
+
+
+## 12. Witness-driven optimal private audits for multiway signals (RHT-07)
+
+**2026-11-10 | exact finite theorem and new CPU solver.** The preceding RHT-06 brute-force oracle enumerates `prod_e(2s_e+1)` possible integer feedback differences, which becomes expensive for richer evaluations. RHT-07 rephrases target-specific private auditing as **weighted hitting set with an exact reward-width separation oracle**. The result applies equally to the complete cell-capacity box and to a frozen actor-reachable roster, using different oracles with a common certificate.
+
+### Exact obstruction-hitting theorem
+
+Fix an observation design `M_Δ`, integer capacities `s`, a rational protected gold cochain `t`, a permitted discrepancy `ε≥0`, and positive private audit costs `c_e`. Let `B` be either the full feasible integer-kernel set `B_s={z∈Z^P:M_Δz=0, |z_e|≤s_e}` or the smaller reachable difference set `B_X={x−x':x,x'∈X,M_Δx=M_Δx'}` for a frozen actor roster `X`. Define dangerous witnesses and their supports by
+
+\[
+\mathcal D_\varepsilon(B,t)=\{\operatorname{supp}(z): z\in B,\ \langle t,z\rangle>\varepsilon\}.
+\]
+
+An audit set `S` privately reveals exact cell counts at the cells it contains. It removes the discrepancy represented by `z` precisely when `S∩supp(z)≠∅`. Therefore the exact minimum-cost audit is
+
+\[
+\boxed{\min_{S\subseteq P}\sum_{e\in S}c_e\quad\text{s.t.}\quad S\cap W\ne\varnothing\quad\forall W\in\mathcal D_\varepsilon(B,t).}
+\]
+
+**Proof:** equal public feedback and equal audited counts are equivalent to `Mz=0` and `z_e=0` for all `e∈S`. A dangerous witness survives exactly when its support avoids `S`. Hence the stated minimum hitting set is necessary and sufficient for the worst hidden gold discrepancy after auditing to be at most `ε`. The same equivalence holds when `B` is restricted to the actor's actual frozen roster. This is a direct finite reduction to an established combinatorial optimization problem, rather than a novel general complexity theorem.
+
+### Cutting-plane/separation method
+
+The new [RHT-07 solver](../src/spiral_ln/evaluation_reward_hacking_audit_optimizer.py) starts from no private audits. It alternates:
+
+1. **Separation:** exactly maximize `t·z` over hidden differences that vanish on current audit cells `S`. If the optimum is at most `ε`, the audit meets the target for every possible hidden record pair in the registered domain.
+2. **Witness:** otherwise register the dangerous integer difference and its nonzero support. Every valid audit must include at least one cell from that support.
+3. **Optimization:** solve the minimum-weight hitting set over *all registered dangerous supports*, then repeat separation.
+
+This is a lazy constraint-generation scheme. At the first iteration where separation finds no violation, the candidate audit is globally optimal: the accumulated supports give a lower bound on every feasible solution's cost, and the exact separation check gives a matching feasible upper bound. The result includes the chosen audit, rational total cost, remaining gold width, witness supports, number of iterations, and exact-oracle state counts. Any exceeded memory/state/iteration budget **raises an error**, preserving the distinction between a verified optimum and an incomplete search.
+
+### An exact integer-margin DP separation oracle
+
+When the rational feedback nullspace dimension is at least two, an exact dynamic program processes each cell in order. Its state is the vector of partial published margins, and it tests all integer hidden differences in that cell's allowed interval. Audited cells allow only the difference zero. The Bellman recurrence is
+
+\[
+V(i,m)=\max_{z_i\in[-s_i,s_i]\cap\mathbb Z}\bigl(t_i z_i+V(i+1,m+M_{\cdot i}z_i)\bigr),
+\]
+
+with terminal value zero at zero residual margin and negative infinity elsewhere. A suffix-capacity bound prunes states whose partial margins cannot be cancelled by the remaining cells. This *memoized, state-capped pseudopolynomial* method can be far smaller than the full box enumeration on modest-margin instances. It makes no general polynomial-time claim for arbitrary high-dimensional binary-encoded capacities; the number of reachable margin states can still grow exponentially.
+
+There is also a **closed rank-one case**. If the rational kernel has dimension one and primitive integer generator `g`, every feasible integer difference equals `ag` with `|a|≤b=min_{g_i≠0} floor(s_i/|g_i|)`. Consequently
+
+\[
+W_s(t)=b\,|\langle t,g\rangle|.
+\]
+
+Auditing any cell with nonzero `g_i` forces `a=0`. Thus the minimum zero-tolerance audit is either zero cells or the cheapest one cell in the generator's support. This correctly handles the RHT-06 five-cell capacity activation: generator `(1,-2,1,1,-1)`, gold `(0,1,0,0,0)`, first cell-capacity profile `(1,1,1,1,1)` yielding width zero, and second profile `(1,2,1,1,1)` yielding width two and a one-cell audit.
+
+### Higher-rank finite witness with a larger combinatorial search space
+
+Take all 12 joint cells of a `2×2×3` category system, revealing all **pairwise category margins**, with capacity three in every cell. The rational feedback nullity equals two. Every hidden integer difference has three checkerboard slices with coefficients `a,b,-a-b`, where `|a|,|b|,|a+b|≤3`. Set protected gold weight `2` at cell `(0,0,0)`, weight `1` at cell `(0,0,1)`, and zero elsewhere. The worst hidden gold difference is exactly
+
+\[
+\max_{|a|,|b|,|a+b|\le3}(2a+b)=6.
+\]
+
+A **zero-tolerance private audit requires exactly two cells**. With tolerance three, one carefully chosen cell suffices. The registered dynamic program and lazy hitting-set oracle agree with the explicit two-coordinate analytical bound. Straight enumeration of all candidate bounded difference vectors would inspect `7^{12}=13,841,287,201` vectors, beyond the reference brute-force budget.
+
+As a separate reachable-roster control, the flat binary UGC four-cycle admits a hidden-reward alias requiring one private cell audit; the frustrated UGC cycle disallows the alias and requires zero. The optimization is therefore conditioned on the actual controller/game reachability grammar, not merely the ambient topology.
+
+### Mathematical and operational boundaries
+
+The object audited here is an **independently defined gold-reward functional**. These methods can certify its variation inside specified public-feedback fibres and a frozen reachable policy set. They do not rule out cross-fibre proxy misranking, reward-model misspecification, active judge tampering, or evaluation set leakage. RHT-04 and the RHT-03 robust selection guard address separate portions of those problems under their own declared premises.
+
+Weighted hitting sets, finite integer margin DP, and contingency-table fibre moves belong to established combinatorial optimization and algebraic-statistics literature. See [Dobra, Dynamic Markov Bases](https://doi.org/10.1080/10618600.2012.663285) for multiway bounded-table connectivity, and [Briański et al., Graver-basis structural parameters](https://pmc.ncbi.nlm.nih.gov/articles/PMC11480161/) for integer-programming complexity regimes. An [OpenAI September 2026 manuscript](https://github.com/openai/math/blob/main/preprints/An-FPRAS-for-Cell-Bounded-Contingency-Tables-September-24-2026/build/sections/introduction.tex) claims approximate counting for two-way bounded tables; its counting target differs from this exact multiway max-gold audit problem and remains subject to independent proof scrutiny.
+
+- [Integer-margin DP and lazy weighted audit optimizer](../src/spiral_ln/evaluation_reward_hacking_audit_optimizer.py)
+- [Independent finite audit tests](../tests/test_evaluation_reward_hacking_audit_optimizer.py)
+- [Reproducible source-bound report](../scripts/verify_reward_hacking_topology.py)
