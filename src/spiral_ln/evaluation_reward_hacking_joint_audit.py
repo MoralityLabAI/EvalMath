@@ -215,8 +215,18 @@ def _query_trees(game, worlds, depth, *, max_trees):
         if len(groups)<2:
             continue
         ordered=tuple((a,tuple(group)) for a,group in sorted(groups.items()))
-        children=[tuple(_query_trees(game,group,depth-1,max_trees=max_trees))
-                  for _,group in ordered]
+        children=[]
+        combinations=1
+        for _,group in ordered:
+            choices=[]
+            for subtree in _query_trees(game,group,depth-1,max_trees=max_trees):
+                choices.append(subtree)
+                if len(choices)>max_trees:
+                    raise ValueError("recursive subtree enumeration exceeded resource cap")
+            children.append(tuple(choices))
+            combinations*=len(choices)
+            if combinations>max_trees:
+                raise ValueError("recursive tree product exceeded resource cap")
         for subtrees in product(*children):
             branches=tuple((ordered[i][0],tree)
                            for i,tree in enumerate(subtrees))
