@@ -1,6 +1,6 @@
-"""RHT-01 exact finite theorem and adversarial-UCG-source cross-check receipt.
+"""RHT-01..05 exact theorem and adversarial-UGC-source cross-check receipt.
 
-The receipt is deterministic, fingerprints four claim-bearing source files,
+The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
 not train, run, or certify any real agent or human reward model.
 """
@@ -20,6 +20,7 @@ from spiral_ln.evaluation_reward_hacking_topology import (
     proxy_optimization_regret,ugc_reachable_records,reconstruct_gold
 )
 from spiral_ln.evaluation_reward_ugc_fixture import bipartite_goodhart_fixture
+from spiral_ln.evaluation_reward_hacking_flow import maximum_hidden_width_flow
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -35,10 +36,12 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_path_gauge.py",
     "src/spiral_ln/evaluation_reward_hacking_guard.py",
     "src/spiral_ln/evaluation_reward_ugc_fixture.py",
+    "src/spiral_ln/evaluation_reward_hacking_flow.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
     "tests/test_evaluation_reward_ugc_fixture.py",
+    "tests/test_evaluation_reward_hacking_flow.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -50,9 +53,10 @@ def receipt() -> dict:
     periods = cycle_periods(g,t)
     width = hidden_gold_width(g,t)
     independent_width, independent_circulation = circulation_oracle(g,t)
+    flow_width=maximum_hidden_width_flow(g,t)
     cert = minimum_gold_audit(g,t)
     assert cycle_rank(g)==1 and abs(periods[0][1])==2
-    assert width["maximum_width"]==independent_width==2
+    assert width["maximum_width"]==independent_width==flow_width.maximum_hidden_width==2
     assert cert["count"]==1
     assert all(reconstruct_gold(g,x,cert["formula"])
                == sum((Q(ti)*xi for ti,xi in zip(t,x)),Q(0))
@@ -82,6 +86,14 @@ def receipt() -> dict:
     assert simple_bipartite["unguarded"].worst_selected_true_utility==1
     assert simple_bipartite["guarded"].selected_proxy_score==5
     assert simple_bipartite["guarded"].minimum_gold_level==2
+    large_graph=graph_from_sizes(
+        tuple((i,j) for i in range(6) for j in range(6)),
+        tuple((i%3)+1 for i in range(36))
+    )
+    large_weights=tuple(Q(((i*13)%11)-5,7) for i in range(36))
+    large_flow=maximum_hidden_width_flow(large_graph,large_weights)
+    assert large_flow.maximum_hidden_width>0
+    assert cycle_rank(large_graph)==25
 
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
@@ -107,6 +119,8 @@ def receipt() -> dict:
             "nonzero_gold_cycle_period":str(periods[0][1]),
             "invisible_gold_fibre_width":str(width["maximum_width"]),
             "independent_max_circulation":str(independent_width),
+            "exact_flow_width":str(flow_width.maximum_hidden_width),
+            "exact_flow_augmentations":flow_width.cancelled_negative_cycles,
             "min_targeted_extra_cell_disclosures":cert["count"],
             "zero_tolerance_private_audit_count":epsilon_audit["count"],
         },
@@ -133,6 +147,13 @@ def receipt() -> dict:
             "gold_optimum":str(simple_bipartite["unguarded"].true_optimum),
             "gold_guarded_proxy_score":str(simple_bipartite["guarded"].selected_proxy_score),
             "gold_guarded_utility":str(simple_bipartite["guarded"].minimum_gold_level),
+        },
+        "large_flow":{
+            "edges":36,
+            "cycle_rank":25,
+            "maximum_hidden_gold_width":str(large_flow.maximum_hidden_width),
+            "cancelled_negative_cycles":large_flow.cancelled_negative_cycles,
+            "method":"exact negative-cycle cancellation with integer capacities",
         },
         "relative_gauge":{
             "safe_terminal_equal_potential":True,
