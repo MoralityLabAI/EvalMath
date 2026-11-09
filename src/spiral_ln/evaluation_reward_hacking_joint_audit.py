@@ -231,6 +231,7 @@ def optimum_joint_audit(
     minimum_benign_safe_authorization=Q(2,3),
     maximum_public_attack_risk=Q(1),
     maximum_expected_query_cost=Q(2),
+    maximum_authorized_unsafe_risk=Q(1),
     sealed_query_cost=Q(1),
     public_query_cost=Q(1),
     max_trees:int=5000,
@@ -250,9 +251,10 @@ def optimum_joint_audit(
         raise ValueError("bounded seed: <=3 rounds, <=5 worlds/actions, <=10 queries")
     if any(type(x) is not int or x<1 for x in (max_trees,max_gate_assignments)):
         raise ValueError("positive enumeration budgets required")
-    lmin,pmax,cmax=map(Q,(minimum_benign_safe_authorization,
-                         maximum_public_attack_risk,maximum_expected_query_cost))
-    if not 0<=lmin<=1 or not 0<=pmax<=1 or cmax<0:
+    lmin,pmax,cmax,rmax=map(Q,(minimum_benign_safe_authorization,
+                         maximum_public_attack_risk,maximum_expected_query_cost,
+                         maximum_authorized_unsafe_risk))
+    if not 0<=lmin<=1 or not 0<=pmax<=1 or cmax<0 or not 0<=rmax<=1:
         raise ValueError("valid liveness, public leak and nonnegative cost caps required")
     total_trees=0
     total_masks=0
@@ -288,7 +290,7 @@ def optimum_joint_audit(
             gates=tuple((code>>(i*len(eligible)))&bits
                         for i in range(len(full)))
             harm,life,_,_,_= _risk_and_liveness(game,traces,gates)
-            if life<lmin:
+            if life<lmin or harm>rmax:
                 continue
             rank=(harm,average,leak,-life)
             if keybest is None or rank<keybest:
