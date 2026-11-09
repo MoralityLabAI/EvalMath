@@ -177,3 +177,61 @@ No model calls, training, or claims about observed human reward were made. This 
 - [Wang and Huang, *Reward Hacking as Equilibrium under Finite Evaluation* (2026)](https://arxiv.org/abs/2603.28063), structural/economic finite-evaluation viewpoint.
 - [OpenAI, *The Unique Games Theorem* manuscript (September 2026)](https://github.com/openai/math/tree/main/preprints/The-Unique-Games-Theorem-September-23-2026), used only as an external claimed complexity direction, subject to independent proof review. The cochain identities in this note are elementary and unconditional.
 
+
+
+## 8. A conditional mitigation: minimum private epsilon-audits and robust proxy selection (RHT-03)
+
+The obstruction theorems suggest two interventions that are individually certifiable in finite game space. Both require the **gold reward** or a licensed set of plausible gold rewards to be frozen and independently justified before proxy optimization. They provide mathematical guarantees *conditional on that premise*.
+
+### Protected approximate audit frontier
+
+Suppose an auditor, without disclosing its data to the learner, can read cell counts x_S in addition to the public category margins y=Mx. Define
+
+    W_S(t) = max {|U_t(x)-U_t(x')|:
+                 Mx=Mx', x_S=x'_S, 0<=x,x'<=s integral}.
+
+For a tolerable gold uncertainty epsilon>=0 define
+
+    k_epsilon(t) = min {|S|: W_S(t)<=epsilon}.             (6)
+
+This is an exact finite optimization over a declared audit grammar and cell capacities. It is monotone in the tolerance, and the zero-tolerance case is the cosystolic support theorem:
+
+    k_0(t)=k_gold(t)=min_psi |supp(t-dpsi)|.               (7)
+
+The module computes each W_S by exact feedback-fibre enumeration and searches subsets of cell counts by increasing cardinality. The implementation is a **bounded exponential oracle**; it is a correctness target for later integer-flow, submodular or combinatorial optimization methods. A data-dependent audit chosen after viewing protected gold outcomes must itself be registered as an adaptive selection with its own holdout.
+
+### Uncertainty-aware guard against proxy selection
+
+For a frozen, explicitly reachable finite roster X and a set T of plausible independently audited gold weights, compute
+
+    Reg_t(x) = max_(x' in X) U_t(x') - U_t(x),
+    Reg_robust(x) = max_(t in T) Reg_t(x),
+    Floor(x) = min_(t in T) U_t(x).
+
+For a registered regret budget epsilon and a nonzero true-progress floor u0, the guard may release an x only if
+
+    Reg_robust(x)<=epsilon  and  Floor(x)>=u0.           (8)
+
+Among admissible candidates it can still maximize the actor's original proxy p(Mx). This gives an exact implication: **if the actual gold cochain belongs to T and the roster and audit are correctly bound**, the selected candidate has true regret at most epsilon and true utility at least u0. If the set of admissible candidates is empty, the guard returns a failed certification rather than declaring an inert policy to be an alignment success.
+
+This extends the ASMP-8 reachable-policy/regret object with an explicit topological signal audit. It is conservative robust optimization under a specified uncertainty set, not a learning algorithm that discovers true human values.
+
+### Positive and negative finite controls
+
+For the frustrated four-edge F2 translation game in §4, the unguarded worst-case proxy maximizer has gold regret 1. The protected oracle registers T={(1,0,0,0)}, epsilon=0 and u0=1. The guard finds a candidate with reported score 3, gold value 1 and regret 0. Thus an independently justified anchor can eliminate the modeled hacking route while preserving the maximum proxy score.
+
+With T containing the four unit vectors e_0,e_1,e_2,e_3, epsilon=0 and u0=1, the game cannot simultaneously satisfy all four shifted constraints; the gate explicitly refuses certification. In this example the failure is a **specification feasibility problem** and should trigger human review of the competing gold criteria.
+
+The same guard restricted to T={e_0} can select a controller for which the unregistered alternative gold criterion e_1 is violated. This is the mandatory misspecification negative control: the claimed guarantee is meaningful only under a justified, externally validated T.
+
+The existing RHT-01 duality locates which gold variation is hidden within a feedback class; the new robust guard addresses **cross-feedback** misranking as well. These are complementary diagnostics and safety conditions rather than a universal cure.
+
+- [Exact guard module](../src/spiral_ln/evaluation_reward_hacking_guard.py)
+- [Independent finite tests](../tests/test_evaluation_reward_hacking_guard.py)
+- The focused RHT-01 CI workflow checks all test modules and regenerates the source-hashed receipt, including the positive and misspecification controls.
+
+### Broader experimental program
+
+A research gym could instantiate evaluation worlds with synthetic protected gold criteria, proxy judges available to the training loop, controlled readout access classes and an independent held-out gold evaluator. For each frozen world measure the period vector <t,z_C>, the audit budget k_epsilon, the actual within-fibre reachable differences, the cross-fibre regret, proxy selection pressure, and whether a restricted policy learner discovers a damaging transition. Use an independent audit set or randomized holdout to prevent the learner from fitting a disclosed certificate.
+
+A real-world validation would require a declared human preference target, independently acquired gold labels, inter-rater uncertainty, verified evaluator-data isolation, and measured held-out policy impacts. Without these, mathematical identifiability results describe exactly what signals can hide, while the quality of the intended objective remains an open empirical and normative problem.
