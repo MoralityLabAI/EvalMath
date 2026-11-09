@@ -259,9 +259,9 @@ The constraint system cannot satisfy all four path requirements simultaneously. 
 
 Crucially, the gold weight vector on I is
 
-    t=(1,1,0,0,0,0,0,0).
+    t=(1,0,0,0,1,0,0,0).
 
-It is the indicator of the entire first intermediate-vertex **category margin**. Therefore t=M^T lambda, the gold cohomology class is **zero** and every gold cycle period vanishes. Its hidden-gold fibre width and minimum targeted extra audit cost both equal zero. The actor's feedback already contains enough information to reconstruct gold: its selection rule optimizes the *wrong observable functional*.
+It is the indicator of the entire first intermediate-vertex **category margin**. The cell graph uses canonical row-major order (u,w0)..(u,w3),(v,w0)..(v,w3); the constraint records are remapped through their original item identifiers. Therefore t=M^T lambda, the gold cohomology class is **zero** and every gold cycle period vanishes. Its hidden-gold fibre width and minimum targeted extra audit cost both equal zero. The actor's feedback already contains enough information to reconstruct gold: its selection rule optimizes the *wrong observable functional*.
 
 This provides a rigorous counterexample to the proposed rule "eliminate every observable reward holonomy and reward hacking disappears." A complete audit must separately check
 
