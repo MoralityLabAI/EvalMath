@@ -10,7 +10,7 @@ Use the existing evaluation design notation
 
     E = <G, Pi, D, Z, J, A, C>,
 
-where G is a game, Pi the controller roster, D an evaluation population, Z a registered intervention/design, J the judge, A its access/feedback regime and C the evidentiary capability claim. The typed operator Feedback_(s,q) exposes J on evaluation source s to a later controller; q is sealed, score_only, item_level, or an explicitly registered intermediate category disclosure.
+where G is the game, Pi the controller roster and execution protocol, D instance sampling and assignment, Z trace acquisition, J judgment of the acquired record, A aggregation and uncertainty, and C the target claim and its interpretation assumptions. The feedback access regime is an additional typed operator on the judge output. The typed operator Feedback_(s,q) exposes J on evaluation source s to a later controller; q is sealed, score_only, item_level, or an explicitly registered intermediate category disclosure.
 
 Freeze three functions on an actor-reachable candidate roster X:
 
