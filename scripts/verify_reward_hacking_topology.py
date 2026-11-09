@@ -21,6 +21,10 @@ from spiral_ln.evaluation_reward_hacking_topology import (
 )
 from spiral_ln.evaluation_reward_ugc_fixture import bipartite_goodhart_fixture
 from spiral_ln.evaluation_reward_hacking_flow import maximum_hidden_width_flow
+from spiral_ln.evaluation_reward_hacking_multimap import (
+    MultiMapSignals, gold_alias_report, minimum_private_audit,
+    reachable_gold_alias,
+)
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -37,11 +41,13 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_hacking_guard.py",
     "src/spiral_ln/evaluation_reward_ugc_fixture.py",
     "src/spiral_ln/evaluation_reward_hacking_flow.py",
+    "src/spiral_ln/evaluation_reward_hacking_multimap.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
     "tests/test_evaluation_reward_ugc_fixture.py",
     "tests/test_evaluation_reward_hacking_flow.py",
+    "tests/test_evaluation_reward_hacking_multimap.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -95,6 +101,34 @@ def receipt() -> dict:
     assert large_flow.maximum_hidden_width>0
     assert cycle_rank(large_graph)==25
 
+    higher_cells=((0,0,0),(0,0,1),(0,1,1),(1,0,1),(1,1,0))
+    higher_faces=((0,),(1,),(2,))
+    protected_gold=(0,1,0,0,0)
+    unit=MultiMapSignals(higher_cells,(1,)*5,higher_faces)
+    activated=MultiMapSignals(higher_cells,(1,2,1,1,1),higher_faces)
+    before_activation=gold_alias_report(unit,protected_gold)
+    after_activation=gold_alias_report(activated,protected_gold)
+    higher_audit=minimum_private_audit(activated,protected_gold)
+    assert before_activation["rational_nullity"]==1
+    assert before_activation["bounded_integer_rank"]==0
+    assert before_activation["maximum_hidden_gold_width"]==0
+    assert after_activation["bounded_integer_rank"]==1
+    assert after_activation["maximum_hidden_gold_width"]==2
+    assert higher_audit["count"]==1
+
+    little_grid=MultiMapSignals(
+        ((0,0),(0,1),(1,0),(1,1)),(1,1,1,1),((0,),(1,)),
+    )
+    flat_game=TranslationGame(4,1,(
+        Edge(0,1,0),Edge(1,2,0),Edge(2,3,0),Edge(3,0,0)))
+    gold_d=(1,0,0,1)
+    reachable_frustrated=tuple(reachable)
+    reachable_flat=tuple(ugc_reachable_records(flat_game,g))
+    bad_reach=reachable_gold_alias(little_grid,gold_d,reachable_frustrated)
+    flat_reach=reachable_gold_alias(little_grid,gold_d,reachable_flat)
+    assert bad_reach["maximum_hidden_gold_width"]==0
+    assert flat_reach["maximum_hidden_gold_width"]==2
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -111,7 +145,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.0",
+        "schema":"RHT-01.1",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -147,6 +181,23 @@ def receipt() -> dict:
             "gold_optimum":str(simple_bipartite["unguarded"].true_optimum),
             "gold_guarded_proxy_score":str(simple_bipartite["guarded"].selected_proxy_score),
             "gold_guarded_utility":str(simple_bipartite["guarded"].minimum_gold_level),
+        },
+        "higher_order_activation":{
+            "three_map_cells":len(higher_cells),
+            "rational_feedback_nullity":before_activation["rational_nullity"],
+            "unit_capacity_integer_difference_rank":before_activation["bounded_integer_rank"],
+            "unit_capacity_hidden_gold_width":str(before_activation["maximum_hidden_gold_width"]),
+            "raised_second_cell_capacity":2,
+            "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
+            "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
+            "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "ugc_reachable_fibres":{
+            "full_capacity_box_hidden_width":"2",
+            "frustrated_cycle_reachable_width":str(bad_reach["maximum_hidden_gold_width"]),
+            "flat_cycle_reachable_width":str(flat_reach["maximum_hidden_gold_width"]),
+            "frustrated_reachable_records":bad_reach["reachable_records"],
+            "flat_reachable_records":flat_reach["reachable_records"],
         },
         "large_flow":{
             "edges":36,
