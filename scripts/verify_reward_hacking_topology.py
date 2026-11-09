@@ -25,6 +25,9 @@ from spiral_ln.evaluation_reward_hacking_multimap import (
     MultiMapSignals, gold_alias_report, minimum_private_audit,
     reachable_gold_alias,
 )
+from spiral_ln.evaluation_reward_hacking_audit_optimizer import (
+    maximum_hidden_gold_dp, minimum_private_gold_audit_lazy,
+)
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -42,12 +45,14 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_ugc_fixture.py",
     "src/spiral_ln/evaluation_reward_hacking_flow.py",
     "src/spiral_ln/evaluation_reward_hacking_multimap.py",
+    "src/spiral_ln/evaluation_reward_hacking_audit_optimizer.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
     "tests/test_evaluation_reward_ugc_fixture.py",
     "tests/test_evaluation_reward_hacking_flow.py",
     "tests/test_evaluation_reward_hacking_multimap.py",
+    "tests/test_evaluation_reward_hacking_audit_optimizer.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -128,6 +133,44 @@ def receipt() -> dict:
     flat_reach=reachable_gold_alias(little_grid,gold_d,reachable_flat)
     assert bad_reach["maximum_hidden_gold_width"]==0
     assert flat_reach["maximum_hidden_gold_width"]==2
+    primitive_audit=minimum_private_gold_audit_lazy(
+        activated,protected_gold,cell_costs=(9,1,3,5,4),
+    )
+    assert primitive_audit.audited_cells==(1,)
+    assert primitive_audit.count==1 and primitive_audit.cost==1
+    assert primitive_audit.remaining_gold_width==0
+
+    multimap_cells=tuple(
+        (a,b,c) for a in range(2) for b in range(2) for c in range(3)
+    )
+    pairwise_faces=((0,1),(0,2),(1,2))
+    large_multimap=MultiMapSignals(
+        multimap_cells,(3,)*len(multimap_cells),pairwise_faces,
+    )
+    multim_gold=tuple(
+        2 if v==(0,0,0) else 1 if v==(0,0,1) else 0
+        for v in multimap_cells
+    )
+    multilinear_width=maximum_hidden_gold_dp(
+        large_multimap,multim_gold,max_states=30000,
+    )
+    multim_audit=minimum_private_gold_audit_lazy(
+        large_multimap,multim_gold,max_states=30000,
+    )
+    loose_audit=minimum_private_gold_audit_lazy(
+        large_multimap,multim_gold,tolerance=Q(3),max_states=30000,
+    )
+    assert large_multimap.rational_nullity==2
+    assert multilinear_width.maximum_width==6
+    assert multim_audit.count==2 and multim_audit.remaining_gold_width==0
+    assert loose_audit.count==1 and loose_audit.remaining_gold_width<=3
+    reachable_bad_audit=minimum_private_gold_audit_lazy(
+        little_grid,gold_d,reachable_records=reachable_frustrated
+    )
+    reachable_flat_audit=minimum_private_gold_audit_lazy(
+        little_grid,gold_d,reachable_records=reachable_flat
+    )
+    assert reachable_bad_audit.count==0 and reachable_flat_audit.count==1
 
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
@@ -145,7 +188,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.1",
+        "schema":"RHT-01.2",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -191,6 +234,21 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "audit_optimizer":{
+            "rank_one_weighted_private_audit_cells":list(primitive_audit.audited_cells),
+            "rank_one_weighted_private_audit_cost":str(primitive_audit.cost),
+            "multiway_cells":len(multimap_cells),
+            "multiway_feedback_kernel_nullity":large_multimap.rational_nullity,
+            "multiway_all_candidate_differences":7**len(multimap_cells),
+            "multiway_DP_width":str(multilinear_width.maximum_width),
+            "multiway_DP_states":multilinear_width.visited_states,
+            "multiway_zero_tolerance_audit_cells":list(multim_audit.audited_cells),
+            "multiway_zero_tolerance_audit_cost":str(multim_audit.cost),
+            "multiway_obstruction_rounds":multim_audit.rounds,
+            "multiway_tolerance_three_audit_count":loose_audit.count,
+            "flat_UGC_reachable_private_audits":reachable_flat_audit.count,
+            "frustrated_UGC_reachable_private_audits":reachable_bad_audit.count,
         },
         "ugc_reachable_fibres":{
             "full_capacity_box_hidden_width":"2",
