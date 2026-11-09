@@ -88,8 +88,6 @@ def primitive_integer_kernel_generators(
         raw=tuple(int(x*denom) for x in v)
         common=gcd(*(abs(u) for u in raw))
         z=tuple(u//common for u in raw)
-        if next(v for v in z if v)!=1 and next(v for v in z if v)!=-1:
-            pass
         # Choose positive leading nonzero coordinate for a fixed sign.
         if next(u for u in z if u)<0:
             z=tuple(-u for u in z)
