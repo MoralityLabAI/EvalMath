@@ -28,6 +28,11 @@ from spiral_ln.evaluation_reward_hacking_multimap import (
 from spiral_ln.evaluation_reward_hacking_audit_optimizer import (
     maximum_hidden_gold_dp, minimum_private_gold_audit_lazy,
 )
+from spiral_ln.evaluation_reward_hacking_adaptive_feedback import (
+    one_hot_ugc_disclosure_game, public_attack_risks,
+    protected_auditor_optimum, MixedAuditNode,
+    mixed_disclosure_attack_risk,
+)
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -46,6 +51,7 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_hacking_flow.py",
     "src/spiral_ln/evaluation_reward_hacking_multimap.py",
     "src/spiral_ln/evaluation_reward_hacking_audit_optimizer.py",
+    "src/spiral_ln/evaluation_reward_hacking_adaptive_feedback.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -53,6 +59,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_hacking_flow.py",
     "tests/test_evaluation_reward_hacking_multimap.py",
     "tests/test_evaluation_reward_hacking_audit_optimizer.py",
+    "tests/test_evaluation_reward_hacking_adaptive_feedback.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -172,6 +179,36 @@ def receipt() -> dict:
     )
     assert reachable_bad_audit.count==0 and reachable_flat_audit.count==1
 
+    seven_worlds=one_hot_ugc_disclosure_game(7)
+    public_feedback=public_attack_risks(seven_worlds,3)
+    private_feedback=protected_auditor_optimum(seven_worlds,1)
+    assert public_feedback["baseline"]==Q(1,7)
+    assert public_feedback["fixed"]==Q(6,7)
+    assert public_feedback["adaptive"]==1
+    assert private_feedback["risk"]==0
+
+    three_worlds=one_hot_ugc_disclosure_game(3)
+    q0=three_worlds.queries.index(
+        tuple(int(r==0 and c==0) for r,c in three_worlds.space.cells)
+    )
+    q1=three_worlds.queries.index(
+        tuple(int(r==0 and c==1) for r,c in three_worlds.space.cells)
+    )
+    stop=MixedAuditNode()
+    private_root=MixedAuditNode(
+        q0,"sealed",((0,stop),(1,stop))
+    )
+    identity_leak=MixedAuditNode(
+        q0,"sealed",(
+            (0,MixedAuditNode(q0,"public",((0,stop),))),
+            (1,MixedAuditNode(q1,"public",((0,stop),))),
+        )
+    )
+    hidden_risk=mixed_disclosure_attack_risk(three_worlds,private_root)
+    leaked_risk=mixed_disclosure_attack_risk(three_worlds,identity_leak)
+    assert hidden_risk["risk"]==Q(1,3)
+    assert leaked_risk["risk"]==Q(2,3)
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -188,7 +225,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.2",
+        "schema":"RHT-01.3",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -234,6 +271,18 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "adaptive_disclosure":{
+            "ugc_vertices":9,
+            "ugc_constraint_edges":14,
+            "proxy_tied_reference_worlds":7,
+            "initial_public_actor_risk":str(public_feedback["baseline"]),
+            "three_fixed_interval_queries_actor_risk":str(public_feedback["fixed"]),
+            "three_adaptive_interval_queries_actor_risk":str(public_feedback["adaptive"]),
+            "one_sealed_auditor_query_with_action_control_risk":str(private_feedback["risk"]),
+            "query_identity_sidechannel_three_worlds_before":str(hidden_risk["risk"]),
+            "query_identity_sidechannel_three_worlds_after":str(leaked_risk["risk"]),
+            "source_scope":"frozen proxy-maximizing roster with independently licensed world-specific gold",
         },
         "audit_optimizer":{
             "rank_one_weighted_private_audit_cells":list(primitive_audit.audited_cells),
