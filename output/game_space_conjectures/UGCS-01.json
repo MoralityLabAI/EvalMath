@@ -1,0 +1,58 @@
+{
+  "claim_level": "exact elementary identities and bounded experiments",
+  "covers": {
+    "K23_rank2_holonomy_size": 4,
+    "best_connected_double_cover_frustration": "1/6",
+    "degree_after_one_base_edge_edit": 2,
+    "regular_cover_degree": 4,
+    "regular_cover_perfect_label_verified": true
+  },
+  "latent_negative_control": {
+    "change_probability": "3/8",
+    "implication": "degree-d C is itself an admissible degree-d observable for K=F2",
+    "latent_degree": 2,
+    "minimizer_monomial_masks": [
+      1,
+      2
+    ],
+    "minimum_degree2_probe_detection": "0"
+  },
+  "moments": {
+    "C4_F2_squared_tested": 256,
+    "errors": 0,
+    "first_obstruction_coefficient": "-3/2048",
+    "flat": 64,
+    "nonflat": 192
+  },
+  "schema": "UGCS-01.0",
+  "scope": "finite F2^s translation games; no UGC reduction or conjecture proof",
+  "source_sha256": {
+    "paper/game_space_conjectures_2026_11.md": "e3c13e974706367817f9f5feac819a530a7a05cc4913e3344d669ef6e9d808da",
+    "scripts/verify_game_space_conjectures.py": "145276625bd5ae46d882b3aad5eebda406312b156ddbf1660cbb7944104149e1",
+    "src/spiral_ln/game_space_conjectures.py": "bee215cf9e423ce04d301d519759764a44c92709087efd56a1582a24be9d4bbe",
+    "tests/test_game_space_conjectures.py": "6750df0fdc3363d2079d61c01ab52917e5c702ab4de59258db7b275809e68222"
+  },
+  "spectra": {
+    "C4_F2_squared": {
+      "games": 256,
+      "nonflat": 192,
+      "ratio_max_rounded_6dp": 0.781049,
+      "ratio_min_rounded_6dp": 0.781049,
+      "upper_bound_failures": 0
+    },
+    "K33_F2": {
+      "games": 512,
+      "nonflat": 480,
+      "ratio_max_rounded_6dp": 1.5,
+      "ratio_min_rounded_6dp": 1.315342,
+      "upper_bound_failures": 0
+    },
+    "K4_F2": {
+      "games": 64,
+      "nonflat": 56,
+      "ratio_max_rounded_6dp": 2.0,
+      "ratio_min_rounded_6dp": 1.527864,
+      "upper_bound_failures": 0
+    }
+  }
+}
