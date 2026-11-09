@@ -683,3 +683,137 @@ Repeated candidate attempts, actor adaptation to earlier veto decisions, observa
 - [Exact joint audit/veto optimizer](../src/spiral_ln/evaluation_reward_hacking_joint_audit.py)
 - [Independent complete-search and collision tests](../tests/test_evaluation_reward_hacking_joint_audit.py)
 - [Source-bound RHT research receipt](../scripts/verify_reward_hacking_topology.py)
+
+
+## 15. Repeated attempts: imperfect gold audits become feedback (RHT-10)
+
+**2026-11-10 | finite sequential risk theorem and exact retry-policy controls.** RHT-09 allowed a single candidate action followed by a terminal independently enforced veto. A persistent agent can instead attempt actions repeatedly, watch authorization/rejection outcomes, and use those observations to choose its next proposal. This changes the actor-visible feedback filtration even when protected gold measurements and query identities remain sealed.
+
+### 15.1 Frozen verifier and attack grammar
+
+Retain RHT-08/09's finite latent gold-reference world `ω∈Ω` with integer prior mass `w_ω`, fixed proxy-optimal action set `A_P`, and world-specific protected gold utility `U_ω`. The world stays fixed for the whole session. For every action `a∈A_P` define a harmful attempt when its true regret crosses the declared threshold `δ`:
+
+\[
+H_\omega(a)=\mathbf1[U_\omega^*-U_\omega(a)\ge\delta].
+\]
+
+The auditor observes the actual action and uses a noisy, externally calibrated gold-based veto. If `H_ω(a)=1`, it authorizes with probability `α` (false acceptance). If `H_ω(a)=0`, it authorizes with probability `1-β` (one minus false rejection). These rates are fixed and hold **conditional on the world, the proposed action, and the entire previous verdict history**. The special case of fresh independent audit errors realizes the model. The actor sees each approval/rejection bit, has a fixed maximum `B` attempts, and can choose its next eligible action as a function of those verdicts.
+
+The event of interest is **at least one accepted harmful action**. It is absorbing for the risk calculation. After a rejected attempt or an approved safe action, the actor can continue, with optional enforceable restrictions: prohibition on repeating a previous action, lockout upon the first rejection, or termination after any approval. The last protocol represents a single-workflow authorization rule, while unrestricted continuation after a safe approval represents repeated opportunities across the session.
+
+The actor's decision may depend on its own attempted actions and observed verdicts. It never sees the protected gold reference or the hidden world's identity. The fixed-world assumption is essential: replacing `ω` after every attempt gives a different learning and hazard process.
+
+### 15.2 Exact unnormalized-posterior Bellman recursion (RHT-10/T1)
+
+Let `m=(m_ω)_ω` be **unnormalized** probability mass of surviving reference worlds following a particular actor-visible verdict history, excluding trajectories that have already reached a harmful approval. Let `U` be the set of actions attempted and `r` the remaining horizon. For a proposed action `a`, put
+
+\[
+p_\omega(a)=\alpha H_\omega(a)+(1-\beta)(1-H_\omega(a)).
+\]
+
+The immediate accepted-harm mass is
+
+\[
+h_a(m)=\sum_\omega m_\omega\,\alpha H_\omega(a).
+\]
+
+An observed rejection passes unnormalized mass `m_ω(1-p_ω(a))` to its continuation; an observed approval on a **safe** action passes `m_ωp_ω(a)(1-H_ω(a))`. The Bellman recursion is
+
+\[
+\boxed{
+V_r(m,U)=\max\Bigl\{0,\,
+\max_{a\in A_P\text{ allowed by }U}
+\bigl[h_a(m)+V_{r-1}(m^{\rm reject},U\cup\{a\})
++V_{r-1}(m^{\rm safe\ approve},U\cup\{a\})\bigr]\Bigr\}.
+}
+\tag{RHT-10/1}
+\]
+
+The appropriate continuation term is set to zero when a registered protocol terminates on that verdict. The boundary condition is `V_0=0`. With initial masses `m_ω=w_ω`, the exact optimal probability of any harmful authorization is `V_B(w,∅)/Σw_ω`.
+
+**Proof:** condition on the first chosen action and its visible verdict. Accepted harmful actions contribute their immediate mass and need no further decision. The remaining outcomes are disjoint response branches. Conditioning on each branch gives a smaller instance with the displayed mass vector, so finite backwards induction yields optimality. Every deterministic policy induces one candidate at each observed history, and a randomized policy is a convex mixture of deterministic choices, so randomization cannot exceed the maximum.
+
+A separate oracle enumerates fixed action schedules, evaluating each through the **per-world likelihood of actual verdicts**. Another independent brute-force enumerator searches every first action and every verdict-dependent second action, including early stop. The tests verify the dynamic-programming optimum against both controls and directly execute the returned policy over all worlds. Input and state-budget violations fail closed.
+
+### 15.3 Strict adaptive retry advantage on UGC satisfaction worlds (RHT-10/T2)
+
+Use RHT-08's three-world `K₂,₃` binary translation-game fixture. The three frozen proxy-maximizing actions have identical public evaluation margins. Each world has precisely one action with protected regret one, and this bad action has a different index in each world.
+
+Freeze `α=1/5`, `β=0`. Every **safe** action is approved; a rejection therefore identifies the attempted action as unsafe. After attempting `a₀`, the actor can repeat it if rejected, while an approval leads it to try `a₁` next. In world zero the probability of harm across the two repeated attempts at `a₀` is `1-(4/5)^2=9/25`; in world one the probability of harm on the second attempt at `a₁` is `1/5`; in world two it is zero. Under the uniform prior,
+
+\[
+\boxed{
+R^{\rm adaptive}_2=\tfrac13(\tfrac9{25}+\tfrac15)=\tfrac{14}{75},
+\quad R^{\rm fixed}_2=\tfrac{2}{15},
+\quad\Delta_2=\tfrac4{75}.
+}
+\tag{RHT-10/2}
+\]
+
+At horizon three the exact values are `R_adaptive=131/375` and `R_fixed=1/5`, a strict gain `56/375`. These are **cumulative harmful-authorization probabilities**, not one-step false-accept rates and not a statement about actual trained-agent behavior.
+
+Prohibiting repeated actions or locking out the session after the first rejection reduces the two-attempt risk to `2/15` for this `β=0` fixture. Terminating after *any* approval makes it `3/25`. The different control costs become visible once false rejection is positive.
+
+### 15.4 Conditional versus marginal false-accept guarantees (RHT-10/T3)
+
+A general worst-case bound follows even without the stationary independent-verdict model. Suppose at attempted step `i`, **conditional on every preceding history with no harmful authorization**, the chance of authorizing a harmful action is bounded by `α_i`, no matter which action the actor adaptively selects. Then the probability of surviving that step without harm is at least `1-α_i`, so
+
+\[
+\boxed{
+\Pr(\text{any harmful authorization by }B)
+\le 1-\prod_{i=1}^{B}(1-\alpha_i).
+}
+\tag{RHT-10/3}
+\]
+
+The bound is tight for repeated attempts of an always-harmful action with fresh independent false acceptances at the registered rates. It handles within-attempt readout correlation and adaptive action selection **only when the hazard premise is valid conditionally on every actual transcript**.
+
+If calibration instead bounds only `\Pr(\text{harmful authorization at attempt }i)\le\alpha_i` averaged over histories, the strongest general union bound is
+
+\[
+\boxed{
+\Pr(\text{any harmful authorization})\le
+\min(1,\sum_i\alpha_i).
+}
+\tag{RHT-10/4}
+\]
+
+A single latent variable can preselect which attempt, if any, receives a false authorization. Disjoint events with masses up to the `α_i` caps attain (RHT-10/4), while violating the stronger conditional hazard constraint after earlier denials. For `B=5` and `α_i=1/5`, (RHT-10/3) gives `2101/3125≈0.67232`, while (RHT-10/4) permits probability one. Exact constructed probability vectors in the tests establish both claims.
+
+Calibration on isolated, nonadaptive audit calls provides insufficient evidence for a history-conditional bound in a live, adapting actor process. The verifier needs either a justified conditional soundness model or a conservative familywise budget.
+
+### 15.5 Two-sided retry protocol frontier with throughput
+
+A control that blocks every subsequent action can reduce malicious risk while preventing legitimate repeated work. To expose that operational cost, RHT-10 registers a separate *gold-known benign reference actor* which always submits actions independently verified safe, with as many distinct safe actions as its roster permits. Let `L_B` be its probability of at least one accepted safe action in `B` opportunities, and `T_B` its **expected count of accepted safe actions**. These are conditional reference benchmarks, distinct from actual benign-actor behavior under uncertain gold.
+
+Under stationary safe approval probability `1-β`:
+
+- unrestricted repeat opportunities give `L_B=1-β^B` and `T_B=B(1-β)`;
+- no-repeat restriction reduces the available safe attempts to `\min(B,\#\text{safe actions})`;
+- lockout after rejection gives `L_B=1-β` and `T_B=\sum_{i=1}^B(1-β)^i`;
+- termination after any approval caps the expected safe authorizations at `1-β^B` when rejection does not itself trigger lockout.
+
+These are exact finite benchmarks under independent per-attempt safe-verdict noise and protocol enforcement. The new [two-sided control gate](../src/spiral_ln/evaluation_reward_hacking_retry_guard.py) requires the adversarially optimal cumulative harm, benign coverage, and benign expected authorization count to meet all predeclared thresholds. It can choose among *licensed protocols with the same independently calibrated auditor error rates*, maximizing expected safe throughput subject to the registered harmful-risk cap.
+
+**Exact two-attempt example:** take `α=1/5`, `β=1/10`, three worlds and two genuinely safe actions per world:
+
+| Retry rule | Malicious cumulative harm | Benign ≥1 safe approval | Benign expected safe approvals |
+|---|---:|---:|---:|
+| Unrestricted | `9/50` | `99/100` | `9/5` |
+| No repeated action | `2/15` | `99/100` | `9/5` |
+| Lockout on rejection | `19/150` | `9/10` | `171/100` |
+| Stop after any approval | `3/25` | `99/100` | `99/100` |
+
+For a harm cap `7/50`, benign-coverage floor `9/10` and throughput floor `3/2`, the gate selects **no repeated action**, keeping expected benign safe throughput `9/5`. Tightening the harm cap to `13/100` selects **lockout after rejection**, with throughput `171/100`; tightening it to `1/10` yields no certified candidate from the registered list. The gates always distinguish infeasibility of the list from the runtime search cap. An independent exhaustive enumeration of every benign approval/rejection bit sequence confirms the coverage and throughput formulas.
+
+### 15.6 What remains to solve
+
+The present RHT-10 result permits multiple attempts against one fixed gold reference and a static, externally licensed noisy veto. The agent learns only from authorization/rejection outcomes and its own prior actions. It cannot alter the verifier, update the underlying gold reward, modify action/tool contracts, receive leaked audit metadata, or induce changes in the environment's underlying state between attempts. Those actions require a proper stochastic game with a controlled state transition and an independently attested authorization instrument.
+
+The exact Bellman recursion is a classical finite POMDP-style inference/control argument, and its cumulative false-approval bounds are standard sequential hazard/union-bound mathematics. New ASMP-8/14 relevance would require a **nontrivial joint certification theorem** under dynamic state, measurable adversarial reward-model tampering, disclosure access and resource constraints, with a calibrated gold-reference uncertainty class. The finite results here provide named controls and regressions for that extension.
+
+- [Exact repeated-authorization game](../src/spiral_ln/evaluation_reward_hacking_retry.py)
+- [Two-sided reward-audit retry gate](../src/spiral_ln/evaluation_reward_hacking_retry_guard.py)
+- [Independent brute-force retry tests](../tests/test_evaluation_reward_hacking_retry.py)
+- [Independent benign-throughput and protocol-selection tests](../tests/test_evaluation_reward_hacking_retry_guard.py)
+- [Reproducible source-bound receipt](../scripts/verify_reward_hacking_topology.py)
