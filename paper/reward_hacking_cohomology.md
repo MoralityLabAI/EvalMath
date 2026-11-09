@@ -277,3 +277,30 @@ When independently licensed gold weights t are registered, the RHT-03 robust gua
 - [Source-fingerprinted verification receipt](../scripts/verify_reward_hacking_topology.py)
 
 The graph is a valid simple bipartite finite translation Unique Game in the sense of the UGC-PT-01 cochain dictionary. This finite construction uses neither the claimed 2026 hardness reduction nor any assertion about the general UGC conjecture. Its source of reward hacking is ordinary proxy misspecification, situated precisely within EvalMath's design and feedback notation.
+
+
+## 10. Exact bounded-circulation solver for larger signal spaces (RHT-05)
+
+The alias-width identity in §2 gives a constructive route beyond exhaustive enumeration. Let (D) denote the signed vertex-edge incidence of the bipartite evaluation-intersection graph, with capacities (s_e) and an independently defined rational gold cochain (t_e):
+
+[
+ W(t,M,s)=\max\{\langle t,z\rangle:\ Dz=0,\ -s_e\le z_e\le s_e,\ z_e\in\mathbb Z\}.
+]
+
+Build a minimum-cost circulation network with one forward arc (u\to v) of capacity (s_e), cost (-t_e), and one reverse arc (v\to u) of the same capacity and cost (+t_e) for each cell e. An integer flow (f_e^+,f_e^-) gives (z_e=f_e^+-f_e^-). Conservation at all vertices is precisely (Dz=0); the difference of two nonnegative flows cannot exceed (s_e) on an edge in either direction, and every allowable integer circulation (z) is represented by (f_e^+=\max(z_e,0)), (f_e^-=\max(-z_e,0)). Minimizing cost is therefore equivalent to maximizing the hidden gold width.
+
+Starting at zero flow, cancel a negative residual cycle of integral bottleneck capacity on each iteration. Every augmentation improves the rational objective strictly and keeps the flow integral. When no negative residual cycle remains, standard min-cost circulation optimality certifies global optimality. This implementation uses a zero-source Bellman-Ford search and exact rational costs. Its explicit augmentation cap is an execution safeguard. Polynomial-time min-cost circulation methods exist in the literature; the current implementation is a bounded exact reference solver and carries no strongly-polynomial runtime claim.
+
+A protected audit set S removes the forward/reverse original arcs for each audited cell, thereby enforcing (z_e=0) at those cells. The same network computes the **maximum gold ambiguity remaining after a chosen private audit** without enumerating all item records.
+
+Finite adversarial checks compare the solver to two independently coded exponential oracles, one over feedback fibres and one over integer circulations, for all 81 ternary gold-weight assignments on multiple four-cell capacity profiles, plus rational weights and six-cell, two-cycle graphs. A 36-cell (K_{6,6}) evaluation graph with nonuniform capacities supplies a larger exact-circulation receipt with graph cycle rank 25; exhaustive enumeration of the full record box exceeds the oracle's declared budget.
+
+- [Exact flow algorithm](../src/spiral_ln/evaluation_reward_hacking_flow.py)
+- [Independent flow and private-audit tests](../tests/test_evaluation_reward_hacking_flow.py)
+- [Source-bound verifier](../scripts/verify_reward_hacking_topology.py)
+
+### Meaning for Goodhart containment
+
+The inexpensive mathematical diagnostic now scales to much larger *known* evaluation-category graphs than the original enumerable world oracle. It finds the **maximum damage a reward cochain can conceal within the published feedback fibres**, and exactly which private cell counts remove that ambiguity. The separate cross-fibre misranking remains a reachable-policy/true-objective problem. The simple-bipartite RHT-04 example has identically zero hidden-fibre width and positive strict proxy regret, so increasing evaluator observability alone cannot eliminate its proxy-hacking route.
+
+A candidate generalization is the **joint audit-and-selection frontier**: for a frozen class of bounded-compute policies, a sealed gold uncertainty set and a priced additional audit family, find the smallest private signal collection and a decision rule guaranteeing (epsilon)-regret and nonzero true progress under repeated feedback. This is a constrained robust optimization and evaluation-design question; it requires independent gold validation and disclosure accounting to become an empirical AI-safety result.
