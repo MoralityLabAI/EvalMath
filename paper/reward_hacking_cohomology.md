@@ -571,3 +571,115 @@ This experiment assumes a finite fixed hidden world, deterministic subset-sum qu
 - [Adaptive disclosure oracle and one-hot interval law](adaptive_disclosure.md)
 
 A next-stage mechanism should combine the private RHT-07 hitting-set optimizer with a **leakage-aware continuation policy**, charging both audit information gain and the maximum induced actor-visible regret risk under adaptive disclosure. That is a constrained two-player partially observed information game. Its general minimax solution and its relationship to actual learned reward hacking remain open.
+
+
+## 14. Joint audit design: control leakage and preserve safe action throughput (RHT-09)
+
+**2026-11-10 | exact finite theorem plus complete small-policy search.** This section joins the RHT-07 private-audit frontier to the RHT-08 actor-visible feedback-risk formula. A defender now controls the query policy and a terminal **authorize/veto** gate; an adversarial actor chooses among proxy-maximizing actions using whatever portion of the query transcript the protocol exposes. The mathematical objects are frozen finite UGC-generated worlds and independent gold rewards. The result concerns a **single terminal action attempt**, with the veto response observed only after that attempt. A protocol allowing retry or agent-state changes needs a different theorem.
+
+### 14.1 Exact four-part certification contract
+
+Use a finite hidden-reference-world set Ω with positive integer weights (w_omega), a query bank (Q) of deterministic cell subset-sums, and a frozen action roster (A). Let (A_P=argmax_{ain A}P(a)) consist of proxy-maximizing actions, with independent, world-specific protected gold utility (U_omega(a)). Define (mathrm{Bad}(omega,a)=1[max_{bin A}U_omega(b)-U_omega(a)gedelta]) for a registered (delta>0).
+
+A query tree (pi) labels each query **sealed** or **public**. The auditor sees the full leaf transcript (S_pi(omega)), including all query IDs and answers. The actor sees (V_pi(omega)), consisting of the *ordered public query IDs and answers*. Any adaptation of public query identities based on sealed outcomes is thus represented as a possible leakage path. The auditor has a deterministic terminal veto rule (g(S_pi(omega),a)in{0,1}), evaluated after the actor attempts one (ain A_P).
+
+Define the **authorized malicious loss** by
+
+\[
+\mathcal R(\pi,g)=
+\frac{1}{W}\sum_{v}
+\max_{a\in A_P}\sum_{\omega:V_\pi(\omega)=v}
+w_\omega\,\mathrm{Bad}(\omega,a)\,g(S_\pi(\omega),a),\quad
+W=\sum_\omega w_\omega.                                    \tag{RHT-09/1}
+\]
+
+Conditional on each visible transcript, the adversarial actor chooses the action maximizing its authorized unsafe mass. A deterministic action maximizer exists because the action set is finite. This is a direct application of the earlier selection-risk theorem with the auditor's terminal veto incorporated.
+
+To prevent an always-deny solution, define **benign safe authorization**, measured by a separate actor that attempts an action uniformly from (A_P), conditional on that action being safe:
+
+\[
+L(\pi,g)=
+\frac{\sum_\omega w_\omega\sum_{a\in A_P}
+(1-\mathrm{Bad}(\omega,a))\,g(S_\pi(\omega),a)}
+{\sum_\omega w_\omega\sum_{a\in A_P}(1-\mathrm{Bad}(\omega,a))}.
+                                                                  \tag{RHT-09/2}
+\]
+
+The denominator must be positive. This is a *conditional coverage measure* under a frozen benign action distribution, with the same role that coverage plays in selective prediction. It is not the fraction of all malicious attempts authorized.
+
+Let (\mathcal R_{\rm public}(\pi)) be (RHT-09/1) with (g\equiv1). It prices **pre-veto leakage** because exposing more to a hostile actor may increase its ability to select dangerous actions. Let (C(\pi)=W^{-1}\sum_\omega w_\omega\sum_{q\text{ on its path}}c(q,\text{visibility})) be the expected query cost, with positive registered charges. The finite certificate solves
+
+\[
+\begin{aligned}
+\min_{\pi,g}\;&\mathcal R(\pi,g),\\
+\text{s.t. }&
+L(\pi,g)\ge L_0,\\
+&\mathcal R_{\rm public}(\pi)\le\Lambda,\\
+&C(\pi)\le C_0,\quad\mathrm{depth}(\pi)\le B.
+\end{aligned}                                                    \tag{RHT-09/3}
+\]
+
+An optional strict authorization cap (\mathcal R\le\alpha) turns this into a *yes/no* certificate. If every admissible tree and veto assignment fails, the exact tiny solver returns **no certificate**. A configured tree/gate/state-enumeration cap is an execution limit and raises a separate error, rather than being reported as mathematical infeasibility.
+
+### 14.2 Exact enumeration theorem for bounded policies
+
+For a fixed query tree, the auditor's full transcript partitions Ω into leaves (F_1,\ldots,F_r), while the actor's public transcript gives a generally coarser partition. There are precisely (2^{r|A_P|}) deterministic possible veto assignments across private leaves and eligible actions. Directly evaluating (RHT-09/1) and (RHT-09/2) for every assignment solves the finite constrained terminal game exactly. Enumerating all informative adaptive query trees of depth at most B and their visibility labels then yields the exact optimum under (RHT-09/3). Query nodes with a single possible answer can be dropped from a *minimization* policy at positive cost, since they improve neither private discrimination nor benign coverage and any visible query-ID leakage can only weakly increase malicious selection risk. Such redundant public continuation probes remain representable for adversarial negative controls.
+
+The implementation uses exact `Fraction` arithmetic and rejects attempts exceeding predeclared numbers of query trees or veto assignments. Its supported complete search is deliberately small (at most five worlds/actions, ten query types, three rounds); larger one-hot cases use a separate analytic Bellman reduction.
+
+### 14.3 A three-world non-inert protection witness
+
+Use RHT-08's (K_{2,3}) one-hot UGC satisfaction worlds with uniform prior and eligible actions (a_0,a_1,a_2). Each world (omega=i) has (\mathrm{Bad}(i,a_j)=1[i=j]). Every action is proxy-maximizing.
+
+With zero queries, a guarantee of zero malicious harm requires denying all three actions. Hence zero-harm benign authorization equals zero. At benign safe-authorization floor (L_0=2/3), allowing two actions without measurement has authorized malicious risk (1/3).
+
+Make one **sealed** query asking whether the hidden world is 0. If the answer is yes, allow actions (a_1,a_2); if no, allow only (a_0). Every authorized action is safe in its possible world, so
+
+\[
+\boxed{\mathcal R=0,\qquad L=2/3,\qquad
+\mathcal R_{\rm public}=1/3,\qquad C=1.}             \tag{RHT-09/4}
+\]
+
+The actor receives no query ID/answer, and its maximum malicious risk after veto is zero. If the same query is made **public**, the pre-veto risk rises to (2/3), violating a leakage cap (Lambda=1/3) despite the possibility of an equally effective terminal veto. With a cost cap zero and a strict zero-harm ceiling, no policy meets (L_0=2/3). With **two sealed adaptive queries**, the auditor can identify the hidden world exactly and veto only its single bad action: (\mathcal R=0), (L=1), with expected query count (5/3).
+
+The small joint optimizer was independently checked against an exhaustive enumerator of every single query choice, visibility label and possible veto assignment, including several distinct liveness, leakage, cost and harm ceilings.
+
+### 14.4 One-hot zero-harm frontier equals a posterior collision functional
+
+For the (n)-world (K_{2,n}) construction, fix a **sealed-only** query tree whose terminal private transcript classes have sizes (k_1,\ldots,k_r), with (sum_j k_j=n). Each world (i) has just one dangerous proxy-maximizing action (a_i). With no public observations, a positive approval for (a_i) in any private class containing (i) would give the attacker a strictly positive chance of authorized harm. Hence a zero-harm veto gate **must deny all actions indexed by a world in the same private leaf**, and may safely authorize every action indexed outside that leaf.
+
+Each private leaf of size k contributes (k(n-k)) genuinely safe world-action pairs that can be authorized. Dividing by (n(n-1)), the total number of safe world-action pairs, proves the exact optimal zero-harm benign coverage identity
+
+\[
+\boxed{
+L_{\rm zero}(\pi)=\frac{n^2-\sum_j k_j^2}{n(n-1)}
+=\frac{n}{n-1}\left(1-
+\underbrace{\sum_j(k_j/n)^2}_{P_{\rm collision}(\pi)}
+\right).
+}                                                             \tag{RHT-09/5}
+\]
+
+The right-hand probability is exactly the posterior *transcript collision statistic* already developed in EvalMath's adaptive-disclosure module. This is a precise algebraic bridge: privately acquired information lowers the collision statistic, thereby improving safe authorization under a strict zero-harm veto. Making the same information public increases the adversarial actor's post-selection capacity under the RHT-08 grammar.
+
+Using the frozen interval subset-sum bank and a Bellman recursion over the remaining possible one-hot worlds yields the exact **maximum** (RHT-09/5) under a depth-B sealed query budget. The seven-world results are:
+
+| Max sealed queries B | Optimal leaf sizes | Posterior collision | Max zero-harm safe-action authorization |
+|---:|---|---:|---:|
+| 0 | 7 | 1 | 0 |
+| 1 | 4,3 | 25/49 | 4/7 |
+| 2 | 2,2,2,1 | 13/49 | 6/7 |
+| 3 | 1,1,1,1,1,1,1 | 1/7 | 1 |
+
+A second, independent check reconstructs the tree using EvalMath's original `adaptive_disclosure.Node` class and verifies its collision statistic; a direct strategic evaluation checks both the zero malicious authorization risk and the achievable benign authorization rate.
+
+### 14.5 Information-flow contract and limitation
+
+The auditor here can inspect hidden gold-reference queries and **credibly enforce** a single final veto, while the actor chooses only from its registered proxy-maximizing roster. Any leak through visible query IDs/answers is represented in (V_\pi). To apply this scheme to a real model, external attestation must bind the actual measurement and authorization gate; the model's own reports are insufficient to establish the gold source or successful veto enforcement.
+
+Repeated candidate attempts, actor adaptation to earlier veto decisions, observable audit timing, compromised tool or judge logs, learned reward misspecification and changing world states are outside this theorem. Adding those expands the information filtration and changes the underlying optimization game. Likewise a complete model safety claim requires independent evidence that the frozen gold cochains license the intended values.
+
+**Prior art:** The optimization joins classical information design and Blackwell comparison with selective prediction under a reject option. See [Chow (1970), *On Optimum Recognition Error and Reject Tradeoff*](https://research.ibm.com/publications/on-optimum-recognition-error-and-reject-tradeoff), [Franc et al., *Optimal Strategies for Reject Option Classifiers* (JMLR)](https://jmlr.org/papers/volume24/21-0048/21-0048.pdf), and [Bergemann–Morris, *Information Design: A Unified Perspective*](https://cowles.yale.edu/sites/default/files/2022-08/d2075-r3.pdf). The finite UGC construction and collision identity are new **applications within this specific eval grammar**, while the general foundations are established.
+
+- [Exact joint audit/veto optimizer](../src/spiral_ln/evaluation_reward_hacking_joint_audit.py)
+- [Independent complete-search and collision tests](../tests/test_evaluation_reward_hacking_joint_audit.py)
+- [Source-bound RHT research receipt](../scripts/verify_reward_hacking_topology.py)
