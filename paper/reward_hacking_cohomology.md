@@ -304,3 +304,101 @@ Finite adversarial checks compare the solver to two independently coded exponent
 The inexpensive mathematical diagnostic now scales to much larger *known* evaluation-category graphs than the original enumerable world oracle. It finds the **maximum damage a reward cochain can conceal within the published feedback fibres**, and exactly which private cell counts remove that ambiguity. The separate cross-fibre misranking remains a reachable-policy/true-objective problem. The simple-bipartite RHT-04 example has identically zero hidden-fibre width and positive strict proxy regret, so increasing evaluator observability alone cannot eliminate its proxy-hacking route.
 
 A candidate generalization is the **joint audit-and-selection frontier**: for a frozen class of bounded-compute policies, a sealed gold uncertainty set and a priced additional audit family, find the smallest private signal collection and a decision rule guaranteeing (epsilon)-regret and nonzero true progress under repeated feedback. This is a constrained robust optimization and evaluation-design question; it requires independent gold validation and disclosure accounting to become an empirical AI-safety result.
+
+
+## 11. Three-map signals: bounded integer fibres and reachable reward hacking (RHT-06)
+
+The two-map theorems in §§1–3 exploit a special property: bipartite incidence matrices are totally unimodular and their cycle kernel has a generating set of alternating unit vectors. For three or more category maps the observation matrix M_Δ can have rational null vectors whose primitive integer coefficients exceed the actual cell capacities. [EvalMath Leak Topology, Proposition 10](leak_topology.md#3-three-or-more-maps) already provides a five-cell example. The reward-hacking application needs a capacity-aware version of the alias theorem.
+
+### Exact theorem: the bounded integer feedback kernel
+
+Freeze a support P of nonempty k-way cells, observed margin faces Δ, a positive integer capacity vector s∈ℕ^P, and an externally licensed rational gold cochain t∈ℚ^P. The observation y=M_Δ x is the vector of released margins, with feasible cell records
+
+    X_s = {x∈ℤ^P : 0≤x_e≤s_e}.
+
+Define the bounded integral feedback kernel
+
+    B_s(Δ) = {z∈ℤ^P : M_Δ z=0, |z_e|≤s_e for every e}.       (RHT-06/1)
+
+**Exact finite theorem.** The set of all differences x−x' of feasible records with identical published feedback equals B_s(Δ):
+
+    {x−x' : x,x'∈X_s, M_Δx=M_Δx'} = B_s(Δ).                (RHT-06/2)
+
+The forward inclusion follows from integrality and the capacity inequalities. For the converse, take any z∈B_s and define x=z_+, x'=z_- componentwise. Both lie in the box and their released feedback agrees because M_Δz=0. Thus the result is independent of any total-unimodularity assumption.
+
+Consequently the maximum hidden gold ambiguity across all public feedback fibres satisfies
+
+    W_s(t) = max_{z∈B_s(Δ)} <t,z>.                          (RHT-06/3)
+
+The gold utility is identifiable on the full feasible box exactly when t annihilates **every bounded integer difference**. The corresponding *realized difference rank* is
+
+    r_s(Δ) = dim_Q span_Q B_s(Δ)
+           ≤ dim_Q ker_Q M_Δ.                              (RHT-06/4)
+
+The inequality can be strict. In particular the nonzero rational cohomology class [t] in ℚ^P/im(M_Δ^T) need not produce a physically possible reward-hacking alias at the registered capacities. For Δ with only two separate category maps and all s_e≥1, the unit-cycle generators guarantee equality of these ranks, recovering RHT-01. A large enough capacity vector always activates a rational kernel direction, because every rational kernel vector can be rescaled to an integral vector with finite coordinate magnitudes.
+
+### Concrete integrality activation at one extra item
+
+Take three category maps observed **separately**, with sorted nonempty cell support
+
+    P = {(000),(001),(011),(101),(110)}.
+
+The 6×5 margin matrix has rank four, with primitive integer kernel vector
+
+    z = (1,-2,1,1,-1).
+
+Freeze gold t=(0,1,0,0,0), valuing the second cell alone. Its rational period is <t,z>=−2.
+
+**At unit capacities** s=(1,1,1,1,1), the bounded kernel B_s contains only zero. All feasible records are distinguishable from their released margins, and the hidden gold width is exactly zero, despite nonzero rational kernel and gold period. The target-specific additional private-audit cost is zero.
+
+**After increasing only the second cell to capacity two** s=(1,2,1,1,1), the bounded kernel contains {−z,0,z}. One explicit indistinguishable pair is
+
+    x_high=(0,2,0,0,1),
+    x_low =(1,0,1,1,0).
+
+All three published category margins agree. Their gold values differ by exactly 2. The realized kernel rank rises from zero to one and the minimum additional protected cell audits rises from zero to one. The minimum **uniform** capacity that activates this specific gold alias is also two. These are exact integer statements checked against an independent enumeration of every pair of feasible count tables.
+
+The example comes directly from the existing Leak Topology note's sparse 2×2×2 support. It is a capacity-aware interpretation of established algebraic-statistical fibre geometry, not an unprecedented topological phenomenon.
+
+### Environment reachability forms a further quotient
+
+The game controller may be able to generate only a strict subset X⊂X_s of the feasible record box. Define
+
+    B_X = {x−x' : x,x'∈X, M_Δx=M_Δx'},                  (RHT-06/5)
+
+and the reachable hidden-gold width W_X(t)=max_{z∈B_X}<t,z>. Then
+
+    B_X ⊆ B_s ⊆ ker_Q(M_Δ),
+    W_X(t) ≤ W_s(t).                                     (RHT-06/6)
+
+This distinction matters for the Unique Games connection. Let a binary translation game have four constraints around a 4-cycle, and map each constraint's satisfaction bit to a unit-capacity cell in a separately observed K₂,₂ category-intersection graph. The full box has an alias between records 1001 and 0110 for protected gold t=(1,0,0,1), with W_s=2.
+
+For a **frustrated** four-cycle the satisfaction record has odd parity. The two records above have even parity, hence are both unreachable. In fact all eight reachable records under this game are in distinct public margin fibres: W_X=0 and the reachable difference rank is zero. For the **flat** four-cycle all eight reachable satisfaction records have even parity, the pair 1001 and 0110 is available, and W_X=2. This is a direct, exact test of two different coefficients spaces: F₂ translation-game holonomy restricts the reachable satisfaction patterns, while the gold reward is a ℚ-linear functional on evaluation margin cells.
+
+### Audit formula and ASMP-8 interpretation
+
+A privileged auditor revealing exact counts for S⊆P leaves the constrained bounded kernel
+
+    B_s(S)={z∈B_s:z_e=0 for each e∈S}.
+
+For tolerance ε≥0 the target-specific private audit burden is exactly
+
+    k_{s,ε}(t)=min{|S|:max_{z∈B_s(S)}<t,z>≤ε}.         (RHT-06/7)
+
+The unit-capacity five-cell example gives k_{s,0}=0 despite a nonzero rational [t]. At capacity two, k_{s,0}=1. The actor-reachable version replaces B_s by B_X. The registered extra audit channel must remain sealed from the proxy optimizer while the learner is selected.
+
+This creates an explicit **three-layer reward-hacking check** under the frozen ASMP-8 reachable-policy formulation:
+
+1. The rational signal geometry identifies possible linear blind directions.
+2. The bounded integer kernel determines which differences can occur within physical/evaluation cell capacities.
+3. The actor's actual reachable set determines which invisible differences can be produced by the current controller and policy class.
+
+A fourth, independent decision check still tests whether maximizing the visible proxy misranks the gold utility **across** feedback classes, as established by RHT-04. The three-map unit-capacity example supplies a strict cross-feedback proxy misranking even though its integer feedback fibres are singletons.
+
+### Reproducibility and prior art
+
+- [Higher-order signal module](../src/spiral_ln/evaluation_reward_hacking_multimap.py) uses EvalMath's existing k-map margin matrix and exact rational nullspace machinery, with a separate capped integer-difference oracle.
+- [Independent finite tests](../tests/test_evaluation_reward_hacking_multimap.py) compare the five-cell generator with all feasible record pairs, verify the capacity-two activation, recover the two-map baseline, test the full 2×2×2 pairwise-observation homological class, and contrast flat/frustrated UGC reachable fibres.
+- The exact source-bound RHT receipt and six-minute focused CI retain separate claim scopes for finite enumeration, algebraic identities and UGC manuscript dependence.
+
+Markov bases and Graver bases for multiway contingency tables offer established tools for accelerating general bounded integer-fibre enumeration. They may reveal a tractable regime for the protected-audit problem under specific marginal grammars; the present bounded kernel algorithm is exponential. Relevant primary foundations include Diaconis and Sturmfels, [Algebraic Algorithms for Sampling from Conditional Distributions](https://www.jstor.org/stable/120181), *Annals of Statistics* 26 (1998), and Sullivant, [Algebraic Statistics](https://math.berkeley.edu/~bernd/owl.pdf) (Markov-basis treatment). The potential *research novelty* lies in jointly pricing sealed adaptive audits, a policy-reachable outcome grammar, and an independently validated gold signal under repeated proxy optimization.
