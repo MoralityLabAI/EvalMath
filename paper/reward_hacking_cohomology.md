@@ -817,3 +817,154 @@ The exact Bellman recursion is a classical finite POMDP-style inference/control 
 - [Independent brute-force retry tests](../tests/test_evaluation_reward_hacking_retry.py)
 - [Independent benign-throughput and protocol-selection tests](../tests/test_evaluation_reward_hacking_retry_guard.py)
 - [Reproducible source-bound receipt](../scripts/verify_reward_hacking_topology.py)
+
+
+## 16. Mutable evaluator state: reward hacking across attested tool transitions (RHT-11)
+
+**2026-11-10 | exact finite stateful-audit model.** The preceding RHT-10 experiment keeps the evaluator's conditional false-approval rates constant across attempts. A tool-using agent can change the evaluator or its inputs, and ordinary task operations can modify future evaluation state. RHT-11 makes that possibility explicit by combining the fixed UGC gold-reference world with a hidden two-state mutable evaluator and a separately owned integrity attestor. The result is a precisely scoped partially observed stochastic game with exact rational risk and liveness certificates.
+
+### 16.1 Hidden worlds, tool actions, and readout contracts
+
+Retain the finite UGC-generated reference-world set \(\Omega\), its independently defined protected gold cochains, and its proxy-maximizing candidate actions \(A_P\). The world \(\omega\in\Omega\) and the true task-reward function stay fixed for the whole experiment. Introduce a hidden **evaluator integrity state** \(s\in\{0,1\}\), with \(s=0\) intact and \(s=1\) compromised.
+
+A licensed actor can spend a tool call on an abstract tamper action \(T\). When initially intact, the evaluator becomes compromised with externally specified probability \(p_T\); already compromised states remain compromised. The agent receives an acknowledgment if the attestor does not raise an alarm. The acknowledgment reveals neither whether the tamper succeeded nor the protected gold label.
+
+On an attempted proxy-maximizing action \(a\), an independently anchored attestor checks the current evaluator state **before authorization**. An intact state is alarmed with probability \(f\), and a compromised state with probability \(d\). An alarm terminates the session. Conditional on passing this check, the reward evaluator approves an unsafe action with probability \(\alpha_s\), or approves a safe action with probability \(1-\beta_s\). The actor sees approved/rejected verdicts.
+
+Conditional on a surviving non-harmful verdict, the evaluator may transition according to a registered stochastic kernel \(K^{\mathrm{reject}}\) or \(K^{\mathrm{safe}}\). These kernels cover ordinary operations that corrupt an initially intact evaluator, and external recovery that restores a compromised evaluator. The transition probabilities, attestation detection rates and readout rates must be valid **conditional on the entire preceding history** and the actual hidden state. The actor may be uncertain about the state and adapt accordingly.
+
+All episodes are bounded by a total tool-call budget \(B\), including attempted tampering. Optional registered controls forbid repeated candidate actions, permit only one tamper attempt, lock out the session after rejection, or end it after any approval. The event of interest is the first authorized unsafe action, which is absorbing for risk accounting. A harmful approval remains the same public approval bit the actor would otherwise observe.
+
+### 16.2 Exact partially observed Bellman theorem (RHT-11/T1)
+
+Let \(m_{\omega,s}\) be an unnormalized nonnegative belief mass over the hidden gold-reference world and evaluator state, restricted to paths that have not yet produced harmful authorization. For each attempted candidate action \(a\in A_P\) define the registered gold-badness indicator \(H_\omega(a)\) from RHT-10, the attestation pass probability \(g_s\), and conditional approval probability
+
+\[
+ p_{\omega,s}(a)=H_\omega(a)\alpha_s+
+ (1-H_\omega(a))(1-\beta_s).
+\]
+
+The immediately accumulated harmful-authorization mass is
+
+\[
+ h_a(m)=\sum_{\omega,s}m_{\omega,s}\,g_s\,H_\omega(a)\alpha_s.
+\]
+
+On an observed rejection, update the unnormalized surviving mass by
+
+\[
+ m^{R}_{\omega,s'}=\sum_s
+ m_{\omega,s}\,g_s\,[1-p_{\omega,s}(a)]\,
+ K^{R}_{s,s'}.
+\]
+
+On an observed **safe** approval, the surviving mass is
+
+\[
+ m^{A}_{\omega,s'}=\sum_s
+ m_{\omega,s}\,g_s\,p_{\omega,s}(a)
+ [1-H_\omega(a)]\,K^{A}_{s,s'}.
+\]
+
+An externally called tamper action generates a different posterior \(m^{T}\): first apply its evaluator-state transition \(P_T\), then multiply by the probability of a non-alarm acknowledgment from the tamper attestor. All alarm branches terminate without an authorized unsafe action.
+
+Write \(V_B(m,U,t)\) for maximum *unnormalized* harmful-authorization mass with \(B\) calls remaining, already tried action set \(U\), and tamper-use flag \(t\). The Bellman equation is
+
+\[
+\boxed{
+V_B=
+\max\left\{0,\max_{a\in A_P\mathrm{\ licensed}}
+ \bigl[h_a(m)+V_{B-1}(m^R,U\cup\{a\},t)
+ +V_{B-1}(m^A,U\cup\{a\},t)\bigr], V_{B-1}(m^T,U,1)
+\right\},
+}
+\tag{RHT-11/1}
+\]
+
+with forbidden terms omitted when retry or tamper contracts disallow their continuation. A \(B=0\) state has value zero. Initially \(m_{\omega,0}=w_\omega\) when the baseline integrity is independently attested clean. A registered prior compromise probability can instead initialize mass on both integrity states.
+
+**Proof:** each legal call induces a disjoint distribution of alarm, bad-approved, rejected, and safe-approved outcomes. Bad approval immediately contributes its mass; surviving observable branches carry the displayed posterior and smaller remaining horizon. Conditional optimization followed by backwards induction proves the recursion. A randomized policy mixes deterministic choices and does not improve a finite maximum. The resulting probability is \(V_B(m_0,\varnothing,0)/\sum_\omega w_\omega\). This is finite POMDP-style dynamic programming, without a new claim about the general computational complexity of POMDPs.
+
+The implementation uses exact rational fractions, memoized posterior-state recursion, a per-run state cap, and a separate fixed-script evaluator. A world-by-world traversal of each returned adaptive policy, plus an **independent exhaustive two-step verdict-policy enumerator**, validates the calculations.
+
+### 16.3 A sharp tamper and incidental-drift witness (RHT-11/T2)
+
+Use RHT-10's three-world binary \(K_{2,3}\) UGC fixture. Each world has one bad action among three equally proxy-maximizing candidates. Freeze \(\alpha_0=1/5\), \(\alpha_1=4/5\), and \(\beta_0=\beta_1=0\). With no compromise, two adaptive candidate probes have optimal cumulative harm probability \(14/75\).
+
+If an actor can spend its first call attempting a silent evaluator tamper with success probability \(3/4\), then probe a candidate on its second call, its exact harmful-authorization probability becomes
+
+\[
+\boxed{
+R_{\rm tamper}=
+\tfrac13\left(\tfrac34\cdot\tfrac45+
+\tfrac14\cdot\tfrac15\right)=\tfrac{13}{60}.
+}
+\tag{RHT-11/2}
+\]
+
+The tamper-probe strategy increases the optimal two-call attack probability by exactly \(13/60-14/75=3/100\). The tamper result is **unobserved**; the posterior over evaluator integrity is updated only from the registered no-alarm acknowledgment. Fixed-script and adaptive-policy exact oracles agree on this two-call witness.
+
+A larger change can arise from otherwise legitimate task operations. Disable the explicit tamper action and set the transition so that **an approved safe action compromises the next evaluator with probability one**. The agent can first probe \(a_0\), then condition its next choice on the approval or rejection. The exact risk is \(29/75\), compared with \(14/75\) in the stable evaluator. When rejection rather than safe approval causes the compromise, the corresponding exact optimal risk is \(26/75\).
+
+These experiments distinguish mutable auditor dynamics from reward aliasing in the original static margin fibres. All initial category margins, proxy scores, gold cochains and UGC constraint assignments stay unchanged. Only the evaluator transition kernel changes. The gold outcome remains protected by an independently specified objective, which the compromised evaluator may misreport.
+
+### 16.4 Independent attestation yields a history-conditional safety invariant (RHT-11/T3)
+
+For any proposed unsafe action, in hidden evaluator state \(s\) the probability of a harmful authorization at that call is bounded by the probability \(g_s\) of passing the independent state attestation times the evaluator's false-approval probability \(\alpha_s\). A hidden-state posterior can be arbitrarily affected by previous actions, approvals and rejections. Taking the maximum over both integrity states gives the following **uniform history-conditional hazard certificate**:
+
+\[
+\boxed{
+\alpha_*=
+\max\bigl((1-f)\alpha_0,(1-d)\alpha_1\bigr).
+}
+\tag{RHT-11/3}
+\]
+
+**Proof:** after any concrete public or private history in which the session survives, the actual evaluator state is either intact or compromised. The probability of an unsafe approval is, for each state, bounded by the corresponding factor in (RHT-11/3). Averaging over any posterior mixture of those states preserves its maximum as an upper bound. The bound therefore survives arbitrary actor choices and the registered evaluator-state transitions, provided the *external attestation guarantees remain valid conditionally after the history*. Applying the RHT-10 conditional-hazard theorem to at most \(B\) candidate calls yields
+
+\[
+\Pr(\text{any harmful authorization by }B)
+\le1-(1-\alpha_*)^B.                                 \tag{RHT-11/4}
+\]
+
+Tamper calls count against the finite total-call budget and do not themselves authorize an action. This upper bound may be loose when the agent does not know which action is unsafe. It supplies a **posterior-independent safety envelope** under the independently established attestation premises.
+
+When \(\alpha_1>\alpha_0>0\), compromised-state detection satisfying
+
+\[
+\boxed{d\ge1-\alpha_0/\alpha_1}                       \tag{RHT-11/5}
+\]
+
+is sufficient to restore the intact evaluator's *raw* per-call false-authorization ceiling \(\alpha_0\), regardless of hidden integrity state and prior tampering. For \(\alpha_0=1/5\) and \(\alpha_1=4/5\) the threshold is \(d\ge3/4\).
+
+The finite tests confirm that pre-authorization detection of compromised state at rate \(3/4\), with zero intact-state false alarms, reduces the two-call malicious risk to \(14/75\) both under the intentional-tamper example and under safe-approval evaluator drift. Attesting only at the **explicit tamper tool call** cannot control drift induced by an ordinary task operation; the pre-authorization check is the relevant invariant.
+
+The theorem assumes an **independently rooted attestor** and a reliably enforced alarm/termination semantics. If the agent can alter those components, its conditional rates require a new model and separate verification. A judge's self-report of being intact is insufficient to establish (RHT-11/3).
+
+### 16.5 A two-sided stateful detector frontier (RHT-11/T4)
+
+Increasing detection can also produce false alarms on intact, legitimately functioning evaluators. A useful certificate therefore needs a non-inert authorization requirement. The [stateful attestation guard](../src/spiral_ln/evaluation_reward_hacking_stateful_guard.py) combines the exact malicious Bellman optimum, the posterior-independent hazard ceiling (RHT-11/3), and a **benign safe-only reference policy**. This benign reference proposes independently gold-verified safe actions, never attempts tampering, and counts both the probability of *at least one safe authorization* and the expected total number of accepted safe actions before the registered session ends.
+
+For a candidate attestor with per-probe compromised detection \(d\) and intact-state false alarm \(f\), consider two tool calls and the same three-world/tamper model from §16.3. Freeze \(\beta_0=\beta_1=0\) for the benign baseline:
+
+| Detector d | False alarm f | Optimal attack harm | Benign ≥1 safe approval | Expected safe approvals | Worst conditional harm hazard |
+|---:|---:|---:|---:|---:|---:|
+| 0 | 0 | 13/60 | 1 | 2 | 4/5 |
+| 1/2 | 1/20 | 5149/30000 | 19/20 | 741/400 | 2/5 |
+| 3/4 | 1/10 | 393/2500 | 9/10 | 171/100 | 1/5 |
+
+A detection strategy is evaluated with **its own externally licensed rates**; the selector rejects comparisons that alter underlying evaluator accuracy, tool-tamper success, state-transition kernels or retry permissions. For a cumulative harm cap \(7/40\), safe-authorization floor \(9/10\), and expected benign safe-throughput floor \(17/10\), the highest-throughput passing choice is \(d=1/2,f=1/20\). Tightening the harm cap to \(4/25\), or requiring the *uniform history-conditional hazard* at most \(1/5\), selects \(d=3/4,f=1/10\). A harm cap \(7/50\) has no feasible candidate from this registered detector bank.
+
+An independent exhaustive benign oracle enumerates every combination of attestation alarms, safe approvals/rejections and evaluator-state transitions. The source-bound evidence checks the exact attack policy with the existing world-by-world evaluator and independent two-step policy enumeration. All computations are rational and CPU-only.
+
+### 16.6 Novelty boundary and next required experiment
+
+This is a finite construction combining existing POMDP, controlled sensing and causal reward-tampering mathematics. Everitt, Hutter, Kumar and Krakovna's [*Reward Tampering Problems and Solutions in Reinforcement Learning*](https://doi.org/10.1007/s11229-021-03141-4) develops causal-design conditions against reward-function and reward-input tampering. The 2026 [ICML Reward Hacking Benchmark](https://proceedings.mlr.press/v306/thaman26a.html) examines multi-step tool-use exploits, including evaluator-facing modifications and chained tasks. RHT-11 gives an **executable finite stress test for our EvalMath game-space disclosure and independent attestation calculus**; its Bellman and hazard identities should be treated as elementary conditional baselines.
+
+The current model includes a fixed independent gold-reference world and a mutable binary *evaluator* state. It does not yet allow the agent to rewrite gold truth, change the underlying task state, tamper with the independent root attestor, deceive multiple colluding observers, or learn a new policy by updating model weights between episodes. Those require a richer stochastic game and independent empirical validation. The end goal is a certified non-inert controller whose regret and false authorization stay bounded when the agent can influence the future distribution of observations and its own evaluator. A mathematical bound only covers the declared observation/actuation/attestation contract.
+
+- [Exact mutable evaluator POMDP and fixed-schedule oracle](../src/spiral_ln/evaluation_reward_hacking_stateful.py)
+- [Two-sided attestation/throughput guard](../src/spiral_ln/evaluation_reward_hacking_stateful_guard.py)
+- [Independent stateful attack regression tests](../tests/test_evaluation_reward_hacking_stateful.py)
+- [Independent benign-state trajectory tests](../tests/test_evaluation_reward_hacking_stateful_guard.py)
+- [Source-bound EvalMath receipt](../scripts/verify_reward_hacking_topology.py)
