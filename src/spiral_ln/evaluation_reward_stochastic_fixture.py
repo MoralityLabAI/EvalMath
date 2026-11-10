@@ -185,7 +185,7 @@ def time_expanded_support_graph(
     for s,m in enumerate(game.initial):
         if m:
             edges.append(TimedRewardEdge(
-                0,vertex(0,s),Q(0),Q(0),"initial-state"
+                0,vertex(0,s),Q(0),Q(0),"root"
             ))
     for time in range(game.horizon):
         for e in game.edges:
