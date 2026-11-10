@@ -21,6 +21,7 @@ from spiral_ln.evaluation_reward_shared_kernel import (
 from spiral_ln.evaluation_reward_shared_kernel_fixture import (
     rational_proxy_crossing_fixture,
     irrational_proxy_crossing_fixture,
+    ugc_irrational_proxy_crossing_fixture,
     isolated_tangent_proxy_tie_fixture,
     interior_transition_hack_fixture,
     ugc_coupled_shared_transition_fixture,
@@ -145,6 +146,33 @@ def test_irrational_proxy_crossing_is_handled_exactly():
     assert str(cert.worst_transition_probability)==(
         "-1/2 + (1/2)*sqrt(5)"
     )
+
+
+def test_irrational_switch_with_actual_UGC_gold_worlds():
+    game=ugc_irrational_proxy_crossing_fixture()
+    golden=ExactQuadratic(Q(-1,2),Q(1,2),Q(5))
+    fixed=ExactQuadratic(Q(3,4),Q(-1,4),Q(5))
+    robust=ExactQuadratic(Q(3,2),Q(-1,2),Q(5))
+    result=switching_kernel_robust_certificate(game,((Q(1),Q(2)),))
+    assert result.worst_transition_probability==golden
+    assert result.maximum_gold_regret==robust
+    assert result.worst_gold_parameters==(Q(2),)
+    assert result.endpoint_only_max_regret==0
+    assert result.gold_challenger_policy.action==0
+    assert result.proxy_chosen_policy.action==1
+    assert len(result.transition_breakpoints)==3
+    assert len(result.proxy_regions)==2
+    assert not result.isolated_tie_points
+    for p in (Q(0),Q(1,4),Q(1,2),Q(2,3),Q(3,4),Q(1)):
+        expected=(Q(1,2)*p*p if p*p<=1-p else Q(0))
+        values=direct_rational_policy_scan(game,p,(Q(1),))
+        assert values[0]==expected
+        assert values[2]>=0
+    # The uniform reference prior grants gold only in the UGC world
+    # where the declared constraint-satisfaction action is safe.
+    point=switching_kernel_robust_certificate(game,((Q(1),Q(1)),))
+    assert point.maximum_gold_regret==fixed
+    assert point.maximum_gold_regret < result.maximum_gold_regret
 
 
 def test_irrational_switch_gold_uncertainty_vertices():
