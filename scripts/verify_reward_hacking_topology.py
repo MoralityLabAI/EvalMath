@@ -664,6 +664,9 @@ def receipt() -> dict:
     recovered_parabola=two_kernel_semialgebraic_certificate(
         quadratic_parabola_goodhart_fixture(),((Q(1),Q(1)),),
     )
+    recovered_curved=two_kernel_semialgebraic_certificate(
+        curved_proxy_switch_fixture(),((Q(1),Q(1)),),
+    )
     assert cmp_root(quartic.worst_p,isolate((-1,0,0,0,5))[0])==0
     assert cmp_value(quartic.worst_q,AtRoot.constant(Q(1,5)))==0
     assert cmp_root(quartic.maximum_gold_regret.as_root(),
@@ -675,6 +678,8 @@ def receipt() -> dict:
                      quartic_ugc.maximum_gold_regret)==0
     assert cmp_root(recovered_parabola.maximum_gold_regret.as_root(),
                     isolate((-4,0,27))[0])==0
+    assert cmp_root(recovered_curved.maximum_gold_regret.as_root(),
+                    isolate((4,-12,1))[0])==0
 
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
@@ -692,7 +697,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.12",
+        "schema":"RHT-01.13",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -753,6 +758,7 @@ def receipt() -> dict:
                 quartic.maximum_gold_regret,quartic_ugc.maximum_gold_regret
             )==0,
             "RHT18_complete_policy_regression":True,
+            "RHT17_curved_pq_complete_policy_regression":True,
             "exact_gold_regret_cap_passes":quartic.passes,
             "scope":"higher-degree surface rosters are protocol-registered; full adaptive stochastic-policy completeness only on inherited <=2-step wrapper",
         },
