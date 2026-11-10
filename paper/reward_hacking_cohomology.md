@@ -1942,3 +1942,76 @@ The theorem handles **two** globally shared transition parameters, mandatory hor
 - [Synthetic and UGC-grounded parabolic transition fixtures](../src/spiral_ln/evaluation_reward_quadratic_kernel_fixture.py).
 - [Independent ordinary-POMDP and algebraic boundary tests](../tests/test_evaluation_reward_quadratic_kernel.py).
 - [Versioned source-fingerprinted research receipt](../scripts/verify_reward_hacking_topology.py).
+
+
+## 24. Exact univariate semialgebraic certificates for q-affine polynomial proxy surfaces (RHT-19)
+
+RHT-17 and RHT-18 optimize different bounded-degree rational polynomial classes in the globally coupled transition parameters p and q. They can be unified when **all proxy and protected-gold policy surfaces remain affine in q**, while allowing any fixed verified polynomial degree in p. The resulting switching curves may be rational rather than polynomial; the exact extrema can have algebraic degree exceeding two.
+
+### 24.1 Frozen registered-policy contract
+
+Let J be a **complete, externally licensed finite policy roster** for a specified decision protocol; every policy j has rational-polynomial expected returns
+
+\[
+P_j(p,q)=A_j(p)+B_j(p)q,\qquad
+G_j(p,q;\theta)=C_j(p;\theta)+D_j(p;\theta)q.
+\]
+
+The transition parameters are globally shared over the entire trajectory, with \((p,q)\) in a rational closed rectangle contained in \([0,1]^2\). True-gold feature parameters \(\theta\) range over a rational interval box, independently licensed before exposure to actor-selected proxy scores. Every policy surface and gold feature must pass the explicit q-affine grammar check. An externally provided roster certifies only the supplied protocol; the optional RHT-16/18 wrapper enumerates every deterministic observation policy of the existing horizon-at-most-two kernel model.
+
+For each potential proxy winner j, the closed winner region is
+
+\[
+S_j=\{(p,q):P_j(p,q)\ge P_k(p,q)\text{ for all }k\in J\}.
+\]
+
+Adversarial tie-breaking is preserved. Since each inequality is affine in q, its fixed-p fibre is a closed interval (possibly empty or a singleton). Wherever \(B_j-B_k\ne0\), the candidate switching boundary is
+
+\[
+q_{jk}(p)=-\frac{A_j(p)-A_k(p)}{B_j(p)-B_k(p)}.
+\]
+
+An exact p-axis arrangement includes the roots of every denominator, vertical proxy-difference equation, pairwise curve-crossing equation, and boundary-box intersection. Ratios are normalized by polynomial gcd, and all roots are isolated with **rational Sturm sequences**, retaining isolated zero-area ties.
+
+### 24.2 Exact rational-function extremum theorem (RHT-19/T1)
+
+**Theorem.** Under the registered-policy and polynomial grammar contracts, the worst expected gold-selection regret, the guaranteed true-gold floor among proxy winners, and the full proxy-minus-gold discrepancy width admit finite exact algebraic certificates, including attaining algebraic parameter witnesses.
+
+**Derivation.** The maximum over the independently licensed gold-parameter box occurs at a vertex because each fixed-policy gold difference is affine in \(\theta\). On each exact winner strip, the gold objective is affine in q, hence attains its extremum at the active upper/lower rational boundary \(q=n(p)/d(p)\). Substitution gives a rational function \(H(p)=N(p)/D(p)\), with all interior extrema among roots of
+
+\[
+\boxed{N'(p)D(p)-N(p)D'(p)=0.}
+\tag{RHT-19/1}
+\]
+
+The strip endpoints and *every exact vertical slice* are evaluated separately, including policies optimal only on lower-dimensional tie sets. A fixed-degree real-root isolation, exact polynomial signs at algebraic roots, and exact algebraic-value comparison exhaust the candidates. The concrete implementation uses rational interval refinement, polynomial gcd equality checks, and a resultant to isolate the value polynomial when distinct parameter witnesses yield values that cannot be ordered by simple disjoint rational bounds.
+
+Its safety comparison uses exact signs against licensed rational caps. Exhausting a root, comparison, or policy-pair budget raises an error. No floating-point approximation participates in certification.
+
+### 24.3 Higher-degree parabolic Goodhart family
+
+Consider a frozen two-action protocol in which the protected policy earns proxy \(p^d\) from \(d\) globally shared Bernoulli(p) successes and earns independent true gold \(\theta p(1-q)\). The alternative earns proxy q and zero gold; adversarial selection chooses it on \(q\ge p^d\). For \(d\ge2\),
+
+\[
+R_d(p)=\theta(p-p^{d+1}),\qquad
+p_\star=(d+1)^{-1/d},\quad q_\star=(d+1)^{-1},\quad
+\boxed{R_{\max}=\frac{\theta d}{(d+1)^{1+1/d}}}.
+\tag{RHT-19/2}
+\]
+
+Every parameter-box corner yields zero proxy-selection regret. At \(\theta=1,d=4\), the exact witness is \(p_\star=5^{-1/4}\), \(q_\star=1/5\) and the maximum regret is \(4/5^{5/4}\), the positive root of
+
+\[
+\boxed{3125R^4-256=0.}
+\tag{RHT-19/3}
+\]
+
+The RHT-19 tests check this value via exact algebraic root comparison, cross-check Bernoulli-tree expectations with an independent rational enumeration, and recover RHT-18's parabolic quadratic result through the existing complete two-step observation-policy census. The UGC reference fixture reuses the two reachable \(\mathbb{F}_2\) constraint-satisfaction worlds of RHT-08: only one carries protected gold. With that world prior of 1/2 and \(\theta\in[1,2]\), the sharp maximum occurs at \(\theta=2\) and agrees with the unscaled \(\theta=1\) fixture. A third policy with proxy \((p^d+q)/2\) certifies tie-only parabolic winner regions.
+
+### 24.4 Scope and open problems
+
+The solver accepts *explicit finite rational polynomial policy surfaces* that are affine in q. Its high-degree fixtures describe fully enumerated two-action **first-choice** protocols; they do not establish completeness over every observation-adaptive policy of a d-step POMDP. The stochastic RHT-16/18 wrapper retains horizon at most two and independently checks the inherited kernel grammar and complete policy enumeration. Future work must extend the typed stochastic model, its complete policy census, and the independently licensed gold reference to deeper horizons. A general q² and mixed high-degree polynomial grammar would require bivariate semialgebraic decomposition or a separate sound optimization reduction. These symbolic checks are conditional on accurate, externally registered gold; they are not empirical model-alignment guarantees.
+
+- [RHT-19 exact univariate semialgebraic root and policy-region solver](../src/spiral_ln/evaluation_reward_semialgebraic_kernel.py).
+- [Higher-degree and UGC-grounded policy-surface fixtures](../src/spiral_ln/evaluation_reward_semialgebraic_fixture.py).
+- [Independent algebraic, Bernoulli-tree and inherited RHT-18 regression tests](../tests/test_evaluation_reward_semialgebraic_kernel.py).
