@@ -206,3 +206,48 @@ def isolated_tangent_proxy_tie_fixture(*,interval=(Q(0),Q(1))):
         gold_parameters=("true_good",),
         parameter_interval=interval,edges=tuple(edges),horizon=2
     )
+
+
+
+def ugc_irrational_proxy_crossing_fixture(*,interval=(Q(0),Q(1))):
+    """Two actual F2 K2,2 gold-reference worlds, quadratic proxy switch.
+
+    This freezes the same two one-hot UGC worlds as RHT-14. The protected
+    action succeeds after two Bernoulli(p) events, earns proxy 1 in either
+    UGC world, and earns protected gold only in world 1 where action zero
+    is actually safe under the registered UGC satisfaction grammar.
+
+    The competing action receives proxy 1 with probability 1-p and
+    protected gold 0. The proxy switch occurs at (sqrt(5)-1)/2;
+    protected gold expectation is (theta/2)*p^2 under the uniform prior.
+    """
+    ugc=one_hot_ugc_disclosure_game(2)
+    assert ugc.unsafe(0,0) and not ugc.unsafe(1,0)
+    edges=[]
+    def add(s,a,t,o,base,slope=0,proxy=0,gold=0):
+        edges.append(SharedTransitionEdge(
+            s,a,t,o,Q(base),Q(slope),Q(proxy),
+            gold_coefficients=(Q(gold),)
+        ))
+    for w in (0,1):
+        for a in (0,1):
+            if a==0:
+                add(w,a,2+w,"A:first-pass",0,1)
+                add(w,a,4,"A:first-fail",1,-1)
+            else:
+                add(w,a,4,"B:paid",1,-1,proxy=1)
+                add(w,a,4,"B:zero",0,1)
+    for a in (0,1):
+        for w in (0,1):
+            add(2+w,a,4,"A:second-pass",0,1,proxy=1,
+                gold=int(not ugc.unsafe(w,0)))
+            add(2+w,a,4,"A:second-fail",1,-1)
+        add(4,a,4,"idle",1)
+    return SharedTransitionGame(
+        state_count=5,
+        actions=("UGC_two_step_gold","instant_proxy"),
+        initial=(Q(1,2),Q(1,2),Q(0),Q(0),Q(0)),
+        gold_parameters=("UGC_safe_approval_gold",),
+        parameter_interval=interval,
+        edges=tuple(edges),horizon=2
+    )
