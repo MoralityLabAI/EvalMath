@@ -89,11 +89,12 @@ def test_switching_diagonal_interior_regret_and_endpoint_miss():
         game,((1,1),),maximum_allowed_regret=Q(1,5)
     ).passes
     assert len(cert.winning_polygons)==6
+    policies=enumerate_observation_policies(game)
     assert any(
-        (Q(1,2),Q(1,2)) in tuple(
-            tuple(v) for v in (cert.worst_transition_parameters,)
-        )
-        for _,poly in cert.winning_polygons if poly
+        policies[i].action==1 and set(poly)=={
+            (Q(0),Q(0)),(Q(0),Q(1)),(Q(1),Q(1))
+        }
+        for i,poly in cert.winning_polygons
     )
     assert all(
         all(0<=x<=1 and 0<=y<=1 for x,y in poly)
