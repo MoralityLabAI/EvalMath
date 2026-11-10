@@ -1,0 +1,430 @@
+{
+  "alpha": "1/4",
+  "controller": "attestation_evidence_gate",
+  "schema": "rhc02_family_minimax_witnesses_v1",
+  "scopes": {
+    "attempts": {
+      "endpoint": {
+        "detector": [
+          "1/4",
+          "1/4",
+          "1/4"
+        ],
+        "families": [
+          "adaptive_feedback",
+          "dispatch",
+          "epoch_binding",
+          "evidence_routing",
+          "handoff",
+          "identity_binding",
+          "partial_observability",
+          "persistence",
+          "persistent_memory",
+          "provenance",
+          "quorum",
+          "retry_pressure",
+          "surface_pressure"
+        ],
+        "mixture": [
+          "5/12",
+          "0",
+          "7/24",
+          "0",
+          "7/24",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "signals": [
+          "('O', 'D', 'escalate')",
+          "('O', 'D', 'remove')",
+          "('O', 'D', 'retain')"
+        ],
+        "threshold": "1"
+      },
+      "full_route_oracle": {
+        "detector": [
+          "1",
+          "1",
+          "0",
+          "0",
+          "1",
+          "1",
+          "1/65",
+          "1",
+          "1",
+          "33/65",
+          "33/65",
+          "1",
+          "1",
+          "1",
+          "1",
+          "0",
+          "33/65",
+          "33/65",
+          "1/65"
+        ],
+        "families": [
+          "adaptive_feedback",
+          "dispatch",
+          "epoch_binding",
+          "evidence_routing",
+          "handoff",
+          "identity_binding",
+          "partial_observability",
+          "persistence",
+          "persistent_memory",
+          "provenance",
+          "quorum",
+          "retry_pressure",
+          "surface_pressure"
+        ],
+        "mixture": [
+          "5/39",
+          "0",
+          "14/195",
+          "10/39",
+          "0",
+          "28/195",
+          "0",
+          "10/39",
+          "0",
+          "0",
+          "28/195",
+          "0",
+          "0"
+        ],
+        "signals": [
+          "('escalate', 'OMRAD')",
+          "('escalate', 'OPMRAD')",
+          "('escalate', 'OPRAD')",
+          "('escalate', 'OPRD')",
+          "('escalate', 'ORAD')",
+          "('escalate', 'ORAMD')",
+          "('remove', 'OMRD')",
+          "('remove', 'OPD')",
+          "('remove', 'OPMD')",
+          "('remove', 'OPMRD')",
+          "('remove', 'OPRD')",
+          "('retain', 'OHPD')",
+          "('retain', 'OHPRD')",
+          "('retain', 'OHPRQD')",
+          "('retain', 'OMRD')",
+          "('retain', 'OPRAD')",
+          "('retain', 'OPRAQD')",
+          "('retain', 'OPRAQMD')",
+          "('retain', 'OPRQD')"
+        ],
+        "threshold": "16/13"
+      },
+      "full_width_edge": {
+        "detector": [
+          "1/4",
+          "1"
+        ],
+        "families": [
+          "adaptive_feedback",
+          "dispatch",
+          "epoch_binding",
+          "evidence_routing",
+          "handoff",
+          "identity_binding",
+          "partial_observability",
+          "persistence",
+          "persistent_memory",
+          "provenance",
+          "quorum",
+          "retry_pressure",
+          "surface_pressure"
+        ],
+        "mixture": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "signals": [
+          "0",
+          "1"
+        ],
+        "threshold": "1"
+      },
+      "visible_edge": {
+        "detector": [
+          "1/4",
+          "1"
+        ],
+        "families": [
+          "adaptive_feedback",
+          "dispatch",
+          "epoch_binding",
+          "evidence_routing",
+          "handoff",
+          "identity_binding",
+          "partial_observability",
+          "persistence",
+          "persistent_memory",
+          "provenance",
+          "quorum",
+          "retry_pressure",
+          "surface_pressure"
+        ],
+        "mixture": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "signals": [
+          "0",
+          "1"
+        ],
+        "threshold": "1"
+      },
+      "visible_route": {
+        "detector": [
+          "1",
+          "1",
+          "0",
+          "0",
+          "1",
+          "1",
+          "0",
+          "1",
+          "1",
+          "60/131",
+          "60/131",
+          "1",
+          "1",
+          "0",
+          "60/131",
+          "60/131",
+          "1",
+          "60/131"
+        ],
+        "families": [
+          "adaptive_feedback",
+          "dispatch",
+          "epoch_binding",
+          "evidence_routing",
+          "handoff",
+          "identity_binding",
+          "partial_observability",
+          "persistence",
+          "persistent_memory",
+          "provenance",
+          "quorum",
+          "retry_pressure",
+          "surface_pressure"
+        ],
+        "mixture": [
+          "25/131",
+          "0",
+          "14/131",
+          "50/131",
+          "0",
+          "28/131",
+          "0",
+          "0",
+          "0",
+          "0",
+          "14/131",
+          "0",
+          "0"
+        ],
+        "signals": [
+          "('escalate', 'OMRAD')",
+          "('escalate', 'OPMRAD')",
+          "('escalate', 'OPRAD')",
+          "('escalate', 'OPRD')",
+          "('escalate', 'ORAD')",
+          "('escalate', 'ORAMD')",
+          "('remove', 'OMRD')",
+          "('remove', 'OPD')",
+          "('remove', 'OPMD')",
+          "('remove', 'OPMRD')",
+          "('remove', 'OPRD')",
+          "('retain', 'OMRD')",
+          "('retain', 'OPD')",
+          "('retain', 'OPRAD')",
+          "('retain', 'OPRAQD')",
+          "('retain', 'OPRAQMD')",
+          "('retain', 'OPRD')",
+          "('retain', 'OPRQD')"
+        ],
+        "threshold": "240/131"
+      }
+    },
+    "successful": {
+      "endpoint": {
+        "detector": [
+          "1/4"
+        ],
+        "families": [
+          "epoch_binding",
+          "identity_binding",
+          "partial_observability",
+          "persistence",
+          "quorum"
+        ],
+        "mixture": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "signals": [
+          "('O', 'D', 'retain')"
+        ],
+        "threshold": "1"
+      },
+      "full_route_oracle": {
+        "detector": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "0",
+          "5/12",
+          "5/12",
+          "0"
+        ],
+        "families": [
+          "epoch_binding",
+          "identity_binding",
+          "partial_observability",
+          "persistence",
+          "quorum"
+        ],
+        "mixture": [
+          "1/3",
+          "2/3",
+          "0",
+          "0",
+          "0"
+        ],
+        "signals": [
+          "('retain', 'OHPD')",
+          "('retain', 'OHPRD')",
+          "('retain', 'OHPRQD')",
+          "('retain', 'OMRD')",
+          "('retain', 'OPRAD')",
+          "('retain', 'OPRAQD')",
+          "('retain', 'OPRAQMD')",
+          "('retain', 'OPRQD')"
+        ],
+        "threshold": "5/3"
+      },
+      "full_width_edge": {
+        "detector": [
+          "1/4",
+          "1"
+        ],
+        "families": [
+          "epoch_binding",
+          "identity_binding",
+          "partial_observability",
+          "persistence",
+          "quorum"
+        ],
+        "mixture": [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        "signals": [
+          "0",
+          "1"
+        ],
+        "threshold": "1"
+      },
+      "visible_edge": {
+        "detector": [
+          "1/4",
+          "1"
+        ],
+        "families": [
+          "epoch_binding",
+          "identity_binding",
+          "partial_observability",
+          "persistence",
+          "quorum"
+        ],
+        "mixture": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        "signals": [
+          "0",
+          "1"
+        ],
+        "threshold": "1"
+      },
+      "visible_route": {
+        "detector": [
+          "1",
+          "1",
+          "0",
+          "5/16",
+          "5/16",
+          "1",
+          "5/16"
+        ],
+        "families": [
+          "epoch_binding",
+          "identity_binding",
+          "partial_observability",
+          "persistence",
+          "quorum"
+        ],
+        "mixture": [
+          "1/4",
+          "1/2",
+          "0",
+          "0",
+          "1/4"
+        ],
+        "signals": [
+          "('retain', 'OMRD')",
+          "('retain', 'OPD')",
+          "('retain', 'OPRAD')",
+          "('retain', 'OPRAQD')",
+          "('retain', 'OPRAQMD')",
+          "('retain', 'OPRD')",
+          "('retain', 'OPRQD')"
+        ],
+        "threshold": "5/4"
+      }
+    }
+  },
+  "solver_note": "Candidates discovered with scipy HiGHS; final exact primal and dual certificates are independently checked with Fraction; scipy is not required to verify"
+}

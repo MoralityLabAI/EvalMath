@@ -69,6 +69,14 @@ and `PYTHONPATH=src python scripts/verify_cryptomania_audit.py`.
 
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
+**RHC-02 (2026-11-10):** [frozen MeshEscapePit trajectory replay](paper/reward_hacking_trajectory_replay.md)
+checks exact finite ROC and worst-family minimax detection on 35 scripted cards across eight controllers.
+At 25% expected FPR, attestation-gate visible-route family power is **60/131** and oracle full-route
+power is **33/65**, each with a matching rational primal/dual witness. A family-blocked single-edge
+probe reaches only **9/32**. The case projection is source-blob pinned; no live-agent claim.
+Run `PYTHONPATH=src python -m pytest -q tests/test_evaluation_reward_hacking_trajectories.py`
+and `python scripts/check_receipts.py --only rhc02`.
+
 **RHC-01 (2026-11-10):** [reward-hacking detection bootstrap ceiling](paper/reward_hacking_bootstrap.md)
 gives an exact finite minimax/LP dual, a unique rational primal-dual witness at 25% FPR,
 and a diamond-graph cohomological blind spot repaired by a cycle-sensitive observable.
