@@ -41,6 +41,8 @@ RECEIPTS = {
               "output/reward_hacking_bootstrap/rhc01_v0_1.json", [], False),
     "rhc02": ("scripts/verify_reward_hacking_trajectories.py",
               "output/reward_hacking_bootstrap/rhc02_v0_1.json", [], False),
+    "rhc03": ("scripts/verify_reward_hacking_prospective.py",
+              "output/reward_hacking_bootstrap/rhc03_v0_1.json", [], False),
     "design_calculus": ("scripts/verify_evaluation_design_calculus.py",
                         "output/evaluation_design_calculus/v0_verification.json", [], False),
     "prime_atlas": ("scripts/verify_prime_eval_atlas.py",
