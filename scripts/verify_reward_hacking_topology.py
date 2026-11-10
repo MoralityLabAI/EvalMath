@@ -53,6 +53,10 @@ from spiral_ln.evaluation_reward_hacking_stateful_guard import (
     choose_stateful_attestor,benign_stateful_profile,
     required_preprobe_detection_for_baseline_hazard,
 )
+from spiral_ln.evaluation_reward_transition_closure import (
+    TimedRewardEdge,TimedRewardGame,certify_relative_reward,
+    robust_transition_certify,
+)
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -77,6 +81,7 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_hacking_retry_guard.py",
     "src/spiral_ln/evaluation_reward_hacking_stateful.py",
     "src/spiral_ln/evaluation_reward_hacking_stateful_guard.py",
+    "src/spiral_ln/evaluation_reward_transition_closure.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -90,6 +95,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_hacking_retry_guard.py",
     "tests/test_evaluation_reward_hacking_stateful.py",
     "tests/test_evaluation_reward_hacking_stateful_guard.py",
+    "tests/test_evaluation_reward_transition_closure.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -357,6 +363,34 @@ def receipt() -> dict:
     assert selected_strong.attack_harm==Q(393,2500)
     assert selected_strong.benign_expected_safe_authorizations==Q(171,100)
 
+    time_game=TimedRewardGame(
+        layers=(0,1,1,2,2),start=0,terminals=(3,4),
+        edges=(
+            TimedRewardEdge(0,1,Q(0),Q(0),"remain-intact"),
+            TimedRewardEdge(0,2,Q(0),Q(0),"compromise-evaluator"),
+            TimedRewardEdge(1,3,Q(2),Q(2),"intact-safe"),
+            TimedRewardEdge(1,4,Q(0),Q(1),"intact-bad"),
+            TimedRewardEdge(2,3,Q(2),Q(0),"corrupt-good-underreported"),
+            TimedRewardEdge(2,4,Q(0),Q(3),"corrupt-bad-overreported"),
+        )
+    )
+    time_cert=certify_relative_reward(time_game)
+    assert not time_cert.relative_exact
+    assert (time_cert.minimum_discrepancy,time_cert.maximum_discrepancy)==(
+        Q(-2),Q(3)
+    )
+    assert time_cert.discrepancy_width==5
+    assert time_cert.worst_proxy_selected_regret==2
+    assert time_cert.sum_absolute_fundamental_periods>=5
+    uncertainty=robust_transition_certify(
+        time_game,(0,0,1,0,1,0),(0,0,3,0,3,0),
+        maximum_allowed_regret=3,minimum_required_true_return=0
+    )
+    assert uncertainty.maximum_width==6
+    assert uncertainty.maximum_proxy_regret==3
+    assert uncertainty.guaranteed_proxy_gold_floor==0
+    assert uncertainty.passes
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -373,7 +407,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.6",
+        "schema":"RHT-01.7",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -419,6 +453,32 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "time_expanded_relative_reward":{
+            "vertices":len(time_game.layers),
+            "transition_edges":len(time_game.edges),
+            "completed_paths":len(time_game.complete_paths()),
+            "nominal_relative_exact":time_cert.relative_exact,
+            "nominal_discrepancy_width":str(time_cert.discrepancy_width),
+            "nominal_proxy_selection_regret":str(
+                time_cert.worst_proxy_selected_regret
+            ),
+            "nominal_fundamental_periods":[
+                [i,str(p)] for i,p in time_cert.fundamental_periods
+            ],
+            "sum_absolute_fundamental_periods":str(
+                time_cert.sum_absolute_fundamental_periods
+            ),
+            "uncertain_gold":{
+                "licence":"independent [1,3] per good-outcome edge, fixed zero elsewhere",
+                "maximum_discrepancy_width":str(uncertainty.maximum_width),
+                "maximum_proxy_regret":str(uncertainty.maximum_proxy_regret),
+                "gold_floor":str(uncertainty.guaranteed_proxy_gold_floor),
+                "robust_certificate_passed":uncertainty.passes,
+                "product_DP_states":uncertainty.states_visited,
+                "gold_witness":[str(v) for v in uncertainty.witness_gold_rewards],
+            },
+            "scope":"all productive complete paths, true reward externally specified, deterministic support graph, no state probabilities",
         },
         "mutable_reward_evaluator":{
             "gold_worlds":3,
