@@ -219,8 +219,8 @@ def test_expected_martingale_coboundary_allows_nonzero_pathwise_cycles():
     assert cert.valid
     assert cert.expected_gap_all_fixed_horizon_policies==0
     assert cert.first_action_inconsistency is None
-    all_proxy=optimize_stochastic_policy(game,(0,),"gap_max")
-    all_gold=optimize_stochastic_policy(game,(0,),"gap_min")
+    all_proxy=optimize_stochastic_policy(game,(0,),objective="gap_max")
+    all_gold=optimize_stochastic_policy(game,(0,),objective="gap_min")
     assert all_proxy.proxy_return-all_proxy.gold_return==0
     assert all_gold.proxy_return-all_gold.gold_return==0
     robust=stochastic_robust_certificate(game,((0,0),))
@@ -303,7 +303,7 @@ def test_random_small_stochastic_models_brute_two_step_vs_Bellman():
         assert optimal.gold_return==min(g for p,g,_,_ in truth
                                        if p==optimal.proxy_return)
         assert optimize_stochastic_policy(
-            game,theta,"gold_max"
+            game,theta,objective="gold_max"
         ).gold_return==max(g for _,g,_,_ in truth)
 
 
