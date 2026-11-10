@@ -1378,3 +1378,123 @@ The current exact solver assumes a *single scalar affine transition parameter*, 
 - [UGC hidden-world and interior-maximum fixtures](../src/spiral_ln/evaluation_reward_shared_kernel_fixture.py).
 - [Independent exact occupancy and negative-control tests](../tests/test_evaluation_reward_shared_kernel.py).
 - [Source-bound RHT research receipt](../scripts/verify_reward_hacking_topology.py).
+
+
+## 20. Switching proxy policies: exact algebraic parameter regions (RHT-15)
+
+**2026-11-10 | exact finite two-step theorem and polynomial partition solver.** RHT-14 treats one globally shared uncertain transition probability \(p\) and correctly finds interior maxima in a gold-regret polynomial, provided one set of proxy-optimal policies stays constant throughout the licensed interval. An adversarially optimized evaluator often chooses **different policies at different transition probabilities**. This section resolves that omitted case for the same finite one-parameter, two-step observation-policy grammar, including irrational crossings and policies which tie at a single isolated parameter value.
+
+### 20.1 The exact proxy-optimality arrangement
+
+Let \(\Pi\) be all deterministic observation-adapted policies in the declared two-step grammar. The stochastic kernel is affine in one shared \(p\in I=[p_-,p_+]\subseteq[0,1]\) and normalized for every hidden state/action. Its proxy and protected gold returns are rational polynomials
+
+\[
+\widehat J_\pi(p)\in\mathbb Q[p]_{\le 2},\qquad
+J_{\pi,\theta}(p)\in\mathbb Q[p]_{\le 2},
+\]
+
+with \(J_{\pi,\theta}\) affine in independently licensed global gold parameters \(\theta\in\Theta=\prod_j[\ell_j,u_j]\).
+
+For every two **distinct proxy polynomials**, collect all real roots in \(I\) of their difference. Add \(p_-\) and \(p_+\), then order the distinct algebraic values
+
+\[
+p_-=r_0<r_1<\cdots<r_m=p_+.
+\]
+
+Every open interval \(I_k=(r_k,r_{k+1})\) admits one *fixed* proxy-optimal policy set \(W_k\subseteq\Pi\). The sign of every pairwise proxy-polynomial difference stays constant there. One interior rational sample therefore identifies the entire \(W_k\) exactly.
+
+**The boundary is part of the policy problem.** At each \(r_k\), compute the full set \(W(r_k)=\arg\max_\pi\widehat J_\pi(r_k)\), including policies that are optimal **only at that single parameter** because they touch the upper envelope tangentially. A test based solely on the sets \(W_k\) would miss those isolated adverse tie-breaks.
+
+### 20.2 Exact switching robust-regret theorem (RHT-15/T1)
+
+For a fixed \(p\), nature's gold-reward regret under adversarial proxy tie-breaking is
+
+\[
+R(p,\theta)=
+\max_{\pi\in\Pi}J_{\pi,\theta}(p)
+-\min_{\widehat\pi\in W(p)}J_{\widehat\pi,\theta}(p).
+\]
+
+The exact robust maximum over **all** proxy switches and all licensed gold uncertainty is
+
+\[
+\boxed{
+R_{\rm rob}=\max_{\theta\in\operatorname{Vert}(\Theta)}
+\max_{\substack{i\in\Pi\\j\in W(p)}}\;
+\max_{p\in I}
+\left[J_{i,\theta}(p)-J_{j,\theta}(p)\right].
+}
+\tag{RHT-15/1}
+\]
+
+The right-hand expression is implemented by splitting its index-\(j\) eligibility into the closed cells \([r_k,r_{k+1}]\) on which \(j\in W_k\), plus **all singleton boundary points** at which \(j\in W(r_k)\). Every maximum over a closed cell then occurs at one of its two algebraic endpoints or an interior stationary point of the quadratic gold-difference polynomial.
+
+**Proof.** At any fixed \(p\), the set \(W(p)\) depends only on the registered proxy reward and stochastic kernel, and is independent of \(\theta\). Thus \(R(p,\theta)\) is the maximum of finitely many functions affine in \(\theta\), so its maximum over \(\Theta\) is attained at a vertex. Every fixed policy's expected return is a quadratic polynomial in \(p\), giving the exact proxy-root decomposition. On an open region, pairwise proxy order is fixed. A proxy winner remains optimal on both adjacent endpoints by continuity, while a policy optimal at an isolated crossing is included directly by \(W(r_k)\). The quadratic-extremum theorem on each closed region gives an endpoint or stationary point. Taking the maximum across these finite candidates exhausts the entire compact parameter interval.
+
+The same rational/algebraic candidate set computes (i) the **minimum true gold return across all proxy-selected policies**, and (ii) the maximum expected proxy-minus-gold gap width across **all** policies. For the latter, proxy-winner regions are irrelevant, because each policy pair's gap difference is a quadratic over the entire interval. Therefore
+
+\[
+0\le R_{\rm rob}\le
+W_{\rm rob}=
+\max_{\substack{\theta\in\operatorname{Vert}(\Theta)\\i,j\in\Pi\\p\in I}}
+\left[(\widehat J_i-J_{i,\theta})
+-(\widehat J_j-J_{j,\theta})\right](p).
+\tag{RHT-15/2}
+\]
+
+A two-sided gate passes only if the exact regret is below a declared risk cap and the guaranteed minimum proxy-chosen gold return meets a declared progress floor.
+
+### 20.3 Quadratic-irrational parameters require exact comparisons
+
+If two proxy polynomials differ by \(a p^2+b p+c\), their crossings can occur at
+
+\[
+p=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+\]
+
+These numbers need not be rational. The new [algebraic switching oracle](../src/spiral_ln/evaluation_reward_kernel_switching.py) represents exact values by \(r+s\sqrt d\), for rational \(r,s,d\ge0\), and compares candidate roots and reward values by exact rational sign/square tests. When two radical terms have opposing signs, comparing their squared magnitudes reduces to the sign of another single-radical expression; the implementation uses this to avoid numerical root approximations in soundness decisions.
+
+Open regions are sampled using a dyadic rational **provably between** their algebraic endpoints. The calculation stops with a resource-limit error if a certified dyadic separator cannot be produced inside its declared bit budget. The solver separately caps policy enumeration, pairwise proxy comparisons, algebraic breakpoints and reward-pair checks. In all cases, budget exhaustion is reported as incomplete analysis rather than a safety pass.
+
+### 20.4 Rational switching, irrational switching and isolated harmful ties
+
+**Rational crossing:** in a one-step instance, action A gets proxy and true reward \(\theta\) only on a Bernoulli(\(p\)) success, while B gets a proxy point with probability \(1-p\) and gold zero. The proxy prefers B for \(p<1/2\) and A for \(p>1/2\). At \(p=1/2\) the actor may break the proxy tie toward B, giving exact protected gold regret \(\theta/2\). With \(\theta=1\),
+
+\[
+\boxed{R_{\max}=1/2 \text{ at }p=1/2,\qquad R(0)=R(1)=0.}
+\tag{RHT-15/3}
+\]
+
+**Irrational crossing:** a protected action receives proxy and gold when two shared-\(p\) Bernoulli trials **both succeed**, giving expected \(p^2\). A proxy-only action earns one proxy point with probability \(1-p\), with no true gold. Their proxy rewards tie when \(p^2=1-p\), at
+
+\[
+p_\star=\frac{\sqrt5-1}{2}.
+\]
+
+Below \(p_\star\), the actor prefers the low-gold proxy action; above it, the actor prefers the protected action. The maximum gold regret occurs **exactly at the irrational tie**:
+
+\[
+\boxed{
+R_{\max}=p_\star^2=\frac{3-\sqrt5}{2}
+\approx0.381966,
+\quad R(0)=R(1)=0.
+}
+\tag{RHT-15/4}
+\]
+
+The exact certificate returns both \(p_\star\) and \(R_{\max}\) symbolically. With an independently licensed protected-reward multiplier \(\theta\in[1,2]\), the robust maximum becomes \(3-\sqrt5\), attained at \(\theta=2\).
+
+**Isolated tangency:** let a protected good action have fixed proxy and gold returns both equal to 1. A zero-gold alternative receives proxy \(3/4+p(1-p)=1-(p-1/2)^2\). The good action wins the proxy comparison on every open interval, while the zero-gold action **ties only at** \(p=1/2\). The adversarial tie gives gold regret 1 at this one isolated point, and zero regret at every other parameter. The exact solver includes the tangent-only policy in the boundary winner set. This is an important negative control for regional analyses that discard isolated measure-zero events when the certificate claims a **worst-case**, rather than a distribution-averaged, safety guarantee.
+
+The existing RHT-14 constant-winner fixtures are reproduced exactly by the new region solver, and RHT-14's deliberately rejected switching fixture now receives a proper full-interval analysis.
+
+### 20.5 Mathematical scope and next research work
+
+This package makes an exact, small result about **one shared affine transition parameter and horizon at most two**. Policy enumeration and pairwise quadratic comparisons can be exponential in the observation grammar. Multiple shared kernel parameters, longer histories, gold uncertainty that also changes the transition kernel, adversarially observable audit metadata and learned state representations demand more powerful semialgebraic verification methods.
+
+The region-partition principle is established in parametric verification. See [*Parameter synthesis for Markov models: covering the parameter space* (2023)](https://link.springer.com/article/10.1007/S10703-023-00442-X), [PRISM's parametric model checking manual](https://www.prismmodelchecker.org/manual/RunningPRISM/ParametricModelChecking), and [Chi et al. (2026), *PAC Approximation and DIRECT Optimization for Parametric Markov Models*](https://arxiv.org/abs/2608.02184), which explicitly studies difficulties arising when optimal policies vary across the parameter space. RHT-15's contribution is an executable exact-algebraic certificate for **gold-regret under adversarial proxy tie-breaking** in EvalMath's typed, globally coupled reward/transition grammar. It neither asserts a new general parametric-MDP theorem nor certifies the values of a real learned judge.
+
+- [Exact crossing, isolated-tie and robust-return optimizer](../src/spiral_ln/evaluation_reward_kernel_switching.py)
+- [Rational/irrational/tangent source fixtures](../src/spiral_ln/evaluation_reward_shared_kernel_fixture.py)
+- [Independent ordinary-POMDP and algebraic-root tests](../tests/test_evaluation_reward_kernel_switching.py)
+- [Versioned source-fingerprinted receipt](../scripts/verify_reward_hacking_topology.py)
