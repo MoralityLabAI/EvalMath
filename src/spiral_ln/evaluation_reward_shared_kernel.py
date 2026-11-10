@@ -203,9 +203,21 @@ def enumerate_observation_policies(game:SharedTransitionGame,*,max_policies=2000
         raise ValueError("positive policy census budget required")
     bank=game.by_state_action()
     policies=[]
+    global_responses={
+        action:tuple(sorted({
+            e.observation for state in range(game.state_count)
+            for e in bank[state,action]
+        }))
+        for action in range(len(game.actions))
+    }
+    def final_step(action):
+        return ObservationPolicy(
+            action,tuple((o,ObservationPolicy())
+                         for o in global_responses[action])
+        )
     for first in range(len(game.actions)):
         if game.horizon==1:
-            policies.append(ObservationPolicy(first,(("terminal",ObservationPolicy()),)))
+            policies.append(final_step(first))
             continue
         responses=tuple(sorted({
             e.observation
@@ -214,7 +226,7 @@ def enumerate_observation_policies(game:SharedTransitionGame,*,max_policies=2000
         }))
         for choices in product(range(len(game.actions)),repeat=len(responses)):
             branches=tuple(
-                (obs,ObservationPolicy(a)) for obs,a in zip(responses,choices)
+                (obs,final_step(a)) for obs,a in zip(responses,choices)
             )
             policies.append(ObservationPolicy(first,branches))
             if len(policies)>max_policies:
