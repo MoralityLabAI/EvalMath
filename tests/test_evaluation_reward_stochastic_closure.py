@@ -12,7 +12,7 @@ from spiral_ln.evaluation_reward_stochastic_closure import (
 )
 from spiral_ln.evaluation_reward_stochastic_fixture import (
     evaluator_pomdp,fair_martingale_noise_game,biased_reward_signal_game,
-    time_expanded_support_graph
+    time_expanded_support_graph,reward_source_identity_fixture
 )
 from spiral_ln.evaluation_reward_hacking_stateful import MutableEvaluator
 from spiral_ln.evaluation_reward_transition_closure import (
@@ -282,6 +282,27 @@ def test_expected_shaping_constant_can_be_nonzero():
     assert stochastic_robust_certificate(
         g,((0,0),)
     ).robust_policy_discrepancy_width==0
+
+
+def test_global_gold_parameter_identity_removes_spurious_robust_regret():
+    shared=reward_source_identity_fixture(share_gold=True)
+    separate=reward_source_identity_fixture(share_gold=False)
+    same=stochastic_robust_certificate(shared,((0,10),))
+    split=stochastic_robust_certificate(separate,((0,10),(0,10)))
+    assert same.robust_max_regret==0
+    assert same.robust_policy_discrepancy_width==0
+    assert same.guaranteed_proxy_gold_floor==0
+    assert same.reward_interval_vertices_checked==2
+    assert split.robust_max_regret==20
+    assert split.robust_policy_discrepancy_width==20
+    assert split.reward_interval_vertices_checked==4
+    assert expected_markov_coboundary(shared,(Q(5),)).valid
+    assert not expected_markov_coboundary(separate,(Q(0),Q(10))).valid
+    # With shared gold=5, every policy earns exactly 10 gold units,
+    # regardless of its two actions or the observable A/B labels.
+    assert optimize_stochastic_policy(
+        shared,(Q(5),),objective="gold_max"
+    ).gold_return==10
 
 
 def test_random_small_stochastic_models_brute_two_step_vs_Bellman():
