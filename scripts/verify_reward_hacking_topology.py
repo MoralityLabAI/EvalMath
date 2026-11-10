@@ -78,6 +78,7 @@ from spiral_ln.evaluation_reward_kernel_switching import (
 from spiral_ln.evaluation_reward_shared_kernel_fixture import (
     rational_proxy_crossing_fixture,
     irrational_proxy_crossing_fixture,
+    ugc_irrational_proxy_crossing_fixture,
     isolated_tangent_proxy_tie_fixture,
     proxy_switching_fixture,
 )
@@ -520,6 +521,9 @@ def receipt() -> dict:
     ugc_switch=switching_kernel_robust_certificate(
         ugc_coupled_shared_transition_fixture(),((Q(1),Q(2)),)
     )
+    ugc_irrational=switching_kernel_robust_certificate(
+        ugc_irrational_proxy_crossing_fixture(),((Q(1),Q(2)),)
+    )
     golden=ExactQuadratic(Q(-1,2),Q(1,2),Q(5))
     golden_gold=ExactQuadratic(Q(3,2),Q(-1,2),Q(5))
     assert rational_switch.maximum_gold_regret==Q(1,2)
@@ -533,6 +537,9 @@ def receipt() -> dict:
     assert previously_rejected.maximum_gold_regret==0
     assert ExactQuadratic(Q(1,2)) in previously_rejected.transition_breakpoints
     assert ugc_switch.maximum_gold_regret==ugc_kernel_cert.maximum_gold_regret
+    assert ugc_irrational.maximum_gold_regret==golden_gold
+    assert ugc_irrational.worst_transition_probability==golden
+    assert ugc_irrational.endpoint_only_max_regret==0
     assert ugc_switch.maximum_expected_discrepancy_width==(
         ugc_kernel_cert.maximum_expected_discrepancy_width
     )
@@ -623,6 +630,19 @@ def receipt() -> dict:
             "prior_RHT14_switching_null":{
                 "gold_regret":str(previously_rejected.maximum_gold_regret),
                 "found_transition_half":ExactQuadratic(Q(1,2)) in previously_rejected.transition_breakpoints,
+            },
+            "UGC_irrational_crossing":{
+                "real_UGC_satisfaction_worlds":2,
+                "shared_p_exact_crossing":str(
+                    ugc_irrational.worst_transition_probability
+                ),
+                "worst_gold_parameter":[
+                    str(v) for v in ugc_irrational.worst_gold_parameters
+                ],
+                "exact_robust_regret":str(ugc_irrational.maximum_gold_regret),
+                "endpoint_only_regret":str(
+                    ugc_irrational.endpoint_only_max_regret
+                ),
             },
             "UGC_constant_winner_regression":{
                 "robust_regret":str(ugc_switch.maximum_gold_regret),
