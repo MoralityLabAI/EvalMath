@@ -156,7 +156,9 @@ def _vertical_slice(constraints,p,q0,q1):
 def _critical_points(constraints,p0,p1,q0,q1, *,max_roots):
     """All p events where the order/type of q boundary can change."""
     lo,hi=ExactQuadratic(Q(p0)),ExactQuadratic(Q(p1))
-    critical=[lo,hi]
+    critical=[lo] if lo==hi else [lo,hi]
+    if len(critical)>max_roots:
+        raise ValueError("curved proxy arrangement root cap exceeded")
     def include(points):
         for root in points:
             if not any(root==x for x in critical):
