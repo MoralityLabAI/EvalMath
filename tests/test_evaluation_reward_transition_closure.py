@@ -282,9 +282,9 @@ def test_invalid_time_graph_paths_rewards_and_gold_intervals():
     with pytest.raises(ValueError):
         TimedRewardGame((0,1),0,(1,),(edge(1,1,0,0),))
     with pytest.raises(ValueError):
-        TimedRewardGame((0,1),0,(1,),(edge(0,1,0,0),edge(0,1,0,0)),
-                        )
-        # Parallel edges are valid: this branch is intentionally unreachable.
+        TimedRewardGame(
+            (0,1,2),0,(1,),(edge(0,1,0,0),edge(1,2,0,0))
+        )  # Terminal nodes cannot have outgoing transitions.
     game=mutable_evaluator_diamond()
     with pytest.raises(ValueError):
         game.path_returns((5,))
