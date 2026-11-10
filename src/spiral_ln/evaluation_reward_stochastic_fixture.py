@@ -152,3 +152,50 @@ def biased_reward_signal_game(horizon:int=2):
         initial=(Q(1),),gold_parameters=("unused",),edges=edges,
         horizon=horizon,
     )
+
+
+
+def time_expanded_support_graph(
+    game:StochasticRewardGame,theta
+):
+    """Embed all positive-probability stochastic transitions in RHT-12's DAG.
+
+    The artificial root connects to each possible initial hidden state
+    with zero reward. Every positive transition appears as its own
+    time-indexed occurrence, retaining its independent action/observation
+    identity, and all states at the final horizon are terminal. Dead
+    branches in the product graph are handled by RHT-12's productive
+    subgraph filter. This deliberately discards transition probabilities
+    and actor observation constraints, giving a path-support outer bound.
+    """
+    from spiral_ln.evaluation_reward_transition_closure import (
+        TimedRewardEdge,TimedRewardGame,
+    )
+    theta=tuple(Q(x) for x in theta)
+    if len(theta)!=len(game.gold_parameters):
+        raise ValueError("one true reward parameter per gold feature")
+    states=game.state_count
+    def vertex(time,state):
+        return 1+time*states+state
+    layers=(0,)+tuple(
+        time+1 for time in range(game.horizon+1)
+        for _ in range(states)
+    )
+    edges=[]
+    for s,m in enumerate(game.initial):
+        if m:
+            edges.append(TimedRewardEdge(
+                0,vertex(0,s),Q(0),Q(0),"initial-state"
+            ))
+    for time in range(game.horizon):
+        for e in game.edges:
+            edges.append(TimedRewardEdge(
+                vertex(time,e.source),vertex(time+1,e.target),
+                game.gold(e,theta),Q(e.proxy),
+                f"{game.actions[e.action]}:{e.observation}"
+            ))
+    return TimedRewardGame(
+        layers=layers,start=0,
+        terminals=tuple(vertex(game.horizon,s) for s in range(states)),
+        edges=tuple(edges)
+    )
