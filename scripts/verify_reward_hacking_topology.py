@@ -1,4 +1,4 @@
-"""RHT-01..16 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..18 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -84,6 +84,18 @@ from spiral_ln.evaluation_reward_two_kernel_fixture import (
     proxy_aligned_two_parameter_fixture,
     diagonal_only_proxy_tie_fixture,
 )
+from spiral_ln.evaluation_reward_curved_kernel import (
+    curved_kernel_robust_certificate,
+)
+from spiral_ln.evaluation_reward_two_kernel_fixture import (
+    curved_proxy_switch_fixture,ugc_curved_proxy_switch_fixture,
+)
+from spiral_ln.evaluation_reward_quadratic_kernel import (
+    quadratic_kernel_robust_certificate,
+)
+from spiral_ln.evaluation_reward_quadratic_kernel_fixture import (
+    quadratic_parabola_goodhart_fixture,
+)
 from spiral_ln.evaluation_reward_shared_kernel_fixture import (
     rational_proxy_crossing_fixture,
     irrational_proxy_crossing_fixture,
@@ -123,6 +135,9 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_kernel_switching.py",
     "src/spiral_ln/evaluation_reward_two_kernel.py",
     "src/spiral_ln/evaluation_reward_two_kernel_fixture.py",
+    "src/spiral_ln/evaluation_reward_curved_kernel.py",
+    "src/spiral_ln/evaluation_reward_quadratic_kernel.py",
+    "src/spiral_ln/evaluation_reward_quadratic_kernel_fixture.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -141,6 +156,8 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_shared_kernel.py",
     "tests/test_evaluation_reward_kernel_switching.py",
     "tests/test_evaluation_reward_two_kernel.py",
+    "tests/test_evaluation_reward_curved_kernel.py",
+    "tests/test_evaluation_reward_quadratic_kernel.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -590,6 +607,41 @@ def receipt() -> dict:
     assert any(len(poly)==2 for i,poly in two_param_tie.winning_polygons)
     assert two_param_tie.passes
 
+    curved_gold=curved_kernel_robust_certificate(
+        curved_proxy_switch_fixture(),((Q(1),Q(1)),)
+    )
+    curved_ugc=curved_kernel_robust_certificate(
+        ugc_curved_proxy_switch_fixture(),((Q(1),Q(2)),)
+    )
+    curved_root=ExactQuadratic(Q(-1),Q(1),Q(2))
+    curved_value=ExactQuadratic(Q(6),Q(-4),Q(2))
+    assert curved_gold.maximum_gold_regret==curved_value
+    assert curved_gold.worst_transition_parameters==(curved_root,curved_root)
+    assert curved_gold.rectangle_corner_only_regret==0
+    assert curved_ugc.maximum_gold_regret==curved_value
+
+    quadratic_gold=quadratic_kernel_robust_certificate(
+        quadratic_parabola_goodhart_fixture(),((Q(1),Q(2)),),
+        maximum_allowed_regret=Q(1),
+    )
+    quadratic_ugc=quadratic_kernel_robust_certificate(
+        quadratic_parabola_goodhart_fixture(ugc_worlds=True),
+        ((Q(1),Q(2)),),maximum_allowed_regret=Q(1),
+    )
+    quadratic_root=ExactQuadratic(Q(0),Q(1,3),Q(3))
+    quadratic_value=ExactQuadratic(Q(0),Q(2,9),Q(3))
+    assert quadratic_gold.worst_transition_parameters==(
+        quadratic_root,ExactQuadratic(Q(1,3))
+    )
+    assert quadratic_gold.maximum_gold_regret==ExactQuadratic(
+        Q(0),Q(4,9),Q(3)
+    )
+    assert quadratic_ugc.maximum_gold_regret==quadratic_value
+    assert quadratic_gold.rectangle_corner_only_regret==0
+    assert quadratic_ugc.rectangle_corner_only_regret==0
+    assert quadratic_gold.maximum_expected_discrepancy_width==1
+    assert quadratic_gold.passes and quadratic_ugc.passes
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -606,7 +658,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.11",
+        "schema":"RHT-01.12",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -652,6 +704,30 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "quadratic_parabolic_proxy_regions":{
+            "gold_scope":"globally shared rational reward feature theta in [1,2]",
+            "winning_boundary":"q=p^2",
+            "exact_stationary_p":str(quadratic_root),
+            "exact_stationary_q":"1/3",
+            "generic_exact_robust_regret":str(quadratic_gold.maximum_gold_regret),
+            "UGC_two_reachable_worlds_exact_regret":str(quadratic_ugc.maximum_gold_regret),
+            "generic_corner_only_regret":str(quadratic_gold.rectangle_corner_only_regret),
+            "UGC_corner_only_regret":str(quadratic_ugc.rectangle_corner_only_regret),
+            "expected_discrepancy_width":str(
+                quadratic_gold.maximum_expected_discrepancy_width
+            ),
+            "generic_policy_count":quadratic_gold.policy_count,
+            "generic_reward_pair_checks":quadratic_gold.reward_pair_checks,
+            "source_contract":"two globally shared kernel parameters; p-quadratic proxy, q-affine gold; exact cubic extremum; no learned model",
+        },
+        "curved_multiaffine_proxy_regions":{
+            "exact_stationary_p":str(curved_root),
+            "exact_stationary_q":str(curved_root),
+            "exact_robust_regret_theta_1":str(curved_gold.maximum_gold_regret),
+            "UGC_theta_interval_1_to_2_exact_regret":str(curved_ugc.maximum_gold_regret),
+            "rectangle_corner_only_regret":str(curved_gold.rectangle_corner_only_regret),
+            "source_contract":"previous RHT-17 q-fractional proxy boundaries, square-root exact algebraic witness",
         },
         "two_shared_transition_parameters":{
             "parameters":["p","q"],
