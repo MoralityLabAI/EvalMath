@@ -184,3 +184,12 @@ def test_degree_eight_and_twelve_exact_root_family():
         assert cmp_value(cert.maximum_gold_regret,
                          AtRoot(cert.worst_p,(Q(0),Q(degree,degree+1))))==0
         assert cert.corner_only_regret==0
+
+
+def test_root_isolation_cap_includes_endpoints_and_dyadic_roots():
+    with pytest.raises(ValueError, match="root cap"):
+        isolate((Q(0),Q(-1),Q(1)),max_roots=1)
+    with pytest.raises(ValueError, match="root cap"):
+        isolate((Q(1,8),Q(-3,4),Q(1)),max_roots=1)
+    with pytest.raises(ValueError, match="positive Sturm isolation"):
+        isolate((Q(-1),Q(2)),max_roots=0)
