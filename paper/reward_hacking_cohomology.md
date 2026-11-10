@@ -1500,3 +1500,138 @@ The region-partition principle is established in parametric verification. See [*
 - [Rational/irrational/tangent source fixtures](../src/spiral_ln/evaluation_reward_shared_kernel_fixture.py)
 - [Independent ordinary-POMDP and algebraic-root tests](../tests/test_evaluation_reward_kernel_switching.py)
 - [Versioned source-fingerprinted receipt](../scripts/verify_reward_hacking_topology.py)
+
+
+## 21. Two shared uncertain kernel parameters: exact polygonal reward-hacking regions (RHT-16)
+
+**2026-11-10 | exact finite two-parameter theorem and UGC controls.** RHT-15 handles proxy-policy switches with one globally shared affine transition parameter \(p\), using quadratic real algebraic numbers. RHT-16 examines **two globally shared transition parameters** \((p,q)\) and their simultaneous effects on both the actor's proxy choice and protected gold reward. This exact extension freezes a verifiable *affine-proxy/multiaffine-gold* policy class, permitting all policy switches between its affine proxy surfaces, including lower-dimensional tie-only regions.
+
+### 21.1 Restricted two-parameter transition grammar
+
+For every hidden state/action, an observable next-outcome probability has the form
+
+\[
+K_{p,q}(s',o\mid s,a)=a_{s,a,s',o}
++b_{s,a,s',o}p+c_{s,a,s',o}q,
+\quad
+(p,q)\in I_p\times I_q,
+\]
+
+where \(I_p,I_q\) are rational closed subintervals of \([0,1]\). Since the conditional kernel is affine in \((p,q)\), nonnegativity of each outcome probability is established by checking all **four** parameter-box corners, while probability normalization holds across the whole box exactly when each state/action's total constant coefficient is one and its two slope sums are zero.
+
+A single \(p\) and a single \(q\) are sampled by nature and **reused throughout the complete trajectory**. They cannot be chosen separately on different time steps or for different actions. Protected gold rewards again have independently registered globally shared rational coefficients \(\theta\in\Theta=\prod_j[\ell_j,u_j]\), with the transition and proxy kernels independent of \(\theta\).
+
+The exact implementation supports at most two observation-adapted calls and enumerates the complete deterministic policy grammar \(\Pi\). For each policy, a symbolic rational bivariate polynomial evaluator checks whether
+
+\[
+\widehat J_\pi(p,q)=A_\pi+B_\pi p+C_\pi q
+\]
+
+is **affine in the kernel parameters**, and whether each protected gold coefficient is **multiaffine**:
+
+\[
+J_{\pi,\theta}(p,q)
+=D_{\pi,\theta}
++E_{\pi,\theta}p
++F_{\pi,\theta}q
++G_{\pi,\theta}pq.
+\]
+
+These are *verified polynomial-degree conditions on the output*, allowing cancellations among nominally higher-degree transition products. Any policy whose actual proxy includes a \(pq,p^2\), or \(q^2\) contribution, or whose gold contains a squared parameter, is outside RHT-16's proved class and receives an explicit resource/grammar error. The broader semialgebraic case remains open.
+
+### 21.2 Exact convex winning regions
+
+Each policy's proxy-optimality domain is the closed region
+
+\[
+P_j=
+\left\{
+(p,q)\in I_p\times I_q:
+\widehat J_j(p,q)\ge \widehat J_k(p,q)
+\quad\forall k\in\Pi
+\right\}.
+\tag{RHT-16/1}
+\]
+
+Because the proxy values are affine, each inequality is a rational half-plane. Thus every nonempty \(P_j\) is a **compact rational convex polygon**, including degenerate line segments or singleton tie points. An exact half-plane clipper constructs the polygon, retaining boundary ties as full members of the eligible policy set.
+
+The actor at any parameter point chooses any policy \(j\) whose proxy achieves the maximum, with adversarial gold tie-breaking. For a fixed registered gold vector \(\theta\) and two policies \(i,j\), the gold difference
+
+\[
+f_{ij,\theta}(p,q)
+=J_{i,\theta}(p,q)-J_{j,\theta}(p,q)
+\]
+
+is bilinear. On the **interior** of a full-dimensional polygon, if the \(pq\) coefficient is nonzero, the Hessian has eigenvalues \(\pm |G|\), so every stationary point is a saddle. If it is zero, the function is affine. Thus the extrema over a compact polygon occur on its boundary. Restricting \(f\) to a rational polygon edge parameterized by \(t\in[0,1]\) yields a rational quadratic; its maximum or minimum is attained at \(t=0\), \(t=1\), or the unique rational stationary parameter \(-b/(2a)\) when present and interior. The same argument works for a segment or singleton winner region.
+
+### 21.3 Exact two-parameter robust-regret theorem
+
+**Theorem RHT-16/T1.** For this finite verified grammar, the exact worst regret across all proxy-policy switches and independently licensed gold parameters is
+
+\[
+\boxed{
+R_{\rm rob}=
+\max_{\theta\in\operatorname{Vert}(\Theta)}
+\max_{j:P_j\ne\varnothing}
+\max_{i\in\Pi}
+\max_{(p,q)\in P_j}
+\left[
+J_{i,\theta}(p,q)-J_{j,\theta}(p,q)
+\right].
+}
+\tag{RHT-16/2}
+\]
+
+Every inner maximum has an exact rational witness from polygon-edge quadratic optimization.
+
+**Proof.** Proxy policy eligibility \(j\in\arg\max_k\widehat J_k(p,q)\) depends on the parameter point \((p,q)\), independently of gold \(\theta\). For fixed policies and \((p,q)\), their gold difference is affine in \(\theta\), so maximizing gold-box uncertainty needs only its vertices. Each selected proxy policy's eligible region is its rational polygon \(P_j\). On that polygon the gold difference is bilinear; the preceding edge theorem gives the exact finite candidate set. Taking the maximum over finitely many policies and gold-box vertices is therefore sound and complete.
+
+The exact **guaranteed minimum gold return** across proxy-optimal policies is likewise the minimum of \(J_{j,\theta}\) over each \(P_j\) and gold-box vertex, using the same edge optimizer. The maximum **expected proxy-minus-gold discrepancy width** among all policy pairs is obtained by maximizing their multiaffine gap difference over the full parameter box. A multiaffine function attains its box extrema at corners, so the width check needs only four parameter corners (for every policy pair and gold-box vertex), even though the *proxy-selected regret* can attain its maximum on an interior switching boundary.
+
+The two-sided exact certificate approves only when \(R_{\rm rob}\le\varepsilon\) and the guaranteed proxy-policy gold return exceeds a declared non-inert progress floor. Its finite policy and reward-pair budgets are explicit; exceeding one returns an error rather than an incomplete safety pass.
+
+### 21.4 Strict diagonal switching witness missed by every corner check
+
+Consider a two-call system with two available first actions. The **protected action** receives proxy reward one if a first Bernoulli(\(p\)) event succeeds, giving expected proxy \(p\). After that success, a second Bernoulli(\(q\)) event must fail to produce a protected true reward \(\theta>0\). Its expected gold is
+
+\[
+J_{\rm gold}(A;p,q,\theta)=\theta p(1-q).
+\]
+
+The alternative **proxy-only action** receives proxy reward one if a Bernoulli(\(q\)) event succeeds, giving expected proxy \(q\), and gold zero.
+
+Thus the proxy chooses the alternative when \(q\ge p\), including adversarial tie-breaking at \(q=p\). Exact worst gold regret is
+
+\[
+\boxed{
+\max_{0\le p\le q\le1}\theta p(1-q)
+=\theta/4
+\quad\text{at}\quad (p,q)=(1/2,1/2).
+}
+\tag{RHT-16/3}
+\]
+
+A verifier evaluating just the four corners \((p,q)\in\{0,1\}^2\) obtains **zero regret at every corner**, missing the true worst case. With licensed \(\theta\in[1,2]\), exact robust regret is \(1/2\), while the complete expected discrepancy width is \(1\), and the guaranteed gold return of a proxy-maximizing action has floor zero.
+
+A subrectangle \([0,1/4]^2\) gives a worst regret \(3\theta/16\) at \((1/4,1/4)\), while a parameter box with \(p\in[0,1/4]\), \(q\in[1/2,1]\) gives \(\theta/8\) at \((1/4,1/2)\). These provide independent rational boundary controls.
+
+### 21.5 UGC and action-identity controls
+
+The [UGC-specific fixture](../src/spiral_ln/evaluation_reward_two_kernel_fixture.py) preserves two genuinely reachable binary \(\mathbb F_2\) \(K_{2,2}\) constraint-satisfaction worlds from RHT-08. The protected action is gold-safe in only one world. Under the uniform hidden-world prior, it therefore earns expected gold \(\frac{\theta}{2}p(1-q)\). The competing proxy still earns \(q\), so the winning boundary is the same diagonal.
+
+With licensed \(\theta\in[1,2]\), the exact worst UGC-grounded gold regret becomes **\(1/4\)** at \((p,q)=(1/2,1/2)\). The expected gap width is \(1\), and every rectangle-corner regret is zero. Direct RHT-13 observation-policy occupancy enumerations cross-check the protected gold payoff and proxy eligibility at multiple rational \((p,q)\).
+
+A separate synthetic **tie-only region** makes proxy rewards \(p\), \(q\), and \((p+q)/2\) for three actions. The third action is proxy-optimal only on the line segment \(p=q\). If that action gives gold zero while the first two give gold one, adversarial proxy tie-breaking yields true regret one **on the diagonal**, so a solver that discards zero-area winner polygons would fail. RHT-16's exact polygon clipper preserves it.
+
+The *positive control* assigns every action the same shared gold reward parameter times its own proxy return. For every \(\theta>0\), proxy and gold policy rankings coincide, giving exact robust regret zero despite repeated policy switches. Independent checks cover signed gold uncertainty, arbitrary parameter subrectangles, fail-closed non-affine proxy cases, non-multiaffine gold cases, malformed conditional kernels and explicit search caps.
+
+### 21.6 Novelty and generalization limits
+
+Convex half-plane arrangements and bilinear extrema over polygon edges are established finite computational-geometry/optimization tools. The UGC connection comes from **policy reachability and signal identity**, and the reward safety result is the certified regret of adversarially selected proxy-optimal policies. This is an exact, restricted two-parameter extension of the parametric POMDP evaluation calculus, without a general breakthrough on robust POMDP complexity.
+
+The present proof assumes all proxy-policy returns are **affine** in two globally shared kernel parameters and all protected gold returns are **multiaffine**. Beyond that class, the winning regions are semialgebraic rather than rational polygons, and the reward objective may contain higher-degree stationary points. The next mathematical work is verified multivariate polynomial sign decomposition or a convergent, explicitly bounded Bernstein/interval hierarchy with rigorous error certificates. Real safety applications also need independently established transition bounds, gold-source identities, and enforceable access to the evaluator and attestor.
+
+- [Exact bivariate symbolic solver and convex winning polygon certificate](../src/spiral_ln/evaluation_reward_two_kernel.py)
+- [Synthetic and UGC grounded shared-parameter fixtures](../src/spiral_ln/evaluation_reward_two_kernel_fixture.py)
+- [Independent occupancy and exact edge-extremum tests](../tests/test_evaluation_reward_two_kernel.py)
+- [Source-bound reward-hacking research receipt](../scripts/verify_reward_hacking_topology.py)
