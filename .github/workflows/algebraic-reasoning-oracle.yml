@@ -1,0 +1,32 @@
+name: ARG-01 independent algebraic reasoning oracle
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/algebraic_reasoning_oracle.py'
+      - 'tests/test_algebraic_reasoning_oracle.py'
+      - 'docs/algebraic_reasoning_gym.md'
+      - 'fixtures/algebraic_reasoning_oracle_v1.json'
+      - '.github/workflows/algebraic-reasoning-oracle.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/algebraic_reasoning_oracle.py'
+      - 'tests/test_algebraic_reasoning_oracle.py'
+      - 'docs/algebraic_reasoning_gym.md'
+      - 'fixtures/algebraic_reasoning_oracle_v1.json'
+      - '.github/workflows/algebraic-reasoning-oracle.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Oracle, sampling, certificate, future-collision tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -p 'test_algebraic_reasoning_oracle.py' -v
+      - name: Frozen exact roster receipt
+        run: PYTHONPATH=src python -m spiral_ln.algebraic_reasoning_oracle --out fixtures/algebraic_reasoning_oracle_v1.json --check

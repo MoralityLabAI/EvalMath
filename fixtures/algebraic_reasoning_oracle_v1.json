@@ -1,0 +1,99 @@
+{
+  "dsl_programs": 64,
+  "future": 32,
+  "overall": {
+    "cases": 228,
+    "inference_target": "finite_coefficients",
+    "integer_arithmetic": "exact",
+    "public_model_fields": [
+      "topology",
+      "demos",
+      "query"
+    ]
+  },
+  "per_split": {
+    "calibration": {
+      "accepted": 36,
+      "cases": 36,
+      "false_future": 2,
+      "future_correct": 34,
+      "queries": 677,
+      "roster_sha256": "088c8dc031f9aa14c94339bd08983f55e730be9415952aed20c66921aa6abf19"
+    },
+    "collision": {
+      "accepted": 12,
+      "cases": 12,
+      "false_future": 6,
+      "future_correct": 6,
+      "queries": 74,
+      "roster_sha256": "54286b458b5bb947c71a044f39e1282a0a5f13fa51ce0c919f03f18de877fe1a"
+    },
+    "lacunary": {
+      "accepted": 24,
+      "cases": 24,
+      "false_future": 0,
+      "future_correct": 24,
+      "queries": 424,
+      "roster_sha256": "992047ad63a52ec15bbd6f0c7bb245dc71230daedccdd30659b1823491469d1f"
+    },
+    "negative": {
+      "accepted": 0,
+      "cases": 12,
+      "false_future": 0,
+      "future_correct": 0,
+      "queries": 768,
+      "roster_sha256": "e64b0c31d5eef41ba5f81980ece12ac185eed3aea042d9a103d3a37ce3c8740a"
+    },
+    "product": {
+      "accepted": 24,
+      "cases": 24,
+      "false_future": 0,
+      "future_correct": 24,
+      "queries": 604,
+      "roster_sha256": "9cdb8bad43102b3bbc5fc21479c0b0b8d184c168501fdbe66e5cf694eb60e7aa"
+    },
+    "rational": {
+      "accepted": 24,
+      "cases": 24,
+      "false_future": 1,
+      "future_correct": 23,
+      "queries": 363,
+      "roster_sha256": "96eeaf4ec9c09a3189046a01c8bed0347b033c59742e1e747588876ec247acba"
+    },
+    "signed": {
+      "accepted": 24,
+      "cases": 24,
+      "false_future": 0,
+      "future_correct": 24,
+      "queries": 448,
+      "roster_sha256": "23da85a2456997e9a8659876e02fd59ed127f7f41576bafc620e6447f66ca771"
+    },
+    "sparse": {
+      "accepted": 24,
+      "cases": 24,
+      "false_future": 6,
+      "future_correct": 18,
+      "queries": 387,
+      "roster_sha256": "80717885faf9863f57220675f4f5f28dfe7dcaffbcf4a4bfc7342282d678a784"
+    },
+    "squared": {
+      "accepted": 24,
+      "cases": 24,
+      "false_future": 4,
+      "future_correct": 20,
+      "queries": 294,
+      "roster_sha256": "bb39f503973b9d6df6489fce58c00861cddfe3cf0864128ec3f08cf13a203bf6"
+    },
+    "twisted_product": {
+      "accepted": 24,
+      "cases": 24,
+      "false_future": 0,
+      "future_correct": 24,
+      "queries": 331,
+      "roster_sha256": "aec4a8d3655f6e0ab1e477b87f81d7d1f3e8d836657457b59d0601e7d79e7141"
+    }
+  },
+  "prefix": 12,
+  "schema": "arg01.oracle.v1",
+  "seed": 2026111027
+}
