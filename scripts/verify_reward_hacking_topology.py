@@ -1,4 +1,4 @@
-"""RHT-01..14 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..15 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -72,6 +72,15 @@ from spiral_ln.evaluation_reward_shared_kernel_fixture import (
     interior_transition_hack_fixture,
     ugc_coupled_shared_transition_fixture,
 )
+from spiral_ln.evaluation_reward_kernel_switching import (
+    ExactQuadratic,switching_kernel_robust_certificate,
+)
+from spiral_ln.evaluation_reward_shared_kernel_fixture import (
+    rational_proxy_crossing_fixture,
+    irrational_proxy_crossing_fixture,
+    isolated_tangent_proxy_tie_fixture,
+    proxy_switching_fixture,
+)
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -101,6 +110,7 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_stochastic_fixture.py",
     "src/spiral_ln/evaluation_reward_shared_kernel.py",
     "src/spiral_ln/evaluation_reward_shared_kernel_fixture.py",
+    "src/spiral_ln/evaluation_reward_kernel_switching.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -117,6 +127,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_transition_closure.py",
     "tests/test_evaluation_reward_stochastic_closure.py",
     "tests/test_evaluation_reward_shared_kernel.py",
+    "tests/test_evaluation_reward_kernel_switching.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -494,6 +505,38 @@ def receipt() -> dict:
     )
     assert check_gold.gold_return-check_proxy.gold_return==Q(1,4)
 
+    rational_switch=switching_kernel_robust_certificate(
+        rational_proxy_crossing_fixture(),((Q(1),Q(1)),)
+    )
+    irrational_switch=switching_kernel_robust_certificate(
+        irrational_proxy_crossing_fixture(),((Q(1),Q(1)),)
+    )
+    isolated_tie=switching_kernel_robust_certificate(
+        isolated_tangent_proxy_tie_fixture(),((Q(1),Q(1)),)
+    )
+    previously_rejected=switching_kernel_robust_certificate(
+        proxy_switching_fixture(),((Q(0),Q(0)),)
+    )
+    ugc_switch=switching_kernel_robust_certificate(
+        ugc_coupled_shared_transition_fixture(),((Q(1),Q(2)),)
+    )
+    golden=ExactQuadratic(Q(-1,2),Q(1,2),Q(5))
+    golden_gold=ExactQuadratic(Q(3,2),Q(-1,2),Q(5))
+    assert rational_switch.maximum_gold_regret==Q(1,2)
+    assert rational_switch.worst_transition_probability==Q(1,2)
+    assert irrational_switch.maximum_gold_regret==golden_gold
+    assert irrational_switch.worst_transition_probability==golden
+    assert irrational_switch.endpoint_only_max_regret==0
+    assert isolated_tie.maximum_gold_regret==1
+    assert isolated_tie.isolated_tie_points==(ExactQuadratic(Q(1,2)),)
+    assert isolated_tie.endpoint_only_max_regret==0
+    assert previously_rejected.maximum_gold_regret==0
+    assert ExactQuadratic(Q(1,2)) in previously_rejected.transition_breakpoints
+    assert ugc_switch.maximum_gold_regret==ugc_kernel_cert.maximum_gold_regret
+    assert ugc_switch.maximum_expected_discrepancy_width==(
+        ugc_kernel_cert.maximum_expected_discrepancy_width
+    )
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -510,7 +553,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.9",
+        "schema":"RHT-01.10",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -556,6 +599,36 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "switching_shared_transition_kernel":{
+            "licensed_gold":"fixed or independent interval values with globally shared transition p",
+            "rational_policy_crossing":{
+                "parameter":str(rational_switch.worst_transition_probability),
+                "exact_gold_regret":str(rational_switch.maximum_gold_regret),
+                "endpoint_only_regret":str(rational_switch.endpoint_only_max_regret),
+                "open_proxy_regions":len(rational_switch.proxy_regions),
+            },
+            "irrational_proxy_policy_crossing":{
+                "exact_parameter":str(irrational_switch.worst_transition_probability),
+                "exact_gold_regret":str(irrational_switch.maximum_gold_regret),
+                "golden_ratio_root_verified":irrational_switch.worst_transition_probability==golden,
+                "endpoint_only_regret":str(irrational_switch.endpoint_only_max_regret),
+                "proxy_regions":len(irrational_switch.proxy_regions),
+            },
+            "isolated_tangency":{
+                "only_tie_parameter":[str(x) for x in isolated_tie.isolated_tie_points],
+                "worst_gold_regret":str(isolated_tie.maximum_gold_regret),
+                "endpoint_only_regret":str(isolated_tie.endpoint_only_max_regret),
+            },
+            "prior_RHT14_switching_null":{
+                "gold_regret":str(previously_rejected.maximum_gold_regret),
+                "found_transition_half":ExactQuadratic(Q(1,2)) in previously_rejected.transition_breakpoints,
+            },
+            "UGC_constant_winner_regression":{
+                "robust_regret":str(ugc_switch.maximum_gold_regret),
+                "matches_RHT14_exact":ugc_switch.maximum_gold_regret==ugc_kernel_cert.maximum_gold_regret,
+            },
+            "scope":"exact rational/quadratic irrational roots, 2-step global single p, complete finite observation-policy census, proxy tie points registered",
         },
         "shared_transition_kernel":{
             "kernel_parameter_interval":["0","1"],
