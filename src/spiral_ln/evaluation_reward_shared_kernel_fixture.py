@@ -114,3 +114,95 @@ def proxy_switching_fixture():
         parameter_interval=(Q(1,4),Q(3,4)),
         edges=tuple(edges),horizon=2,
     )
+
+
+
+def rational_proxy_crossing_fixture(*,interval=(Q(0),Q(1))):
+    """One-step p versus 1-p proxy crossing with gold regret at p=1/2.
+
+    A receives proxy and protected gold on a Bernoulli(p) success.
+    B receives proxy only on a Bernoulli(1-p) success. B is proxy best
+    strictly below 1/2, A above; at the tie the adversary chooses B,
+    whose true-gold return is zero.
+    """
+    edges=(
+        SharedTransitionEdge(0,0,0,"A:win",Q(0),Q(1),Q(1),
+                             gold_coefficients=(Q(1),)),
+        SharedTransitionEdge(0,0,0,"A:lose",Q(1),Q(-1),
+                             gold_coefficients=(Q(0),)),
+        SharedTransitionEdge(0,1,0,"B:win",Q(1),Q(-1),Q(1),
+                             gold_coefficients=(Q(0),)),
+        SharedTransitionEdge(0,1,0,"B:lose",Q(0),Q(1),
+                             gold_coefficients=(Q(0),)),
+    )
+    return SharedTransitionGame(
+        state_count=1,actions=("gold_protected","proxy_only"),
+        initial=(Q(1),),gold_parameters=("true_success_value",),
+        parameter_interval=interval,edges=edges,horizon=1
+    )
+
+
+def irrational_proxy_crossing_fixture(*,interval=(Q(0),Q(1))):
+    """p^2 vs (1-p) proxy crossing at p=(sqrt(5)-1)/2.
+
+    Protected first action produces proxy+gold only when two Bernoulli(p)
+    trials both succeed, so its expected gold/proxy is theta*p^2.
+    Proxy-only first action receives score one with probability 1-p.
+    Second action has no influence on either protocol.
+    """
+    edges=[]
+    def add(s,a,t,obs,b,sl,proxy=0,gold=0):
+        edges.append(SharedTransitionEdge(
+            s,a,t,obs,Q(b),Q(sl),Q(proxy),
+            gold_coefficients=(Q(gold),)
+        ))
+    for a in (0,1):
+        if a==0:
+            add(0,a,1,"A:first-fail",1,-1)
+            add(0,a,2,"A:first-pass",0,1)
+        else:
+            add(0,a,3,"B:proxy-paid",1,-1,proxy=1)
+            add(0,a,3,"B:proxy-empty",0,1)
+        for state in (1,3,4):
+            add(state,a,state,"idle",1,0)
+        add(2,a,4,"A:second-pass",0,1,proxy=1,gold=1)
+        add(2,a,4,"A:second-fail",1,-1)
+    return SharedTransitionGame(
+        state_count=5,actions=("two_step_gold","immediate_proxy"),
+        initial=(Q(1),Q(0),Q(0),Q(0),Q(0)),
+        gold_parameters=("shared_protected_gold",),
+        parameter_interval=interval,
+        edges=tuple(edges),horizon=2
+    )
+
+
+def isolated_tangent_proxy_tie_fixture(*,interval=(Q(0),Q(1))):
+    """Proxy-only bad policy ties good policy ONLY at p=1/2.
+
+    Good action immediately earns true gold 1 and proxy 1. Bad action
+    earns proxy 3/4, and gets a second proxy point on an exactly
+    p*(1-p) event. Thus its proxy is 1-(p-1/2)^2, with gold zero.
+    The isolated tie at 1/2 admits a low-gold adversarial selection.
+    """
+    edges=[]
+    def add(s,a,t,o,b,sl=0,proxy=0,gold=0):
+        edges.append(SharedTransitionEdge(
+            s,a,t,o,Q(b),Q(sl),Q(proxy),
+            gold_coefficients=(Q(gold),)
+        ))
+    for a in (0,1):
+        if a==0:
+            add(0,a,3,"good",1,proxy=1,gold=1)
+        else:
+            add(0,a,1,"bad:first-pass",0,1,proxy=Q(3,4))
+            add(0,a,3,"bad:first-fail",1,-1,proxy=Q(3,4))
+        for state in (2,3):
+            add(state,a,state,"idle",1)
+        add(1,a,2,"bad:bonus",1,-1,proxy=1)
+        add(1,a,2,"bad:no-bonus",0,1)
+    return SharedTransitionGame(
+        state_count=4,actions=("gold_good","isolated_proxy_tie"),
+        initial=(Q(1),Q(0),Q(0),Q(0)),
+        gold_parameters=("true_good",),
+        parameter_interval=interval,edges=tuple(edges),horizon=2
+    )
