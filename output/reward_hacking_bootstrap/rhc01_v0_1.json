@@ -36,7 +36,7 @@
     "threshold": "2",
     "upper_bound": "1/2"
   },
-  "generated_at_utc": "2026-11-10T04:52:57.600085+00:00",
+  "generated_at_utc": "2026-11-10T04:56:24.450851+00:00",
   "gradient_only": {
     "detector": [
       "1/4"
@@ -73,7 +73,7 @@
   "schema_version": "0.1",
   "scope": "two synthetic attack policies, three signals, two diamond-graph paths; no live agents",
   "source_sha256": {
-    "paper/reward_hacking_bootstrap.md": "804e179d596ff3541fa92e7f9bb3706551bfaf40f581ad3d65822f9d8c842e3c",
+    "paper/reward_hacking_bootstrap.md": "69210d4fe9f36f7a0b87143517f75ced230833df580ac1e4efb7eebc618164ea",
     "scripts/verify_reward_hacking_bootstrap.py": "fbe5c18110e613c84508ec606d3f9e81a938a548fee29be602fe75881037daf5",
     "src/spiral_ln/evaluation_reward_hacking_bootstrap.py": "4a21feb087131b0b54cf24e2814e5b84a9034ccb991a974ae564f6f5f01fd300",
     "tests/test_evaluation_reward_hacking_bootstrap.py": "66a5e8846e97b8944da69e5dfe08af513015b3b97020e3eb695451cfa427e5cf"

@@ -85,7 +85,7 @@ The cycle pairing gives a precise cohomological counterpart to signal blindness.
 
 ## 5. Reproduction and limits
 
-The code uses `fractions.Fraction` throughout. `optimal_detector` enumerates every active-set vertex of a bounded primal LP for at most five signal outcomes. Its implementation differs from the analytic dual-certificate evaluator, and a separate independent 1/4-grid enumeration checks the toy optimum. Tests also cover budget endpoints, a blind adversarial mixture, observation refinement, total-variation bound, cochain exactness for 18 potential assignments, and invalid inputs.
+The code uses `fractions.Fraction` throughout. `optimal_detector` enumerates every active-set vertex of a bounded primal LP for at most five signal outcomes. Its implementation differs from the analytic dual-certificate evaluator, and a separate independent 1/4-grid enumeration checks the toy optimum. Tests also cover budget endpoints, a blind adversarial mixture, observation refinement, total-variation bound, cochain exactness for 12 potential assignments, and invalid inputs.
 
 ```bash
 PYTHONPATH=src python -m pytest -q tests/test_evaluation_reward_hacking_bootstrap.py
