@@ -1097,3 +1097,160 @@ Allow the two good-outcome gold transitions independently to vary over \([1,3]\)
 The tree/chord identities, DAG extrema, path potential telescoping and independent interval optimization are standard finite algebra/optimization. Their synthesis here defines a testable **transition-closed reward certificate** for the registered EvalMath game space. It assumes all candidate paths are feasible under the stated controller access grammar and optimizes over paths, rather than over stochastic policies with externally imposed transition probabilities.
 
 The next extension must incorporate stochastic state transitions, partial observability of evaluator integrity, gold-label uncertainty coupled across time, and the possibility that a model changes the independent attestation channel. The relevant prior research includes [Everitt et al. (2021), causal reward-tampering conditions](https://doi.org/10.1007/s11229-021-03141-4), [Ng et al. (1999), policy-invariant shaping](https://ai.stanford.edu/~ang/papers/shaping-icml99.pdf), and the existing [EvalMath RHT-11 finite evaluator-tamper game](../src/spiral_ln/evaluation_reward_hacking_stateful.py). This is a conditional mathematical safeguard for a declared gold target, rather than a proof that any learned evaluator's rewards encode human values.
+
+
+## 18. Stochastic game-space reward closure under hidden evaluator state (RHT-13)
+
+**2026-11-10 | exact finite partial-observation results and source-bound synthetic tests.** RHT-11 considered a fixed latent gold world and a mutable hidden evaluator under adaptive tool actions; RHT-12 gave a relative-path and robust-regret certificate for the complete *support graph* of possible time-indexed trajectories. RHT-13 connects them by optimizing **observation-adapted policies** under an exact, normalized stochastic transition kernel, while retaining global identity across repeated, uncertain true-reward signals. The claims below concern a frozen finite policy grammar and independently licensed gold parameters. They imply no soundness of a learned reward model.
+
+### 18.1 Controlled hidden-state kernel and shared gold features
+
+Fix finite hidden states \(S\), allowed actions \(A\), actor-visible observations \(O\), a horizon \(H\), initial distribution \(\mu_0\), and conditional kernel
+
+\[
+K(s',o\mid s,a)\ge0,\qquad
+\sum_{s',o}K(s',o\mid s,a)=1.
+\]
+
+A transition \((s,a,s',o)\) emits a fixed rational proxy reward \(\widehat r\) and protected gold reward of the form
+
+\[
+r_\theta(s,a,s',o)=r_0(s,a,s',o)
++\sum_{j=1}^k f_j(s,a,s',o)\theta_j,
+\qquad
+\theta\in\Theta=\prod_{j=1}^k[\ell_j,u_j].
+\]
+
+The feature coefficients \(f_j\), fixed reward \(r_0\), and entire interval family \(\Theta\) must be independently registered. Crucially **one parameter \(\theta_j\) is shared at every occurrence of that protected signal** across time, agent actions and hidden worlds. For example, all approvals of genuinely safe actions use the same independently justified safe-approval utility parameter. The agent observes the kernel's registered \(o\), including any numeric proxy score, while the hidden evaluator state remains private.
+
+The controller's deterministic policy \(\pi\) maps the sequence of prior observations and its own selected actions to the next action. Exactly \(H\) calls are made, including zero-reward no-op calls after externally terminated sessions. This is a finite mandatory-horizon observation-policy class; voluntary early stopping is a separate extension. Given fixed \(K\) and \(\mu_0\), each policy induces an expected occupancy signature \((b_\pi,d_{\pi,1},\ldots,d_{\pi,k})\), so
+
+\[
+\boxed{J_\theta(\pi)=b_\pi+\langle d_\pi,\theta\rangle}.
+\tag{RHT-13/1}
+\]
+
+The actor's expected proxy return \(\widehat J(\pi)\) is separately fixed by the same policy and kernel. Each signal-feature occupancy is computed by an independent **world-by-world traversal**, not inferred from proxy outputs.
+
+### 18.2 Belief-state Bellman and sharp robust-regret vertex theorem
+
+For unnormalized hidden-state masses \(m_s\), taking action \(a\) induces response-branch mass
+
+\[
+m_{s'}^{a,o}=\sum_s m_sK(s',o\mid s,a).
+\]
+
+The immediate expected proxy and gold returns are
+\(\sum_{s,s',o}m_sK(s',o\mid s,a)\widehat r(s,a,s',o)\) and the analogous sum with \(r_\theta\). Separate finite Bellman recursions optimize expected gold, expected proxy with **adversarially low gold on proxy ties**, and the extrema of expected proxy-minus-gold discrepancy. Each observation branch carries its own posterior and remaining horizon, so these solutions use precisely the controller's licensed information.
+
+Let \(\mathcal P_O\) be this finite observation-policy class and
+\(\mathcal P_{\rm proxy}=\arg\max_{\pi\in\mathcal P_O}\widehat J(\pi)\).
+At a fixed \(\theta\), the exact worst proxy-selection regret is
+
+\[
+R_\theta=\max_{\pi\in\mathcal P_O}J_\theta(\pi)
+-\min_{\widehat\pi\in\mathcal P_{\rm proxy}}J_\theta(\widehat\pi).
+\]
+
+**Theorem RHT-13/T1 (exact interval-robust expected regret).**
+When \(K\) and the proxy reward are independent of \(\theta\), the maximum over the entire box \(\Theta\) equals the maximum over its vertices:
+
+\[
+\boxed{
+R_{\rm rob}
+=\max_{\theta\in\Theta}R_\theta
+=\max_{\theta\in\operatorname{vertices}(\Theta)}
+\left[
+\max_{\pi\in\mathcal P_O}J_\theta(\pi)
+-\min_{\widehat\pi\in\mathcal P_{\rm proxy}}J_\theta(\widehat\pi)
+\right].
+}
+\tag{RHT-13/2}
+\]
+
+**Proof:** for a fixed pair \((\pi,\widehat\pi)\), the gold-return difference is affine in \(\theta\) by (RHT-13/1). Taking the maximum over all challenger/proxy-selected pairs gives \(R_\theta\) as a finite pointwise maximum of affine functions, hence convex. The maximum of a convex function over a rectangular polytope is attained at a vertex. The two policy Bellman recursions find the exact pairwise extrema at each vertex. The same proof applies to the maximum expected policy-discrepancy width
+
+\[
+W_\Pi(\theta)=
+\max_{\pi}[\widehat J(\pi)-J_\theta(\pi)]
+-\min_{\pi}[\widehat J(\pi)-J_\theta(\pi)]
+\]
+
+and to the **minimum licensed true return** among proxy-maximizing policies, which is a minimum of affine functions. The finite certificate checks
+
+\[
+\boxed{0\le R_{\rm rob}\le
+W_{\rm rob}:=\max_{\theta\in\Theta}W_\Pi(\theta)}
+\tag{RHT-13/3}
+\]
+
+and can require both \(R_{\rm rob}\le\varepsilon\) and a minimum proxy-policy gold return \(J_{\rm floor}\ge u_0\). A failed bound denies certification; a registered DP or occupancy-enumeration budget overrun raises a separate error.
+
+All interval vertices are evaluated by exact rational belief-state dynamic programming. The implementation caps the number of reward features, hidden states and Bellman subproblems. This exact finite algorithm carries no general polynomial-time complexity claim for POMDP control. Its gold parameter intervals must not silently affect the stochastic kernel or the actor's observable proxy, since either would change the optimization/convexity argument.
+
+### 18.3 The expectation-level cohomology is larger than pathwise shaping
+
+RHT-12's relative-graph theorem certifies that \(\widehat r-r\) telescopes to a constant on **every realized support path**. For expected-return policy invariance under a fixed stochastic kernel, we can exploit a larger class of reward differences.
+
+Let \(\delta_t(s,a,s',o)=\widehat r_t-r_t\) and suppose rational time/state potentials \(\phi_t:S\to\mathbb Q\) satisfy \(\phi_H\equiv0\) and, for every \(t,s,a\),
+
+\[
+\boxed{
+\mathbb E[\delta_t\mid s,a]
+=\mathbb E[\phi_{t+1}(s_{t+1})\mid s,a]-\phi_t(s).
+}
+\tag{RHT-13/4}
+\]
+
+Define the realized residual
+
+\[
+m_t=\delta_t-
+\bigl(\phi_{t+1}(s_{t+1})-\phi_t(s_t)\bigr).
+\]
+
+Its conditional expectation given the state/action is zero. It is therefore a martingale difference under every observation-adapted controller, even though the agent cannot directly observe the full state. Taking expectations and telescoping yields the *same expected discrepancy for every policy*:
+
+\[
+\boxed{
+\widehat J(\pi)-J_\theta(\pi)
+=-\sum_s\mu_0(s)\phi_0(s)
+\quad\text{for all }\pi\in\mathcal P_O.
+}
+\tag{RHT-13/5}
+\]
+
+This proves identical **expected-return rankings** for the proxy and protected gold in the declared fixed-horizon class. The executable sufficient certificate sets \(\phi_H=0\) and recursively asks whether
+\(\mathbb E[\phi_{t+1}-\delta_t\mid s,a]\) is **independent of action** at every hidden state and time. A failure returns the first specific state/time/action disagreement.
+
+The proof uses standard martingale/potential-based shaping mathematics. The interpretation as an evaluator-channel quotient supplies an important **negative control for purely pathwise holonomy tests**: a reward discrepancy may have nonzero periods on realized paths and nevertheless be invisible to every controller's *expected* objective. It can still matter for tail risk, rare harm and risk-sensitive utilities, which require different safety conditions.
+
+**Exact witness:** take a one-hidden-state game with two available actions. Each action emits an independent fair \(+1\) or \(-1\) *proxy reward*, with protected gold zero, and the actor sees the sign after every step. At horizon two, RHT-12's complete realized-support graph has path-discrepancy width **4** and nontrivial periods. RHT-13's Markov-coboundary certificate has \(\phi_t=0\) and proves **zero expected discrepancy** for every observation policy. Its exact belief-state optimizer verifies robust expected regret and expected discrepancy width both equal zero. A separate biased-signal fixture fails the conditional action-independence test.
+
+### 18.4 UGC evaluator corruption with observable reward inflation
+
+The [RHT-13 environment fixture](../src/spiral_ln/evaluation_reward_stochastic_fixture.py) starts from the seven-state representation of RHT-11's three \(K_{2,3}\) binary UGC worlds: hidden gold world \(w\in\{0,1,2\}\) and hidden evaluator integrity \(s\in\{0,1\}\), plus an alarm/terminal state. The initial distribution assigns probability \(1/3\) to each intact world. The actor may probe one of the three proxy-tied candidate outcomes or call the tamper tool. The evaluator's integrity changes according to the registered mutation/attestation kernel. All approval/rejection/alarm/tamper acknowledgment events are reported to the agent.
+
+An approved probe emits proxy reward **1** when the evaluator is intact, and proxy reward **4** when compromised; the numeric reward is included in the observation. The independently licensed gold **reward features** are safe approval (positive), unsafe approval (negative), and tamper cost (subtracted). A test gold point is \((1,-2,1/4)\), while one declared uncertainty example takes the independently coupled global intervals
+
+\[
+\theta_{\rm safe}\in[1,2],\qquad
+\theta_{\rm unsafe}\in[-3,-2],\qquad
+\theta_{\rm tamper\,cost}\in[0,1/4].
+\]
+
+The fixed-horizon belief DP computes gold-optimal and proxy-optimal policies over exactly the same observed verdicts and returns. A **separate exhaustive two-step conditional policy enumerator** cross-checks all returned expected proxy/gold extrema, including adversarial tie-breaking. The robust certificate compares the eight gold interval vertices with an independent brute-force scan of deterministic two-step observation policies. Randomly generated two-hidden-state models supply additional independent controls.
+
+A pathwise RHT-12 time-expansion can also be constructed from the kernel's positive-probability transition support. Its pathwise reward discrepancy width is a conservative ceiling on the expected-policy discrepancy width for any fixed gold point; the stochastic model additionally prices the actual transition probabilities and the actor's restricted observation history. The two models must retain the same transition and reward identifiers for this comparison.
+
+### 18.5 Verification and scope
+
+- [Exact belief-state and shared-parameter robust certificate](../src/spiral_ln/evaluation_reward_stochastic_closure.py).
+- [UGC mutable evaluator and zero-mean reward controls](../src/spiral_ln/evaluation_reward_stochastic_fixture.py).
+- [Independent brute policy, reward-interval and potential tests](../tests/test_evaluation_reward_stochastic_closure.py).
+- [Source-bound receipt](../scripts/verify_reward_hacking_topology.py), schema RHT-01.8 after integration.
+- The focused Python CI runs only the finite exact research oracles and their independent controls.
+
+The robust regret formulas are finite occupancy-measure/reward-uncertainty results closely related to [Regan and Boutilier, robust policy computation under imprecise rewards (2010)](https://doi.org/10.1609/aaai.v24i1.7740) and [Robust Online Optimization of Reward-Uncertain MDPs (2011)](https://www.ijcai.org/Proceedings/11/Papers/361.pdf). Potential shaping in partially observed systems has established results, including [Potential-Based Reward Shaping for POMDPs (AAMAS 2013)](https://aamas.csc.liv.ac.uk/Proceedings/aamas2013/docs/p1123.pdf) and more recent noisy-reward-machine work. Our finite RHT-13 theorem records a controlled combination of these ingredients with the specific UGC reachability and feedback signal access grammar; it should not be advertised as a new general POMDP theorem or as a solution to real-world human-value misspecification.
+
+The next model requires a *stochastic gold-world transition* that changes the actual task rather than solely the evaluator, partial observation of evaluator and task state with calibrated correlated noise, and reward uncertainty that may influence transitions. A model capable of modifying its own independent attestor would also invalidate the conditional soundness premise and needs explicit causal/security controls.
