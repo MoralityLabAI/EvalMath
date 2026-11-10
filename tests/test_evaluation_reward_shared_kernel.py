@@ -192,6 +192,23 @@ def test_rational_parameter_subinterval_has_correct_interior_max():
     assert result.endpoint_only_max_regret==Q(3,16)
 
 
+def test_independent_transition_rectangularization_is_overconservative():
+    # Two independent Bernoulli parameters permit first trial success
+    # with probability one and second trial failure with probability one.
+    # A physically shared p forces the gold event probability p*(1-p),
+    # with a sharp interior ceiling of 1/4 instead of one.
+    shared=shared_kernel_robust_certificate(
+        interior_transition_hack_fixture(),((1,1),)
+    )
+    independent=max(p*(1-q) for p,q in product(
+        (Q(0),Q(1)),repeat=2
+    ))
+    assert shared.maximum_gold_regret==Q(1,4)
+    assert shared.endpoint_only_max_regret==0
+    assert independent==1
+    assert independent==4*shared.maximum_gold_regret
+
+
 def test_gold_uncertainty_signs_and_nominal_policies():
     g=interior_transition_hack_fixture()
     cert=shared_kernel_robust_certificate(
