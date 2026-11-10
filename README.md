@@ -69,6 +69,12 @@ and `PYTHONPATH=src python scripts/verify_cryptomania_audit.py`.
 
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
+**RHC-01 (2026-11-10):** [reward-hacking detection bootstrap ceiling](paper/reward_hacking_bootstrap.md)
+gives an exact finite minimax/LP dual, a unique rational primal-dual witness at 25% FPR,
+and a diamond-graph cohomological blind spot repaired by a cycle-sensitive observable.
+Run `PYTHONPATH=src python -m pytest -q tests/test_evaluation_reward_hacking_bootstrap.py`
+and `python scripts/check_receipts.py --only rhc01`.
+
 ## Self-designed evaluation and FRC
 
 The [HRC-FRC-01 extension](paper/frc_harmonic_self_evaluation.md) studies
