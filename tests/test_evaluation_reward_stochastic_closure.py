@@ -11,7 +11,8 @@ from spiral_ln.evaluation_reward_stochastic_closure import (
     stochastic_robust_certificate,expected_markov_coboundary,
 )
 from spiral_ln.evaluation_reward_stochastic_fixture import (
-    evaluator_pomdp,fair_martingale_noise_game,biased_reward_signal_game
+    evaluator_pomdp,fair_martingale_noise_game,biased_reward_signal_game,
+    time_expanded_support_graph
 )
 from spiral_ln.evaluation_reward_hacking_stateful import MutableEvaluator
 from spiral_ln.evaluation_reward_transition_closure import (
@@ -229,10 +230,22 @@ def test_expected_martingale_coboundary_allows_nonzero_pathwise_cycles():
 
     # The RHT-12 deterministic *support-path* analysis sees actual coin
     # sequences and hence necessarily a nonconstant realized discrepancy.
-    support=certify_relative_reward(support_time_graph(game,(0,)))
+    independent=support_time_graph(game,(0,))
+    production=time_expanded_support_graph(game,(0,))
+    assert independent==production
+    support=certify_relative_reward(production)
     assert support.discrepancy_width==4
     assert not support.relative_exact
     assert any(h!=0 for _,h in support.fundamental_periods)
+
+
+def test_full_UGC_stochastic_policy_gap_is_within_path_support_width():
+    game=evaluator_pomdp()
+    nominal=stochastic_robust_certificate(game,INTERVALS,nominal=NOMINAL)
+    support=certify_relative_reward(time_expanded_support_graph(game,NOMINAL))
+    assert support.discrepancy_width>=nominal.nominal_policy_discrepancy_width
+    assert support.discrepancy_width>0
+    assert not support.relative_exact
 
 
 def test_markov_coboundary_detects_action_conditional_reward_mismatch():
