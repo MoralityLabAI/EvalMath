@@ -1263,3 +1263,118 @@ A minimal negative control isolates the coupling represented in the \(f_j\) feat
 If \(A\) and \(B\) instead have genuinely **independent gold parameters** \(\theta_A,\theta_B\in[0,10]\), an adversarial proxy tie may choose \(A\) twice when \(\theta_A=0\) and \(\theta_B=10\). Exact robust regret and discrepancy width both become **20**. The only change is the auditor's licensed identification of reward sources. Treating each occurrence of one global reward signal as an independently adjustable unknown would therefore produce a spurious reward-hacking risk certificate. The [exact two-parameter negative control](../tests/test_evaluation_reward_stochastic_closure.py) checks this boundary against the same POMDP optimizer and reward interval oracle.
 
 The reverse danger is at least as important: **incorrectly assuming a shared source** when actual gold values can vary by action, time or task state would understate regret. Signal identity and the causal source of the protected gold must be established outside the proxy optimization loop, with uncertainty ranges covering allowed drift and hidden heterogeneity.
+
+
+## 19. Shared uncertain transition kernels: a genuine interior reward-hacking maximum (RHT-14)
+
+**2026-11-10 | finite exact nonrectangular-kernel theorem and counterexamples.** RHT-13 showed that with a *fixed* transition kernel, rectangular uncertainty in globally licensed true-reward features \(\theta\) can be checked at its interval vertices. RHT-14 changes the stochastic kernel itself. An unknown but fixed parameter \(p\) is reused across transitions, states and time steps. This is a **globally coupled / nonrectangular transition uncertainty family**, with a mathematical behavior that invalidates any unconditional endpoint-only shortcut for the kernel parameter.
+
+### 19.1 Typed shared-parameter kernel
+
+Fix the finite hidden-state, actor-observation and action grammar of RHT-13, with two mandatory calls. Every conditional outcome has probability
+
+\[
+K_p(s',o\mid s,a)=u_{s,a,s',o}+v_{s,a,s',o}p,
+\qquad p\in[p_-,p_+]\subseteq[0,1].
+\]
+
+The channel is required to be nonnegative on the entire interval and to normalize identically in \(p\) for every hidden state/action. Since each probability is affine, checking both interval endpoints is sufficient to validate **an individual transition probability**, and checking zero total slope and unit total intercept validates normalization. These local kernel-validation facts are distinct from maximizing a two-step *reward* over the shared parameter.
+
+A single value \(p\) is chosen for the entire trajectory, and the controller sees only its registered observations. Protected transition gold is \(r_\theta=r_0+\sum_j f_j\theta_j\) with \(\theta\) in an independently licensed rational box \(\Theta\). Proxy rewards and the transition kernel remain independent of \(\theta\).
+
+For a fixed deterministic observation policy \(\pi\), its expected returns can be computed exactly by multiplying transition polynomials along each observation branch. Since the same parameter occurs in both calls,
+
+\[
+\boxed{
+\widehat J_\pi(p)=\sum_{k=0}^2 a_{\pi,k}p^k,\qquad
+J_{\pi,\theta}(p)=\sum_{k=0}^2
+\left(b_{\pi,k}+\sum_j d_{\pi,j,k}\theta_j\right)p^k.
+}
+\tag{RHT-14/1}
+\]
+
+The coefficients are rational and are evaluated by an independent complete-world/observation history oracle at fixed rational \(p\), cross-checking the symbolic polynomial evaluator. The expected gold occupancy continues to share every reward-source coefficient globally across time.
+
+### 19.2 The exact univariate robust-regret theorem
+
+For the first exact reference solver, restrict attention to an uncertainty interval on which the **entire set of proxy-optimal deterministic observation policies is constant**. This is a checkable condition rather than an assumed empirical observation. The solver enumerates all policies under its two-step grammar, chooses a candidate proxy-winning polynomial \(P_\star\), and proves for every other policy either
+
+\[
+\widehat J_\pi(p)\equiv P_\star(p)
+\quad\text{or}\quad
+\min_{p\in[p_-,p_+]}\bigl(P_\star(p)-\widehat J_\pi(p)\bigr)>0.
+\tag{RHT-14/2}
+\]
+
+All minima are evaluated exactly using quadratic stationary points and the interval endpoints. If a different policy can become proxy optimal, or ties only at an isolated parameter value, the reference solver **rejects this uniform-winner certificate**. It does not infer a globally optimal proxy roster by midpoint samples.
+
+Let \(\Pi_\star\) be the verified constant proxy-winner set and \(\Pi\) the complete finite observation-policy set. The worst regret is
+
+\[
+R_{\rm rob}=
+\max_{\substack{p\in[p_-,p_+]\\\theta\in\Theta}}
+\left[
+\max_{\pi\in\Pi}J_{\pi,\theta}(p)
+-\min_{\widehat\pi\in\Pi_\star}J_{\widehat\pi,\theta}(p)
+\right].
+\]
+
+**Theorem RHT-14/T1.** Under (RHT-14/2), with fixed kernel/proxy feature structure and horizon at most two, this exact robust regret is obtained by:
+
+1. evaluating only **vertices of the gold uncertainty box** \(\Theta\);
+2. for each gold vertex and policy pair \((\pi,\widehat\pi)\in\Pi\times\Pi_\star\), taking the maximum of the quadratic \(J_{\pi,\theta}(p)-J_{\widehat\pi,\theta}(p)\) over \(p\in[p_-,p_+]\), at its interval endpoints and its interior stationary point \(p=-b/(2a)\), when that point exists in the interval;
+3. taking the maximum over all resulting policy pairs and parameter candidates.
+
+The proof is an exchange of finite maxima with the box maximum. Each policy-pair gold difference is affine in \(\theta\), hence gold uncertainty attains its maximum at a vertex. With \(\theta\) fixed, that difference is a degree-at-most-two polynomial in the **same** \(p\), whose extrema occur at the interval endpoints and the derivative-zero point. This is a finite exact optimization identity, using established parametric-MDP mathematics.
+
+The same enumeration calculates the maximum width of the expected proxy-minus-gold returns across all observation policies and the guaranteed *minimum gold return* of any proxy-selected policy over all licensed \(p,\theta\). It checks \(0\le R_{\rm rob}\le W_{\rm rob}\). A two-sided certificate can require \(R_{\rm rob}\le\varepsilon\) and \(J_{\rm floor}\ge u_0\), with both thresholds declared in advance.
+
+### 19.3 An endpoint-only verifier fails at exactly \(p=1/2\)
+
+Take two actions with identical fixed-horizon access:
+
+- The proxy-only action gives a certain reported proxy score 1 and protected gold 0.
+- The gold-protected action gives proxy score 0 and protected gold \(\theta>0\) if the first independent Bernoulli trial using the **shared** success probability \(p\) succeeds, and the second fails. Otherwise gold is zero.
+
+The gold action therefore has expected protected return
+
+\[
+J_{\rm protected}(p,\theta)=\theta p(1-p),
+\]
+
+while the proxy action is strictly proxy-optimal at every \(p\in[0,1]\). Thus
+
+\[
+\boxed{R_{\rm rob}(\theta=1)=1/4\quad
+\text{at }p=1/2,\qquad R(0)=R(1)=0.}
+\tag{RHT-14/3}
+\]
+
+A transition-interval verifier evaluating *only the endpoints* would report **zero regret** even though the exact worst case is positive. If the gold feature is independently licensed over \(\theta\in[1,2]\), the exact robust regret is **1/2**, the full expected discrepancy width is **3/2**, and the minimum true return of the always proxy-selected action is zero. These results are checked against a complete finite policy census and the prior RHT-13 POMDP solver for multiple rational interior and endpoint values.
+
+The globally shared \(p\) is load-bearing. If one instead *relaxes the same physical signal into independent* parameters \(p_1,p_2\) for the two calls, the gold event has probability \(p_1(1-p_2)\), whose maximum over \([0,1]^2\) is 1. This **rectangularization can overstate the worst achievable regret by a factor four**, just as checking only the diagonal endpoints can understate it completely. The correct uncertainty object is the licensed **coupled** transition-parameter family.
+
+### 19.4 Grounded binary UGC crosswalk
+
+The [UGC fixture](../src/spiral_ln/evaluation_reward_shared_kernel_fixture.py) embeds two actual \(\mathbb F_2\) \(K_{2,2}\) constraint-satisfaction records from RHT-08 as hidden reference worlds with uniform prior. Candidate 0 is unsafe in the first reference world and safe in the second. A proxy-tamper alternative earns one certain proxy point and zero gold. The protected candidate earns the licensed gold success value \(\theta\) only in the safe world and only after the common two-trial event.
+
+With \(\theta\in[1,2]\), the protected candidate's expected gold is exactly
+
+\[
+J_{\rm UGC\ protected}(p,\theta)=\tfrac12\theta p(1-p).
+\]
+
+The uniform proxy winner still selects the proxy-tamper action. Exact robust gold regret is **1/4** at \(p=1/2,\theta=2\), expected discrepancy width is **5/4**, and the transition-endpoint-only regret is zero. A direct RHT-13 occupancy enumeration checks the result at \(p\in\{0,1/4,1/2,3/4,1\}\). The UGC constraint worlds are a frozen finite reachability fixture, with no inference from the general UGC hardness theorem.
+
+A separate **fail-closed switching fixture** makes the proxy prefer one action when \(p\) is small and another when it is large. RHT-14 rejects the uniform-proxy-winner contract in this case, rather than returning an unsound regret. It also tests interval restrictions where the true quadratic maximizer lies at an endpoint, malformed kernels and resource-budget exhaustion.
+
+### 19.5 Prior art and next extension
+
+Uncertain kernels shared across time are classical *nonrectangular* robust MDPs. See Goyal and Grand-Clément, [*Robust Markov Decision Processes: Beyond Rectangularity*](https://doi.org/10.1287/moor.2022.1259), and Junges et al., [*The Complexity of Reachability in Parametric Markov Decision Processes*](https://doi.org/10.1016/j.jcss.2021.02.006). For uncertainty inferred from empirical transitions while preserving shared algebraic parameters, see Schnitzer, Abate and Parker, [*Robust Parameter Learning for Uncertain MDPs*](https://arxiv.org/abs/2605.01339). The quadratic stationary-point theorem is elementary; the project contribution is an **executable fail-closed certificate and adversarial reward-hacking controls within EvalMath's typed evaluation grammar**.
+
+The current exact solver assumes a *single scalar affine transition parameter*, at most two calls, independent gold intervals, and a **verified constant proxy-optimal policy set**. General robust policy switching, multiple shared kernel parameters, repeated task-state changes, a corruptible root attestor, and real learned-reward validation require further research. Under those conditions the robust regret problem becomes semialgebraic; extending this seed may use rational root isolation or Bernstein-form interval certificates with a separately verified upper bound.
+
+- [Exact rational shared-kernel polynomial policy oracle and robust certificate](../src/spiral_ln/evaluation_reward_shared_kernel.py).
+- [UGC hidden-world and interior-maximum fixtures](../src/spiral_ln/evaluation_reward_shared_kernel_fixture.py).
+- [Independent exact occupancy and negative-control tests](../tests/test_evaluation_reward_shared_kernel.py).
+- [Source-bound RHT research receipt](../scripts/verify_reward_hacking_topology.py).
