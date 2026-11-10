@@ -412,14 +412,16 @@ def robust_transition_certify(
             continue
         for i in out[u]:
             e=game.edges[i]
-            fwd[e.target]=max(fwd.get(e.target,Q(-10**100)),
-                              fwd[u]+Q(e.proxy))
+            trial=fwd[u]+Q(e.proxy)
+            if e.target not in fwd or trial>fwd[e.target]:
+                fwd[e.target]=trial
     for u in reversed(order):
         for i in out[u]:
             e=game.edges[i]
             if e.target in back:
-                back[u]=max(back.get(u,Q(-10**100)),
-                            Q(e.proxy)+back[e.target])
+                trial=Q(e.proxy)+back[e.target]
+                if u not in back or trial>back[u]:
+                    back[u]=trial
     min_gold={game.start:Q(0)}
     for u in order:
         if u not in min_gold:
