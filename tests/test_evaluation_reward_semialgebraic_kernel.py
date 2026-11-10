@@ -7,6 +7,8 @@ import pytest
 
 from spiral_ln.evaluation_reward_two_kernel import BiPoly,PolicySurface
 from spiral_ln.evaluation_reward_quadratic_kernel_fixture import quadratic_parabola_goodhart_fixture
+from spiral_ln.evaluation_reward_two_kernel_fixture import curved_proxy_switch_fixture
+from spiral_ln.evaluation_reward_curved_kernel import curved_kernel_robust_certificate
 from spiral_ln.evaluation_reward_quadratic_kernel import quadratic_kernel_robust_certificate
 from spiral_ln.evaluation_reward_semialgebraic_fixture import higher_degree_parabolic_surfaces
 from spiral_ln.evaluation_reward_semialgebraic_kernel import (
@@ -157,3 +159,28 @@ def test_invalid_degrees_rosters_and_caps_fail_closed():
         semialgebraic_certificate(higher_degree_parabolic_surfaces(),((1,1),),max_pairs=1)
     with pytest.raises(ValueError):
         higher_degree_parabolic_surfaces(degree=13)
+
+def test_rht17_curved_pq_regression_with_complete_observation_policies():
+    game=curved_proxy_switch_fixture()
+    previous=curved_kernel_robust_certificate(game,((1,1),))
+    latest=two_kernel_semialgebraic_certificate(game,((1,1),))
+    assert cmp_root(latest.worst_p,isolate((-1,2,1))[0])==0
+    assert cmp_value(latest.worst_q,AtRoot(latest.worst_p,(Q(0),Q(1))))==0
+    assert cmp_root(latest.maximum_gold_regret.as_root(),
+                    isolate((4,-12,1),0,1)[0])==0
+    assert latest.corner_only_regret==previous.rectangle_corner_only_regret
+    assert cmp_value(latest.maximum_expected_discrepancy_width,
+                     AtRoot.constant(2))==0
+
+
+def test_degree_eight_and_twelve_exact_root_family():
+    for degree in (8,12):
+        cert=semialgebraic_certificate(
+            higher_degree_parabolic_surfaces(degree=degree),((1,1),))
+        stationary=(-1,)+(Q(0),)*(degree-1)+(Q(degree+1),)
+        assert cmp_root(cert.worst_p,isolate(stationary)[0])==0
+        assert cmp_value(cert.worst_q,
+                         AtRoot.constant(Q(1,degree+1)))==0
+        assert cmp_value(cert.maximum_gold_regret,
+                         AtRoot(cert.worst_p,(Q(0),Q(degree,degree+1))))==0
+        assert cert.corner_only_regret==0
