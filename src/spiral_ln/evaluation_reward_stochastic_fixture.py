@@ -199,3 +199,30 @@ def time_expanded_support_graph(
         terminals=tuple(vertex(game.horizon,s) for s in range(states)),
         edges=tuple(edges)
     )
+
+
+
+def reward_source_identity_fixture(*, share_gold:bool=True,horizon:int=2):
+    """A/B proxy tie with either shared or independently licensed gold.
+
+    Both actions have proxy reward zero and observe their own action name.
+    Under shared gold, their true reward is the SAME theta on every
+    repetition: no possible gold regret despite a wide interval.
+    Under split gold, A and B have distinct true parameters, and an
+    adversarial proxy tie can select the worse one.
+    """
+    params=("shared_gold",) if share_gold else ("gold_A","gold_B")
+    edges=tuple(
+        StochasticRewardEdge(
+            0,a,0,label,Q(1),Q(0),
+            gold_coefficients=((Q(1),) if share_gold
+                               else (Q(1),Q(0)) if a==0
+                               else (Q(0),Q(1)))
+        )
+        for a,label in ((0,"A"),(1,"B"))
+    )
+    return StochasticRewardGame(
+        state_count=1,actions=("choose_A","choose_B"),
+        initial=(Q(1),),gold_parameters=params,edges=edges,
+        horizon=horizon
+    )
