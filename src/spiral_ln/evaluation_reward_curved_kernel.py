@@ -412,7 +412,9 @@ def curved_kernel_robust_certificate(
         challenger_policy=surfaces[pair[0]].policy,
         proxy_chosen_policy=surfaces[pair[1]].policy,
         guaranteed_gold_floor=floor,
-        worst_proxy_gold=_evaluate(gold[pair[1]],*worst_point),
+        worst_proxy_gold=_evaluate(
+            surfaces[pair[1]].gold(worst_theta),*worst_point
+        ),
         maximum_expected_discrepancy_width=width,
         rectangle_corner_only_regret=corner_regret,
         winning_regions=winners,
