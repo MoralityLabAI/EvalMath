@@ -139,7 +139,7 @@ def test_bilinear_boundary_intersection_has_irrational_critical_p():
     game=curved_proxy_switch_fixture()
     region=curved_winner_region(game,candidates,0)
     assert ROOT in region.critical_p
-    assert (ROOT,ROOT,ROOT) in region.feasible_vertical_slices
+    assert (ROOT,ROOT,ExactQuadratic(Q(1))) in region.feasible_vertical_slices
     protected=BiPoly(((0,0,Q(1)),(1,0,Q(-1)),
                       (0,1,Q(-1)),(1,1,Q(1))))
     result=curved_region_extreme(protected,region,maximize=True)
