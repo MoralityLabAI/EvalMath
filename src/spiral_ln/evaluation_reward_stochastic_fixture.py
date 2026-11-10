@@ -50,8 +50,9 @@ def evaluator_pomdp(
         raise ValueError("proxy multiplier must be nonnegative")
     n=len(game.world_records)
     terminal=2*n
-    actions=tuple(f"probe:{a}" for a in game.public_maximizers())+("tamper",)
-    tamper_index=len(actions)-1
+    actions=(tuple(f"probe:{a}" for a in game.public_maximizers())
+             + (("tamper",) if ch.allow_tamper else ()))
+    tamper_index=len(actions)-1 if ch.allow_tamper else None
     zero=(Q(0),Q(0),Q(0))
     safe=(Q(1),Q(0),Q(0))
     unsafe=(Q(0),Q(1),Q(0))
@@ -102,9 +103,6 @@ def evaluator_pomdp(
                         prob*alarm,gold_coeff=tamper)
                     add(source,tamper_index,2*w+s1,"ack",
                         prob*(1-alarm),gold_coeff=tamper)
-            else:
-                add(source,tamper_index,source,"tamper-disabled",Q(1),
-                    gold_coeff=tamper)
     for a in range(len(actions)):
         add(terminal,a,terminal,"done",Q(1))
     initial=tuple(
