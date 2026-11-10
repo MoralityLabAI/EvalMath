@@ -1,4 +1,4 @@
-"""RHT-01..15 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..16 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -75,6 +75,15 @@ from spiral_ln.evaluation_reward_shared_kernel_fixture import (
 from spiral_ln.evaluation_reward_kernel_switching import (
     ExactQuadratic,switching_kernel_robust_certificate,
 )
+from spiral_ln.evaluation_reward_two_kernel import (
+    two_kernel_robust_certificate,
+)
+from spiral_ln.evaluation_reward_two_kernel_fixture import (
+    two_parameter_goodhart_fixture,
+    ugc_two_parameter_goodhart_fixture,
+    proxy_aligned_two_parameter_fixture,
+    diagonal_only_proxy_tie_fixture,
+)
 from spiral_ln.evaluation_reward_shared_kernel_fixture import (
     rational_proxy_crossing_fixture,
     irrational_proxy_crossing_fixture,
@@ -112,6 +121,8 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_shared_kernel.py",
     "src/spiral_ln/evaluation_reward_shared_kernel_fixture.py",
     "src/spiral_ln/evaluation_reward_kernel_switching.py",
+    "src/spiral_ln/evaluation_reward_two_kernel.py",
+    "src/spiral_ln/evaluation_reward_two_kernel_fixture.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -129,6 +140,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_stochastic_closure.py",
     "tests/test_evaluation_reward_shared_kernel.py",
     "tests/test_evaluation_reward_kernel_switching.py",
+    "tests/test_evaluation_reward_two_kernel.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -544,6 +556,40 @@ def receipt() -> dict:
         ugc_kernel_cert.maximum_expected_discrepancy_width
     )
 
+    two_param=two_kernel_robust_certificate(
+        two_parameter_goodhart_fixture(),((Q(1),Q(2)),),
+        maximum_allowed_regret=Q(1,2),
+        minimum_proxy_gold_return=Q(0),
+    )
+    two_param_UGC=two_kernel_robust_certificate(
+        ugc_two_parameter_goodhart_fixture(),((Q(1),Q(2)),),
+        maximum_allowed_regret=Q(1,4),
+        minimum_proxy_gold_return=Q(0),
+    )
+    two_param_aligned=two_kernel_robust_certificate(
+        proxy_aligned_two_parameter_fixture(),((Q(1),Q(2)),),
+        maximum_allowed_regret=Q(0),
+    )
+    two_param_tie=two_kernel_robust_certificate(
+        diagonal_only_proxy_tie_fixture(),((Q(1),Q(1)),),
+        maximum_allowed_regret=Q(1),
+    )
+    assert two_param.maximum_gold_regret==Q(1,2)
+    assert two_param.worst_transition_parameters==(Q(1,2),Q(1,2))
+    assert two_param.worst_gold_parameters==(Q(2),)
+    assert two_param.rectangle_corner_only_regret==0
+    assert two_param.maximum_expected_discrepancy_width==1
+    assert two_param.passes
+    assert two_param_UGC.maximum_gold_regret==Q(1,4)
+    assert two_param_UGC.worst_transition_parameters==(Q(1,2),Q(1,2))
+    assert two_param_UGC.rectangle_corner_only_regret==0
+    assert two_param_UGC.passes
+    assert two_param_aligned.maximum_gold_regret==0
+    assert two_param_aligned.passes
+    assert two_param_tie.maximum_gold_regret==1
+    assert any(len(poly)==2 for i,poly in two_param_tie.winning_polygons)
+    assert two_param_tie.passes
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -560,7 +606,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.10",
+        "schema":"RHT-01.11",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -606,6 +652,38 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "two_shared_transition_parameters":{
+            "parameters":["p","q"],
+            "kernel_contract":"globally shared affine p,q; expected proxy affine and expected gold multiaffine, verified per policy",
+            "gold_event":"theta*p*(1-q)",
+            "generic":{
+                "worst_gold_regret":str(two_param.maximum_gold_regret),
+                "gold_vertex":[str(x) for x in two_param.worst_gold_parameters],
+                "worst_transition_point":[str(x) for x in two_param.worst_transition_parameters],
+                "rectangle_corners_only_regret":str(two_param.rectangle_corner_only_regret),
+                "full_policy_discrepancy_width":str(two_param.maximum_expected_discrepancy_width),
+                "worst_proxy_gold":str(two_param.worst_proxy_gold),
+                "private_gold_floor":str(two_param.guaranteed_gold_floor),
+                "winning_polygons":len(two_param.winning_polygons),
+                "policies_enumerated":two_param.policies_enumerated,
+                "comparison_budget_consumed":two_param.reward_pair_checks,
+            },
+            "UGC_two_real_reference_worlds":{
+                "worst_gold_regret":str(two_param_UGC.maximum_gold_regret),
+                "worst_transition_point":[str(x) for x in two_param_UGC.worst_transition_parameters],
+                "rectangle_corners_only_regret":str(two_param_UGC.rectangle_corner_only_regret),
+            },
+            "gold_aligned_positive_control":{
+                "worst_gold_regret":str(two_param_aligned.maximum_gold_regret),
+            },
+            "diagonal_only_proxy_tie":{
+                "worst_gold_regret":str(two_param_tie.maximum_gold_regret),
+                "has_lower_dimensional_winning_region":any(
+                    len(poly)==2 for i,poly in two_param_tie.winning_polygons
+                ),
+            },
+            "scope":"finite mandatory horizon <=2; rational closed parameter box; full policy census; no model/human-gold empirical evidence",
         },
         "switching_shared_transition_kernel":{
             "licensed_gold":"fixed or independent interval values with globally shared transition p",
