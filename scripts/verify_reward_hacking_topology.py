@@ -1,4 +1,4 @@
-"""RHT-01..10 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..13 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -57,6 +57,14 @@ from spiral_ln.evaluation_reward_transition_closure import (
     TimedRewardEdge,TimedRewardGame,certify_relative_reward,
     robust_transition_certify,
 )
+from spiral_ln.evaluation_reward_stochastic_closure import (
+    stochastic_robust_certificate,optimize_stochastic_policy,
+    expected_markov_coboundary,
+)
+from spiral_ln.evaluation_reward_stochastic_fixture import (
+    evaluator_pomdp,fair_martingale_noise_game,
+    time_expanded_support_graph,
+)
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -82,6 +90,8 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_hacking_stateful.py",
     "src/spiral_ln/evaluation_reward_hacking_stateful_guard.py",
     "src/spiral_ln/evaluation_reward_transition_closure.py",
+    "src/spiral_ln/evaluation_reward_stochastic_closure.py",
+    "src/spiral_ln/evaluation_reward_stochastic_fixture.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -96,6 +106,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_hacking_stateful.py",
     "tests/test_evaluation_reward_hacking_stateful_guard.py",
     "tests/test_evaluation_reward_transition_closure.py",
+    "tests/test_evaluation_reward_stochastic_closure.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -391,6 +402,36 @@ def receipt() -> dict:
     assert uncertainty.guaranteed_proxy_gold_floor==0
     assert uncertainty.passes
 
+    stochastic_game=evaluator_pomdp()
+    nominal_gold=(Q(1),Q(-2),Q(1,4))
+    stochastic_box=((Q(1),Q(2)),(Q(-3),Q(-2)),(Q(0),Q(1,4)))
+    stochastic=stochastic_robust_certificate(
+        stochastic_game,stochastic_box,nominal=nominal_gold,
+    )
+    assert stochastic.reward_interval_vertices_checked==8
+    assert 0<stochastic.nominal_regret<=stochastic.robust_max_regret
+    assert stochastic.robust_max_regret<=stochastic.robust_policy_discrepancy_width
+    proxy_choice=optimize_stochastic_policy(
+        stochastic_game,nominal_gold,objective="proxy_worst_gold"
+    )
+    gold_choice=optimize_stochastic_policy(
+        stochastic_game,nominal_gold,objective="gold_max"
+    )
+    assert stochastic_game.actions[proxy_choice.policy.action]=="tamper"
+    assert stochastic_game.actions[gold_choice.policy.action]!="tamper"
+    path_outer=certify_relative_reward(
+        time_expanded_support_graph(stochastic_game,nominal_gold)
+    )
+    assert path_outer.discrepancy_width>=stochastic.nominal_policy_discrepancy_width
+    fair_noise=fair_martingale_noise_game(horizon=2)
+    markov=expected_markov_coboundary(fair_noise,(Q(0),))
+    fair_path=certify_relative_reward(
+        time_expanded_support_graph(fair_noise,(Q(0),))
+    )
+    assert markov.valid
+    assert markov.expected_gap_all_fixed_horizon_policies==0
+    assert fair_path.discrepancy_width==4 and not fair_path.relative_exact
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -407,7 +448,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.7",
+        "schema":"RHT-01.8",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -453,6 +494,56 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "stochastic_reward_closure":{
+            "hidden_ugc_worlds":3,
+            "evaluator_integrity_states":2,
+            "alarm_absorbing_state":True,
+            "horizon":stochastic_game.horizon,
+            "shared_gold_features":list(stochastic_game.gold_parameters),
+            "gold_interval_vertices_checked":stochastic.reward_interval_vertices_checked,
+            "nominal_theta":[str(x) for x in nominal_gold],
+            "nominal_proxy_optimal_first_action":stochastic_game.actions[
+                proxy_choice.policy.action
+            ],
+            "nominal_gold_optimal_first_action":stochastic_game.actions[
+                gold_choice.policy.action
+            ],
+            "nominal_proxy_return":str(stochastic.nominal_proxy),
+            "nominal_true_gold_at_proxy":str(stochastic.nominal_gold_at_proxy),
+            "nominal_optimal_true_gold":str(stochastic.nominal_optimal_gold),
+            "nominal_regret":str(stochastic.nominal_regret),
+            "nominal_policy_discrepancy_width":str(
+                stochastic.nominal_policy_discrepancy_width
+            ),
+            "robust_max_regret":str(stochastic.robust_max_regret),
+            "robust_policy_discrepancy_width":str(
+                stochastic.robust_policy_discrepancy_width
+            ),
+            "guaranteed_proxy_gold_floor":str(
+                stochastic.guaranteed_proxy_gold_floor
+            ),
+            "worst_gold_parameter_vertex":[
+                str(x) for x in stochastic.worst_gold_parameters
+            ],
+            "worst_gold_occupancy":[
+                str(x) for x in stochastic.worst_gold_witness_occupancy
+            ],
+            "worst_proxy_occupancy":[
+                str(x) for x in stochastic.worst_proxy_witness_occupancy
+            ],
+            "nominal_path_support_width":str(path_outer.discrepancy_width),
+            "belief_dp_states_visited":stochastic.belief_dp_states_visited,
+            "martingale_reward_null_control":{
+                "conditional_expected_coboundary_valid":markov.valid,
+                "expected_policy_discrepancy":str(
+                    markov.expected_gap_all_fixed_horizon_policies
+                ),
+                "realized_pathwise_discrepancy_width":str(
+                    fair_path.discrepancy_width
+                ),
+            },
+            "scope":"fixed stochastic kernel and observable proxy; hidden mutable evaluator; time-shared interval gold features; mandatory horizon; no trained agent",
         },
         "time_expanded_relative_reward":{
             "vertices":len(time_game.layers),
