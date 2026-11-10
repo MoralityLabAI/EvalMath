@@ -1,4 +1,4 @@
-"""RHT-01..13 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..14 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -65,6 +65,13 @@ from spiral_ln.evaluation_reward_stochastic_fixture import (
     evaluator_pomdp,fair_martingale_noise_game,
     time_expanded_support_graph,reward_source_identity_fixture,
 )
+from spiral_ln.evaluation_reward_shared_kernel import (
+    shared_kernel_robust_certificate,
+)
+from spiral_ln.evaluation_reward_shared_kernel_fixture import (
+    interior_transition_hack_fixture,
+    ugc_coupled_shared_transition_fixture,
+)
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
 )
@@ -92,6 +99,8 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_transition_closure.py",
     "src/spiral_ln/evaluation_reward_stochastic_closure.py",
     "src/spiral_ln/evaluation_reward_stochastic_fixture.py",
+    "src/spiral_ln/evaluation_reward_shared_kernel.py",
+    "src/spiral_ln/evaluation_reward_shared_kernel_fixture.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -107,6 +116,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_hacking_stateful_guard.py",
     "tests/test_evaluation_reward_transition_closure.py",
     "tests/test_evaluation_reward_stochastic_closure.py",
+    "tests/test_evaluation_reward_shared_kernel.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -444,6 +454,46 @@ def receipt() -> dict:
     assert source_shared.robust_policy_discrepancy_width==0
     assert source_split.robust_policy_discrepancy_width==20
 
+    generic_kernel=interior_transition_hack_fixture()
+    generic_fixed=shared_kernel_robust_certificate(
+        generic_kernel,((Q(1),Q(1)),),
+        maximum_allowed_regret=Q(1,4),
+    )
+    generic_uncertain=shared_kernel_robust_certificate(
+        generic_kernel,((Q(1),Q(2)),),
+        maximum_allowed_regret=Q(1,2),
+        minimum_proxy_gold_return=Q(0),
+    )
+    ugc_kernel=ugc_coupled_shared_transition_fixture()
+    ugc_kernel_cert=shared_kernel_robust_certificate(
+        ugc_kernel,((Q(1),Q(2)),),
+        maximum_allowed_regret=Q(1,4),
+    )
+    assert generic_fixed.maximum_gold_regret==Q(1,4)
+    assert generic_fixed.endpoint_only_max_regret==0
+    assert generic_fixed.worst_transition_probability==Q(1,2)
+    assert generic_uncertain.maximum_gold_regret==Q(1,2)
+    assert generic_uncertain.maximum_expected_discrepancy_width==Q(3,2)
+    assert generic_uncertain.worst_gold_parameters==(Q(2),)
+    assert generic_uncertain.proxy_optimal_policies==4
+    assert generic_uncertain.total_policies==8
+    assert ugc_kernel_cert.maximum_gold_regret==Q(1,4)
+    assert ugc_kernel_cert.maximum_expected_discrepancy_width==Q(5,4)
+    assert ugc_kernel_cert.endpoint_only_max_regret==0
+    assert ugc_kernel_cert.total_policies==6
+    assert all(x.passes for x in (
+        generic_fixed,generic_uncertain,ugc_kernel_cert
+    ))
+    # Independent fixed-p Bellman versus symbolic shared-parameter result.
+    ordinary=generic_kernel.instantiate(Q(1,2))
+    check_gold=optimize_stochastic_policy(
+        ordinary,(Q(1),),objective="gold_max"
+    )
+    check_proxy=optimize_stochastic_policy(
+        ordinary,(Q(1),),objective="proxy_worst_gold"
+    )
+    assert check_gold.gold_return-check_proxy.gold_return==Q(1,4)
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -460,7 +510,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.8",
+        "schema":"RHT-01.9",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "feedback_geometry":{
@@ -506,6 +556,45 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "shared_transition_kernel":{
+            "kernel_parameter_interval":["0","1"],
+            "coupling":"single global affine transition parameter shared across both calls",
+            "quadratic_generic":{
+                "gold_reward_value_one_exact_max_regret":str(
+                    generic_fixed.maximum_gold_regret
+                ),
+                "gold_reward_value_interval_one_two_exact_max_regret":str(
+                    generic_uncertain.maximum_gold_regret
+                ),
+                "worst_transition_probability":str(
+                    generic_fixed.worst_transition_probability
+                ),
+                "endpoint_only_max_regret":str(
+                    generic_fixed.endpoint_only_max_regret
+                ),
+                "robust_expected_discrepancy_width":str(
+                    generic_uncertain.maximum_expected_discrepancy_width
+                ),
+                "worst_gold_value":list(map(str,generic_uncertain.worst_gold_parameters)),
+                "proxy_optimal_policies":generic_uncertain.proxy_optimal_policies,
+                "all_observation_policies":generic_uncertain.total_policies,
+                "gold_value_fixed_p_crosscheck":str(
+                    check_gold.gold_return-check_proxy.gold_return
+                ),
+            },
+            "two_world_UGC":{
+                "gold_reference_worlds":2,
+                "actual_K2_2_satisfaction_worlds":True,
+                "worst_gold_regret":str(ugc_kernel_cert.maximum_gold_regret),
+                "worst_expected_discrepancy_width":str(
+                    ugc_kernel_cert.maximum_expected_discrepancy_width
+                ),
+                "transition_endpoint_only_regret":str(
+                    ugc_kernel_cert.endpoint_only_max_regret
+                ),
+            },
+            "scope":"horizon <=2, normalized affine global p, rational gold intervals, exact constant proxy winner set; rejects p-dependent winner switching",
         },
         "stochastic_reward_closure":{
             "hidden_ugc_worlds":3,
