@@ -74,7 +74,7 @@ def test_cubic_exact_stationary_point_and_quadratic_algebraic_value():
 
 def test_parabolic_proxy_switch_has_exact_interior_irrational_regret():
     game=quadratic_parabola_goodhart_fixture()
-    with pytest.raises(ValueError,match="proxy policy"):
+    with pytest.raises(ValueError,match="non-affine proxy"):
         two_kernel_robust_certificate(game,((1,1),))
     with pytest.raises(ValueError,match="non-multiaffine"):
         curved_kernel_robust_certificate(game,((1,1),))
