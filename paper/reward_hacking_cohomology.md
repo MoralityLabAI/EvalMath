@@ -1804,3 +1804,141 @@ The result covers globally shared **two-parameter affine transition laws**, a **
 - [Curved switching and UGC fixtures](../src/spiral_ln/evaluation_reward_two_kernel_fixture.py)
 - [Independent world/observation and radical-intersection tests](../tests/test_evaluation_reward_curved_kernel.py)
 - [Versioned source-fingerprinted research receipt](../scripts/verify_reward_hacking_topology.py)
+
+
+## 23. Quadratic proxy surfaces: exact parabolic switching and cubic gold regret (RHT-18)
+
+**2026-11-10 | finite degree-2 parametric POMDP theorem.** RHT-17 handles two globally shared transition probabilities with *multiaffine* proxy and gold policy surfaces, so its switching curves have rational-linear-fractional shape. The next mathematical obstruction is a proxy objective that reuses a parameter in two successive Bernoulli events, producing a squared term \(p^2\) in its expected score. The RHT-17 solver correctly refuses that case. RHT-18 supplies an exact certificate for the additional **quadratic-in-\(p\), affine-in-\(q\)** policy grammar, together with exact cubic extrema on parabolic policy boundaries.
+
+### 23.1 Typed extension of the two-parameter transition grammar
+
+Retain RHT-16's finite, normalized conditional kernel
+
+\[
+K_{p,q}(s',o\mid s,a)=k_0+k_p p+k_q q
+\]
+
+with the same globally shared \(p,q\) across the whole episode, horizon at most two, rational closed parameter box \(I_p\times I_q\), and an independently licensed rational gold box \(\Theta\). The actor chooses deterministic policies from its visible observation history, and the independent gold parameters do not modify the transition kernel or the proxy objective.
+
+The exact solver enumerates *every* policy in the declared finite grammar and checks that its expected proxy and gold polynomials have the forms
+
+\[
+\boxed{\widehat J_\pi(p,q)
+=A_{\pi,0}+A_{\pi,1}p+A_{\pi,2}p^2+B_\pi q,}
+\tag{RHT-18/1}
+\]
+\[
+\boxed{J_{\pi,\theta}(p,q)
+=C_{\pi,0}(\theta)+C_{\pi,1}(\theta)p
++C_{\pi,2}(\theta)p^2+
+[D_{\pi,0}(\theta)+D_{\pi,1}(\theta)p]q.}
+\tag{RHT-18/2}
+\]
+
+All coefficients are rational and affine in the globally identified gold features \(\theta\). A \(pq\) term in the **proxy**, a \(q^2\) term in gold, a \(p^2q\) term or any higher-degree contribution lies outside this restricted exact theorem and is explicitly rejected. This is a subclass of general quadratic two-variable polynomials arising from two-step stochastic paths, selected because its proxy winning regions admit complete exact one-dimensional boundary decomposition.
+
+### 23.2 Exact switching envelope and critical p-slices
+
+For a proxy candidate \(j\), the requirement that it outscore policy \(k\) is
+
+\[
+\widehat J_j-\widehat J_k
+=F_{jk}(p)+(B_j-B_k)q\ge0,
+\]
+
+where \(F_{jk}(p)\in\mathbb Q[p]\) has degree at most two. A strictly positive \(B_j-B_k\) imposes a lower bound \(q\ge-F_{jk}(p)/(B_j-B_k)\); a negative difference imposes an upper bound of the same *quadratic curve* form. A zero difference imposes the purely vertical sign constraint \(F_{jk}(p)\ge0\).
+
+Include the parameter-box bounds \(q_-\le q\le q_+\). Then each vertical slice of the exact proxy-winner region is either empty or the closed interval
+
+\[
+\boxed{L_j(p)\le q\le U_j(p),}
+\quad
+L_j(p)=\max_{\alpha\in\mathcal L_j}\alpha(p),\quad
+U_j(p)=\min_{\beta\in\mathcal U_j}\beta(p),
+\tag{RHT-18/3}
+\]
+
+where \(\mathcal L_j,\mathcal U_j\) are finite families of rational quadratic polynomials. The only points at which an active lower/upper curve can change are roots of pairwise **quadratic differences**. Add those real roots, all roots of zero-\(q\)-coefficient vertical constraints, and the two \(p\)-box endpoints. They form a finite ordered list of rational/quadratic-irrational numbers.
+
+Between successive critical \(p\)-values, a certified dyadic rational sample determines the active lower/upper envelope curves and whether the vertical constraints permit that strip. By exact sign constancy, those same envelope choices remain valid over the whole open strip. Every critical vertical slice is checked *independently*, retaining policy eligibility that exists only at an isolated tie point. A proxy policy that wins only on the **parabolic curve** \(q=p^2\) is also preserved as an interval with identical active lower and upper boundaries.
+
+### 23.3 The exact cubic-extremum theorem (RHT-18/T1)
+
+Fix a protected-gold parameter vertex \(\theta\) and a challenger/proxy-selected policy pair \(i,j\). Their gold-return difference on any winner region has the form
+
+\[
+G(p,q)=a_0+a_1p+a_2p^2+(b_0+b_1p)q.
+\]
+
+For each feasible fixed \(p\), the function is affine in \(q\), so its maximum and minimum are at \(q=L_j(p)\) or \(q=U_j(p)\). On a strip where the active boundary is \(q=r_0+r_1p+r_2p^2\), substitution gives an **exact cubic**:
+
+\[
+\boxed{
+G(p,q(p))=c_0+c_1p+c_2p^2+c_3p^3.}
+\tag{RHT-18/4}
+\]
+
+Its extrema over the closed strip occur at one of the two exact algebraic endpoints or at an interior root of
+
+\[
+\boxed{c_1+2c_2p+3c_3p^2=0.}
+\tag{RHT-18/5}
+\]
+
+Those roots remain rational or quadratic-irrational. Their objective values can be evaluated using rational-plus-rational-square-root arithmetic because multiplying elements from the *same quadratic field* stays inside that field. The [exact algebraic number type](../src/spiral_ln/evaluation_reward_kernel_switching.py) already supplies comparisons between candidate values from different quadratic fields, without floating-point threshold decisions.
+
+**Theorem RHT-18/T1.** Within the verified policy grammar (RHT-18/1–2), the worst expected gold regret over all globally coupled transition parameters and independently licensed true-gold intervals is the maximum over:
+
+1. every independently licensed gold-box vertex \(\theta\in\operatorname{Vert}(\Theta)\);
+2. every challenger \(i\) and every proxy-winning policy \(j\);
+3. every feasible critical vertical slice and every open-strip upper/lower envelope;
+4. the boundary endpoints and the stationary points defined by (RHT-18/5).
+
+The result is exact and includes an algebraic witness \((p_\star,q_\star)\), gold uncertainty vertex, challenger policy, proxy-selected policy, guaranteed proxy gold floor, and the full expected discrepancy-width upper certificate.
+
+**Proof.** The proxy winner set depends only on the verified transition/proxy kernel and is independent of \(\theta\), so the regret maximum over \(\Theta\) is attained at a gold-box vertex, as in RHT-13. The quadratic envelope arrangement decomposes the exact winner domain into finitely many feasible strips and critical slices. On each slice the gold difference is affine in \(q\), so only its lower and upper boundaries matter. On each strip those boundaries are fixed rational quadratics; substitution produces (RHT-18/4), whose exact extrema are exhausted by (RHT-18/5) and the strip endpoints. Every closed critical slice is checked directly. This exhausts the compact proxy-winning region including measure-zero tie policies.
+
+The same endpoint/cubic-oracle method computes (i) the guaranteed minimum gold return among all proxy-winning policies, and (ii) the **full expected proxy-minus-gold discrepancy width** across all policies and all licensed kernel values. The solver checks \(0\le R_{\rm rob}\le W_{\rm rob}\) and can enforce both a gold-regret cap and a minimum true-return requirement. An unlicensed polynomial degree, invalid kernel, search-budget overrun or unsupported algebraic operation produces a distinct error and prevents certification.
+
+### 23.4 Parabolic Goodhart counterexample with a cubic interior maximum
+
+Take a two-step hidden-world evaluation where the protected action earns expected proxy \(p^2\) from two successive globally shared Bernoulli(\(p\)) transitions. It independently earns true gold \(\theta p(1-q)\) from a registered protected-success event, while the competing *proxy-only* action earns proxy \(q\) and true gold zero. The shared-world construction fixes the covariance between the repeated \(p\) trials and the gold source and is checked by ordinary RHT-13 stochastic policy enumeration.
+
+The actor chooses the proxy-only action when \(q\ge p^2\), with adversarial proxy tie-breaking on the parabola. Along that boundary, the true lost reward is
+
+\[
+R(p,\theta)=\theta p(1-p^2)=\theta(p-p^3).
+\]
+
+Its derivative vanishes at \(p_\star=\sqrt3/3\). Substituting back into the **curved** proxy switching boundary gives \(q_\star=1/3\), and the exact worst-case regret is
+
+\[
+\boxed{
+R_{\rm rob}(\theta=1)=\frac{2\sqrt3}{9},\quad
+(p_\star,q_\star)=\left(\frac{\sqrt3}{3},\frac13\right).
+}
+\tag{RHT-18/6}
+\]
+
+With independently licensed true-gold multiplier \(\theta\in[1,2]\), the sharp maximum is \(4\sqrt3/9\), attained at \(\theta=2\). **Every transition-box corner yields zero proxy-selection regret.** This disproves any four-corner-only safety check for the correlated quadratic-proxy class.
+
+The same instance, restricted to \(p\in[0,1/2]\), has a maximum of \(3/8\) at \((p,q)=(1/2,1/4)\). A rectangle with \(p\in[3/4,1]\), \(q\in[0,1/4]\) makes the gold-protected policy strictly proxy-optimal and its worst selection regret zero. The solver checks these subrectangles with exact rational arithmetic.
+
+### 23.5 Unique Games and zero-area parabola controls
+
+The [UGC-grounded fixture](../src/spiral_ln/evaluation_reward_quadratic_kernel_fixture.py) uses two genuinely reachable binary \(\mathbb F_2\) \(K_{2,2}\) constraint-satisfaction records as its hidden gold-reference worlds. The protected candidate earns gold only in the world where that action is genuinely UGC-safe, giving expected gold \(\frac{\theta}{2}p(1-q)\), while the two proxy scores remain \(p^2\) and \(q\). With licensed \(\theta\in[1,2]\), its exact worst gold regret is **\(2\sqrt3/9\)**, attained at the same algebraic parameter pair.
+
+An additional three-action negative control gives the third policy proxy score \((p^2+q)/2\) and protected gold zero. This third policy is proxy-optimal **only on** \(q=p^2\), a zero-area parabolic curve. The exact region solver retains that degenerate winner and evaluates its protected gold difference against the genuinely gold-winning action.
+
+To cross-check a different algebraic boundary, the geometric oracle also accepts proxy constraints \(q\ge p^2\) and \(q\ge1-p\). These two active quadratic/linear boundaries meet at \(p=(\sqrt5-1)/2\), an irrational root of \(p^2+p-1\). The derived vertical intervals agree with directly checked rational-membership conditions. RHT-16's earlier *affine proxy* fixtures are reproduced as a strict subcase; RHT-17's genuinely \(pq\)-dependent proxy remains explicitly outside this q-quadratic grammar and is covered by its own exact solver.
+
+### 23.6 Prior art and limits
+
+The mathematical tools are finite polynomial sign decomposition, algebraic root isolation and exact parametric Markov reward analysis. They connect with established work such as [Junges et al., *Parameter synthesis for Markov models: covering the parameter space*](https://doi.org/10.1007/s10703-023-00442-x) and [Schnitzer, Abate and Parker, *Robust Parameter Learning for Uncertain MDPs* (2026)](https://arxiv.org/abs/2605.01339), which studies shared parameter dependencies and sound uncertainty approximations. The new RHT-18 construction is a narrow exact reference baseline for EvalMath's adversarial proxy policy and licensed-gold semantics.
+
+The theorem handles **two** globally shared transition parameters, mandatory horizon at most **two**, verified **q-affine proxy with quadratic p coefficient**, and **q-affine protected gold with a quadratic p term and affine q coefficient**. General \(q^2\), \(pq\) proxy switches, simultaneous higher-degree terms in both parameters, transition parameters that depend on human preference labels, or attestor corruption require different verification conditions. RHT-17 covers multiaffine \(pq\) proxy surfaces; RHT-18 covers an additional, nonnested polynomial subclass. A unified exact semialgebraic decomposition remains an open mathematics and implementation problem.
+
+- [Exact quadratic region and cubic stationary-point solver](../src/spiral_ln/evaluation_reward_quadratic_kernel.py).
+- [Synthetic and UGC-grounded parabolic transition fixtures](../src/spiral_ln/evaluation_reward_quadratic_kernel_fixture.py).
+- [Independent ordinary-POMDP and algebraic boundary tests](../tests/test_evaluation_reward_quadratic_kernel.py).
+- [Versioned source-fingerprinted research receipt](../scripts/verify_reward_hacking_topology.py).
