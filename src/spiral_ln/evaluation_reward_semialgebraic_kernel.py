@@ -230,6 +230,9 @@ def cmp_root(a, b, *, budget=256):
 
 
 def isolate(p, lo=Q(0), hi=Q(1), *, max_roots=256, max_nodes=4096):
+    if (type(max_roots) is not int or max_roots < 1 or
+            type(max_nodes) is not int or max_nodes < 1):
+        raise ValueError("positive Sturm isolation limits required")
     p = squarefree(trim(p))
     lo, hi = Q(lo), Q(hi)
     if lo > hi:
@@ -241,6 +244,8 @@ def isolate(p, lo=Q(0), hi=Q(1), *, max_roots=256, max_nodes=4096):
         result.append(RealRoot.rational(lo))
     if hi != lo and evaluate(p, hi) == 0:
         result.append(RealRoot.rational(hi))
+    if len(result) > max_roots:
+        raise ValueError("Sturm root cap exceeded")
     stack = [(lo, hi)] if hi > lo else []
     nodes = 0
     while stack:
@@ -258,6 +263,8 @@ def isolate(p, lo=Q(0), hi=Q(1), *, max_roots=256, max_nodes=4096):
             continue
         mid = (a+b)/2
         if evaluate(p, mid) == 0:
+            if len(result) >= max_roots:
+                raise ValueError("Sturm root cap exceeded")
             result.append(RealRoot.rational(mid))
         stack.extend(((a, mid), (mid, b)))
     return tuple(sorted(result, key=cmp_to_key(cmp_root)))
