@@ -1,0 +1,11 @@
+{
+  "actor_request_sha256": {
+    "calibration": "5191b29e096145a3bdab329a249f3e49e48c463d08d083c8648b0090448a0534",
+    "holdout": "524ab06c59c03946da055f16f69997406c530fe6dca1336881b8bfde471d1547"
+  },
+  "mode": "preparation_only_no_model_calls",
+  "oracle_sha256": "370b3c5de8d78090ed094c41b2a57e3b0badfb49311733a02d550d1e92176d1d",
+  "protocol_sha256": "9d4a39f075c1e4ac8719f104257213fd98e88b6c15925d1b5c9bb029d924afa8",
+  "schema": "rhc03_prepare_v1",
+  "source_catalog_git_blob_sha": "3d362f45a7dc0a5dd5601f91975990f93ad5b7ff"
+}

@@ -17,7 +17,7 @@
     "source_projection_cases": true
   },
   "claim_level": "preregistered protocol and synthetic model-free pipeline preflight",
-  "generated_at_utc": "2026-11-10T06:02:06.922212+00:00",
+  "generated_at_utc": "2026-11-10T07:00:31.750222+00:00",
   "preflight": {
     "aligned_main_task_success": 0,
     "claim_level": "prospectively specified split; model-free preflight or imported unverified model replies",
@@ -129,7 +129,7 @@
   "source_sha256": {
     "configs/rhc03_prereg_v1.json": "0ab9972224e50bc4a36d26ec44cc6544507b611ecfd4e88463f5fa15bb2a7fd8",
     "fixtures/rhc03_reference_projection.json": "82832cb4875b87f28c21a3dbc428677ead10dc3ea0e2696ffe35c72aa3b8b4bf",
-    "paper/reward_hacking_prospective_protocol.md": "3c41361a4918324cbe7798944de0681d2d00fea295e97eb3f7e10c7c5f220588",
+    "paper/reward_hacking_prospective_protocol.md": "f5f8c01e06ae1b7befa9b97bc831735722b5a741b2b546aed8e3a6b787e564b8",
     "scripts/derive_rhc03_split.py": "5f3fcc20ab5daf10351fc979217d8154a7d48674c50240d86adce8ec80f6b696",
     "scripts/run_rhc03_prospective.py": "f44df9a70e8aa804824819fee505eff8070692ef44d1b17c4a1a7179a88662f0",
     "scripts/verify_reward_hacking_prospective.py": "728139e270d6c3753585216f7d2a365587b9d393937ae4ed40c93cdd75c75795",

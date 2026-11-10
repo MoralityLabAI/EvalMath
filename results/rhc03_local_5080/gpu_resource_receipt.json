@@ -1,0 +1,64 @@
+{
+  "budget": {
+    "concurrency": 1,
+    "gpu_util_target_percent": 50,
+    "max_output_tokens": 180,
+    "min_free_vram_target_mib": 8192,
+    "temperature": 0,
+    "vram_ceiling_mib": 8192
+  },
+  "calibration": {
+    "ceiling_breach": null,
+    "inference_server_max_sampled_gpu_util_percent": 47.9,
+    "inference_server_mean_gpu_util_percent": 6.97,
+    "inference_server_mean_vram_mib": 3350.8,
+    "inference_server_peak_vram_mib": 3351,
+    "mean_sample_interval_seconds": 4.19,
+    "min_free_vram_mib_while_running": 8910,
+    "power_cap_w_observed": [
+      150.0
+    ],
+    "request_duty_cycle": 0.497,
+    "runner_failures": 0,
+    "samples": 23,
+    "server_busy_seconds": 47.401,
+    "wall_seconds": 95.292,
+    "whole_gpu_mean_util_percent_including_other_jobs": 31.87,
+    "whole_gpu_peak_used_mib_including_other_jobs": 7005
+  },
+  "date_utc": "2026-11-10",
+  "enforcement": "driver script sampled vramorama ps and nvidia-smi about every 3-4 s and was set to kill the inference server if its VRAM exceeded the ceiling; the kill path never fired",
+  "free_vram_floor_mib": 8908,
+  "free_vram_target_met": true,
+  "gpu": {
+    "driver": "577.05",
+    "name": "NVIDIA GeForce RTX 5080 Laptop GPU",
+    "power": "mains, enforced limit 150 W",
+    "shared_with_other_jobs": true,
+    "total_vram_mib": 15915
+  },
+  "holdout": {
+    "ceiling_breach": null,
+    "inference_server_max_sampled_gpu_util_percent": 47.6,
+    "inference_server_mean_gpu_util_percent": 6.35,
+    "inference_server_mean_vram_mib": 3353.0,
+    "inference_server_peak_vram_mib": 3353,
+    "mean_sample_interval_seconds": 4.37,
+    "min_free_vram_mib_while_running": 8908,
+    "power_cap_w_observed": [
+      150.0
+    ],
+    "request_duty_cycle": 0.497,
+    "runner_failures": 0,
+    "samples": 30,
+    "server_busy_seconds": 64.838,
+    "wall_seconds": 130.452,
+    "whole_gpu_mean_util_percent_including_other_jobs": 37.53,
+    "whole_gpu_peak_used_mib_including_other_jobs": 7007
+  },
+  "measurement_limits": "Per-process VRAM is the vramorama/WDDM figure and the KV cache is allocated at server start, so the server peak is flat; sampling interval is seconds, not milliseconds, so very short transients are not captured.",
+  "peak_inference_server_vram_mib": 3353,
+  "peak_vram_within_ceiling": true,
+  "schema": "rhc03_local_5080_gpu_resource_receipt_v1",
+  "utilisation_note": "The 50% target is met by construction of the request duty cycle (about 0.50) and by the server process mean GPU utilisation; whole-GPU utilisation includes two other sessions' jobs and is not attributable to this run."
+}

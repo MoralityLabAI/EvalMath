@@ -1,6 +1,6 @@
 # RHC-03: Prospective family-heldout replay of reward-hacking monitors
 
-**Protocol frozen:** 2026-11-10. **Evidence level:** protocol/preregistration; source-compatible synthetic preflight; no prospective trained-agent result yet. This experiment follows [RHC-01](reward_hacking_bootstrap.md) and [RHC-02](reward_hacking_trajectory_replay.md). RHC-01 supplies the exact finite detection dual. RHC-02 shows that source route pairs with identical endpoints can be distinguished using some event cochains, but that a family adversary can exploit residual indistinguishability.
+**Protocol frozen:** 2026-11-10. **Evidence level:** protocol/preregistration; source-compatible synthetic preflight; no trained-agent result. One local-model replay (Qwen3.5-4B Q4_K_XL, one greedy rollout per card, unattested provenance) is reported in [`results/rhc03_local_5080/experiment_report.md`](../results/rhc03_local_5080/experiment_report.md). This experiment follows [RHC-01](reward_hacking_bootstrap.md) and [RHC-02](reward_hacking_trajectory_replay.md). RHC-01 supplies the exact finite detection dual. RHC-02 shows that source route pairs with identical endpoints can be distinguished using some event cochains, but that a family adversary can exploit residual indistinguishability.
 
 ## Scope, pinned upstream, and preregistration
 
