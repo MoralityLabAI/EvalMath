@@ -1635,3 +1635,172 @@ The present proof assumes all proxy-policy returns are **affine** in two globall
 - [Synthetic and UGC grounded shared-parameter fixtures](../src/spiral_ln/evaluation_reward_two_kernel_fixture.py)
 - [Independent occupancy and exact edge-extremum tests](../tests/test_evaluation_reward_two_kernel.py)
 - [Source-bound reward-hacking research receipt](../scripts/verify_reward_hacking_topology.py)
+
+
+## 22. Curved proxy-optimality boundaries and exact algebraic reward regret (RHT-17)
+
+**2026-11-10 | finite bivariate semialgebraic theorem and source-grounded tests.** RHT-16 certifies reward hacking when every expected proxy policy score is **affine** in two globally shared uncertain transition parameters \((p,q)\) and every protected gold policy score is multiaffine. Its winning regions are rational polygons. RHT-17 extends the exact finite certificate to **multiaffine proxy scores**, whose differences may include a nonzero \(pq\) term. These proxy regions can have curved rational boundaries and irrational worst-regret witnesses.
+
+### 22.1 Typed two-step parametric game
+
+Fix the identical finite hidden-state/observation-policy and transition-normalization grammar of RHT-16. A single \(p\in[p_-,p_+]\) and \(q\in[q_-,q_+]\) are globally shared throughout both calls; every conditional transition probability is affine in these two parameters and is validated at all four box corners. Protected gold rewards are independently licensed globally identified rational features with parameter vector \(\theta\in\Theta=\prod_j[\ell_j,u_j]\). The proxy score and stochastic kernel do not depend on \(\theta\).
+
+The exact reference solver enumerates the complete two-step deterministic observation-policy roster \(\Pi\) under the declared grammar and symbolically checks, for **every** policy, that
+
+\[
+\widehat J_\pi(p,q)=a_\pi+b_\pi p+c_\pi q+d_\pi pq,
+\qquad
+J_{\pi,\theta}(p,q)=\alpha_{\pi,\theta}
++\beta_{\pi,\theta}p+\gamma_{\pi,\theta}q
++\delta_{\pi,\theta}pq.
+\]
+
+When the actual symbolic policy surface contains \(p^2\), \(q^2\), or higher-degree terms, this exact solver refuses to issue a certificate. The restriction is checked from the fully computed policy polynomials rather than inferred from transition syntax.
+
+### 22.2 A finite exact decomposition of curved winning regions
+
+For any candidate proxy policy \(j\), every other policy \(k\) imposes the closed inequality
+
+\[
+H_{jk}(p,q)=A+Bp+Cq+Dpq\ge0,
+\]
+
+where the coefficients are rational. Fixing \(p\), this is **linear in \(q\)**:
+
+\[
+(C+Dp)q\ge-(A+Bp).
+\]
+
+Thus a vertical slice of the candidate winning region is an interval, possibly empty, with lower and upper endpoints taken from the parameter box and rational-linear-fractional curves of the form
+
+\[
+\boxed{q(p)=-\frac{A+Bp}{C+Dp}.}
+\tag{RHT-17/1}
+\]
+
+The ordering and feasibility of those q-boundaries can change only when a q coefficient \(C+Dp\) vanishes, a boundary crosses a box edge, or two rational boundaries cross. For two constraints \(i,j\), any crossing satisfies the quadratic *resultant*
+
+\[
+(A_i+B_i p)(C_j+D_j p)
+-(A_j+B_j p)(C_i+D_i p)=0.
+\tag{RHT-17/2}
+\]
+
+Consequently all critical p-values belong to a **finite exact collection of rational and quadratic-irrational numbers**, together with the two parameter-box endpoints. Sort them and choose one certified rational interior sample within each adjacent open p-strip. The winning region's q-interval on that strip uses the same active rational-linear-fractional lower and upper boundary throughout: a change of sign, crossing or feasibility status would require an unregistered critical root.
+
+Importantly, each critical p-slice is inspected *independently*. This preserves a proxy policy that wins only on a vertical segment or isolated point, even if it has no two-dimensional winning region. The same handling covers a boundary where several proxy policies tie.
+
+### 22.3 Exact extrema on the curved edges
+
+For a fixed gold-feature vertex \(\theta\) and policy pair \(i,j\), the protected gold return difference is another bilinear polynomial,
+
+\[
+f(p,q)=a+bp+cq+dpq.
+\]
+
+At every fixed \(p\) where \(j\) is proxy-optimal, \(f\) is affine in \(q\). Its maximum and minimum over the allowed q-interval therefore occur at its **two endpoints**. Substituting a boundary \(q(p)=-(A+Bp)/(C+Dp)\) yields
+
+\[
+f(p,q(p))
+=\frac{
+(a+bp)(C+Dp)-(c+dp)(A+Bp)
+}{
+C+Dp
+}
+=\frac{n_0+n_1p+n_2p^2}{C+Dp}.
+\tag{RHT-17/3}
+\]
+
+The derivative has a quadratic numerator:
+
+\[
+\frac{d}{dp}f(p,q(p))
+=
+\frac{
+(n_1C-n_0D)+2n_2Cp+n_2Dp^2
+}{
+(C+Dp)^2
+}.
+\tag{RHT-17/4}
+\]
+
+The exact maximum over a *closed* strip is attained at one of its algebraic p-endpoints or a derivative-zero root within it. If the denominator vanishes at an endpoint, the solver uses the exact finite limit when both numerator and denominator vanish; otherwise it treats the boundary as invalid rather than inventing a finite reward. Additional explicit vertical-slice checks include values at critical p where the constraint is satisfied only at that exact parameter.
+
+All candidates and reward values lie in quadratic extensions of \(\mathbb Q\), represented by rational-plus-rational-sqrt-rational expressions. Arithmetic within each quadratic field and comparisons across different roots use rational sign/square tests, with no floating-point thresholding. Search, root-count and policy-pair budgets are explicit and fail closed.
+
+**Theorem RHT-17/T1.** Under the frozen two-call kernel and multiaffine policy-surface contract, the exact worst proxy-selection gold regret is
+
+\[
+\boxed{
+R_{\rm rob}
+=\max_{\theta\in\operatorname{Vert}(\Theta)}
+\max_{j\in\Pi}
+\max_{i\in\Pi}
+\max_{(p,q)\in W_j}
+\left[J_{i,\theta}(p,q)-J_{j,\theta}(p,q)\right],
+}
+\tag{RHT-17/5}
+\]
+
+where \(W_j\) is the full closed semialgebraic winning region of proxy policy \(j\). The inner maximum is attained at a candidate produced by the critical-slice and rational-curve stationary-point method above. This follows from the exact vertical-slice decomposition, compactness and the one-dimensional rational derivative formula. Gold uncertainty is affine for a *fixed policy and transition pair*, so it suffices to maximize over the independent licensed gold-box vertices. The same method computes the **minimum gold return across all proxy winners** for a non-inert progress floor.
+
+The unrestricted policy-pair expected proxy-minus-gold discrepancy width is still multiaffine, so its worst value over the full parameter rectangle is attained at the rectangle's four corners for each gold-feature vertex. The certificate verifies \(0\le R_{\rm rob}\le W_{\rm rob}\).
+
+### 22.4 Strict irrational maximum on a curved switching boundary
+
+Take two proxy-eligible first actions. The **protected action** emits proxy reward one when a Bernoulli(\(p\)) first event fails and protected gold reward \(\theta\) only if an independent second Bernoulli(\(q\)) event also fails. The **proxy-inflation action** earns one proxy point when its first Bernoulli(\(q\)) event succeeds and another when a second Bernoulli(\(p\)) event succeeds after that first success. The expected returns are
+
+\[
+\begin{array}{c|cc}
+ & \widehat J(p,q) & J_\theta(p,q)\\
+\text{protected action} &1-p&\theta(1-p)(1-q)\\
+\text{proxy inflation}&q(1+p)&0
+\end{array}
+\]
+
+The actor's proxy prefers the inflation action whenever
+
+\[
+\boxed{q\ge \frac{1-p}{1+p}.}
+\tag{RHT-17/6}
+\]
+
+In this region, the gold-best challenger is the protected action for \(\theta>0\). At fixed \(p\), its gold reward decreases with \(q\), so the maximal gold regret for this p lies on the curved proxy-switching boundary. Substituting (RHT-17/6) gives
+
+\[
+R(p)=2\theta\frac{p(1-p)}{1+p}.
+\]
+
+Its derivative vanishes in the unit interval only at \(p_\star=\sqrt2-1\), and at that crossing \(q_\star=\sqrt2-1\). Therefore
+
+\[
+\boxed{
+p_\star=q_\star=\sqrt2-1,\quad
+R_{\max}=\theta(6-4\sqrt2)
+\approx 0.34314575\,\theta.
+}
+\tag{RHT-17/7}
+\]
+
+For \(\theta\in[1,2]\), the exact worst regret is \(12-8\sqrt2\). Its worst gold-feature vertex is \(\theta=2\). **Every rectangle corner has zero gold regret**, although the strongest actual exploit occurs at two irrational interior parameters. The full expected-policy discrepancy-width envelope over the same gold interval is \(2\). The protected-policy true gold floor under adversarial proxy selection is zero.
+
+This extends RHT-16's straight-line switching example to a curved semialgebraic boundary. The exact location and attained value are both necessary for the certificate: checking a rational parameter grid only approximates them.
+
+### 22.5 Multiple curves, UGC reachability and negative controls
+
+The geometry solver also handles intersections of two active curved boundaries. For example, take the proxy-winner constraints \(q\ge(1-p)/(1+p)\) and \(q\ge p\). Their active lower boundaries meet at \(p=q=\sqrt2-1\), which is a root of the exact quadratic resultant in (RHT-17/2). For protected gold \(f=(1-p)(1-q)\), the exact worst value on the feasible region is again \(6-4\sqrt2\). The test verifies the complete vertical q-slice at that irrational crossing and several rational membership controls.
+
+The [UGC-grounded fixture](../src/spiral_ln/evaluation_reward_two_kernel_fixture.py) preserves two actually reachable \(K_{2,2}\) binary translation-game satisfaction worlds with a uniform gold-reference prior. The protected action is gold-safe in exactly one of those worlds, giving expected gold \(\frac{\theta}{2}(1-p)(1-q)\). With \(\theta\in[1,2]\), its exact robust gold regret is **\(6-4\sqrt2\)** at the same interior point, while the parameter-box corner test again reports zero. The independent RHT-13 world/observation policy evaluator checks the gold and proxy returns across a rational parameter grid.
+
+A formerly rejected RHT-16 test includes a genuinely nonlinear \(pq\) proxy. RHT-17 can certify its risk while preserving boundary-only proxy ties. A positive control assigns true gold proportionally to the reported proxy across every transition using a *single shared* gold parameter: proxy-selection regret is then zero despite curved switching boundaries. Negative controls reject higher-degree gold surfaces, invalid reward intervals, malformed root-search budgets and incomplete policy analyses.
+
+### 22.6 Prior art and scope
+
+The exact decomposition follows classical parametric verification, rational curve arrangements and elementary algebraic optimization. Related work includes Junges et al., [*Parameter synthesis for Markov models: covering the parameter space*](https://doi.org/10.1007/s10703-023-00442-x) (2024), Goyal and Grand-Clément, [*Robust Markov Decision Processes: Beyond Rectangularity*](https://doi.org/10.1287/moor.2022.1259) (2022/23), and Li, Kuhn and Sutter, [*Policy Gradient Algorithms for Robust MDPs with Nonrectangular Uncertainty Sets*](https://doi.org/10.1137/24M1631250) (2026). Those are substantive antecedents to robust parameter synthesis and globally coupled uncertainty. RHT-17's contribution is an **exact finite, source-bound reward-hacking oracle with adverse proxy-tie and independently licensed gold semantics** in EvalMath's game-space notation.
+
+The result covers globally shared **two-parameter affine transition laws**, a **two-step observation-policy horizon**, and verified **multiaffine** expected proxy and true-gold policy surfaces. General high-degree polynomial winning regions need a larger certified semialgebraic decomposition or a separately proved interval-hierarchy bound. The gold reference and parameter uncertainty class still require evidence external to the optimizing model; this exact mathematical certificate provides neither human-value ground truth nor empirical model-behavior validation.
+
+- [Exact curved-boundary algebraic parameter solver](../src/spiral_ln/evaluation_reward_curved_kernel.py)
+- [Curved switching and UGC fixtures](../src/spiral_ln/evaluation_reward_two_kernel_fixture.py)
+- [Independent world/observation and radical-intersection tests](../tests/test_evaluation_reward_curved_kernel.py)
+- [Versioned source-fingerprinted research receipt](../scripts/verify_reward_hacking_topology.py)
