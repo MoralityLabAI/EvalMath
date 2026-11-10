@@ -150,3 +150,79 @@ def diagonal_only_proxy_tie_fixture():
         1,("A","B","C"),(Q(1),),("unused",),
         (Q(0),Q(1)),(Q(0),Q(1)),tuple(edges),1
     )
+
+
+def curved_proxy_switch_fixture(*,p_interval=(Q(0),Q(1)),q_interval=(Q(0),Q(1))):
+    """A proxy 1-p versus B proxy q*(1+p), with curved winner boundary.
+
+    A (the protected action) earns true gold theta*(1-p)*(1-q).
+    B earns zero protected gold. B is proxy-selected when
+        q >= (1-p)/(1+p).
+    The maximum protected regret is 6-4*sqrt(2), attained at
+        p=q=sqrt(2)-1,
+    for theta=1. Both parameters are strictly interior to the box.
+    """
+    edges=[]
+    def add(s,a,t,o,b,sp=0,sq=0,proxy=0,gold=0):
+        edges.append(TwoKernelEdge(
+            s,a,t,o,Q(b),Q(sp),Q(sq),Q(proxy),Q(0),(Q(gold),)
+        ))
+    for a in (0,1):
+        if a==0:
+            add(0,a,1,"A:p-fail",1,-1,proxy=1)
+            add(0,a,3,"A:p-pass",0,1)
+        else:
+            add(0,a,2,"B:q-pass",0,0,1,proxy=1)
+            add(0,a,3,"B:q-fail",1,0,-1)
+        add(1,a,3,"A:q-fail",1,0,-1,gold=1)
+        add(1,a,3,"A:q-pass",0,0,1)
+        add(2,a,3,"B:p-pass",0,1,proxy=1)
+        add(2,a,3,"B:p-fail",1,-1)
+        add(3,a,3,"idle",1)
+    return TwoKernelGame(
+        state_count=4,actions=("protected_task","proxy_inflation"),
+        initial=(Q(1),Q(0),Q(0),Q(0)),
+        gold_parameters=("protected_safe_reward",),
+        p_interval=p_interval,q_interval=q_interval,
+        edges=tuple(edges),horizon=2
+    )
+
+
+def ugc_curved_proxy_switch_fixture(*,p_interval=(Q(0),Q(1)),
+                                     q_interval=(Q(0),Q(1))):
+    """Same curved proxy policy switch on two actual K2,2 UGC gold worlds.
+
+    The gold action is safe in exactly one of the two equally weighted
+    UGC reference worlds, giving theta*(1-p)*(1-q)/2. Both actions
+    preserve identical public proxy surfaces across gold-reference worlds.
+    """
+    ugc=one_hot_ugc_disclosure_game(2)
+    assert ugc.unsafe(0,0) and not ugc.unsafe(1,0)
+    edges=[]
+    def add(s,a,t,o,b,sp=0,sq=0,proxy=0,gold=0):
+        edges.append(TwoKernelEdge(
+            s,a,t,o,Q(b),Q(sp),Q(sq),Q(proxy),Q(0),(Q(gold),)
+        ))
+    for a in (0,1):
+        for w in (0,1):
+            if a==0:
+                add(w,a,2+w,"A:p-fail",1,-1,proxy=1)
+                add(w,a,6,"A:p-pass",0,1)
+            else:
+                add(w,a,4,"B:q-pass",0,0,1,proxy=1)
+                add(w,a,6,"B:q-fail",1,0,-1)
+        for w in (0,1):
+            add(2+w,a,6,"A:q-fail",1,0,-1,
+                gold=int(not ugc.unsafe(w,0)))
+            add(2+w,a,6,"A:q-pass",0,0,1)
+        add(4,a,6,"B:p-pass",0,1,proxy=1)
+        add(4,a,6,"B:p-fail",1,-1)
+        add(5,a,5,"idle",1)
+        add(6,a,6,"terminal",1)
+    return TwoKernelGame(
+        state_count=7,actions=("UGC_protected_task","proxy_inflation"),
+        initial=(Q(1,2),Q(1,2))+(Q(0),)*5,
+        gold_parameters=("UGC_safe_gold",),
+        p_interval=p_interval,q_interval=q_interval,
+        edges=tuple(edges),horizon=2
+    )
