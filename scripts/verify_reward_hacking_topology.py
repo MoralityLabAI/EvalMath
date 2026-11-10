@@ -96,6 +96,13 @@ from spiral_ln.evaluation_reward_quadratic_kernel import (
 from spiral_ln.evaluation_reward_quadratic_kernel_fixture import (
     quadratic_parabola_goodhart_fixture,
 )
+from spiral_ln.evaluation_reward_semialgebraic_kernel import (
+    semialgebraic_certificate,two_kernel_semialgebraic_certificate,
+    isolate,cmp_root,cmp_value,AtRoot,
+)
+from spiral_ln.evaluation_reward_semialgebraic_fixture import (
+    higher_degree_parabolic_surfaces,
+)
 from spiral_ln.evaluation_reward_shared_kernel_fixture import (
     rational_proxy_crossing_fixture,
     irrational_proxy_crossing_fixture,
@@ -138,6 +145,8 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_curved_kernel.py",
     "src/spiral_ln/evaluation_reward_quadratic_kernel.py",
     "src/spiral_ln/evaluation_reward_quadratic_kernel_fixture.py",
+    "src/spiral_ln/evaluation_reward_semialgebraic_kernel.py",
+    "src/spiral_ln/evaluation_reward_semialgebraic_fixture.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -158,6 +167,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_two_kernel.py",
     "tests/test_evaluation_reward_curved_kernel.py",
     "tests/test_evaluation_reward_quadratic_kernel.py",
+    "tests/test_evaluation_reward_semialgebraic_kernel.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -642,6 +652,30 @@ def receipt() -> dict:
     assert quadratic_gold.maximum_expected_discrepancy_width==1
     assert quadratic_gold.passes and quadratic_ugc.passes
 
+    # RHT-19 algebraic roots have degree >2 and all comparisons remain exact.
+    quartic=semialgebraic_certificate(
+        higher_degree_parabolic_surfaces(degree=4),((Q(1),Q(1)),),
+        maximum_allowed_regret=Q(3,5),minimum_proxy_gold_return=Q(0),
+    )
+    quartic_ugc=semialgebraic_certificate(
+        higher_degree_parabolic_surfaces(degree=4,ugc_worlds=True),
+        ((Q(1),Q(2)),),
+    )
+    recovered_parabola=two_kernel_semialgebraic_certificate(
+        quadratic_parabola_goodhart_fixture(),((Q(1),Q(1)),),
+    )
+    assert cmp_root(quartic.worst_p,isolate((-1,0,0,0,5))[0])==0
+    assert cmp_value(quartic.worst_q,AtRoot.constant(Q(1,5)))==0
+    assert cmp_root(quartic.maximum_gold_regret.as_root(),
+                    isolate((-256,0,0,0,3125))[0])==0
+    assert quartic.corner_only_regret==0
+    assert quartic.passes and quartic_ugc.corner_only_regret==0
+    assert quartic_ugc.gold_vertex==(Q(2),)
+    assert cmp_value(quartic.maximum_gold_regret,
+                     quartic_ugc.maximum_gold_regret)==0
+    assert cmp_root(recovered_parabola.maximum_gold_regret.as_root(),
+                    isolate((-4,0,27))[0])==0
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -704,6 +738,23 @@ def receipt() -> dict:
             "raised_capacity_integer_difference_rank":after_activation["bounded_integer_rank"],
             "raised_capacity_hidden_gold_width":str(after_activation["maximum_hidden_gold_width"]),
             "additional_private_audits_at_capacity_two":higher_audit["count"],
+        },
+        "higher_degree_semialgebraic_proxy_regions":{
+            "source_contract":"finite explicitly registered q-affine rational polynomial policy roster, closed rational parameter box, independently licensed protected gold",
+            "winning_boundary":"q=p^4",
+            "exact_quartic_stationary_parameter_polynomial":"5*p^4-1",
+            "exact_quartic_stationary_q":"1/5",
+            "exact_quartic_maximum_regret_polynomial":"3125*R^4-256",
+            "gold_theta":"1",
+            "corner_only_regret":str(quartic.corner_only_regret),
+            "UGC_gold_interval":["1","2"],
+            "UGC_worst_gold_parameter":[str(x) for x in quartic_ugc.gold_vertex],
+            "UGC_matches_unscaled_maximum":cmp_value(
+                quartic.maximum_gold_regret,quartic_ugc.maximum_gold_regret
+            )==0,
+            "RHT18_complete_policy_regression":True,
+            "exact_gold_regret_cap_passes":quartic.passes,
+            "scope":"higher-degree surface rosters are protocol-registered; full adaptive stochastic-policy completeness only on inherited <=2-step wrapper",
         },
         "quadratic_parabolic_proxy_regions":{
             "gold_scope":"globally shared rational reward feature theta in [1,2]",
