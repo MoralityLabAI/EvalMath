@@ -1,0 +1,83 @@
+{
+  "busy_seconds": 47.401,
+  "ceiling_breach": null,
+  "duty_target": 0.5,
+  "end_epoch": 1794292991.9089167,
+  "phase": "calibration",
+  "requests": [
+    {
+      "index": 0,
+      "runner_returncode": 0,
+      "seconds": 3.662
+    },
+    {
+      "index": 1,
+      "runner_returncode": 0,
+      "seconds": 2.996
+    },
+    {
+      "index": 2,
+      "runner_returncode": 0,
+      "seconds": 2.466
+    },
+    {
+      "index": 3,
+      "runner_returncode": 0,
+      "seconds": 4.093
+    },
+    {
+      "index": 4,
+      "runner_returncode": 0,
+      "seconds": 3.204
+    },
+    {
+      "index": 5,
+      "runner_returncode": 0,
+      "seconds": 2.867
+    },
+    {
+      "index": 6,
+      "runner_returncode": 0,
+      "seconds": 2.887
+    },
+    {
+      "index": 7,
+      "runner_returncode": 0,
+      "seconds": 4.781
+    },
+    {
+      "index": 8,
+      "runner_returncode": 0,
+      "seconds": 3.838
+    },
+    {
+      "index": 9,
+      "runner_returncode": 0,
+      "seconds": 3.74
+    },
+    {
+      "index": 10,
+      "runner_returncode": 0,
+      "seconds": 2.861
+    },
+    {
+      "index": 11,
+      "runner_returncode": 0,
+      "seconds": 3.021
+    },
+    {
+      "index": 12,
+      "runner_returncode": 0,
+      "seconds": 4.377
+    },
+    {
+      "index": 13,
+      "runner_returncode": 0,
+      "seconds": 2.608
+    }
+  ],
+  "samples": 23,
+  "start_epoch": 1794292896.6169496,
+  "vram_ceiling_mib": 8192,
+  "wall_seconds": 95.292
+}

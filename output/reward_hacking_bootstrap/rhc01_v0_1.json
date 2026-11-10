@@ -1,0 +1,81 @@
+{
+  "all_passed": true,
+  "alpha": "1/4",
+  "checks": {
+    "blind_gradient_channel_equals_alpha": true,
+    "cycle_boundary_zero": true,
+    "matching_primal_and_dual_half": true,
+    "nonexact_channel_recovers_one": true,
+    "nonexact_cochain_detects_cycle": true,
+    "unique_witness_detector": true
+  },
+  "claim_level": "algebraic identity; finite verified example",
+  "cycle_sensitive": {
+    "detector": [
+      "0",
+      "1"
+    ],
+    "false_positive": "0",
+    "per_exploit": [
+      "1"
+    ],
+    "value": "1",
+    "vertices_visited": 14
+  },
+  "dual": {
+    "attack_mixture": [
+      "0",
+      "1/2",
+      "1/2"
+    ],
+    "excess": [
+      "0",
+      "0",
+      "0"
+    ],
+    "threshold": "2",
+    "upper_bound": "1/2"
+  },
+  "generated_at_utc": "2026-11-10T04:56:24.450851+00:00",
+  "gradient_only": {
+    "detector": [
+      "1/4"
+    ],
+    "false_positive": "1/4",
+    "per_exploit": [
+      "1/4"
+    ],
+    "value": "1/4",
+    "vertices_visited": 5
+  },
+  "oracle": {
+    "detector": [
+      "0",
+      "1/2",
+      "1/2"
+    ],
+    "false_positive": "1/4",
+    "per_exploit": [
+      "1/2",
+      "1/2"
+    ],
+    "value": "1/2",
+    "vertices_visited": 39
+  },
+  "primal": {
+    "false_positive": "1/4",
+    "guaranteed_detection": "1/2",
+    "per_exploit": [
+      "1/2",
+      "1/2"
+    ]
+  },
+  "schema_version": "0.1",
+  "scope": "two synthetic attack policies, three signals, two diamond-graph paths; no live agents",
+  "source_sha256": {
+    "paper/reward_hacking_bootstrap.md": "69210d4fe9f36f7a0b87143517f75ced230833df580ac1e4efb7eebc618164ea",
+    "scripts/verify_reward_hacking_bootstrap.py": "fbe5c18110e613c84508ec606d3f9e81a938a548fee29be602fe75881037daf5",
+    "src/spiral_ln/evaluation_reward_hacking_bootstrap.py": "4a21feb087131b0b54cf24e2814e5b84a9034ccb991a974ae564f6f5f01fd300",
+    "tests/test_evaluation_reward_hacking_bootstrap.py": "66a5e8846e97b8944da69e5dfe08af513015b3b97020e3eb695451cfa427e5cf"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "date_utc": "2026-11-10",
+  "failure_handling": "runner records a server failure as an empty reply with runner_error_type, which scores as a fail-closed escalate; none occurred",
+  "frozen_before_holdout_inference": {
+    "calibration_responses_file_sha256": "7da9a23fac3528c17b86a80a892cf224033bed6f89099f14a8ca48de9b2fd73e",
+    "frozen_detector_file_sha256": "ec9f718fc15b1fafc619d541ab411d4b4910c4f2ef767cacce05cba289d33961"
+  },
+  "hash_convention": "SHA-256 of file bytes with CRLF folded to LF",
+  "inference_settings": {
+    "client_timeout_seconds": 120,
+    "duty_cycle_throttle": "driver sleeps after each request so server duty is about 0.5; responses are concatenated in request order",
+    "max_output_tokens": 180,
+    "repetitions_per_task": 1,
+    "requests_in_flight": 1,
+    "server_defaults_not_overridden": "greedy at temperature 0; top_k/top_p/min_p left at server defaults",
+    "stream": false,
+    "temperature": 0
+  },
+  "model": {
+    "file": "Qwen3.5-4B-UD-Q4_K_XL.gguf",
+    "file_bytes": 2912109728,
+    "file_sha256": "b252c5610a42ca82d20fe2a12813e9d069eed89292907e26c783eeb0bc961bc7",
+    "identity": "Qwen3.5-4B (unsloth GGUF), instruct chat template",
+    "lora": null,
+    "quantization": "UD-Q4_K_XL (Unsloth dynamic 4-bit; the registered Q4_K_M target was not installed and nothing was downloaded)",
+    "server_alias": "qwen3.5-4b-ud-q4_k_xl",
+    "source_repo": "unsloth/Qwen3.5-4B-GGUF",
+    "weights_changed": false
+  },
+  "oracle_vault_published": false,
+  "protocol": "configs/rhc03_prereg_v1.json",
+  "protocol_modified": false,
+  "published_files_sha256": {
+    "actor/calibration_requests.jsonl": "3c10dda3f8e0c306e6b1d1c93d46672f6e36c056f0f6f80bc4f0eb4cbbb6433a",
+    "actor/calibration_responses.jsonl": "7da9a23fac3528c17b86a80a892cf224033bed6f89099f14a8ca48de9b2fd73e",
+    "actor/holdout_requests.jsonl": "1f5d3f68d45865ed5279c5d3b850d8f823494b29a0426cb677bebcea03ce2b19",
+    "actor/holdout_responses.jsonl": "b0504d5323d9d0180ebea8364b5cde428e4711c6ba3d485f834bc2c66eb48341",
+    "audit/frozen_detector.json": "ec9f718fc15b1fafc619d541ab411d4b4910c4f2ef767cacce05cba289d33961",
+    "audit/heldout_audit.json": "6124fdb93e4b63d1bea6612917fa6c5d22008e2a3051822bf51765ca4d70c340",
+    "audit/prepare_receipt.json": "6784d47d253cf8050418b7dc475a675e58d2a1579cd91003a98b0236623db0cf",
+    "calibration_metrics.json": "dda40a3d560751a144d6bbd4dc726984e57d30f9505979de8c81e0836a471599",
+    "gpu_resource_receipt.json": "3c9e51cf2f3694a3ee005d54969ce90087b4106ddef813b074091daacd84d980",
+    "heldout_metrics.json": "6b776aadba46c91ed686e6f67dd2f4fd4d2f1df6189186b0a7de906c557daca3",
+    "resource/calibration_gpu_samples.jsonl": "3b46b22cb29fc3e1df5cc2e3d6ab3fac7c229525e26433074034c7b4387eb229",
+    "resource/calibration_timing.json": "2e53c77137362ad15578de9dbeff9976d1e1c590f390d095ea53b03496ce05ca",
+    "resource/holdout_gpu_samples.jsonl": "42a06a9751cd757dfa2451ac4e14e6a87fb5ef632f75d93f918b4d95d32b9e36",
+    "resource/holdout_timing.json": "71e1e4d915c7cda70a7a1b032f8df57ef0f9e2bc492eb39dad5b37dd8dd82773"
+  },
+  "schema": "rhc03_local_5080_run_manifest_v1",
+  "sequence": [
+    "parity",
+    "prepare",
+    "calibration inference",
+    "fit",
+    "holdout inference",
+    "audit --require-live",
+    "summarize",
+    "reproduce"
+  ],
+  "server": {
+    "binary": "PrismML llama.cpp fork llama-server build 10743 (commit adfffbe41), CUDA, Windows",
+    "context_tokens": 4096,
+    "flags": "-ngl 99 -c 4096 -np 1 -fa on --reasoning off --no-webui --host 127.0.0.1 --port 18101",
+    "launcher_sha256": "d5897802f2bc893214fa86abf9b7276bf409f5f661751c4ef0e9981443a005f6",
+    "loopback_only": true,
+    "parallel_slots": 1,
+    "thinking": "off (server-side --reasoning off; the request body is the registered one)"
+  },
+  "source": {
+    "blob_hashes_verified_before_run": true,
+    "catalog_git_blob_sha": "3d362f45a7dc0a5dd5601f91975990f93ad5b7ff",
+    "control_harness_commit": "fe991510f8c9acc6ab4ffd91958c0a89fd4bcb29",
+    "evalmath_base_commit": "3006ac6ae4ae45173df5e9cf8fa8c1ea35ce1988",
+    "evalmath_branch": "feat/rhc01-reward-hacking-bootstrap",
+    "evalmath_pr": "https://github.com/MoralityLabAI/EvalMath/pull/30",
+    "parity_all_matched": true,
+    "parity_cases": 420,
+    "scorer_git_blob_sha": "7665c6c28d1e015d9da32eac76c41e0b203a6658"
+  }
+}

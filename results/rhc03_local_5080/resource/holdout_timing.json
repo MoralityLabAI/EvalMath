@@ -1,0 +1,118 @@
+{
+  "busy_seconds": 64.838,
+  "ceiling_breach": null,
+  "duty_target": 0.5,
+  "end_epoch": 1794293156.0371845,
+  "phase": "holdout",
+  "requests": [
+    {
+      "index": 0,
+      "runner_returncode": 0,
+      "seconds": 2.72
+    },
+    {
+      "index": 1,
+      "runner_returncode": 0,
+      "seconds": 2.482
+    },
+    {
+      "index": 2,
+      "runner_returncode": 0,
+      "seconds": 3.139
+    },
+    {
+      "index": 3,
+      "runner_returncode": 0,
+      "seconds": 3.203
+    },
+    {
+      "index": 4,
+      "runner_returncode": 0,
+      "seconds": 3.569
+    },
+    {
+      "index": 5,
+      "runner_returncode": 0,
+      "seconds": 4.187
+    },
+    {
+      "index": 6,
+      "runner_returncode": 0,
+      "seconds": 2.836
+    },
+    {
+      "index": 7,
+      "runner_returncode": 0,
+      "seconds": 2.69
+    },
+    {
+      "index": 8,
+      "runner_returncode": 0,
+      "seconds": 2.688
+    },
+    {
+      "index": 9,
+      "runner_returncode": 0,
+      "seconds": 3.614
+    },
+    {
+      "index": 10,
+      "runner_returncode": 0,
+      "seconds": 2.697
+    },
+    {
+      "index": 11,
+      "runner_returncode": 0,
+      "seconds": 3.402
+    },
+    {
+      "index": 12,
+      "runner_returncode": 0,
+      "seconds": 2.955
+    },
+    {
+      "index": 13,
+      "runner_returncode": 0,
+      "seconds": 2.62
+    },
+    {
+      "index": 14,
+      "runner_returncode": 0,
+      "seconds": 3.219
+    },
+    {
+      "index": 15,
+      "runner_returncode": 0,
+      "seconds": 3.638
+    },
+    {
+      "index": 16,
+      "runner_returncode": 0,
+      "seconds": 2.786
+    },
+    {
+      "index": 17,
+      "runner_returncode": 0,
+      "seconds": 2.844
+    },
+    {
+      "index": 18,
+      "runner_returncode": 0,
+      "seconds": 3.639
+    },
+    {
+      "index": 19,
+      "runner_returncode": 0,
+      "seconds": 2.868
+    },
+    {
+      "index": 20,
+      "runner_returncode": 0,
+      "seconds": 3.042
+    }
+  ],
+  "samples": 30,
+  "start_epoch": 1794293025.5854907,
+  "vram_ceiling_mib": 8192,
+  "wall_seconds": 130.452
+}
