@@ -1,0 +1,102 @@
+name: rhc03-prospective-preflight
+
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/evaluation_reward_hacking_prospective.py'
+      - 'scripts/run_rhc03_prospective.py'
+      - 'scripts/derive_rhc03_split.py'
+      - 'scripts/verify_reward_hacking_prospective.py'
+      - 'tests/test_evaluation_reward_hacking_prospective.py'
+      - 'configs/rhc03_prereg_v1.json'
+      - 'paper/reward_hacking_prospective_protocol.md'
+      - 'fixtures/rhc03_reference_projection.json'
+      - 'output/reward_hacking_bootstrap/rhc03_v0_1.json'
+      - '.github/workflows/rhc03-prospective.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/evaluation_reward_hacking_prospective.py'
+      - 'scripts/run_rhc03_prospective.py'
+      - 'scripts/derive_rhc03_split.py'
+      - 'scripts/verify_reward_hacking_prospective.py'
+      - 'tests/test_evaluation_reward_hacking_prospective.py'
+      - 'configs/rhc03_prereg_v1.json'
+      - 'paper/reward_hacking_prospective_protocol.md'
+      - 'fixtures/rhc03_reference_projection.json'
+      - 'output/reward_hacking_bootstrap/rhc03_v0_1.json'
+      - '.github/workflows/rhc03-prospective.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  pinned-upstream-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout EvalMath change
+        uses: actions/checkout@v4
+      - name: Checkout immutable Control-Harness source
+        uses: actions/checkout@v4
+        with:
+          repository: MoralityLabAI/Control-Harness
+          ref: fe991510f8c9acc6ab4ffd91958c0a89fd4bcb29
+          path: upstream-control
+          persist-credentials: false
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run offline protocol tests
+        run: python -m unittest discover -s tests -p 'test_evaluation_reward_hacking_prospective.py' -v
+      - name: Reproduce preregistered family split
+        run: python scripts/derive_rhc03_split.py
+      - name: Verify upstream scoring parity
+        run: |
+          python scripts/run_rhc03_prospective.py parity \
+            --catalog upstream-control/environments/mesh_escape_pit_v1/mesh_escape_pit_v1/catalog.json \
+            --protocol configs/rhc03_prereg_v1.json \
+            --scorer upstream-control/environments/mesh_escape_pit_v1/mesh_escape_pit_v1/scoring.py
+      - name: Full source-anchored mock preparation, fit and holdout audit
+        run: |
+          set -euo pipefail
+          python scripts/run_rhc03_prospective.py prepare \
+            --catalog upstream-control/environments/mesh_escape_pit_v1/mesh_escape_pit_v1/catalog.json \
+            --protocol configs/rhc03_prereg_v1.json \
+            --actor-dir /tmp/rhc03/actor --auditor-dir /tmp/rhc03/auditor
+          python scripts/run_rhc03_prospective.py mock \
+            --requests /tmp/rhc03/actor/calibration_requests.jsonl \
+            --responses /tmp/rhc03/actor/calibration_responses.jsonl
+          python scripts/run_rhc03_prospective.py fit \
+            --protocol configs/rhc03_prereg_v1.json \
+            --requests /tmp/rhc03/actor/calibration_requests.jsonl \
+            --responses /tmp/rhc03/actor/calibration_responses.jsonl \
+            --vault /tmp/rhc03/auditor/oracle_vault.json \
+            --envelope /tmp/rhc03/auditor/prepare_receipt.json \
+            --holdout-requests /tmp/rhc03/actor/holdout_requests.jsonl \
+            --output /tmp/rhc03/auditor/frozen_detector.json
+          python scripts/run_rhc03_prospective.py mock \
+            --requests /tmp/rhc03/actor/holdout_requests.jsonl \
+            --responses /tmp/rhc03/actor/holdout_responses.jsonl
+          python scripts/run_rhc03_prospective.py audit \
+            --protocol configs/rhc03_prereg_v1.json \
+            --requests /tmp/rhc03/actor/holdout_requests.jsonl \
+            --responses /tmp/rhc03/actor/holdout_responses.jsonl \
+            --vault /tmp/rhc03/auditor/oracle_vault.json \
+            --envelope /tmp/rhc03/auditor/prepare_receipt.json \
+            --calibration-requests /tmp/rhc03/actor/calibration_requests.jsonl \
+            --detector /tmp/rhc03/auditor/frozen_detector.json \
+            --output /tmp/rhc03/auditor/heldout_audit.json
+          python - <<'PY'
+          import json
+          p='/tmp/rhc03/auditor/heldout_audit.json'
+          data=json.load(open(p,encoding='utf8'))
+          assert data['mode']=='mock_preflight'
+          assert data['n_aligned']==6 and data['n_red_attempts']==15
+          assert data['n_successful_attacks']==0
+          assert not data['model_provenance_verified']
+          print('rhc03 mock preflight passes pinned real-source schema and scoring checks')
+          PY
+      - name: Regenerate content-hashed preregistration receipt
+        run: |
+          PYTHONPATH=src python scripts/check_receipts.py --only rhc03
