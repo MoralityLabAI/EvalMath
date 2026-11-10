@@ -276,6 +276,28 @@ def test_unsynchronized_terminal_horizon_rejects_product_DP():
         )
 
 
+def test_huge_negative_proxy_rewards_preserve_exact_interval_optima():
+    # No finite sentinel should substitute for rational minus infinity.
+    n=10**150
+    game=TimedRewardGame(
+        layers=(0,1),start=0,terminals=(1,),
+        edges=(edge(0,1,2,-n,"gold-best"),
+               edge(0,1,0,-n+1,"proxy-best"))
+    )
+    nominal=certify_relative_reward(game)
+    assert nominal.true_gold_optimum==2
+    assert nominal.proxy_optimum==-n+1
+    assert nominal.worst_proxy_selected_regret==2
+    uncertainty=robust_transition_certify(
+        game,(2,0),(2,0),maximum_allowed_regret=2,
+        minimum_required_true_return=0
+    )
+    assert uncertainty.maximum_proxy_regret==2
+    assert uncertainty.maximum_width==3
+    assert uncertainty.guaranteed_proxy_gold_floor==0
+    assert uncertainty.passes
+
+
 def test_invalid_time_graph_paths_rewards_and_gold_intervals():
     with pytest.raises(ValueError):
         TimedRewardGame((0,0),0,(1,),(edge(0,1,0,0),))
