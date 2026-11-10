@@ -106,7 +106,7 @@ def test_global_gold_box_is_exactly_optimized_at_its_vertices():
 def test_two_actual_UGC_worlds_preserve_curved_safety_obstruction():
     game=ugc_curved_proxy_switch_fixture()
     cert=curved_kernel_robust_certificate(
-        game,((Q(1),Q(2)),),maximum_allowed_regret=GOLD.rational+Q(1)
+        game,((Q(1),Q(2)),),maximum_allowed_regret=Q(1,2)
     )
     assert cert.maximum_gold_regret==GOLD
     assert cert.worst_gold_parameters==(Q(2),)
@@ -121,8 +121,8 @@ def test_two_actual_UGC_worlds_preserve_curved_safety_obstruction():
         (Q(1,4),Q(1,2)),(Q(1,2),Q(1,4)),
         (Q(2,5),Q(3,7)),(Q(3,5),Q(1,4))
     ):
-        expected=(p and (Q(1)-p)*(Q(1)-q) if
-                  q*(1+p)>=1-p else Q(0))
+        expected=((Q(1)-p)*(Q(1)-q)
+                  if q*(1+p)>=1-p else Q(0))
         # At theta=2, the one UGC-safe reference world contributes
         # one-half the reward, recovering (1-p)*(1-q).
         assert independent_rht13_scan(game,p,q,(Q(2),))[0]==expected
@@ -255,10 +255,6 @@ def test_fail_closed_high_degree_and_resource_caps():
         curved_kernel_robust_certificate(
             game,((1,1),),maximum_allowed_regret=-1
         )
-    with pytest.raises(ValueError):
-        curved_kernel_robust_certificate(
-            game,((1,1),),minimum_proxy_gold_return=1
-        ) if False else None
     assert not curved_kernel_robust_certificate(
         game,((1,1),),minimum_proxy_gold_return=1
     ).passes
