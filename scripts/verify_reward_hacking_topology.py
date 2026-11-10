@@ -63,7 +63,7 @@ from spiral_ln.evaluation_reward_stochastic_closure import (
 )
 from spiral_ln.evaluation_reward_stochastic_fixture import (
     evaluator_pomdp,fair_martingale_noise_game,
-    time_expanded_support_graph,
+    time_expanded_support_graph,reward_source_identity_fixture,
 )
 from spiral_ln.evaluation_reward_hacking_guard import (
     minimal_epsilon_gold_audit,robust_proxy_guard
@@ -431,6 +431,18 @@ def receipt() -> dict:
     assert markov.valid
     assert markov.expected_gap_all_fixed_horizon_policies==0
     assert fair_path.discrepancy_width==4 and not fair_path.relative_exact
+    source_shared=stochastic_robust_certificate(
+        reward_source_identity_fixture(share_gold=True),
+        ((Q(0),Q(10)),),
+    )
+    source_split=stochastic_robust_certificate(
+        reward_source_identity_fixture(share_gold=False),
+        ((Q(0),Q(10)),(Q(0),Q(10))),
+    )
+    assert source_shared.robust_max_regret==0
+    assert source_split.robust_max_regret==20
+    assert source_shared.robust_policy_discrepancy_width==0
+    assert source_split.robust_policy_discrepancy_width==20
 
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
@@ -534,6 +546,21 @@ def receipt() -> dict:
             ],
             "nominal_path_support_width":str(path_outer.discrepancy_width),
             "belief_dp_states_visited":stochastic.belief_dp_states_visited,
+            "global_reward_signal_identity_control":{
+                "shared_single_gold_parameter_robust_regret":str(
+                    source_shared.robust_max_regret
+                ),
+                "independent_A_B_gold_parameter_robust_regret":str(
+                    source_split.robust_max_regret
+                ),
+                "shared_signal_expected_gap_width":str(
+                    source_shared.robust_policy_discrepancy_width
+                ),
+                "separate_signal_expected_gap_width":str(
+                    source_split.robust_policy_discrepancy_width
+                ),
+                "gold_parameter_domain":"[0,10] for each licensed global source",
+            },
             "martingale_reward_null_control":{
                 "conditional_expected_coboundary_valid":markov.valid,
                 "expected_policy_discrepancy":str(
