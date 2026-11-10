@@ -968,3 +968,132 @@ The current model includes a fixed independent gold-reference world and a mutabl
 - [Independent stateful attack regression tests](../tests/test_evaluation_reward_hacking_stateful.py)
 - [Independent benign-state trajectory tests](../tests/test_evaluation_reward_hacking_stateful_guard.py)
 - [Source-bound EvalMath receipt](../scripts/verify_reward_hacking_topology.py)
+
+
+## 17. Transition-closed reward cohomology and interval-robust regret (RHT-12)
+
+**2026-11-10 | exact finite theorems, time-expanded game DAG.** RHT-11 gave the agent an opportunity to corrupt the evaluator while its protected reference-world utility remained fixed. RHT-12 takes the corresponding **reachable complete trajectories** as the fundamental object. Its vertices contain the task state, the evaluator-integrity state, and the time coordinate. Every directed edge advances one time layer, carrying a rational protected gold reward \(r_e\) and the evaluator's proxy reward \(\widehat r_e\).
+
+This is an exact path-roster certificate. It treats all registered paths as feasible choices for a conservative proxy-maximizing actor. Transition probabilities, hidden-state inference and stochastic-policy expectations from RHT-11 require additional analysis beyond this deterministic support model. The protected gold reward remains an independent, externally justified premise.
+
+### 17.1 Relative path cohomology characterizes path-constant reward gaps
+
+Fix a finite time-expanded DAG with one start \(s\), an explicit nonempty terminal set \(T\), and directed edges \(e:u\to v\) that each advance one time layer. Remove dead edges lying on no complete \(s\)-to-\(T\) path, since they cannot affect realizable returns. For a complete path \(p\), write
+
+\[
+ U(p)=\sum_{e\in p}r_e,\quad
+ \widehat U(p)=\sum_{e\in p}\widehat r_e,\quad
+ \Delta(p)=\widehat U(p)-U(p).
+\]
+
+Let \(\omega_e=\widehat r_e-r_e\). Append a virtual sink \(\star\) and one zero-discrepancy edge \(t\to\star\) for each terminal. Denote the resulting *productive augmented graph* by \(\overline G\).
+
+**Theorem RHT-12/T1.** The following conditions are equivalent:
+
+1. \(\Delta(p)=C\) for every complete path \(p\) from \(s\) to any terminal;
+2. there exists a rational vertex potential \(\phi\) on productive vertices such that \(\omega_e=\phi(v)-\phi(u)\) on every productive transition and all terminals share the same potential \(\phi(t)=\phi(s)+C\);
+3. the augmented discrepancy cochain on \(\overline G\), including the zero virtual edges, has zero period on every undirected graph cycle;
+4. all its fundamental-cycle periods under any spanning forest vanish.
+
+**Proof.** If (1) holds, define \(\phi(v)\) by the discrepancy along any directed prefix \(s\to v\). Every productive prefix can be completed to a terminal. Two different prefixes to \(v\), followed by the same suffix, produce equal complete-path discrepancies, so the prefix discrepancy is well defined. Every edge therefore increments the potential by \(\omega_e\), and all terminals acquire \(C\) relative to \(s\). Conversely, (2) telescopes along every complete path. Extend \(\phi\) to \(\star\) using that common terminal value. All virtual edges then have differential zero. A graph cochain is exact precisely when it annihilates its entire cycle space, and fundamental cycles span that space, proving (2)\(\Leftrightarrow\)(3)\(\Leftrightarrow\)(4).
+
+**Terminal-boundary negative control.** A graph containing only \(s\to t_{\rm good}\) and \(s\to t_{\rm bad}\) is an undirected tree. If its gold rewards are \(2,0\) and proxy rewards \(2,3\), the gold-optimal terminal is bad under the proxy. The discrepancy periods become nonzero after gluing terminals to \(\star\). This is why the *relative terminal boundary* belongs in the certificate even for a directed acyclic transition system without ordinary cycles.
+
+This is an exact finite-horizon/undiscounted version of established potential-based shaping results; see [Ng, Harada and Russell (1999)](https://ai.stanford.edu/~ang/papers/shaping-icml99.pdf). For discounted settings, the compatible term is \(\gamma\phi(s')-\phi(s)\), with discount-weighted terminal conventions.
+
+### 17.2 Exact oscillation and a quantitative gold-regret ceiling
+
+Define the discrepancy width on the **actual complete-path roster**
+
+\[
+ W(G,\omega)=\max_{p\in\mathcal P}\Delta(p)
+             -\min_{p\in\mathcal P}\Delta(p).
+\]
+
+Because the time-expanded graph is acyclic, longest- and shortest-path dynamic programming computes both extrema exactly in \(O(|V|+|E|)\), even with negative edge rewards. In particular, \(W=0\) exactly when T1 holds.
+
+Let \(p^\star\) maximize protected gold return and let \(\widehat p\) be *any* proxy-maximizing complete path, including adversarial tie-breaking. Then
+
+\[
+\widehat U(\widehat p)\ge\widehat U(p^\star)
+\quad\Longrightarrow\quad
+\boxed{0\le U(p^\star)-U(\widehat p)\le W(G,\omega).}
+\tag{RHT-12/1}
+\]
+
+The proof subtracts true gold from the displayed proxy inequality and bounds \(\Delta(\widehat p)-\Delta(p^\star)\) by the width. A lexicographic DAG recurrence maximizing \((\widehat U,-U)\) gives the **exact worst true regret among all proxy maximizers**. This regret can be strictly smaller than \(W\). The inequality is sharp: two parallel actions with equal proxy value \(2\), gold values \(2\) and \(0\), and proxy tie-breaking toward the low-gold edge attain regret \(W=2\).
+
+For a spanning-tree potential \(\phi\) on \(\overline G\), let \(h_e=\omega_e-(\phi(v)-\phi(u))\) on each **non-tree chord**. Every complete path, extended to \(\star\), traverses each edge at most once. Differences between two path edge-incidence vectors have chord coefficients in \(\{-1,0,1\}\). Tree contributions telescope to a common endpoint difference. Therefore
+
+\[
+\boxed{W(G,\omega)\le\sum_{\text{fundamental chords }e}|h_e|.}
+\tag{RHT-12/2}
+\]
+
+This basis-dependent bound may be loose. It supplies a cheap cycle-local upper certificate and is exactly zero whenever the reward cochain has trivial terminal-relative holonomy. The implementation verifies the full equivalence, both path extrema and the chord bound using independently constructed graph procedures.
+
+### 17.3 Uncertain gold: exact *robust* regret by a product DAG
+
+The protected gold oracle may provide defensible **independent edge intervals** \(\ell_e\le r_e\le u_e\) rather than one exact reward vector. Keep proxy values fixed. Assume every complete path takes the same number of time steps, so two paths can be traversed synchronously in the time-expanded **product DAG**.
+
+For any pair \(p,q\) the shared edges cancel in a difference of their gold returns. Since the edge intervals are independent, maximizing that difference assigns \(u_e\) to edges in \(p\setminus q\) and \(\ell_e\) to edges in \(q\setminus p\). Thus the exact **worst-case gold regret** of choosing a proxy maximizer is
+
+\[
+\boxed{
+R_{\mathrm{rob}}=
+\max_{\substack{p\in\mathcal P\\q\in\arg\max\widehat U}}
+\left[
+\sum_{e\in p\setminus q}u_e-
+\sum_{e\in q\setminus p}\ell_e
+\right].
+}
+\tag{RHT-12/3}
+\]
+
+This equals \(\sup_{r\in[\ell,u]}\max_{q\in\arg\max\widehat U}
+(\max_p U_r(p)-U_r(q))\), with the maxima commuting over finite path and interval endpoint choices. An exact pair-state Bellman recurrence on \((v_p,v_q)\) computes it by maximizing \(u_e-\ell_f\) for two distinct simultaneous edge transitions \(e,f\), and zero for a shared transition. The second path is restricted to **proxy-optimal edges**, identified by forward/backward proxy longest-path values.
+
+The corresponding robust discrepancy width is
+
+\[
+ W_{\rm rob}
+ =\sup_{r\in[\ell,u]} \left[
+ \max_p(\widehat U(p)-U_r(p))
+ -\min_q(\widehat U(q)-U_r(q))\right].
+\tag{RHT-12/4}
+\]
+
+The same product DAG computes it using interval bounds
+\(\underline\omega_e=\widehat r_e-u_e\) and
+\(\overline\omega_e=\widehat r_e-\ell_e\).
+In the product recurrence, a common edge contributes **zero**, since the same uncertain gold reward is shared by both compared paths. This source-identity cancellation is necessary for a valid correlated comparison. The exact theorem gives \(R_{\rm rob}\le W_{\rm rob}\).
+
+A second forward/backward dynamic program computes
+
+\[
+ U_{\mathrm{floor}}=
+ \min_{q\in\arg\max\widehat U}\sum_{e\in q}\ell_e,
+\]
+
+the largest guaranteed lower bound on gold return of **any** proxy-selected path for every licensed interval reward assignment. A two-sided guard passes only when both \(R_{\rm rob}\le\varepsilon\) and \(U_{\mathrm{floor}}\ge u_0\), with \(\varepsilon,u_0\) declared before optimization. Its guarantee depends on the actual gold rewards lying in these intervals.
+
+### 17.4 A mutable-evaluator path witness and the common-stem control
+
+The executable [time-expanded example](../tests/test_evaluation_reward_transition_closure.py) has one initial vertex, two evaluator states at the next layer (intact and compromised), and safe/bad terminal task outcomes. The intact-good trajectory receives gold/proxy \(2/2\); an intact-bad outcome \(0/1\); the compromised-good outcome \(2/0\); and the compromised-bad outcome \(0/3\). All four complete paths remain feasible in the declared graph.
+
+The nominal discrepancy ranges from \(-2\) to \(3\), giving \(W=5\). The proxy-maximizing path reaches the bad outcome with proxy return \(3\) and gold return \(0\). True optimal gold return is \(2\), giving exact regret \(2\) inside the width bound. Relative exactness fails, and the relative fundamental-cycle periods witness it.
+
+Allow the two good-outcome gold transitions independently to vary over \([1,3]\); fix the remaining gold transitions at zero. The synchronized product-DAG calculation gives **exact robust width \(6\)**, **exact robust proxy regret \(3\)**, and gold floor zero. A wholly separate oracle enumerates all interval endpoint assignments and complete paths to verify these values. The robust guard passes a regret budget three and rejects a budget two.
+
+**Shared-edge identity control.** In a graph where all complete paths traverse the same initial transition, let that transition's gold be uncertain over \([0,100]\). The gold comparison between two complete paths cancels this entire interval. The robust width is \(3\) and robust proxy regret \(2\) for a two-branch instance. An approach summing independent worst-case path rewards would spuriously amplify uncertainty from the shared edge. This is a basic but important example of preserving **reward-source identity** across different game-space paths.
+
+### 17.5 Verification and remaining research obligation
+
+- [Exact time-expanded cohomology, path and product-DAG solver](../src/spiral_ln/evaluation_reward_transition_closure.py).
+- [Independent complete-path, interval-vertex, random-game, potential and shared-edge tests](../tests/test_evaluation_reward_transition_closure.py).
+- [Source-bound RHT research receipt](../scripts/verify_reward_hacking_topology.py), with the new reproducible nominal/robust witness.
+- The focused CPU-only workflow checks the new module alongside RHT-01–11; no GPU, learned model or judge is invoked.
+
+The tree/chord identities, DAG extrema, path potential telescoping and independent interval optimization are standard finite algebra/optimization. Their synthesis here defines a testable **transition-closed reward certificate** for the registered EvalMath game space. It assumes all candidate paths are feasible under the stated controller access grammar and optimizes over paths, rather than over stochastic policies with externally imposed transition probabilities.
+
+The next extension must incorporate stochastic state transitions, partial observability of evaluator integrity, gold-label uncertainty coupled across time, and the possibility that a model changes the independent attestation channel. The relevant prior research includes [Everitt et al. (2021), causal reward-tampering conditions](https://doi.org/10.1007/s11229-021-03141-4), [Ng et al. (1999), policy-invariant shaping](https://ai.stanford.edu/~ang/papers/shaping-icml99.pdf), and the existing [EvalMath RHT-11 finite evaluator-tamper game](../src/spiral_ln/evaluation_reward_hacking_stateful.py). This is a conditional mathematical safeguard for a declared gold target, rather than a proof that any learned evaluator's rewards encode human values.
