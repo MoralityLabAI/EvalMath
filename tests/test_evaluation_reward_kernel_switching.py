@@ -237,10 +237,9 @@ def test_switching_UGC_frozen_gold_contract_enforces_limits():
         switching_kernel_robust_certificate(
             game,((1,1),),maximum_allowed_regret=-1
         )
-    with pytest.raises(ValueError):
-        switching_kernel_robust_certificate(
-            game,((1,1),),mininum_proxy_gold_return=2
-        )
+    assert not switching_kernel_robust_certificate(
+        game,((1,1),),minimum_proxy_gold_return=2
+    ).passes
 
 
 def test_algebraic_radical_ordering_regressions_are_exact():
