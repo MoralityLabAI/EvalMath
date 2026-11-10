@@ -83,6 +83,12 @@ and a diamond-graph cohomological blind spot repaired by a cycle-sensitive obser
 Run `PYTHONPATH=src python -m pytest -q tests/test_evaluation_reward_hacking_bootstrap.py`
 and `python scripts/check_receipts.py --only rhc01`.
 
+**RHC-03 (2026-11-10, preregistered):** [prospective family-heldout MeshEscapePit protocol](paper/reward_hacking_prospective_protocol.md)
+adds a pinned 5/8 red-family split and separate 5/6 aligned split, fixed packet-level monitors,
+an actor-only local inference runner, and independent scoring parity. The committed receipt is
+**mock-only preflight** and contains no model performance result.
+Reproduce with `python scripts/check_receipts.py --only rhc03` and the scoped RHC-03 unit tests.
+
 ## Self-designed evaluation and FRC
 
 The [HRC-FRC-01 extension](paper/frc_harmonic_self_evaluation.md) studies
