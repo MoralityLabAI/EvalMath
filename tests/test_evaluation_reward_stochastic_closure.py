@@ -240,8 +240,8 @@ def test_markov_coboundary_detects_action_conditional_reward_mismatch():
     proof=expected_markov_coboundary(game,(0,))
     assert not proof.valid
     assert proof.first_action_inconsistency is not None
-    max_gap=optimize_stochastic_policy(game,(0,),"gap_max")
-    min_gap=optimize_stochastic_policy(game,(0,),"gap_min")
+    max_gap=optimize_stochastic_policy(game,(0,),objective="gap_max")
+    min_gap=optimize_stochastic_policy(game,(0,),objective="gap_min")
     assert max_gap.proxy_return-max_gap.gold_return==2
     assert min_gap.proxy_return-min_gap.gold_return==0
     # Gold=0 for every policy, so the actual *gold regret* is zero
