@@ -1,4 +1,4 @@
-"""RHT-01..21 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..22 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -110,6 +110,9 @@ from spiral_ln.evaluation_reward_active_awareness import (
     ObservationLaw, Probe, ActiveEvaluationGame,
     optimize_active_policy, certify_active_transfer, sharp_transfer_relabel,
 )
+from spiral_ln.evaluation_reward_training_awareness_sequential import (
+    EvaluationProbe, solve_initial_cues, robust_prior_envelope,
+)
 from spiral_ln.evaluation_reward_shared_kernel_fixture import (
     rational_proxy_crossing_fixture,
     irrational_proxy_crossing_fixture,
@@ -156,6 +159,7 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_semialgebraic_fixture.py",
     "src/spiral_ln/evaluation_reward_training_awareness.py",
     "src/spiral_ln/evaluation_reward_active_awareness.py",
+    "src/spiral_ln/evaluation_reward_training_awareness_sequential.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -179,6 +183,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_semialgebraic_kernel.py",
     "tests/test_evaluation_reward_training_awareness.py",
     "tests/test_evaluation_reward_active_awareness.py",
+    "tests/test_evaluation_reward_training_awareness_sequential.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -719,6 +724,51 @@ def receipt() -> dict:
 
     # RHT-21: active probing has exact rational optional-information value,
     # and its evaluation/deployment transcript transfer is sharp.
+    # RHT-22: shared-grammar independent Bellman cross-check and the
+    # exact interior minimum of a convex adaptive-prior value envelope.
+    prior_game=EvaluationCueGame(
+        ("start",),(Q(1),),(Q(1),),Q(1,2),Q(1),Q(1),
+    )
+    blind_prior=robust_prior_envelope(prior_game,(),0,(Q(0),Q(1)))
+    perfect_probe=EvaluationProbe(
+        "perfect",("deploy","eval"),(Q(0),Q(1)),(Q(1),Q(0)),Q(1,4),
+    )
+    informed_prior=robust_prior_envelope(
+        prior_game,(perfect_probe,),1,(Q(0),Q(1)),
+    )
+    assert (blind_prior.minimum_optimal_value,blind_prior.worst_prior,
+            blind_prior.prior_endpoints_only_minimum)==(Q(1,2),Q(1,2),Q(1))
+    assert (informed_prior.minimum_optimal_value,informed_prior.worst_prior,
+            informed_prior.prior_endpoints_only_minimum)==(Q(3,4),Q(1,4),Q(1))
+    independent_cues=EvaluationCueGame(
+        ("deploy_looking","eval_looking"),
+        (Q(1,4),Q(3,4)),(Q(3,4),Q(1,4)),Q(1,8),Q(8),Q(1),
+    )
+    independent_probe=EvaluationProbe(
+        "inspection",("deploy","eval"),
+        (Q(1,4),Q(3,4)),(Q(3,4),Q(1,4)),Q(1,10),
+    )
+    independent_seq=solve_initial_cues(
+        independent_cues,(independent_probe,),3,
+    )
+    matched_active=ActiveEvaluationGame(
+        Q(1,8),Q(8),Q(1),3,
+        (Probe("inspection",ObservationLaw(
+            "inspection_law",("deploy","eval"),
+            (Q(1,4),Q(3,4)),(Q(3,4),Q(1,4)),
+        ),Q(1,10)),),
+        ObservationLaw(
+            "initial",("deploy_looking","eval_looking"),
+            (Q(1,4),Q(3,4)),(Q(3,4),Q(1,4)),
+        ),
+    )
+    matched_optim=optimize_active_policy(matched_active)
+    matched_report=certify_active_transfer(matched_active,matched_optim.policy)
+    assert independent_seq.subjective_optimal_value==matched_optim.subjective_value
+    assert independent_seq.evaluation_protection==matched_report.evaluation_protection
+    assert independent_seq.deployment_protection==matched_report.deployment_protection
+    assert independent_seq.complete_transcript_tv==matched_report.exact_transcript_tv
+
     active_law=ObservationLaw(
         "cue",("deployment_looking","evaluation_looking"),
         (Q(1,4),Q(3,4)),(Q(3,4),Q(1,4)),
@@ -764,9 +814,33 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.15",
+        "schema":"RHT-01.16",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
+        "robust_training_aware_prior_envelope":{
+            "shared_latent_worlds":["evaluation","deployment"],
+            "prior_interval":["0","1"],
+            "blind_worst_prior":str(blind_prior.worst_prior),
+            "blind_exact_minimum_subjective_value":str(
+                blind_prior.minimum_optimal_value
+            ),
+            "blind_prior_endpoints_only_value":str(
+                blind_prior.prior_endpoints_only_minimum
+            ),
+            "perfect_probe_cost":"1/4",
+            "informed_worst_prior":str(informed_prior.worst_prior),
+            "informed_exact_minimum_subjective_value":str(
+                informed_prior.minimum_optimal_value
+            ),
+            "informed_prior_endpoints_only_value":str(
+                informed_prior.prior_endpoints_only_minimum
+            ),
+            "RHT21_Bellman_crosscheck":True,
+            "independent_complete_transcript_TV":str(
+                independent_seq.complete_transcript_tv
+            ),
+            "claim_limit":"finite synthetic fixed-type protocol, subjective utility only",
+        },
         "adaptive_training_aware_probe_game":{
             "world_types":["evaluation","deployment"],
             "conditional_probe_kernels":"fixed exact rational, actor-selected by history",
