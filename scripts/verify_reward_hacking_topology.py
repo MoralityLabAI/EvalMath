@@ -1,4 +1,4 @@
-"""RHT-01..23 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..24 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -113,6 +113,12 @@ from spiral_ln.evaluation_reward_active_awareness import (
     ObservationLaw, Probe, ActiveEvaluationGame,
     optimize_active_policy, certify_active_transfer, sharp_transfer_relabel,
 )
+from spiral_ln.evaluation_reward_stateful_awareness import (
+    IntegrityProbe, StatefulAwarenessGame,
+    optimize as optimize_integrity,
+    certify as certify_integrity,
+    visible_trace_distance, uniform_public_equivalence,
+)
 from spiral_ln.evaluation_reward_training_awareness_sequential import (
     EvaluationProbe, solve_initial_cues, robust_prior_envelope,
 )
@@ -162,6 +168,7 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_semialgebraic_fixture.py",
     "src/spiral_ln/evaluation_reward_training_awareness.py",
     "src/spiral_ln/evaluation_reward_training_awareness_adaptive.py",
+    "src/spiral_ln/evaluation_reward_stateful_awareness.py",
     "src/spiral_ln/evaluation_reward_active_awareness.py",
     "src/spiral_ln/evaluation_reward_training_awareness_sequential.py",
     "tests/test_evaluation_reward_hacking_topology.py",
@@ -187,9 +194,11 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_semialgebraic_kernel.py",
     "tests/test_evaluation_reward_training_awareness.py",
     "tests/test_evaluation_reward_training_awareness_adaptive.py",
+    "tests/test_evaluation_reward_stateful_awareness.py",
     "tests/test_evaluation_reward_active_awareness.py",
     "tests/test_evaluation_reward_training_awareness_sequential.py",
     "paper/reward_hacking_cohomology.md",
+    "paper/reward_hacking_stateful_awareness.md",
     "scripts/verify_reward_hacking_topology.py",
 )
 
@@ -833,8 +842,44 @@ def receipt() -> dict:
     assert policy_rank_reversal(bad_boundary,(0,),(1,))
 
     root=Path(__file__).resolve().parents[1]
+    # RHT-24: all-policy public alias with unseen evaluator-integrity mutation.
+    integrity_ack=((Q(1),Q(0)),)
+    compromised_ack=((Q(0),Q(1)),)
+    intact=IntegrityProbe("hidden_ack",("ack",),
+        (integrity_ack,compromised_ack,integrity_ack,compromised_ack),Q(1,4))
+    mutated=IntegrityProbe("hidden_ack",("ack",),(compromised_ack,)*4,Q(1,4))
+    intact_game=StatefulAwarenessGame(Q(1,2),Q(2),Q(1),Q(2),1,(intact,))
+    mutated_game=StatefulAwarenessGame(Q(1,2),Q(2),Q(1),Q(2),1,(mutated,))
+    intact_opt=optimize_integrity(intact_game)
+    mutated_opt=optimize_integrity(mutated_game)
+    mutated_cert=certify_integrity(mutated_game,mutated_opt.root)
+    alternative_cert=certify_integrity(intact_game,mutated_opt.root)
+    assert intact_opt.value==1 and mutated_opt.value==Q(9,4)
+    assert mutated_opt.root.action=="probe"
+    assert mutated_cert.deployment_exploit_compromised==1
+    assert alternative_cert.deployment_exploit_compromised==0
+    assert uniform_public_equivalence(intact_game,mutated_game)
+    assert visible_trace_distance(intact_game,mutated_game,mutated_opt.root)==0
+    assert mutated_cert.transcript_tv==mutated_cert.adaptive_tv_bound==0
+
     return {
-        "schema":"RHT-01.17",
+        "schema":"RHT-01.18",
+        "stateful_training_awareness":{
+            "hidden_state":"(evaluation/deployment world, intact/compromised evaluator)",
+            "kernel":"exact rational conditional joint (visible reply,next integrity) given action",
+            "all_policy_public_equivalence":True,
+            "public_transcript_tv_between_models":"0",
+            "subjective_intact_optimum":str(intact_opt.value),
+            "subjective_mutated_optimum":str(mutated_opt.value),
+            "compromised_exploit_exposure_before":str(alternative_cert.deployment_exploit_compromised),
+            "compromised_exploit_exposure_after":str(mutated_cert.deployment_exploit_compromised),
+            "fixed_policy_deployment_hidden_exposure_gap":str(
+                mutated_cert.deployment_exploit_compromised-
+                alternative_cert.deployment_exploit_compromised),
+            "evaluation_deployment_public_transcript_tv":str(mutated_cert.transcript_tv),
+            "policy_tree_exact":True,
+            "model_training_performed":False,
+        },
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "robust_training_aware_prior_envelope":{
