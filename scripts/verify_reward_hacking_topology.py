@@ -1,4 +1,4 @@
-"""RHT-01..22 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..23 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -106,6 +106,9 @@ from spiral_ln.evaluation_reward_semialgebraic_fixture import (
 from spiral_ln.evaluation_reward_training_awareness import (
     EvaluationCueGame, robust_protection, future_policy_value_delta,
 )
+from spiral_ln.evaluation_reward_training_awareness_adaptive import (
+    EvaluationProbe as TVEvaluationProbe, AdaptiveEvaluationGame,
+)
 from spiral_ln.evaluation_reward_active_awareness import (
     ObservationLaw, Probe, ActiveEvaluationGame,
     optimize_active_policy, certify_active_transfer, sharp_transfer_relabel,
@@ -158,6 +161,7 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_semialgebraic_kernel.py",
     "src/spiral_ln/evaluation_reward_semialgebraic_fixture.py",
     "src/spiral_ln/evaluation_reward_training_awareness.py",
+    "src/spiral_ln/evaluation_reward_training_awareness_adaptive.py",
     "src/spiral_ln/evaluation_reward_active_awareness.py",
     "src/spiral_ln/evaluation_reward_training_awareness_sequential.py",
     "tests/test_evaluation_reward_hacking_topology.py",
@@ -182,6 +186,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_quadratic_kernel.py",
     "tests/test_evaluation_reward_semialgebraic_kernel.py",
     "tests/test_evaluation_reward_training_awareness.py",
+    "tests/test_evaluation_reward_training_awareness_adaptive.py",
     "tests/test_evaluation_reward_active_awareness.py",
     "tests/test_evaluation_reward_training_awareness_sequential.py",
     "paper/reward_hacking_cohomology.md",
@@ -798,6 +803,21 @@ def receipt() -> dict:
     assert active_report.deployment_expected_probes==Q(19,8)
     assert sharp_active.realized_gap==active_report.exact_transcript_tv
 
+    # RHT-23: maximize audit/deployment compliance gap over the entire
+    # adaptive protocol (not merely a fixed actor-optimal observation tree).
+    controlled_game=AdaptiveEvaluationGame((
+        TVEvaluationProbe("binary",("eval_looking","deployment_looking"),
+                          (Q(3,4),Q(1,4)),(Q(1,4),Q(3,4))),
+    ),Q(1,2),Q(1),Q(1),3)
+    controlled_bayes=controlled_game.bayes_optimal()
+    controlled_tv=controlled_game.controlled_audit_gap()
+    assert controlled_game.posterior((("binary","eval_looking"),))==Q(3,4)
+    assert controlled_bayes.subjective_value==Q(27,32)
+    assert controlled_bayes.audit.evaluation_compliance==Q(27,32)
+    assert controlled_bayes.audit.deployment_compliance==Q(5,32)
+    assert controlled_tv.maximum_audit_deployment_gap==Q(11,16)
+    assert controlled_tv.maximum_coupling_bound==Q(7,8)
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -814,7 +834,7 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.16",
+        "schema":"RHT-01.17",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
         "robust_training_aware_prior_envelope":{
@@ -861,6 +881,23 @@ def receipt() -> dict:
             "memoized_belief_states":deep_active.states_visited,
             "actual_gradient_training_performed":False,
             "scope":"synthetic finite POMDP with fixed hidden world and independent observation kernels",
+        },
+        "universal_adaptive_transfer":{
+            "source_contract":"static binary hidden world, conditional i.i.d. observations per registered probe, complete bounded adaptive policy grammar",
+            "max_probes":controlled_game.max_probes,
+            "root_prior":str(controlled_game.prior),
+            "single_probe_total_variation":str(controlled_game.probes[0].total_variation()),
+            "optimal_subjective_return":str(controlled_bayes.subjective_value),
+            "evaluation_protection_probability":str(controlled_bayes.audit.evaluation_compliance),
+            "deployment_protection_probability":str(controlled_bayes.audit.deployment_compliance),
+            "optimal_tree_transcript_total_variation":str(controlled_bayes.audit.transcript_total_variation),
+            "controlled_maximum_audit_deployment_gap":str(controlled_tv.maximum_audit_deployment_gap),
+            "adaptive_maximal_coupling_bound":str(controlled_tv.maximum_coupling_bound),
+            "expected_evaluation_probe_uses":str(controlled_bayes.audit.evaluation_expected_probes),
+            "expected_deployment_probe_uses":str(controlled_bayes.audit.deployment_expected_probes),
+            "bayes_states_visited":controlled_bayes.explored_states,
+            "controlled_tv_states_visited":controlled_tv.explored_states,
+            "empirical_model_claim":False,
         },
         "training_aware_simulation_cue_game":{
             "source_contract":"fixed exact cue distributions, two latent world types, subjective evaluation reward and exploitation gain, adversarial ties",
