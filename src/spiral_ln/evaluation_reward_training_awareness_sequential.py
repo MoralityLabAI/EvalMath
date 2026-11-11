@@ -1,4 +1,4 @@
-"""RHT-21: finite-horizon active evaluator-cue inference with exact rational proofs.
+"""RHT-22: independent finite-horizon active-cue and uncertain-prior oracle.
 
 A fixed hidden world is E (evaluation) or D (deployment). The agent sees an
 initial cue and may pay to run informative probes. Each probe's conditional
