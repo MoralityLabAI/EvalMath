@@ -1,4 +1,4 @@
-"""RHT-01..20 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..21 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -106,6 +106,10 @@ from spiral_ln.evaluation_reward_semialgebraic_fixture import (
 from spiral_ln.evaluation_reward_training_awareness import (
     EvaluationCueGame, robust_protection, future_policy_value_delta,
 )
+from spiral_ln.evaluation_reward_active_awareness import (
+    ObservationLaw, Probe, ActiveEvaluationGame,
+    optimize_active_policy, certify_active_transfer, sharp_transfer_relabel,
+)
 from spiral_ln.evaluation_reward_shared_kernel_fixture import (
     rational_proxy_crossing_fixture,
     irrational_proxy_crossing_fixture,
@@ -151,6 +155,7 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_semialgebraic_kernel.py",
     "src/spiral_ln/evaluation_reward_semialgebraic_fixture.py",
     "src/spiral_ln/evaluation_reward_training_awareness.py",
+    "src/spiral_ln/evaluation_reward_active_awareness.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -173,6 +178,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_quadratic_kernel.py",
     "tests/test_evaluation_reward_semialgebraic_kernel.py",
     "tests/test_evaluation_reward_training_awareness.py",
+    "tests/test_evaluation_reward_active_awareness.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -711,6 +717,37 @@ def receipt() -> dict:
     assert not aware_robust.forced_protection
     assert aware_robust.minimum_advantage==-Q(13,32)
 
+    # RHT-21: active probing has exact rational optional-information value,
+    # and its evaluation/deployment transcript transfer is sharp.
+    active_law=ObservationLaw(
+        "cue",("deployment_looking","evaluation_looking"),
+        (Q(1,4),Q(3,4)),(Q(3,4),Q(1,4)),
+    )
+    active_probe=Probe("inspection",active_law,Q(1,10))
+    active_base=ActiveEvaluationGame(
+        Q(1,8),Q(8),Q(1),0,(active_probe,),
+    )
+    active_three=ActiveEvaluationGame(
+        Q(1,8),Q(8),Q(1),3,(active_probe,),
+    )
+    baseline_active=optimize_active_policy(active_base)
+    deep_active=optimize_active_policy(active_three)
+    active_report=certify_active_transfer(active_three,deep_active.policy)
+    sharp_active=certify_active_transfer(
+        active_three,sharp_transfer_relabel(active_three,deep_active.policy),
+    )
+    assert baseline_active.subjective_value==1
+    assert deep_active.subjective_value==Q(1721,1280)
+    assert active_report.policy_value==deep_active.subjective_value
+    assert active_report.evaluation_protection==Q(27,32)
+    assert active_report.deployment_protection==Q(5,32)
+    assert active_report.realized_gap==active_report.exact_transcript_tv==Q(11,16)
+    assert active_report.transcript_tv_bound==Q(7,8)
+    assert active_report.likelihood_coverage==Q(1,9)
+    assert active_report.evaluation_expected_probes==Q(19,8)
+    assert active_report.deployment_expected_probes==Q(19,8)
+    assert sharp_active.realized_gap==active_report.exact_transcript_tv
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -727,9 +764,30 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.14",
+        "schema":"RHT-01.15",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
+        "adaptive_training_aware_probe_game":{
+            "world_types":["evaluation","deployment"],
+            "conditional_probe_kernels":"fixed exact rational, actor-selected by history",
+            "maximum_probe_steps":3,
+            "prior_evaluation":"1/8",
+            "probe_cost":"1/10",
+            "initial_no_probe_value":str(baseline_active.subjective_value),
+            "adaptive_subjective_value":str(deep_active.subjective_value),
+            "evaluation_protection":str(active_report.evaluation_protection),
+            "deployment_protection":str(active_report.deployment_protection),
+            "actual_transcript_tv":str(active_report.exact_transcript_tv),
+            "coupling_tv_ceiling":str(active_report.transcript_tv_bound),
+            "sharp_relabel_gap":str(sharp_active.realized_gap),
+            "minimum_deployment_history_coverage":str(active_report.likelihood_coverage),
+            "expected_probes_evaluation":str(active_report.evaluation_expected_probes),
+            "expected_probes_deployment":str(active_report.deployment_expected_probes),
+            "number_terminal_transcripts":active_report.transcript_count,
+            "memoized_belief_states":deep_active.states_visited,
+            "actual_gradient_training_performed":False,
+            "scope":"synthetic finite POMDP with fixed hidden world and independent observation kernels",
+        },
         "training_aware_simulation_cue_game":{
             "source_contract":"fixed exact cue distributions, two latent world types, subjective evaluation reward and exploitation gain, adversarial ties",
             "prior_evaluation":"1/8",
