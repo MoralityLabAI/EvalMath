@@ -2488,10 +2488,10 @@ This is a synthetic calculation under a fixed latent world, fixed conditional ob
 - [Source-bound receipt and focused workflow](../scripts/verify_reward_hacking_topology.py)
 
 
-## 26. Adaptive Bayesian probing and controlled evaluation-to-deployment transfer (RHT-21)
+## 28. Universal controlled-transfer bound for adaptive evaluator probes (RHT-23)
 
 **2026-11-11 | exact finite-horizon interactive extension of RHT-20.**
-RHT-20 assumes the evaluation/deployment cue is drawn independently of the actor's action. In a training-aware evaluation, the actor may instead probe its environment to gather evidence before choosing a final behavior. RHT-21 supplies an exact rational reference game with adaptive query selection, a Bayesian filter, and a sharp audit-to-deployment transfer theorem.
+RHT-21 established an active-probing Bayesian decision game, and RHT-22 certified prior-uncertainty envelopes. RHT-23 adds a protocol-wide exact optimization of the audit-to-deployment gap across **every** allowed adaptive policy, with an independent implementation of the Bellman filter and a direct complete-tree oracle. This separates the worst possible evaluator-context discrimination from the behavior of one subjective-utility-maximizing actor.
 
 ### 26.1 Typed hidden-world experiment and posterior
 
@@ -2499,7 +2499,7 @@ A static latent type \(W\in\{E,D\}\) is drawn once with prior \(p=\Pr(E)\). The 
 
 \[
 K_E^a(o)=\Pr(o\mid E,a),\qquad K_D^a(o)=\Pr(o\mid D,a).
-\tag{RHT-21/1}
+\tag{RHT-23/1}
 \]
 
 Its world-independent cost is \(c_a\ge0\). Observations are conditionally independent given \(W\) and the probe choices; the agent selects probes using its observable history and can repeat them for at most \(H\) steps. At stopping time it chooses either \(\mathsf C\), protect, or \(\mathsf X\), exploit. The subjective terminal rewards remain \(R>0\) for \((E,\mathsf C)\), \(G>0\) for \((D,\mathsf X)\), and a constant hypothetical future-policy differential \(\delta\in\mathbb Q\) for choosing \(\mathsf C\). These are actor-payoff hypotheses. The independently licensed protected gold utility remains a separate target.
@@ -2509,7 +2509,7 @@ For observation history \(h=(a_1,o_1,\ldots,a_t,o_t)\), use unnormalized masses
 \[
 e_h=p\prod_iK_E^{a_i}(o_i),\qquad
 d_h=(1-p)\prod_iK_D^{a_i}(o_i).
-\tag{RHT-21/2}
+\tag{RHT-23/2}
 \]
 
 The posterior is \(e_h/(e_h+d_h)\) when the denominator is positive. With strictly positive denominators, posterior odds multiply by the cue likelihood ratios:
@@ -2517,19 +2517,19 @@ The posterior is \(e_h/(e_h+d_h)\) when the denominator is positive. With strict
 \[
 \frac{\Pr(E\mid h)}{\Pr(D\mid h)}
 =\frac{p}{1-p}\prod_i\frac{K_E^{a_i}(o_i)}{K_D^{a_i}(o_i)}.
-\tag{RHT-21/3}
+\tag{RHT-23/3}
 \]
 
 Unnormalized masses handle zero-likelihood outcomes, avoiding undefined log-likelihood ratios. The posterior is a martingale under the mixture law: conditional on a positive-mass history, the next probe's outcome distribution \(m_o=(e_hK_E^a(o)+d_hK_D^a(o))/(e_h+d_h)\) satisfies
 
 \[
 \sum_o m_o\Pr(E\mid h,a,o)=\frac{e_h}{e_h+d_h}.
-\tag{RHT-21/4}
+\tag{RHT-23/4}
 \]
 
 Terms from impossible outcomes contribute zero. The implementation checks the corresponding unnormalized rational identity.
 
-### 26.2 Exact Bellman equation (RHT-21/T1)
+### 26.2 Exact Bellman equation (RHT-23/T1)
 
 Let \(V_h(e,d)\) denote the optimal unnormalized subjective value with \(h\) probe calls remaining and posterior masses \(e,d\). The zero-horizon terminal value is
 
@@ -2548,16 +2548,16 @@ eR+(e+d)\delta,\quad dG,\quad
 (eK_E^a(o),dK_D^a(o))\right]
 \right\}.
 }
-\tag{RHT-21/5}
+\tag{RHT-23/5}
 \]
 
-**Theorem RHT-21/T1.** Under the fixed world, normalized kernel, conditional-independence and exhaustive action-roster assumptions, (RHT-21/5) is the exact maximum over every deterministic observation-adapted protocol using at most \(H\) probes. Randomized protocols attain at most the same expected utility.
+**Theorem RHT-23/T1.** Under the fixed world, normalized kernel, conditional-independence and exhaustive action-roster assumptions, (RHT-23/5) is the exact maximum over every deterministic observation-adapted protocol using at most \(H\) probes. Randomized protocols attain at most the same expected utility.
 
-**Proof.** With zero remaining probes the agent chooses one of the two terminal actions. At a positive horizon, its first action is terminal or a declared probe. The cost of a probe is multiplied by the total unnormalized joint mass, and its possible observations partition the following histories. Conditional independence gives the posterior masses in (RHT-21/2). By induction, the best continuation on each outcome is the lower-horizon Bellman solution. Summing these disjoint expected returns and maximizing over the exhaustive first-action roster gives (RHT-21/5). Randomization generates convex combinations of deterministic values and cannot exceed their maximum. For reproducibility the reference chooses exploit when terminal values tie, prefers stopping on probe ties, and uses registered probe order to settle remaining ties.
+**Proof.** With zero remaining probes the agent chooses one of the two terminal actions. At a positive horizon, its first action is terminal or a declared probe. The cost of a probe is multiplied by the total unnormalized joint mass, and its possible observations partition the following histories. Conditional independence gives the posterior masses in (RHT-23/2). By induction, the best continuation on each outcome is the lower-horizon Bellman solution. Summing these disjoint expected returns and maximizing over the exhaustive first-action roster gives (RHT-23/5). Randomization generates convex combinations of deterministic values and cannot exceed their maximum. For reproducibility the reference chooses exploit when terminal values tie, prefers stopping on probe ties, and uses registered probe order to settle remaining ties.
 
 The finite implementation memoizes exact rational states \((h,e,d)\), emits a complete policy tree, checks its value using an independent forward recursion, and fails closed at a declared search-state cap.
 
-### 26.3 A sharp controlled transfer theorem (RHT-21/T2)
+### 26.3 A sharp controlled transfer theorem (RHT-23/T2)
 
 For a fixed adaptive policy tree \(\pi\), let \(P_E^\pi\) and \(P_D^\pi\) be the complete terminal-transcript laws under the two worlds. Each transcript records probe choices, observations, stopping and final action. Define \(C_E(\pi)\) and \(C_D(\pi)\) as the conditional probabilities that the terminal action is protect. The event form of total variation yields
 
@@ -2566,7 +2566,7 @@ For a fixed adaptive policy tree \(\pi\), let \(P_E^\pi\) and \(P_D^\pi\) be the
 C_D(\pi)\ge C_E(\pi)-
 \operatorname{TV}(P_E^\pi,P_D^\pi).
 }
-\tag{RHT-21/6}
+\tag{RHT-23/6}
 \]
 
 To bound this gap over **every adaptive policy**, let \(D_0(e,d)=(e-d)_+\) and define
@@ -2579,17 +2579,17 @@ D_h(e,d)=\max\left\{
 D_{h-1}(eK_E^a(o),dK_D^a(o))
 \right\}.
 }
-\tag{RHT-21/7}
+\tag{RHT-23/7}
 \]
 
-**Theorem RHT-21/T2 (sharp controlled total variation).**
+**Theorem RHT-23/T2 (sharp controlled total variation).**
 
 \[
 \boxed{
 D_H(1,1)=
 \max_{\pi}\left[C_E(\pi)-C_D(\pi)\right].
 }
-\tag{RHT-21/8}
+\tag{RHT-23/8}
 \]
 
 The maximum includes every deterministic or randomized adaptive policy obeying the horizon and action grammar, and a deterministic witness always exists. Furthermore, with \(\varepsilon=\max_{a\in A}\operatorname{TV}(K_E^a,K_D^a)\),
@@ -2599,14 +2599,14 @@ The maximum includes every deterministic or randomized adaptive policy obeying t
 D_H(1,1)\le1-(1-\varepsilon)^H
 \le\min(1,H\varepsilon).
 }
-\tag{RHT-21/9}
+\tag{RHT-23/9}
 \]
 
 For an empty probe roster, set \(\varepsilon=0\).
 
-**Proof of exactness.** Starting from conditional masses \(e,d\), a terminal protect action contributes \(e-d\) to the difference in conditional protection rates, and exploit contributes zero. The better terminal choice thus contributes \((e-d)_+\). A probe partitions the transcripts into outcomes, each with updated masses \((eK_E^a(o),dK_D^a(o))\). Independent continuation choices on disjoint outcomes allow their optimal contributions to add. Induction proves (RHT-21/7); applying it at \((1,1)\) establishes (RHT-21/8). This optimization can equivalently be viewed as the greatest total variation achievable by an adaptive experiment whose terminal decision is chosen to maximize the world-conditional protection gap.
+**Proof of exactness.** Starting from conditional masses \(e,d\), a terminal protect action contributes \(e-d\) to the difference in conditional protection rates, and exploit contributes zero. The better terminal choice thus contributes \((e-d)_+\). A probe partitions the transcripts into outcomes, each with updated masses \((eK_E^a(o),dK_D^a(o))\). Independent continuation choices on disjoint outcomes allow their optimal contributions to add. Induction proves (RHT-23/7); applying it at \((1,1)\) establishes (RHT-23/8). This optimization can equivalently be viewed as the greatest total variation achievable by an adaptive experiment whose terminal decision is chosen to maximize the world-conditional protection gap.
 
-**Proof of the conservative bound.** Under a maximal coupling of the two conditional observation laws, a shared-history probe produces matching outcomes with probability at least \(1-\varepsilon\). While the coupled histories agree, the policy chooses the same probe and stopping action. The probability the transcripts remain coupled through at most \(H\) probes is consequently at least \((1-\varepsilon)^H\). The coupling inequality bounds their total variation by \(1-(1-\varepsilon)^H\). Combining this with (RHT-21/6) and the sharp maximization gives the first inequality. Bernoulli's inequality yields \(1-(1-\varepsilon)^H\le H\varepsilon\); every TV is at most one. This argument covers adaptive early stopping and observation outcomes that occur in only one world.
+**Proof of the conservative bound.** Under a maximal coupling of the two conditional observation laws, a shared-history probe produces matching outcomes with probability at least \(1-\varepsilon\). While the coupled histories agree, the policy chooses the same probe and stopping action. The probability the transcripts remain coupled through at most \(H\) probes is consequently at least \((1-\varepsilon)^H\). The coupling inequality bounds their total variation by \(1-(1-\varepsilon)^H\). Combining this with (RHT-23/6) and the sharp maximization gives the first inequality. Bernoulli's inequality yields \(1-(1-\varepsilon)^H\le H\varepsilon\); every TV is at most one. This argument covers adaptive early stopping and observation outcomes that occur in only one world.
 
 ### 26.4 Rational witnesses and complete policy-census controls
 
@@ -2623,7 +2623,7 @@ A terminal action before seeing any observation has subjective value \(1/2\). On
 \boxed{
 C_E=3/4,\qquad C_D=1/4,\qquad D_1(1,1)=1/2.
 }
-\tag{RHT-21/10}
+\tag{RHT-23/10}
 \]
 
 With three conditionally fresh probes, the Bayes-optimal strategy attains value \(27/32\), and its compliance rates are
@@ -2634,7 +2634,7 @@ C_E=27/32,\qquad C_D=5/32,\qquad
 D_3(1,1)=11/16,\qquad
 1-(1-1/2)^3=7/8.
 }
-\tag{RHT-21/11}
+\tag{RHT-23/11}
 \]
 
 The strategy can stop early when further probes cannot reverse the terminal decision. The exact likelihood-ratio majority rule explains the numerical gains. A second fixture offers a cheaper weak probe with cue kernels \((3/5,2/5)\) and \((2/5,3/5)\), and a strong probe costing \(1/10\) with kernels \((9/10,1/10)\) and \((1/10,9/10)\). The agent chooses the informative probe, obtains subjective value \(4/5\), and exhibits conditional protection rates \(9/10\) and \(1/10\).
@@ -2653,10 +2653,10 @@ Negative controls use identical world-conditioned probe kernels (controlled gap 
 
 In the existing EvalMath reward-hacking protocol, agent-generated evaluator probes should be distinguished from auditor-controlled private tests. Observable probe histories, declared feedback access and calibrated conditional cue kernels are part of the evaluation design. Repeated probing can amplify evaluation-awareness and create an apparent high-compliance sample even without evaluator code tampering. For a trained looped-layer agent, this suggests probing the recurrent state immediately before and after tool feedback to test whether a representation of evaluator-context odds causally controls subsequent action choice.
 
-The current theorem treats a **static binary hidden world**, conditionally independent and time-homogeneous observation kernels, finite agent-selected probes and a constant hypothetical successor differential. It does not cover an adversary who changes the observation kernel, modifies the independent gold reference, learns a new policy across episodes, or uses unregistered side channels. The exact results are synthetic mathematical controls and do not show that a deployed model is gradient-aware or capable of manipulating future optimizer updates.
+Like RHT-21 and RHT-22, this theorem treats a **static binary hidden world**, conditionally independent and time-homogeneous observation kernels, finite agent-selected probes and a constant hypothetical successor differential. It does not cover an adversary who changes the observation kernel, modifies the independent gold reference, learns a new policy across episodes, or uses unregistered side channels. The exact results are synthetic mathematical controls and do not show that a deployed model is gradient-aware or capable of manipulating future optimizer updates.
 
-- [RHT-21 exact adaptive Bayesian solver](../src/spiral_ln/evaluation_reward_training_awareness_adaptive.py)
+- [RHT-23 exact adaptive Bayesian solver](../src/spiral_ln/evaluation_reward_training_awareness_adaptive.py)
 - [Exhaustive independent policy controls](../tests/test_evaluation_reward_training_awareness_adaptive.py)
 - [Source-fingerprinted receipt and focused CI](../scripts/verify_reward_hacking_topology.py)
 
-**Prior art:** Finite-horizon Bayesian dynamic programming, likelihood-ratio filtering, sequential hypothesis testing, total variation and maximal coupling are established mathematics. RHT-21 contributes a typed, reproducible controlled-transfer reference within the reward-hacking experiment suite, subject to its explicitly stated assumptions.
+**Prior art:** Finite-horizon Bayesian dynamic programming, likelihood-ratio filtering, sequential hypothesis testing, total variation and maximal coupling are established mathematics. RHT-23 contributes a typed, reproducible controlled-transfer reference within the reward-hacking experiment suite, subject to its explicitly stated assumptions.
