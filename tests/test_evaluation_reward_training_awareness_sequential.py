@@ -1,4 +1,4 @@
-"""RHT-21 exact Bellman, exhaustive trees, alpha envelopes and transfer tests."""
+"""RHT-22 independent alpha envelope, exhaustive-policy and transfer controls."""
 from fractions import Fraction as Q
 from itertools import product
 import random
