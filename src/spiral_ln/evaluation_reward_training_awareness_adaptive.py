@@ -1,4 +1,4 @@
-"""RHT-21: exact finite adaptive Bayesian evaluation-awareness game.
+"""RHT-23: exact finite adaptive Bayesian evaluation-awareness game.
 
 A hidden, fixed world type E (evaluation) or D (deployment) generates
 independent probe observations conditional on the world and the chosen probe.
