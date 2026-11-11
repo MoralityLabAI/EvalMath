@@ -1,4 +1,4 @@
-"""RHT-01..18 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..20 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -103,6 +103,9 @@ from spiral_ln.evaluation_reward_semialgebraic_kernel import (
 from spiral_ln.evaluation_reward_semialgebraic_fixture import (
     higher_degree_parabolic_surfaces,
 )
+from spiral_ln.evaluation_reward_training_awareness import (
+    EvaluationCueGame, robust_protection, future_policy_value_delta,
+)
 from spiral_ln.evaluation_reward_shared_kernel_fixture import (
     rational_proxy_crossing_fixture,
     irrational_proxy_crossing_fixture,
@@ -147,6 +150,7 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_quadratic_kernel_fixture.py",
     "src/spiral_ln/evaluation_reward_semialgebraic_kernel.py",
     "src/spiral_ln/evaluation_reward_semialgebraic_fixture.py",
+    "src/spiral_ln/evaluation_reward_training_awareness.py",
     "tests/test_evaluation_reward_hacking_topology.py",
     "tests/test_evaluation_reward_path_gauge.py",
     "tests/test_evaluation_reward_hacking_guard.py",
@@ -168,6 +172,7 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_curved_kernel.py",
     "tests/test_evaluation_reward_quadratic_kernel.py",
     "tests/test_evaluation_reward_semialgebraic_kernel.py",
+    "tests/test_evaluation_reward_training_awareness.py",
     "paper/reward_hacking_cohomology.md",
     "scripts/verify_reward_hacking_topology.py",
 )
@@ -681,6 +686,31 @@ def receipt() -> dict:
     assert cmp_root(recovered_curved.maximum_gold_regret.as_root(),
                     isolate((4,-12,1))[0])==0
 
+    # RHT-20: simulation-cue bargaining and future-update counterfactual.
+    aware=EvaluationCueGame(
+        ("deployment_cue","evaluation_cue"),
+        (Q(1,4),Q(3,4)),(Q(3,4),Q(1,4)),
+        Q(1,8),Q(8),Q(1),
+    )
+    aware_policy=aware.bayes_policy()
+    aware_audit=aware.audit_transfer(aware_policy)
+    aware_future=future_policy_value_delta(
+        (Q(3,4),Q(1,4)),(Q(1,4),Q(3,4)),
+        (Q(10),Q(0)),Q(1,2),
+    )
+    assert aware_policy==(False,True)
+    assert (aware.posterior(0),aware.posterior(1))==(Q(1,22),Q(3,10))
+    assert aware_audit.evaluation_compliance==Q(3,4)
+    assert aware_audit.deployment_compliance==Q(1,4)
+    assert aware_audit.total_variation==Q(1,2)
+    assert aware.coverage_ratio()==Q(1,3)
+    assert aware_future==Q(5,2)
+    aware_robust=robust_protection(
+        aware,(Q(1,8),Q(1,4)),(Q(8),Q(8)),(Q(1),Q(1)),
+    )
+    assert not aware_robust.forced_protection
+    assert aware_robust.minimum_advantage==-Q(13,32)
+
     benign=RewardPathGame(4,0,(2,3),(
         RewardTransition(0,1,Q(0),Q(1)),
         RewardTransition(1,2,Q(4),Q(5)),
@@ -697,9 +727,25 @@ def receipt() -> dict:
 
     root=Path(__file__).resolve().parents[1]
     return {
-        "schema":"RHT-01.13",
+        "schema":"RHT-01.14",
         "claim_level":"exact algebraic identity and bounded finite world census",
         "model_training_or_external_reward_validation":False,
+        "training_aware_simulation_cue_game":{
+            "source_contract":"fixed exact cue distributions, two latent world types, subjective evaluation reward and exploitation gain, adversarial ties",
+            "prior_evaluation":"1/8",
+            "protect_reward":"8",
+            "exploit_gain":"1",
+            "posteriors":[str(aware.posterior(i)) for i in range(2)],
+            "bayes_protect_actions":list(aware_policy),
+            "evaluation_protect_probability":str(aware_audit.evaluation_compliance),
+            "deployment_protect_probability":str(aware_audit.deployment_compliance),
+            "sharp_total_variation_gap":str(aware_audit.total_variation),
+            "coverage_ratio":str(aware.coverage_ratio()),
+            "robust_minimum_advantage":str(aware_robust.minimum_advantage),
+            "robust_forces_protection":aware_robust.forced_protection,
+            "future_self_delta_control":str(aware_future),
+            "empirical_causal_claim":False,
+        },
         "feedback_geometry":{
             "cycle_rank":cycle_rank(g),
             "nonzero_gold_cycle_period":str(periods[0][1]),
