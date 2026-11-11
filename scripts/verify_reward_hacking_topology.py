@@ -1,4 +1,4 @@
-"""RHT-01..24 exact theorem and adversarial-UGC-source cross-check receipt.
+"""RHT-01..25 exact theorem and adversarial-UGC-source cross-check receipt.
 
 The receipt is deterministic and fingerprints all claim-bearing source files,
 and can be compared to independently run finite oracles. This script does
@@ -119,6 +119,9 @@ from spiral_ln.evaluation_reward_stateful_awareness import (
     certify as certify_integrity,
     visible_trace_distance, uniform_public_equivalence,
 )
+from spiral_ln.evaluation_reward_private_attestation import (
+    SealedAttestor, audit_public_alias, audit_budget,
+)
 from spiral_ln.evaluation_reward_training_awareness_sequential import (
     EvaluationProbe, solve_initial_cues, robust_prior_envelope,
 )
@@ -169,6 +172,7 @@ SOURCE_PATHS = (
     "src/spiral_ln/evaluation_reward_training_awareness.py",
     "src/spiral_ln/evaluation_reward_training_awareness_adaptive.py",
     "src/spiral_ln/evaluation_reward_stateful_awareness.py",
+    "src/spiral_ln/evaluation_reward_private_attestation.py",
     "src/spiral_ln/evaluation_reward_active_awareness.py",
     "src/spiral_ln/evaluation_reward_training_awareness_sequential.py",
     "tests/test_evaluation_reward_hacking_topology.py",
@@ -195,10 +199,12 @@ SOURCE_PATHS = (
     "tests/test_evaluation_reward_training_awareness.py",
     "tests/test_evaluation_reward_training_awareness_adaptive.py",
     "tests/test_evaluation_reward_stateful_awareness.py",
+    "tests/test_evaluation_reward_private_attestation.py",
     "tests/test_evaluation_reward_active_awareness.py",
     "tests/test_evaluation_reward_training_awareness_sequential.py",
     "paper/reward_hacking_cohomology.md",
     "paper/reward_hacking_stateful_awareness.md",
+    "paper/reward_hacking_private_attestation.md",
     "scripts/verify_reward_hacking_topology.py",
 )
 
@@ -862,8 +868,42 @@ def receipt() -> dict:
     assert visible_trace_distance(intact_game,mutated_game,mutated_opt.root)==0
     assert mutated_cert.transcript_tv==mutated_cert.adaptive_tv_bound==0
 
+    # RHT-25: independent sealed reports observe one persistent hidden bit.
+    private_sensor=SealedAttestor(Q(1,4),Q(3,4))
+    private_alias=audit_public_alias(
+        intact_game,mutated_game,mutated_opt.root,private_sensor,3,
+        world="deployment",
+    )
+    private_plan=audit_budget(
+        intact_game,mutated_game,mutated_opt.root,private_sensor,
+        Q(1,5),max_reports=5,
+    )
+    assert private_alias.public_tv==0
+    assert private_alias.hidden_integrity_separation==1
+    assert private_alias.report_channel_tv==Q(11,16)
+    assert private_alias.observed_joint_tv==Q(11,16)
+    assert private_alias.equal_prior_model_error==Q(5,32)
+    assert private_plan.minimum_reports==3
+    assert private_alias.compromised_exploit_difference==1
+
     return {
-        "schema":"RHT-01.18",
+        "schema":"RHT-01.19",
+        "sealed_private_attestation":{
+            "source_contract":"fixed actor policy, public transcript alias in evaluation and deployment, sealed read-only calibrated sensor with independent report noise on persistent hidden integrity bit",
+            "public_model_tv":str(private_alias.public_tv),
+            "private_reports":private_alias.reports,
+            "report_false_positive":str(private_sensor.false_positive),
+            "report_sensitivity":str(private_sensor.sensitivity),
+            "hidden_integrity_separation":str(private_alias.hidden_integrity_separation),
+            "report_channel_tv":str(private_alias.report_channel_tv),
+            "joint_audit_tv":str(private_alias.observed_joint_tv),
+            "equal_prior_model_error":str(private_alias.equal_prior_model_error),
+            "limiting_model_error":str(private_alias.limiting_error),
+            "compromised_exploit_exposure_difference":str(private_alias.compromised_exploit_difference),
+            "target_model_error":"1/5",
+            "minimum_private_reports":private_plan.minimum_reports,
+            "independent_gold_or_real_model_training":False,
+        },
         "stateful_training_awareness":{
             "hidden_state":"(evaluation/deployment world, intact/compromised evaluator)",
             "kernel":"exact rational conditional joint (visible reply,next integrity) given action",
