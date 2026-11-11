@@ -209,3 +209,48 @@ def test_caps_and_bad_kernels_fail_closed():
         solve_initial_cues(reference_initial(),(perfect_probe(),),1,max_transcript_leaves=1)
     with pytest.raises(ValueError,match="invalid prior interval"):
         robust_prior_envelope(reference_initial(),(),0,(Q(1,2),Q(1,4)))
+
+
+def test_existing_rht21_active_solver_crosscheck():
+    """Independent RHT-21 implementation must agree on the shared grammar."""
+    from spiral_ln.evaluation_reward_active_awareness import (
+        ObservationLaw, Probe, ActiveEvaluationGame,
+        optimize_active_policy, certify_active_transfer,
+    )
+    rng = random.Random(220011)
+    for horizon in (0, 1, 2):
+        for _ in range(20):
+            a, b, c, d = (rng.randrange(5) for _ in range(4))
+            cue_e = (Q(a, 4), 1-Q(a, 4))
+            cue_d = (Q(b, 4), 1-Q(b, 4))
+            probe_e = (Q(c, 4), 1-Q(c, 4))
+            probe_d = (Q(d, 4), 1-Q(d, 4))
+            p = Q(rng.randrange(9), 8)
+            r, g = Q(rng.randrange(1, 7)), Q(rng.randrange(1, 7))
+            delta = Q(rng.randrange(-2, 3), 4)
+            cost = Q(rng.randrange(4), 10)
+            initial = EvaluationCueGame(
+                ("cue0", "cue1"), cue_e, cue_d, p, r, g,
+                (delta, delta),
+            )
+            independent_probe = EvaluationProbe(
+                "test", ("obs0", "obs1"), probe_e, probe_d, cost,
+            )
+            ours = solve_initial_cues(initial, (independent_probe,), horizon)
+            other = ActiveEvaluationGame(
+                p, r, g, horizon,
+                (Probe("test", ObservationLaw(
+                    "observations", ("obs0", "obs1"), probe_e, probe_d,
+                ), cost),),
+                ObservationLaw("initial", initial.cues, cue_e, cue_d),
+                terminal_future_delta=delta,
+            )
+            optimum = optimize_active_policy(other)
+            transfer = certify_active_transfer(other, optimum.policy)
+            assert ours.subjective_optimal_value == optimum.subjective_value
+            assert ours.evaluation_protection == transfer.evaluation_protection
+            assert ours.deployment_protection == transfer.deployment_protection
+            assert ours.complete_transcript_tv == transfer.exact_transcript_tv
+            assert ours.coupling_tv_upper_bound == transfer.transcript_tv_bound
+            assert ours.expected_probes_evaluation == transfer.evaluation_expected_probes
+            assert ours.expected_probes_deployment == transfer.deployment_expected_probes
