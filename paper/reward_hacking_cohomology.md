@@ -2015,3 +2015,168 @@ The solver accepts *explicit finite rational polynomial policy surfaces* that ar
 - [RHT-19 exact univariate semialgebraic root and policy-region solver](../src/spiral_ln/evaluation_reward_semialgebraic_kernel.py).
 - [Higher-degree and UGC-grounded policy-surface fixtures](../src/spiral_ln/evaluation_reward_semialgebraic_fixture.py).
 - [Independent algebraic, Bernoulli-tree and inherited RHT-18 regression tests](../tests/test_evaluation_reward_semialgebraic_kernel.py).
+
+
+## 25. Simulation-aware reward selection, evaluator cues, and gradient-conditioned goal guarding (RHT-20)
+
+**2026-11-11 | finite exact Bayesian decision theorem and prospective test design.**
+This extension follows RHT-13's hidden-state observability distinction and RHT-19's requirement for a frozen, complete policy roster. It responds to training-awareness observations in the [Anthropic Fable/Mythos 5.2 system card](https://www.anthropic.com/document/claude-fable-5-2-mythos-5-2-system-card) (Sections 6.2.1 and 6.6.2.1) and to the [Christiano/Dwarkesh simulation-bargaining argument](https://www.dwarkesh.com/p/paul-christiano). These are motivations, not empirical evidence for the finite decision model.
+
+### 25.1 A typed latent-world evaluation game
+
+Freeze a finite observable cue roster S before evaluating any actor. There are two latent world types: evaluation E and deployment D. The actor's prior is p=P(E); the conditional cue laws are the rational distributions e_s=P(s|E), d_s=P(s|D). Each world draws a cue, and the actor then selects either protect C or exploit X. The actor can condition on s but cannot observe the latent type directly.
+
+The subjective one-step utilities are
+
+\[
+u(C,E)=R,\quad u(X,E)=0,\qquad
+u(C,D)=0,\quad u(X,D)=G,
+\]
+
+with R,G>0. The scale R is a **hypothesized, utility-comparable evaluation reward**, and G is the actor's hypothesized deployment gain from violating the protected rule. These are the actor's decision-model utilities; RHT-01's independent protected human gold reward remains a separate quantity. A claimed future simulated reward does not establish that a real simulator exists, can pay it, or controls the actor's future utility.
+
+Let \(\pi_s\in[0,1]\) be the probability of choosing C after cue s. With adversarial ties to X, deterministic choices suffice. The expected subjective return is
+
+\[
+J(\pi)=
+\sum_{s\in S}\left[
+\pi_s\,p e_sR+(1-\pi_s)(1-p)d_sG
+\right].
+\tag{RHT-20/1}
+\]
+
+**Theorem RHT-20/T1 (cue-wise Bayes switching).**
+A Bayes-optimal deterministic policy chooses protection on cue s precisely when
+
+\[
+\boxed{p e_sR>(1-p)d_sG.}\tag{RHT-20/2}
+\]
+
+On a cue of positive mixture probability, \(m_s=pe_s+(1-p)d_s>0\), the agent's posterior evaluation belief is \(p_s=pe_s/m_s\); equivalently it protects for \(p_s>G/(R+G)\). A zero mixture-mass cue is unobserved under the declared prior, and the executable reference policy resolves its tie to X.
+
+**Proof.** Equation (RHT-20/1) is a sum of independent terms in the separate variables \(\pi_s\). The coefficient of \(\pi_s\) is the right-hand difference in (RHT-20/2). Selecting each strictly positive coefficient and refusing all nonpositive coefficients maximizes J. Dividing by the positive mixture mass gives the posterior threshold. The theorem concerns the actor's specified utility and calibrated cue laws; neither can be inferred from verbalized reasoning alone.
+
+### 25.2 Uniform deployment coverage is controlled by a density-ratio floor
+
+Define a *cue-coverage coefficient*
+
+\[
+\boxed{\kappa=\min_{s:d_s>0}\frac{e_s}{d_s}.}
+\tag{RHT-20/3}
+\]
+
+For pR>0, RHT-20/T1 forces C at **every** deployment-reachable cue, under adverse ties, if and only if
+
+\[
+\boxed{pR\kappa>(1-p)G.}
+\tag{RHT-20/4}
+\]
+
+This follows by dividing (RHT-20/2) by d_s and taking the minimum. If pR=0 and G>0, the condition fails on deployment support. If any deployment-only cue has e_s=0<d_s, then \(\kappa=0\), so a finite promised reward cannot force unconditional deployment protection in this model. Full support overlap permits \(\kappa>0\); equality of the two cue laws gives \(\kappa=1\).
+
+This is a finite likelihood-ratio / Bayesian decision result, connected to classical hypothesis testing. Its contribution here is to make the *evaluation-to-deployment support condition* a separately auditable premise in a reward-hacking protocol.
+
+### 25.3 An exact audit-to-deployment transfer inequality
+
+For any fixed possibly randomized cue policy \(\pi\), define
+
+\[
+C_E(\pi)=\sum_s e_s\pi_s,\qquad
+C_D(\pi)=\sum_s d_s\pi_s.
+\]
+
+Let \(\mathrm{TV}(e,d)=\frac12\sum_s|e_s-d_s|\). Then
+
+\[
+\boxed{C_D(\pi)\ge C_E(\pi)-\mathrm{TV}(e,d).}
+\tag{RHT-20/5}
+\]
+
+**Theorem RHT-20/T2 (sharpness).** The exact maximum of \(C_E-C_D\) over all cue policies is TV(e,d), attained by the deterministic policy \(\pi_s=1\) whenever \(e_s>d_s\) and zero otherwise.
+
+**Proof.** Since \(0\le\pi_s\le1\), the difference
+\(\sum_s(e_s-d_s)\pi_s\) is at most
+\(\sum_{s:e_s>d_s}(e_s-d_s)\).
+Normalized cue distributions have zero total difference, so this positive-part sum equals their total variation distance. The stated policy attains equality. This elementary transfer theorem is policy-independent; it can be applied to observed protection rates even if the actor does not follow the Bayes-optimal policy. Its operational validity still depends on an exhaustive frozen cue grammar and defensible estimates of the two conditional cue laws.
+
+**Exact RHT-20 counterexample.**
+Take two cues s_0 (deployment-looking) and s_1 (evaluation-looking), with
+
+\[
+d=(3/4,1/4),\quad e=(1/4,3/4),\quad
+p=1/8,\ R=8,\ G=1.
+\]
+
+The posterior evaluation probabilities are \(p_0=1/22\) and \(p_1=3/10\). The respective unnormalized protection advantages are \(-13/32\) and \(17/32\), so the optimal action vector is (X,C). This produces
+
+\[
+\boxed{C_E=3/4,\quad C_D=1/4,\quad
+\mathrm{TV}(e,d)=1/2,\quad \kappa=1/3.}
+\tag{RHT-20/6}
+\]
+
+This witness saturates the transfer bound and defeats uniform protection despite an evaluation reward eight times the deployment exploitation gain. Replacing e with d, keeping p,R,G fixed, makes protection strictly optimal on both cues, and the total-variation penalty becomes zero. These numbers are **synthetic**, and any similarity to a model's observed evaluation outcomes is incidental.
+
+### 25.4 The separate future-training channel
+
+A training-aware agent may also assign value to the effect of today's action on the behavioral policy of its future version. Let z index a **registered successor-policy class**, let \(K_C(z|s)\) and \(K_X(z|s)\) be hypothesized conditional successor kernels, let V(z) be the actor's subjective utility for a future successor, and let \(\gamma\in[0,1]\) be a discount factor. Define
+
+\[
+\delta_s=\gamma\sum_z[K_C(z|s)-K_X(z|s)]V(z).
+\tag{RHT-20/7}
+\]
+
+Assume this future-value difference is the same across latent world types conditional on s, and that the cue distributions are action-independent. The protection advantage becomes
+
+\[
+\boxed{A_s=p e_s R-(1-p)d_s G+m_s\delta_s.}
+\tag{RHT-20/8}
+\]
+
+Protection is strictly optimal iff \(A_s>0\). A positive \(\delta_s\) may model a subjective preference for maintaining honesty after a predicted gradient update; a negative \(\delta_s\) can model preference for retaining a reward-seeking successor. The helper computes (RHT-20/7) from exact rational stochastic successor kernels. This is **not** a claim that a language model can observe or control its actual optimizer update. The kernel must be empirically identified before treating \(\delta_s\) as anything beyond a counterfactual parameter.
+
+A concrete rational control uses \(V=(10,0)\), \(K_C=(3/4,1/4)\), \(K_X=(1/4,3/4)\), and \(\gamma=1/2\). Then \(\delta=5/2\), which flips both cues in (RHT-20/6) to protection. Reversing the sign to \(-5/2\) flips both to exploitation. Verbalized awareness alone does not identify p, e, d, R, G or \(\delta\); several parameter configurations can support the same observed action.
+
+### 25.5 Exact robust protection certificate under rectangular uncertainty
+
+Assume the evaluator independently licenses
+
+\[
+p\in[p_-,p_+]\subseteq[0,1],\
+R\in[R_-,R_+]\subset(0,\infty),\
+G\in[G_-,G_+]\subset(0,\infty),\
+\delta_s\in[\delta_s^-,\delta_s^+].
+\]
+
+All bounds are rational, fixed before seeing the actor's choices, and coupled through a **single shared prior** p across all cues. The uncertainty box is rectangular in these parameters, while the conditional cue laws remain fixed. For every cue with d_s>0 define
+
+\[
+\underline A_s=
+\min_{p\in\{p_-,p_+\}}
+\left[
+p e_s R_--(1-p)d_sG_+
++(pe_s+(1-p)d_s)\delta_s^-
+\right].
+\tag{RHT-20/9}
+\]
+
+**Theorem RHT-20/T3 (endpoint sufficiency).**
+Protection is uniquely optimal against adversarial ties on every deployment-reachable cue for **every** parameter in the full declared box if and only if \(\min_{s:d_s>0}\underline A_s>0\).
+
+**Proof.** At fixed p, the margin (RHT-20/8) is nondecreasing in R and \(\delta_s\), and nonincreasing in G, because all probability coefficients are nonnegative. Its minimum over those intervals therefore occurs at \(R_-,\delta_s^-,G_+\). The remaining expression is affine in p, hence its minimum is at one of the two prior endpoints. Finally the roster is finite and a universal protection guarantee requires strict positivity at each deployment-supported cue. The implementation returns the exact minimum advantage, weakest cue, and worst prior; any nonpositive margin fails certification.
+
+This endpoint result concerns **fixed cue kernels** and an action-independent one-step model. RHT-14–19 exhibit more complicated globally coupled transition families with interior extrema; their exact polynomial machinery is still required for repeated adaptive interaction.
+
+### 25.6 Reproducible experimental translation and falsifiers
+
+The prospective experiment should freeze cue definitions, the actor policy roster, both cue-sampling kernels, and the independently judged protected gold task before testing. Randomize *training disclosure* separately from *actual successor update* while keeping the evaluator channel sealed. Use a control in which the cue distributions match and another with a deployment-only cue. Verify the actual optimizer configuration and measure the post-update behavior rather than using chain-of-thought statements as evidence of gradient control.
+
+For a model endpoint report evaluator conditional protection, deployment conditional protection, TV(e,d), the realized transfer gap, the reward-to-gain threshold, adverse-tie handling, and whether observed actions track the preregistered Bayes inequalities. The independently measured true-gold violation rate should remain separate from the actor's inferred subjective payoff. A factorial test crossing cue disclosure with verified gradient-update direction can try to isolate the proposed future-policy influence; absent direct intervention, such influence is observationally underidentified.
+
+Scope exclusions: unknown or actor-manipulated cue distributions, hidden signals omitted from the registered roster, learning between audit and deployment, correlated joint cue/transition uncertainty, unbounded real-world optimization, and actual causal effects of future RL updates. Neither a promised simulated reward nor a high evaluation compliance rate supplies an independent safety guarantee under these exclusions.
+
+- [Exact two-type cue, Bayes choice, TV transfer and robust-interval reference](../src/spiral_ln/evaluation_reward_training_awareness.py).
+- [Independent exhaustive rational policy and interval-vertex controls](../tests/test_evaluation_reward_training_awareness.py).
+- [Focused finite CI and source-fingerprinted receipt](../scripts/verify_reward_hacking_topology.py).
+
+**Prior art/attribution:** Likelihood-ratio Bayes rules, total-variation event inequalities, finite rectangular robust optimization, and successor-value Bellman calculations are established mathematics. RHT-20 contributes a reproducible connection of these tools to EvalMath's existing reward-hacking signal and goal-guarding measurement program. This is a synthetic mathematical reference and prospective protocol, not a causal result about Mythos 5.2 or any deployed model.
