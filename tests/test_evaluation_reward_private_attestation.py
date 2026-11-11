@@ -18,7 +18,6 @@ def constant_integrity(name, probability, *, outcomes=("ack",)):
     """Every probe sets a single terminal hidden bit, independent of old bit."""
     if outcomes != ("ack",):
         raise ValueError("use binary fixture below")
-    rows=tuple((((1-probability, probability),),) for _ in range(4))
     # Each row is one observation with a binary next-integrity pair.
     rows=tuple(((1-probability,probability),) for _ in range(4))
     return IntegrityProbe(name, outcomes, rows)
