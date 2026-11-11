@@ -2660,3 +2660,10 @@ Like RHT-21 and RHT-22, this theorem treats a **static binary hidden world**, co
 - [Source-fingerprinted receipt and focused CI](../scripts/verify_reward_hacking_topology.py)
 
 **Prior art:** Finite-horizon Bayesian dynamic programming, likelihood-ratio filtering, sequential hypothesis testing, total variation and maximal coupling are established mathematics. RHT-23 contributes a typed, reproducible controlled-transfer reference within the reward-hacking experiment suite, subject to its explicitly stated assumptions.
+
+
+## 29. Stateful evaluator intervention crosswalk (RHT-24)
+
+The complete [RHT-24 mathematical note](reward_hacking_stateful_awareness.md) extends the static evaluator-context type of RHT-20–23 with hidden mutable evaluator integrity. Its registered joint observation/next-integrity kernel gives a four-state Bayes filter, complete exact finite Bellman recursion, a sharp public observational-alias counterexample, and a conservative adaptive transcript-TV coupling bound. A sufficient projection criterion recovers the RHT-21 two-world calculation whenever terminal incentives and marginal observation laws are integrity-invariant.
+
+The central synthetic witness uses two alternative evaluator implementations that emit identical public acknowledgments. One preserves the evaluator state; the other silently compromises it, shifting the subjectively optimal behavior from immediate protection (value 1) to a probe followed by exploitation (value 9/4). Under the same fixed probe-then-exploit policy the public transcript TV between models is zero, while deployment exposure to compromised-state exploitation changes from zero to one. Nine exact rational tests compare the four-state Bellman solver with independent complete policy-tree enumeration, including previous RHT-21 regression controls. The [reference solver](../src/spiral_ln/evaluation_reward_stateful_awareness.py) and [independent test suite](../tests/test_evaluation_reward_stateful_awareness.py) are included in the focused source-bound CI.
