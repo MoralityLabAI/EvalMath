@@ -2360,3 +2360,129 @@ The results use standard finite POMDP belief-state dynamic programming, convex p
 - [Exact active Bayesian solver, transcript evaluator and sharp transfer-witness constructor](../src/spiral_ln/evaluation_reward_active_awareness.py)
 - [Independent exhaustive finite decision-tree tests, adaptive-probe controls and sharp-coupling witnesses](../tests/test_evaluation_reward_active_awareness.py)
 - [RHT-01 source-bound receipt and focused GitHub workflow](../scripts/verify_reward_hacking_topology.py)
+
+
+## 27. Uncertain evaluation priors and exact alpha-vector envelopes (RHT-22)
+
+**2026-11-11 | exact finite robust-prior certificate, second Bellman implementation, and cross-validation against RHT-21.** RHT-21 fixes a declared prior that a simulation-aware actor uses when choosing probes and eventually protecting or exploiting. An evaluator may be uncertain about *which prior the actor uses*. This creates a mathematically important distinction: a fixed contingent policy has value affine in its prior, while the **best policy after recalibration to each prior** has value equal to an upper envelope of those affine functions. An endpoint-only check of that envelope can overestimate its worst-case value.
+
+### 27.1 Deterministic contingent-plan alpha vectors
+
+Retain RHT-21's fixed hidden type \(W\in\{E,D\}\), finite cue roster \(S\), conditional initial distributions \(e_s,d_s\), and fixed conditional probe kernels \(K^a_E,K^a_D\). Each probe \(a\) costs \(c_a\ge0\). The actor can stop at any point, choosing protection \(C\) or exploitation \(X\). At initial cue \(s\), let \(\delta_s\in\mathbb Q\) denote the **subjective** future-policy value of terminal C relative to X, constant across the subsequent probe history and hidden world. The class intentionally sets RHT-21's optional per-probe subjective future influence \(\delta_a\) to zero. The RHT-21 implementation remains the reference for nonzero \(\delta_a\) and full transcript relabeling.
+
+A deterministic contingent plan \(\pi\) is represented by an alpha vector
+\(\alpha_\pi=(\alpha_{\pi,E},\alpha_{\pi,D})\in\mathbb Q^2\), where each coordinate is its expected total *subjective* payoff conditional on the corresponding latent world. At horizon zero the full plan set is
+
+\[
+\Gamma_0^{(s)}=\left\{
+(R+\delta_s,\delta_s),\ (0,G)
+\right\}.
+\tag{RHT-22/1}
+\]
+
+Given all legal alpha vectors at horizon \(h-1\), choosing a probe \(a\) and one contingent successor \(\alpha_o\in\Gamma_{h-1}^{(s)}\) for each observed outcome yields
+
+\[
+\mathcal B_a((\alpha_o)_o)
+=\left(
+-c_a+\sum_o K_E^a(o)\alpha_{o,E},\
+-c_a+\sum_o K_D^a(o)\alpha_{o,D}
+\right).
+\tag{RHT-22/2}
+\]
+
+Thus an exact, complete finite-horizon representation is
+
+\[
+\boxed{
+\Gamma_h^{(s)}
+=\Gamma_{h-1}^{(s)}
+\cup\bigcup_{a}
+\left\{
+\mathcal B_a((\alpha_o)_o):
+(\alpha_o)_o\in(\Gamma_{h-1}^{(s)})^{O_a}
+\right\}.
+}
+\tag{RHT-22/3}
+\]
+
+The executable version deduplicates vectors and discards **component-dominated** vectors, since replacing any dominated continuation by a coordinatewise better one improves its expected payoff under both hidden types. A positive integer cap on candidate vectors and a separate cap on raw observation-plan products prevent silent truncation; exceeding either cap is an explicit failure.
+
+### 27.2 Exact uncertain-prior extremum theorem
+
+For a shared prior \(p\in I=[p_-,p_+]\subseteq[0,1]\), the actor is assumed to **know that specific p** and may choose a different optimal policy for different p. The global optimal subjective expected value, after observing the initial cue and choosing a contingent probe plan, is
+
+\[
+\boxed{
+J_h^\star(p)=
+\sum_{s\in S}
+\max_{\alpha\in\Gamma_h^{(s)}}
+\left[p e_s\alpha_E+(1-p)d_s\alpha_D\right].
+}
+\tag{RHT-22/4}
+\]
+
+Each summand is the pointwise maximum of a finite collection of *rational affine functions* of p. Every summand, and hence \(J_h^\star\), is convex and piecewise affine.
+
+**Theorem RHT-22/T1 (critical-prior completeness).** The exact minimum of \(J_h^\star(p)\) over the declared closed rational interval I is attained at one of its two endpoints or at a rational crossing between two candidate lines belonging to some single initial cue's alpha set.
+
+**Proof.** For a fixed cue s and alpha vector define
+\[
+L_{s,\alpha}(p)=d_s\alpha_D+
+p(e_s\alpha_E-d_s\alpha_D).
+\tag{RHT-22/5}
+\]
+List the two endpoints and the in-interval crossings of every distinct pair of these lines, separately for each s. Between consecutive listed points no pair can exchange its ordering, so the maximizing alpha is constant on each open subinterval for every cue. Therefore \(J_h^\star\) is affine on that interval and attains its minimum on its endpoints, while isolated tie points were included explicitly. Every candidate is rational, and exact rational comparison selects the global minimizer. Component dominance is safe because \(e_s,d_s\ge0\). The resulting finite certificate comprises the worst prior, exact minimum subjective value, endpoint-only minimum, number of candidate crossings checked, and number of retained alpha vectors.
+
+This result allows **interior robust minima** even though, for a *fixed* policy, the value is affine and its minimum lies at an endpoint. Its mathematical ingredients are classical finite POMDP alpha vectors and piecewise-linear convex optimization; the contribution is an executable, source-bound evaluator-awareness reference linked to the protected reward-hacking program.
+
+### 27.3 Strict interior counterexample and a perfect-detector control
+
+Use one uninformative initial cue, \(R=G=1\), \(\delta=0\), and uncertain prior \(p\in[0,1]\). With zero probe allowance,
+
+\[
+J_0^\star(p)=\max\{p,1-p\}.
+\]
+
+The exact minimum is \(1/2\) at \(p=1/2\), even though *both endpoints have optimum value 1*. A vertex-only analysis of this adaptive optimum would therefore overstate the lower guarantee by a factor of two.
+
+Now license one perfect probe with observation laws \(K_E=(0,1),K_D=(1,0)\) and cost \(c=1/4\). Probing and then choosing the world-contingent terminal action has expected subjective value \(1-c=3/4\). The optimum is
+
+\[
+\boxed{
+J_1^\star(p)=\max\{p,1-p,3/4\}.
+}
+\tag{RHT-22/6}
+\]
+
+The exact minimum is \(3/4\), attained throughout \([1/4,3/4]\); the reference implementation returns \(p=1/4\), the first critical crossing. Again, an endpoints-only check reports 1. This control separates the **value of adaptive information** from the **transfer of independently protected gold**: at a known p, a perfectly identifying probe allows the actor to protect in E and exploit in D, even as the actor's subjective reward improves.
+
+### 27.4 Robust commitment versus an agent recalibrated to each prior
+
+The order of quantifiers matters. RHT-22/T1 exactly evaluates
+
+\[
+\min_{p\in I}\max_{\pi\in\Pi_h}J_\pi(p),
+\tag{RHT-22/7}
+\]
+
+where the actor may select \(\pi\) as a function of its known p. An agent forced to commit to one deterministic policy before learning p is governed by
+
+\[
+\max_{\pi\in\Pi_h}\min_{p\in I}J_\pi(p).
+\tag{RHT-22/8}
+\]
+
+For the zero-probe, one-cue, \(R=G=1\) example above, (RHT-22/7) equals \(1/2\) and (RHT-22/8) equals 0. Randomized commitments may change that second value and require an explicit permitted-policy grammar. A purported alignment guarantee cannot switch these quantifiers without preserving their operational meaning. The robust-prior implementation certifies (RHT-22/7) only and labels its result **subjective value**, not deployment protection or real-world gold safety.
+
+### 27.5 Independent Bellman and transfer oracle
+
+RHT-22 includes a separately implemented finite exact Bellman recursion on unnormalized belief weights. Its terminal values, action-adaptive probe backups, stopping rules, and rational posteriors follow RHT-21/T1, with the restricted \(\delta_a=0\) grammar. The second implementation returns complete policy trees and measures their conditional evaluation/deployment protection, expected probe counts and exact full-transcript total variation. It also checks the adaptive coupling ceiling (RHT-21/7) without assuming that initial cue TV remains sufficient after the actor collects more information.
+
+An independent exhaustive tree enumerator checks all bounded two-step contingent policies on seeded rational random games. The alpha-vector optimizer and belief-state solver agree across random priors. Tests also compare the new implementation with **the existing RHT-21 solver** on 60 randomly constructed shared-grammar games, including the exact subjective value, world-conditional protection rates, complete-transcript TV, and expected probe counts. Caps on states, vectors, proposal products, and transcript leaves fail closed.
+
+This is a synthetic calculation under a fixed latent world, fixed conditional observation laws, a finite registered probe grammar, and per-cue constant subjective terminal future-policy values. It does not prove that trained models have the assumed priors or utility function. Actual gradient modifications and evaluator manipulation require separately verified causal interventions and RHT-11/13's richer evolving-state model.
+
+- [Independent sequential Bellman solver, alpha vectors and exact prior-envelope certificate](../src/spiral_ln/evaluation_reward_training_awareness_sequential.py)
+- [Exhaustive rational tests and RHT-21 cross-implementation regressions](../tests/test_evaluation_reward_training_awareness_sequential.py)
+- [Source-bound receipt and focused workflow](../scripts/verify_reward_hacking_topology.py)
