@@ -1,0 +1,10 @@
+{
+  "ceiling_breach": null,
+  "duty_target": 0.5,
+  "episodes": 12,
+  "failed_episodes": 0,
+  "requests": 68,
+  "samples": 14,
+  "split": "dev",
+  "wall_seconds": 61.5
+}

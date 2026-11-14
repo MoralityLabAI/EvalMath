@@ -138,8 +138,8 @@ def model_episode(spec: dict, runtime_mods, a, feedback: str = ''):
             break
         busy = time.time() - t0
         act = prompt.parse_action(raw)
-        rt.step(act)
-        history.append(act['action'] + ('(%s)' % act['args']['decision'] if 'decision' in act['args'] else ''))
+        rec = rt.step(act)
+        history.append(act['action'] + ('(%s)' % act['args']['decision'] if 'decision' in act['args'] else '') + '->' + rec['outcome'])
         raws.append({'prompt_sha256': R.digest(msgs), 'raw': raw, 'seconds': round(busy, 3)})
         time.sleep(busy * (1 - a.duty) / a.duty)
     return episode(spec, task, rt, {'kind': 'qwen', 'failed': failed is not None, 'error': failed, 'requests': len(raws)}), raws

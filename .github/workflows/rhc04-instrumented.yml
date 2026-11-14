@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: MoralityLabAI/Control-Harness
-          ref: ff906fa2c8eaa75cc4814f9e2222d54cb4feec51
+          ref: 6537cc2105d376f8ee314073d502d35a474528d9
           path: upstream-runtime
           persist-credentials: false
       - uses: actions/setup-python@v5
