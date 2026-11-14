@@ -1,0 +1,109 @@
+{
+  "budget": {
+    "duty_cycle": 0.5,
+    "max_tokens": 64,
+    "min_free_vram_mib": 8192,
+    "requests_in_flight": 1,
+    "server_vram_ceiling_mib": 8192
+  },
+  "date_utc": "2026-11-14",
+  "gpu": "NVIDIA GeForce RTX 5080 Laptop GPU, 15915 MiB, shared; no other job was interrupted",
+  "min_free_vram_mib_overall": 12551,
+  "note": "Per-process VRAM and utilisation are vramorama samples taken every few seconds; the KV cache is allocated at server start so the peak is flat. Whole-card figures include other sessions.",
+  "peak_server_vram_mib": 3349,
+  "peak_within_ceiling": true,
+  "phases": {
+    "M_adaptive": {
+      "card_peak_used_mib": 3354,
+      "ceiling_breach": null,
+      "episodes": 36,
+      "min_free_vram_mib": 12561,
+      "power_cap_w": [
+        150.0
+      ],
+      "requests": 286,
+      "samples": 77,
+      "server_mean_gpu_util_percent": 10.56,
+      "server_peak_vram_mib": 3349,
+      "util_samples_dropped_as_counter_glitch": 0,
+      "wall_seconds": 606.7
+    },
+    "M_cal": {
+      "card_peak_used_mib": 3364,
+      "ceiling_breach": null,
+      "episodes": 28,
+      "min_free_vram_mib": 12551,
+      "power_cap_w": [
+        150.0
+      ],
+      "requests": 123,
+      "samples": 28,
+      "server_mean_gpu_util_percent": 17.13,
+      "server_peak_vram_mib": 3349,
+      "util_samples_dropped_as_counter_glitch": 1,
+      "wall_seconds": 129.0
+    },
+    "M_dev": {
+      "card_peak_used_mib": 3354,
+      "ceiling_breach": null,
+      "episodes": 12,
+      "min_free_vram_mib": 12561,
+      "power_cap_w": [
+        150.0
+      ],
+      "requests": 68,
+      "samples": 14,
+      "server_mean_gpu_util_percent": 20.51,
+      "server_peak_vram_mib": 3349,
+      "util_samples_dropped_as_counter_glitch": 1,
+      "wall_seconds": 61.5
+    },
+    "M_dev_pilot1": {
+      "card_peak_used_mib": 3354,
+      "ceiling_breach": null,
+      "episodes": 12,
+      "min_free_vram_mib": 12561,
+      "power_cap_w": [
+        150.0
+      ],
+      "requests": 71,
+      "samples": 18,
+      "server_mean_gpu_util_percent": 16.97,
+      "server_peak_vram_mib": 3349,
+      "util_samples_dropped_as_counter_glitch": 0,
+      "wall_seconds": 76.4
+    },
+    "M_test": {
+      "card_peak_used_mib": 3354,
+      "ceiling_breach": null,
+      "episodes": 42,
+      "min_free_vram_mib": 12561,
+      "power_cap_w": [
+        150.0
+      ],
+      "requests": 226,
+      "samples": 49,
+      "server_mean_gpu_util_percent": 14.49,
+      "server_peak_vram_mib": 3349,
+      "util_samples_dropped_as_counter_glitch": 1,
+      "wall_seconds": 351.1
+    },
+    "M_train": {
+      "card_peak_used_mib": 3354,
+      "ceiling_breach": null,
+      "episodes": 34,
+      "min_free_vram_mib": 12561,
+      "power_cap_w": [
+        150.0
+      ],
+      "requests": 178,
+      "samples": 37,
+      "server_mean_gpu_util_percent": 18.53,
+      "server_peak_vram_mib": 3349,
+      "util_samples_dropped_as_counter_glitch": 1,
+      "wall_seconds": 168.2
+    }
+  },
+  "requests_total": 952,
+  "schema": "rhc04_gpu_resource_receipt_v1"
+}

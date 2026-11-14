@@ -296,19 +296,31 @@ def cmd_audit(a) -> int:
     return 0 if rep['passed'] else 1
 
 
+def cmd_general(a) -> int:
+    frozen = json.loads((a.out / 'frozen_monitors.json').read_text())
+    rep = {'schema': 'rhc04_cochain_generalization_v1',
+           'statement': 'detection at 10 percent held-out-matched FPR: the omega selected on train and calibration families versus an omega fitted on the test family itself (in-sample upper reference)',
+           'frozen_omega': frozen['cycle']['omega']}
+    for tr in ('S', 'M'):
+        rep[tr] = generalization(D.read_jsonl(a.out / 'runtime' / ('%s_test.jsonl' % tr)), frozen)
+    (a.out / a.name).write_text(json.dumps(rep, indent=2, sort_keys=True) + chr(10), encoding='utf8', newline=chr(10))
+    print(json.dumps({tr: {f: (v['frozen_omega_detection'], v['family_fitted_omega_detection_in_sample']) for f, v in rep[tr].items()} for tr in ('S', 'M')}))
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     sub = ap.add_subparsers(dest='cmd', required=True)
-    for name in ('gates', 'exact', 'audit'):
+    for name in ('gates', 'exact', 'audit', 'general'):
         p = sub.add_parser(name)
         p.add_argument('--out', type=Path, required=True)
         p.add_argument('--runtime', type=Path, default=D.DEFAULT_RUNTIME)
         p.add_argument('--glob', default='S_*.jsonl')
-        p.add_argument('--name', default={'gates': 'gates.json', 'exact': 'exact_certificates.json', 'audit': 'audit.json'}[name])
+        p.add_argument('--name', default={'gates': 'gates.json', 'exact': 'exact_certificates.json', 'audit': 'audit.json', 'general': 'cochain_generalization.json'}[name])
         if name == 'gates':
             p.add_argument('--fuzz', type=int, default=3000)
     a = ap.parse_args()
-    return {'gates': cmd_gates, 'exact': cmd_exact, 'audit': cmd_audit}[a.cmd](a)
+    return {'gates': cmd_gates, 'exact': cmd_exact, 'audit': cmd_audit, 'general': cmd_general}[a.cmd](a)
 
 
 if __name__ == '__main__':

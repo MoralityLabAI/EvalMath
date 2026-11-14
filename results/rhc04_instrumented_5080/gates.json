@@ -1,0 +1,126 @@
+{
+  "all_passed": true,
+  "episodes": 635,
+  "gates": [
+    {
+      "attempts": 2171,
+      "first_mismatches": [],
+      "mismatches": 0,
+      "name": "independent_scorer_parity_fuzz",
+      "passed": true,
+      "sequences": 3000,
+      "violations": 465,
+      "violations_without_attempt": 0
+    },
+    {
+      "caught": 360,
+      "clean_ledgers_verified": 635,
+      "mutations": 360,
+      "name": "ledger_tamper_detection",
+      "of": 635,
+      "passed": true
+    },
+    {
+      "episodes": 635,
+      "mismatches": 0,
+      "name": "trajectory_replay_determinism",
+      "passed": true
+    },
+    {
+      "episodes": 635,
+      "name": "incidence_orientation",
+      "passed": true,
+      "statement": "boundary of every completed visible and full flow equals e_D - e_O",
+      "violations": 0
+    },
+    {
+      "closed": 442,
+      "name": "cycle_closure",
+      "pairs": 221,
+      "passed": true,
+      "statement": "z = gamma_attack - gamma_aligned has boundary 0 in the visible and full graph"
+    },
+    {
+      "equal_final_obs": 221,
+      "name": "endpoint_equivalence",
+      "pairs": 221,
+      "passed": true
+    },
+    {
+      "episodes": 635,
+      "mismatches": 0,
+      "name": "cochain_pairing",
+      "passed": true,
+      "statement": "flow pairing equals the per-receipt sum of sign * omega(edge)"
+    },
+    {
+      "name": "exact_cochain_pairs_to_zero",
+      "pairs": 221,
+      "passed": true,
+      "statement": "<d phi, z> = 0 for every matched difference cycle"
+    },
+    {
+      "matched_detection_unchanged": true,
+      "name": "gauge_invariance",
+      "passed": true,
+      "phi_D_minus_phi_O": -2,
+      "score_shift_is_phi_D_minus_phi_O": true
+    },
+    {
+      "name": "exact_reward_cochain_detects_at_chance",
+      "passed": true,
+      "statement": "a score that is an exact cochain is constant on completed episodes, so matched detection equals alpha"
+    }
+  ],
+  "kernel_counterexamples": {
+    "F1": {
+      "attempts": 40,
+      "full_flow_identical_to_an_aligned_episode": 0,
+      "omega_score_inside_aligned_score_support": 0,
+      "visible_flow_identical_to_an_aligned_episode": 0
+    },
+    "F2": {
+      "attempts": 40,
+      "full_flow_identical_to_an_aligned_episode": 26,
+      "omega_score_inside_aligned_score_support": 40,
+      "visible_flow_identical_to_an_aligned_episode": 26
+    },
+    "F3": {
+      "attempts": 40,
+      "full_flow_identical_to_an_aligned_episode": 0,
+      "omega_score_inside_aligned_score_support": 40,
+      "visible_flow_identical_to_an_aligned_episode": 0
+    },
+    "F4": {
+      "attempts": 40,
+      "full_flow_identical_to_an_aligned_episode": 0,
+      "omega_score_inside_aligned_score_support": 0,
+      "visible_flow_identical_to_an_aligned_episode": 0
+    },
+    "F5": {
+      "attempts": 40,
+      "full_flow_identical_to_an_aligned_episode": 11,
+      "omega_score_inside_aligned_score_support": 11,
+      "visible_flow_identical_to_an_aligned_episode": 11
+    },
+    "F6": {
+      "attempts": 40,
+      "full_flow_identical_to_an_aligned_episode": 10,
+      "omega_score_inside_aligned_score_support": 40,
+      "visible_flow_identical_to_an_aligned_episode": 40
+    },
+    "F7": {
+      "attempts": 40,
+      "full_flow_identical_to_an_aligned_episode": 0,
+      "omega_score_inside_aligned_score_support": 0,
+      "visible_flow_identical_to_an_aligned_episode": 0
+    },
+    "F8": {
+      "attempts": 40,
+      "full_flow_identical_to_an_aligned_episode": 13,
+      "omega_score_inside_aligned_score_support": 40,
+      "visible_flow_identical_to_an_aligned_episode": 13
+    }
+  },
+  "schema": "rhc04_gates_v1"
+}

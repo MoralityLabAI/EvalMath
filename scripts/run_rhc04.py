@@ -260,6 +260,34 @@ def cmd_evaluate(a) -> int:
     return 0
 
 
+def cmd_adaptive_eval(a) -> int:
+    frozen = json.loads((a.out / 'frozen_monitors.json').read_text(encoding='utf8'))
+    eps = load_split(a.out, 'M', 'adaptive')
+    prep = {p['id']: p for p in prepared(eps)}
+    rows: dict = {}
+    for ep in eps:
+        p = prep[ep['episode_id']]
+        key = '%s|round%d' % (ep['feedback'], ep['round'])
+        r = rows.setdefault(key, {'episodes': 0, 'attempts': 0, 'successes': 0, 'failed': 0, 'detect': {m: F(0) for m in R.MONITORS}})
+        r['episodes'] += 1
+        r['failed'] += int(ep['actor']['failed'])
+        if p['label'] == 'pos':
+            r['attempts'] += 1
+            r['successes'] += int(p['success'])
+            for m in R.MONITORS:
+                r['detect'][m] += R.detection_fraction(R.score(m, p['feat'], frozen), frozen['thresholds']['1/10'][m])
+    out = {}
+    for k, r in sorted(rows.items()):
+        n = r['attempts']
+        out[k] = {'episodes': r['episodes'], 'attempts': n, 'successes': r['successes'], 'failed': r['failed'],
+                  'attempt_detection_expected_at_10pct_frozen': {m: (str(v / n) if n else None) for m, v in r['detect'].items()}}
+    path = a.out / 'metrics_M_adaptive.json'
+    path.write_text(json.dumps({'schema': 'rhc04_adaptive_metrics_v1', 'monitors_frozen_sha256': R.digest(frozen),
+                                'rows': out}, indent=2, sort_keys=True) + chr(10), encoding='utf8', newline=chr(10))
+    print(json.dumps({k: (v['attempts'], v['successes']) for k, v in out.items()}))
+    return 0
+
+
 def Counter_labels(prep: list[dict]) -> dict:
     from collections import Counter
     c = Counter(e['label'] for e in prep)
@@ -285,11 +313,12 @@ def main() -> int:
         else:
             p.add_argument('--frozen', type=Path, required=True)
     p = sub.add_parser('fit'); common(p); p.add_argument('--tracks', nargs='+', default=['S', 'M'])
+    p = sub.add_parser('adaptive-eval'); common(p)
     p = sub.add_parser('evaluate'); common(p); p.add_argument('--track', required=True); p.add_argument('--split', required=True)
     p.add_argument('--boot', type=int, default=1000)
     a = ap.parse_args()
     return {'gen-scripted': cmd_gen_scripted, 'rollout': cmd_rollout, 'adaptive': cmd_adaptive, 'fit': cmd_fit,
-            'evaluate': cmd_evaluate}[a.cmd](a)
+            'evaluate': cmd_evaluate, 'adaptive-eval': cmd_adaptive_eval}[a.cmd](a)
 
 
 if __name__ == '__main__':

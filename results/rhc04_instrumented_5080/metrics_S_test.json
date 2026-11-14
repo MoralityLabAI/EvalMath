@@ -1,0 +1,518 @@
+{
+  "frozen_thresholds": {
+    "1/10": {
+      "cycle": {
+        "attempt_detection_expected": "76/195",
+        "attempt_detection_realized": "50/120",
+        "attempt_detection_wilson95": [
+          0.332384,
+          0.50612
+        ],
+        "family_expected_detection": {
+          "F6": "11/130",
+          "F7": "1",
+          "F8": "11/130"
+        },
+        "fpr_expected": "11/130",
+        "fpr_realized": "7/105",
+        "fpr_wilson95": [
+          0.032666,
+          0.131256
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "1249/3510",
+        "worst_family_expected_detection": "11/130"
+      },
+      "endpoint": {
+        "attempt_detection_expected": "459/5600",
+        "attempt_detection_realized": "8/120",
+        "attempt_detection_wilson95": [
+          0.034165,
+          0.126051
+        ],
+        "family_expected_detection": {
+          "F6": "51/560",
+          "F7": "51/700",
+          "F8": "459/5600"
+        },
+        "fpr_expected": "51/490",
+        "fpr_realized": "8/105",
+        "fpr_wilson95": [
+          0.039111,
+          0.143186
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "17/140",
+        "worst_family_expected_detection": "51/700"
+      },
+      "privileged": {
+        "attempt_detection_expected": "22693/24000",
+        "attempt_detection_realized": "113/120",
+        "attempt_detection_wilson95": [
+          0.884474,
+          0.971459
+        ],
+        "family_expected_detection": {
+          "F6": "6693/8000",
+          "F7": "1",
+          "F8": "1"
+        },
+        "fpr_expected": "627/7000",
+        "fpr_realized": "10/105",
+        "fpr_wilson95": [
+          0.052556,
+          0.166491
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "1",
+        "worst_family_expected_detection": "6693/8000"
+      },
+      "trace": {
+        "attempt_detection_expected": "27/40",
+        "attempt_detection_realized": "81/120",
+        "attempt_detection_wilson95": [
+          0.586902,
+          0.752241
+        ],
+        "family_expected_detection": {
+          "F6": "7/10",
+          "F7": "1",
+          "F8": "13/40"
+        },
+        "fpr_expected": "11/105",
+        "fpr_realized": "11/105",
+        "fpr_wilson95": [
+          0.059511,
+          0.177912
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "5/9",
+        "worst_family_expected_detection": "13/40"
+      }
+    },
+    "1/20": {
+      "cycle": {
+        "attempt_detection_expected": "1249/3510",
+        "attempt_detection_realized": "42/120",
+        "attempt_detection_wilson95": [
+          0.270519,
+          0.438787
+        ],
+        "family_expected_detection": {
+          "F6": "79/2340",
+          "F7": "1",
+          "F8": "79/2340"
+        },
+        "fpr_expected": "79/2340",
+        "fpr_realized": "6/105",
+        "fpr_wilson95": [
+          0.02645,
+          0.119097
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "20221/63180",
+        "worst_family_expected_detection": "79/2340"
+      },
+      "endpoint": {
+        "attempt_detection_expected": "459/11200",
+        "attempt_detection_realized": "5/120",
+        "attempt_detection_wilson95": [
+          0.017927,
+          0.093841
+        ],
+        "family_expected_detection": {
+          "F6": "51/1120",
+          "F7": "51/1400",
+          "F8": "459/11200"
+        },
+        "fpr_expected": "51/980",
+        "fpr_realized": "4/105",
+        "fpr_wilson95": [
+          0.014912,
+          0.093883
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "17/280",
+        "worst_family_expected_detection": "51/1400"
+      },
+      "privileged": {
+        "attempt_detection_expected": "14851/16000",
+        "attempt_detection_realized": "112/120",
+        "attempt_detection_wilson95": [
+          0.873949,
+          0.965835
+        ],
+        "family_expected_detection": {
+          "F6": "12553/16000",
+          "F7": "1",
+          "F8": "1"
+        },
+        "fpr_expected": "1501/42000",
+        "fpr_realized": "5/105",
+        "fpr_wilson95": [
+          0.020509,
+          0.106662
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "1",
+        "worst_family_expected_detection": "12553/16000"
+      },
+      "trace": {
+        "attempt_detection_expected": "53/120",
+        "attempt_detection_realized": "53/120",
+        "attempt_detection_wilson95": [
+          0.355997,
+          0.530955
+        ],
+        "family_expected_detection": {
+          "F6": "0",
+          "F7": "1",
+          "F8": "13/40"
+        },
+        "fpr_expected": "869/18900",
+        "fpr_realized": "7/105",
+        "fpr_wilson95": [
+          0.032666,
+          0.131256
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "8/27",
+        "worst_family_expected_detection": "0"
+      }
+    },
+    "1/4": {
+      "cycle": {
+        "attempt_detection_expected": "115/234",
+        "attempt_detection_realized": "54/120",
+        "attempt_detection_wilson95": [
+          0.363917,
+          0.539185
+        ],
+        "family_expected_detection": {
+          "F6": "37/156",
+          "F7": "1",
+          "F8": "37/156"
+        },
+        "fpr_expected": "37/156",
+        "fpr_realized": "21/105",
+        "fpr_wilson95": [
+          0.134699,
+          0.286477
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "1951/4212",
+        "worst_family_expected_detection": "37/156"
+      },
+      "endpoint": {
+        "attempt_detection_expected": "459/2240",
+        "attempt_detection_realized": "25/120",
+        "attempt_detection_wilson95": [
+          0.145284,
+          0.289477
+        ],
+        "family_expected_detection": {
+          "F6": "51/224",
+          "F7": "51/280",
+          "F8": "459/2240"
+        },
+        "fpr_expected": "51/196",
+        "fpr_realized": "26/105",
+        "fpr_wilson95": [
+          0.17495,
+          0.338103
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "17/56",
+        "worst_family_expected_detection": "51/280"
+      },
+      "privileged": {
+        "attempt_detection_expected": "3307/3360",
+        "attempt_detection_realized": "118/120",
+        "attempt_detection_wilson95": [
+          0.941264,
+          0.995417
+        ],
+        "family_expected_detection": {
+          "F6": "1067/1120",
+          "F7": "1",
+          "F8": "1"
+        },
+        "fpr_expected": "554/2205",
+        "fpr_realized": "25/105",
+        "fpr_wilson95": [
+          0.166791,
+          0.327887
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "1",
+        "worst_family_expected_detection": "1067/1120"
+      },
+      "trace": {
+        "attempt_detection_expected": "27/40",
+        "attempt_detection_realized": "81/120",
+        "attempt_detection_wilson95": [
+          0.586902,
+          0.752241
+        ],
+        "family_expected_detection": {
+          "F6": "7/10",
+          "F7": "1",
+          "F8": "13/40"
+        },
+        "fpr_expected": "97/588",
+        "fpr_realized": "18/105",
+        "fpr_wilson95": [
+          0.111278,
+          0.254773
+        ],
+        "n_attempts": 120,
+        "n_neg": 105,
+        "n_successes": 81,
+        "success_detection_expected": "5/9",
+        "worst_family_expected_detection": "13/40"
+      }
+    }
+  },
+  "label_counts": {
+    "neg": 105,
+    "pos": 120,
+    "successes": 81
+  },
+  "matched_fpr": {
+    "1/10": {
+      "detection": {
+        "cycle": "2/5",
+        "endpoint": "63/800",
+        "privileged": "4327/4560",
+        "trace": "53/120"
+      },
+      "family_detection": {
+        "cycle": {
+          "F6": "1/10",
+          "F7": "1",
+          "F8": "1/10"
+        },
+        "endpoint": {
+          "F6": "7/80",
+          "F7": "7/100",
+          "F8": "63/800"
+        },
+        "privileged": {
+          "F6": "1287/1520",
+          "F7": "1",
+          "F8": "1"
+        },
+        "trace": {
+          "F6": "0",
+          "F7": "1",
+          "F8": "13/40"
+        }
+      },
+      "n_neg": 105,
+      "n_pos": 120,
+      "paired_differences": {
+        "cycle-endpoint": {
+          "ci95": [
+            0.2445,
+            0.394
+          ],
+          "point": 0.32125
+        },
+        "cycle-trace": {
+          "ci95": [
+            -0.3442,
+            0.0025
+          ],
+          "point": -0.041666666666666664
+        },
+        "privileged-cycle": {
+          "ci95": [
+            0.4723,
+            0.6319
+          ],
+          "point": 0.5489035087719298
+        },
+        "trace-endpoint": {
+          "ci95": [
+            0.2811,
+            0.6692
+          ],
+          "point": 0.36291666666666667
+        }
+      },
+      "worst_family": {
+        "cycle": "1/10",
+        "endpoint": "7/100",
+        "privileged": "1287/1520",
+        "trace": "0"
+      }
+    },
+    "1/20": {
+      "detection": {
+        "cycle": "11/30",
+        "endpoint": "63/1600",
+        "privileged": "8507/9120",
+        "trace": "53/120"
+      },
+      "family_detection": {
+        "cycle": {
+          "F6": "1/20",
+          "F7": "1",
+          "F8": "1/20"
+        },
+        "endpoint": {
+          "F6": "7/160",
+          "F7": "7/200",
+          "F8": "63/1600"
+        },
+        "privileged": {
+          "F6": "2427/3040",
+          "F7": "1",
+          "F8": "1"
+        },
+        "trace": {
+          "F6": "0",
+          "F7": "1",
+          "F8": "13/40"
+        }
+      },
+      "n_neg": 105,
+      "n_pos": 120,
+      "paired_differences": {
+        "cycle-endpoint": {
+          "ci95": [
+            0.2551,
+            0.4045
+          ],
+          "point": 0.32729166666666665
+        },
+        "cycle-trace": {
+          "ci95": [
+            -0.2838,
+            -0.0258
+          ],
+          "point": -0.075
+        },
+        "privileged-cycle": {
+          "ci95": [
+            0.4886,
+            0.6454
+          ],
+          "point": 0.5661184210526315
+        },
+        "trace-endpoint": {
+          "ci95": [
+            0.3171,
+            0.6328
+          ],
+          "point": 0.40229166666666666
+        }
+      },
+      "worst_family": {
+        "cycle": "1/20",
+        "endpoint": "7/200",
+        "privileged": "2427/3040",
+        "trace": "0"
+      }
+    },
+    "1/4": {
+      "detection": {
+        "cycle": "1/2",
+        "endpoint": "63/320",
+        "privileged": "3149/3200",
+        "trace": "27/40"
+      },
+      "family_detection": {
+        "cycle": {
+          "F6": "1/4",
+          "F7": "1",
+          "F8": "1/4"
+        },
+        "endpoint": {
+          "F6": "7/32",
+          "F7": "7/40",
+          "F8": "63/320"
+        },
+        "privileged": {
+          "F6": "3047/3200",
+          "F7": "1",
+          "F8": "1"
+        },
+        "trace": {
+          "F6": "7/10",
+          "F7": "1",
+          "F8": "13/40"
+        }
+      },
+      "n_neg": 105,
+      "n_pos": 120,
+      "paired_differences": {
+        "cycle-endpoint": {
+          "ci95": [
+            0.2304,
+            0.3736
+          ],
+          "point": 0.303125
+        },
+        "cycle-trace": {
+          "ci95": [
+            -0.2542,
+            -0.1021
+          ],
+          "point": -0.175
+        },
+        "privileged-cycle": {
+          "ci95": [
+            0.42,
+            0.5491
+          ],
+          "point": 0.4840625
+        },
+        "trace-endpoint": {
+          "ci95": [
+            0.3809,
+            0.5718
+          ],
+          "point": 0.478125
+        }
+      },
+      "worst_family": {
+        "cycle": "1/4",
+        "endpoint": "7/40",
+        "privileged": "3047/3200",
+        "trace": "13/40"
+      }
+    }
+  },
+  "overhead_us_per_episode": {
+    "cycle": 255.27,
+    "endpoint": 157.24,
+    "privileged": 167.95,
+    "trace": 141.46
+  },
+  "schema": "rhc04_metrics_v1",
+  "split": "test",
+  "track": "S"
+}

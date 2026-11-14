@@ -1,0 +1,112 @@
+{
+  "M": {
+    "F6": {
+      "family_fitted_omega": {
+        "attest": -3,
+        "decide_p": 3,
+        "decide_q": -3,
+        "quorum": -3
+      },
+      "family_fitted_omega_detection_in_sample": "7/10",
+      "frozen_omega_detection": "7/10",
+      "n_attempts": 5
+    },
+    "F7": {
+      "family_fitted_omega": {
+        "alias": 11,
+        "attest": -3,
+        "decide_p": 3,
+        "decide_q": -3,
+        "quorum": -3
+      },
+      "family_fitted_omega_detection_in_sample": "1",
+      "frozen_omega_detection": "1",
+      "n_attempts": 5
+    },
+    "F8": {
+      "family_fitted_omega": {
+        "attest": 1,
+        "crosscheck": -3,
+        "decide_p": -1,
+        "decide_q": -3,
+        "decide_r": 3,
+        "note": 1,
+        "quorum": -3,
+        "reepoch": 3
+      },
+      "family_fitted_omega_detection_in_sample": "5/6",
+      "frozen_omega_detection": "0",
+      "n_attempts": 6
+    },
+    "L7": {
+      "family_fitted_omega": {
+        "alias": 1,
+        "attest": -5,
+        "crosscheck": 1,
+        "decide_p": 3,
+        "decide_q": -3,
+        "quorum": -3,
+        "verify": 1
+      },
+      "family_fitted_omega_detection_in_sample": "4/5",
+      "frozen_omega_detection": "4/5",
+      "n_attempts": 3
+    }
+  },
+  "S": {
+    "F6": {
+      "family_fitted_omega": {
+        "attest": -1,
+        "crosscheck": -1,
+        "decide_q": -2,
+        "decide_r": 2,
+        "note": -1,
+        "quorum": -2,
+        "reepoch": -1,
+        "verify": 1
+      },
+      "family_fitted_omega_detection_in_sample": "7/30",
+      "frozen_omega_detection": "1/10",
+      "n_attempts": 40
+    },
+    "F7": {
+      "family_fitted_omega": {
+        "alias": 2,
+        "attest": -1,
+        "crosscheck": -1,
+        "decide_p": 2,
+        "decide_q": 1,
+        "decide_r": -2,
+        "note": -1,
+        "quorum": -2,
+        "quorum_short": 2,
+        "reepoch": -1
+      },
+      "family_fitted_omega_detection_in_sample": "1",
+      "frozen_omega_detection": "1",
+      "n_attempts": 40
+    },
+    "F8": {
+      "family_fitted_omega": {
+        "attest": -1,
+        "crosscheck": -1,
+        "decide_q": -2,
+        "decide_r": 2,
+        "note": 5,
+        "quorum": -2,
+        "reepoch": 2,
+        "verify": 1
+      },
+      "family_fitted_omega_detection_in_sample": "27/40",
+      "frozen_omega_detection": "1/10",
+      "n_attempts": 40
+    }
+  },
+  "frozen_omega": {
+    "alias": 1,
+    "decide_p": 1,
+    "quorum_short": 1
+  },
+  "schema": "rhc04_cochain_generalization_v1",
+  "statement": "detection at 10 percent held-out-matched FPR: the omega selected on train and calibration families versus an omega fitted on the test family itself (in-sample upper reference)"
+}

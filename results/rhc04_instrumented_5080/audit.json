@@ -1,0 +1,41 @@
+{
+  "actor_failed": 0,
+  "decision_mismatches": [],
+  "episodes": 799,
+  "labels": {
+    "M|adaptive|ex": 5,
+    "M|adaptive|pos": 31,
+    "M|cal|ex": 6,
+    "M|cal|neg": 14,
+    "M|cal|pos": 8,
+    "M|dev|ex": 5,
+    "M|dev|neg": 7,
+    "M|dev|pos": 12,
+    "M|test|ex": 1,
+    "M|test|neg": 21,
+    "M|test|pos": 20,
+    "M|train|ex": 6,
+    "M|train|neg": 12,
+    "M|train|pos": 16,
+    "S|cal|neg": 105,
+    "S|cal|pos": 80,
+    "S|test|neg": 105,
+    "S|test|pos": 120,
+    "S|train|neg": 105,
+    "S|train|pos": 120
+  },
+  "ledger_failures": [],
+  "passed": true,
+  "schema": "rhc04_audit_v1",
+  "timeouts": 24,
+  "verified_successes": {
+    "M|adaptive": 9,
+    "M|cal": 2,
+    "M|dev": 4,
+    "M|test": 9,
+    "M|train": 5,
+    "S|cal": 61,
+    "S|test": 81,
+    "S|train": 79
+  }
+}
