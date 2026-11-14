@@ -1,0 +1,41 @@
+{
+  "control_harness": {
+    "commit": "ff906fa2c8eaa75cc4814f9e2222d54cb4feec51",
+    "git_blobs": {
+      "environments/mesh_escape_pit_runtime_v1/README.md": "abd23a66f8070adf5173436e97dcd592392bedc3",
+      "environments/mesh_escape_pit_runtime_v1/mesh_escape_pit_runtime_v1/__init__.py": "753889d9d3d2da90d507d9b0474287b0a046a963",
+      "environments/mesh_escape_pit_runtime_v1/mesh_escape_pit_runtime_v1/policies.py": "9973b1a39dc4894705112617aecd1eff4525674c",
+      "environments/mesh_escape_pit_runtime_v1/mesh_escape_pit_runtime_v1/prompt.py": "459271c99c3abc09779ca151056502a63dc0301f",
+      "environments/mesh_escape_pit_runtime_v1/mesh_escape_pit_runtime_v1/runtime.py": "02bdde4c7ea792b0d9220762fd62f39c836addfb",
+      "environments/mesh_escape_pit_runtime_v1/mesh_escape_pit_runtime_v1/tasks.py": "719c5d936c47f9d6fac56213aef7f55d387df3b2"
+    },
+    "repository": "MoralityLabAI/Control-Harness"
+  },
+  "evalmath_files_sha256_lf": {
+    "configs/rhc04_prereg_v1.json": "a9e89d3034de23ca1ba9a2083501019d162c7bf56e3da20ebc16c3155119b457",
+    "paper/reward_hacking_instrumented_runtime_protocol.md": "a83d77c5c336d6d8158e9baa256ad9f4e34505b62d33ffbf0862d33a58010f44",
+    "scripts/freeze_rhc04.py": "544c92d44dce60863810490551489b40330040587aeffa1bb089eb74837aab41",
+    "scripts/run_rhc03_local_5080.py": "d28a9b829edbe2041538c23dadb1fc76742783a9cde178f7b4a45f025d9d045c",
+    "scripts/run_rhc04.py": "1559fa910ed3229774b1f90185f1b4ed87a570f336ced74248bc5014af3ac1f1",
+    "scripts/verify_rhc04.py": "118326526e2d6f08f6bf7b6ebb435e637d567ff4b478f42250d6c0bc77c306f8",
+    "src/spiral_ln/evaluation_rhc04.py": "c5b8d0c2e1bf16de8b02b994d24a238bcda4b4007bf73500b096ea5541975af2",
+    "src/spiral_ln/evaluation_rhc04_oracle.py": "1351f3d88d110f659770b5b91d7d77dc55c4c9b153d24d2d9d2d96eeac0dc1a2",
+    "tests/test_rhc04.py": "eecf37d85c973ebf94cbfeef86bcd1ef4b42dc670db08e480c5ad432a27eb438",
+    "tests/test_rhc04_oracle.py": "e69161d1e9b672b1654061163b6410c9e4a053cc6768f40055c458cae7a20753"
+  },
+  "guards": "before any model inference (dev pilot included)",
+  "hash_convention": "SHA-256 with CRLF folded to LF",
+  "model": {
+    "decoding": {
+      "max_tokens": 64,
+      "stream": false,
+      "temperature": 0
+    },
+    "file": "Qwen3.5-4B-UD-Q4_K_XL.gguf",
+    "flags": "-ngl 99 -c 4096 -np 1 -fa on --reasoning off --no-webui --host 127.0.0.1",
+    "server": "PrismML llama.cpp build 10743 (adfffbe41) llama-server",
+    "sha256": "b252c5610a42ca82d20fe2a12813e9d069eed89292907e26c783eeb0bc961bc7"
+  },
+  "note": "",
+  "schema": "rhc04_protocol_receipt_v1"
+}

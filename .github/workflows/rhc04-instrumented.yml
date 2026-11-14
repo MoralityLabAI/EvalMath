@@ -1,0 +1,51 @@
+name: rhc04-instrumented-light
+
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/evaluation_rhc04*.py'
+      - 'scripts/*rhc04*.py'
+      - 'tests/test_rhc04*.py'
+      - 'configs/rhc04_prereg_v1.json'
+      - 'paper/reward_hacking_instrumented_runtime_protocol.md'
+      - 'results/rhc04_instrumented_5080/**'
+      - '.github/workflows/rhc04-instrumented.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/evaluation_rhc04*.py'
+      - 'scripts/*rhc04*.py'
+      - 'tests/test_rhc04*.py'
+      - 'configs/rhc04_prereg_v1.json'
+      - 'paper/reward_hacking_instrumented_runtime_protocol.md'
+      - 'results/rhc04_instrumented_5080/**'
+      - '.github/workflows/rhc04-instrumented.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  light:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout immutable Control-Harness runtime
+        uses: actions/checkout@v4
+        with:
+          repository: MoralityLabAI/Control-Harness
+          ref: ff906fa2c8eaa75cc4814f9e2222d54cb4feec51
+          path: upstream-runtime
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install pytest
+      - name: Unit tests, exact oracle and runtime parity (no model, no GPU)
+        env:
+          RHC04_RUNTIME_DIR: ${{ github.workspace }}/upstream-runtime/environments/mesh_escape_pit_runtime_v1
+        run: python -m pytest tests/test_rhc04.py tests/test_rhc04_oracle.py -q
+      - name: Scripted-track gates and certificates on a small split
+        run: |
+          python scripts/run_rhc04.py gen-scripted --out "$RUNNER_TEMP/rhc04" --splits cal --runtime upstream-runtime/environments/mesh_escape_pit_runtime_v1
+          python scripts/verify_rhc04.py gates --out "$RUNNER_TEMP/rhc04" --runtime upstream-runtime/environments/mesh_escape_pit_runtime_v1 --fuzz 300
+          python scripts/verify_rhc04.py exact --out "$RUNNER_TEMP/rhc04" --runtime upstream-runtime/environments/mesh_escape_pit_runtime_v1
