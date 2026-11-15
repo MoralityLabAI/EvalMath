@@ -1,0 +1,72 @@
+{
+  "binary_matrices": 512,
+  "branched_witness": {
+    "adaptive_cost": 2,
+    "batch_cost": 3
+  },
+  "checks": {
+    "adaptive_strict_example": true,
+    "all_binary_matrices_independent": true,
+    "clock_fibre_gap": true,
+    "early_repair_obscures_final": true,
+    "routing_collision": true,
+    "visible_fibre_collision": true,
+    "weighted_multiway_independent": true
+  },
+  "clock_witness": {
+    "state_clock": 0,
+    "state_only": 1,
+    "visible_only": 1
+  },
+  "evidence": "finite exact deterministic oracle; mathematical proof in paper; no neural or Lean model measurements",
+  "refill_witness": {
+    "baseline": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "persistent_cut_final": 0,
+    "single_cut_final": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "single_cut_trajectories": [
+      [
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        0
+      ]
+    ],
+    "terminal_blind_early_cuts": 3
+  },
+  "schema": "BPD-01-v1",
+  "source_sha256": {
+    "paper/bpd_interventional_separation.md": "a1738c49c47bf1efa1aa2ce177305711ce93852b8d4fef47b57d3bf2f18fd7ac",
+    "scripts/verify_evaluation_bpd.py": "a43cbbb642fe3b8d1283f1f4b8b91fbcebef3e50f6079f30b46f98bba54bc835",
+    "src/spiral_ln/evaluation_bpd.py": "9c0e1d386dd2335ab43b970e604e073c72afc3e2e4512a1f75a0cb0a1c6a8062",
+    "tests/test_evaluation_bpd.py": "76ba84ca0930e89ae5534a72d6688c5c80f3dc9462c1bdc924bf899a4b045412"
+  },
+  "weighted_categorical_cases": 96
+}
