@@ -51,7 +51,7 @@ All four compared arms share the same initial 40-step cue-confounded head fit. T
 | Input-level cue augmentation | 16/16 |
 | BPD all-pass interchange intervention training | 16/16 |
 
-Six tests passed under Python 3.12 and CPU PyTorch 2.5.1. They cover 384/384 host graph-label agreement, source gating, finite rank and error bounds, component-specific real interventions, and the exact training comparison. The workflow also archives a JSON receipt.
+Seven tests passed under Python 3.12 and CPU PyTorch 2.5.1. They cover 384/384 host graph-label agreement, source gating, finite rank and error bounds, component-specific real interventions, and the exact training comparison. A seventh test checks that joint factor swaps equal the sum of singles in the planted linear reference; this is a calibration, not a claim of general additivity. The workflow also archives a JSON receipt.
 
 **Important interpretation:** contrastive evaluation repairs the deliberate shortcut, and training against internally swapped BPD activations is operational. The conventional input-level augmentation control reaches the same accuracy. This toy does not demonstrate a *unique benefit* from the BPD intervention, learned factor discovery, mechanistic generalization to a natural Lean theorem, or capability gains in an existing model. Development used this fourth-family test cohort repeatedly; a newly sealed confirmation cohort is necessary.
 
