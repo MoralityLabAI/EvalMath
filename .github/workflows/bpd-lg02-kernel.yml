@@ -1,0 +1,43 @@
+name: BPD-LG-02 counterfactual Lean kernel and refutation audit
+
+on:
+  push:
+    paths:
+      - 'experiments/bpd_lean_curriculum_v2/**'
+      - '.github/workflows/bpd-lg02-kernel.yml'
+  pull_request:
+    paths:
+      - 'experiments/bpd_lean_curriculum_v2/**'
+      - '.github/workflows/bpd-lg02-kernel.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  six-file-kernel-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently audit every finite model and export source
+        run: |
+          python -m unittest experiments.bpd_lean_curriculum_v2.test_generate -v
+          python -m experiments.bpd_lean_curriculum_v2.generate --out /tmp/bpd-lg02
+      - name: Install pinned Lean 4.19.0
+        run: |
+          curl --fail --location --retry 3 https://github.com/leanprover/lean4/releases/download/v4.19.0/lean-4.19.0-linux.tar.zst -o /tmp/lean.tar.zst
+          tar --zstd -xf /tmp/lean.tar.zst -C /tmp
+          echo '/tmp/lean-4.19.0-linux/bin' >> "$GITHUB_PATH"
+      - name: Kernel-check all 192 proof witnesses and 192 negative refutations
+        run: |
+          python -m experiments.bpd_lean_curriculum_v2.verify_kernel --source-dir /tmp/bpd-lg02
+      - name: Archive source, all six axiom outputs and exact receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bpd-lg02-six-file-lean-${{ github.run_id }}
+          path: /tmp/bpd-lg02/
+          retention-days: 30
+          if-no-files-found: warn
