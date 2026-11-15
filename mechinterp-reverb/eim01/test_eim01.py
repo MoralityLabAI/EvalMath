@@ -94,6 +94,11 @@ def test_closed_eval_to_mechanism_loop_improves_sealed_family() -> None:
     assert report["trained_interchange_component"] == 1
     before = {x["role"]: x["signed_effects"] for x in report["observed_probe_effects"]}
     after = {x["role"]: x["signed_effects"] for x in report["post_training_probe_effects"]}
+    pre_hashes = {x["model_sha256"] for x in report["observed_probe_effects"]}
+    post_hashes = {x["model_sha256"] for x in report["post_training_probe_effects"]}
+    assert len(pre_hashes) == len(post_hashes) == 1
+    assert pre_hashes != post_hashes
+
     # The supervised head learns to use verified graph evidence and suppress
     # the nuisance channel. This is a planted-circuit recovery observation.
     assert abs(after["cue_only"][1]) < abs(before["cue_only"][1])
