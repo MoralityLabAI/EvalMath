@@ -197,7 +197,7 @@ def chain_term(spec: dict, start_term: str, index_term: str='') -> str:
 
 
 def right_conj(parts: list[str]) -> str:
-    if len(parts)==1: return parts[0]
+    if len(parts)==1: return '('+parts[0]+')'
     return '(('+parts[0]+') ∧ '+right_conj(parts[1:])+')'
 
 
