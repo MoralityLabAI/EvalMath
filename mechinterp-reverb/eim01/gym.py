@@ -170,6 +170,21 @@ def clean_capture(target: PlantedGraphRelay, bpd: BPDModel,
                              module_inputs=bpd.collect_recorded_inputs(expected_passes=PASSES))
 
 
+def model_fingerprint(target: PlantedGraphRelay) -> str:
+    """Source- and weight-bound identity of the EXACT currently measured model.
+
+    Avoid a decorative model name as the observation ledger identity: the
+    readout weights change during training, and pre/post rows must carry
+    distinct model hashes. State tensors are serialized as plain JSON lists
+    to avoid an implicit NumPy dependency on the CPU CI runner.
+    """
+    params = {key: value.detach().float().cpu().tolist()
+              for key, value in sorted(target.state_dict().items())}
+    payload = {"arch": MODEL_NAME, "passes": PASSES, "state_dict": params}
+    return sha256(json.dumps(payload, sort_keys=True,
+                             separators=(",", ":")).encode()).hexdigest()
+
+
 def signed_swap_row(target: PlantedGraphRelay, bpd: BPDModel,
                     recipient: GraphEval, donor: GraphEval, role: str) -> EffectRow:
     """Actual same-clock BPD donor swaps at penultimate pass; signed logit effects."""
@@ -192,7 +207,7 @@ def signed_swap_row(target: PlantedGraphRelay, bpd: BPDModel,
     return EffectRow(
         case_id=recipient.case_id+"|"+role, donor_id=donor.case_id+"|"+str(donor.cue),
         origin_hash=recipient.alpha_hash, donor_hash=donor.alpha_hash,
-        model_hash=MODEL_NAME, split="train", family=recipient.family, role=role,
+        model_hash=model_fingerprint(target), split="train", family=recipient.family, role=role,
         intervention_pass=t, next_readout=t+1, signed_effects=tuple(effects),
         label_certified=True, route_observed=True,
     )
@@ -360,10 +375,12 @@ def run_campaign() -> dict:
             {"role": row.role, "signed_effects": list(row.signed_effects),
              "case_id": row.case_id, "donor_id": row.donor_id,
              "pass": row.intervention_pass, "next_readout": row.next_readout,
-             "source_hash": row.origin_hash, "donor_hash": row.donor_hash}
+             "source_hash": row.origin_hash, "donor_hash": row.donor_hash,
+             "model_sha256": row.model_hash}
             for row in effects],
         "post_training_probe_effects": [
-            {"role": row.role, "signed_effects": list(row.signed_effects)}
+            {"role": row.role, "signed_effects": list(row.signed_effects),
+             "model_sha256": row.model_hash}
             for row in post_effects],
         "trained_interchange_component": observed_cue_component,
         "aligned_observability": aligned_only,
