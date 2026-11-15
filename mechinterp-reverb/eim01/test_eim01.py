@@ -110,6 +110,16 @@ def test_closed_eval_to_mechanism_loop_improves_sealed_family() -> None:
                                "passive_training_records":384,
                                "interchange_training_records":384}
     assert set(report["selected_interventions"]["chosen_roles"])=={"cue_only","graph_only"}
+    assert report["selected_interventions"]["matrix_semantics"] == (
+        "known_transport_times_pre_readout_activation_differences"
+    )
+    assert len(report["independent_linear_design"]) == 3
+    assert max(abs(x) for x in report["linear_design_residuals"]) < 2e-5
+    independent = {x["role"]: x["activation_deltas"]
+                   for x in report["independent_linear_design"]}
+    assert abs(independent["cue_only"][0]) < 1e-6
+    assert abs(independent["graph_only"][1]) < 1e-6
+    assert report["observed_response_selection"]["identified"] is True
     scores=report["accuracy"]
     assert scores["pretrained_confounded"] <= 0.25
     assert scores["passive_equal_updates"] <= 0.5
