@@ -264,19 +264,22 @@ def source(spec: dict, name: str) -> tuple[str, str|None]:
 
 
 def refutation_certificate(spec: dict, name: str) -> str | None:
-    """Closed refutation of a negative candidate's universal proposition.
+    """A constructively checked closed refutation of an invalid statement.
 
-    This does not assert a negative Lean theorem as a positive theorem. A
-    certificate instantiates the original hypotheses with a concrete model
-    and derives False, so the kernel can independently check the same claim.
+    Premises are built from True.intro, False.elim, And.intro and rfl, so the
+    negative witnesses do not require Classical.choice or propext.
     """
     if semantic_label(spec): return None
     declaration,_=source(spec,name)
     statement=declaration.removesuffix(' := by')
-    head,goal=statement.rsplit(' : ',1)
+    fam=spec['family']
+    if fam=='induction':
+        head,tail=statement.rsplit(' : ∀ n : Nat, ',1)
+        goal='∀ n : Nat, '+tail
+    else:
+        head,goal=statement.rsplit(' : ',1)
     binders=head.removeprefix('theorem '+name+' ')
     assignments=model(spec)['assignments']
-    fam=spec['family']
     nodes=spec['main']+spec['aux']
     if fam=='rw':
         vals=[str(assignments[n]) for n in nodes]
@@ -284,15 +287,32 @@ def refutation_certificate(spec: dict, name: str) -> str | None:
         vals=[f'(fun _ : Nat => {"True" if assignments[n] else "False"})' for n in nodes]
     else:
         vals=['True' if assignments[n] else 'False' for n in nodes]
-    # Original theorem assumption ordering: hs and then either the conjunction
-    # bundle or every separately named edge; induction also adds hloop.
-    assumptions= [] if fam=='rw' else ['(by simp)']
-    assumptions += (['(by simp)'] if fam=='rcases' else ['(by simp)']*len(spec['edges']))
-    if fam=='induction': assumptions.append('(by simp)')
+
+    def term_for_arrow(a: str, b: str) -> str:
+        if fam=='rw':
+            assert assignments[a]==assignments[b]
+            return 'rfl'
+        if assignments[b]:
+            return '(fun _ _ => True.intro)' if fam=='induction' else '(fun _ => True.intro)'
+        assert not assignments[a]
+        return '(fun _ h => False.elim h)' if fam=='induction' else '(False.elim)'
+
+    terms=[term_for_arrow(a,b) for a,b in spec['edges']]
+    if fam=='rcases':
+        def and_term(parts: list[str]) -> str:
+            if len(parts)==1: return parts[0]
+            return '(And.intro '+parts[0]+' '+and_term(parts[1:])+')'
+        assumptions=['True.intro', and_term(terms)]
+    elif fam=='rw':
+        assumptions=terms
+    else:
+        assumptions=['True.intro']+terms
+    if fam=='induction':
+        # The constant interpretation makes P0 true and Pd false.
+        assumptions+=['(fun _ _ => True.intro)']
     app='hall '+' '.join(vals+assumptions)
     if fam=='induction': app='('+app+') 0'
     if fam=='rw':
-        # Substituting an unequal pair produces an inconsistent Nat equality.
         pair=f'{assignments[spec["main"][0]]} = {assignments[spec["main"][-1]]}'
         body=f'  intro hall\n  have absurd_eq : {pair} := {app}\n  cases absurd_eq'
     else:
