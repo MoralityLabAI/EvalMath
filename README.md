@@ -69,6 +69,8 @@ and `PYTHONPATH=src python scripts/verify_cryptomania_audit.py`.
 
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
+**New (BPD-01, 2026-11-15):** [interventional separation and looped Lean curriculum](paper/bpd_interventional_separation.md) formalizes routed mechanism-pair coverage, optimal fixed/adaptive probes, clock-versus-state observability floors and a recurrence-repair counterexample. Exact 512-matrix and 96 seeded audits are source-hashed in `output/evaluation_bpd/bpd_01.json`. Reproduce via `python scripts/check_receipts.py --only bpd`. It supplies design mathematics, not a neural decomposition result.
+
 ## Self-designed evaluation and FRC
 
 The [HRC-FRC-01 extension](paper/frc_harmonic_self_evaluation.md) studies
