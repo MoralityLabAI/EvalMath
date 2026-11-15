@@ -25,7 +25,9 @@ import torch.nn.functional as F
 from experiments.bpd_lean_curriculum_v2.generate import roster
 from mechinterp.bpd.components import BPDModel, RolloutTrajectory
 from mechinterp.bpd.config import AblationConfig
-from .design import EffectRow, select_identifying_evals, two_column_certificate
+from .design import (EffectRow, PreReadoutGeometry, select_identifying_evals,
+                     two_column_certificate, select_geometry_basis,
+                     check_joint_linear_response)
 
 NODES = 24
 PASSES = 22
@@ -213,6 +215,38 @@ def signed_swap_row(target: PlantedGraphRelay, bpd: BPDModel,
     )
 
 
+def measure_pre_readout_geometry(target: PlantedGraphRelay, bpd: BPDModel,
+                                 recipient: GraphEval, donor: GraphEval,
+                                 response: EffectRow) -> PreReadoutGeometry:
+    """An input-to-readout design row independent of existing head coefficients.
+
+    The source/recipient differences are collected at the same BPD input
+    site, *before* multiplying by output-routing weights. A separate joint
+    swap supplies the measured dependent variable. This avoids feeding
+    already-weighted causal effects into the inverse-rank theorem.
+    """
+    t = response.intervention_pass
+    recipient_state = clean_capture(target, bpd, [recipient])
+    donor_state = clean_capture(target, bpd, [donor])
+    V = bpd.wrappers["core"].V.detach()
+    x = recipient_state.module_inputs["core"][:, t].float()
+    x_donor = donor_state.module_inputs["core"][:, t].float()
+    q = ((x-x_donor) @ V).reshape(-1).tolist()
+    if len(q) != 2:
+        raise AssertionError("Unexpected component geometry")
+    graph, goals, cue, _ = batch([recipient])
+    with bpd.intervene("core", (0, 1), passes={t},
+                       mode="swap_acts", donor_acts=x_donor @ V):
+        altered, _ = target.rollout(graph, goals, cue)
+    d = float((recipient_state.readouts[t+1][0,0,1] -
+               altered[t+1][0,0,1]).detach().item())
+    # For this planted relay only: next-pass carry transport is .35*.65
+    # and the readout logit multiplies carry by 3.5.
+    known_transport = .35 * .65 * 3.5
+    return PreReadoutGeometry(response, (float(q[0]), float(q[1])),
+                              d, known_transport)
+
+
 def select_probe_pairs(cases: list[GraphEval]) -> list[tuple[GraphEval, GraphEval, str]]:
     """Use a single matched train root as demonstration; no test-label reads."""
     train = [c for c in cases if c.split == "train" and c.family == "exact"]
@@ -320,9 +354,18 @@ def run_campaign() -> dict:
     controls = select_probe_pairs(cases)
     effects = [signed_swap_row(target, bpd, x, y, role)
                for x, y, role in controls]
-    aligned_only = two_column_certificate([effects[0].signed_effects])
-    design = select_identifying_evals(effects, budget=2)
-    if not design["identified"]:
+    # A row of output effects already includes the current readout weights.
+    # Use independent pre-readout geometry for coefficient-identification
+    # design, and keep observed causal effects as a separate diagnostic.
+    geometry = [measure_pre_readout_geometry(target, bpd, x, y, row)
+                for (x, y, _), row in zip(controls, effects)]
+    aligned_only = two_column_certificate(
+        [tuple(g.transport * q for q in geometry[0].activation_deltas)])
+    design = select_geometry_basis(geometry, budget=2)
+    response_design = select_identifying_evals(effects, budget=2)
+    linear_residuals = check_joint_linear_response(
+        geometry, tuple(float(v) for v in target.mix.detach()))
+    if not design["identified"] or not response_design["identified"]:
         raise AssertionError("Training interventions failed mechanism separation")
     selected_roles = set(design["chosen_roles"])
     # The cue conflict evaluation adds verified-label contrast examples from
@@ -383,6 +426,15 @@ def run_campaign() -> dict:
              "model_sha256": row.model_hash}
             for row in post_effects],
         "trained_interchange_component": observed_cue_component,
+        "independent_linear_design": [
+            {"role": g.observation.role,
+             "activation_deltas": list(g.activation_deltas),
+             "known_transport": g.transport,
+             "observed_joint_logit": g.observed_joint_logit,
+             "model_sha256": g.observation.model_hash}
+            for g in geometry],
+        "linear_design_residuals": linear_residuals,
+        "observed_response_selection": response_design,
         "aligned_observability": aligned_only,
         "selected_interventions": design,
         "accuracy": {"pretrained_confounded": baseline_test,
