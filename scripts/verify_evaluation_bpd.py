@@ -1,6 +1,7 @@
 """Regenerate a source-bound BPD-01 exact finite verification receipt."""
 from __future__ import annotations
 
+import argparse
 from hashlib import sha256
 from itertools import product
 import json
@@ -82,8 +83,11 @@ def verify() -> dict:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, default=ROOT / "output/evaluation_bpd/bpd_01.json")
+    args = parser.parse_args()
     result = verify()
-    path = ROOT / "output/evaluation_bpd/bpd_01.json"
+    path = args.output
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"BPD-01 {result['binary_matrices']} exhaustive + {result['weighted_categorical_cases']} seeded; {len(result['checks'])} checks passed")
