@@ -16,7 +16,7 @@ augmentation.
 
 - design.py: source-bound signed intervention-effect rows, validation of
   provenance/route/readout/split, exact two-column rank certificate,
-  condition number, inverse-problem error bound, finite best-eval selection.
+  condition number, inverse-problem error bound, and selection on pre-readout activation geometry. Output effect rows are separately measured, avoiding coefficient circularity.
 - gym.py: actual graph recurrence; frozen planted shared-factor BPD model;
   same-pass donor activation swaps; rank-selected eval templates; equal
   training-record/update controls; the internally intervened training arm.
