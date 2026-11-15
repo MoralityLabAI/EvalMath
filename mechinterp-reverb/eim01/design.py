@@ -139,3 +139,82 @@ def coefficient_error_bound(rows: Sequence[tuple[float, float]],
     if cert["rank"] < 2:
         return float("inf")
     return sqrt(len(rows)) * max_observation_error / float(cert["sigma_min"])
+
+
+@dataclass(frozen=True)
+class PreReadoutGeometry:
+    """Keep readout-independent perturbation coordinates distinct from effects.
+
+    An end-to-end output effect E[e,c] already contains the existing readout
+    coefficient. It must NOT be substituted as the design matrix in the
+    linear theorem d = A theta. The latter uses the independently measured
+    component-signal delta Q[e,c], plus a specified transport factor.
+    """
+    observation: EffectRow
+    activation_deltas: tuple[float, float]
+    observed_joint_logit: float
+    transport: float
+
+    def __post_init__(self) -> None:
+        if (len(self.activation_deltas) != 2
+                or any(not isfinite(float(v)) for v in self.activation_deltas)
+                or not isfinite(self.observed_joint_logit)
+                or not isfinite(self.transport) or self.transport <= 0):
+            raise ValueError("Invalid pre-readout geometry")
+
+
+def select_geometry_basis(rows: Sequence[PreReadoutGeometry],
+                          *, budget: int = 2, atol: float = 1e-8) -> dict:
+    """Select independent perturbations BEFORE multiplying by readout weights."""
+    points = tuple(rows)
+    if not points:
+        raise ValueError("Nonempty geometry required")
+    validate_candidate_rows([p.observation for p in points])
+    if budget < 2 or budget > len(points):
+        raise ValueError("Invalid geometry selection budget")
+    best = None
+    for ids in combinations(range(len(points)), budget):
+        A = [tuple(points[i].transport * v for v in points[i].activation_deltas)
+             for i in ids]
+        cert = two_column_certificate(A, atol=atol)
+        if cert["rank"] < 2:
+            continue
+        key = (-float(cert["sigma_min"]),
+               sum(points[i].observation.cost for i in ids), ids)
+        if best is None or key < best[0]:
+            best = (key, ids, cert)
+    if best is None:
+        return {"identified": False, "reason": "design_geometry_rank_deficient",
+                "observations": len(points)}
+    _, ids, cert = best
+    return {"identified": True,
+            "chosen": [points[i].observation.case_id for i in ids],
+            "chosen_roles": [points[i].observation.role for i in ids],
+            "selected_row_indices": list(ids),
+            "certificate": cert,
+            "matrix_semantics": "known_transport_times_pre_readout_activation_differences"}
+
+
+def check_joint_linear_response(rows: Sequence[PreReadoutGeometry],
+                                head_weights: tuple[float,float],
+                                *, atol: float = 2e-5) -> list[float]:
+    """Residual d_e - sum_c (transport_e * Q_ec * theta_c), from actual joint swaps.
+
+    Only valid in a known linear circuit. Nonlinear source/carry dynamics
+    require empirical interaction fits and new conditional predictions.
+    """
+    if len(head_weights) != 2 or any(not isfinite(float(w)) for w in head_weights):
+        raise ValueError("Two finite readout weights required")
+    if atol < 0:
+        raise ValueError("Nonnegative residual tolerance required")
+    residuals = []
+    for point in rows:
+        predicted = point.transport * sum(
+            q * w for q,w in zip(point.activation_deltas, head_weights))
+        err = point.observed_joint_logit - predicted
+        if not isfinite(err) or abs(err) > atol:
+            raise AssertionError(
+                f"Linear source/response mismatch for {point.observation.case_id}: {err}"
+            )
+        residuals.append(err)
+    return residuals
