@@ -1,0 +1,49 @@
+name: BPD mechinterp-reverb source integrity and CPU preflight
+on:
+  push:
+    paths:
+      - 'mechinterp-reverb/**'
+      - '.github/workflows/mechinterp-reverb-bpd.yml'
+  pull_request:
+    paths:
+      - 'mechinterp-reverb/**'
+      - '.github/workflows/mechinterp-reverb-bpd.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-integrity-and-cpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify original source Git blob identities
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root=Path("mechinterp-reverb")
+          m=json.loads((root/"SOURCE_MANIFEST.json").read_text())
+          assert m["source_commit"]=="fb7b1e9f93a2c6ee810e5ae2a2a6a1892c4f3d73"
+          assert len(m["source_files"])==29
+          for row in m["source_files"]:
+            path=Path(row["destination_path"])
+            raw=path.read_bytes()
+            actual=hashlib.sha1(b"blob "+str(len(raw)).encode()+b"\0"+raw).hexdigest()
+            assert actual==row["git_blob_sha"],(str(path), actual, row["git_blob_sha"])
+            assert len(raw)==row["size_bytes"],str(path)
+          print("Source-parity PASS: 29 BPD files match pinned source Git blobs")
+          PY
+      - name: Install CPU preflight dependencies
+        run: |
+          python -m pip install --disable-pip-version-check pytest
+          python -m pip install --disable-pip-version-check torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+      - name: Compile mirrored source tree
+        run: python -m compileall -q mechinterp-reverb/mechinterp/bpd
+      - name: Run focused regression suite without training
+        env:
+          PYTHONPATH: mechinterp-reverb
+        run: python -m pytest -q mechinterp-reverb/mechinterp/bpd/tests/test_bpd_fable_preflight.py
