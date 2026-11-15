@@ -1,0 +1,94 @@
+name: BPD-LG-01 pinned Lean kernel validation
+on:
+  push:
+    paths:
+      - 'fixtures/bpd_lean_curriculum_pinned/**'
+      - '.github/workflows/bpd-pinned-kernel.yml'
+  pull_request:
+    paths:
+      - 'fixtures/bpd_lean_curriculum_pinned/**'
+      - '.github/workflows/bpd-pinned-kernel.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  kernel:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Regenerate pinned BPD-LG-01 corpus and verify hashes
+        run: |
+          python - <<'PY'
+          import hashlib, json, subprocess
+          from pathlib import Path
+          path = Path("fixtures/bpd_lean_curriculum_pinned/generate.py")
+          assert hashlib.sha256(path.read_bytes()).hexdigest() == "3b474850e3aac9c6958be8c7d33ae16b2448fbf8ef6fac965d7d795fb2f830fe"
+          out = Path("/tmp/bpd-lg01")
+          subprocess.run(["python", str(path), "--out", str(out)], check=True)
+          m = json.loads((out/"manifest.json").read_text())
+          assert m["cases"] == 384
+          assert m["positive_templates"] == m["negative_finite_countermodels"] == 192
+          assert m["split_counts"] == {"train": 256, "dev": 64, "test": 64}
+          assert {k:m["sha256"][k] for k in ("train_positives.lean","dev_positives.lean","test_positives.lean")} == {
+            "train_positives.lean": "c688fc711817e33633c9065569e11cafcabfca665c29013c6b5704cec43fbdab",
+            "dev_positives.lean": "bb2329e9745c966e529cbf8f591276228df707c04b0f6471e291602d8ed2607f",
+            "test_positives.lean": "e2376bb1cef30eb78ab93dc13853b682a740bc6f3daa12560fd010fd23a8048f"
+          }
+          PY
+      - name: Install pinned Lean 4.19.0
+        run: |
+          curl --fail --location --retry 3 https://github.com/leanprover/lean4/releases/download/v4.19.0/lean-4.19.0-linux.tar.zst -o /tmp/lean.tar.zst
+          tar --zstd -xf /tmp/lean.tar.zst -C /tmp
+          echo '/tmp/lean-4.19.0-linux/bin' >> "$GITHUB_PATH"
+      - name: Kernel typecheck all positives and reject axiom dependencies
+        run: |
+          python - <<'PY'
+          import hashlib, json, re, subprocess
+          from pathlib import Path
+          root = Path("/tmp/bpd-lg01")
+          version = subprocess.check_output(["lean","--version"], text=True).strip()
+          assert "version 4.19.0" in version, version
+          receipt = {"source_repo":"MoralityLabAI/LoopedTransformers",
+            "source_commit":"ebdd76e3acacb5d68d4d736d6dc49417f26f166f",
+            "generator_sha256":"3b474850e3aac9c6958be8c7d33ae16b2448fbf8ef6fac965d7d795fb2f830fe",
+            "lean_version":version, "by_split":{}, "kernel_checked":0, "axiom_free":False}
+          try:
+            seen=set()
+            for split,count in (("train",128),("dev",32),("test",32)):
+              original=root/f"{split}_positives.lean"
+              content=original.read_text()
+              names=re.findall(r"^theorem (thm_bpd_[A-Za-z0-9_]+)\b",content,re.M)
+              assert len(names)==len(set(names))==count
+              assert not seen.intersection(names)
+              seen.update(names)
+              assert not re.search(r"\b(?:axiom|sorry|admit|native_decide|unsafe)\b",content)
+              audited=root/f"{split}_axiom_audit.lean"
+              audited.write_text(content+"\n"+"\n".join("#print axioms "+n for n in names)+"\n")
+              p=subprocess.run(["lean",str(audited)],capture_output=True,text=True,timeout=180)
+              (root/f"{split}_stdout.log").write_text(p.stdout)
+              (root/f"{split}_stderr.log").write_text(p.stderr)
+              if p.returncode:
+                raise RuntimeError(f"{split}: Lean exit {p.returncode}\n"+p.stdout[-6000:]+p.stderr[-6000:])
+              if p.stdout.count("does not depend on any axioms")!=count:
+                raise RuntimeError(f"{split}: axiom audit count mismatch\n"+p.stdout[-6000:])
+              receipt["by_split"][split]={"theorems":count,"axiom_free":count,
+                "source_sha256":hashlib.sha256(original.read_bytes()).hexdigest()}
+              receipt["kernel_checked"]+=count
+            assert receipt["kernel_checked"]==192
+            receipt["axiom_free"]=True
+          finally:
+            (root/"kernel_audit_receipt.json").write_text(json.dumps(receipt,sort_keys=True,indent=2)+"\n")
+          print("BPD-LG-01 KERNEL:",json.dumps(receipt,sort_keys=True))
+          PY
+      - name: Archive generated sources and independent kernel receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bpd-lg01-kernel-pinned-${{ github.run_id }}
+          path: /tmp/bpd-lg01/
+          retention-days: 30
+          if-no-files-found: warn
