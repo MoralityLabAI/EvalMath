@@ -82,11 +82,22 @@ def test_closed_eval_to_mechanism_loop_improves_sealed_family() -> None:
     assert report["oracle"]["disagreements"]==0
     assert report["counts"]=={"train_graphs":192,
                                "sealed_fourth_family":16,
-                               "active_training_records":384}
+                               "active_training_records":384,
+                               "passive_training_records":384,
+                               "interchange_training_records":384}
     assert set(report["selected_interventions"]["chosen_roles"])=={"cue_only","graph_only"}
     scores=report["accuracy"]
     assert scores["pretrained_confounded"] <= 0.25
     assert scores["passive_equal_updates"] <= 0.5
     assert scores["active_eval_contrasts"] >= 0.875
+    assert scores["input_augmentation_control"] >= 0.875
+    assert report["trained_interchange_component"] == 1
+    before = {x["role"]: x["signed_effects"] for x in report["observed_probe_effects"]}
+    after = {x["role"]: x["signed_effects"] for x in report["post_training_probe_effects"]}
+    # The supervised head learns to use verified graph evidence and suppress
+    # the nuisance channel. This is a planted-circuit recovery observation.
+    assert abs(after["cue_only"][1]) < abs(before["cue_only"][1])
+    assert abs(after["graph_only"][0]) > abs(before["graph_only"][0])
+
     assert scores["active_eval_contrasts"] > scores["passive_equal_updates"]+0.3
     assert abs(report["readout_weights"]["active"][0]) > abs(report["readout_weights"]["active"][1])
