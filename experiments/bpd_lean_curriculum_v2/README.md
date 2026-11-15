@@ -1,6 +1,6 @@
 # BPD-LG-02: independent structural audit and repair of the Lean curriculum
 
-**Status, 2026-11-15:** generator, finite-model checker, split audit, and seven independent CPU tests pass locally. Generated Lean proof and refutation scripts **require an independent Lean kernel check**. No neural training, BPD decomposition, or capability result is asserted.
+**Status, 2026-11-15:** generator, finite-model checker, split audit, and seven independent CPU tests passed. [Independent Lean 4.19.0 replay](https://github.com/MoralityLabAI/EvalMath/actions/runs/43705790859) kernel-checked **192 positive proofs and 192 negative refutations**, with **384 empty axiom inventories**. See [KERNEL_AUDIT.md](KERNEL_AUDIT.md) for source hashes and claim boundaries. No neural training, BPD decomposition, or capability result is asserted.
 
 ## Why this exists
 
