@@ -3,7 +3,7 @@
 This is an executable, bounded prototype connecting EvalMath's mechanism
 separation theory to the reviewed BPD implementation in this repository.
 
-**Result (CPU, 2026-11-15):** six unit tests passed. Independent graph
+**Result (CPU, 2026-11-15):** seven unit tests passed. Independent graph
 closure reproduced all 384 host labels in BPD-LG-02. A deliberately
 confounded two-component looped toy scored 0/16 on a fourth-family
 cue-conflict development set following passive training, and 16/16 after
