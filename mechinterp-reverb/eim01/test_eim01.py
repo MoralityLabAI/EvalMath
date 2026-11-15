@@ -77,6 +77,30 @@ def test_actual_bpd_swap_is_component_specific() -> None:
     assert cert["rank"]==2 and cert["sigma_min"]>0.005
 
 
+def test_joint_bpd_swaps_match_sum_of_singles_in_planted_linear_reference() -> None:
+    """Calibrate interaction readout on the known linear two-channel reference.
+
+    Actual learned neural models need a new heldout joint-ablation test:
+    additivity here follows from the planted network and is not general.
+    """
+    from eim01.gym import PASSES, batch, clean_capture
+    torch.manual_seed(61017)
+    target, bpd = planted_bpd()
+    recipient, donor, role = select_probe_pairs(source_cases())[0]
+    single = signed_swap_row(target, bpd, recipient, donor, role)
+    clean = clean_capture(target, bpd, [recipient])
+    donor_clean = clean_capture(target, bpd, [donor])
+    graph, goals, cue, _ = batch([recipient])
+    t = PASSES-2
+    both = donor_clean.module_inputs["core"][:, t].float() @ bpd.wrappers["core"].V[:, :2]
+    with bpd.intervene("core", (0, 1), passes={t}, mode="swap_acts",
+                       donor_acts=both):
+        changed, _ = target.rollout(graph, goals, cue)
+    observed = float((clean.readouts[t+1][0, 0, 1] -
+                      changed[t+1][0, 0, 1]).detach().item())
+    assert observed == pytest.approx(sum(single.signed_effects), abs=5e-6)
+
+
 def test_closed_eval_to_mechanism_loop_improves_sealed_family() -> None:
     report=run_campaign()
     assert report["oracle"]["disagreements"]==0
