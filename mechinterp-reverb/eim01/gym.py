@@ -360,7 +360,7 @@ def run_campaign() -> dict:
     geometry = [measure_pre_readout_geometry(target, bpd, x, y, row)
                 for (x, y, _), row in zip(controls, effects)]
     aligned_only = two_column_certificate(
-        [tuple(g.transport * q for q in geometry[0].activation_deltas)])
+        [tuple(geometry[0].transport * q for q in geometry[0].activation_deltas)])
     design = select_geometry_basis(geometry, budget=2)
     response_design = select_identifying_evals(effects, budget=2)
     linear_residuals = check_joint_linear_response(
