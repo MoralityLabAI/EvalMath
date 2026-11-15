@@ -234,6 +234,46 @@ def train_readout(target: PlantedGraphRelay, bpd: BPDModel,
     return losses
 
 
+def train_interchange_readout(target: PlantedGraphRelay, bpd: BPDModel,
+                              examples: list[GraphEval], *, component: int,
+                              updates: int = 90, lr: float = .09) -> list[float]:
+    """Interchange intervention training from a selected causal eval family.
+
+    Independently capture a counterfactual source with identical proof graph
+    and flipped cue. On each update train against BOTH ordinary and *all-pass*
+    internal donor swaps at the selected BPD factor, while preserving the
+    verified graph label. This is a genuine differentiable counterfactual
+    rollout through the BPD wrapper, not merely a text-level augmented input.
+    Factors remain planted/frozen; only the readout routing weights learn.
+    """
+    if component not in (0, 1):
+        raise ValueError("Only planted factor indices 0/1 supported")
+    graph, goals, cue, labels = batch(examples)
+    with torch.no_grad():
+        with bpd.target_capture():
+            target.rollout(graph, goals, 1.-cue)
+        donor_x = bpd.collect_recorded_inputs(expected_passes=PASSES)["core"]
+        v = bpd.wrappers["core"].V[:, component:component+1].detach()
+        donor = donor_x.float() @ v
+        if donor.shape != (len(examples), PASSES, 1, 1):
+            raise AssertionError("Unexpected source activation schedule shape")
+    opt = torch.optim.Adam((target.mix, target.bias), lr=lr)
+    losses = []
+    for _ in range(updates):
+        opt.zero_grad()
+        bpd.reset_wrappers()
+        clean_ro, _ = target.rollout(graph, goals, cue)
+        with bpd.intervene("core", component, passes=None,
+                           mode="swap_acts", donor_acts=donor):
+            swapped_ro, _ = target.rollout(graph, goals, cue)
+        loss = .5 * (F.cross_entropy(clean_ro[PASSES-1].squeeze(1), labels)
+                     + F.cross_entropy(swapped_ro[PASSES-1].squeeze(1), labels))
+        loss.backward()
+        opt.step()
+        losses.append(float(loss.detach().item()))
+    return losses
+
+
 @torch.no_grad()
 def evaluate_accuracy(target: PlantedGraphRelay, bpd: BPDModel,
                       examples: list[GraphEval]) -> float:
@@ -276,40 +316,69 @@ def run_campaign() -> dict:
                               if "cue_only" in selected_roles else [])
     if "cue_only" not in selected_roles:
         raise AssertionError("Selecting no cue-conflict arm would not test shortcut rejection")
+    cue_row = next(r for r in effects if r.role == "cue_only")
+    observed_cue_component = max(range(2), key=lambda c: abs(cue_row.signed_effects[c]))
+    if abs(cue_row.signed_effects[observed_cue_component]) <= 1e-5:
+        raise AssertionError("Causal component not observed in donor swap")
     saved_mix = target.mix.detach().clone()
     saved_bias = target.bias.detach().clone()
-    # Cost/updates matched passive continuation, with the same source cases.
-    baseline_losses = train_readout(target, bpd, train, updates=90, lr=.09)
+    # Each arm processes 384 item-passes per pass step and 90 steps, with the
+    # same frozen starting head. The passive arm repeats natural items.
+    baseline_losses = train_readout(target, bpd, train + train, updates=90, lr=.09)
     passive_test = evaluate_accuracy(target, bpd, holdout)
     passive_mix = [float(x) for x in target.mix.detach()]
     with torch.no_grad():
         target.mix.copy_(saved_mix)
         target.bias.copy_(saved_bias)
-    active_losses = train_readout(target, bpd, contrast_train, updates=90, lr=.09)
+    # Input-level cue-conflict augmentation is an essential control:
+    # in this planted toy, it can recover the same semantic behavior.
+    augmentation_losses = train_readout(target, bpd, contrast_train,
+                                        updates=90, lr=.09)
+    augmented_test = evaluate_accuracy(target, bpd, holdout)
+    augmented_mix = [float(x) for x in target.mix.detach()]
+    with torch.no_grad():
+        target.mix.copy_(saved_mix)
+        target.bias.copy_(saved_bias)
+    # Primary arm: the eval-selected BPD factor is actually swapped during
+    # optimizer updates, and the host-verified graph label is the target.
+    active_losses = train_interchange_readout(target, bpd, train,
+                                              component=observed_cue_component,
+                                              updates=90, lr=.09)
     active_test = evaluate_accuracy(target, bpd, holdout)
     active_mix = [float(x) for x in target.mix.detach()]
+    post_effects = [signed_swap_row(target, bpd, x, y, role)
+                    for x, y, role in controls]
     return {
         "schema": "EIM-01-v1",
         "source": "EvalMath BPD-LG-02 synthetic Lean source and host-only labels",
         "oracle": oracle,
         "counts": {"train_graphs": len(train), "sealed_fourth_family": len(holdout),
-                   "active_training_records": len(contrast_train)},
+                   "active_training_records": len(contrast_train),
+                   "passive_training_records": 2*len(train),
+                   "interchange_training_records": 2*len(train)},
         "observed_probe_effects": [
             {"role": row.role, "signed_effects": list(row.signed_effects),
              "case_id": row.case_id, "donor_id": row.donor_id,
              "pass": row.intervention_pass, "next_readout": row.next_readout,
              "source_hash": row.origin_hash, "donor_hash": row.donor_hash}
             for row in effects],
+        "post_training_probe_effects": [
+            {"role": row.role, "signed_effects": list(row.signed_effects)}
+            for row in post_effects],
+        "trained_interchange_component": observed_cue_component,
         "aligned_observability": aligned_only,
         "selected_interventions": design,
         "accuracy": {"pretrained_confounded": baseline_test,
                      "passive_equal_updates": passive_test,
+                     "input_augmentation_control": augmented_test,
                      "active_eval_contrasts": active_test},
-        "readout_weights": {"passive": passive_mix, "active": active_mix},
+        "readout_weights": {"passive": passive_mix, "input_aug": augmented_mix,
+                            "active": active_mix},
         "losses": {"pretrain_last": pretrain[-1],
                    "passive_last": baseline_losses[-1],
+                   "input_aug_last": augmentation_losses[-1],
                    "active_last": active_losses[-1]},
-        "claim_boundary": "Planted two-channel toy with supervised head only; no learned BPD dictionary, no unseen natural Lean proofs, no proof improvement",
+        "claim_boundary": "Planted two-channel toy, supervised readout only; intervention training and input augmentation may be equivalent; fourth-family test reused during development, not fresh independent confirmation",
     }
 
 
