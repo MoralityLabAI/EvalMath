@@ -44,27 +44,54 @@ class ROC01EvaluatorTest(unittest.TestCase):
 
     def test_valid_complete_card_gates(self):
         c={k:0.0 for k in ("A_normalized","B_normalized",
-                           "C_normalized","s_causal","task_mse")}
+                           "C_normalized","s_causal","task_mse","D_frob","H_trace")}
+        c["H_trace"]=1.0
         passed=audit_observer_card(c,random_count=128,
+                 distinct_random_bases=128,per_state_rows_public=True,
                  task_only_equal_budget=True,
                  every_intervention_norm_matched=True,
                  output_declared=True)
         self.assertTrue(passed["complete"])
         insufficient=audit_observer_card(c,random_count=8,
+                 distinct_random_bases=8,per_state_rows_public=True,
                  task_only_equal_budget=True,
                  every_intervention_norm_matched=True,
                  output_declared=True)
         self.assertFalse(insufficient["complete"])
         self.assertFalse(insufficient["random_rank_valid"])
         missing=audit_observer_card({k:None for k in c},
-                 random_count=128,task_only_equal_budget=True,
+                 random_count=128,distinct_random_bases=128,
+                 per_state_rows_public=True,task_only_equal_budget=True,
                  every_intervention_norm_matched=True,output_declared=True)
         self.assertFalse(missing["complete"])
-        self.assertEqual(len(missing["missing_metrics"]),5)
+        self.assertEqual(len(missing["missing_metrics"]),7)
+        blank={**c,"B_normalized":""}
+        self.assertIn("B_normalized",audit_observer_card(
+            blank,random_count=128,distinct_random_bases=128,
+            per_state_rows_public=True,task_only_equal_budget=True,
+            every_intervention_norm_matched=True,
+            output_declared=True)["missing_metrics"])
+        self.assertFalse(audit_observer_card(
+            c,random_count=128,distinct_random_bases=1,
+            per_state_rows_public=True,task_only_equal_budget=True,
+            every_intervention_norm_matched=True,output_declared=True)["complete"])
+        self.assertFalse(audit_observer_card(
+            c,random_count=128,distinct_random_bases=128,
+            per_state_rows_public=False,task_only_equal_budget=True,
+            every_intervention_norm_matched=True,output_declared=True)["complete"])
 
     def test_unmeasured_missing_controls_not_promoted(self):
         rows=[arm(k,v,measured=True,norm=True) for k,v in IDEAL_TABLE.items()]
-        self.assertTrue(identify_types(rows)["causal_identification_ready"])
+        self.assertTrue(identify_types(rows)["finite_intervention_separation_ready"])
+        self.assertFalse(identify_types(rows)["causal_identification_ready"])
+        c={k:0.0 for k in ("A_normalized","B_normalized",
+                           "C_normalized","s_causal","task_mse","D_frob","H_trace")}
+        c["H_trace"]=1.0
+        audit=audit_observer_card(
+            c,random_count=128,distinct_random_bases=128,
+            per_state_rows_public=True,task_only_equal_budget=True,
+            every_intervention_norm_matched=True,output_declared=True)
+        self.assertTrue(identify_types(rows,card_audit=audit)["causal_identification_ready"])
         changed=rows[:2]+[arm("freeze_U",IDEAL_TABLE["freeze_U"],norm=False,
                               measured=True)]+rows[3:]
         self.assertFalse(identify_types(changed)["causal_identification_ready"])
