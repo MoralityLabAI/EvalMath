@@ -1,5 +1,11 @@
 """ROC-01 EvalMath T1 bridge tests from a publicly pinned MathCan card schema."""
 import unittest
+from pathlib import Path
+import sys
+
+# Repository-wide installed-package pytest excludes the source root.
+# Make the public source-only review package importable in that job.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from research.observer_calculus.roc01_evaluator import (
     IDEAL_TABLE, InterventionObservation, identify_types, idealized_example,
