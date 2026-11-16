@@ -1,0 +1,46 @@
+name: srb01-exact-bridge
+
+on:
+  push:
+    paths:
+      - "src/spiral_ln/evaluation_systemic_risk.py"
+      - "tests/test_evaluation_systemic_risk.py"
+      - "scripts/verify_evaluation_systemic_risk.py"
+      - "scripts/score_systemic_risk.py"
+      - "paper/systemic_risk_evalmath.md"
+      - "fixtures/systemic_risk_evalmath/**"
+      - "output/evaluation_systemic_risk/**"
+      - "scripts/check_receipts.py"
+      - ".github/workflows/srb01.yml"
+  pull_request:
+    paths:
+      - "src/spiral_ln/evaluation_systemic_risk.py"
+      - "tests/test_evaluation_systemic_risk.py"
+      - "scripts/verify_evaluation_systemic_risk.py"
+      - "scripts/score_systemic_risk.py"
+      - "paper/systemic_risk_evalmath.md"
+      - "fixtures/systemic_risk_evalmath/**"
+      - "output/evaluation_systemic_risk/**"
+      - "scripts/check_receipts.py"
+      - ".github/workflows/srb01.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-synthetic-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install EvalMath
+        run: python -m pip install -e ".[test]"
+      - name: Exact unit tests
+        run: python -m pytest -q tests/test_evaluation_systemic_risk.py
+      - name: Regenerate source-hashed synthetic receipt
+        run: python scripts/check_receipts.py --only systemic_risk
+      - name: Score fixture through public CLI
+        run: |
+          PYTHONPATH=src python scripts/score_systemic_risk.py --input fixtures/systemic_risk_evalmath/synthetic_two_worlds.json > /tmp/srb01_scored.json
+          python -c 'import json; d=json.load(open("/tmp/srb01_scored.json")); assert d["metrics"]["unobservable_regret"] == "4"'
