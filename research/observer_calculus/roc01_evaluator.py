@@ -159,9 +159,9 @@ def audit_observer_card(card: Mapping, *, random_count:int,
                 and type(penalty) in (int,float) and isfinite(penalty)
                 and penalty>=0 and type(card.get("B_normalized")) in (int,float)):
             p_ok=all(
-                type(raw[k]) in (int,float) and isfinite(raw[k])
-                and 0<=raw[k]<=adj[k]<=1 and type(adj[k]) in (int,float)
-                and isfinite(adj[k]) for k in directions
+                type(raw[k]) in (int,float) and type(adj[k]) in (int,float)
+                and isfinite(raw[k]) and isfinite(adj[k])
+                and 0<=raw[k]<=adj[k]<=1 for k in directions
             )
             expected=(card["B_normalized"]/med["B_normalized"])**2
             null_ok=bool(p_ok and isfinite(expected)
