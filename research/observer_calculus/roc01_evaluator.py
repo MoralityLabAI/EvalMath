@@ -6,7 +6,7 @@ it applies BPD-01's exact minimum-cost pair-separating cover, and refuses
 a causal-confirmation flag when important measurement controls are absent.
 
 Idealized tables are tutorial fixtures, not neural experiments.
-Source pin: patrickdugan/MathCan@9ef4328e461d906fdfc0653467520a72d1a34982
+Source pin: patrickdugan/MathCan@37bbac210c175ccb98e0ff0d4aa8bdd2be0764e6
 """
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ from spiral_ln.evaluation_bpd import (
     identify_hypothesis, NO_HYPOTHESIS_FITS,
 )
 
-MATHCAN_SOURCE="9ef4328e461d906fdfc0653467520a72d1a34982"
+MATHCAN_SOURCE="37bbac210c175ccb98e0ff0d4aa8bdd2be0764e6"
 REQUIRED_METRICS=("A_normalized","B_normalized","C_normalized",
                   "s_causal","task_mse","D_frob","H_trace")
 ALLOWED_ARMS=("dark_to_observed","observed_to_dark",
