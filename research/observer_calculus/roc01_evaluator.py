@@ -1,0 +1,134 @@
+"""ROC-01: an EvalMath validation interface for the public MathCan card.
+
+The physical card is calculated in MathCan from T, U and output Jacobians.
+EvalMath only scores the *declared* categorical intervention predictions:
+it applies BPD-01's exact minimum-cost pair-separating cover, and refuses
+a causal-confirmation flag when important measurement controls are absent.
+
+Idealized tables are tutorial fixtures, not neural experiments.
+Source pin: patrickdugan/MathCan@ed3d98a00068d17147c47272503d44ecd5c1bff6
+"""
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Mapping, Sequence
+
+from spiral_ln.evaluation_bpd import (
+    Probe, coverage, minimum_batch, adaptive_worst_cost,
+    identify_hypothesis, NO_HYPOTHESIS_FITS,
+)
+
+MATHCAN_SOURCE="ed3d98a00068d17147c47272503d44ecd5c1bff6"
+REQUIRED_METRICS=("A_normalized","B_normalized","C_normalized",
+                  "s_causal","task_mse")
+ALLOWED_ARMS=("dark_to_observed","observed_to_dark",
+              "freeze_U","ablate_readout")
+
+
+@dataclass(frozen=True)
+class InterventionObservation:
+    name: str
+    outcomes: tuple[int, ...]
+    cost: int
+    routed: bool
+    measured: bool
+    checkpoint_sha256: str
+    observer_sha256: str
+    next_readout: int
+    intervention_pass: int
+    norm_matched_random: bool
+
+    def __post_init__(self):
+        if (self.name not in ALLOWED_ARMS
+                or len(self.outcomes)<2
+                or any(type(x) is not int or x<0 for x in self.outcomes)
+                or type(self.cost) is not int or self.cost<1
+                or type(self.routed) is not bool
+                or type(self.measured) is not bool
+                or type(self.norm_matched_random) is not bool
+                or not self.checkpoint_sha256 or not self.observer_sha256
+                or type(self.intervention_pass) is not int
+                or type(self.next_readout) is not int
+                or self.intervention_pass<0
+                or self.next_readout<=self.intervention_pass):
+            raise ValueError("Malformed source-bound ROC intervention")
+
+
+def identify_types(rows: Sequence[InterventionObservation],
+                   realized: Mapping[str,int|None]|None=None) -> dict:
+    if not rows: raise ValueError("Nonempty mechanism arms required")
+    if len({r.name for r in rows})!=len(rows):
+        raise ValueError("Duplicate intervention names")
+    checkpoint={r.checkpoint_sha256 for r in rows}
+    observers={r.observer_sha256 for r in rows}
+    times={(r.intervention_pass,r.next_readout) for r in rows}
+    if len(checkpoint)!=1 or len(observers)!=1 or len(times)!=1:
+        raise ValueError("Source, observer and clock must stay frozen across probes")
+    if len({len(x.outcomes) for x in rows})!=1:
+        raise ValueError("Mechanism hypothesis family must be fixed")
+    probes=tuple(Probe(r.name,r.outcomes,r.cost,r.routed) for r in rows)
+    cov=coverage(probes)
+    minset=minimum_batch(probes)
+    result={
+        "source_mathcan_sha":MATHCAN_SOURCE,
+        "covered_pairs":cov["separated_pairs"],
+        "unresolved_pairs":cov["unresolved_pairs"],
+        "equivalence_classes":cov["equivalence_classes"],
+        "min_cost":minset[0] if minset is not None else None,
+        "min_arms":list(minset[1]) if minset is not None else None,
+        "adaptive_worst_cost":adaptive_worst_cost(probes),
+        "measured":all(r.measured for r in rows),
+        "all_norm_matched":all(r.norm_matched_random for r in rows),
+        "intervention_arms_complete":set(r.name for r in rows)==set(ALLOWED_ARMS),
+    }
+    result["causal_identification_ready"]=(
+        bool(result["measured"] and result["all_norm_matched"]
+             and result["intervention_arms_complete"]
+             and not result["unresolved_pairs"]))
+    if realized is not None:
+        result["realized"]=identify_hypothesis(probes,realized)
+    return result
+
+
+def audit_observer_card(card: Mapping, *, random_count:int,
+                        task_only_equal_budget:bool,
+                        every_intervention_norm_matched:bool,
+                        output_declared:bool) -> dict:
+    """Hard missingness gate for the five ROC quantitative columns.
+
+    A partial NRF v0.4 card has no measured H, full D norm or state MSE.
+    It remains incomplete even if source algebra can be replayed.
+    """
+    absent=[key for key in REQUIRED_METRICS
+            if key not in card or card[key] is None]
+    required=(random_count>=100
+              and task_only_equal_budget
+              and every_intervention_norm_matched and output_declared
+              and not absent)
+    return {"source_mathcan_sha":MATHCAN_SOURCE,
+            "complete":bool(required),"missing_metrics":absent,
+            "random_count":random_count,
+            "random_rank_valid":random_count>=100,
+            "task_only_equal_budget":task_only_equal_budget,
+            "norm_matched_interventions":every_intervention_norm_matched,
+            "output_declared":output_declared}
+
+
+IDEAL_TABLE={
+    "dark_to_observed":(0,1,0,1,0),
+    "observed_to_dark":(1,0,1,0,0),
+    "freeze_U":(1,1,0,0,0),
+    "ablate_readout":(1,1,1,1,0),
+}
+IDEAL_LABELS=("closed_quotient","invariant_driver",
+              "latched_memory","output_register","irrelevant")
+
+
+def idealized_example()->dict:
+    rows=[InterventionObservation(
+        name,tuple(outcome),1,True,False,"synthetic","synthetic",2,1,False)
+          for name,outcome in IDEAL_TABLE.items()]
+    out=identify_types(rows)
+    out["source_type"]="hypothetical_finite_signatures_not_neural_evidence"
+    out["mechanism_labels"]=IDEAL_LABELS
+    return out
