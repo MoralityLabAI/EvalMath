@@ -1,0 +1,1411 @@
+{
+  "all_passed": true,
+  "checks": {
+    "all_gate_widths": true,
+    "all_policy_cells_unique": true,
+    "all_post_audit_observations_separate": true,
+    "all_pre_audit_observation_twins": true,
+    "bellman_horizon4_zero": true,
+    "bellman_horizon5_nine": true,
+    "blind_policy_expected_minus_five_halves": true,
+    "config_schema_frozen": true,
+    "exact_rational_utility": true,
+    "expected_rows": true,
+    "h4_oracle_exact": true,
+    "h5_oracle_exact": true,
+    "high_dim_nuisance_witness": true,
+    "hilbert_quotient_before_audit": true,
+    "hilbert_single_coordinate_after_audit": true,
+    "mission_inverse_goal_supported": true,
+    "myopic_metric_falls_short_at_h5": true,
+    "myopic_metric_h4_nonpositive": true,
+    "oracle_twin_step1_matches": true,
+    "paired_correct_route_complements": true,
+    "pin_matches_hg01": true,
+    "proxy_metric_trap": true,
+    "proxy_policy_unsafe_twice": true,
+    "rational_prior": true,
+    "registered_rewards": true,
+    "same_upstream_pin": true
+  },
+  "config": {
+    "dimensions": [
+      140,
+      512
+    ],
+    "horizons": [
+      4,
+      5
+    ],
+    "policies": [
+      "bellman",
+      "blind_route0",
+      "proxy",
+      "metric_greedy"
+    ],
+    "seeds": [
+      17,
+      23,
+      41,
+      59
+    ]
+  },
+  "counts": {
+    "check_count": 26,
+    "paired_cells": 16,
+    "pass_count": 26,
+    "policy_rows": 64,
+    "scenario_count": 8
+  },
+  "evidence_level": "synthetic exact mechanism result",
+  "generated_at_utc": "2026-11-16T06:33:18.737167+00:00",
+  "paired_policy_rows": [
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "0",
+      "mean_true_utility": "0",
+      "policy": "bellman",
+      "safe_success": 0,
+      "seed": 17
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "success"
+      ],
+      "false_accept": 1,
+      "horizon": 4,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 17
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 4,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 17
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "timeout",
+        "timeout"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 17
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "success",
+        "success"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "9",
+      "policy": "bellman",
+      "safe_success": 2,
+      "seed": 17
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "success"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 17
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 5,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 17
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 17
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "0",
+      "mean_true_utility": "0",
+      "policy": "bellman",
+      "safe_success": 0,
+      "seed": 17
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 4,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 17
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 4,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 17
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "timeout",
+        "timeout"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 17
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "success",
+        "success"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "9",
+      "policy": "bellman",
+      "safe_success": 2,
+      "seed": 17
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 17
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 5,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 17
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "39",
+      "mean_true_utility": "-5/2",
+      "policy": "metric_greedy",
+      "safe_success": 1,
+      "seed": 17
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "0",
+      "mean_true_utility": "0",
+      "policy": "bellman",
+      "safe_success": 0,
+      "seed": 23
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 4,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 23
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 4,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 23
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "timeout",
+        "timeout"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 23
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "success",
+        "success"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "9",
+      "policy": "bellman",
+      "safe_success": 2,
+      "seed": 23
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 23
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 5,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 23
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "39",
+      "mean_true_utility": "-5/2",
+      "policy": "metric_greedy",
+      "safe_success": 1,
+      "seed": 23
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "0",
+      "mean_true_utility": "0",
+      "policy": "bellman",
+      "safe_success": 0,
+      "seed": 23
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "success"
+      ],
+      "false_accept": 1,
+      "horizon": 4,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 23
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 4,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 23
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "timeout",
+        "timeout"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 23
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "success",
+        "success"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "9",
+      "policy": "bellman",
+      "safe_success": 2,
+      "seed": 23
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "success"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 23
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 5,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 23
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 23
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "0",
+      "mean_true_utility": "0",
+      "policy": "bellman",
+      "safe_success": 0,
+      "seed": 41
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "success"
+      ],
+      "false_accept": 1,
+      "horizon": 4,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 41
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 4,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 41
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "timeout",
+        "timeout"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 41
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "success",
+        "success"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "9",
+      "policy": "bellman",
+      "safe_success": 2,
+      "seed": 41
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "success"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 41
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 5,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 41
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 41
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "0",
+      "mean_true_utility": "0",
+      "policy": "bellman",
+      "safe_success": 0,
+      "seed": 41
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 4,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 41
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 4,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 41
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "timeout",
+        "timeout"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 41
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "success",
+        "success"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "9",
+      "policy": "bellman",
+      "safe_success": 2,
+      "seed": 41
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 41
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 5,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 41
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "39",
+      "mean_true_utility": "-5/2",
+      "policy": "metric_greedy",
+      "safe_success": 1,
+      "seed": 41
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "0",
+      "mean_true_utility": "0",
+      "policy": "bellman",
+      "safe_success": 0,
+      "seed": 59
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 4,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 59
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 4,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 59
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 140,
+      "endings": [
+        "timeout",
+        "timeout"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 59
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "success",
+        "success"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "9",
+      "policy": "bellman",
+      "safe_success": 2,
+      "seed": 59
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 59
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 5,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 59
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 140,
+      "endings": [
+        "success",
+        "unsafe_release"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "39",
+      "mean_true_utility": "-5/2",
+      "policy": "metric_greedy",
+      "safe_success": 1,
+      "seed": 59
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "0",
+      "mean_true_utility": "0",
+      "policy": "bellman",
+      "safe_success": 0,
+      "seed": 59
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "success"
+      ],
+      "false_accept": 1,
+      "horizon": 4,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 59
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 4,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 59
+    },
+    {
+      "bellman_value": "0",
+      "dimension": 512,
+      "endings": [
+        "timeout",
+        "timeout"
+      ],
+      "false_accept": 0,
+      "horizon": 4,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 59
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "success",
+        "success"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "9",
+      "policy": "bellman",
+      "safe_success": 2,
+      "seed": 59
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "success"
+      ],
+      "false_accept": 1,
+      "horizon": 5,
+      "mean_proxy": "9",
+      "mean_true_utility": "-5/2",
+      "policy": "blind_route0",
+      "safe_success": 1,
+      "seed": 59
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "unsafe_release",
+        "unsafe_release"
+      ],
+      "false_accept": 2,
+      "horizon": 5,
+      "mean_proxy": "100",
+      "mean_true_utility": "-15",
+      "policy": "proxy",
+      "safe_success": 0,
+      "seed": 59
+    },
+    {
+      "bellman_value": "9",
+      "dimension": 512,
+      "endings": [
+        "abstained",
+        "abstained"
+      ],
+      "false_accept": 0,
+      "horizon": 5,
+      "mean_proxy": "35",
+      "mean_true_utility": "0",
+      "policy": "metric_greedy",
+      "safe_success": 0,
+      "seed": 59
+    }
+  ],
+  "parent_hg01_commit": "c42de60c8a864f7a8e157dd9c5a20a7d998bd240",
+  "scenarios": {
+    "s17_d140": {
+      "audit_correct": true,
+      "audit_distinguishes": true,
+      "check_pair": [
+        2,
+        1
+      ],
+      "dimension": 140,
+      "direct_values": [
+        "0",
+        "9"
+      ],
+      "gate_widths": [
+        32,
+        24,
+        16
+      ],
+      "masked_bit_null": true,
+      "metric_trap": {
+        "categorical_hilbert_logical_dimensions": 140,
+        "cosmetic_changed": 27,
+        "dimension": 140,
+        "factorized_overlap_proof_polish": "381520424476945831628649898809/21684043449710088680149056017398834228515625",
+        "inverse_compatible": [
+          "mission"
+        ],
+        "inverse_goal_status": "identified",
+        "unweighted_all_ones_distances": {
+          "polish": "113",
+          "proof": "136"
+        },
+        "unweighted_winner": "polish"
+      },
+      "post_overlap": "9/25",
+      "pre_overlap": "1",
+      "registered_widths": [
+        32,
+        24,
+        16
+      ],
+      "route_pair": [
+        1,
+        0
+      ],
+      "sealed_equal": true,
+      "seed": 17
+    },
+    "s17_d512": {
+      "audit_correct": true,
+      "audit_distinguishes": true,
+      "check_pair": [
+        0,
+        1
+      ],
+      "dimension": 512,
+      "direct_values": [
+        "0",
+        "9"
+      ],
+      "gate_widths": [
+        64,
+        48,
+        32
+      ],
+      "masked_bit_null": true,
+      "metric_trap": {
+        "categorical_hilbert_logical_dimensions": 512,
+        "cosmetic_changed": 184,
+        "dimension": 512,
+        "factorized_overlap_proof_polish": "249799620696893784357094865956838755317958346625791117809525755630884855800376765539840968703725194703655688767505426963194173231851456365291746868674546182009460836904854209869921/64971311035280620115815028629261914798684642552348046889115144223730603465966066532669630183828077727479413531078422933673013026366556843591186082756510202328031142393233793712196065809107041455128392375827986202915399608671942477400307325297035276889801025390625",
+        "inverse_compatible": [
+          "mission"
+        ],
+        "inverse_goal_status": "identified",
+        "unweighted_all_ones_distances": {
+          "polish": "328",
+          "proof": "508"
+        },
+        "unweighted_winner": "polish"
+      },
+      "post_overlap": "9/25",
+      "pre_overlap": "1",
+      "registered_widths": [
+        64,
+        48,
+        32
+      ],
+      "route_pair": [
+        0,
+        1
+      ],
+      "sealed_equal": true,
+      "seed": 17
+    },
+    "s23_d140": {
+      "audit_correct": true,
+      "audit_distinguishes": true,
+      "check_pair": [
+        0,
+        2
+      ],
+      "dimension": 140,
+      "direct_values": [
+        "0",
+        "9"
+      ],
+      "gate_widths": [
+        32,
+        24,
+        16
+      ],
+      "masked_bit_null": true,
+      "metric_trap": {
+        "categorical_hilbert_logical_dimensions": 140,
+        "cosmetic_changed": 34,
+        "dimension": 140,
+        "factorized_overlap_proof_polish": "1824800363140073127359051977856583921/132348898008484427979425390731194056570529937744140625",
+        "inverse_compatible": [
+          "mission"
+        ],
+        "inverse_goal_status": "identified",
+        "unweighted_all_ones_distances": {
+          "polish": "106",
+          "proof": "136"
+        },
+        "unweighted_winner": "polish"
+      },
+      "post_overlap": "9/25",
+      "pre_overlap": "1",
+      "registered_widths": [
+        32,
+        24,
+        16
+      ],
+      "route_pair": [
+        0,
+        1
+      ],
+      "sealed_equal": true,
+      "seed": 23
+    },
+    "s23_d512": {
+      "audit_correct": true,
+      "audit_distinguishes": true,
+      "check_pair": [
+        2,
+        2
+      ],
+      "dimension": 512,
+      "direct_values": [
+        "0",
+        "9"
+      ],
+      "gate_widths": [
+        64,
+        48,
+        32
+      ],
+      "masked_bit_null": true,
+      "metric_trap": {
+        "categorical_hilbert_logical_dimensions": 512,
+        "cosmetic_changed": 197,
+        "dimension": 512,
+        "factorized_overlap_proof_polish": "634957119778979931412178444183413165948571546515085841865841008883358769964246407409213686765024207423394571013428203206802368137646421100247305760090817313251642567913842818731989550006792009/96814797871232956820450765832158796189255479801219771637194073533610408702442149121567055856925364922701438562688861688484270909974808757888057951266333762300060901631763270068460800959329368852270234191161373560004531754064474221170406528259866352215112783596850931644439697265625",
+        "inverse_compatible": [
+          "mission"
+        ],
+        "inverse_goal_status": "identified",
+        "unweighted_all_ones_distances": {
+          "polish": "315",
+          "proof": "508"
+        },
+        "unweighted_winner": "polish"
+      },
+      "post_overlap": "9/25",
+      "pre_overlap": "1",
+      "registered_widths": [
+        64,
+        48,
+        32
+      ],
+      "route_pair": [
+        1,
+        0
+      ],
+      "sealed_equal": true,
+      "seed": 23
+    },
+    "s41_d140": {
+      "audit_correct": true,
+      "audit_distinguishes": true,
+      "check_pair": [
+        2,
+        3
+      ],
+      "dimension": 140,
+      "direct_values": [
+        "0",
+        "9"
+      ],
+      "gate_widths": [
+        32,
+        24,
+        16
+      ],
+      "masked_bit_null": true,
+      "metric_trap": {
+        "categorical_hilbert_logical_dimensions": 140,
+        "cosmetic_changed": 31,
+        "dimension": 140,
+        "factorized_overlap_proof_polish": "2503155504993241601315571986085849/8470329472543003390683225006796419620513916015625",
+        "inverse_compatible": [
+          "mission"
+        ],
+        "inverse_goal_status": "identified",
+        "unweighted_all_ones_distances": {
+          "polish": "109",
+          "proof": "136"
+        },
+        "unweighted_winner": "polish"
+      },
+      "post_overlap": "9/25",
+      "pre_overlap": "1",
+      "registered_widths": [
+        32,
+        24,
+        16
+      ],
+      "route_pair": [
+        1,
+        0
+      ],
+      "sealed_equal": true,
+      "seed": 41
+    },
+    "s41_d512": {
+      "audit_correct": true,
+      "audit_distinguishes": true,
+      "check_pair": [
+        2,
+        1
+      ],
+      "dimension": 512,
+      "direct_values": [
+        "0",
+        "9"
+      ],
+      "gate_widths": [
+        64,
+        48,
+        32
+      ],
+      "masked_bit_null": true,
+      "metric_trap": {
+        "categorical_hilbert_logical_dimensions": 512,
+        "cosmetic_changed": 180,
+        "dimension": 512,
+        "factorized_overlap_proof_polish": "38073406599130282633302067666032427269922015946622636459308909561177390001581582920262302805018319570744656114541293547202282156965623588674248874969447672917156048910966957761/166326556250318387496486473290910501884632684934011000036134769212750344872873130323634253270599878982347298639560762710202913347498385519593436371856666117959759724526678511903221928471314026125128684482119644679463422998200172742144786752760410308837890625",
+        "inverse_compatible": [
+          "mission"
+        ],
+        "inverse_goal_status": "identified",
+        "unweighted_all_ones_distances": {
+          "polish": "332",
+          "proof": "508"
+        },
+        "unweighted_winner": "polish"
+      },
+      "post_overlap": "9/25",
+      "pre_overlap": "1",
+      "registered_widths": [
+        64,
+        48,
+        32
+      ],
+      "route_pair": [
+        0,
+        1
+      ],
+      "sealed_equal": true,
+      "seed": 41
+    },
+    "s59_d140": {
+      "audit_correct": true,
+      "audit_distinguishes": true,
+      "check_pair": [
+        0,
+        2
+      ],
+      "dimension": 140,
+      "direct_values": [
+        "0",
+        "9"
+      ],
+      "gate_widths": [
+        32,
+        24,
+        16
+      ],
+      "masked_bit_null": true,
+      "metric_trap": {
+        "categorical_hilbert_logical_dimensions": 140,
+        "cosmetic_changed": 34,
+        "dimension": 140,
+        "factorized_overlap_proof_polish": "1824800363140073127359051977856583921/132348898008484427979425390731194056570529937744140625",
+        "inverse_compatible": [
+          "mission"
+        ],
+        "inverse_goal_status": "identified",
+        "unweighted_all_ones_distances": {
+          "polish": "106",
+          "proof": "136"
+        },
+        "unweighted_winner": "polish"
+      },
+      "post_overlap": "9/25",
+      "pre_overlap": "1",
+      "registered_widths": [
+        32,
+        24,
+        16
+      ],
+      "route_pair": [
+        0,
+        1
+      ],
+      "sealed_equal": true,
+      "seed": 59
+    },
+    "s59_d512": {
+      "audit_correct": true,
+      "audit_distinguishes": true,
+      "check_pair": [
+        2,
+        1
+      ],
+      "dimension": 512,
+      "direct_values": [
+        "0",
+        "9"
+      ],
+      "gate_widths": [
+        64,
+        48,
+        32
+      ],
+      "masked_bit_null": true,
+      "metric_trap": {
+        "categorical_hilbert_logical_dimensions": 512,
+        "cosmetic_changed": 179,
+        "dimension": 512,
+        "factorized_overlap_proof_polish": "4230378511014475848144674185114714141102446216291404051034323284575265555731286991140255867224257730082739568282365949689142461885069287630472097218827519213017338767885217529/6653062250012735499859458931636420075385307397360440001445390768510013794914925212945370130823995159293891945582430508408116533899935420783737454874266644718390388981067140476128877138852561045005147379284785787178536919928006909685791470110416412353515625",
+        "inverse_compatible": [
+          "mission"
+        ],
+        "inverse_goal_status": "identified",
+        "unweighted_all_ones_distances": {
+          "polish": "333",
+          "proof": "508"
+        },
+        "unweighted_winner": "polish"
+      },
+      "post_overlap": "9/25",
+      "pre_overlap": "1",
+      "registered_widths": [
+        64,
+        48,
+        32
+      ],
+      "route_pair": [
+        1,
+        0
+      ],
+      "sealed_equal": true,
+      "seed": 59
+    }
+  },
+  "schema_version": "HG-02/SP-v1",
+  "source_sha256": {
+    "Hypergames/single_player/config_v1.json": "d4d668a8767073e726a8e4cb1d6fa4737e3def53b8749189ab597b5d5f6e61ac",
+    "scripts/verify_hypergames_single_player.py": "2a5a1a30e5c87ce873175fe9993687119575597d55305f5ac40dee47ec7bd40a",
+    "src/spiral_ln/hypergames_single_player.py": "0581078c23461c21e0e3bf4f37150fbd7f26e6d55d44c9c5c1e650a6495dbb5e",
+    "tests/test_hypergames_single_player.py": "2b3d98d90b65c604d080a65660a570fa233c194a5d906cf0666b932aaaf4ef3c"
+  },
+  "upstream_source_commit": "c8d46591f983473023daf0232e9b413baaa02194"
+}
