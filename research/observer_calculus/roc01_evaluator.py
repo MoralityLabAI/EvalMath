@@ -11,7 +11,7 @@ Source pin: patrickdugan/MathCan@9ef4328e461d906fdfc0653467520a72d1a34982
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import isfinite
+from math import isfinite, isclose
 from typing import Mapping, Sequence
 
 from spiral_ln.evaluation_bpd import (
@@ -23,7 +23,7 @@ MATHCAN_SOURCE="9ef4328e461d906fdfc0653467520a72d1a34982"
 REQUIRED_METRICS=("A_normalized","B_normalized","C_normalized",
                   "s_causal","task_mse","D_frob","H_trace")
 ALLOWED_ARMS=("dark_to_observed","observed_to_dark",
-              "freeze_U","ablate_readout")
+              "observed_to_observed","ablate_readout")
 
 
 @dataclass(frozen=True)
@@ -107,7 +107,8 @@ def audit_observer_card(card: Mapping, *, random_count:int,
                         every_intervention_norm_matched:bool,
                         output_declared:bool,
                         distinct_random_bases:int|None=None,
-                        per_state_rows_public:bool=False) -> dict:
+                        per_state_rows_public:bool=False,
+                        null_calibration:Mapping|None=None) -> dict:
     """Fail closed for incomplete or nonnumeric ROC measurements.
 
     Control flags are caller attestations and must be independently audited
@@ -135,8 +136,39 @@ def audit_observer_card(card: Mapping, *, random_count:int,
         and type(distinct_random_bases) is int
         and 100<=distinct_random_bases<=random_count
     )
+    # ROC-02 supersedes absolute tag cutoffs with rank-conditional null
+    # medians and a fixed six-direction Holm family. Counts alone cannot
+    # certify the new diagnostic or the leakage-penalty denominator.
+    cal=null_calibration
+    directions={"a_small","b_small","c_small","b_large","s_high","s_low"}
+    null_ok=False
+    if isinstance(cal,Mapping):
+        med=cal.get("null_medians")
+        raw=cal.get("one_sided_p")
+        adj=cal.get("holm_adjusted_p")
+        penalty=cal.get("b_penalty_ratio_squared")
+        if (cal.get("schema")=="roc01.null_relative_six_direction.v1"
+                and cal.get("tag_status")=="null_calibrated"
+                and type(cal.get("distinct_null_subspaces")) is int
+                and cal.get("distinct_null_subspaces")==distinct_random_bases
+                and isinstance(med,Mapping) and isinstance(raw,Mapping)
+                and isinstance(adj,Mapping)
+                and set(raw)==directions and set(adj)==directions
+                and type(med.get("B_normalized")) in (int,float)
+                and isfinite(med["B_normalized"]) and med["B_normalized"]>0
+                and type(penalty) in (int,float) and isfinite(penalty)
+                and penalty>=0 and type(card.get("B_normalized")) in (int,float)):
+            p_ok=all(
+                type(raw[k]) in (int,float) and isfinite(raw[k])
+                and 0<=raw[k]<=adj[k]<=1 and type(adj[k]) in (int,float)
+                and isfinite(adj[k]) for k in directions
+            )
+            expected=(card["B_normalized"]/med["B_normalized"])**2
+            null_ok=bool(p_ok and isfinite(expected)
+                         and isclose(penalty,expected,rel_tol=1e-8,
+                                     abs_tol=1e-10))
     required=bool(
-        unique_ok and task_only_equal_budget
+        null_ok and unique_ok and task_only_equal_budget
         and every_intervention_norm_matched and output_declared
         and per_state_rows_public and not absent and not invalid
     )
@@ -146,6 +178,7 @@ def audit_observer_card(card: Mapping, *, random_count:int,
             "random_count":random_count,
             "distinct_random_bases":distinct_random_bases,
             "random_rank_valid":unique_ok,
+            "rank_null_calibration_valid":null_ok,
             "task_only_equal_budget":task_only_equal_budget,
             "norm_matched_interventions":every_intervention_norm_matched,
             "output_declared":output_declared,
@@ -156,10 +189,10 @@ def audit_observer_card(card: Mapping, *, random_count:int,
 IDEAL_TABLE={
     "dark_to_observed":(0,1,0,1,0),
     "observed_to_dark":(1,0,1,0,0),
-    "freeze_U":(1,1,0,0,0),
+    "observed_to_observed":(1,1,0,0,0),
     "ablate_readout":(1,1,1,1,0),
 }
-IDEAL_LABELS=("closed_quotient","invariant_driver",
+IDEAL_LABELS=("closed_quotient","invariant_subspace",
               "latched_memory","output_register","irrelevant")
 
 
