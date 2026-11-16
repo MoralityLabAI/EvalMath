@@ -11,6 +11,7 @@ Source pin: patrickdugan/MathCan@ed3d98a00068d17147c47272503d44ecd5c1bff6
 from __future__ import annotations
 
 from dataclasses import dataclass
+from math import isfinite
 from typing import Mapping, Sequence
 
 from spiral_ln.evaluation_bpd import (
@@ -20,7 +21,7 @@ from spiral_ln.evaluation_bpd import (
 
 MATHCAN_SOURCE="ed3d98a00068d17147c47272503d44ecd5c1bff6"
 REQUIRED_METRICS=("A_normalized","B_normalized","C_normalized",
-                  "s_causal","task_mse")
+                  "s_causal","task_mse","D_frob","H_trace")
 ALLOWED_ARMS=("dark_to_observed","observed_to_dark",
               "freeze_U","ablate_readout")
 
@@ -55,7 +56,8 @@ class InterventionObservation:
 
 
 def identify_types(rows: Sequence[InterventionObservation],
-                   realized: Mapping[str,int|None]|None=None) -> dict:
+                   realized: Mapping[str,int|None]|None=None,
+                   *, card_audit: Mapping|None=None) -> dict:
     if not rows: raise ValueError("Nonempty mechanism arms required")
     if len({r.name for r in rows})!=len(rows):
         raise ValueError("Duplicate intervention names")
@@ -81,10 +83,20 @@ def identify_types(rows: Sequence[InterventionObservation],
         "all_norm_matched":all(r.norm_matched_random for r in rows),
         "intervention_arms_complete":set(r.name for r in rows)==set(ALLOWED_ARMS),
     }
-    result["causal_identification_ready"]=(
-        bool(result["measured"] and result["all_norm_matched"]
-             and result["intervention_arms_complete"]
-             and not result["unresolved_pairs"]))
+    result["finite_intervention_separation_ready"]=bool(
+        result["measured"] and result["all_norm_matched"]
+        and result["intervention_arms_complete"]
+        and not result["unresolved_pairs"]
+    )
+    # A finite type table can be source-consistent yet lack the causal Gram,
+    # same-state task loss, checkpoint record or 128 valid null bases.
+    # Do not promote its categorical separation alone into a full observer claim.
+    result["causal_identification_ready"]=bool(
+        result["finite_intervention_separation_ready"]
+        and card_audit is not None
+        and card_audit.get("complete") is True
+        and card_audit.get("source_mathcan_sha")==MATHCAN_SOURCE
+    )
     if realized is not None:
         result["realized"]=identify_hypothesis(probes,realized)
     return result
@@ -93,25 +105,52 @@ def identify_types(rows: Sequence[InterventionObservation],
 def audit_observer_card(card: Mapping, *, random_count:int,
                         task_only_equal_budget:bool,
                         every_intervention_norm_matched:bool,
-                        output_declared:bool) -> dict:
-    """Hard missingness gate for the five ROC quantitative columns.
+                        output_declared:bool,
+                        distinct_random_bases:int|None=None,
+                        per_state_rows_public:bool=False) -> dict:
+    """Fail closed for incomplete or nonnumeric ROC measurements.
 
-    A partial NRF v0.4 card has no measured H, full D norm or state MSE.
-    It remains incomplete even if source algebra can be replayed.
+    Control flags are caller attestations and must be independently audited
+    against the pinned public source receipts. In particular, 128 attempts at
+    a unique readout-containing rank-k basis are not 128 distinct null bases.
     """
-    absent=[key for key in REQUIRED_METRICS
-            if key not in card or card[key] is None]
-    required=(random_count>=100
-              and task_only_equal_budget
-              and every_intervention_norm_matched and output_declared
-              and not absent)
+    absent=[]
+    invalid=[]
+    for key in REQUIRED_METRICS:
+        value=card.get(key)
+        if value is None or value=="":
+            absent.append(key)
+            continue
+        if type(value) not in (int,float) or not isfinite(value) or value<0:
+            invalid.append(key)
+            continue
+        if key in ("A_normalized","B_normalized","C_normalized","s_causal") and value>1+1e-8:
+            invalid.append(key)
+    if ("s_causal" not in absent and "s_causal" not in invalid
+            and "H_trace" not in absent and "H_trace" not in invalid
+            and card["H_trace"]<=0):
+        invalid.append("s_causal_with_zero_H")
+    unique_ok=bool(
+        type(random_count) is int and random_count>=100
+        and type(distinct_random_bases) is int
+        and 100<=distinct_random_bases<=random_count
+    )
+    required=bool(
+        unique_ok and task_only_equal_budget
+        and every_intervention_norm_matched and output_declared
+        and per_state_rows_public and not absent and not invalid
+    )
     return {"source_mathcan_sha":MATHCAN_SOURCE,
-            "complete":bool(required),"missing_metrics":absent,
+            "complete":required,"missing_metrics":absent,
+            "invalid_metrics":invalid,
             "random_count":random_count,
-            "random_rank_valid":random_count>=100,
+            "distinct_random_bases":distinct_random_bases,
+            "random_rank_valid":unique_ok,
             "task_only_equal_budget":task_only_equal_budget,
             "norm_matched_interventions":every_intervention_norm_matched,
-            "output_declared":output_declared}
+            "output_declared":output_declared,
+            "per_state_rows_public":per_state_rows_public,
+            "trust_boundary":"caller control attestation; independently verify pinned public Git blobs"}
 
 
 IDEAL_TABLE={
