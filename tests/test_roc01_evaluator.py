@@ -24,7 +24,7 @@ class ROC01EvaluatorTest(unittest.TestCase):
         self.assertEqual(out["source_mathcan_sha"],MATHCAN_SOURCE)
 
     def test_unknown_route_remains_missing(self):
-        rows=[arm(k,v,routed=k!="dark_to_observed")
+        rows=[arm(k,v,routed=k=="ablate_readout")
               for k,v in IDEAL_TABLE.items()]
         out=identify_types(rows)
         self.assertIsNone(out["min_cost"])
