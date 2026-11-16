@@ -1,7 +1,7 @@
 # ROC-01 EvalMath: register and score causal observer interventions
 
 **Public MathCan source pin:** patrickdugan/MathCan at
-9ef4328e461d906fdfc0653467520a72d1a34982,
+37bbac210c175ccb98e0ff0d4aa8bdd2be0764e6,
 branch research/roc01-unified-observer-card-20261116.
 It includes Parts 0–4, report-card code, exact-rational counterexamples,
 a Lean finite witness and source-derived NRF v0.4 partial cards.
