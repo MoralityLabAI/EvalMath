@@ -56,3 +56,10 @@ The [single-player high-dimensional gym](single_player/README.md) adds sealed-st
 parity, verification and authorization tasks, exact Bellman controls, proxy
 failure cases and a reproducible source-hashed receipt. See
 [`paper/hypergames_single_player_reasoning_alignment.md`](../paper/hypergames_single_player_reasoning_alignment.md).
+
+## HG-03: frozen Qwen3.5-0.8B trial
+
+The [registered local Qwen single-player study](single_player/QWEN_PROTOCOL.md) adds
+an isolated 140-dimensional core, a 512-dimensional padding control and a native
+512-dimensional wide-predicate test. It freezes the model checksum and private-seed
+commitment before evaluation. The source-hashed fast preflight contains **no model runs**.

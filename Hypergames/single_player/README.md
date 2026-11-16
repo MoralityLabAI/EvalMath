@@ -57,3 +57,9 @@ A model adapter can implement the exact signature `policy(scenario, observed) ->
 The current HG-02 world uses its own exact rational transition kernel to give a complete, testable single-player baseline. Live Sweepweave effects, mixed pValue/p2Value beliefs and authored GPTStoryworld ending gates are future adapter targets.
 
 See `paper/hypergames_single_player_reasoning_alignment.md` for the Bellman result, proof and caveats.
+
+## HG-03 preregistered Qwen trial
+
+See [QWEN_PROTOCOL.md](QWEN_PROTOCOL.md) and [qwen_registration_v1.json](qwen_registration_v1.json).
+The preregistered public source-hashed preflight can run without weights or a GPU.
+Private-seed model results require the separately held manifest and exact registered checkpoint.
