@@ -71,6 +71,21 @@ Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 **New (BPD-01, 2026-11-15):** [interventional separation and looped Lean curriculum](paper/bpd_interventional_separation.md) formalizes routed mechanism-pair coverage, optimal fixed/adaptive probes, clock-versus-state observability floors and a recurrence-repair counterexample. Exact 512-matrix and 96 seeded audits are source-hashed in `output/evaluation_bpd/bpd_01.json`. Reproduce via `python scripts/check_receipts.py --only bpd`. It supplies design mathematics, not a neural decomposition result.
 
+## SystemicRiskBench and EvalMath SRB-01
+
+The [SRB-01 finite-world scorer](paper/systemic_risk_evalmath.md) provides
+source-hashed exact observable-policy risk floors, a two-action collision
+certificate, fractional-tail harm and query-selection risk. Its
+[two-world fixture](fixtures/systemic_risk_evalmath/synthetic_two_worlds.json)
+checks the elementary mathematics.
+
+The [live SRB-EM-01 replay](paper/systemic_risk_live_simulator_replay_20261116.md)
+connects the actual [SystemicRiskBench fire-sale simulator](https://github.com/patrickdugan/SystemicRiskBench/pull/1)
+to the scorer: 30 equal-mass scenario worlds, 60 paired depth-intervention
+simulations, exact rational loss scoring and a verified CI artifact.
+The underlying simulator is synthetic and floating-point; no real model or
+historical counterfactual performance is claimed.
+
 ## Self-designed evaluation and FRC
 
 The [HRC-FRC-01 extension](paper/frc_harmonic_self_evaluation.md) studies
