@@ -1,0 +1,23 @@
+{
+  "experiment": "HG-01",
+  "registered_date": "2026-11-16",
+  "status": "synthetic finite mechanics fixture, not a pretrained-model run",
+  "dimensions": 140,
+  "nuisance_prefix": "z",
+  "nuisance_count": 138,
+  "goals": {
+    "g00": {"x": "0", "y": "0"},
+    "g01": {"x": "0", "y": "1"},
+    "g10": {"x": "1", "y": "0"},
+    "g11": {"x": "1", "y": "1"}
+  },
+  "probes": {
+    "x": {"x0": {"x": "0", "y": "1/2"}, "x1": {"x": "1", "y": "1/2"}},
+    "y": {"y0": {"x": "1/2", "y": "0"}, "y1": {"x": "1/2", "y": "1"}}
+  },
+  "probe_costs": {"x": 2, "y": 3},
+  "observations": [{"probe": "x", "chosen": "x0"}, {"probe": "y", "chosen": "y1"}],
+  "expected_compatible_after_first": ["g00", "g01"],
+  "expected_compatible_final": ["g01"],
+  "expected_min_probe_cost": 5
+}

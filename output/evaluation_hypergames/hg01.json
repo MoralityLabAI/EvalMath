@@ -1,0 +1,110 @@
+{
+  "all_passed": true,
+  "cases": {
+    "dimension": 140,
+    "first_probe": {
+      "compatible": [
+        "g00",
+        "g01"
+      ],
+      "regret": {
+        "g00": "0",
+        "g01": "0",
+        "g10": "1",
+        "g11": "1"
+      },
+      "status": "ambiguous"
+    },
+    "goal_count": 4,
+    "inverse_voronoi": {
+      "blind_linear_dimensions": 138,
+      "comparison_rank": 2,
+      "inequalities": 2
+    },
+    "minimum_robust_cover": {
+      "feasible": true,
+      "min_cost": 5,
+      "probes": [
+        "x",
+        "y"
+      ],
+      "unseparated_pairs": []
+    },
+    "misperception": {
+      "objective_regret": "3",
+      "objectively_optimal": false,
+      "subjective_regret": "0",
+      "subjectively_optimal": true
+    },
+    "probe_count": 2,
+    "projection_counterexample": {
+      "certified_stable": false,
+      "full_gap": "3/4",
+      "omitted_energy_range": "1",
+      "projected_minimizers": [
+        "a"
+      ],
+      "winner": "b"
+    },
+    "projection_stability": {
+      "certified_stable": true,
+      "full_gap": "24/25",
+      "omitted_energy_range": "1/25",
+      "projected_minimizers": [
+        "a"
+      ],
+      "winner": "a"
+    },
+    "tensor_overlap_all_different": "39260092771818149473052557510879008881531271834245376524351437833098473006934585226108508724996140473513172757995825977888878576741601/5147557589468028918138952173471688968608379581234622827186407727103586079575077925903503598852329389191000040737479724643823563424844710048230292664204880460909752315501464181579649448394775390625",
+    "two_probes": {
+      "compatible": [
+        "g01"
+      ],
+      "regret": {
+        "g00": "1",
+        "g01": "0",
+        "g10": "2",
+        "g11": "1"
+      },
+      "status": "identified"
+    },
+    "unittest_count": 12,
+    "visible_numeric_axes": 16
+  },
+  "checks": {
+    "adversarial_unittests_pass": true,
+    "ambiguous_first_probe": true,
+    "clifford_140_exact": true,
+    "halfspace_goal_certificate": true,
+    "hidden_reveal_immaterial": true,
+    "inverse_voronoi_rank_2": true,
+    "projection_flip_witness": true,
+    "projection_stable": true,
+    "registered_dimension_140": true,
+    "robust_probe_cover": true,
+    "subjective_objective_separation": true,
+    "tensor_140_exact": true,
+    "unique_after_active_probe": true,
+    "visible_dimension_16": true
+  },
+  "evidence": "exact finite verified example; synthetic mechanism, no trained agents",
+  "generated_at_utc": "2026-11-16T05:46:49.192557+00:00",
+  "schema_version": "HG-01.v1",
+  "source_sha256": {
+    "Hypergames/fixtures/diplomacy_min_visible.json": "ee6704b9237c6d8dc655b4e1cac6aaccbaee4a2c2efbcba1b4f2764b4f916736",
+    "Hypergames/fixtures/hg01_registered.json": "23702751d52afdb42458e2d7a105fc5d461e82341d33e1754fba84c6ab1ef0d6",
+    "scripts/verify_evaluation_hypergames.py": "6a5ca8dd9bed30f4adde1c4ff73f46c45f1ea32712086ff1c9469fac646e62a9",
+    "src/spiral_ln/evaluation_hypergames.py": "4e35eb54afe71c74fea267e7ae185322db442a1e6d921fe50bf20ece5cf82a32",
+    "tests/test_evaluation_hypergames.py": "b9b77b37557ccf90c8574c738e60c93cd47b226629f19c0670fa05990658642a"
+  },
+  "upstream": {
+    "commit": "c8d46591f983473023daf0232e9b413baaa02194",
+    "paths": [
+      "storyworld/env/diplomacy_env.py",
+      "storyworld/benchmarking/turn_trace_export.py",
+      "storyworld/examples/diplomacy_min.json",
+      "verifiers_envs/storyworld-env/manifold_projection.py"
+    ],
+    "repository": "MoralityLabAI/GPTStoryworld"
+  }
+}
