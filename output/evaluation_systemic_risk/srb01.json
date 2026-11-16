@@ -1,0 +1,48 @@
+{
+  "checks": {
+    "binary_collision_exact": true,
+    "cvar_boundary_alpha_three_quarters": true,
+    "cvar_boundary_alpha_zero": true,
+    "hidden_fibre_regret": true,
+    "independent_random_exact_oracles": true,
+    "public_vs_postselection_risk": true,
+    "query_resolves_collision": true,
+    "tail_harm_exposed": true
+  },
+  "evidence": "finite exact synthetic model and independent enumeration; no SystemicRiskBench replay or real agents",
+  "independent_random_oracles": 96,
+  "schema": "SRB-01-receipt-v1",
+  "source_sha256": {
+    "fixtures/systemic_risk_evalmath/synthetic_two_worlds.json": "52e5be8d4422429b606ec25d727abc2aa579bdbacec276ddfc67c23c95585e7a",
+    "paper/systemic_risk_evalmath.md": "871f0c98597be6ceca3138e4d2f0cc8873857673c46d6bacd73080699d915498",
+    "scripts/verify_evaluation_systemic_risk.py": "80eda496475bf750a4ba0b6c5a9d8e847850ad706b211f7d79322a4995cbb571",
+    "src/spiral_ln/evaluation_systemic_risk.py": "978659da7104d5b71b4f9d12025df31fca0b67478bd8e1042cd9d292cf5ec9bf",
+    "tests/test_evaluation_systemic_risk.py": "31d91ad32778acd1f34dd82df5a8f8c65198150265a8bf665d0a167888b3f9e5"
+  },
+  "synthetic_witness": {
+    "baseline_harm_cvar": "8",
+    "baseline_loss": "4",
+    "binary_collision_certificate": "4",
+    "false_authorization_selection": {
+      "full_disclosure": "1",
+      "no_disclosure": "1/2",
+      "one_query_optimum": "1",
+      "two_adaptive_queries": "1"
+    },
+    "fixed_action": "cut_a",
+    "fixed_loss": "4",
+    "observable_harm_cvar": "8",
+    "observable_loss": "4",
+    "oracle_loss": "0",
+    "query_disclosure_loss": {
+      "reveal_shock": "0"
+    },
+    "scenario_count": 2,
+    "total_mass": 2,
+    "trace_replay_false_authorization": "1/2",
+    "trace_replay_harm_cvar": "8",
+    "trace_replay_loss": "4",
+    "unobservable_regret": "4",
+    "visibility_value": "0"
+  }
+}

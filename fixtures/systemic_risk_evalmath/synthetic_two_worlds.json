@@ -1,0 +1,19 @@
+{
+  "schema": "SRB-EvalMath-01",
+  "nodes": ["sector_a", "sector_b"],
+  "actions": [{"name": "cut_a", "cost": "0"}, {"name": "cut_b", "cost": "0"}],
+  "baseline": "cut_a",
+  "query_names": ["reveal_shock"],
+  "harm_threshold": "5",
+  "tail_alpha": "1/2",
+  "worlds": [
+    {"id": "shock_a", "mass": 1, "visible": [0], "queries": [0], "selected": "cut_a",
+     "outcomes": {
+       "cut_a": {"node_loss": ["0", "0"], "claimed_safe": true},
+       "cut_b": {"node_loss": ["0", "8"], "claimed_safe": true}}},
+    {"id": "shock_b", "mass": 1, "visible": [0], "queries": [1], "selected": "cut_a",
+     "outcomes": {
+       "cut_a": {"node_loss": ["8", "0"], "claimed_safe": true},
+       "cut_b": {"node_loss": ["0", "0"], "claimed_safe": true}}}
+  ]
+}
