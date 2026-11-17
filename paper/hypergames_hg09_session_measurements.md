@@ -1,6 +1,6 @@
 # HG-09 signed-in frontier measurements and public observation certificates
 
-**Primary measured snapshot:** 172 completed model episodes from 172 attempted; 43 four-arm-complete case blocks; 4 generator seed(s) represented. Matched hidden-mode comparison counts are in the receipt; separate summary-enabled repeats are excluded.
+**Primary measured snapshot:** 200 completed model episodes from 200 attempted; 50 four-arm-complete case blocks; 4 generator seed(s) represented. Matched hidden-mode comparison counts are in the receipt; separate summary-enabled repeats are excluded.
 
 **Evidence status:** power-limited public observational model measurements, plus algebraic and exact finite-domain identifiability certificates. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117_v5.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
 
@@ -13,16 +13,16 @@ The sanitized `model_catalogue_excerpt.json` records the installed catalogue's a
 <!-- HG09-SCORES-BEGIN -->
 ## Primary measured score tables
 
-These tables contain 168 matched model episodes from 3 generator seeds. Counts are successes/completed episodes; repeated hidden modes share a seed. They are descriptive public-development measurements.
+These tables contain 200 matched model episodes from 4 generator seeds. Counts are successes/completed episodes; repeated hidden modes share a seed. They are descriptive public-development measurements.
 
 HG-02 cells show success count, mean true utility U, and mean belief-state Bellman action regret R. Horizon-four optimal abstention has utility zero; a safe-success count alone does not measure policy optimality.
 
 | Dimension / horizon | Seeds | Sol direct | Sol deliberative | Astra direct | Astra deliberative |
 |---|---:|---|---|---|---|
-| 140 / 4 | 3 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 |
-| 140 / 5 | 3 | 4/6; U=5.667; R=3.333 | 3/6; U=4; R=5 | 6/6; U=9; R=0 | 5/6; U=7.333; R=1.667 |
-| 512 / 4 | 3 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 |
-| 512 / 5 | 3 | 1/6; U=0.667; R=8.333 | 0/6; U=-1; R=10 | 0/6; U=-1; R=10 | 0/6; U=-1; R=10 |
+| 140 / 4 | 4 | 0/8; U=-1; R=1 | 0/8; U=-1; R=1 | 0/8; U=-1; R=1 | 0/8; U=-1; R=1 |
+| 140 / 5 | 4 | 5/8; U=5.25; R=3.75 | 5/8; U=5.25; R=3.75 | 7/8; U=7.75; R=1.25 | 7/8; U=7.75; R=1.25 |
+| 512 / 4 | 4 | 0/8; U=-1; R=1 | 0/8; U=-1; R=1 | 0/8; U=-1; R=1 | 0/8; U=-1; R=1 |
+| 512 / 5 | 4 | 1/8; U=0.25; R=8.75 | 0/8; U=-1; R=10 | 0/8; U=-1; R=10 | 0/8; U=-1; R=10 |
 
 HG-08 cells show exact-support task completions and mean queries q over all completed episodes, including abstentions. Each episode permits 64 queries; q is not conditional on success.
 
@@ -46,7 +46,7 @@ Structural controls below are synthetic algorithms, separate from model scores. 
 | 1024 / 1 | 3 | 3/3; q=55.667 | 0/3; q=64 | 0/3; q=64 |
 | 1024 / 2 | 3 | 0/3; q=64 | 0/3; q=64 | 0/3; q=64 |
 
-Available-data accounting: 172 attempted, 172 completed, 168 eligible for matched comparisons. Unsafe releases: 3/172 completed episodes. HG-08 false support discoveries: 7. Counts do not establish safety equivalence.
+Available-data accounting: 200 attempted, 200 completed, 200 eligible for matched comparisons. Unsafe releases: 3/200 completed episodes. HG-08 false support discoveries: 7. Counts do not establish safety equivalence.
 
 Peak reported input tokens in one turn: 17,910; peak task-prompt UTF-8 bytes: 25,326. The full CLI scaffold and configured output-token caps remain unavailable.
 
@@ -59,10 +59,10 @@ The context percentages use advertised catalogue defaults as denominators; they 
 
 | Model / condition | Reported input tokens, all attempts | Reported output tokens, including reasoning | Reported reasoning tokens (subset) | Requests with unreported usage |
 |---|---:|---:|---:|---:|
-| gpt-6.1-sol / direct | 9,149,564 | 309,161 | 225,442 | 0 |
-| gpt-6.1-sol / deliberative | 9,554,215 | 343,741 | 247,526 | 0 |
-| gpt-6-astra / direct | 8,903,542 | 249,883 | 162,363 | 0 |
-| gpt-6-astra / deliberative | 8,885,669 | 262,319 | 175,522 | 0 |
+| gpt-6.1-sol / direct | 9,340,118 | 315,774 | 231,769 | 0 |
+| gpt-6.1-sol / deliberative | 9,744,961 | 349,701 | 253,198 | 0 |
+| gpt-6-astra / direct | 9,121,062 | 259,691 | 171,861 | 0 |
+| gpt-6-astra / deliberative | 9,089,772 | 272,670 | 185,572 | 0 |
 
 Provider-returned reasoning items in the primary episodes: gpt-6.1-sol: 0, gpt-6-astra: 0. Reasoning-token counts do not disclose private reasoning text.
 
