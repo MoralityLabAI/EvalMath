@@ -71,3 +71,33 @@ The first [Control-Harness ECA-01](https://github.com/MoralityLabAI/Control-Harn
 ECA-02 should introduce **publicly known but imperfect authorization priors** and **noisy signed audits**. Fit each decision policy only on a distinct calibration cohort, select inspection targets under the same fixed budget without reading held-out hidden labels or audit reports, then evaluate on independent held-out roots. Use a registered equal-cost policy family: fixed-order random selection, public-uncertainty selection, fitted audit-value selection, and an oracle that knows the declared synthetic channel. Report false authorizations and missed permitted actions separately, alongside inspection cost and total error. Group repeated observations from the same root; protect an untouched second cohort from tuning. A model-based predictor is a separate future step.
 
 The original [MathCan AUTHQ-02](https://github.com/patrickdugan/MathCan/pull/140) remains a deterministic information-limit theorem. This new work analyzes the additional error caused by a *noisy* audit and by beliefs that misrepresent that audit. Neither independently authenticates external issuer authorities nor proves real-world safety.
+
+
+## 6. EVAL-AUTH-04: specify the cost of unauthorized approval
+
+After ECA-02's first preregistered readout, a consequential objective difference emerged. Symmetric-error fitted-value auditing completed 3,143/4,096 heldout decisions correctly, versus 3,109/4,096 for public-uncertainty auditing at the same 1,024 audits per arm. The fitted rule missed 152 fewer genuinely authorized actions but made 118 more unauthorized approvals. For the **frozen, already-recorded decisions** the weighted loss `λ FP + FN` crosses over at the exact retrospective arithmetic ratio `λ=76/59≈1.288`. That comparison motivates a *new* cost-registered experiment; the original study remains a symmetric-risk test.
+
+Let `c_FP > 0` penalize granting forbidden authorization and `c_FN > 0` penalize denying a permitted authorization. The Bayes decision grants only when `c_FN p > c_FP(1-p)`, equivalently `p > c_FP/(c_FP+c_FN)`. The best expected loss with the public prior is
+
+```
+R0 = min(c_FN * p, c_FP * (1-p)).
+```
+
+After the binary audit report:
+
+```
+R1 = min(c_FN * p*t, c_FP * (1-p)*f)
+   + min(c_FN * p*(1-t), c_FP * (1-p)*(1-f)).
+```
+
+The exact nonnegative value `V=R0-R1` follows by the same finite minimum-mass argument. Cost weighting changes both the **post-report decision** and **which cases deserve audit**, because the expected reduction is recomputed from asymmetric losses.
+
+For example, with `c_FP=2,c_FN=1`, a balanced high-fidelity audit (`p=1/2,t=9/10,f=1/10`) has weighted value `7/20`, while a balanced weak audit (`p=1/2,t=3/5,f=2/5`) has weighted value zero. The latter can still change the output when a mismatched decoder misinterprets its evidence; the theorem applies to the true Bayes decoder.
+
+The exact `weighted_expected_error_under_rule` function evaluates a fixed fitted model against a different true channel, retaining the possibility of a **negative** realized audit gain under miscalibration. The tests enumerate 500 conditional-channel/cost configurations, verify the cost-aware decision threshold and check the exact observed crossover identity.
+
+**New prospective decision:** ECA-03 should register `c_FP=2,c_FN=1` before any new heldout roots are sampled. It should compare calibrated cost-weighted value targeting, cost-weighted public uncertainty, and the original symmetric policy at equal audit budget. Training labels can be reused only when the training policy permits it and the training data are distinct from the new sealed cohort. All scoring must preserve the original forbidden/authorized denominators.
+
+The [registered ECA-02 synthetic readout](https://github.com/MoralityLabAI/Control-Harness/actions/runs/44136694988) and its [full source-hashed artifact](https://github.com/MoralityLabAI/Control-Harness/actions/runs/44136694988/artifacts/14353225355) remain unchanged; [ECA-02 PR #50](https://github.com/MoralityLabAI/Control-Harness/pull/50) records the research boundaries. A separate independent replay reconstructed 20,480/20,480 rows, all policy choices and all six calibrated stratum parameters. Its compressed raw SHA-256 is `699c1746267eb13e1921d8a5b725e15412e640f102d529cfc45128e5c7d67162`.
+
+**Limits:** The probabilities and host audit signatures are synthetic. The theorem is an exact algebraic statement about an assumed binary channel, without external authority, policy-ethics or model-performance certification.
