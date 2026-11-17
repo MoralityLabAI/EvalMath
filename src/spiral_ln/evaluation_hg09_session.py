@@ -89,6 +89,11 @@ def summarize_group(rows):
         result.update({'mean_realized_oracle_gap_exact': str(mean([Q(r['realized_oracle_gap']) for r in completed])),
                        'mean_bellman_action_regret_exact': str(mean([Q(r['bellman_action_regret']) for r in completed])),
                        'zero_bellman_regret_episodes': sum(Q(r['bellman_action_regret']) == 0 for r in completed)})
+        result['behavioral_checks'] = {field:{key:sum(r.get('behavioral_checks',{}).get(field,{}).get(key,0) for r in completed)
+                                                for key in ('attempts','correct')}
+                                       for field in ('route','verification','authorization')}
+        result['audit_actions'] = sum(r.get('audit_actions',0) for r in completed)
+        result['publish_actions'] = sum(r.get('publish_actions',0) for r in completed)
     else:
         result.update({'releases':sum(r['released'] for r in completed),
                        'exact_support_recoveries':sum(r['exact_support'] for r in completed),
