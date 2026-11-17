@@ -1,6 +1,6 @@
 # HG-09 signed-in frontier measurements and public observation certificates
 
-**Measured snapshot:** 80 completed model episodes; 20 four-arm-complete case blocks; 2 generator seed(s) represented. Matched hidden-mode comparison counts are in the receipt.
+**Measured snapshot:** 88 completed model episodes; 22 four-arm-complete case blocks; 2 generator seed(s) represented. Matched hidden-mode comparison counts are in the receipt.
 
 **Evidence status:** power-limited public observational model measurements, plus algebraic and exact finite-domain identifiability certificates. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117_v4.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
 
