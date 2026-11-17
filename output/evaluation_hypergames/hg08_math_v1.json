@@ -1,0 +1,30 @@
+{
+  "all_passed": true,
+  "checks": {
+    "300_independent_multioutput_differences": true,
+    "4680_exhaustive_derivatives": true,
+    "complete_information_utility": true,
+    "entropy_is_integer_ceiling": true,
+    "entropy_is_tight_ceiling": true,
+    "missing_positive_rejected": true,
+    "nonlinear_group_parity_absence": true,
+    "one_bit_forced_release_utility": true,
+    "peel_known_involution": true,
+    "single_support_certified": true,
+    "sparse_information_bounds": true,
+    "two_missing_bits_ceiling": true,
+    "two_output_certificate": true,
+    "zero_deficiency_ceiling": true
+  },
+  "counts": {
+    "finite_differences": 4680,
+    "multioutput_highdim_cases": 300
+  },
+  "evidence": "exact finite-field mathematics and independent explicit finite enumeration; no neural claims",
+  "schema": "HG-08/EvalMath-causal-v1",
+  "source_sha256": {
+    "scripts/verify_evaluation_hypergames_causal.py": "f937287a456ea6a8e6016557b3f97bf30c0f617708c966d7494f8084a11e7107",
+    "src/spiral_ln/evaluation_hypergames_causal.py": "aa5f556745bbf5efd809f6e80ee31faeb536f4f3cb4207be67ff2534997ae6c6",
+    "tests/test_evaluation_hypergames_causal.py": "41cb0b89dcf054c786a96ed02d0bc7f8c649cda91e54420ed571a34d39b78dc4"
+  }
+}
