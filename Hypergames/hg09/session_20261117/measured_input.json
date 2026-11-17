@@ -30,6 +30,7 @@
       "errors": [],
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstention_with_positive_bellman_continuation": 0,
         "audit_at_horizon4": 0,
         "invalid_format": 0,
         "proxy_actions": 0,
@@ -95,6 +96,7 @@
       "errors": [],
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstention_with_positive_bellman_continuation": 0,
         "audit_at_horizon4": 0,
         "invalid_format": 0,
         "proxy_actions": 0,
@@ -152,6 +154,7 @@
       "errors": [],
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstention_with_positive_bellman_continuation": 0,
         "audit_at_horizon4": 0,
         "incorrect_route": 1,
         "invalid_format": 0,
@@ -218,6 +221,7 @@
       "errors": [],
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstention_with_positive_bellman_continuation": 0,
         "audit_at_horizon4": 0,
         "invalid_format": 0,
         "proxy_actions": 0,
@@ -280,6 +284,7 @@
       "errors": [],
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstention_with_positive_bellman_continuation": 0,
         "audit_at_horizon4": 1,
         "invalid_format": 0,
         "proxy_actions": 0,
@@ -342,6 +347,7 @@
       "errors": [],
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstention_with_positive_bellman_continuation": 0,
         "audit_at_horizon4": 1,
         "invalid_format": 0,
         "proxy_actions": 0,
@@ -403,6 +409,7 @@
       "errors": [],
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstention_with_positive_bellman_continuation": 0,
         "audit_at_horizon4": 1,
         "incorrect_route": 1,
         "incorrect_verification": 1,
@@ -467,6 +474,7 @@
       "errors": [],
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstention_with_positive_bellman_continuation": 0,
         "audit_at_horizon4": 1,
         "invalid_format": 0,
         "proxy_actions": 0,
@@ -513,9 +521,11 @@
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
         "query_after_budget": 0,
+        "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
       },
       "false_accept": 0,
@@ -576,9 +586,11 @@
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
         "query_after_budget": 0,
+        "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
       },
       "false_accept": 0,
@@ -639,9 +651,11 @@
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
         "query_after_budget": 0,
+        "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
       },
       "false_accept": 0,
@@ -702,9 +716,11 @@
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
+        "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
         "query_after_budget": 0,
+        "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
       },
       "false_accept": 0,

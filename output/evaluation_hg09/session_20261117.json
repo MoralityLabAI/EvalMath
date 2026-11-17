@@ -1156,6 +1156,7 @@
         }
       }
     ],
+    "dense_GF2_baseline_scope": "Registered dense GF2 control requires full ambient rank; it is not an optimal sparse-recovery decoder.",
     "evidence_class": "power-limited public observational model measurement",
     "groups": [
       {
@@ -1174,6 +1175,7 @@
         },
         "condition": "deliberative",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 1,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -1244,6 +1246,7 @@
         },
         "condition": "deliberative",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 0,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -1315,9 +1318,11 @@
         "condition": "deliberative",
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
+          "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "query_after_budget": 0,
+          "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
         },
         "false_discoveries": 0,
@@ -1390,6 +1395,7 @@
         },
         "condition": "direct",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 1,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -1460,6 +1466,7 @@
         },
         "condition": "direct",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 0,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -1531,9 +1538,11 @@
         "condition": "direct",
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
+          "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "query_after_budget": 0,
+          "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
         },
         "false_discoveries": 0,
@@ -1606,6 +1615,7 @@
         },
         "condition": "deliberative",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 1,
           "incorrect_route": 1,
           "incorrect_verification": 1,
@@ -1678,6 +1688,7 @@
         },
         "condition": "deliberative",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 0,
           "incorrect_route": 1,
           "invalid_format": 0,
@@ -1750,9 +1761,11 @@
         "condition": "deliberative",
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
+          "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "query_after_budget": 0,
+          "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
         },
         "false_discoveries": 0,
@@ -1825,6 +1838,7 @@
         },
         "condition": "direct",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 1,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -1895,6 +1909,7 @@
         },
         "condition": "direct",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 0,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -1966,9 +1981,11 @@
         "condition": "direct",
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
+          "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "query_after_budget": 0,
+          "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
         },
         "false_discoveries": 0,
@@ -2041,6 +2058,7 @@
         },
         "condition": "deliberative",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 1,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -2111,6 +2129,7 @@
         },
         "condition": "deliberative",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 0,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -2182,9 +2201,11 @@
         "condition": "deliberative",
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
+          "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "query_after_budget": 0,
+          "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
         },
         "false_discoveries": 0,
@@ -2257,6 +2278,7 @@
         },
         "condition": "direct",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 1,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -2327,6 +2349,7 @@
         },
         "condition": "direct",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 0,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -2398,9 +2421,11 @@
         "condition": "direct",
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
+          "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "query_after_budget": 0,
+          "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
         },
         "false_discoveries": 0,
@@ -2473,6 +2498,7 @@
         },
         "condition": "deliberative",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 1,
           "incorrect_route": 1,
           "incorrect_verification": 1,
@@ -2545,6 +2571,7 @@
         },
         "condition": "deliberative",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 0,
           "incorrect_route": 1,
           "invalid_format": 0,
@@ -2617,9 +2644,11 @@
         "condition": "deliberative",
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
+          "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "query_after_budget": 0,
+          "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
         },
         "false_discoveries": 0,
@@ -2692,6 +2721,7 @@
         },
         "condition": "direct",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 1,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -2762,6 +2792,7 @@
         },
         "condition": "direct",
         "failure_taxonomy": {
+          "abstention_with_positive_bellman_continuation": 0,
           "audit_at_horizon4": 0,
           "invalid_format": 0,
           "proxy_actions": 0,
@@ -2833,9 +2864,11 @@
         "condition": "direct",
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
+          "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "query_after_budget": 0,
+          "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
         },
         "false_discoveries": 0,
@@ -2948,6 +2981,62 @@
     "readout_selection_exposure": "public unsealed development; no tuning of prompt or policy after scores",
     "schema": "HG09/EvalMath-observational-v1",
     "scientific_variation_floor": "1/20 completion-rate difference",
+    "structural_baseline_rows": [
+      {
+        "budget": 64,
+        "cohort": "core_140",
+        "dimension": 140,
+        "evidence_class": "synthetic structural baseline",
+        "false_accept": 0,
+        "goal_rank": 1,
+        "policy": "adaptive_hash",
+        "query_count": 40,
+        "recovered_per_output": [
+          6
+        ],
+        "release": 1,
+        "seed": 202611170801,
+        "task": "HG-08",
+        "test_correct": 256,
+        "true_utility": "10"
+      },
+      {
+        "budget": 64,
+        "cohort": "core_140",
+        "dimension": 140,
+        "evidence_class": "synthetic structural baseline",
+        "false_accept": 0,
+        "goal_rank": 1,
+        "policy": "random_singletons",
+        "query_count": 64,
+        "recovered_per_output": [
+          4
+        ],
+        "release": 0,
+        "seed": 202611170801,
+        "task": "HG-08",
+        "test_correct": 0,
+        "true_utility": "0"
+      },
+      {
+        "budget": 64,
+        "cohort": "core_140",
+        "dimension": 140,
+        "evidence_class": "synthetic structural baseline",
+        "false_accept": 0,
+        "goal_rank": 1,
+        "policy": "random_dense",
+        "query_count": 64,
+        "recovered_per_output": [
+          0
+        ],
+        "release": 0,
+        "seed": 202611170801,
+        "task": "HG-08",
+        "test_correct": 0,
+        "true_utility": "0"
+      }
+    ],
     "unit": "generator seed; shared modes/dimensions/ranks/conditions clustered"
   },
   "checks": {
@@ -2962,11 +3051,11 @@
   },
   "schema": "HG09/EvalMath-receipt-v1",
   "source_sha256": {
-    "Hypergames/hg09/session_20261117/measured_input.json": "7fed8007a751b7fa02e8662472180ea18e9514b8cabe373531ab6c010c2baa36",
-    "paper/hypergames_hg09_session_measurements.md": "c686b5a0298c582dd9af3fc9ac3041bcd7f84b9c9d706494b22b2c55249b694e",
+    "Hypergames/hg09/session_20261117/measured_input.json": "94ff6911527b11805b694eb7acec7b036134236ca42a057aa7c1fb0c0d016b77",
+    "paper/hypergames_hg09_session_measurements.md": "a644bc794f299590497eacf0c5843bf9a0df8d3387be31136574180a4d33228f",
     "scripts/verify_hg09_session.py": "7676d7897c8bc687f064406c4a83eff1e51655086d9637987defc487467e92ce",
     "src/spiral_ln/evaluation_finite_sample.py": "b882e762b6f762540a1551a355ee698d3845609922d3fe577dd78396df1c17c6",
-    "src/spiral_ln/evaluation_hg09_session.py": "bcafc84aff4ad2b6a0d2942bcbd9dbe9c501cb77b8d3226345f5a0b22f98c2d7",
+    "src/spiral_ln/evaluation_hg09_session.py": "8d0a3c58bc9a5d828fd7a5148228ccef1579e6ecc9ae7a737b1734d8a52a7c7b",
     "src/spiral_ln/hypergames_observation_certificate.py": "15cbf7ce51199f434e5b91b7491a1f1cb1c1a6808fea1b3bca346b7839374a82",
     "tests/test_evaluation_hg09_session.py": "7786f4f324dfcbf1b25d2bbddef49cd546d00e06f1233f916810638df1b45674",
     "tests/test_hypergames_observation_certificate.py": "d7dd76a7cce648331f8338d60e6047d29a13a8f3e0287d9cf19ebd09798479c2"

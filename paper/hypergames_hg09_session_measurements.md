@@ -30,6 +30,8 @@ HG-02 observations disclose rewards, checksum formulas, gates, current remaining
 
 The recorded taxonomy distinguishes incorrect route parity, verification and authorization arithmetic, route choices without an audit, audits at horizon four, unsafe publish actions, proxy actions, invalid formats, incorrect causal support releases and queries attempted after budget exhaustion. These are behavioral labels. HG-08's inherited `false_accept` field counts incorrect test-vector predictions after a support release; the report separately counts incorrect support-release episodes and false support discoveries to avoid treating those test vectors as independent trials.
 
+Post hoc diagnostics additionally mark abstention when exact Bellman continuation value was positive and support releases inconsistent with observed deltas. An abstention alone does not reveal whether arithmetic, goal inference or another internal process failed. The registered dense GF(2) controller requires full ambient rank; its failures at 64 queries do not show that sparse recovery from those same observations is impossible.
+
 Reproduce without model inference:
 
 ```text

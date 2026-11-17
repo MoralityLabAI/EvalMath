@@ -183,6 +183,9 @@ def analyze(payload):
                         'family40_paired_difference_halfwidth_5pp_roots':math.ceil(2*math.log(1600)/.05**2),
                         'warning':'Conservative bounded-root planning; no empirical model-power estimate from algorithmic pilot.'},
             'model_totals':totals,'groups':groups,'contrasts':contrasts,
+            'structural_baseline_rows':[{k:v for k,v in row.items() if k != 'transcript'}
+                                        for row in payload.get('structural_baselines',[])],
+            'dense_GF2_baseline_scope':'Registered dense GF2 control requires full ambient rank; it is not an optimal sparse-recovery decoder.',
             'limits':['No backend snapshot returned; aliases are requested and transport-accepted.',
                       'CLI output-token cap and full built-in scaffold not exposed; exact task prompts and configured instructions saved.',
                       'Reasoning token counts are not private chain-of-thought text.',
