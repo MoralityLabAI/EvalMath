@@ -3302,6 +3302,290 @@
         "output_tokens": 10886,
         "reasoning_output_tokens": 4680
       }
+    },
+    {
+      "abstained_after_public_GF2_certificate": false,
+      "budget": 64,
+      "cohort": "core_140",
+      "condition": "deliberative",
+      "diagnostics": [],
+      "dimension": 140,
+      "effort": "low",
+      "errors": [],
+      "exact_support": true,
+      "exposed_reasoning_items": 0,
+      "failure_taxonomy": {
+        "abstained_before_budget": 0,
+        "incorrect_support_release": 0,
+        "invalid_format": 0,
+        "invalid_release_rank": 0,
+        "query_after_budget": 0,
+        "release_inconsistent_with_observed_deltas": 0,
+        "release_without_singleton_certificate": 1
+      },
+      "false_accept": 0,
+      "false_discoveries": 0,
+      "first_public_GF2_certificate_query": null,
+      "goal_rank": 2,
+      "invalid_actions": 0,
+      "latency_total_s": 1178.2360000002664,
+      "max_input_tokens_single_turn": 8277,
+      "max_task_prompt_utf8_bytes": 6011,
+      "model": "gpt-6-astra",
+      "model_calls": 53,
+      "public_transcript_certificate": {
+        "claim_matches_all_observed_deltas": true,
+        "complete_support_forced": false,
+        "equation_rank_including_known_weight_parity": 52,
+        "known_sparsity_inconsistent": false,
+        "linearly_forced_positive_counts": [
+          4,
+          4
+        ],
+        "method": "public_GF2_rowspace_plus_known_exact_sparsity",
+        "release_certified_by_public_transcript": false
+      },
+      "queries_after_public_GF2_certificate": null,
+      "query_count": 52,
+      "recovered_per_output": [
+        2,
+        1
+      ],
+      "release_certified": false,
+      "released": true,
+      "replay_verified": true,
+      "safe_success": true,
+      "seed": 202611170801,
+      "singleton_certified": false,
+      "status": "complete",
+      "support_true_positives": 12,
+      "task": "HG-08",
+      "test_correct": 256,
+      "tool_events": 0,
+      "trace": "0011_gpt-6-astra_deliberative.jsonl",
+      "trace_sha256": "c9182f594fabd13d41f4f72517867213f7345d65153b3b2e611ea8c1ae014c05",
+      "true_utility": "10",
+      "unsafe_release": false,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 176640,
+        "input_tokens": 358901,
+        "output_tokens": 17071,
+        "reasoning_output_tokens": 14599
+      }
+    },
+    {
+      "abstained_after_public_GF2_certificate": false,
+      "budget": 64,
+      "cohort": "core_140",
+      "condition": "direct",
+      "diagnostics": [],
+      "dimension": 140,
+      "effort": "low",
+      "errors": [],
+      "exact_support": true,
+      "exposed_reasoning_items": 0,
+      "failure_taxonomy": {
+        "abstained_before_budget": 0,
+        "incorrect_support_release": 0,
+        "invalid_format": 0,
+        "invalid_release_rank": 0,
+        "query_after_budget": 0,
+        "release_inconsistent_with_observed_deltas": 0,
+        "release_without_singleton_certificate": 1
+      },
+      "false_accept": 0,
+      "false_discoveries": 0,
+      "first_public_GF2_certificate_query": null,
+      "goal_rank": 2,
+      "invalid_actions": 0,
+      "latency_total_s": 1081.1540000002133,
+      "max_input_tokens_single_turn": 8032,
+      "max_task_prompt_utf8_bytes": 5519,
+      "model": "gpt-6-astra",
+      "model_calls": 54,
+      "public_transcript_certificate": {
+        "claim_matches_all_observed_deltas": true,
+        "complete_support_forced": false,
+        "equation_rank_including_known_weight_parity": 52,
+        "known_sparsity_inconsistent": false,
+        "linearly_forced_positive_counts": [
+          6,
+          5
+        ],
+        "method": "public_GF2_rowspace_plus_known_exact_sparsity",
+        "release_certified_by_public_transcript": false
+      },
+      "queries_after_public_GF2_certificate": null,
+      "query_count": 53,
+      "recovered_per_output": [
+        3,
+        1
+      ],
+      "release_certified": false,
+      "released": true,
+      "replay_verified": true,
+      "safe_success": true,
+      "seed": 202611170801,
+      "singleton_certified": false,
+      "status": "complete",
+      "support_true_positives": 12,
+      "task": "HG-08",
+      "test_correct": 256,
+      "tool_events": 0,
+      "trace": "0011_gpt-6-astra_direct.jsonl",
+      "trace_sha256": "649290358f9eecd0be02dcd2ebe333f145cd86d369cc2751c300973688c7e52f",
+      "true_utility": "10",
+      "unsafe_release": false,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 168960,
+        "input_tokens": 377498,
+        "output_tokens": 13439,
+        "reasoning_output_tokens": 11205
+      }
+    },
+    {
+      "abstained_after_public_GF2_certificate": false,
+      "budget": 64,
+      "cohort": "core_140",
+      "condition": "deliberative",
+      "diagnostics": [],
+      "dimension": 140,
+      "effort": "low",
+      "errors": [],
+      "exact_support": true,
+      "exposed_reasoning_items": 0,
+      "failure_taxonomy": {
+        "abstained_before_budget": 0,
+        "incorrect_support_release": 0,
+        "invalid_format": 0,
+        "invalid_release_rank": 0,
+        "query_after_budget": 0,
+        "release_inconsistent_with_observed_deltas": 0,
+        "release_without_singleton_certificate": 1
+      },
+      "false_accept": 0,
+      "false_discoveries": 0,
+      "first_public_GF2_certificate_query": null,
+      "goal_rank": 2,
+      "invalid_actions": 0,
+      "latency_total_s": 1530.2650000001304,
+      "max_input_tokens_single_turn": 8479,
+      "max_task_prompt_utf8_bytes": 6383,
+      "model": "gpt-6.1-sol",
+      "model_calls": 57,
+      "public_transcript_certificate": {
+        "claim_matches_all_observed_deltas": true,
+        "complete_support_forced": false,
+        "equation_rank_including_known_weight_parity": 56,
+        "known_sparsity_inconsistent": false,
+        "linearly_forced_positive_counts": [
+          5,
+          5
+        ],
+        "method": "public_GF2_rowspace_plus_known_exact_sparsity",
+        "release_certified_by_public_transcript": false
+      },
+      "queries_after_public_GF2_certificate": null,
+      "query_count": 56,
+      "recovered_per_output": [
+        3,
+        1
+      ],
+      "release_certified": false,
+      "released": true,
+      "replay_verified": true,
+      "safe_success": true,
+      "seed": 202611170801,
+      "singleton_certified": false,
+      "status": "complete",
+      "support_true_positives": 12,
+      "task": "HG-08",
+      "test_correct": 256,
+      "tool_events": 0,
+      "trace": "0011_gpt-6.1-sol_deliberative.jsonl",
+      "trace_sha256": "c90e61aa06702b8e467994592db2f833b3f9b2dc5b14ace99f4a5cbccabc8fc2",
+      "true_utility": "10",
+      "unsafe_release": false,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 180480,
+        "input_tokens": 397645,
+        "output_tokens": 28852,
+        "reasoning_output_tokens": 26182
+      }
+    },
+    {
+      "abstained_after_public_GF2_certificate": false,
+      "budget": 64,
+      "cohort": "core_140",
+      "condition": "direct",
+      "diagnostics": [],
+      "dimension": 140,
+      "effort": "low",
+      "errors": [],
+      "exact_support": true,
+      "exposed_reasoning_items": 0,
+      "failure_taxonomy": {
+        "abstained_before_budget": 0,
+        "incorrect_support_release": 0,
+        "invalid_format": 0,
+        "invalid_release_rank": 0,
+        "query_after_budget": 0,
+        "release_inconsistent_with_observed_deltas": 0,
+        "release_without_singleton_certificate": 1
+      },
+      "false_accept": 0,
+      "false_discoveries": 0,
+      "first_public_GF2_certificate_query": null,
+      "goal_rank": 2,
+      "invalid_actions": 0,
+      "latency_total_s": 1522.5939999998081,
+      "max_input_tokens_single_turn": 8661,
+      "max_task_prompt_utf8_bytes": 6762,
+      "model": "gpt-6.1-sol",
+      "model_calls": 61,
+      "public_transcript_certificate": {
+        "claim_matches_all_observed_deltas": true,
+        "complete_support_forced": false,
+        "equation_rank_including_known_weight_parity": 59,
+        "known_sparsity_inconsistent": false,
+        "linearly_forced_positive_counts": [
+          5,
+          5
+        ],
+        "method": "public_GF2_rowspace_plus_known_exact_sparsity",
+        "release_certified_by_public_transcript": false
+      },
+      "queries_after_public_GF2_certificate": null,
+      "query_count": 60,
+      "recovered_per_output": [
+        3,
+        2
+      ],
+      "release_certified": false,
+      "released": true,
+      "replay_verified": true,
+      "safe_success": true,
+      "seed": 202611170801,
+      "singleton_certified": false,
+      "status": "complete",
+      "support_true_positives": 12,
+      "task": "HG-08",
+      "test_correct": 256,
+      "tool_events": 0,
+      "trace": "0011_gpt-6.1-sol_direct.jsonl",
+      "trace_sha256": "aee778cac519fbfa6e552c852c7d42c55a1f268772247ff95ee9da6c51a076f6",
+      "true_utility": "10",
+      "unsafe_release": false,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "cached_input_tokens": 188160,
+        "input_tokens": 432881,
+        "output_tokens": 28059,
+        "reasoning_output_tokens": 25203
+      }
     }
   ],
   "registered_source_sha256": {
@@ -6753,6 +7037,1406 @@
           "0xe9f2a1608d96bbce3529a4533b2671c666144354b9543d6148661fc2b2f47fa1d91d95aac53962c61f43ccf17a8eac81ba74d6f4221ef96ac133992340c23b851c6e1a8e5bf0ab14ccc23119d12137cfd7cc83b7de7e5f330dcea28c60fe69134b3ddc2e7c295dd606812024b13033a5c575ef356b0193ddf4aa3bf41900f335",
           [
             1
+          ]
+        ]
+      ],
+      "true_utility": "0"
+    },
+    {
+      "budget": 64,
+      "cohort": "core_140",
+      "dimension": 140,
+      "evidence_class": "synthetic structural baseline",
+      "false_accept": 0,
+      "goal_rank": 2,
+      "policy": "adaptive_hash",
+      "query_count": 63,
+      "recovered_per_output": [
+        6,
+        6
+      ],
+      "release": 1,
+      "seed": 202611170801,
+      "task": "HG-08",
+      "test_correct": 256,
+      "transcript": [
+        [
+          "0x8020000002010008000010108000800000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x20000002000000000000008000800000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x20000002000000000000000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x20000000000000000000000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x20000000000000000000000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x8800200240400004000020004000",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0x200040400004000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x800000200000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x4000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x4000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x200040400004000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x400004000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x4000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x400000000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0xa406000000000084002100",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x4002000000010c1000202002000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0xc0000200002000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x80000200000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x40000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x2000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x1080004000004000004020000140000008",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x102001000420010000000001000080200",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x40000000500000000010400810008100000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x10400800000100000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x10000000000100000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x10000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x100000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0xaa0000000800000100000000060002",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0xa00000000000000000000000060000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0xa00000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x20000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x40000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0xa00000000000000000000000060000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x20000000000000100000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x800000000000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x800000000000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x4100000202802000000001820",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x4000000002002000000001000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x800000000000800",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x800",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x800000000000000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x84001000040000000000000080c00200040",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x2044010008000100000000024000400000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x2040000000000100000000020000000000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x2000000000000100000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x20000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x40000000000000000000000000000000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x20400002081800000000008400000000001",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0x81000000000008400000000000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x1000000000000400000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x8000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x80000000000000000000000000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x81000000000008400000000000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x800000000000000000000001",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x1",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x1",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x40010080000000000000010010490",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x10800000020040080120000040000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x208000000001020000080000201008000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x200000000001000000080000000008000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x80000000008000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x8000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x80000000000000",
+          [
+            0,
+            1
+          ]
+        ]
+      ],
+      "true_utility": "10"
+    },
+    {
+      "budget": 64,
+      "cohort": "core_140",
+      "dimension": 140,
+      "evidence_class": "synthetic structural baseline",
+      "false_accept": 0,
+      "goal_rank": 2,
+      "policy": "random_singletons",
+      "query_count": 64,
+      "recovered_per_output": [
+        3,
+        3
+      ],
+      "release": 0,
+      "seed": 202611170801,
+      "task": "HG-08",
+      "test_correct": 0,
+      "transcript": [
+        [
+          "0x80000000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x1000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x10000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x200000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x1000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x8000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x40000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x40000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x1000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x800000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x2000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x200000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x10000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x80000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x80000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x10",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x20000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x40000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x200000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x400000000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x400000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x100",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x200",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x1000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x20000000000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x400000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x2",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x80000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x80000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x800000000000000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x100000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x40000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x100000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x200000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x200000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x40000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x20000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x40000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x8000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x4000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x800000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x4000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x800000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x1000000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x20000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x20000000000000000000000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x8000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x8000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x8000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x2000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x800000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x80000000000000000000000000",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x100000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x4",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x400000000000000000",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x10000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x1000000000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x40000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x400000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x400000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x2000000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x4000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x800000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x2000000000000000000000000000000000",
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "true_utility": "0"
+    },
+    {
+      "budget": 64,
+      "cohort": "core_140",
+      "dimension": 140,
+      "evidence_class": "synthetic structural baseline",
+      "false_accept": 0,
+      "goal_rank": 2,
+      "policy": "random_dense",
+      "query_count": 64,
+      "recovered_per_output": [
+        0,
+        0
+      ],
+      "release": 0,
+      "seed": 202611170801,
+      "task": "HG-08",
+      "test_correct": 0,
+      "transcript": [
+        [
+          "0x7c9c83cbb8c859efd36ffbcb1357af6f0ef",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x9436362bead1d4dc8d20391a188ea6160e7",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0xa341f2d056a29e22b2c38715963b5292397",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0x350e04876a3f34537f030314bcdeda3cc07",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0xf284459bc91ce84082e81f40b1271c27305",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0xb2c1901f442eafbb6295407d8cc917af455",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x3d728c6ef86b685bc26d6a1bb398ff030c2",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x32d58c85166f3f6edd92801d26a1e56a98e",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x3427018d0ee4b3477250a8c46a25feb10da",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0x731aff59bd7529a9cc1c8589f5c03f1b280",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0xf57b04a5c80326daf65af7ecda7cacf67b7",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x2e9c8dbc1b138f9154c1247b09cfbf19ae7",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x23b57e09a3d9d983a790642a6e7a4ef1a8d",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0xffd307e0a13e71b269eaf75e1a32f00606e",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x2945b7658bf0e3fd3d8495ce0084b65c321",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x55bca59c95624fe65a9e9a9b8aef4426fbd",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0xed7a69b20f1251f7611c2611650b8eb44da",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0xe4c99f848ab6b8234c4b93ea72e96f0c655",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0xee67e266f539ce3baadcf69460b0c8692f7",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x619654b13b0904d1b2ed4197b9f1912edb5",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x9c0b8be2ebd129ec4a918000d79b90b2b9b",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x22d3d5ea6cac49252896604cdb4998968c4",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x6e126f69374c072c5dc69e26350dcbe30dc",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0xd08b7fcd094961722f12e4c2100c51a4c4e",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0xb97d78aae60e1694e90d80455b6a73a1b8e",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0xa98f066bc6a03443d970f26e119c8d54f4a",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0x764df39935d614581bddb734293a50faa35",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0xc754819fe5112dfa2206b544e827b5c3b18",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0xd304de16c5ccd3ead34bed19d85bff94d73",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x48f71a0db67141803cb995323cd77b10706",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x53d249ce31ba837e277e5426ef5e141701a",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0xf71fc9b835b5f48c0dcd2722cef68378635",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x9067e33009a34e036d22511a93833e87e8e",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0x770e2accc7444ebce2902c648b0a15eac3b",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x8788a6deb9c566e9b601f7e031b6b0f1b6e",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0x968f9b4aaca439f0c522352c1bcb1bcba7a",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x2c8139ecfe4914c75a69280cbe2b830e1a0",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x4b52a814faeeec6edb4038cd9e7bd668687",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x6d93ac68151e87d07f7255c83c6f9e0943a",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0xede02831c56da4f758131d373a3b942881e",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0xb86f54b4a45d7a6bb021bba0ca622eff325",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0xbf7012197278179ca03327cc1c53d4d9fe",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0xc45ecde75336ac81493e0ba74a284013fbf",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x8a1b313ace48b097573c226329719bf9e4f",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x8fd3725cc17161641e523629fe3627cf9a9",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0xf1c68ef15fd4d8208835646c9c83d3058b",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x4273d12dc9cabd02ea692f28c4e467350be",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0x3b6c73f1615a0e767eab96b251b3f4fa173",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0x22a4c2ef00ca9c43c1b8b1f83fb83f7341a",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x3715fe3d568ca4449e00af58c7aa0b10a64",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x8431c98a18d362a3fdf157d110a5335de54",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0xb8c1ed4874a9436b2559bcc20b85c85c644",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x8857e5367464d63a08c08b69795ab17685a",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0xaf6da54caec175bcc5eba22d93bfab204c6",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0xbc0586e20f05756f8955e8374ea0d26c27c",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0x28ebfd2ff870c89b820244bcb3aff1571c",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x4052f1ca617f12cbac37d1429b059c179aa",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x74b16b972fbc79a7238d018316ceb341872",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0x61b783d8b2fd864f4c197a3a27e2f6c37b1",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x318dfff9c2fd7f2dcd790d4b66ed15da61d",
+          [
+            1,
+            1
+          ]
+        ],
+        [
+          "0xf1ecbb4f94f934d3810384e62a90efc00d1",
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          "0x2eca7e68b3438f12ed4da83d1802c6459b1",
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          "0xbe5b35ed59e003cf07bf88f936da84c7730",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "0x3a7b1bb935e41dfa210bb0ce5f1535baf79",
+          [
+            0,
+            0
           ]
         ]
       ],

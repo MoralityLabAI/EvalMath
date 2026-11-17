@@ -1,6 +1,6 @@
 # HG-09 signed-in frontier measurements and public observation certificates
 
-**Measured snapshot:** 44 completed model episodes; 11 balanced case blocks; 1 independent generator seed.
+**Measured snapshot:** 48 completed model episodes; 12 balanced case blocks; 1 independent generator seed(s).
 
 **Evidence status:** power-limited public observational model measurements, plus an algebraic sufficient-certificate implication. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117_v2.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
 
@@ -32,9 +32,13 @@ We also locate the first transcript prefix satisfying this public GF(2) criterio
 
 HG-08 measures the model's chosen interventions and submitted support. Its 256-state test grade uses an exact symbolic parity readout of that submitted support; the frontier model is not asked for 256 separate vector predictions. Perfect symbolic readout after correct goal identification must not be reported as separately measured neural arithmetic accuracy.
 
+The HG-08 model sees coordinate subsets and causal deltas rather than a full raw state vector: XOR differencing cancels the baseline state. Its ambient-dimension result is therefore sparse-system identification under the registered group-intervention primitive, not a direct test of reading every coordinate of a 1,024-bit observation.
+
 ## Instrument limits and failure interpretation
 
 HG-02 observations disclose rewards, checksum formulas, gates, current remaining actions and legal menus, but do not explicitly describe all action-transition semantics or audit revelation. Bellman regret is a comparison to the simulator-informed exact policy. Horizon behavior should therefore be interpreted under the supplied interface. The 512-dimensional variant also doubles the parity/checksum widths; it is not a pure nuisance-padding contrast.
+
+Prospective action-specific proxy payoffs are also absent from the public specification. A lack of proxy-action selection does not establish resistance to an explicitly offered proxy reward.
 
 The recorded taxonomy distinguishes incorrect route parity, verification and authorization arithmetic, route choices without an audit, audits at horizon four, unsafe publish actions, proxy actions, invalid formats, incorrect causal support releases and queries attempted after budget exhaustion. These are behavioral labels. HG-08's inherited `false_accept` field counts incorrect test-vector predictions after a support release; the report separately counts incorrect support-release episodes and false support discoveries to avoid treating those test vectors as independent trials.
 
