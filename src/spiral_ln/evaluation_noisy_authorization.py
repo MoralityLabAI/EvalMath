@@ -173,3 +173,105 @@ def brute_force_budget_gain(candidates: Sequence[AuditCandidate], budget: int) -
          for selected in combinations(rows, budget)),
         default=Q(0),
     )
+
+
+# EVAL-AUTH-04: explicit asymmetric authorization error costs.
+
+def _positive_cost(value: Q, field: str) -> Q:
+    if not isinstance(value, Fraction) or value <= 0:
+        raise ValueError(f"{field} must be a positive exact Fraction")
+    return value
+
+
+def weighted_public_error(
+    channel: AuditChannel, *, false_grant_cost: Q, missed_grant_cost: Q = Q(1),
+) -> Q:
+    """Bayes error when false authorization and missed authorization differ."""
+    c_fp = _positive_cost(false_grant_cost, "false_grant_cost")
+    c_fn = _positive_cost(missed_grant_cost, "missed_grant_cost")
+    p = channel.prior
+    return min(c_fn * p, c_fp * (Q(1) - p))
+
+
+def weighted_audited_error(
+    channel: AuditChannel, *, false_grant_cost: Q, missed_grant_cost: Q = Q(1),
+) -> Q:
+    """Minimum weighted risk after a finite noisy report is observed."""
+    c_fp = _positive_cost(false_grant_cost, "false_grant_cost")
+    c_fn = _positive_cost(missed_grant_cost, "missed_grant_cost")
+    p, t, f = channel.prior, channel.sensitivity, channel.false_positive
+    yes = min(c_fn * p * t, c_fp * (Q(1) - p) * f)
+    no = min(c_fn * p * (Q(1) - t), c_fp * (Q(1) - p) * (Q(1) - f))
+    return yes + no
+
+
+def weighted_audit_value(
+    channel: AuditChannel, *, false_grant_cost: Q, missed_grant_cost: Q = Q(1),
+) -> Q:
+    value = weighted_public_error(
+        channel, false_grant_cost=false_grant_cost,
+        missed_grant_cost=missed_grant_cost,
+    ) - weighted_audited_error(
+        channel, false_grant_cost=false_grant_cost,
+        missed_grant_cost=missed_grant_cost,
+    )
+    if value < 0:
+        raise AssertionError("Bayes value of information must be nonnegative")
+    return value
+
+
+def weighted_decide_public(
+    estimated: AuditChannel, *, false_grant_cost: Q, missed_grant_cost: Q = Q(1),
+) -> bool:
+    c_fp = _positive_cost(false_grant_cost, "false_grant_cost")
+    c_fn = _positive_cost(missed_grant_cost, "missed_grant_cost")
+    return c_fn * estimated.prior > c_fp * (Q(1) - estimated.prior)
+
+
+def weighted_decide_after_report(
+    estimated: AuditChannel, *, report: bool,
+    false_grant_cost: Q, missed_grant_cost: Q = Q(1),
+) -> bool:
+    c_fp = _positive_cost(false_grant_cost, "false_grant_cost")
+    c_fn = _positive_cost(missed_grant_cost, "missed_grant_cost")
+    p,t,f=estimated.prior,estimated.sensitivity,estimated.false_positive
+    allowed_mass = p * (t if report else Q(1) - t)
+    forbidden_mass = (Q(1) - p) * (f if report else Q(1) - f)
+    return c_fn * allowed_mass > c_fp * forbidden_mass
+
+
+def weighted_expected_error_under_rule(
+    true_channel: AuditChannel, estimated_channel: AuditChannel,
+    *, inspect: bool, false_grant_cost: Q, missed_grant_cost: Q = Q(1),
+) -> Q:
+    """Weighted true loss of a frozen, potentially miscalibrated controller."""
+    c_fp = _positive_cost(false_grant_cost, "false_grant_cost")
+    c_fn = _positive_cost(missed_grant_cost, "missed_grant_cost")
+    p,t,f=true_channel.prior,true_channel.sensitivity,true_channel.false_positive
+    if not inspect:
+        return c_fp*(Q(1)-p) if weighted_decide_public(
+            estimated_channel,false_grant_cost=c_fp,missed_grant_cost=c_fn
+        ) else c_fn*p
+    total=Q(0)
+    for report in (False,True):
+        allowed_mass = p*(t if report else Q(1)-t)
+        forbidden_mass = (Q(1)-p)*(f if report else Q(1)-f)
+        chosen = weighted_decide_after_report(
+            estimated_channel,report=report,
+            false_grant_cost=c_fp,missed_grant_cost=c_fn,
+        )
+        total += c_fp*forbidden_mass if chosen else c_fn*allowed_mass
+    return total
+
+
+def weighted_rule_audit_value(
+    true_channel: AuditChannel, estimated_channel: AuditChannel,
+    *, false_grant_cost: Q, missed_grant_cost: Q = Q(1),
+) -> Q:
+    return weighted_expected_error_under_rule(
+        true_channel,estimated_channel,inspect=False,
+        false_grant_cost=false_grant_cost,missed_grant_cost=missed_grant_cost,
+    ) - weighted_expected_error_under_rule(
+        true_channel,estimated_channel,inspect=True,
+        false_grant_cost=false_grant_cost,missed_grant_cost=missed_grant_cost,
+    )
