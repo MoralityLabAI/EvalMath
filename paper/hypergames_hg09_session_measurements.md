@@ -1,8 +1,8 @@
 # HG-09 signed-in frontier measurements and public observation certificates
 
-**Measured snapshot:** 52 completed model episodes; 13 balanced case blocks; 1 independent generator seed(s).
+**Measured snapshot:** 80 completed model episodes; 20 four-arm-complete case blocks; 2 generator seed(s) represented. Matched hidden-mode comparison counts are in the receipt.
 
-**Evidence status:** power-limited public observational model measurements, plus algebraic and exact finite-domain identifiability certificates. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117_v3.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
+**Evidence status:** power-limited public observational model measurements, plus algebraic and exact finite-domain identifiability certificates. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117_v4.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
 
 The measured inputs come from GPTStoryworld HG-09 PR #16. The original PR head is `522de307fb60043d71c9a90fd0e802227e855dae`; its HG-08 dependency is `855f2f3d5fc4e26518112925de4a53e6dc9bc42e`. The signed-in runner was frozen in GPTStoryworld commit `c07227c` before scored inference. The 12-episode smoke checkpoint is commit `415c0fd`. The source audit verifies the original source and registration bytes against the PR head. The protected HG-03 manifest was never opened; its original public commitment remains unchanged. Numeric disjointness from an unavailable private list cannot be independently established.
 
@@ -10,7 +10,7 @@ The measured inputs come from GPTStoryworld HG-09 PR #16. The original PR head i
 
 ## Independent units and evidence gate
 
-The independent unit is a public generator seed. Hidden modes, dimensions, ranks, prompt arms, intervention turns and the 256 parity test vectors are repeated observations within that seed. Only case blocks completed under all four model/condition arms enter balanced comparisons. All attempted and interrupted episodes remain in the available-data accounting. A failed provider call is never converted into a model abstention or an oracle-generated score.
+The independent unit is a public generator seed. Hidden modes, dimensions, ranks, prompt arms, intervention turns and the 256 parity test vectors are repeated observations within that seed. Only case blocks completed under all four model/condition arms enter balanced comparisons; HG-02 additionally requires both hidden modes for the same seed, dimension and horizon. All attempted and interrupted episodes remain in available-data accounting, and all reported token usage remains counted even for excluded partial pairs. Requests without reported usage are explicitly counted. A failed provider call is never converted into a model abstention or an oracle-generated score.
 
 The prospective resolution planner used 64 independent development-generator summaries comparing deterministic adaptive hashing with random singletons. A repeated deterministic controller was the sham. This calibrates a synthetic replay floor, **not model-level sham variation**. At a scientific floor of five completion percentage points, a target of fifteen points and 40 planned comparisons, the planner returned `REDESIGN_OR_PILOT_ONLY`: the readout is public and unsealed, and 24 planned roots are underpowered. Its approximate 401-root estimate describes the synthetic development comparison and cannot be transferred to model differences.
 

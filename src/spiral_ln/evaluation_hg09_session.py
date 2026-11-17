@@ -127,6 +127,9 @@ def analyze(payload):
     all_cells = {(m,c) for m in MODELS for c in CONDITIONS}
     paired_keys = {key for key, arms in index.items()
                    if set(arms) == all_cells and all(r['status'] == 'complete' for r in arms.values())}
+    four_arm_keys=set(paired_keys)
+    paired_keys={key for key in paired_keys if key[0]!='HG-02' or
+                 (*key[:4],1-key[4],*key[5:]) in four_arm_keys}
     balanced = [r for r in rows if case_key(r) in paired_keys]
     groups = []
     for scope, source in (('available', rows), ('balanced', balanced)):
@@ -182,16 +185,21 @@ def analyze(payload):
     for model in MODELS:
         for condition in CONDITIONS:
             sub=[r for r in balanced if r['model']==model and r['condition']==condition]
+            all_sub=[r for r in rows if r['model']==model and r['condition']==condition]
             totals[model+'/'+condition]={'balanced_episodes':len(sub),
                                          'independent_roots':len({r['seed'] for r in sub}),
                                          'input_tokens':sum(r.get('usage',{}).get('input_tokens',0) for r in sub),
                                          'output_tokens':sum(r.get('usage',{}).get('output_tokens',0) for r in sub),
-                                         'reasoning_output_tokens':sum(r.get('usage',{}).get('reasoning_output_tokens',0) for r in sub)}
+                                         'reasoning_output_tokens':sum(r.get('usage',{}).get('reasoning_output_tokens',0) for r in sub),
+                                         'attempted_episodes':len(all_sub),
+                                         'reported_usage_all_attempts':{k:sum((r.get('usage') or {}).get(k,0) for r in all_sub) for k in ('input_tokens','output_tokens','reasoning_output_tokens')},
+                                         'requests_without_reported_usage':sum(r.get('requests_without_reported_usage',0) for r in all_sub)}
     return {'schema':'HG09/EvalMath-observational-v1',
             'evidence_class':'power-limited public observational model measurement',
             'unit':'generator seed; shared modes/dimensions/ranks/conditions clustered',
             'n_units':len({r['seed'] for r in balanced}),'n_cases_attempted':len(rows),
             'n_cases_completed':sum(r['status']=='complete' for r in rows),
+            'n_four_arm_complete_case_blocks':len(four_arm_keys),
             'n_balanced_case_blocks':len(paired_keys),'n_balanced_model_episodes':len(balanced),
             'planned_comparisons':FAMILY,'observed_comparisons':len(contrasts),
             'scientific_variation_floor':'1/20 completion-rate difference',

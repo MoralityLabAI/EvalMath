@@ -29,9 +29,17 @@ def test_partial_case_excluded_from_balanced_comparison():
     r[-1]['status']='incomplete'
     result=analyze({'episodes':r})
     assert result['n_cases_completed']==15
-    assert result['n_balanced_model_episodes']==12
-    assert result['n_balanced_case_blocks']==3
+    assert result['n_balanced_model_episodes']==8
+    assert result['n_balanced_case_blocks']==2
     assert any(g['incomplete_episodes'] for g in result['groups'] if g['scope']=='available')
+
+
+def test_missing_hidden_partner_preserves_data_but_blocks_paired_utility():
+    result=analyze({'episodes':[r for r in rows((1,)) if r['hidden_mode']==0]})
+    assert result['n_cases_completed']==4
+    assert result['n_four_arm_complete_case_blocks']==1
+    assert result['n_balanced_model_episodes']==0
+    assert result['contrasts']==[]
 
 
 def test_duplicate_attempt_never_selected_as_success():
