@@ -1,0 +1,467 @@
+{
+  "alpha": "1/20",
+  "confirm_units_planned": 24,
+  "experiment_id": "HG09-public-session-20261117",
+  "heldout_sealed": false,
+  "independent_unit": "public generator seed; all dimensions/ranks/modes/conditions are clustered within seed",
+  "measurement_resolution": "1/1000",
+  "pilot": [
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170001"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170002"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170003"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170004"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170005"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170006"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170007"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170008"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170009"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170010"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170011"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170012"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170013"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170014"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170015"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170016"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170017"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170018"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170019"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170020"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170021"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170022"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170023"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170024"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170025"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170026"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170027"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170028"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170029"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170030"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170031"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170032"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170033"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170034"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170035"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170036"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170037"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170038"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170039"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170040"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170041"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170042"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170043"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170044"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170045"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170046"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170047"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170048"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170049"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170050"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170051"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170052"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170053"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170054"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170055"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170056"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170057"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170058"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170059"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170060"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170061"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170062"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170063"
+    },
+    {
+      "paired_effect": "1",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "development-generator-202611170064"
+    }
+  ],
+  "pilot_from_development_only": true,
+  "planned_comparisons": 40,
+  "schema_version": 1,
+  "scientific_min_effect": "1/20",
+  "sham_confidence": "19/20",
+  "sham_quantile": "19/20",
+  "sham_scope": "Deterministic algorithm replay sham only; NOT a matched neural/model sham and cannot establish a neural mechanism.",
+  "target_effect": "3/20",
+  "units_independent": true
+}
