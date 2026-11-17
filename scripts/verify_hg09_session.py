@@ -15,6 +15,8 @@ SOURCES=(
     'tests/test_evaluation_hg09_session.py',
     'src/spiral_ln/hypergames_observation_certificate.py',
     'tests/test_hypergames_observation_certificate.py',
+    'src/spiral_ln/hypergames_sparse_certificate.py',
+    'tests/test_hypergames_sparse_certificate.py',
     'paper/hypergames_hg09_session_measurements.md',
     'scripts/verify_hg09_session.py',
     INPUT,
@@ -32,9 +34,9 @@ def receipt():
         'independent_unit_is_seed':report['n_units']==len({r['seed'] for c in report['contrasts'] for r in c['paired_rows']}),
         'balanced_count_multiple_of_four':report['n_balanced_model_episodes']%4==0,
         'conservative_95_accuracy_planning':report['planning']['single_accuracy_95_halfwidth_5pp_roots']==738,
-        'algorithm_baselines_separate':all(r['evidence_class']=='synthetic structural baseline' for r in payload['structural_baselines']),
+        'algorithm_baselines_separate':all(r['evidence_class']=='synthetic structural baseline' for r in payload['structural_baselines']+payload.get('posthoc_structural_readouts',[])),
     }
-    return {'schema':'HG09/EvalMath-receipt-v2','checks':checks,'all_passed':all(checks.values()),
+    return {'schema':'HG09/EvalMath-receipt-v3','checks':checks,'all_passed':all(checks.values()),
             'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCES},
             'upstream_registration_sha256':payload['registration_sha256'],
             'analysis':report}
@@ -42,7 +44,7 @@ def receipt():
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--output',type=Path,default=ROOT/'output/evaluation_hg09/session_20261117_v2.json')
+    ap.add_argument('--output',type=Path,default=ROOT/'output/evaluation_hg09/session_20261117_v3.json')
     args=ap.parse_args()
     result=receipt()
     args.output.parent.mkdir(parents=True,exist_ok=True)

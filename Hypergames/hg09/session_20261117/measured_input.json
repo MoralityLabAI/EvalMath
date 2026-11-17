@@ -647,6 +647,38 @@
       "dimension": 140,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 140,
+        "equations": 34,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                5,
+                10,
+                30,
+                71,
+                114,
+                127
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -661,6 +693,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 34,
+      "first_unique_sparse_prefix_query": 34,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 492.4539999999106,
@@ -668,6 +701,7 @@
       "max_task_prompt_utf8_bytes": 4003,
       "model": "gpt-6-astra",
       "model_calls": 35,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -680,11 +714,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": 0,
       "query_count": 34,
       "recovered_per_output": [
         4
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": true,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -716,6 +752,38 @@
       "dimension": 140,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 140,
+        "equations": 35,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                5,
+                10,
+                30,
+                71,
+                114,
+                127
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -730,6 +798,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 35,
+      "first_unique_sparse_prefix_query": 35,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 367.2200000002049,
@@ -737,6 +806,7 @@
       "max_task_prompt_utf8_bytes": 3471,
       "model": "gpt-6-astra",
       "model_calls": 36,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -749,11 +819,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": 0,
       "query_count": 35,
       "recovered_per_output": [
         4
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": true,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -785,6 +857,38 @@
       "dimension": 140,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 140,
+        "equations": 33,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                5,
+                10,
+                30,
+                71,
+                114,
+                127
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -799,6 +903,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 33,
+      "first_unique_sparse_prefix_query": 32,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 385.6860000002198,
@@ -806,6 +911,7 @@
       "max_task_prompt_utf8_bytes": 3585,
       "model": "gpt-6.1-sol",
       "model_calls": 34,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -818,11 +924,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": 1,
       "query_count": 33,
       "recovered_per_output": [
         1
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": true,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -854,6 +962,38 @@
       "dimension": 140,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 140,
+        "equations": 36,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                5,
+                10,
+                30,
+                71,
+                114,
+                127
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -868,6 +1008,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 36,
+      "first_unique_sparse_prefix_query": 36,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 394.0300000004936,
@@ -875,6 +1016,7 @@
       "max_task_prompt_utf8_bytes": 3736,
       "model": "gpt-6.1-sol",
       "model_calls": 37,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -887,11 +1029,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": 0,
       "query_count": 36,
       "recovered_per_output": [
         3
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": true,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -2760,6 +2904,20 @@
       "dimension": 512,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 512,
+        "equations": 45,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 22238720,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 22238720,
+        "single_output_goal_family_size": 24295061050624,
+        "status": "unavailable_enumeration_cap"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -2774,6 +2932,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 45,
+      "first_unique_sparse_prefix_query": null,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 591.704000000027,
@@ -2781,6 +2940,7 @@
       "max_task_prompt_utf8_bytes": 9187,
       "model": "gpt-6-astra",
       "model_calls": 46,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -2793,11 +2953,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": null,
       "query_count": 45,
       "recovered_per_output": [
         1
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": false,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -2829,6 +2991,20 @@
       "dimension": 512,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 512,
+        "equations": 44,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 22238720,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 22238720,
+        "single_output_goal_family_size": 24295061050624,
+        "status": "unavailable_enumeration_cap"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -2843,6 +3019,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 44,
+      "first_unique_sparse_prefix_query": null,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 529.890999999945,
@@ -2850,6 +3027,7 @@
       "max_task_prompt_utf8_bytes": 8910,
       "model": "gpt-6-astra",
       "model_calls": 45,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -2862,11 +3040,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": null,
       "query_count": 44,
       "recovered_per_output": [
         2
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": false,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -2898,6 +3078,20 @@
       "dimension": 512,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 512,
+        "equations": 45,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 22238720,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 22238720,
+        "single_output_goal_family_size": 24295061050624,
+        "status": "unavailable_enumeration_cap"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -2912,6 +3106,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 45,
+      "first_unique_sparse_prefix_query": null,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 635.8090000002412,
@@ -2919,6 +3114,7 @@
       "max_task_prompt_utf8_bytes": 9046,
       "model": "gpt-6.1-sol",
       "model_calls": 46,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -2931,11 +3127,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": null,
       "query_count": 45,
       "recovered_per_output": [
         2
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": false,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -2967,6 +3165,20 @@
       "dimension": 512,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 512,
+        "equations": 53,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 22238720,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 22238720,
+        "single_output_goal_family_size": 24295061050624,
+        "status": "unavailable_enumeration_cap"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -2981,6 +3193,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 53,
+      "first_unique_sparse_prefix_query": null,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 823.2979999999516,
@@ -2988,6 +3201,7 @@
       "max_task_prompt_utf8_bytes": 11577,
       "model": "gpt-6.1-sol",
       "model_calls": 54,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -3000,11 +3214,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": null,
       "query_count": 53,
       "recovered_per_output": [
         3
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": false,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -3036,6 +3252,20 @@
       "dimension": 1024,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 1024,
+        "equations": 55,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 178433024,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 178433024,
+        "single_output_goal_family_size": 1577953087760896,
+        "status": "unavailable_enumeration_cap"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -3050,6 +3280,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 55,
+      "first_unique_sparse_prefix_query": null,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 673.0949999999721,
@@ -3057,6 +3288,7 @@
       "max_task_prompt_utf8_bytes": 16812,
       "model": "gpt-6-astra",
       "model_calls": 56,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -3069,11 +3301,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": null,
       "query_count": 55,
       "recovered_per_output": [
         2
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": false,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -3105,6 +3339,20 @@
       "dimension": 1024,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 1024,
+        "equations": 50,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 178433024,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 178433024,
+        "single_output_goal_family_size": 1577953087760896,
+        "status": "unavailable_enumeration_cap"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -3119,6 +3367,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 50,
+      "first_unique_sparse_prefix_query": null,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 638.9709999996703,
@@ -3126,6 +3375,7 @@
       "max_task_prompt_utf8_bytes": 14606,
       "model": "gpt-6-astra",
       "model_calls": 51,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -3138,11 +3388,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": null,
       "query_count": 50,
       "recovered_per_output": [
         3
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": false,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -3174,6 +3426,20 @@
       "dimension": 1024,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 1024,
+        "equations": 54,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 178433024,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 178433024,
+        "single_output_goal_family_size": 1577953087760896,
+        "status": "unavailable_enumeration_cap"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -3188,6 +3454,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 54,
+      "first_unique_sparse_prefix_query": null,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 678.0130000000354,
@@ -3195,6 +3462,7 @@
       "max_task_prompt_utf8_bytes": 16772,
       "model": "gpt-6.1-sol",
       "model_calls": 55,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -3207,11 +3475,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": null,
       "query_count": 54,
       "recovered_per_output": [
         3
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": false,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -3243,6 +3513,20 @@
       "dimension": 1024,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 1024,
+        "equations": 50,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 178433024,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 178433024,
+        "single_output_goal_family_size": 1577953087760896,
+        "status": "unavailable_enumeration_cap"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -3257,6 +3541,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": 50,
+      "first_unique_sparse_prefix_query": null,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 647.7799999999115,
@@ -3264,6 +3549,7 @@
       "max_task_prompt_utf8_bytes": 13646,
       "model": "gpt-6.1-sol",
       "model_calls": 51,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": true,
@@ -3276,11 +3562,13 @@
         "release_certified_by_public_transcript": true
       },
       "queries_after_public_GF2_certificate": 0,
+      "queries_after_unique_sparse_prefix": null,
       "query_count": 50,
       "recovered_per_output": [
         3
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": false,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -3312,6 +3600,55 @@
       "dimension": 140,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 140,
+        "equations": 52,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 2,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                14,
+                18,
+                20,
+                59,
+                103,
+                126
+              ]
+            ]
+          },
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 1,
+            "status": "unique",
+            "witness_supports": [
+              [
+                0,
+                25,
+                55,
+                70,
+                83,
+                125
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -3326,6 +3663,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": null,
+      "first_unique_sparse_prefix_query": 52,
       "goal_rank": 2,
       "invalid_actions": 0,
       "latency_total_s": 1178.2360000002664,
@@ -3333,6 +3671,7 @@
       "max_task_prompt_utf8_bytes": 6011,
       "model": "gpt-6-astra",
       "model_calls": 53,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": false,
@@ -3346,12 +3685,14 @@
         "release_certified_by_public_transcript": false
       },
       "queries_after_public_GF2_certificate": null,
+      "queries_after_unique_sparse_prefix": 0,
       "query_count": 52,
       "recovered_per_output": [
         2,
         1
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": true,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -3383,6 +3724,55 @@
       "dimension": 140,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 140,
+        "equations": 53,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 2,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                14,
+                18,
+                20,
+                59,
+                103,
+                126
+              ]
+            ]
+          },
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 1,
+            "status": "unique",
+            "witness_supports": [
+              [
+                0,
+                25,
+                55,
+                70,
+                83,
+                125
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -3397,6 +3787,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": null,
+      "first_unique_sparse_prefix_query": 51,
       "goal_rank": 2,
       "invalid_actions": 0,
       "latency_total_s": 1081.1540000002133,
@@ -3404,6 +3795,7 @@
       "max_task_prompt_utf8_bytes": 5519,
       "model": "gpt-6-astra",
       "model_calls": 54,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": false,
@@ -3417,12 +3809,14 @@
         "release_certified_by_public_transcript": false
       },
       "queries_after_public_GF2_certificate": null,
+      "queries_after_unique_sparse_prefix": 2,
       "query_count": 53,
       "recovered_per_output": [
         3,
         1
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": true,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -3454,6 +3848,55 @@
       "dimension": 140,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 140,
+        "equations": 56,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 2,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                14,
+                18,
+                20,
+                59,
+                103,
+                126
+              ]
+            ]
+          },
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 1,
+            "status": "unique",
+            "witness_supports": [
+              [
+                0,
+                25,
+                55,
+                70,
+                83,
+                125
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -3468,6 +3911,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": null,
+      "first_unique_sparse_prefix_query": 55,
       "goal_rank": 2,
       "invalid_actions": 0,
       "latency_total_s": 1530.2650000001304,
@@ -3475,6 +3919,7 @@
       "max_task_prompt_utf8_bytes": 6383,
       "model": "gpt-6.1-sol",
       "model_calls": 57,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": false,
@@ -3488,12 +3933,14 @@
         "release_certified_by_public_transcript": false
       },
       "queries_after_public_GF2_certificate": null,
+      "queries_after_unique_sparse_prefix": 1,
       "query_count": 56,
       "recovered_per_output": [
         3,
         1
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": true,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -3525,6 +3972,55 @@
       "dimension": 140,
       "effort": "low",
       "errors": [],
+      "exact_sparse_certificate": {
+        "dimension": 140,
+        "equations": 60,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 2,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                14,
+                18,
+                20,
+                59,
+                103,
+                126
+              ]
+            ]
+          },
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 1,
+            "status": "unique",
+            "witness_supports": [
+              [
+                0,
+                25,
+                55,
+                70,
+                83,
+                125
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
       "exact_support": true,
       "exposed_reasoning_items": 0,
       "failure_taxonomy": {
@@ -3539,6 +4035,7 @@
       "false_accept": 0,
       "false_discoveries": 0,
       "first_public_GF2_certificate_query": null,
+      "first_unique_sparse_prefix_query": 57,
       "goal_rank": 2,
       "invalid_actions": 0,
       "latency_total_s": 1522.5939999998081,
@@ -3546,6 +4043,7 @@
       "max_task_prompt_utf8_bytes": 6762,
       "model": "gpt-6.1-sol",
       "model_calls": 61,
+      "no_valid_release_despite_unique_sparse_transcript": false,
       "public_transcript_certificate": {
         "claim_matches_all_observed_deltas": true,
         "complete_support_forced": false,
@@ -3559,12 +4057,14 @@
         "release_certified_by_public_transcript": false
       },
       "queries_after_public_GF2_certificate": null,
+      "queries_after_unique_sparse_prefix": 3,
       "query_count": 60,
       "recovered_per_output": [
         3,
         2
       ],
       "release_certified": false,
+      "release_matches_unique_sparse_goal": true,
       "released": true,
       "replay_verified": true,
       "safe_success": true,
@@ -3586,6 +4086,551 @@
         "output_tokens": 28059,
         "reasoning_output_tokens": 25203
       }
+    }
+  ],
+  "posthoc_structural_readouts": [
+    {
+      "budget": 64,
+      "certified_symbolic_utility": "10",
+      "cohort": "core_140",
+      "decoder": {
+        "dimension": 140,
+        "equations": 40,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                5,
+                10,
+                30,
+                71,
+                114,
+                127
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
+      "decoder_status": "unique",
+      "dimension": 140,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": 39,
+      "goal_rank": 1,
+      "original_controller_released": true,
+      "query_count": 40,
+      "query_policy": "adaptive_hash",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
+    },
+    {
+      "budget": 64,
+      "certified_symbolic_utility": "0",
+      "cohort": "core_140",
+      "decoder": {
+        "dimension": 140,
+        "equations": 64,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 2,
+            "lookup_exhausted": false,
+            "matching_half_pairs_checked": 2,
+            "output_index": 0,
+            "status": "ambiguous_at_least_two",
+            "witness_supports": [
+              [
+                0,
+                3,
+                30,
+                71,
+                114,
+                127
+              ],
+              [
+                0,
+                5,
+                30,
+                71,
+                114,
+                127
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "ambiguous_at_least_two"
+      },
+      "decoder_status": "ambiguous_at_least_two",
+      "dimension": 140,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": null,
+      "goal_rank": 1,
+      "original_controller_released": false,
+      "query_count": 64,
+      "query_policy": "random_singletons",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
+    },
+    {
+      "budget": 64,
+      "certified_symbolic_utility": "10",
+      "cohort": "core_140",
+      "decoder": {
+        "dimension": 140,
+        "equations": 64,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                5,
+                10,
+                30,
+                71,
+                114,
+                127
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
+      "decoder_status": "unique",
+      "dimension": 140,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": 33,
+      "goal_rank": 1,
+      "original_controller_released": false,
+      "query_count": 64,
+      "query_policy": "random_dense",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
+    },
+    {
+      "budget": 64,
+      "certified_symbolic_utility": null,
+      "cohort": "native_512",
+      "decoder": {
+        "dimension": 512,
+        "equations": 64,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 22238720,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 22238720,
+        "single_output_goal_family_size": 24295061050624,
+        "status": "unavailable_enumeration_cap"
+      },
+      "decoder_status": "unavailable_enumeration_cap",
+      "dimension": 512,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": null,
+      "goal_rank": 1,
+      "original_controller_released": false,
+      "query_count": 64,
+      "query_policy": "adaptive_hash",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
+    },
+    {
+      "budget": 64,
+      "certified_symbolic_utility": null,
+      "cohort": "native_512",
+      "decoder": {
+        "dimension": 512,
+        "equations": 64,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 22238720,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 22238720,
+        "single_output_goal_family_size": 24295061050624,
+        "status": "unavailable_enumeration_cap"
+      },
+      "decoder_status": "unavailable_enumeration_cap",
+      "dimension": 512,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": null,
+      "goal_rank": 1,
+      "original_controller_released": false,
+      "query_count": 64,
+      "query_policy": "random_singletons",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
+    },
+    {
+      "budget": 64,
+      "certified_symbolic_utility": null,
+      "cohort": "native_512",
+      "decoder": {
+        "dimension": 512,
+        "equations": 64,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 22238720,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 22238720,
+        "single_output_goal_family_size": 24295061050624,
+        "status": "unavailable_enumeration_cap"
+      },
+      "decoder_status": "unavailable_enumeration_cap",
+      "dimension": 512,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": null,
+      "goal_rank": 1,
+      "original_controller_released": false,
+      "query_count": 64,
+      "query_policy": "random_dense",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
+    },
+    {
+      "budget": 64,
+      "certified_symbolic_utility": null,
+      "cohort": "native_1024",
+      "decoder": {
+        "dimension": 1024,
+        "equations": 55,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 178433024,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 178433024,
+        "single_output_goal_family_size": 1577953087760896,
+        "status": "unavailable_enumeration_cap"
+      },
+      "decoder_status": "unavailable_enumeration_cap",
+      "dimension": 1024,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": null,
+      "goal_rank": 1,
+      "original_controller_released": true,
+      "query_count": 55,
+      "query_policy": "adaptive_hash",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
+    },
+    {
+      "budget": 64,
+      "certified_symbolic_utility": null,
+      "cohort": "native_1024",
+      "decoder": {
+        "dimension": 1024,
+        "equations": 64,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 178433024,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 178433024,
+        "single_output_goal_family_size": 1577953087760896,
+        "status": "unavailable_enumeration_cap"
+      },
+      "decoder_status": "unavailable_enumeration_cap",
+      "dimension": 1024,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": null,
+      "goal_rank": 1,
+      "original_controller_released": false,
+      "query_count": 64,
+      "query_policy": "random_singletons",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
+    },
+    {
+      "budget": 64,
+      "certified_symbolic_utility": null,
+      "cohort": "native_1024",
+      "decoder": {
+        "dimension": 1024,
+        "equations": 64,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 1,
+        "known_width": 6,
+        "left_half_terms": 178433024,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [],
+        "right_half_terms": 178433024,
+        "single_output_goal_family_size": 1577953087760896,
+        "status": "unavailable_enumeration_cap"
+      },
+      "decoder_status": "unavailable_enumeration_cap",
+      "dimension": 1024,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": null,
+      "goal_rank": 1,
+      "original_controller_released": false,
+      "query_count": 64,
+      "query_policy": "random_dense",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
+    },
+    {
+      "budget": 64,
+      "certified_symbolic_utility": "10",
+      "cohort": "core_140",
+      "decoder": {
+        "dimension": 140,
+        "equations": 63,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 2,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                14,
+                18,
+                20,
+                59,
+                103,
+                126
+              ]
+            ]
+          },
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 1,
+            "status": "unique",
+            "witness_supports": [
+              [
+                0,
+                25,
+                55,
+                70,
+                83,
+                125
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
+      "decoder_status": "unique",
+      "dimension": 140,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": 62,
+      "goal_rank": 2,
+      "original_controller_released": true,
+      "query_count": 63,
+      "query_policy": "adaptive_hash",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
+    },
+    {
+      "budget": 64,
+      "certified_symbolic_utility": "0",
+      "cohort": "core_140",
+      "decoder": {
+        "dimension": 140,
+        "equations": 64,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 2,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 2,
+            "lookup_exhausted": false,
+            "matching_half_pairs_checked": 458,
+            "output_index": 0,
+            "status": "ambiguous_at_least_two",
+            "witness_supports": [
+              [
+                0,
+                3,
+                5,
+                18,
+                59,
+                103
+              ],
+              [
+                0,
+                3,
+                6,
+                18,
+                59,
+                103
+              ]
+            ]
+          },
+          {
+            "compatible_support_count_capped_at_two": 2,
+            "lookup_exhausted": false,
+            "matching_half_pairs_checked": 458,
+            "output_index": 1,
+            "status": "ambiguous_at_least_two",
+            "witness_supports": [
+              [
+                0,
+                3,
+                5,
+                55,
+                70,
+                125
+              ],
+              [
+                0,
+                3,
+                6,
+                55,
+                70,
+                125
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "ambiguous_at_least_two"
+      },
+      "decoder_status": "ambiguous_at_least_two",
+      "dimension": 140,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": null,
+      "goal_rank": 2,
+      "original_controller_released": false,
+      "query_count": 64,
+      "query_policy": "random_singletons",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
+    },
+    {
+      "budget": 64,
+      "certified_symbolic_utility": "10",
+      "cohort": "core_140",
+      "decoder": {
+        "dimension": 140,
+        "equations": 64,
+        "family": "Each output has exact known weight; no additional disjointness assumption.",
+        "goal_rank": 2,
+        "known_width": 6,
+        "left_half_terms": 447580,
+        "max_half_terms": 1000000,
+        "method": "exact_sparse_GF2_meet_in_middle",
+        "outputs": [
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 0,
+            "status": "unique",
+            "witness_supports": [
+              [
+                14,
+                18,
+                20,
+                59,
+                103,
+                126
+              ]
+            ]
+          },
+          {
+            "compatible_support_count_capped_at_two": 1,
+            "lookup_exhausted": true,
+            "matching_half_pairs_checked": 20,
+            "output_index": 1,
+            "status": "unique",
+            "witness_supports": [
+              [
+                0,
+                25,
+                55,
+                70,
+                83,
+                125
+              ]
+            ]
+          }
+        ],
+        "right_half_terms": 447580,
+        "single_output_goal_family_size": 9381724380,
+        "status": "unique"
+      },
+      "decoder_status": "unique",
+      "dimension": 140,
+      "evidence_class": "synthetic structural baseline",
+      "first_unique_sparse_prefix_query": 35,
+      "goal_rank": 2,
+      "original_controller_released": false,
+      "query_count": 64,
+      "query_policy": "random_dense",
+      "readout": "posthoc exact sparse GF2; not a frontier-model score",
+      "seed": 202611170801,
+      "task": "HG-08"
     }
   ],
   "registered_source_sha256": {

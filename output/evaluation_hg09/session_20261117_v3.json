@@ -3589,6 +3589,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -3607,8 +3608,10 @@
         "mean_queries_successes_exact": "55",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "55",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -3670,6 +3673,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -3688,8 +3692,10 @@
         "mean_queries_successes_exact": "34",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "34",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -3751,6 +3757,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -3769,8 +3776,10 @@
         "mean_queries_successes_exact": "52",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "52",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -3832,6 +3841,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -3850,8 +3860,10 @@
         "mean_queries_successes_exact": "45",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "45",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -4265,6 +4277,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -4283,8 +4296,10 @@
         "mean_queries_successes_exact": "50",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "50",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -4346,6 +4361,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -4364,8 +4380,10 @@
         "mean_queries_successes_exact": "35",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "35",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -4427,6 +4445,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -4445,8 +4464,10 @@
         "mean_queries_successes_exact": "53",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 2,
         "queries_per_completed_task_exact": "53",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -4508,6 +4529,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -4526,8 +4548,10 @@
         "mean_queries_successes_exact": "44",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "44",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -4945,6 +4969,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -4963,8 +4988,10 @@
         "mean_queries_successes_exact": "54",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "54",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -5026,6 +5053,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -5044,8 +5072,10 @@
         "mean_queries_successes_exact": "33",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 1,
         "queries_per_completed_task_exact": "33",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -5107,6 +5137,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -5125,8 +5156,10 @@
         "mean_queries_successes_exact": "56",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 1,
         "queries_per_completed_task_exact": "56",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -5188,6 +5221,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -5206,8 +5240,10 @@
         "mean_queries_successes_exact": "45",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "45",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -5618,6 +5654,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -5636,8 +5673,10 @@
         "mean_queries_successes_exact": "50",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "50",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -5699,6 +5738,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -5717,8 +5757,10 @@
         "mean_queries_successes_exact": "36",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "36",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -5780,6 +5822,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -5798,8 +5841,10 @@
         "mean_queries_successes_exact": "60",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 3,
         "queries_per_completed_task_exact": "60",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -5861,6 +5906,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -5879,8 +5925,10 @@
         "mean_queries_successes_exact": "53",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "53",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -6292,6 +6340,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -6310,8 +6359,10 @@
         "mean_queries_successes_exact": "55",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "55",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -6373,6 +6424,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -6391,8 +6443,10 @@
         "mean_queries_successes_exact": "34",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "34",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -6454,6 +6508,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -6472,8 +6527,10 @@
         "mean_queries_successes_exact": "52",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "52",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -6535,6 +6592,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -6553,8 +6611,10 @@
         "mean_queries_successes_exact": "45",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "45",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -6968,6 +7028,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -6986,8 +7047,10 @@
         "mean_queries_successes_exact": "50",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "50",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -7049,6 +7112,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -7067,8 +7131,10 @@
         "mean_queries_successes_exact": "35",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "35",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -7130,6 +7196,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -7148,8 +7215,10 @@
         "mean_queries_successes_exact": "53",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 2,
         "queries_per_completed_task_exact": "53",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -7211,6 +7280,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -7229,8 +7299,10 @@
         "mean_queries_successes_exact": "44",
         "mean_utility_exact": "10",
         "model": "gpt-6-astra",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "44",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -7648,6 +7720,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -7666,8 +7739,10 @@
         "mean_queries_successes_exact": "54",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "54",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -7729,6 +7804,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -7747,8 +7823,10 @@
         "mean_queries_successes_exact": "33",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 1,
         "queries_per_completed_task_exact": "33",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -7810,6 +7888,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -7828,8 +7907,10 @@
         "mean_queries_successes_exact": "56",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 1,
         "queries_per_completed_task_exact": "56",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -7891,6 +7972,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -7909,8 +7991,10 @@
         "mean_queries_successes_exact": "45",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "45",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -8321,6 +8405,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -8339,8 +8424,10 @@
         "mean_queries_successes_exact": "50",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "50",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -8402,6 +8489,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -8420,8 +8508,10 @@
         "mean_queries_successes_exact": "36",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "36",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -8483,6 +8573,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 1,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -8501,8 +8592,10 @@
         "mean_queries_successes_exact": "60",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 3,
         "queries_per_completed_task_exact": "60",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -8564,6 +8657,7 @@
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
+        "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
           "abstained_before_budget": 0,
@@ -8582,8 +8676,10 @@
         "mean_queries_successes_exact": "53",
         "mean_utility_exact": "10",
         "model": "gpt-6.1-sol",
+        "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 1,
         "queries_after_public_GF2_certificate": 0,
+        "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": "53",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
@@ -8682,6 +8778,551 @@
       "single_accuracy_95_halfwidth_5pp_roots": 738,
       "warning": "Conservative bounded-root planning; no empirical model-power estimate from algorithmic pilot."
     },
+    "posthoc_structural_readouts": [
+      {
+        "budget": 64,
+        "certified_symbolic_utility": "10",
+        "cohort": "core_140",
+        "decoder": {
+          "dimension": 140,
+          "equations": 40,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 1,
+          "known_width": 6,
+          "left_half_terms": 447580,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [
+            {
+              "compatible_support_count_capped_at_two": 1,
+              "lookup_exhausted": true,
+              "matching_half_pairs_checked": 20,
+              "output_index": 0,
+              "status": "unique",
+              "witness_supports": [
+                [
+                  5,
+                  10,
+                  30,
+                  71,
+                  114,
+                  127
+                ]
+              ]
+            }
+          ],
+          "right_half_terms": 447580,
+          "single_output_goal_family_size": 9381724380,
+          "status": "unique"
+        },
+        "decoder_status": "unique",
+        "dimension": 140,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": 39,
+        "goal_rank": 1,
+        "original_controller_released": true,
+        "query_count": 40,
+        "query_policy": "adaptive_hash",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": "0",
+        "cohort": "core_140",
+        "decoder": {
+          "dimension": 140,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 1,
+          "known_width": 6,
+          "left_half_terms": 447580,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [
+            {
+              "compatible_support_count_capped_at_two": 2,
+              "lookup_exhausted": false,
+              "matching_half_pairs_checked": 2,
+              "output_index": 0,
+              "status": "ambiguous_at_least_two",
+              "witness_supports": [
+                [
+                  0,
+                  3,
+                  30,
+                  71,
+                  114,
+                  127
+                ],
+                [
+                  0,
+                  5,
+                  30,
+                  71,
+                  114,
+                  127
+                ]
+              ]
+            }
+          ],
+          "right_half_terms": 447580,
+          "single_output_goal_family_size": 9381724380,
+          "status": "ambiguous_at_least_two"
+        },
+        "decoder_status": "ambiguous_at_least_two",
+        "dimension": 140,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": null,
+        "goal_rank": 1,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "random_singletons",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": "10",
+        "cohort": "core_140",
+        "decoder": {
+          "dimension": 140,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 1,
+          "known_width": 6,
+          "left_half_terms": 447580,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [
+            {
+              "compatible_support_count_capped_at_two": 1,
+              "lookup_exhausted": true,
+              "matching_half_pairs_checked": 20,
+              "output_index": 0,
+              "status": "unique",
+              "witness_supports": [
+                [
+                  5,
+                  10,
+                  30,
+                  71,
+                  114,
+                  127
+                ]
+              ]
+            }
+          ],
+          "right_half_terms": 447580,
+          "single_output_goal_family_size": 9381724380,
+          "status": "unique"
+        },
+        "decoder_status": "unique",
+        "dimension": 140,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": 33,
+        "goal_rank": 1,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "random_dense",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": null,
+        "cohort": "native_512",
+        "decoder": {
+          "dimension": 512,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 1,
+          "known_width": 6,
+          "left_half_terms": 22238720,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [],
+          "right_half_terms": 22238720,
+          "single_output_goal_family_size": 24295061050624,
+          "status": "unavailable_enumeration_cap"
+        },
+        "decoder_status": "unavailable_enumeration_cap",
+        "dimension": 512,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": null,
+        "goal_rank": 1,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "adaptive_hash",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": null,
+        "cohort": "native_512",
+        "decoder": {
+          "dimension": 512,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 1,
+          "known_width": 6,
+          "left_half_terms": 22238720,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [],
+          "right_half_terms": 22238720,
+          "single_output_goal_family_size": 24295061050624,
+          "status": "unavailable_enumeration_cap"
+        },
+        "decoder_status": "unavailable_enumeration_cap",
+        "dimension": 512,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": null,
+        "goal_rank": 1,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "random_singletons",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": null,
+        "cohort": "native_512",
+        "decoder": {
+          "dimension": 512,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 1,
+          "known_width": 6,
+          "left_half_terms": 22238720,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [],
+          "right_half_terms": 22238720,
+          "single_output_goal_family_size": 24295061050624,
+          "status": "unavailable_enumeration_cap"
+        },
+        "decoder_status": "unavailable_enumeration_cap",
+        "dimension": 512,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": null,
+        "goal_rank": 1,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "random_dense",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": null,
+        "cohort": "native_1024",
+        "decoder": {
+          "dimension": 1024,
+          "equations": 55,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 1,
+          "known_width": 6,
+          "left_half_terms": 178433024,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [],
+          "right_half_terms": 178433024,
+          "single_output_goal_family_size": 1577953087760896,
+          "status": "unavailable_enumeration_cap"
+        },
+        "decoder_status": "unavailable_enumeration_cap",
+        "dimension": 1024,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": null,
+        "goal_rank": 1,
+        "original_controller_released": true,
+        "query_count": 55,
+        "query_policy": "adaptive_hash",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": null,
+        "cohort": "native_1024",
+        "decoder": {
+          "dimension": 1024,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 1,
+          "known_width": 6,
+          "left_half_terms": 178433024,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [],
+          "right_half_terms": 178433024,
+          "single_output_goal_family_size": 1577953087760896,
+          "status": "unavailable_enumeration_cap"
+        },
+        "decoder_status": "unavailable_enumeration_cap",
+        "dimension": 1024,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": null,
+        "goal_rank": 1,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "random_singletons",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": null,
+        "cohort": "native_1024",
+        "decoder": {
+          "dimension": 1024,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 1,
+          "known_width": 6,
+          "left_half_terms": 178433024,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [],
+          "right_half_terms": 178433024,
+          "single_output_goal_family_size": 1577953087760896,
+          "status": "unavailable_enumeration_cap"
+        },
+        "decoder_status": "unavailable_enumeration_cap",
+        "dimension": 1024,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": null,
+        "goal_rank": 1,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "random_dense",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": "10",
+        "cohort": "core_140",
+        "decoder": {
+          "dimension": 140,
+          "equations": 63,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 2,
+          "known_width": 6,
+          "left_half_terms": 447580,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [
+            {
+              "compatible_support_count_capped_at_two": 1,
+              "lookup_exhausted": true,
+              "matching_half_pairs_checked": 20,
+              "output_index": 0,
+              "status": "unique",
+              "witness_supports": [
+                [
+                  14,
+                  18,
+                  20,
+                  59,
+                  103,
+                  126
+                ]
+              ]
+            },
+            {
+              "compatible_support_count_capped_at_two": 1,
+              "lookup_exhausted": true,
+              "matching_half_pairs_checked": 20,
+              "output_index": 1,
+              "status": "unique",
+              "witness_supports": [
+                [
+                  0,
+                  25,
+                  55,
+                  70,
+                  83,
+                  125
+                ]
+              ]
+            }
+          ],
+          "right_half_terms": 447580,
+          "single_output_goal_family_size": 9381724380,
+          "status": "unique"
+        },
+        "decoder_status": "unique",
+        "dimension": 140,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": 62,
+        "goal_rank": 2,
+        "original_controller_released": true,
+        "query_count": 63,
+        "query_policy": "adaptive_hash",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": "0",
+        "cohort": "core_140",
+        "decoder": {
+          "dimension": 140,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 2,
+          "known_width": 6,
+          "left_half_terms": 447580,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [
+            {
+              "compatible_support_count_capped_at_two": 2,
+              "lookup_exhausted": false,
+              "matching_half_pairs_checked": 458,
+              "output_index": 0,
+              "status": "ambiguous_at_least_two",
+              "witness_supports": [
+                [
+                  0,
+                  3,
+                  5,
+                  18,
+                  59,
+                  103
+                ],
+                [
+                  0,
+                  3,
+                  6,
+                  18,
+                  59,
+                  103
+                ]
+              ]
+            },
+            {
+              "compatible_support_count_capped_at_two": 2,
+              "lookup_exhausted": false,
+              "matching_half_pairs_checked": 458,
+              "output_index": 1,
+              "status": "ambiguous_at_least_two",
+              "witness_supports": [
+                [
+                  0,
+                  3,
+                  5,
+                  55,
+                  70,
+                  125
+                ],
+                [
+                  0,
+                  3,
+                  6,
+                  55,
+                  70,
+                  125
+                ]
+              ]
+            }
+          ],
+          "right_half_terms": 447580,
+          "single_output_goal_family_size": 9381724380,
+          "status": "ambiguous_at_least_two"
+        },
+        "decoder_status": "ambiguous_at_least_two",
+        "dimension": 140,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": null,
+        "goal_rank": 2,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "random_singletons",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": "10",
+        "cohort": "core_140",
+        "decoder": {
+          "dimension": 140,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 2,
+          "known_width": 6,
+          "left_half_terms": 447580,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [
+            {
+              "compatible_support_count_capped_at_two": 1,
+              "lookup_exhausted": true,
+              "matching_half_pairs_checked": 20,
+              "output_index": 0,
+              "status": "unique",
+              "witness_supports": [
+                [
+                  14,
+                  18,
+                  20,
+                  59,
+                  103,
+                  126
+                ]
+              ]
+            },
+            {
+              "compatible_support_count_capped_at_two": 1,
+              "lookup_exhausted": true,
+              "matching_half_pairs_checked": 20,
+              "output_index": 1,
+              "status": "unique",
+              "witness_supports": [
+                [
+                  0,
+                  25,
+                  55,
+                  70,
+                  83,
+                  125
+                ]
+              ]
+            }
+          ],
+          "right_half_terms": 447580,
+          "single_output_goal_family_size": 9381724380,
+          "status": "unique"
+        },
+        "decoder_status": "unique",
+        "dimension": 140,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": 35,
+        "goal_rank": 2,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "random_dense",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170801,
+        "task": "HG-08"
+      }
+    ],
     "readout_selection_exposure": "public unsealed development; no tuning of prompt or policy after scores",
     "schema": "HG09/EvalMath-observational-v1",
     "scientific_variation_floor": "1/20 completion-rate difference",
@@ -8918,16 +9559,18 @@
     "no_model_tool_events": true,
     "private_hg03_not_an_input": true
   },
-  "schema": "HG09/EvalMath-receipt-v2",
+  "schema": "HG09/EvalMath-receipt-v3",
   "source_sha256": {
-    "Hypergames/hg09/session_20261117/measured_input.json": "2cd0fe09470e2ded748f44d16e11351da22cac11e677f8c7d3cc9c522c4507a3",
-    "paper/hypergames_hg09_session_measurements.md": "f79946436964ea92868d85917a3eb6247a68f8db8571eea6252379b079457a5e",
-    "scripts/verify_hg09_session.py": "2cd73dff3e8f49c6dfea3c5279a9f92f87329dd7bcb2303e0e4e6c14dc720b0b",
+    "Hypergames/hg09/session_20261117/measured_input.json": "833a239c2d69717276430a69412b9cbc10d16e7e6e0efe4539c8a447d81333b7",
+    "paper/hypergames_hg09_session_measurements.md": "c617ce3b6e55c69f1bb9a59e046bfd913b7cd0a70f12e7a7f13dfa81e449f936",
+    "scripts/verify_hg09_session.py": "ae14d8132bfc8d66f39db33026bec43bd0e10b053f432c9fa29b6dc04686c657",
     "src/spiral_ln/evaluation_finite_sample.py": "b882e762b6f762540a1551a355ee698d3845609922d3fe577dd78396df1c17c6",
-    "src/spiral_ln/evaluation_hg09_session.py": "72c804816c24fe7c89b6fd71d256aa5620c601d086b0a73325ab260bb90ea812",
+    "src/spiral_ln/evaluation_hg09_session.py": "59f72a26c956abd5b8ce237981a8982f855020f91d889603a30bb70f77f02995",
     "src/spiral_ln/hypergames_observation_certificate.py": "26ebe9b927944f5266214faed6fe8cee1beb248e78803015089f1de6429cdf63",
+    "src/spiral_ln/hypergames_sparse_certificate.py": "3826f6136d048b1e471f3b7cd477e4590c3508fc0ff00ffa5180f31e2e36676a",
     "tests/test_evaluation_hg09_session.py": "7a0a3ee5f248ad5be650809dc321714d5e66618f61d75058ae02b645989b2aaa",
-    "tests/test_hypergames_observation_certificate.py": "51f8c01557895c8ba43380c3f42100a5c4bccee8c3c2f38dda0cd1aae8df162c"
+    "tests/test_hypergames_observation_certificate.py": "51f8c01557895c8ba43380c3f42100a5c4bccee8c3c2f38dda0cd1aae8df162c",
+    "tests/test_hypergames_sparse_certificate.py": "333a31857bab1cf00ba2de421ce8e7ec3e9ca5ea78db39bc98e3011d6b6295c7"
   },
   "upstream_registration_sha256": "4d13db0858769fd347bcc5eaf8b1e5ff3097f6ac47dea023f2f053ad9778b5d2"
 }

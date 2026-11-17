@@ -2,7 +2,7 @@
 
 **Measured snapshot:** 48 completed model episodes; 12 balanced case blocks; 1 independent generator seed(s).
 
-**Evidence status:** power-limited public observational model measurements, plus an algebraic sufficient-certificate implication. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117_v2.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
+**Evidence status:** power-limited public observational model measurements, plus algebraic and exact finite-domain identifiability certificates. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117_v3.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
 
 The measured inputs come from GPTStoryworld HG-09 PR #16. The original PR head is `522de307fb60043d71c9a90fd0e802227e855dae`; its HG-08 dependency is `855f2f3d5fc4e26518112925de4a53e6dc9bc42e`. The signed-in runner was frozen in GPTStoryworld commit `c07227c` before scored inference. The 12-episode smoke checkpoint is commit `415c0fd`. The source audit verifies the original source and registration bytes against the PR head. The protected HG-03 manifest was never opened; its original public commitment remains unchanged. Numeric disjointness from an unavailable private list cannot be independently established.
 
@@ -34,6 +34,16 @@ HG-08 measures the model's chosen interventions and submitted support. Its 256-s
 
 The HG-08 model sees coordinate subsets and causal deltas rather than a full raw state vector: XOR differencing cancels the baseline state. Its ambient-dimension result is therefore sparse-system identification under the registered group-intervention primitive, not a direct test of reading every coordinate of a 1,024-bit observation.
 
+## Exact sparse identifiability beyond a linear unit-row certificate
+
+**Evidence class: exact finite-domain computation with a complete search decomposition.** Linear forced-positive certificates are sufficient but can miss information supplied by exact Hamming weight. For example, in dimension three, known weight two and the observation p0 XOR p1=0 force support {0,1}, although neither positive unit vector is in the equation row space augmented by total parity. Failure of the linear criterion is therefore not evidence of ambiguity.
+
+The additional decoder uses only public equations and known sparsity. Every weight-six support splits into two disjoint triples. It enumerates all C(d,3) half-supports, hashes their exact GF(2) response signatures, and checks every matching complementary pair. Two distinct compatible supports prove ambiguity; exactly one after exhaustive lookup proves uniqueness in the six-sparse family. Every candidate is independently checked against the original equations. Outputs are decoded separately, so uniqueness is certified in the broader known-width family without relying on disjoint goals.
+
+At d=140 there are 447,580 triples; this search covers all C(140,6) candidate supports without listing every full support. A fixed one-million-half-term cap admits the registered 140-dimensional task and explicitly returns unavailable at 512/1,024. Tests compare unique/ambiguous decisions and witnesses with complete small-domain sparse enumeration, and include nonlinear identifiability, zero-width, zero-query, inconsistent and unavailable-size boundaries. This is not a claim of efficient unrestricted sparse recovery or a new Lean theorem.
+
+The first unique-compatible-support prefix is another post hoc information diagnostic. Model actions and grades are never replaced by this decoder. Applied to stored control queries, it is a separately labelled structural readout: it can show that a full-ambient-rank controller abstained despite observations sufficient for an exact sparse decoder. Its hypothetical earlier stopping prefix is not a newly measured frontier action.
+
 ## Instrument limits and failure interpretation
 
 HG-02 observations disclose rewards, checksum formulas, gates, current remaining actions and legal menus, but do not explicitly describe all action-transition semantics or audit revelation. Bellman regret is a comparison to the simulator-informed exact policy. Horizon behavior should therefore be interpreted under the supplied interface. The 512-dimensional variant also doubles the parity/checksum widths; it is not a pure nuisance-padding contrast.
@@ -48,7 +58,7 @@ Reproduce without model inference:
 
 ```text
 PYTHONPATH=src python scripts/verify_hg09_session.py
-PYTHONPATH=src pytest -q tests/test_evaluation_hg09_session.py tests/test_hypergames_observation_certificate.py tests/test_evaluation_finite_sample.py
+PYTHONPATH=src pytest -q tests/test_evaluation_hg09_session.py tests/test_hypergames_observation_certificate.py tests/test_hypergames_sparse_certificate.py tests/test_evaluation_finite_sample.py
 python scripts/check_receipts.py --only hg09_session finite_sample
 ```
 

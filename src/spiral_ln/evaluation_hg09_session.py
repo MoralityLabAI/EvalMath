@@ -107,6 +107,9 @@ def summarize_group(rows):
                        'mean_queries_successes_exact':str(mean([Q(r['query_count']) for r in completed if r['safe_success']])) if successes else None})
         result['queries_after_public_GF2_certificate'] = sum(r.get('queries_after_public_GF2_certificate') or 0 for r in completed)
         result['abstentions_after_public_GF2_certificate'] = sum(r.get('abstained_after_public_GF2_certificate',False) for r in completed)
+        result['exact_sparse_certified_releases'] = sum(r.get('release_matches_unique_sparse_goal',False) for r in completed)
+        result['queries_after_unique_sparse_prefix'] = sum(r.get('queries_after_unique_sparse_prefix') or 0 for r in completed)
+        result['no_valid_releases_despite_unique_sparse_transcript'] = sum(r.get('no_valid_release_despite_unique_sparse_transcript',False) for r in completed)
     return result
 
 
@@ -204,6 +207,7 @@ def analyze(payload):
             'structural_baseline_rows':[{k:v for k,v in row.items() if k != 'transcript'}
                                         for row in payload.get('structural_baselines',[])],
             'dense_GF2_baseline_scope':'Registered dense GF2 control requires full ambient rank; it is not an optimal sparse-recovery decoder.',
+            'posthoc_structural_readouts':payload.get('posthoc_structural_readouts',[]),
             'limits':['No backend snapshot returned; aliases are requested and transport-accepted.',
                       'CLI output-token cap and full built-in scaffold not exposed; exact task prompts and configured instructions saved.',
                       'Reasoning token counts are not private chain-of-thought text.',
