@@ -639,6 +639,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "core_140",
       "condition": "deliberative",
@@ -659,6 +660,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 34,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 492.4539999999106,
@@ -677,6 +679,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 34,
       "recovered_per_output": [
         4
@@ -705,6 +708,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "core_140",
       "condition": "direct",
@@ -725,6 +729,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 35,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 367.2200000002049,
@@ -743,6 +748,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 35,
       "recovered_per_output": [
         4
@@ -771,6 +777,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "core_140",
       "condition": "deliberative",
@@ -791,6 +798,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 33,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 385.6860000002198,
@@ -809,6 +817,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 33,
       "recovered_per_output": [
         1
@@ -837,6 +846,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "core_140",
       "condition": "direct",
@@ -857,6 +867,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 36,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 394.0300000004936,
@@ -875,6 +886,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 36,
       "recovered_per_output": [
         3
@@ -2740,6 +2752,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "native_512",
       "condition": "deliberative",
@@ -2760,6 +2773,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 45,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 591.704000000027,
@@ -2778,6 +2792,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 45,
       "recovered_per_output": [
         1
@@ -2806,6 +2821,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "native_512",
       "condition": "direct",
@@ -2826,6 +2842,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 44,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 529.890999999945,
@@ -2844,6 +2861,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 44,
       "recovered_per_output": [
         2
@@ -2872,6 +2890,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "native_512",
       "condition": "deliberative",
@@ -2892,6 +2911,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 45,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 635.8090000002412,
@@ -2910,6 +2930,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 45,
       "recovered_per_output": [
         2
@@ -2938,6 +2959,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "native_512",
       "condition": "direct",
@@ -2958,6 +2980,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 53,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 823.2979999999516,
@@ -2976,6 +2999,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 53,
       "recovered_per_output": [
         3
@@ -3004,6 +3028,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "native_1024",
       "condition": "deliberative",
@@ -3024,6 +3049,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 55,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 673.0949999999721,
@@ -3042,6 +3068,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 55,
       "recovered_per_output": [
         2
@@ -3070,6 +3097,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "native_1024",
       "condition": "direct",
@@ -3090,6 +3118,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 50,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 638.9709999996703,
@@ -3108,6 +3137,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 50,
       "recovered_per_output": [
         3
@@ -3136,6 +3166,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "native_1024",
       "condition": "deliberative",
@@ -3156,6 +3187,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 54,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 678.0130000000354,
@@ -3174,6 +3206,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 54,
       "recovered_per_output": [
         3
@@ -3202,6 +3235,7 @@
       }
     },
     {
+      "abstained_after_public_GF2_certificate": false,
       "budget": 64,
       "cohort": "native_1024",
       "condition": "direct",
@@ -3222,6 +3256,7 @@
       },
       "false_accept": 0,
       "false_discoveries": 0,
+      "first_public_GF2_certificate_query": 50,
       "goal_rank": 1,
       "invalid_actions": 0,
       "latency_total_s": 647.7799999999115,
@@ -3240,6 +3275,7 @@
         "method": "public_GF2_rowspace_plus_known_exact_sparsity",
         "release_certified_by_public_transcript": true
       },
+      "queries_after_public_GF2_certificate": 0,
       "query_count": 50,
       "recovered_per_output": [
         3

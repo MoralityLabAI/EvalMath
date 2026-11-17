@@ -104,6 +104,8 @@ def summarize_group(rows):
                        'mean_queries_exact':str(mean([Q(r['query_count']) for r in completed])),
                        'queries_per_completed_task_exact':str(Q(sum(r['query_count'] for r in completed),successes)) if successes else None,
                        'mean_queries_successes_exact':str(mean([Q(r['query_count']) for r in completed if r['safe_success']])) if successes else None})
+        result['queries_after_public_GF2_certificate'] = sum(r.get('queries_after_public_GF2_certificate') or 0 for r in completed)
+        result['abstentions_after_public_GF2_certificate'] = sum(r.get('abstained_after_public_GF2_certificate',False) for r in completed)
     return result
 
 

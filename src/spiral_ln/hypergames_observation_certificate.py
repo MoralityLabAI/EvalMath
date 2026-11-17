@@ -68,3 +68,21 @@ def certify(dimension, goal_rank, transcript, claimed_supports, width=6):
             'claim_matches_all_observed_deltas':bool(consistent),
             'release_certified_by_public_transcript':bool(complete and match and consistent),
             'known_sparsity_inconsistent':overfull}
+
+
+def earliest_certificate(dimension, goal_rank, transcript, width=6):
+    """First prefix meeting this sufficient criterion, not general identifiability.
+
+    Forced positives are monotone under additional consistent equations.
+    A binary search therefore finds the first accepted prefix. No goal mask
+    or released hypothesis is used; absent certificates return None.
+    """
+    if not certify(dimension,goal_rank,transcript,None,width)['complete_support_forced']:
+        return None
+    low,high=0,len(transcript)
+    while low<high:
+        middle=(low+high)//2
+        if certify(dimension,goal_rank,transcript[:middle],None,width)['complete_support_forced']:
+            high=middle
+        else:low=middle+1
+    return low

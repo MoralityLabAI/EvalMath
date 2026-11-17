@@ -1,6 +1,6 @@
 from itertools import combinations,product
 import pytest
-from spiral_ln.hypergames_observation_certificate import certify
+from spiral_ln.hypergames_observation_certificate import certify, earliest_certificate
 
 
 def mask(xs):return sum(1 << i for i in xs)
@@ -32,3 +32,10 @@ def test_multioutput_and_invalid_claims():
     assert not certify(3,2,history,[2,1],1)['claim_matches_all_observed_deltas']
     with pytest.raises(ValueError):certify(3,1,[(1,[0]),(1,[1])],[1],1)
     with pytest.raises(ValueError):certify(3,1,[(8,[0])],[1],1)
+
+
+def test_first_sufficient_prefix_and_redundant_later_query():
+    history=[(0b011,[0]),(0b111,[1])]
+    assert earliest_certificate(3,1,history,1)==1
+    assert earliest_certificate(3,1,[],1) is None
+    assert earliest_certificate(5,1,[(1,[1]),(2,[1])],2)==2

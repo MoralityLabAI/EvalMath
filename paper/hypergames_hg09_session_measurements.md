@@ -24,6 +24,8 @@ This criterion is sufficient, rather than necessary. It can certify a positive s
 
 The certificate is a post hoc mathematical audit of observable information. A certified transcript is decision-sufficient for this synthetic parity family. It does not identify the model's internal representation or show that the model implemented Gaussian elimination. Exact specialized solvers and adaptive hashing remain structural controls, separate from frontier-model measurements.
 
+We also locate the first transcript prefix satisfying this public GF(2) criterion, and count subsequent queries or abstention after that point. Forced positive coordinates are monotone under additional consistent equations, so binary search finds the first accepted prefix. This is the first occurrence of a sufficient certificate of the stated kind; nonlinear use of exact sparsity may identify a goal earlier. These post hoc stopping diagnostics distinguish information already present in the public transcript from the model's subsequent observable action, without reconstructing private reasoning.
+
 HG-08 measures the model's chosen interventions and submitted support. Its 256-state test grade uses an exact symbolic parity readout of that submitted support; the frontier model is not asked for 256 separate vector predictions. Perfect symbolic readout after correct goal identification must not be reported as separately measured neural arithmetic accuracy.
 
 ## Instrument limits and failure interpretation
