@@ -1,0 +1,23 @@
+{
+  "access": "current signed-in ordinary Codex allowance only",
+  "coordinator_finalization_reserve_percent": 2,
+  "declared_utc": "2026-11-17T13:52:06.121774+00:00",
+  "limits": "Account allowance is shared with other work. Usage percentages do not identify this campaign alone. This is an execution reserve, not a new confirmatory preregistration.",
+  "no_credit_purchase": true,
+  "no_earned_reset_redemption": true,
+  "no_paid_API_calls": true,
+  "phase": "after initial measured public pilot; exploratory and unsealed",
+  "quota_guard_used_percent": 98,
+  "schema": "HG09/execution-resource-amendment-v1",
+  "stop_rule": "Coordinator stops expansion at the ordinary-allowance guard or a genuine provider/execution failure, preserving every pending request and completed response. Only complete four-arm blocks enter paired comparisons; all partial attempts remain reported. No synthetic actions or grades fill gaps.",
+  "unchanged": [
+    "frozen episode order",
+    "model aliases",
+    "prompt conditions",
+    "requested low effort",
+    "state transitions",
+    "HG02 action horizons",
+    "HG08 64-query budgets",
+    "no-tools observation boundary"
+  ]
+}
