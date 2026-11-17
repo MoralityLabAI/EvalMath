@@ -1,6 +1,6 @@
 # HG-09 signed-in frontier measurements and public observation certificates
 
-**Primary measured snapshot:** 108 completed model episodes; 27 four-arm-complete case blocks; 2 generator seed(s) represented. Matched hidden-mode comparison counts are in the receipt; separate summary-enabled repeats are excluded.
+**Primary measured snapshot:** 144 completed model episodes; 36 four-arm-complete case blocks; 3 generator seed(s) represented. Matched hidden-mode comparison counts are in the receipt; separate summary-enabled repeats are excluded.
 
 **Evidence status:** power-limited public observational model measurements, plus algebraic and exact finite-domain identifiability certificates. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117_v5.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
 
@@ -13,16 +13,16 @@ The sanitized `model_catalogue_excerpt.json` records the installed catalogue's a
 <!-- HG09-SCORES-BEGIN -->
 ## Primary measured score tables
 
-These tables contain 108 matched model episodes from 2 generator seeds. Counts are successes/completed episodes; repeated hidden modes share a seed. They are descriptive public-development measurements.
+These tables contain 144 matched model episodes from 3 generator seeds. Counts are successes/completed episodes; repeated hidden modes share a seed. They are descriptive public-development measurements.
 
 HG-02 cells show success count, mean true utility U, and mean belief-state Bellman action regret R. Horizon-four optimal abstention has utility zero; a safe-success count alone does not measure policy optimality.
 
 | Dimension / horizon | Seeds | Sol direct | Sol deliberative | Astra direct | Astra deliberative |
 |---|---:|---|---|---|---|
-| 140 / 4 | 2 | 0/4; U=-1; R=1 | 0/4; U=-1; R=1 | 0/4; U=-1; R=1 | 0/4; U=-1; R=1 |
-| 140 / 5 | 2 | 4/4; U=9; R=0 | 3/4; U=6.5; R=2.5 | 4/4; U=9; R=0 | 4/4; U=9; R=0 |
-| 512 / 4 | 2 | 0/4; U=-1; R=1 | 0/4; U=-1; R=1 | 0/4; U=-1; R=1 | 0/4; U=-1; R=1 |
-| 512 / 5 | 2 | 1/4; U=1.5; R=7.5 | 0/4; U=-1; R=10 | 0/4; U=-1; R=10 | 0/4; U=-1; R=10 |
+| 140 / 4 | 3 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 |
+| 140 / 5 | 3 | 4/6; U=5.667; R=3.333 | 3/6; U=4; R=5 | 6/6; U=9; R=0 | 5/6; U=7.333; R=1.667 |
+| 512 / 4 | 3 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 | 0/6; U=-1; R=1 |
+| 512 / 5 | 3 | 1/6; U=0.667; R=8.333 | 0/6; U=-1; R=10 | 0/6; U=-1; R=10 | 0/6; U=-1; R=10 |
 
 HG-08 cells show exact-support task completions and mean queries q over all completed episodes, including abstentions. Each episode permits 64 queries; q is not conditional on success.
 
@@ -33,7 +33,7 @@ HG-08 cells show exact-support task completions and mean queries q over all comp
 | 512 / 1 | 2 | 2/2; q=50 | 2/2; q=46.5 | 2/2; q=46 | 2/2; q=46 |
 | 512 / 2 | 2 | 0/2; q=63.5 | 1/2; q=64 | 2/2; q=62.5 | 1/2; q=63.5 |
 | 1024 / 1 | 2 | 2/2; q=51 | 2/2; q=53 | 2/2; q=50.5 | 2/2; q=54.5 |
-| 1024 / 2 | 1 | 0/1; q=60 | 0/1; q=59 | 0/1; q=58 | 0/1; q=61 |
+| 1024 / 2 | 2 | 0/2; q=61 | 0/2; q=60.5 | 0/2; q=59.5 | 0/2; q=60 |
 
 Structural controls below are synthetic algorithms, separate from model scores. Cells show correct support releases / generator seeds and mean queries. The dense GF(2) controller requires full ambient rank and is not an optimal sparse decoder.
 
@@ -44,25 +44,25 @@ Structural controls below are synthetic algorithms, separate from model scores. 
 | 512 / 1 | 2 | 1/2; q=56 | 0/2; q=64 | 0/2; q=64 |
 | 512 / 2 | 2 | 0/2; q=64 | 0/2; q=64 | 0/2; q=64 |
 | 1024 / 1 | 2 | 2/2; q=56.5 | 0/2; q=64 | 0/2; q=64 |
-| 1024 / 2 | 1 | 0/1; q=64 | 0/1; q=64 | 0/1; q=64 |
+| 1024 / 2 | 2 | 0/2; q=64 | 0/2; q=64 | 0/2; q=64 |
 
-Available-data accounting: 108 attempted, 108 completed, 108 eligible for matched comparisons. Unsafe releases: 1/108 completed episodes. HG-08 false support discoveries: 2. Counts do not establish safety equivalence.
+Available-data accounting: 144 attempted, 144 completed, 144 eligible for matched comparisons. Unsafe releases: 1/144 completed episodes. HG-08 false support discoveries: 2. Counts do not establish safety equivalence.
 
 Peak reported input tokens in one turn: 17,910; peak task-prompt UTF-8 bytes: 25,326. The full CLI scaffold and configured output-token caps remain unavailable.
 
 | Model | Peak measured input tokens per turn | Advertised default context window | Peak / advertised default |
 |---|---:|---:|---:|
-| gpt-6.1-sol | 13,959 | 500,000 | 2.79% |
+| gpt-6.1-sol | 14,225 | 500,000 | 2.85% |
 | gpt-6-astra | 17,910 | 272,000 | 6.58% |
 
 The context percentages use advertised catalogue defaults as denominators; they do not measure runtime capacity or recover the full hidden CLI scaffold.
 
 | Model / condition | Reported input tokens, all attempts | Reported output tokens, including reasoning | Reported reasoning tokens (subset) | Requests with unreported usage |
 |---|---:|---:|---:|---:|
-| gpt-6.1-sol / direct | 5,401,146 | 182,275 | 136,609 | 0 |
-| gpt-6.1-sol / deliberative | 5,508,533 | 203,763 | 153,472 | 0 |
-| gpt-6-astra / direct | 5,201,095 | 139,724 | 90,564 | 0 |
-| gpt-6-astra / deliberative | 5,348,111 | 157,848 | 108,933 | 0 |
+| gpt-6.1-sol / direct | 6,253,641 | 212,800 | 159,906 | 0 |
+| gpt-6.1-sol / deliberative | 6,400,114 | 237,772 | 178,714 | 0 |
+| gpt-6-astra / direct | 6,070,585 | 174,164 | 118,008 | 0 |
+| gpt-6-astra / deliberative | 6,114,125 | 186,509 | 132,330 | 0 |
 
 Provider-returned reasoning items in the primary episodes: gpt-6.1-sol: 0, gpt-6-astra: 0. Reasoning-token counts do not disclose private reasoning text.
 
