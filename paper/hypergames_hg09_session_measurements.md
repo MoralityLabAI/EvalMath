@@ -1,6 +1,6 @@
 # HG-09 signed-in frontier measurements and public observation certificates
 
-**Measured snapshot:** 48 completed model episodes; 12 balanced case blocks; 1 independent generator seed(s).
+**Measured snapshot:** 52 completed model episodes; 13 balanced case blocks; 1 independent generator seed(s).
 
 **Evidence status:** power-limited public observational model measurements, plus algebraic and exact finite-domain identifiability certificates. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117_v3.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
 
