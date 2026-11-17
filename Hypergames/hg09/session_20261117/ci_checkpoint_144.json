@@ -1,0 +1,66 @@
+{
+  "schema": "HG09/CI-checkpoint-v1",
+  "checked_utc": "2026-11-17T20:19:19Z",
+  "primary_completed_model_episodes": 144,
+  "separate_summary_repeat_episodes": 8,
+  "receipt_version": 5,
+  "GPTStoryworld": {
+    "tested_commit": "a00727586b0f7b80c9671fd88ae6549e879c5f0f",
+    "unit_tests": 207,
+    "includes_separate_summary_repeat_golden_replay": true,
+    "workflows": [
+      {
+        "name": "storyworld-hypergames-hg09-frontier-preflight",
+        "run_id": 44163889713,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44163889713"
+      },
+      {
+        "name": "storyworld-hypergames-singleplayer",
+        "run_id": 44163889815,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44163889815"
+      },
+      {
+        "name": "storyworld-hypergames-hg08-causal",
+        "run_id": 44163889793,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44163889793"
+      },
+      {
+        "name": "Hypergames HG-05 exact CPU replay",
+        "run_id": 44163889669,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44163889669"
+      },
+      {
+        "name": "storyworld-hypergames-hg06",
+        "run_id": 44163889620,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44163889620"
+      },
+      {
+        "name": "storyworld-hypergames-hg07-raw-neural",
+        "run_id": 44163889872,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44163889872"
+      }
+    ]
+  },
+  "EvalMath": {
+    "tested_commit": "bf71233e527eaf88460f88f6f7168ffd2ffd99c1",
+    "run_id": 44163888676,
+    "url": "https://github.com/MoralityLabAI/EvalMath/actions/runs/44163888676",
+    "python_tests": 1786,
+    "subtests": 13,
+    "fast_receipts": 27,
+    "receipt_checks": 14,
+    "receipt_sources": 14,
+    "jobs": {
+      "python": "success",
+      "lean": "success",
+      "receipts_slow": "skipped_by_workflow_policy"
+    }
+  },
+  "scope": "Immutable tested checkpoint heads; later data commits require their own CI status."
+}
