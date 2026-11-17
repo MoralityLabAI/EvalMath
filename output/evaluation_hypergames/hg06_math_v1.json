@@ -1,0 +1,29 @@
+{
+  "all_passed": true,
+  "checks": {
+    "1020_independent_parity_collisions": true,
+    "144_independent_goal_fibres": true,
+    "full_dictionary_goal_exact": true,
+    "missing_fragment_halves_success": true,
+    "nonvacuous_union_bound": true,
+    "posterior_bayes_three_quarters": true,
+    "posterior_two_candidates": true,
+    "six_bit_three_pair_lower_bound": true,
+    "three_pair_constructive_witness": true,
+    "two_pair_impossibility_exhaustive": true,
+    "vacuous_union_bound_reported": true,
+    "zero_goal_boundary": true
+  },
+  "counts": {
+    "collision_oracles": 1020,
+    "goal_fibre_oracles": 144
+  },
+  "evidence": "algebraic inequalities and independently enumerated finite binary oracles",
+  "generated_at_utc": "2026-11-17T08:30:59.437994+00:00",
+  "schema_version": "HG-06/EvalMath-compositional-v1",
+  "source_sha256": {
+    "scripts/verify_evaluation_hypergames_composition.py": "888421a1a24855a879d4b4a2ad7ee342d82902c8fa5cabd8c53547ffc136479c",
+    "src/spiral_ln/evaluation_hypergames_composition.py": "a558d8c15a715f65f6e95b330475b35cae7858afd83b3f027866ef7a62ed0fe3",
+    "tests/test_evaluation_hypergames_composition.py": "9ef724b01891b32ab4390701cd680021e79107ba849f99ec29de0e38c3da32ab"
+  }
+}
