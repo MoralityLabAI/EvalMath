@@ -9,6 +9,9 @@ from spiral_ln.evaluation_noisy_authorization import (
     audited_error, brute_force_budget_gain, decide_after_report,
     decide_public, expected_error_under_rule, optimal_fixed_budget,
     public_error, rule_audit_value,
+    weighted_public_error, weighted_audited_error, weighted_audit_value,
+    weighted_decide_public, weighted_decide_after_report,
+    weighted_expected_error_under_rule, weighted_rule_audit_value,
 )
 
 
@@ -85,3 +88,68 @@ def test_invalid_inputs_fail_closed():
         AuditCandidate("foo",1)
     with pytest.raises(ValueError):
         AuditCandidate("",Q(1))
+
+
+def test_weighted_bayes_threshold_and_named_channels():
+    reliable=AuditChannel(Q(1,2),Q(9,10),Q(1,10))
+    weak=AuditChannel(Q(1,2),Q(3,5),Q(2,5))
+    assert weighted_public_error(reliable,false_grant_cost=Q(2)) == Q(1,2)
+    assert weighted_audited_error(reliable,false_grant_cost=Q(2)) == Q(3,20)
+    assert weighted_audit_value(reliable,false_grant_cost=Q(2)) == Q(7,20)
+    assert weighted_audit_value(weak,false_grant_cost=Q(2)) == Q(0)
+    assert not weighted_decide_public(reliable,false_grant_cost=Q(2))
+    likely=AuditChannel(Q(4,5),Q(9,10),Q(1,10))
+    assert weighted_decide_public(likely,false_grant_cost=Q(2))
+    assert weighted_decide_after_report(reliable,report=True,
+                                        false_grant_cost=Q(2))
+    assert not weighted_decide_after_report(reliable,report=False,
+                                            false_grant_cost=Q(2))
+
+
+def test_all_weighted_bayes_decisions_match_exact_risk_grid():
+    grid=(Q(0),Q(1,4),Q(1,2),Q(3,4),Q(1))
+    for c_fp in (Q(1,2),Q(1),Q(2),Q(5)):
+        for p,t,f in product(grid,repeat=3):
+            ch=AuditChannel(p,t,f)
+            a=weighted_public_error(ch,false_grant_cost=c_fp)
+            b=weighted_audited_error(ch,false_grant_cost=c_fp)
+            assert Q(0) <= b <= a
+            assert weighted_audit_value(ch,false_grant_cost=c_fp)==a-b
+            assert weighted_expected_error_under_rule(
+                ch,ch,inspect=False,false_grant_cost=c_fp
+            )==a
+            assert weighted_expected_error_under_rule(
+                ch,ch,inspect=True,false_grant_cost=c_fp
+            )==b
+            if c_fp==Q(1):
+                assert a==public_error(ch)
+                assert b==audited_error(ch)
+
+
+def test_weighted_policy_may_be_worse_with_wrong_audit_model():
+    true=AuditChannel(Q(3,5),Q(1,2),Q(1,2))
+    estimated=AuditChannel(Q(3,5),Q(99,100),Q(1,100))
+    assert weighted_rule_audit_value(
+        true,estimated,false_grant_cost=Q(1)
+    )==-Q(1,10)
+
+
+def test_eca02_frozen_policy_cost_crossover_is_exact():
+    # These counts are post-readout observations; this test is an accounting
+    # identity, not preregistered validation of a newly optimized policy.
+    fitted_fp,fitted_fn=461,492
+    uncertainty_fp,uncertainty_fn=343,644
+    break_even=Q(76,59)
+    assert break_even*(fitted_fp-uncertainty_fp)==uncertainty_fn-fitted_fn
+    assert Q(1)*fitted_fp+fitted_fn < Q(1)*uncertainty_fp+uncertainty_fn
+    assert Q(2)*fitted_fp+fitted_fn > Q(2)*uncertainty_fp+uncertainty_fn
+
+
+def test_invalid_weighted_costs_fail_closed():
+    ch=AuditChannel(Q(1,2),Q(1,2),Q(1,2))
+    for cost in (Q(0),Q(-1,4)):
+        with pytest.raises(ValueError):
+            weighted_audit_value(ch,false_grant_cost=cost)
+    with pytest.raises(ValueError):
+        weighted_decide_public(ch,false_grant_cost=Q(1),
+                               missed_grant_cost=Q(0))
