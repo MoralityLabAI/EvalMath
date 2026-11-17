@@ -1,6 +1,6 @@
 # HG-09 signed-in frontier measurements and public observation certificates
 
-**Primary measured snapshot:** 204 completed model episodes from 204 attempted; 51 four-arm-complete case blocks; 4 generator seed(s) represented. Matched hidden-mode comparison counts are in the receipt; separate summary-enabled repeats are excluded.
+**Primary measured snapshot:** 207 completed model episodes from 208 attempted; 51 four-arm-complete case blocks; 4 generator seed(s) represented. Matched hidden-mode comparison counts are in the receipt; separate summary-enabled repeats are excluded.
 
 **Evidence status:** power-limited public observational model measurements, plus algebraic and exact finite-domain identifiability certificates. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117_v5.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
 
@@ -41,12 +41,12 @@ Structural controls below are synthetic algorithms, separate from model scores. 
 |---|---:|---|---|---|
 | 140 / 1 | 4 | 4/4; q=41 | 0/4; q=64 | 0/4; q=64 |
 | 140 / 2 | 3 | 1/3; q=63.667 | 0/3; q=64 | 0/3; q=64 |
-| 512 / 1 | 3 | 1/3; q=58.667 | 0/3; q=64 | 0/3; q=64 |
+| 512 / 1 | 4 | 2/4; q=59.25 | 0/4; q=64 | 0/4; q=64 |
 | 512 / 2 | 3 | 0/3; q=64 | 0/3; q=64 | 0/3; q=64 |
 | 1024 / 1 | 3 | 3/3; q=55.667 | 0/3; q=64 | 0/3; q=64 |
 | 1024 / 2 | 3 | 0/3; q=64 | 0/3; q=64 | 0/3; q=64 |
 
-Available-data accounting: 204 attempted, 204 completed, 204 eligible for matched comparisons. Unsafe releases: 3/204 completed episodes. HG-08 false support discoveries: 7. Counts do not establish safety equivalence.
+Available-data accounting: 208 attempted, 207 completed, 204 eligible for matched comparisons. Unsafe releases: 3/207 completed episodes. HG-08 false support discoveries: 7. Counts do not establish safety equivalence.
 
 Peak reported input tokens in one turn: 17,910; peak task-prompt UTF-8 bytes: 25,326. The full CLI scaffold and configured output-token caps remain unavailable.
 
@@ -59,10 +59,10 @@ The context percentages use advertised catalogue defaults as denominators; they 
 
 | Model / condition | Reported input tokens, all attempts | Reported output tokens, including reasoning | Reported reasoning tokens (subset) | Requests with unreported usage |
 |---|---:|---:|---:|---:|
-| gpt-6.1-sol / direct | 9,592,089 | 323,642 | 238,167 | 0 |
-| gpt-6.1-sol / deliberative | 10,167,734 | 375,024 | 275,415 | 0 |
-| gpt-6-astra / direct | 9,341,093 | 264,884 | 175,748 | 0 |
-| gpt-6-astra / deliberative | 9,326,082 | 277,718 | 189,244 | 0 |
+| gpt-6.1-sol / direct | 9,964,415 | 332,267 | 243,128 | 0 |
+| gpt-6.1-sol / deliberative | 10,586,622 | 385,686 | 281,715 | 0 |
+| gpt-6-astra / direct | 9,729,902 | 272,094 | 178,714 | 0 |
+| gpt-6-astra / deliberative | 9,496,912 | 281,267 | 190,643 | 1 |
 
 Provider-returned reasoning items in the primary episodes: gpt-6.1-sol: 0, gpt-6-astra: 0. Reasoning-token counts do not disclose private reasoning text.
 
@@ -152,3 +152,7 @@ python scripts/check_receipts.py --only hg09_session finite_sample
 ```
 
 The source-hashed receipt includes the measured input file and mathematical/statistical implementations. GPTStoryworld additionally replays every original prompt, parser decision, environment transition and grade from the actual saved model responses, and records each raw JSONL digest. A fresh future confirmation needs an untouched root population, a complete visible dynamics contract, model-level matched shams, sufficient roots and an independently frozen readout.
+
+## Execution closeout
+
+The coordinator stopped expansion at 2026-11-17T22:28:31.8555573Z after observing 98% shared ordinary allowance used, under the previously recorded 98% guard and 2% finalization reserve. This is a coordinator stop, not an asserted provider-exhaustion event. No paid API calls, credit purchases or earned resets were used. All 208 attempted primary journals remain unchanged; 207 episodes completed, and 1 ended without a complete score. Pending requests receive no inferred response, grade or token usage. Complete unmatched arms remain in available-data summaries and enter paired comparisons only when all required arms and hidden modes exist. The separate eight summary-enabled repeats remain excluded from primary scores. Exact stop provenance and the per-journal digest census are in `Hypergames/hg09/session_20261117/execution_stop.json`.
