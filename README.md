@@ -170,3 +170,7 @@ remains open for review.
 ## License
 
 Apache License 2.0; see [`LICENSE`](LICENSE).
+
+## Agent skill: stop underpowered mechanistic evaluations early
+
+Future research agents should read [`skills/evalmath-mechinterp-power/SKILL.md`](skills/evalmath-mechinterp-power/SKILL.md) before designing AF, LS-SAE, SMC, PEF, Hypergames, or BPD evals. The skill and [`preflight.py`](skills/evalmath-mechinterp-power/scripts/preflight.py) estimate whether an independent-world evaluation can resolve a meaningful mechanism effect over matched-sham variation before committing compute. It distinguishes pilot diagnostics from sealed FSI-01 evidence and exact finite proofs.
