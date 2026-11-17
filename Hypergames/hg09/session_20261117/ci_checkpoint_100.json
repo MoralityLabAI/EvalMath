@@ -1,0 +1,66 @@
+{
+  "schema": "HG09/CI-checkpoint-v1",
+  "checked_utc": "2026-11-17T18:55:16Z",
+  "primary_completed_model_episodes": 100,
+  "separate_summary_repeat_episodes": 8,
+  "receipt_version": 5,
+  "GPTStoryworld": {
+    "tested_commit": "4c2a6c0d0e07f9a89398dffe3d28b42c256dab68",
+    "unit_tests": 207,
+    "includes_separate_summary_repeat_golden_replay": true,
+    "workflows": [
+      {
+        "name": "HG07",
+        "run_id": 44149437261,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44149437261"
+      },
+      {
+        "name": "HG08",
+        "run_id": 44149437276,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44149437276"
+      },
+      {
+        "name": "HG09",
+        "run_id": 44149437767,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44149437767"
+      },
+      {
+        "name": "HG05",
+        "run_id": 44149437582,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44149437582"
+      },
+      {
+        "name": "singleplayer",
+        "run_id": 44149437657,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44149437657"
+      },
+      {
+        "name": "HG06",
+        "run_id": 44149438009,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44149438009"
+      }
+    ]
+  },
+  "EvalMath": {
+    "tested_commit": "c78d64784391fbb1f561213759cef13b3dff06cf",
+    "run_id": 44149431573,
+    "url": "https://github.com/MoralityLabAI/EvalMath/actions/runs/44149431573",
+    "python_tests": 1786,
+    "subtests": 13,
+    "fast_receipts": 27,
+    "receipt_checks": 14,
+    "receipt_sources": 14,
+    "jobs": {
+      "python": "success",
+      "lean": "success",
+      "receipts_slow": "skipped_by_workflow_policy"
+    }
+  },
+  "scope": "Immutable tested checkpoint heads; later data commits require their own CI status."
+}
