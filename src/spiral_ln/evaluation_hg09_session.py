@@ -14,6 +14,7 @@ from fractions import Fraction as Q
 from spiral_ln.evaluation_finite_sample import (
     evaluate_manifest, cluster_bootstrap_ci, clopper_pearson_bracket,
     hoeffding_accuracy_n, holm_adjust,
+    signflip_cluster_p,
 )
 
 MODELS = ('gpt-6.1-sol', 'gpt-6-astra')
@@ -130,7 +131,7 @@ def analyze(payload):
         for r in source: buckets[r['model'],r['condition'],stratum(r)].append(r)
         for (model,condition,cell), sub in sorted(buckets.items()):
             groups.append({'scope':scope,'model':model,'condition':condition,'stratum':cell,**summarize_group(sub)})
-    contrasts = []
+    contrasts, pvals = [], []
     definitions = [
         ('Sol-minus-Astra/direct',('gpt-6.1-sol','direct'),('gpt-6-astra','direct')),
         ('Sol-minus-Astra/deliberative',('gpt-6.1-sol','deliberative'),('gpt-6-astra','deliberative')),
@@ -156,14 +157,24 @@ def analyze(payload):
                       'sealed_readout':False,'clusters_independent':True,'exchangeable_pair_labels':True,
                       'cases':cases}
             result=evaluate_manifest(manifest)
+            if result['p_exact_fraction'] is not None:
+                paired_p=Q(result['p_exact_fraction'])
+            elif result['test']=='monte_carlo_cluster_sign_flip':
+                effects=defaultdict(list)
+                for row in cases:effects[row['cluster_id']].append(Q(row['candidate']-row['baseline']))
+                paired_p,_=signflip_cluster_p([mean(v) for v in effects.values()])
+                if float(paired_p)!=result['p_unadjusted']:
+                    raise ValueError('Monte Carlo provenance mismatch')
+            else:paired_p=Q(1)
+            pvals.append(paired_p)
             contrasts.append({'stratum':cell,'contrast':name,'paired_rows':paired,
                               'completion_fsi01':result,'utility_difference':bounds(utility,Q(52))})
     # Preserve the complete predeclared family, including unobserved contrasts.
-    pvals=[Q(c['completion_fsi01']['p_exact_fraction']) if c['completion_fsi01']['p_exact_fraction'] else Q(1)
-           for c in contrasts]
     if len(pvals)>FAMILY: raise ValueError('comparison family exceeded')
     adjusted=holm_adjust(pvals+[Q(1)]*(FAMILY-len(pvals)))
-    for c,p in zip(contrasts,adjusted):c['holm40_completion_p_exact']=str(p)
+    for c,p in zip(contrasts,adjusted):
+        c['holm40_completion_p_fraction']=str(p)
+        c['holm40_family_uses_Monte_Carlo']=any(x['completion_fsi01']['test']=='monte_carlo_cluster_sign_flip' for x in contrasts)
     totals={}
     for model in MODELS:
         for condition in CONDITIONS:

@@ -14,6 +14,8 @@ The prospective resolution planner used 64 independent development-generator sum
 
 FSI-01 supplies seed-cluster signed inference, descriptive percentile cluster intervals, exact rational grades, conditional Clopper–Pearson bounds for the root-level event "any unsafe release", and Holm correction across the complete 40-comparison family. Tiny-root bootstrap intervals can be degenerate and are never evidence of equivalence. Conservative bounded-root planning requires 738 roots for a single 95% accuracy interval with a five-point half-width; 1,476 for 40 simultaneous such intervals; or 5,903 for simultaneous five-point half-width paired differences in [-1,1]. These bounds assume independent representative generator roots and are planning guarantees, not empirical power estimates.
 
+For clustered comparisons above 18 roots, FSI-01 uses a seeded Monte Carlo signed null. The analysis retains its +1-corrected rational p-value for Holm adjustment and labels the Monte Carlo calibration; it does not call that an exact null probability. Current tiny-root comparisons use exact tests.
+
 ## A sufficient certificate from public parity queries
 
 **Evidence class: algebraic implication, with finite enumerated regression checks.** For one output, the unknown support vector p is binary with known exact Hamming weight w. Each observed intervention asserts a·p=y over GF(2). Known weight also implies 1·p=w mod 2. Consider the row space of these augmented equations, carrying the same linear combinations of their observed responses.

@@ -43,3 +43,13 @@ def test_single_root_no_bootstrap_or_equivalence_claim():
     result=analyze({'episodes':rows((1,))})
     assert all(g['completion_uncertainty']['bootstrap_95_descriptive'] is None for g in result['groups'])
     assert all(c['completion_fsi01']['verdict']!='confirmed' for c in result['contrasts'])
+
+
+def test_large_cluster_family_preserves_monte_carlo_p_value():
+    result=analyze({'episodes':rows(tuple(range(1,20)))})
+    contrast=result['contrasts'][0]
+    assert contrast['completion_fsi01']['test']=='monte_carlo_cluster_sign_flip'
+    assert contrast['holm40_family_uses_Monte_Carlo']
+    from fractions import Fraction
+    assert Fraction(contrast['holm40_completion_p_fraction'])<1
+    assert contrast['completion_fsi01']['verdict']!='confirmed'

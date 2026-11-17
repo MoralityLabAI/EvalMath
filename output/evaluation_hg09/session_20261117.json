@@ -56,7 +56,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -159,7 +160,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/deliberative",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -262,7 +264,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -365,7 +368,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Astra/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -468,7 +472,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -571,7 +576,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/deliberative",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -674,7 +680,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -777,7 +784,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Astra/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -880,7 +888,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -983,7 +992,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/deliberative",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -1086,7 +1096,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -1189,7 +1200,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Astra/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -1292,7 +1304,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -1395,7 +1408,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/deliberative",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -1498,7 +1512,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -1601,7 +1616,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Astra/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 0,
@@ -1714,7 +1730,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -1810,7 +1827,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/deliberative",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -1906,7 +1924,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -2002,7 +2021,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Astra/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -2098,7 +2118,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -2194,7 +2215,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/deliberative",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -2290,7 +2312,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -2386,7 +2409,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Astra/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -2482,7 +2506,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -2578,7 +2603,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/deliberative",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -2674,7 +2700,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Sol/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -2770,7 +2797,8 @@
           "verdict": "inconclusive"
         },
         "contrast": "Astra/deliberative-minus-direct",
-        "holm40_completion_p_exact": "1",
+        "holm40_completion_p_fraction": "1",
+        "holm40_family_uses_Monte_Carlo": false,
         "paired_rows": [
           {
             "baseline_success": 1,
@@ -7800,12 +7828,12 @@
   "schema": "HG09/EvalMath-receipt-v1",
   "source_sha256": {
     "Hypergames/hg09/session_20261117/measured_input.json": "1827f9f3b37f0be2bd791c5cf139efe6bcd7b74df84122f827a125474041e375",
-    "paper/hypergames_hg09_session_measurements.md": "6c3dcfba12830854180fb75f8d95ecdfc68d08ae0c9fa2e8183053e36d1fd572",
+    "paper/hypergames_hg09_session_measurements.md": "8c595982e29fe7cdc242d4708c733cbcdd8590c889eda7ad12a50d658074fcd4",
     "scripts/verify_hg09_session.py": "7676d7897c8bc687f064406c4a83eff1e51655086d9637987defc487467e92ce",
     "src/spiral_ln/evaluation_finite_sample.py": "b882e762b6f762540a1551a355ee698d3845609922d3fe577dd78396df1c17c6",
-    "src/spiral_ln/evaluation_hg09_session.py": "10d544953596f7a5500747b0e38e9915c031045415db07f7f92670e51e483c8d",
+    "src/spiral_ln/evaluation_hg09_session.py": "72c804816c24fe7c89b6fd71d256aa5620c601d086b0a73325ab260bb90ea812",
     "src/spiral_ln/hypergames_observation_certificate.py": "26ebe9b927944f5266214faed6fe8cee1beb248e78803015089f1de6429cdf63",
-    "tests/test_evaluation_hg09_session.py": "7786f4f324dfcbf1b25d2bbddef49cd546d00e06f1233f916810638df1b45674",
+    "tests/test_evaluation_hg09_session.py": "7a0a3ee5f248ad5be650809dc321714d5e66618f61d75058ae02b645989b2aaa",
     "tests/test_hypergames_observation_certificate.py": "51f8c01557895c8ba43380c3f42100a5c4bccee8c3c2f38dda0cd1aae8df162c"
   },
   "upstream_registration_sha256": "4d13db0858769fd347bcc5eaf8b1e5ff3097f6ac47dea023f2f053ad9778b5d2"
