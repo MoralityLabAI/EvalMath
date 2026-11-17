@@ -1,0 +1,27 @@
+{
+  "all_passed": true,
+  "checks": {
+    "128_independent_weighted_audit_oracles": true,
+    "192_small_fibre_matches": true,
+    "ideal_certified_action": true,
+    "long_horizon_audit_budget": true,
+    "observed_8_missing_8": true,
+    "rank_16_independent": true,
+    "rank_16_joint_probability": true,
+    "rank_deficiency_16": true,
+    "rank_padding_sample": true,
+    "zero_rank_and_empty_target": true
+  },
+  "counts": {
+    "audit_cost_cases": 128,
+    "fibre_cases": 192
+  },
+  "evidence": "algebraic rank theorem with independently enumerated finite F2 oracles",
+  "generated_at_utc": "2026-11-17T07:53:26.252577+00:00",
+  "schema_version": "HG-05/EvalMath-multigoal-rank-v1",
+  "source_sha256": {
+    "scripts/verify_evaluation_hypergames_rank.py": "8372c18d143582202e3cb6f1823c4e1074a45b9ff1285d89e9ccbeee104267a5",
+    "src/spiral_ln/evaluation_hypergames_rank.py": "2df137bd01085809f7f2af28f745aa0b4ec11f0ebd6244c2d0a9c61ac2733fd3",
+    "tests/test_evaluation_hypergames_rank.py": "49685fc1fbe9f81dff1f3e7387a81f227ef4c611c49e75ddc98654a9e2ea27f2"
+  }
+}
