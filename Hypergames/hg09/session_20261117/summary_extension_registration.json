@@ -1,0 +1,49 @@
+{
+  "conditions": {
+    "deliberative": "Reason internally, then return the next legal action in the registered JSON format.",
+    "direct": "Answer with the next legal action."
+  },
+  "configuration_difference": "Explicit auto provider-summary request; original observation boundary, parser, transition, grade, prompts, effort and action budget unchanged. Summary settings may influence generation, so comparisons remain separate.",
+  "effort": "low",
+  "episodes": [
+    {
+      "dimension": 140,
+      "hidden_mode": 0,
+      "horizon": 5,
+      "seed": 202611170801,
+      "task": "HG-02"
+    },
+    {
+      "dimension": 140,
+      "hidden_mode": 1,
+      "horizon": 5,
+      "seed": 202611170801,
+      "task": "HG-02"
+    }
+  ],
+  "models": [
+    "gpt-6.1-sol",
+    "gpt-6-astra"
+  ],
+  "primary_registration_sha256": "4d13db0858769fd347bcc5eaf8b1e5ff3097f6ac47dea023f2f053ad9778b5d2",
+  "provenance": "Provider-returned reasoning items only, including brief headings. No private chain-of-thought reconstruction.",
+  "reasoning_summary_requested": "auto",
+  "registered_utc": "2026-11-17T18:16:29.735877+00:00",
+  "schema": "HG09/public-summary-observability-extension/v1",
+  "scope": "Post-pilot public configuration-observability repeat: 8 episodes, one previously observed root, both hidden modes, all four arms. Not pooled with primary model scores, not a new independent cohort, not confirmatory, and not a model-level sham.",
+  "source_sha256": {
+    "Hypergames/single_player/HG09_PROTOCOL.md": "8f6369b1ce7b78cf3a63d28b3204e8ed59e2025fdc6597c1fd93bafe586f262e",
+    "Hypergames/single_player/config_v1.json": "d4d668a8767073e726a8e4cb1d6fa4737e3def53b8749189ab597b5d5f6e61ac",
+    "Hypergames/single_player/hg08_registration_v1.json": "97b3ed1690a547bae89aa83ce9e4d8bc2c8614fe84889730b60270ab8d6038f0",
+    "Hypergames/single_player/qwen_registration_v1.json": "7339e29ddff37c14b170795af727a18cf0ca57ade51acc1f7b590c40477f1606",
+    "src/spiral_ln/evaluation_hypergames_causal.py": "aa5f556745bbf5efd809f6e80ee31faeb536f4f3cb4207be67ff2534997ae6c6",
+    "src/spiral_ln/hg09_frontier.py": "403f2e3edfc171adbef92864c45acf3b9bfeef95014d46dc8815e83db9b63aff",
+    "src/spiral_ln/hg09_session.py": "6074ca26606086a3244ecf94abe423ecda165392c325482f7f768ed6edb8c465",
+    "src/spiral_ln/hg09_summary_observability.py": "8fb605928cef01861777135c55217fdde51b79dae2d84aff4d7b7341c8b03eb0",
+    "src/spiral_ln/hypergames_active_causal.py": "bd8af545b039099f4fd69c23d47c73ede5226088eeac325b7d77e7f0c3b3a37b",
+    "src/spiral_ln/hypergames_single_player.py": "0581078c23461c21e0e3bf4f37150fbd7f26e6d55d44c9c5c1e650a6495dbb5e",
+    "tests/test_hg09_session.py": "23404bc00644209d0e67d310e04027bcdca28a5c6ab3ea83d3c3068f63c6e329"
+  },
+  "stopping_rule": "Sequential fixed order. Preserve every request and response. Stop on a transport failure or the shared coordinator ordinary-allowance guard. No replacement scores or silent retries.",
+  "workers": 1
+}

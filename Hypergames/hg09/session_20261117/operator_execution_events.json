@@ -1,0 +1,26 @@
+{
+  "events": [
+    {
+      "attempted_model_episodes": 99,
+      "completed_model_episodes": 96,
+      "event": "operator_requested_pause",
+      "pending_traces": [
+        "0024_gpt-6-astra_direct.jsonl",
+        "0024_gpt-6.1-sol_deliberative.jsonl",
+        "0024_gpt-6.1-sol_direct.jsonl"
+      ],
+      "utc": "2026-11-17T16:32:01.0172552Z"
+    },
+    {
+      "continuation_observed": true,
+      "event": "operator_authorized_resume",
+      "pause_induced_failed_requests_observed": 0,
+      "utc": "2026-11-17T17:55:43.8955018Z"
+    }
+  ],
+  "latency_interpretation": "Wall-clock latency of the pending turns includes the operator pause. These outliers are not pure provider generation latency. Fresh requests resumed successfully afterward.",
+  "mechanism": "Verified owned Python runner suspended and resumed with native process control; original journals not edited.",
+  "paused_seconds": 5022.878246,
+  "schema": "HG09/operator-execution-events/v1",
+  "unchanged": "Frozen task order, prompts, model aliases, low effort, budgets, observation boundary, environment transitions, scorer and original registration."
+}

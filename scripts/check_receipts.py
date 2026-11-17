@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "hg09_session": ("scripts/verify_hg09_session.py",
+                     "output/evaluation_hg09/session_20261117_v5.json", [], False),
     "finite_sample": ("scripts/verify_evaluation_finite_sample.py",
                       "output/evaluation_finite_sample/fsi01_v0_1.json", [], False),
     "bpd": ("scripts/verify_evaluation_bpd.py",

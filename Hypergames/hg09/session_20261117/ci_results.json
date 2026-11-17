@@ -1,0 +1,63 @@
+{
+  "EvalMath": {
+    "jobs": {
+      "lean": "success",
+      "python": "success",
+      "receipts_slow": "skipped_by_workflow_policy"
+    },
+    "run_id": 44091564646,
+    "tested_commit": "74a81cd282a45da14f965f3ff5434a6b100165ed",
+    "url": "https://github.com/MoralityLabAI/EvalMath/actions/runs/44091564646"
+  },
+  "GPTStoryworld": {
+    "tested_commit": "fabf849179f00e3590128af0a355f0fb4f5240c9",
+    "workflows": [
+      {
+        "conclusion": "success",
+        "name": "hg09_frontier_preflight",
+        "run_id": 44091409941,
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44091409941"
+      },
+      {
+        "conclusion": "success",
+        "name": "hg05",
+        "run_id": 44091409969,
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44091409969"
+      },
+      {
+        "conclusion": "success",
+        "name": "singleplayer",
+        "run_id": 44091409933,
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44091409933"
+      },
+      {
+        "conclusion": "success",
+        "name": "hg07",
+        "run_id": 44091410225,
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44091410225"
+      },
+      {
+        "conclusion": "success",
+        "name": "hg08",
+        "run_id": 44091409963,
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44091409963"
+      },
+      {
+        "conclusion": "success",
+        "name": "hg06",
+        "run_id": 44091409976,
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44091409976"
+      }
+    ]
+  },
+  "checked_utc": "2026-11-17T13:37:50.862541+00:00",
+  "local_validation": {
+    "EvalMath_fast_receipts_passed": 27,
+    "EvalMath_full_suite_passed": 1750,
+    "EvalMath_full_suite_subtests": 13,
+    "EvalMath_targeted_final_tests": 21,
+    "GPTStoryworld_all_unit_tests": 202,
+    "note": "The updated HG09 receipt was regenerated and rechecked after later score and evidence-note updates."
+  },
+  "schema": "HG09/CI-checkpoint-v1"
+}
