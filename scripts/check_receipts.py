@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "hypergames_quotient_math": ("scripts/verify_evaluation_hypergame_quotient_math.py",
+                                 "output/evaluation_hypergames/hg04_math_v1.json", [], False),
     "hypergames_qwen_preflight": ("scripts/verify_hypergames_qwen_eval.py",
                                   "output/evaluation_hypergames/hg03_qwen_preflight_v1.json", [], False),
     "hypergames_singleplayer": ("scripts/verify_hypergames_single_player.py",

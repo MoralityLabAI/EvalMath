@@ -1,0 +1,27 @@
+{
+  "all_passed": true,
+  "case_counts": {
+    "bellman_cases": 10,
+    "independent_fibre_cases": 96
+  },
+  "checks": {
+    "audit_boundary": true,
+    "identified_target": true,
+    "independent_bellman_comparison": true,
+    "independent_fibre_oracle": true,
+    "prior_five_actions": true,
+    "prior_four_actions": true,
+    "rank_basis": true,
+    "rank_dependent": true,
+    "unidentified_target": true
+  },
+  "evidence_level": "algebraic identities and exact finite confirmations; no Lean/model",
+  "generated_at_utc": "2026-11-17T07:16:43.973793+00:00",
+  "schema_version": "HG-04/quotient-math-v1",
+  "source_sha256": {
+    "Hypergames/HG04_QUOTIENT_THEOREMS.md": "0a0091a59229d249a05980a2145378e96d2f89336884144028e5021e0a8afde6",
+    "scripts/verify_evaluation_hypergame_quotient_math.py": "b2dde8759b94cb013c7321c8855b969b335ac8b18eaa1807b2e461e9f297c4f7",
+    "src/spiral_ln/evaluation_hypergame_quotient_math.py": "b6413698e95deecd40be52e8328201ab288b072793e9424f0545d08b94285ec4",
+    "tests/test_evaluation_hypergame_quotient_math.py": "f2a61eb64190a49fa8a4c80822a6e6854edefd1e3eba320d908f7c85ad24ab7b"
+  }
+}
