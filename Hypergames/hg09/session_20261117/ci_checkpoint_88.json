@@ -1,0 +1,61 @@
+{
+  "schema": "HG09/CI-checkpoint-v1",
+  "checked_utc": "2026-11-17T16:12:36Z",
+  "model_episodes_at_tested_heads": 88,
+  "GPTStoryworld": {
+    "tested_commit": "5c87ad770bff7ed057b84aab361db30fd0b7fc98",
+    "unit_tests": 207,
+    "workflows": [
+      {
+        "name": "HG09",
+        "run_id": 44119981676,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44119981676"
+      },
+      {
+        "name": "HG05",
+        "run_id": 44119981707,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44119981707"
+      },
+      {
+        "name": "singleplayer",
+        "run_id": 44119981775,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44119981775"
+      },
+      {
+        "name": "HG07",
+        "run_id": 44119981661,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44119981661"
+      },
+      {
+        "name": "HG08",
+        "run_id": 44119981783,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44119981783"
+      },
+      {
+        "name": "HG06",
+        "run_id": 44119981755,
+        "conclusion": "success",
+        "url": "https://github.com/MoralityLabAI/GPTStoryworld/actions/runs/44119981755"
+      }
+    ]
+  },
+  "EvalMath": {
+    "tested_commit": "4f2f30488b8694d371c9bc791013f5f3e2950de6",
+    "run_id": 44119975925,
+    "url": "https://github.com/MoralityLabAI/EvalMath/actions/runs/44119975925",
+    "python_tests": 1759,
+    "subtests": 13,
+    "fast_receipts": 27,
+    "jobs": {
+      "python": "success",
+      "lean": "success",
+      "receipts_slow": "skipped_by_workflow_policy"
+    }
+  },
+  "scope": "Immutable tested checkpoint heads; later data commits require their own CI status."
+}
