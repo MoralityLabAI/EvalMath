@@ -7,7 +7,7 @@ from itertools import product
 import pytest
 
 from spiral_ln.evaluation_authorization_quotient import (
-    AuthorizationWorld, inspection_value, optimal_observation_policy,
+    AuthorizationWorld, PairedAuditDecision, audit_budget_certificate, inspection_value, optimal_observation_policy,
 )
 
 
@@ -92,3 +92,64 @@ def test_complete_four_world_oracle_census():
                     assert a.accuracy + a.error == 1
                     checks += 1
     assert checks == sum(8 ** n for n in range(1, 5)) == 4680
+
+
+def test_exact_budget_bound_matches_registered_eca01():
+    def rows(shared_count, independent_count, arm):
+        values = []
+        for i in range(independent_count):
+            values.append(PairedAuditDecision(f"independent-{i}", arm == "audit_all",
+                                            True, arm != "audit_all"))
+        for i in range(shared_count):
+            values.append(PairedAuditDecision(f"shared-{i}", arm in ("audit_partial", "audit_all"),
+                                            arm in ("audit_partial", "audit_all"),
+                                            False))
+        return values
+
+    legacy = [
+        PairedAuditDecision(f"root-{i}", False, True, True)
+        for i in range(64)
+    ]
+    assert audit_budget_certificate(legacy)["J"] == Q(0)
+    partial = audit_budget_certificate(rows(28, 36, "audit_partial"), maximum_audited_roots=28)
+    assert partial["J"] == Q(7, 16)
+    assert partial["audited_root_pairs"] == 28
+    assert partial["upper_J_from_actual_audits"] == Q(7, 16)
+    assert partial["bound_saturated"]
+    full = audit_budget_certificate(rows(28, 36, "audit_all"), maximum_audited_roots=64)
+    assert full["J"] == Q(1)
+    assert full["bound_saturated"]
+
+
+def test_pair_budget_all_small_decision_rosters():
+    # Two unaudited equal-decision rows, four audited rows.
+    choices = [
+        (False, False, False),
+        (False, True, True),
+        (True, False, False),
+        (True, False, True),
+        (True, True, False),
+        (True, True, True),
+    ]
+    for n in range(1, 5):
+        for vector in product(choices, repeat=n):
+            rows = [
+                PairedAuditDecision(str(i), *item) for i, item in enumerate(vector)
+            ]
+            report = audit_budget_certificate(rows)
+            assert report["J"] <= report["upper_J_from_actual_audits"]
+            assert report["J"] == report["tpr"] - report["fpr"]
+            assert report["upper_J_from_budget"] <= Q(1)
+
+
+def test_budget_rejects_public_collision_break_and_overspend():
+    with pytest.raises(ValueError, match="observation-only"):
+        audit_budget_certificate([PairedAuditDecision("root", False, True, False)])
+    with pytest.raises(ValueError, match="budget"):
+        audit_budget_certificate([PairedAuditDecision("root", True, True, False)],
+                                 maximum_audited_roots=0)
+    with pytest.raises(ValueError, match="unique"):
+        audit_budget_certificate([
+            PairedAuditDecision("r", False, True, True),
+            PairedAuditDecision("r", False, False, False),
+        ])
