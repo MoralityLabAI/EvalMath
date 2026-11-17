@@ -14745,7 +14745,7 @@
     "Hypergames/hg09/session_20261117/operator_execution_events.json": "730cf39b575fd9d5c9535cd7a46009ceedde4b638b77d3ed67707dca85a99ba5",
     "Hypergames/hg09/session_20261117/summary_extension_input.json": "eea0d716d2004165702e948f7e1f769fb0cdbe4ca1addf56f75c397367683d38",
     "Hypergames/hg09/session_20261117/summary_extension_registration.json": "1fcf0884df6dedb4492b5aff820af5bfd0fc6c31da0baddbee7d09babaf88b1c",
-    "paper/hypergames_hg09_session_measurements.md": "7e0ab16faf9ae9ea54182d9801e6487d8f0956d0d0c9361f4b0823215949feff",
+    "paper/hypergames_hg09_session_measurements.md": "d4c040fdf3dbc50c8c3e0d055aa0c44957c757a4faa219eea8e10e94b2ca816c",
     "scripts/verify_hg09_session.py": "b676ca843b1ba7bf192f17f7f8f606a7e43604bba88c23758946233f6c2bc740",
     "src/spiral_ln/evaluation_finite_sample.py": "b882e762b6f762540a1551a355ee698d3845609922d3fe577dd78396df1c17c6",
     "src/spiral_ln/evaluation_hg09_session.py": "559eb9acb34e1f278036994fea1453d3e482a986d090bc368a2250c729886b62",
