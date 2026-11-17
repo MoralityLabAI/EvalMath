@@ -34,7 +34,7 @@ def receipt():
         'conservative_95_accuracy_planning':report['planning']['single_accuracy_95_halfwidth_5pp_roots']==738,
         'algorithm_baselines_separate':all(r['evidence_class']=='synthetic structural baseline' for r in payload['structural_baselines']),
     }
-    return {'schema':'HG09/EvalMath-receipt-v1','checks':checks,'all_passed':all(checks.values()),
+    return {'schema':'HG09/EvalMath-receipt-v2','checks':checks,'all_passed':all(checks.values()),
             'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCES},
             'upstream_registration_sha256':payload['registration_sha256'],
             'analysis':report}
@@ -42,7 +42,7 @@ def receipt():
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--output',type=Path,default=ROOT/'output/evaluation_hg09/session_20261117.json')
+    ap.add_argument('--output',type=Path,default=ROOT/'output/evaluation_hg09/session_20261117_v2.json')
     args=ap.parse_args()
     result=receipt()
     args.output.parent.mkdir(parents=True,exist_ok=True)

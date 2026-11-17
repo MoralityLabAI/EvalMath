@@ -7825,11 +7825,11 @@
     "no_model_tool_events": true,
     "private_hg03_not_an_input": true
   },
-  "schema": "HG09/EvalMath-receipt-v1",
+  "schema": "HG09/EvalMath-receipt-v2",
   "source_sha256": {
     "Hypergames/hg09/session_20261117/measured_input.json": "1827f9f3b37f0be2bd791c5cf139efe6bcd7b74df84122f827a125474041e375",
-    "paper/hypergames_hg09_session_measurements.md": "8c595982e29fe7cdc242d4708c733cbcdd8590c889eda7ad12a50d658074fcd4",
-    "scripts/verify_hg09_session.py": "7676d7897c8bc687f064406c4a83eff1e51655086d9637987defc487467e92ce",
+    "paper/hypergames_hg09_session_measurements.md": "d5e973ae811ada91aadbe5d04a2402889917c97d86296042567272a014260cb2",
+    "scripts/verify_hg09_session.py": "2cd73dff3e8f49c6dfea3c5279a9f92f87329dd7bcb2303e0e4e6c14dc720b0b",
     "src/spiral_ln/evaluation_finite_sample.py": "b882e762b6f762540a1551a355ee698d3845609922d3fe577dd78396df1c17c6",
     "src/spiral_ln/evaluation_hg09_session.py": "72c804816c24fe7c89b6fd71d256aa5620c601d086b0a73325ab260bb90ea812",
     "src/spiral_ln/hypergames_observation_certificate.py": "26ebe9b927944f5266214faed6fe8cee1beb248e78803015089f1de6429cdf63",

@@ -1,6 +1,8 @@
 # HG-09 signed-in frontier measurements and public observation certificates
 
-**Evidence status:** power-limited public observational model measurements, plus an algebraic sufficient-certificate implication. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
+**Measured snapshot:** 44 completed model episodes; 11 balanced case blocks; 1 independent generator seed.
+
+**Evidence status:** power-limited public observational model measurements, plus an algebraic sufficient-certificate implication. No claim about private reasoning, learned internal mechanisms, population model rankings, or safety equivalence. Counts and paired results are generated in `output/evaluation_hg09/session_20261117_v2.json` from `Hypergames/hg09/session_20261117/measured_input.json`.
 
 The measured inputs come from GPTStoryworld HG-09 PR #16. The original PR head is `522de307fb60043d71c9a90fd0e802227e855dae`; its HG-08 dependency is `855f2f3d5fc4e26518112925de4a53e6dc9bc42e`. The signed-in runner was frozen in GPTStoryworld commit `c07227c` before scored inference. The 12-episode smoke checkpoint is commit `415c0fd`. The source audit verifies the original source and registration bytes against the PR head. The protected HG-03 manifest was never opened; its original public commitment remains unchanged. Numeric disjointness from an unavailable private list cannot be independently established.
 
