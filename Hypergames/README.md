@@ -63,3 +63,7 @@ The [registered local Qwen single-player study](single_player/QWEN_PROTOCOL.md) 
 an isolated 140-dimensional core, a 512-dimensional padding control and a native
 512-dimensional wide-predicate test. It freezes the model checksum and private-seed
 commitment before evaluation. The source-hashed fast preflight contains **no model runs**.
+
+## HG-04: Decision-sufficient observation quotients (2026-11-17)
+
+[HG04_QUOTIENT_THEOREMS.md](HG04_QUOTIENT_THEOREMS.md) proves the GF(2) observer-parity identifiability dichotomy and exact risky-release information thresholds, with independent finite-fibre and Bellman checks. The 140/512/1024-D CPU application, per-seed replay, and synthetic proxy/Dirac controls live in [GPTStoryworld PR #9](https://github.com/MoralityLabAI/GPTStoryworld/pull/9). Reproduce here with `python scripts/check_receipts.py --only hypergames_quotient_math`.
