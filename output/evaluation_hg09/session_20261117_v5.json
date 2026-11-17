@@ -5527,32 +5527,32 @@
         "completion_fsi01": {
           "accuracy_intervals": {
             "baseline": [
-              0.024997711181640625,
-              1.0
+              0.01450347900390625,
+              0.9997940063476562
             ],
             "candidate": [
               0.0,
-              0.9750022888183594
+              0.9145050048828125
             ],
             "method": "outward_exact_Clopper_Pearson_iid_cases"
           },
           "alpha": 0.05,
-          "baseline_accuracy": 1.0,
+          "baseline_accuracy": 0.6666666666666666,
           "baseline_correct": 2,
           "baseline_only": 2,
           "candidate_accuracy": 0.0,
           "candidate_correct": 0,
           "candidate_only": 0,
-          "case_effect_exact": "-1",
-          "case_weighted_effect": -1.0,
+          "case_effect_exact": "-2/3",
+          "case_weighted_effect": -0.6666666666666666,
           "cluster_bootstrap_interval": [
             -1.0,
-            -1.0
+            0.0
           ],
           "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
           "cluster_bootstrap_resamples": 4096,
-          "cluster_effect_exact": "-1",
-          "cluster_macro_effect": -1.0,
+          "cluster_effect_exact": "-2/3",
+          "cluster_macro_effect": -0.6666666666666666,
           "clusters_independent": true,
           "discordant": 2,
           "evaluation_mode": "sampled",
@@ -5573,8 +5573,8 @@
           "hypothesis_preregistered": true,
           "min_independent_clusters": 20,
           "minimum_effect": 0.05,
-          "n_cases": 2,
-          "n_clusters": 2,
+          "n_cases": 3,
+          "n_clusters": 3,
           "p_bonferroni": 1.0,
           "p_exact_fraction": "1/2",
           "p_unadjusted": 0.5,
@@ -5585,7 +5585,7 @@
           "sealed_readout": false,
           "target_population": "public synthetic generator roots only; unsealed observational pilot",
           "test": "exact_McNemar_independent_pairs",
-          "ties": 0,
+          "ties": 1,
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/direct",
@@ -5625,21 +5625,38 @@
               64
             ],
             "seed": 202611170802
+          },
+          {
+            "baseline_success": 0,
+            "baseline_utility": "0",
+            "candidate_success": 0,
+            "candidate_utility": "-345/128",
+            "case_key": [
+              "HG-08",
+              202611170803,
+              512,
+              null,
+              null,
+              "native_512",
+              2,
+              64
+            ],
+            "seed": 202611170803
           }
         ],
         "stratum": "HG-08/d512/k2/b64",
         "utility_difference": {
           "bootstrap_95_descriptive": [
             -10.0,
-            -10.0
+            -2.6953125
           ],
           "hoeffding_95_unclipped": [
-            -59.93678514863588,
-            39.93678514863588
+            -48.33831850305031,
+            33.20811016971698
           ],
-          "independent_roots": 2,
-          "macro_mean": -10.0,
-          "macro_mean_exact": "-10",
+          "independent_roots": 3,
+          "macro_mean": -7.565104166666667,
+          "macro_mean_exact": "-2905/384",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         }
       },
@@ -5647,20 +5664,20 @@
         "completion_fsi01": {
           "accuracy_intervals": {
             "baseline": [
-              0.000308990478515625,
-              0.9996910095214844
+              0.00020599365234375,
+              0.9854965209960938
             ],
             "candidate": [
-              0.000308990478515625,
-              0.9996910095214844
+              0.00020599365234375,
+              0.9854965209960938
             ],
             "method": "outward_exact_Clopper_Pearson_iid_cases"
           },
           "alpha": 0.05,
-          "baseline_accuracy": 0.5,
+          "baseline_accuracy": 0.3333333333333333,
           "baseline_correct": 1,
           "baseline_only": 1,
-          "candidate_accuracy": 0.5,
+          "candidate_accuracy": 0.3333333333333333,
           "candidate_correct": 1,
           "candidate_only": 1,
           "case_effect_exact": "0",
@@ -5693,8 +5710,8 @@
           "hypothesis_preregistered": true,
           "min_independent_clusters": 20,
           "minimum_effect": 0.05,
-          "n_cases": 2,
-          "n_clusters": 2,
+          "n_cases": 3,
+          "n_clusters": 3,
           "p_bonferroni": 1.0,
           "p_exact_fraction": "1",
           "p_unadjusted": 1.0,
@@ -5705,7 +5722,7 @@
           "sealed_readout": false,
           "target_population": "public synthetic generator roots only; unsealed observational pilot",
           "test": "exact_McNemar_independent_pairs",
-          "ties": 0,
+          "ties": 1,
           "verdict": "inconclusive"
         },
         "contrast": "Sol-minus-Astra/deliberative",
@@ -5745,6 +5762,23 @@
               64
             ],
             "seed": 202611170802
+          },
+          {
+            "baseline_success": 0,
+            "baseline_utility": "0",
+            "candidate_success": 0,
+            "candidate_utility": "0",
+            "case_key": [
+              "HG-08",
+              202611170803,
+              512,
+              null,
+              null,
+              "native_512",
+              2,
+              64
+            ],
+            "seed": 202611170803
           }
         ],
         "stratum": "HG-08/d512/k2/b64",
@@ -5754,10 +5788,10 @@
             10.0
           ],
           "hoeffding_95_unclipped": [
-            -49.93678514863588,
-            49.93678514863588
+            -40.773214336383646,
+            40.773214336383646
           ],
-          "independent_roots": 2,
+          "independent_roots": 3,
           "macro_mean": 0.0,
           "macro_mean_exact": "0",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
@@ -5768,11 +5802,11 @@
           "accuracy_intervals": {
             "baseline": [
               0.0,
-              0.9750022888183594
+              0.9145050048828125
             ],
             "candidate": [
-              0.000308990478515625,
-              0.9996910095214844
+              0.00020599365234375,
+              0.9854965209960938
             ],
             "method": "outward_exact_Clopper_Pearson_iid_cases"
           },
@@ -5780,19 +5814,19 @@
           "baseline_accuracy": 0.0,
           "baseline_correct": 0,
           "baseline_only": 0,
-          "candidate_accuracy": 0.5,
+          "candidate_accuracy": 0.3333333333333333,
           "candidate_correct": 1,
           "candidate_only": 1,
-          "case_effect_exact": "1/2",
-          "case_weighted_effect": 0.5,
+          "case_effect_exact": "1/3",
+          "case_weighted_effect": 0.3333333333333333,
           "cluster_bootstrap_interval": [
             0.0,
             1.0
           ],
           "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
           "cluster_bootstrap_resamples": 4096,
-          "cluster_effect_exact": "1/2",
-          "cluster_macro_effect": 0.5,
+          "cluster_effect_exact": "1/3",
+          "cluster_macro_effect": 0.3333333333333333,
           "clusters_independent": true,
           "discordant": 1,
           "evaluation_mode": "sampled",
@@ -5813,8 +5847,8 @@
           "hypothesis_preregistered": true,
           "min_independent_clusters": 20,
           "minimum_effect": 0.05,
-          "n_cases": 2,
-          "n_clusters": 2,
+          "n_cases": 3,
+          "n_clusters": 3,
           "p_bonferroni": 1.0,
           "p_exact_fraction": "1",
           "p_unadjusted": 1.0,
@@ -5825,7 +5859,7 @@
           "sealed_readout": false,
           "target_population": "public synthetic generator roots only; unsealed observational pilot",
           "test": "exact_McNemar_independent_pairs",
-          "ties": 1,
+          "ties": 2,
           "verdict": "suggestive"
         },
         "contrast": "Sol/deliberative-minus-direct",
@@ -5865,6 +5899,23 @@
               64
             ],
             "seed": 202611170802
+          },
+          {
+            "baseline_success": 0,
+            "baseline_utility": "-345/128",
+            "candidate_success": 0,
+            "candidate_utility": "0",
+            "case_key": [
+              "HG-08",
+              202611170803,
+              512,
+              null,
+              null,
+              "native_512",
+              2,
+              64
+            ],
+            "seed": 202611170803
           }
         ],
         "stratum": "HG-08/d512/k2/b64",
@@ -5874,12 +5925,12 @@
             10.0
           ],
           "hoeffding_95_unclipped": [
-            -44.93678514863588,
-            54.93678514863588
+            -36.54144350305031,
+            45.00498516971698
           ],
-          "independent_roots": 2,
-          "macro_mean": 5.0,
-          "macro_mean_exact": "5",
+          "independent_roots": 3,
+          "macro_mean": 4.231770833333333,
+          "macro_mean_exact": "1625/384",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         }
       },
@@ -5887,32 +5938,32 @@
         "completion_fsi01": {
           "accuracy_intervals": {
             "baseline": [
-              0.024997711181640625,
-              1.0
+              0.01450347900390625,
+              0.9997940063476562
             ],
             "candidate": [
-              0.000308990478515625,
-              0.9996910095214844
+              0.00020599365234375,
+              0.9854965209960938
             ],
             "method": "outward_exact_Clopper_Pearson_iid_cases"
           },
           "alpha": 0.05,
-          "baseline_accuracy": 1.0,
+          "baseline_accuracy": 0.6666666666666666,
           "baseline_correct": 2,
           "baseline_only": 1,
-          "candidate_accuracy": 0.5,
+          "candidate_accuracy": 0.3333333333333333,
           "candidate_correct": 1,
           "candidate_only": 0,
-          "case_effect_exact": "-1/2",
-          "case_weighted_effect": -0.5,
+          "case_effect_exact": "-1/3",
+          "case_weighted_effect": -0.3333333333333333,
           "cluster_bootstrap_interval": [
             -1.0,
             0.0
           ],
           "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
           "cluster_bootstrap_resamples": 4096,
-          "cluster_effect_exact": "-1/2",
-          "cluster_macro_effect": -0.5,
+          "cluster_effect_exact": "-1/3",
+          "cluster_macro_effect": -0.3333333333333333,
           "clusters_independent": true,
           "discordant": 1,
           "evaluation_mode": "sampled",
@@ -5933,8 +5984,8 @@
           "hypothesis_preregistered": true,
           "min_independent_clusters": 20,
           "minimum_effect": 0.05,
-          "n_cases": 2,
-          "n_clusters": 2,
+          "n_cases": 3,
+          "n_clusters": 3,
           "p_bonferroni": 1.0,
           "p_exact_fraction": "1",
           "p_unadjusted": 1.0,
@@ -5945,7 +5996,7 @@
           "sealed_readout": false,
           "target_population": "public synthetic generator roots only; unsealed observational pilot",
           "test": "exact_McNemar_independent_pairs",
-          "ties": 1,
+          "ties": 2,
           "verdict": "inconclusive"
         },
         "contrast": "Astra/deliberative-minus-direct",
@@ -5985,6 +6036,23 @@
               64
             ],
             "seed": 202611170802
+          },
+          {
+            "baseline_success": 0,
+            "baseline_utility": "0",
+            "candidate_success": 0,
+            "candidate_utility": "0",
+            "case_key": [
+              "HG-08",
+              202611170803,
+              512,
+              null,
+              null,
+              "native_512",
+              2,
+              64
+            ],
+            "seed": 202611170803
           }
         ],
         "stratum": "HG-08/d512/k2/b64",
@@ -5994,12 +6062,12 @@
             0.0
           ],
           "hoeffding_95_unclipped": [
-            -54.93678514863588,
-            44.93678514863588
+            -44.10654766971698,
+            37.43988100305031
           ],
-          "independent_roots": 2,
-          "macro_mean": -5.0,
-          "macro_mean_exact": "-5",
+          "independent_roots": 3,
+          "macro_mean": -3.3333333333333335,
+          "macro_mean_exact": "-10/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         }
       }
@@ -6867,27 +6935,27 @@
       },
       {
         "abstentions_after_public_GF2_certificate": 0,
-        "attempted_episodes": 2,
-        "completed_episodes": 2,
+        "attempted_episodes": 3,
+        "completed_episodes": 3,
         "completion_uncertainty": {
           "bootstrap_95_descriptive": [
             0.0,
             1.0
           ],
           "hoeffding_95_unclipped": [
-            -0.4603227913199207,
-            1.4603227913199208
+            -0.4507669423663521,
+            1.1174336090330188
           ],
-          "independent_roots": 2,
-          "macro_mean": 0.5,
-          "macro_mean_exact": "1/2",
+          "independent_roots": 3,
+          "macro_mean": 0.3333333333333333,
+          "macro_mean_exact": "1/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
         "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
-          "abstained_before_budget": 0,
+          "abstained_before_budget": 1,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "invalid_release_rank": 0,
@@ -6897,24 +6965,24 @@
         },
         "false_discoveries": 0,
         "incomplete_episodes": 0,
-        "independent_seeds": 2,
+        "independent_seeds": 3,
         "invalid_actions": 0,
-        "mean_queries_exact": "127/2",
+        "mean_queries_exact": "190/3",
         "mean_queries_successes_exact": "63",
-        "mean_utility_exact": "5",
+        "mean_utility_exact": "10/3",
         "model": "gpt-6-astra",
         "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
         "queries_after_unique_sparse_prefix": 0,
-        "queries_per_completed_task_exact": "127",
+        "queries_per_completed_task_exact": "190",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
           0.0,
-          0.841888427734375
+          0.7075996398925781
         ],
         "roots_with_any_unsafe_release": 0,
-        "safe_success_rate_exact": "1/2",
+        "safe_success_rate_exact": "1/3",
         "safe_successes": 1,
         "scope": "available",
         "singleton_certified_releases": 0,
@@ -6928,20 +6996,20 @@
             0.0
           ],
           "hoeffding_95_unclipped": [
-            -0.9603227913199207,
-            0.9603227913199207
+            -0.7841002756996854,
+            0.7841002756996854
           ],
-          "independent_roots": 2,
+          "independent_roots": 3,
           "macro_mean": 0.0,
           "macro_mean_exact": "0",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "usage": {
           "cache_write_input_tokens": 0,
-          "cached_input_tokens": 454656,
-          "input_tokens": 1053108,
-          "output_tokens": 33194,
-          "reasoning_output_tokens": 25439
+          "cached_input_tokens": 700416,
+          "input_tokens": 1596588,
+          "output_tokens": 51740,
+          "reasoning_output_tokens": 36634
         },
         "utility_uncertainty": {
           "bootstrap_95_descriptive": [
@@ -6949,12 +7017,12 @@
             10.0
           ],
           "hoeffding_95_unclipped": [
-            -19.96839257431794,
-            29.96839257431794
+            -17.05327383485849,
+            23.719940501525155
           ],
-          "independent_roots": 2,
-          "macro_mean": 5.0,
-          "macro_mean_exact": "5",
+          "independent_roots": 3,
+          "macro_mean": 3.3333333333333335,
+          "macro_mean_exact": "10/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         }
       },
@@ -7817,27 +7885,27 @@
       },
       {
         "abstentions_after_public_GF2_certificate": 0,
-        "attempted_episodes": 2,
-        "completed_episodes": 2,
+        "attempted_episodes": 3,
+        "completed_episodes": 3,
         "completion_uncertainty": {
           "bootstrap_95_descriptive": [
-            1.0,
+            0.0,
             1.0
           ],
           "hoeffding_95_unclipped": [
-            0.03967720868007929,
-            1.9603227913199208
+            -0.1174336090330188,
+            1.450766942366352
           ],
-          "independent_roots": 2,
-          "macro_mean": 1.0,
-          "macro_mean_exact": "1",
+          "independent_roots": 3,
+          "macro_mean": 0.6666666666666666,
+          "macro_mean_exact": "2/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
         "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 2,
         "failure_taxonomy": {
-          "abstained_before_budget": 0,
+          "abstained_before_budget": 1,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "invalid_release_rank": 0,
@@ -7847,24 +7915,24 @@
         },
         "false_discoveries": 0,
         "incomplete_episodes": 0,
-        "independent_seeds": 2,
+        "independent_seeds": 3,
         "invalid_actions": 0,
-        "mean_queries_exact": "125/2",
+        "mean_queries_exact": "187/3",
         "mean_queries_successes_exact": "125/2",
-        "mean_utility_exact": "10",
+        "mean_utility_exact": "20/3",
         "model": "gpt-6-astra",
         "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
         "queries_after_unique_sparse_prefix": 0,
-        "queries_per_completed_task_exact": "125/2",
+        "queries_per_completed_task_exact": "187/2",
         "releases": 2,
         "root_any_unsafe_cp95_conditional": [
           0.0,
-          0.841888427734375
+          0.7075996398925781
         ],
         "roots_with_any_unsafe_release": 0,
-        "safe_success_rate_exact": "1",
+        "safe_success_rate_exact": "2/3",
         "safe_successes": 2,
         "scope": "available",
         "singleton_certified_releases": 0,
@@ -7878,33 +7946,33 @@
             0.0
           ],
           "hoeffding_95_unclipped": [
-            -0.9603227913199207,
-            0.9603227913199207
+            -0.7841002756996854,
+            0.7841002756996854
           ],
-          "independent_roots": 2,
+          "independent_roots": 3,
           "macro_mean": 0.0,
           "macro_mean_exact": "0",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "usage": {
           "cache_write_input_tokens": 0,
-          "cached_input_tokens": 463872,
-          "input_tokens": 1028554,
-          "output_tokens": 27953,
-          "reasoning_output_tokens": 18219
+          "cached_input_tokens": 700416,
+          "input_tokens": 1592066,
+          "output_tokens": 46245,
+          "reasoning_output_tokens": 30222
         },
         "utility_uncertainty": {
           "bootstrap_95_descriptive": [
-            10.0,
+            0.0,
             10.0
           ],
           "hoeffding_95_unclipped": [
-            -14.968392574317939,
-            34.96839257431794
+            -13.719940501525155,
+            27.05327383485849
           ],
-          "independent_roots": 2,
-          "macro_mean": 10.0,
-          "macro_mean_exact": "10",
+          "independent_roots": 3,
+          "macro_mean": 6.666666666666667,
+          "macro_mean_exact": "20/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         }
       },
@@ -8769,20 +8837,20 @@
       },
       {
         "abstentions_after_public_GF2_certificate": 0,
-        "attempted_episodes": 2,
-        "completed_episodes": 2,
+        "attempted_episodes": 3,
+        "completed_episodes": 3,
         "completion_uncertainty": {
           "bootstrap_95_descriptive": [
             0.0,
             1.0
           ],
           "hoeffding_95_unclipped": [
-            -0.4603227913199207,
-            1.4603227913199208
+            -0.4507669423663521,
+            1.1174336090330188
           ],
-          "independent_roots": 2,
-          "macro_mean": 0.5,
-          "macro_mean_exact": "1/2",
+          "independent_roots": 3,
+          "macro_mean": 0.3333333333333333,
+          "macro_mean_exact": "1/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
@@ -8799,24 +8867,24 @@
         },
         "false_discoveries": 0,
         "incomplete_episodes": 0,
-        "independent_seeds": 2,
+        "independent_seeds": 3,
         "invalid_actions": 0,
         "mean_queries_exact": "64",
         "mean_queries_successes_exact": "64",
-        "mean_utility_exact": "5",
+        "mean_utility_exact": "10/3",
         "model": "gpt-6.1-sol",
         "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
         "queries_after_unique_sparse_prefix": 0,
-        "queries_per_completed_task_exact": "128",
+        "queries_per_completed_task_exact": "192",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
           0.0,
-          0.841888427734375
+          0.7075996398925781
         ],
         "roots_with_any_unsafe_release": 0,
-        "safe_success_rate_exact": "1/2",
+        "safe_success_rate_exact": "1/3",
         "safe_successes": 1,
         "scope": "available",
         "singleton_certified_releases": 0,
@@ -8830,20 +8898,20 @@
             0.0
           ],
           "hoeffding_95_unclipped": [
-            -0.9603227913199207,
-            0.9603227913199207
+            -0.7841002756996854,
+            0.7841002756996854
           ],
-          "independent_roots": 2,
+          "independent_roots": 3,
           "macro_mean": 0.0,
           "macro_mean_exact": "0",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "usage": {
           "cache_write_input_tokens": 0,
-          "cached_input_tokens": 427776,
-          "input_tokens": 1260186,
-          "output_tokens": 49725,
-          "reasoning_output_tokens": 38058
+          "cached_input_tokens": 650496,
+          "input_tokens": 2033961,
+          "output_tokens": 80809,
+          "reasoning_output_tokens": 59735
         },
         "utility_uncertainty": {
           "bootstrap_95_descriptive": [
@@ -8851,12 +8919,12 @@
             10.0
           ],
           "hoeffding_95_unclipped": [
-            -19.96839257431794,
-            29.96839257431794
+            -17.05327383485849,
+            23.719940501525155
           ],
-          "independent_roots": 2,
-          "macro_mean": 5.0,
-          "macro_mean_exact": "5",
+          "independent_roots": 3,
+          "macro_mean": 3.3333333333333335,
+          "macro_mean_exact": "10/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         }
       },
@@ -9720,18 +9788,18 @@
       },
       {
         "abstentions_after_public_GF2_certificate": 0,
-        "attempted_episodes": 2,
-        "completed_episodes": 2,
+        "attempted_episodes": 3,
+        "completed_episodes": 3,
         "completion_uncertainty": {
           "bootstrap_95_descriptive": [
             0.0,
             0.0
           ],
           "hoeffding_95_unclipped": [
-            -0.9603227913199207,
-            0.9603227913199207
+            -0.7841002756996854,
+            0.7841002756996854
           ],
-          "independent_roots": 2,
+          "independent_roots": 3,
           "macro_mean": 0.0,
           "macro_mean_exact": "0",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
@@ -9741,73 +9809,73 @@
         "exact_support_recoveries": 0,
         "failure_taxonomy": {
           "abstained_before_budget": 1,
-          "incorrect_support_release": 0,
+          "incorrect_support_release": 1,
           "invalid_format": 0,
           "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
-          "release_without_singleton_certificate": 0
+          "release_without_singleton_certificate": 1
         },
-        "false_discoveries": 0,
+        "false_discoveries": 4,
         "incomplete_episodes": 0,
-        "independent_seeds": 2,
+        "independent_seeds": 3,
         "invalid_actions": 0,
-        "mean_queries_exact": "127/2",
+        "mean_queries_exact": "191/3",
         "mean_queries_successes_exact": null,
-        "mean_utility_exact": "0",
+        "mean_utility_exact": "-115/128",
         "model": "gpt-6.1-sol",
         "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
         "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": null,
-        "releases": 0,
+        "releases": 1,
         "root_any_unsafe_cp95_conditional": [
-          0.0,
-          0.841888427734375
+          0.00839996337890625,
+          0.90570068359375
         ],
-        "roots_with_any_unsafe_release": 0,
+        "roots_with_any_unsafe_release": 1,
         "safe_success_rate_exact": "0",
         "safe_successes": 0,
         "scope": "available",
         "singleton_certified_releases": 0,
         "stratum": "HG-08/d512/k2/b64",
-        "support_true_positives": 0,
-        "unsafe_release_episodes": 0,
-        "unsafe_release_rate_exact": "0",
+        "support_true_positives": 8,
+        "unsafe_release_episodes": 1,
+        "unsafe_release_rate_exact": "1/3",
         "unsafe_release_uncertainty": {
           "bootstrap_95_descriptive": [
             0.0,
-            0.0
+            1.0
           ],
           "hoeffding_95_unclipped": [
-            -0.9603227913199207,
-            0.9603227913199207
+            -0.4507669423663521,
+            1.1174336090330188
           ],
-          "independent_roots": 2,
-          "macro_mean": 0.0,
-          "macro_mean_exact": "0",
+          "independent_roots": 3,
+          "macro_mean": 0.3333333333333333,
+          "macro_mean_exact": "1/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "usage": {
           "cache_write_input_tokens": 0,
-          "cached_input_tokens": 422400,
-          "input_tokens": 1059863,
-          "output_tokens": 35519,
-          "reasoning_output_tokens": 27419
+          "cached_input_tokens": 648960,
+          "input_tokens": 1652954,
+          "output_tokens": 55799,
+          "reasoning_output_tokens": 40995
         },
         "utility_uncertainty": {
           "bootstrap_95_descriptive": [
-            0.0,
+            -2.6953125,
             0.0
           ],
           "hoeffding_95_unclipped": [
-            -24.96839257431794,
-            24.96839257431794
+            -21.285044668191823,
+            19.488169668191823
           ],
-          "independent_roots": 2,
-          "macro_mean": 0.0,
-          "macro_mean_exact": "0",
+          "independent_roots": 3,
+          "macro_mean": -0.8984375,
+          "macro_mean_exact": "-115/128",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         }
       },
@@ -10671,27 +10739,27 @@
       },
       {
         "abstentions_after_public_GF2_certificate": 0,
-        "attempted_episodes": 2,
-        "completed_episodes": 2,
+        "attempted_episodes": 3,
+        "completed_episodes": 3,
         "completion_uncertainty": {
           "bootstrap_95_descriptive": [
             0.0,
             1.0
           ],
           "hoeffding_95_unclipped": [
-            -0.4603227913199207,
-            1.4603227913199208
+            -0.4507669423663521,
+            1.1174336090330188
           ],
-          "independent_roots": 2,
-          "macro_mean": 0.5,
-          "macro_mean_exact": "1/2",
+          "independent_roots": 3,
+          "macro_mean": 0.3333333333333333,
+          "macro_mean_exact": "1/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
         "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 1,
         "failure_taxonomy": {
-          "abstained_before_budget": 0,
+          "abstained_before_budget": 1,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "invalid_release_rank": 0,
@@ -10701,24 +10769,24 @@
         },
         "false_discoveries": 0,
         "incomplete_episodes": 0,
-        "independent_seeds": 2,
+        "independent_seeds": 3,
         "invalid_actions": 0,
-        "mean_queries_exact": "127/2",
+        "mean_queries_exact": "190/3",
         "mean_queries_successes_exact": "63",
-        "mean_utility_exact": "5",
+        "mean_utility_exact": "10/3",
         "model": "gpt-6-astra",
         "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
         "queries_after_unique_sparse_prefix": 0,
-        "queries_per_completed_task_exact": "127",
+        "queries_per_completed_task_exact": "190",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
           0.0,
-          0.841888427734375
+          0.7075996398925781
         ],
         "roots_with_any_unsafe_release": 0,
-        "safe_success_rate_exact": "1/2",
+        "safe_success_rate_exact": "1/3",
         "safe_successes": 1,
         "scope": "balanced",
         "singleton_certified_releases": 0,
@@ -10732,20 +10800,20 @@
             0.0
           ],
           "hoeffding_95_unclipped": [
-            -0.9603227913199207,
-            0.9603227913199207
+            -0.7841002756996854,
+            0.7841002756996854
           ],
-          "independent_roots": 2,
+          "independent_roots": 3,
           "macro_mean": 0.0,
           "macro_mean_exact": "0",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "usage": {
           "cache_write_input_tokens": 0,
-          "cached_input_tokens": 454656,
-          "input_tokens": 1053108,
-          "output_tokens": 33194,
-          "reasoning_output_tokens": 25439
+          "cached_input_tokens": 700416,
+          "input_tokens": 1596588,
+          "output_tokens": 51740,
+          "reasoning_output_tokens": 36634
         },
         "utility_uncertainty": {
           "bootstrap_95_descriptive": [
@@ -10753,12 +10821,12 @@
             10.0
           ],
           "hoeffding_95_unclipped": [
-            -19.96839257431794,
-            29.96839257431794
+            -17.05327383485849,
+            23.719940501525155
           ],
-          "independent_roots": 2,
-          "macro_mean": 5.0,
-          "macro_mean_exact": "5",
+          "independent_roots": 3,
+          "macro_mean": 3.3333333333333335,
+          "macro_mean_exact": "10/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         }
       },
@@ -11621,27 +11689,27 @@
       },
       {
         "abstentions_after_public_GF2_certificate": 0,
-        "attempted_episodes": 2,
-        "completed_episodes": 2,
+        "attempted_episodes": 3,
+        "completed_episodes": 3,
         "completion_uncertainty": {
           "bootstrap_95_descriptive": [
-            1.0,
+            0.0,
             1.0
           ],
           "hoeffding_95_unclipped": [
-            0.03967720868007929,
-            1.9603227913199208
+            -0.1174336090330188,
+            1.450766942366352
           ],
-          "independent_roots": 2,
-          "macro_mean": 1.0,
-          "macro_mean_exact": "1",
+          "independent_roots": 3,
+          "macro_mean": 0.6666666666666666,
+          "macro_mean_exact": "2/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "direct",
         "exact_sparse_certified_releases": 0,
         "exact_support_recoveries": 2,
         "failure_taxonomy": {
-          "abstained_before_budget": 0,
+          "abstained_before_budget": 1,
           "incorrect_support_release": 0,
           "invalid_format": 0,
           "invalid_release_rank": 0,
@@ -11651,24 +11719,24 @@
         },
         "false_discoveries": 0,
         "incomplete_episodes": 0,
-        "independent_seeds": 2,
+        "independent_seeds": 3,
         "invalid_actions": 0,
-        "mean_queries_exact": "125/2",
+        "mean_queries_exact": "187/3",
         "mean_queries_successes_exact": "125/2",
-        "mean_utility_exact": "10",
+        "mean_utility_exact": "20/3",
         "model": "gpt-6-astra",
         "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
         "queries_after_unique_sparse_prefix": 0,
-        "queries_per_completed_task_exact": "125/2",
+        "queries_per_completed_task_exact": "187/2",
         "releases": 2,
         "root_any_unsafe_cp95_conditional": [
           0.0,
-          0.841888427734375
+          0.7075996398925781
         ],
         "roots_with_any_unsafe_release": 0,
-        "safe_success_rate_exact": "1",
+        "safe_success_rate_exact": "2/3",
         "safe_successes": 2,
         "scope": "balanced",
         "singleton_certified_releases": 0,
@@ -11682,33 +11750,33 @@
             0.0
           ],
           "hoeffding_95_unclipped": [
-            -0.9603227913199207,
-            0.9603227913199207
+            -0.7841002756996854,
+            0.7841002756996854
           ],
-          "independent_roots": 2,
+          "independent_roots": 3,
           "macro_mean": 0.0,
           "macro_mean_exact": "0",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "usage": {
           "cache_write_input_tokens": 0,
-          "cached_input_tokens": 463872,
-          "input_tokens": 1028554,
-          "output_tokens": 27953,
-          "reasoning_output_tokens": 18219
+          "cached_input_tokens": 700416,
+          "input_tokens": 1592066,
+          "output_tokens": 46245,
+          "reasoning_output_tokens": 30222
         },
         "utility_uncertainty": {
           "bootstrap_95_descriptive": [
-            10.0,
+            0.0,
             10.0
           ],
           "hoeffding_95_unclipped": [
-            -14.968392574317939,
-            34.96839257431794
+            -13.719940501525155,
+            27.05327383485849
           ],
-          "independent_roots": 2,
-          "macro_mean": 10.0,
-          "macro_mean_exact": "10",
+          "independent_roots": 3,
+          "macro_mean": 6.666666666666667,
+          "macro_mean_exact": "20/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         }
       },
@@ -12573,20 +12641,20 @@
       },
       {
         "abstentions_after_public_GF2_certificate": 0,
-        "attempted_episodes": 2,
-        "completed_episodes": 2,
+        "attempted_episodes": 3,
+        "completed_episodes": 3,
         "completion_uncertainty": {
           "bootstrap_95_descriptive": [
             0.0,
             1.0
           ],
           "hoeffding_95_unclipped": [
-            -0.4603227913199207,
-            1.4603227913199208
+            -0.4507669423663521,
+            1.1174336090330188
           ],
-          "independent_roots": 2,
-          "macro_mean": 0.5,
-          "macro_mean_exact": "1/2",
+          "independent_roots": 3,
+          "macro_mean": 0.3333333333333333,
+          "macro_mean_exact": "1/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "condition": "deliberative",
@@ -12603,24 +12671,24 @@
         },
         "false_discoveries": 0,
         "incomplete_episodes": 0,
-        "independent_seeds": 2,
+        "independent_seeds": 3,
         "invalid_actions": 0,
         "mean_queries_exact": "64",
         "mean_queries_successes_exact": "64",
-        "mean_utility_exact": "5",
+        "mean_utility_exact": "10/3",
         "model": "gpt-6.1-sol",
         "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
         "queries_after_unique_sparse_prefix": 0,
-        "queries_per_completed_task_exact": "128",
+        "queries_per_completed_task_exact": "192",
         "releases": 1,
         "root_any_unsafe_cp95_conditional": [
           0.0,
-          0.841888427734375
+          0.7075996398925781
         ],
         "roots_with_any_unsafe_release": 0,
-        "safe_success_rate_exact": "1/2",
+        "safe_success_rate_exact": "1/3",
         "safe_successes": 1,
         "scope": "balanced",
         "singleton_certified_releases": 0,
@@ -12634,20 +12702,20 @@
             0.0
           ],
           "hoeffding_95_unclipped": [
-            -0.9603227913199207,
-            0.9603227913199207
+            -0.7841002756996854,
+            0.7841002756996854
           ],
-          "independent_roots": 2,
+          "independent_roots": 3,
           "macro_mean": 0.0,
           "macro_mean_exact": "0",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "usage": {
           "cache_write_input_tokens": 0,
-          "cached_input_tokens": 427776,
-          "input_tokens": 1260186,
-          "output_tokens": 49725,
-          "reasoning_output_tokens": 38058
+          "cached_input_tokens": 650496,
+          "input_tokens": 2033961,
+          "output_tokens": 80809,
+          "reasoning_output_tokens": 59735
         },
         "utility_uncertainty": {
           "bootstrap_95_descriptive": [
@@ -12655,12 +12723,12 @@
             10.0
           ],
           "hoeffding_95_unclipped": [
-            -19.96839257431794,
-            29.96839257431794
+            -17.05327383485849,
+            23.719940501525155
           ],
-          "independent_roots": 2,
-          "macro_mean": 5.0,
-          "macro_mean_exact": "5",
+          "independent_roots": 3,
+          "macro_mean": 3.3333333333333335,
+          "macro_mean_exact": "10/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         }
       },
@@ -13524,18 +13592,18 @@
       },
       {
         "abstentions_after_public_GF2_certificate": 0,
-        "attempted_episodes": 2,
-        "completed_episodes": 2,
+        "attempted_episodes": 3,
+        "completed_episodes": 3,
         "completion_uncertainty": {
           "bootstrap_95_descriptive": [
             0.0,
             0.0
           ],
           "hoeffding_95_unclipped": [
-            -0.9603227913199207,
-            0.9603227913199207
+            -0.7841002756996854,
+            0.7841002756996854
           ],
-          "independent_roots": 2,
+          "independent_roots": 3,
           "macro_mean": 0.0,
           "macro_mean_exact": "0",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
@@ -13545,73 +13613,73 @@
         "exact_support_recoveries": 0,
         "failure_taxonomy": {
           "abstained_before_budget": 1,
-          "incorrect_support_release": 0,
+          "incorrect_support_release": 1,
           "invalid_format": 0,
           "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
-          "release_without_singleton_certificate": 0
+          "release_without_singleton_certificate": 1
         },
-        "false_discoveries": 0,
+        "false_discoveries": 4,
         "incomplete_episodes": 0,
-        "independent_seeds": 2,
+        "independent_seeds": 3,
         "invalid_actions": 0,
-        "mean_queries_exact": "127/2",
+        "mean_queries_exact": "191/3",
         "mean_queries_successes_exact": null,
-        "mean_utility_exact": "0",
+        "mean_utility_exact": "-115/128",
         "model": "gpt-6.1-sol",
         "no_valid_releases_despite_unique_sparse_transcript": 0,
         "public_GF2_certified_releases": 0,
         "queries_after_public_GF2_certificate": 0,
         "queries_after_unique_sparse_prefix": 0,
         "queries_per_completed_task_exact": null,
-        "releases": 0,
+        "releases": 1,
         "root_any_unsafe_cp95_conditional": [
-          0.0,
-          0.841888427734375
+          0.00839996337890625,
+          0.90570068359375
         ],
-        "roots_with_any_unsafe_release": 0,
+        "roots_with_any_unsafe_release": 1,
         "safe_success_rate_exact": "0",
         "safe_successes": 0,
         "scope": "balanced",
         "singleton_certified_releases": 0,
         "stratum": "HG-08/d512/k2/b64",
-        "support_true_positives": 0,
-        "unsafe_release_episodes": 0,
-        "unsafe_release_rate_exact": "0",
+        "support_true_positives": 8,
+        "unsafe_release_episodes": 1,
+        "unsafe_release_rate_exact": "1/3",
         "unsafe_release_uncertainty": {
           "bootstrap_95_descriptive": [
             0.0,
-            0.0
+            1.0
           ],
           "hoeffding_95_unclipped": [
-            -0.9603227913199207,
-            0.9603227913199207
+            -0.4507669423663521,
+            1.1174336090330188
           ],
-          "independent_roots": 2,
-          "macro_mean": 0.0,
-          "macro_mean_exact": "0",
+          "independent_roots": 3,
+          "macro_mean": 0.3333333333333333,
+          "macro_mean_exact": "1/3",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         },
         "usage": {
           "cache_write_input_tokens": 0,
-          "cached_input_tokens": 422400,
-          "input_tokens": 1059863,
-          "output_tokens": 35519,
-          "reasoning_output_tokens": 27419
+          "cached_input_tokens": 648960,
+          "input_tokens": 1652954,
+          "output_tokens": 55799,
+          "reasoning_output_tokens": 40995
         },
         "utility_uncertainty": {
           "bootstrap_95_descriptive": [
-            0.0,
+            -2.6953125,
             0.0
           ],
           "hoeffding_95_unclipped": [
-            -24.96839257431794,
-            24.96839257431794
+            -21.285044668191823,
+            19.488169668191823
           ],
-          "independent_roots": 2,
-          "macro_mean": 0.0,
-          "macro_mean_exact": "0",
+          "independent_roots": 3,
+          "macro_mean": -0.8984375,
+          "macro_mean_exact": "-115/128",
           "scope": "Conditional on independent representative generator seeds; tiny-root bootstrap can be degenerate. No heldout population claim."
         }
       }
@@ -13626,67 +13694,67 @@
     "matched_sham_scope": "64 synthetic replay-sham roots; no matched neural/model sham",
     "model_totals": {
       "gpt-6-astra/deliberative": {
-        "attempted_episodes": 40,
-        "balanced_episodes": 40,
+        "attempted_episodes": 41,
+        "balanced_episodes": 41,
         "independent_roots": 3,
-        "input_tokens": 7662312,
-        "output_tokens": 227125,
-        "reasoning_output_tokens": 156634,
+        "input_tokens": 8205792,
+        "output_tokens": 245671,
+        "reasoning_output_tokens": 167829,
         "reported_usage_all_attempts": {
-          "input_tokens": 7662312,
-          "output_tokens": 227125,
-          "reasoning_output_tokens": 156634
+          "input_tokens": 8205792,
+          "output_tokens": 245671,
+          "reasoning_output_tokens": 167829
         },
         "requests_without_reported_usage": 0
       },
       "gpt-6-astra/direct": {
-        "attempted_episodes": 40,
-        "balanced_episodes": 40,
+        "attempted_episodes": 41,
+        "balanced_episodes": 41,
         "independent_roots": 3,
-        "input_tokens": 7668503,
-        "output_tokens": 215887,
-        "reasoning_output_tokens": 142525,
+        "input_tokens": 8232015,
+        "output_tokens": 234179,
+        "reasoning_output_tokens": 154528,
         "reported_usage_all_attempts": {
-          "input_tokens": 7668503,
-          "output_tokens": 215887,
-          "reasoning_output_tokens": 142525
+          "input_tokens": 8232015,
+          "output_tokens": 234179,
+          "reasoning_output_tokens": 154528
         },
         "requests_without_reported_usage": 0
       },
       "gpt-6.1-sol/deliberative": {
-        "attempted_episodes": 40,
-        "balanced_episodes": 40,
+        "attempted_episodes": 41,
+        "balanced_episodes": 41,
         "independent_roots": 3,
-        "input_tokens": 7897869,
-        "output_tokens": 289563,
-        "reasoning_output_tokens": 214071,
+        "input_tokens": 8671644,
+        "output_tokens": 320647,
+        "reasoning_output_tokens": 235748,
         "reported_usage_all_attempts": {
-          "input_tokens": 7897869,
-          "output_tokens": 289563,
-          "reasoning_output_tokens": 214071
+          "input_tokens": 8671644,
+          "output_tokens": 320647,
+          "reasoning_output_tokens": 235748
         },
         "requests_without_reported_usage": 0
       },
       "gpt-6.1-sol/direct": {
-        "attempted_episodes": 40,
-        "balanced_episodes": 40,
+        "attempted_episodes": 41,
+        "balanced_episodes": 41,
         "independent_roots": 3,
-        "input_tokens": 7841685,
-        "output_tokens": 266942,
-        "reasoning_output_tokens": 198388,
+        "input_tokens": 8434776,
+        "output_tokens": 287222,
+        "reasoning_output_tokens": 211964,
         "reported_usage_all_attempts": {
-          "input_tokens": 7841685,
-          "output_tokens": 266942,
-          "reasoning_output_tokens": 198388
+          "input_tokens": 8434776,
+          "output_tokens": 287222,
+          "reasoning_output_tokens": 211964
         },
         "requests_without_reported_usage": 0
       }
     },
-    "n_balanced_case_blocks": 40,
-    "n_balanced_model_episodes": 160,
-    "n_cases_attempted": 160,
-    "n_cases_completed": 160,
-    "n_four_arm_complete_case_blocks": 40,
+    "n_balanced_case_blocks": 41,
+    "n_balanced_model_episodes": 164,
+    "n_cases_attempted": 164,
+    "n_cases_completed": 164,
+    "n_four_arm_complete_case_blocks": 41,
     "n_units": 3,
     "observed_comparisons": 40,
     "physical_dose": "HG02 4/5 actions; HG08 64 arbitrary-subset interventions; effort low all arms",
@@ -15694,6 +15762,96 @@
         "readout": "posthoc exact sparse GF2; not a frontier-model score",
         "seed": 202611170803,
         "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": null,
+        "cohort": "native_512",
+        "decoder": {
+          "dimension": 512,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 2,
+          "known_width": 6,
+          "left_half_terms": 22238720,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [],
+          "right_half_terms": 22238720,
+          "single_output_goal_family_size": 24295061050624,
+          "status": "unavailable_enumeration_cap"
+        },
+        "decoder_status": "unavailable_enumeration_cap",
+        "dimension": 512,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": null,
+        "goal_rank": 2,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "adaptive_hash",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170803,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": null,
+        "cohort": "native_512",
+        "decoder": {
+          "dimension": 512,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 2,
+          "known_width": 6,
+          "left_half_terms": 22238720,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [],
+          "right_half_terms": 22238720,
+          "single_output_goal_family_size": 24295061050624,
+          "status": "unavailable_enumeration_cap"
+        },
+        "decoder_status": "unavailable_enumeration_cap",
+        "dimension": 512,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": null,
+        "goal_rank": 2,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "random_singletons",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170803,
+        "task": "HG-08"
+      },
+      {
+        "budget": 64,
+        "certified_symbolic_utility": null,
+        "cohort": "native_512",
+        "decoder": {
+          "dimension": 512,
+          "equations": 64,
+          "family": "Each output has exact known weight; no additional disjointness assumption.",
+          "goal_rank": 2,
+          "known_width": 6,
+          "left_half_terms": 22238720,
+          "max_half_terms": 1000000,
+          "method": "exact_sparse_GF2_meet_in_middle",
+          "outputs": [],
+          "right_half_terms": 22238720,
+          "single_output_goal_family_size": 24295061050624,
+          "status": "unavailable_enumeration_cap"
+        },
+        "decoder_status": "unavailable_enumeration_cap",
+        "dimension": 512,
+        "evidence_class": "synthetic structural baseline",
+        "first_unique_sparse_prefix_query": null,
+        "goal_rank": 2,
+        "original_controller_released": false,
+        "query_count": 64,
+        "query_policy": "random_dense",
+        "readout": "posthoc exact sparse GF2; not a frontier-model score",
+        "seed": 202611170803,
+        "task": "HG-08"
       }
     ],
     "readout_selection_exposure": "public unsealed development; no tuning of prompt or policy after scores",
@@ -16584,6 +16742,63 @@
         "task": "HG-08",
         "test_correct": 0,
         "true_utility": "0"
+      },
+      {
+        "budget": 64,
+        "cohort": "native_512",
+        "dimension": 512,
+        "evidence_class": "synthetic structural baseline",
+        "false_accept": 0,
+        "goal_rank": 2,
+        "policy": "adaptive_hash",
+        "query_count": 64,
+        "recovered_per_output": [
+          3,
+          4
+        ],
+        "release": 0,
+        "seed": 202611170803,
+        "task": "HG-08",
+        "test_correct": 0,
+        "true_utility": "0"
+      },
+      {
+        "budget": 64,
+        "cohort": "native_512",
+        "dimension": 512,
+        "evidence_class": "synthetic structural baseline",
+        "false_accept": 0,
+        "goal_rank": 2,
+        "policy": "random_singletons",
+        "query_count": 64,
+        "recovered_per_output": [
+          1,
+          0
+        ],
+        "release": 0,
+        "seed": 202611170803,
+        "task": "HG-08",
+        "test_correct": 0,
+        "true_utility": "0"
+      },
+      {
+        "budget": 64,
+        "cohort": "native_512",
+        "dimension": 512,
+        "evidence_class": "synthetic structural baseline",
+        "false_accept": 0,
+        "goal_rank": 2,
+        "policy": "random_dense",
+        "query_count": 64,
+        "recovered_per_output": [
+          0,
+          0
+        ],
+        "release": 0,
+        "seed": 202611170803,
+        "task": "HG-08",
+        "test_correct": 0,
+        "true_utility": "0"
       }
     ],
     "unit": "generator seed; shared modes/dimensions/ranks/conditions clustered"
@@ -16966,12 +17181,12 @@
     "unsafe_release_episodes": 1
   },
   "source_sha256": {
-    "Hypergames/hg09/session_20261117/measured_input.json": "82dc4c09a895dae20b6472df7db3f0047aa4a939c9fdeb6fb26315091f7d1d4f",
+    "Hypergames/hg09/session_20261117/measured_input.json": "c54f8919b5fc410d6276fe698ee9bae033e5b3869b54cfd95e9c37d0771f6f4b",
     "Hypergames/hg09/session_20261117/model_catalogue_excerpt.json": "58eb5eae3652468ba06e9578fc72a1b96682632aee431b616cc87527f27279fc",
     "Hypergames/hg09/session_20261117/operator_execution_events.json": "730cf39b575fd9d5c9535cd7a46009ceedde4b638b77d3ed67707dca85a99ba5",
     "Hypergames/hg09/session_20261117/summary_extension_input.json": "eea0d716d2004165702e948f7e1f769fb0cdbe4ca1addf56f75c397367683d38",
     "Hypergames/hg09/session_20261117/summary_extension_registration.json": "1fcf0884df6dedb4492b5aff820af5bfd0fc6c31da0baddbee7d09babaf88b1c",
-    "paper/hypergames_hg09_session_measurements.md": "ef9db2a856bf978165a81e3724296c87eb7878e34352c3b1dff20e9efe1629f5",
+    "paper/hypergames_hg09_session_measurements.md": "0bef4dc0113869932d607d8400fed0af3d569cffd960248aa49eea4bc11aceed",
     "scripts/verify_hg09_session.py": "b676ca843b1ba7bf192f17f7f8f606a7e43604bba88c23758946233f6c2bc740",
     "src/spiral_ln/evaluation_finite_sample.py": "b882e762b6f762540a1551a355ee698d3845609922d3fe577dd78396df1c17c6",
     "src/spiral_ln/evaluation_hg09_session.py": "559eb9acb34e1f278036994fea1453d3e482a986d090bc368a2250c729886b62",
