@@ -15,6 +15,7 @@ SOURCES=(
     'tests/test_evaluation_hg09_session.py',
     'src/spiral_ln/hypergames_observation_certificate.py',
     'tests/test_hypergames_observation_certificate.py',
+    'paper/hypergames_hg09_session_measurements.md',
     'scripts/verify_hg09_session.py',
     INPUT,
 )

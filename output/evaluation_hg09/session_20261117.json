@@ -2963,7 +2963,8 @@
   "schema": "HG09/EvalMath-receipt-v1",
   "source_sha256": {
     "Hypergames/hg09/session_20261117/measured_input.json": "7fed8007a751b7fa02e8662472180ea18e9514b8cabe373531ab6c010c2baa36",
-    "scripts/verify_hg09_session.py": "9126ab64a4360b488ebc358e568328b7c91b1f87fd6f01b8ee269f0d707eef4c",
+    "paper/hypergames_hg09_session_measurements.md": "c686b5a0298c582dd9af3fc9ac3041bcd7f84b9c9d706494b22b2c55249b694e",
+    "scripts/verify_hg09_session.py": "7676d7897c8bc687f064406c4a83eff1e51655086d9637987defc487467e92ce",
     "src/spiral_ln/evaluation_finite_sample.py": "b882e762b6f762540a1551a355ee698d3845609922d3fe577dd78396df1c17c6",
     "src/spiral_ln/evaluation_hg09_session.py": "bcafc84aff4ad2b6a0d2942bcbd9dbe9c501cb77b8d3226345f5a0b22f98c2d7",
     "src/spiral_ln/hypergames_observation_certificate.py": "15cbf7ce51199f434e5b91b7491a1f1cb1c1a6808fea1b3bca346b7839374a82",
