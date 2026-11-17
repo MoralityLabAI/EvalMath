@@ -1,0 +1,43 @@
+{
+  "cache_client_version": "0.167.0",
+  "cache_fetched_at": "2026-11-17T16:30:34.114678100Z",
+  "models": [
+    {
+      "context_window": 500000,
+      "default_reasoning_level": "low",
+      "default_reasoning_summary": "none",
+      "display_name": "GPT-6.1-Sol",
+      "effective_context_window_percent": 95,
+      "slug": "gpt-6.1-sol",
+      "supported_efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "ultra"
+      ]
+    },
+    {
+      "context_window": 272000,
+      "default_reasoning_level": "medium",
+      "default_reasoning_summary": "none",
+      "display_name": "GPT-6-Astra",
+      "effective_context_window_percent": 95,
+      "slug": "gpt-6-astra",
+      "supported_efforts": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "ultra"
+      ]
+    }
+  ],
+  "observed_utc": "2026-11-17T16:30:35.868427+00:00",
+  "schema": "HG09/sanitized-local-model-catalogue/v1",
+  "scope": "Advertised catalogue settings only; not an immutable backend identity or a measured context-capacity limit. Frozen requests explicitly use low effort; no output-token cap is exposed or requested.",
+  "source": "Installed Codex models_cache.json; account identity and instructions omitted",
+  "source_file_sha256": "e8177c7b06926c4817b908de43c2d12a00a724d8ccd6a2b2d0f1961335449510"
+}

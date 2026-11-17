@@ -8,6 +8,8 @@ The measured inputs come from GPTStoryworld HG-09 PR #16. The original PR head i
 
 `gpt-6.1-sol` and `gpt-6-astra` were explicitly requested and accepted by signed-in Codex CLI 0.167.0-alpha.3.2. Their immutable backend snapshots were not exposed. Claude Sonnet 5.5, Claude Opus 5.5, and Gemini 3.1 Pro had no invocable session facility or provider credentials. No paid API requests were made. Each decision used a fresh CLI process with the chosen public history, no model-side tools, the same requested `low` reasoning effort, and either direct or deliberative wording. The direct condition can still use internal reasoning. The CLI did not expose an output-token cap, temperature, or its complete built-in scaffold. Exact task prompts, supplied model instructions, CLI events and commands, usage and latency are preserved in hash-chained JSONL files in GPTStoryworld.
 
+The sanitized `model_catalogue_excerpt.json` records the installed catalogue's advertised default context windows: 500,000 tokens for Sol and 272,000 for Astra, with a 95% effective-window setting. These are catalogue settings observed during the campaign, not measured backend capacity or immutable model identities. `operator_execution_events.json` records an explicit operator pause and successful continuation; wall-clock latencies for requests pending at the pause include that interval and must not be interpreted as pure provider generation latency.
+
 <!-- HG09-SCORES-BEGIN -->
 ## Measured score tables
 
@@ -36,6 +38,13 @@ HG-08 cells show exact-support task completions and mean queries q over all comp
 Available-data accounting: 88 attempted, 88 completed, 88 eligible for matched comparisons. Unsafe releases: 0/88 completed episodes. HG-08 false support discoveries: 0. Counts do not establish safety equivalence.
 
 Peak reported input tokens in one turn: 13,959; peak task-prompt UTF-8 bytes: 17,363. The full CLI scaffold and configured output-token caps remain unavailable.
+
+| Model | Peak measured input tokens per turn | Advertised default context window | Peak / advertised default |
+|---|---:|---:|---:|
+| gpt-6.1-sol | 13,959 | 500,000 | 2.79% |
+| gpt-6-astra | 13,443 | 272,000 | 4.94% |
+
+The context percentages use advertised catalogue defaults as denominators; they do not measure runtime capacity or recover the full hidden CLI scaffold.
 
 | Model / condition | Reported input tokens, all attempts | Reported output tokens, including reasoning | Reported reasoning tokens (subset) | Requests with unreported usage |
 |---|---:|---:|---:|---:|
