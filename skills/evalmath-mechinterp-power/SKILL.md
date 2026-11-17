@@ -23,6 +23,8 @@ Start from the declared *scientific effect*. Ask what physical change in a model
 
 - Fewer than the planned independent roots, even if 64 or 8,192 scored outputs are available. One task transformed 64 ways is one task family for generalization.
 - The minimum meaningful effect lies inside the matched-sham variation interval, or below measurement resolution. Increase the causal contrast or improve the instrument before expanding the same evaluation.
+- The independent-development root-mean causal effect does not exceed the calibrated mechanistic variation floor. A larger *hypothetical target* cannot substitute for the observed pilot signal. In particular, all-zero paired root effects have sample variance zero, which makes a naive normal-power calculation wrongly forecast very few confirmation roots. See BPD-AMM-03's 64-root negative example and require redesign while preserving its untouched confirmation partition.
+- A normal-approximation power estimate suggests fewer independent roots than are needed for even an all-positive exact sign test under the registered Bonferroni comparison family. The planner enforces this discrete minimum before returning READY.
 - No sealed held-out readout, especially after iterative intervention or architecture selection. Allocate new root families rather than rerunning on the same 64 cases.
 - Multiple baselines/intervention directions were screened and only the winner is reported. Account for the *actual* comparison family and adaptive use. Direction-count gates, such as 4/6 seeds, are weak evidence without world-level uncertainty.
 - A parity or algebraically generated task comes with an exact specialized solver. Label it a structural ceiling and test the proposed neural mechanism separately.
