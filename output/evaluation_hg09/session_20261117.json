@@ -3177,6 +3177,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -3255,6 +3256,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -3333,6 +3335,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -3763,6 +3766,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -3841,6 +3845,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -3919,6 +3924,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -4353,6 +4359,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -4431,6 +4438,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -4509,6 +4517,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -4936,6 +4945,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -5014,6 +5024,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -5092,6 +5103,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -5520,6 +5532,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -5598,6 +5611,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -5676,6 +5690,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -6106,6 +6121,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -6184,6 +6200,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -6262,6 +6279,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -6696,6 +6714,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -6774,6 +6793,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -6852,6 +6872,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -7279,6 +7300,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -7357,6 +7379,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -7435,6 +7458,7 @@
           "abstained_before_budget": 0,
           "incorrect_support_release": 0,
           "invalid_format": 0,
+          "invalid_release_rank": 0,
           "query_after_budget": 0,
           "release_inconsistent_with_observed_deltas": 0,
           "release_without_singleton_certificate": 1
@@ -7727,7 +7751,7 @@
   },
   "schema": "HG09/EvalMath-receipt-v1",
   "source_sha256": {
-    "Hypergames/hg09/session_20261117/measured_input.json": "91354c16109dd61455a3eff5208f5f7ea86c59bd4d943ed378ff80e20ed62936",
+    "Hypergames/hg09/session_20261117/measured_input.json": "01a351a4a9f5b54be0227e1c7d5c2c56b7501905b2a016ed94e8054fbd2a46a0",
     "paper/hypergames_hg09_session_measurements.md": "ddd4047601e0addaee190573ac52431ff2eb1fe29b017c8c9b32c41ba5369f48",
     "scripts/verify_hg09_session.py": "7676d7897c8bc687f064406c4a83eff1e51655086d9637987defc487467e92ce",
     "src/spiral_ln/evaluation_finite_sample.py": "b882e762b6f762540a1551a355ee698d3845609922d3fe577dd78396df1c17c6",

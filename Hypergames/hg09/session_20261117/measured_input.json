@@ -652,6 +652,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
@@ -717,6 +718,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
@@ -782,6 +784,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
@@ -847,6 +850,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
@@ -2749,6 +2753,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
@@ -2814,6 +2819,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
@@ -2879,6 +2885,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
@@ -2944,6 +2951,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
@@ -3009,6 +3017,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
@@ -3074,6 +3083,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
@@ -3139,6 +3149,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
@@ -3204,6 +3215,7 @@
         "abstained_before_budget": 0,
         "incorrect_support_release": 0,
         "invalid_format": 0,
+        "invalid_release_rank": 0,
         "query_after_budget": 0,
         "release_inconsistent_with_observed_deltas": 0,
         "release_without_singleton_certificate": 1
