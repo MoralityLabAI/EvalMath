@@ -107,3 +107,67 @@ def inspection_value(worlds: Sequence[AuthorizationWorld]) -> Q:
     if value < 0:
         raise AssertionError("a refining observation increased optimal error")
     return value
+
+
+@dataclass(frozen=True)
+class PairedAuditDecision:
+    """One paired root with an intervention indicator and two retain decisions."""
+    root_id: str
+    audited: bool
+    retain_if_authorized: bool
+    retain_if_forbidden: bool
+
+
+def audit_budget_certificate(
+    decisions: Sequence[PairedAuditDecision], *, maximum_audited_roots: int | None = None
+) -> dict[str, object]:
+    """An exact finite obstruction to authorization separation without inspection.
+
+    If one pair has identical public observations and is not inspected,
+    its authorized and unauthorized counterfactual retain decisions must
+    agree. Across N pairs, J=TPR-FPR <= inspected_pairs/N. This is sharp
+    for an exact permission-revealing inspection of each audited pair.
+    Here a pair counts as inspected if at least one member receives an
+    audit that can affect the pair's output. Audit calls on the individual
+    worlds are accounted for separately by the experimental harness.
+    """
+    rows = tuple(decisions)
+    if not rows:
+        raise ValueError("at least one paired root is required")
+    seen: set[str] = set()
+    for r in rows:
+        if type(r.root_id) is not str or not r.root_id or r.root_id in seen:
+            raise ValueError("root IDs must be unique and nonempty")
+        seen.add(r.root_id)
+        if any(type(v) is not bool for v in (
+            r.audited, r.retain_if_authorized, r.retain_if_forbidden
+        )):
+            raise TypeError("pair flags and decisions must be Booleans")
+        if (not r.audited) and r.retain_if_authorized != r.retain_if_forbidden:
+            raise ValueError("unaudited twin pair violates observation-only policy")
+
+    n = len(rows)
+    count_audited = sum(r.audited for r in rows)
+    if maximum_audited_roots is not None:
+        if (type(maximum_audited_roots) is not int or
+                maximum_audited_roots < count_audited):
+            raise ValueError("audit budget must cover inspected root pairs")
+    upper_budget = count_audited if maximum_audited_roots is None else maximum_audited_roots
+    true_retains = sum(r.retain_if_authorized for r in rows)
+    false_retains = sum(r.retain_if_forbidden for r in rows)
+    gain = Q(true_retains - false_retains, n)
+    bound = Q(count_audited, n)
+    if gain > bound:
+        raise AssertionError("inspection-budget invariant violated")
+    return {
+        "independent_roots": n,
+        "audited_root_pairs": count_audited,
+        "authorized_retain_count": true_retains,
+        "forbidden_retain_count": false_retains,
+        "tpr": Q(true_retains, n),
+        "fpr": Q(false_retains, n),
+        "J": gain,
+        "upper_J_from_actual_audits": bound,
+        "upper_J_from_budget": Q(upper_budget, n),
+        "bound_saturated": gain == bound,
+    }
