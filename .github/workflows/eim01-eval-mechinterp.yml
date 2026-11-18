@@ -1,0 +1,58 @@
+name: EIM-01 eval-to-mechanism heldout causal gym
+
+on:
+  push:
+    paths:
+      - 'mechinterp-reverb/eim01/**'
+      - '.github/workflows/eim01-eval-mechinterp.yml'
+  pull_request:
+    paths:
+      - 'mechinterp-reverb/eim01/**'
+      - '.github/workflows/eim01-eval-mechinterp.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  finite-and-causal-cpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU-only PyTorch and pytest
+        run: |
+          python -m pip install --disable-pip-version-check pytest
+          python -m pip install --disable-pip-version-check torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+      - name: Source syntax and finite causal-gym tests
+        env:
+          PYTHONPATH: "mechinterp-reverb:."
+        run: |
+          python -m compileall -q mechinterp-reverb/eim01
+          python -m pytest -q mechinterp-reverb/eim01/test_eim01.py -vv
+      - name: Archive deterministic campaign receipt
+        env:
+          PYTHONPATH: "mechinterp-reverb:."
+        run: |
+          python -m eim01.gym > /tmp/eim01_campaign.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          j=json.loads(Path('/tmp/eim01_campaign.json').read_text())
+          assert j['oracle']['checked']==384
+          assert j['selected_interventions']['identified']
+          assert j['accuracy']['active_eval_contrasts']>j['accuracy']['passive_equal_updates']
+          print(json.dumps({'selected_roles':j['selected_interventions']['chosen_roles'],
+                            'accuracy':j['accuracy']},sort_keys=True))
+          PY
+      - name: Upload experiment receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eim01-frozen-causal-gym
+          path: /tmp/eim01_campaign.json
+          if-no-files-found: warn
+          retention-days: 30
