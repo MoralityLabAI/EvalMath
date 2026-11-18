@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "changed_first_bytes_rejected": true,
+    "failed_first_is_preserved": true,
+    "later_success_stays_diagnostic": true,
+    "matched_fixture_audits": true,
+    "operative_program_changes_task_identity": true,
+    "query_identity_shared_across_programs": true,
+    "ratio_is_exact": true,
+    "renamed_wrapper_duplicate_rejected": true
+  },
+  "evidence_level": "finite verified code examples; synthetic timings and trusted-anchor fixtures",
+  "experiment": "FRE-01",
+  "schema_version": 1,
+  "source_sha256": {
+    "paper/frozen_evidence_audit.md": "75720eae877a976d7f24077aaa0b59e339831e55339c4a41668b9ed6ad15c51c",
+    "scripts/verify_evaluation_frozen_evidence.py": "41171289e178c32288cf48d79f2a095bd532670f0758ed371a23e5759ce77a8b",
+    "src/spiral_ln/evaluation_frozen_evidence.py": "87e8388cb9185448c57c4f314cf96ba8e1646fb51c388a7b4abdbf3831f9cda7",
+    "tests/test_evaluation_frozen_evidence.py": "9524d257ce4ee7a80a40330f37c05a74e31e1bd1d078cd136341ddd9edabac34"
+  }
+}
