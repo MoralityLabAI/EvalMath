@@ -63,11 +63,23 @@ def preflight(spec):
             raise ValueError('external_sham_source required')
         floor=max(floor or F(0),fraction(external,'external_sham_floor'))
     variation=max(min_effect,resolution,floor or F(0))
+    observed_mean=sum(effects,F(0))/len(effects)
     sigma=stdev(map(float,effects)) if len(effects)>=2 else None
     delta=float(target-variation)
     z=NormalDist().inv_cdf(1-float(alpha)/(2*m))+NormalDist().inv_cdf(.80)
-    required=max(2,math.ceil((z*sigma/delta)**2)) if sigma is not None and delta>0 else None
-    mde=float(variation)+z*sigma/math.sqrt(g) if sigma is not None else None
+    # Even an ideal, all-positive exact sign test cannot clear a one-sided
+    # Bonferroni family with fewer than this many independent model roots.
+    min_sign_roots=0
+    while m*F(1,2)**min_sign_roots>alpha:
+        min_sign_roots+=1
+    # A zero-variance null development pilot contains no information for
+    # extrapolating a positive, hypothetical target's normal-approximation
+    # variance. Do not turn that zero into a 2-root power claim.
+    pilot_variance_uninformative=(sigma==0 and observed_mean<=variation)
+    required=(max(min_sign_roots,2,math.ceil((z*sigma/delta)**2))
+              if sigma is not None and delta>0 and not pilot_variance_uninformative else None)
+    mde=(float(variation)+z*sigma/math.sqrt(g)
+         if sigma is not None and not pilot_variance_uninformative else None)
     reasons=[]
     if not spec.get('pilot_from_development_only') is True:reasons.append('development_pilot_unverified')
     if not spec.get('heldout_sealed') is True:reasons.append('heldout_unsealed')
@@ -75,18 +87,23 @@ def preflight(spec):
     if floor is None:reasons.append('sham_quantile_uncalibrated')
     if len(effects)<8:reasons.append('too_few_pilot_worlds')
     if delta<=0:reasons.append('target_below_mechanistic_variation_floor')
+    if observed_mean<=variation:
+        reasons.append('pilot_effect_not_above_mechanistic_variation_floor')
+    if pilot_variance_uninformative:
+        reasons.append('zero_variance_pilot_power_uninformative')
     if required is None or required>g:reasons.append('confirmation_underpowered')
     return {'schema':'EvalMath/mechinterp-power-preflight/v1','experiment_id':spec['experiment_id'],
         'decision':'REDESIGN_OR_PILOT_ONLY' if reasons else 'READY_FOR_CONFIRMATION',
         'reasons':reasons,'independent_unit':spec['independent_unit'],
         'pilot_worlds':len(effects),'planned_confirmation_worlds':g,
-        'mean_pilot_effect':float(sum(effects,F(0))/len(effects)),
+        'mean_pilot_effect':float(observed_mean),
         'pilot_world_sigma':sigma,'observed_worst_sham':float(max(shams)),
         'upper_sham_quantile':float(floor) if floor is not None else None,'order_statistic_rank':rank,
         'mechanistic_variation_floor':float(variation),'target_effect':float(target),
-        'planned_comparisons':m,'approx_worlds_for_80pct_power':required,
+        'planned_comparisons':m,'minimum_exact_sign_test_roots':min_sign_roots,
+        'approx_worlds_for_80pct_power':required,
         'approx_resolvable_effect':mde,
-        'limits':'Normal-based power is planning only. Root and sham independence, symmetry, readout sealing, and the scientific effect floor require independent audits. Repeated outcomes within a root are never additional worlds.'}
+        'limits':'Normal-based power is planning only. A zero-effect zero-variance pilot cannot support extrapolating a hypothetical positive effect. Root and sham independence, symmetry, readout sealing, and the scientific effect floor require independent audits. Repeated outcomes within a root are never additional worlds.'}
 
 
 def main():
