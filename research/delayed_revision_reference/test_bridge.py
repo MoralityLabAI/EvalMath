@@ -5,7 +5,8 @@ from pathlib import Path
 from itertools import combinations, product
 from fractions import Fraction as Q
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from bridge import analytic, independent_raw_oracle, raw_population, information_capacity
+from bridge import (analytic, independent_raw_oracle, raw_population,
+                    information_capacity, final_full)
 
 
 class DelayedRevisionTests(unittest.TestCase):
@@ -34,6 +35,19 @@ class DelayedRevisionTests(unittest.TestCase):
                 self.assertEqual(b["mass"],Q(1))
             self.assertGreater(rows[0]["regret"],0)
 
+    def test_full_input_requires_its_own_bayes_comparator(self):
+        n=4;slots=(0,);new=(0,)
+        old_a=(1,0,0,0);old_b=(0,1,0,0)
+        reduced_a=analytic(n,slots,sum(old_a),new,())
+        reduced_b=analytic(n,slots,sum(old_b),new,())
+        self.assertEqual(reduced_a,reduced_b)
+        self.assertNotEqual(final_full(n,old_a,slots,new),
+                            final_full(n,old_b,slots,new))
+        row=raw_population(3,(1,),0)
+        full_input_excess=row["full_brier"]-row["limited_brier"]
+        self.assertEqual(full_input_excess,-row["regret"])
+        self.assertLess(full_input_excess,Q(0))
+
     def test_exact_capacity_contract(self):
         result=information_capacity(12,6)
         self.assertEqual(result,{"histories":4096,
@@ -55,3 +69,4 @@ class DelayedRevisionTests(unittest.TestCase):
 
 if __name__=="__main__":
     unittest.main()
+

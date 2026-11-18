@@ -68,6 +68,11 @@ def independent_raw_oracle(n: int, slots: tuple[int,...], old_m: int,
 
 def final_full(n: int, old: tuple[int,...], slots: tuple[int,...],
                new: tuple[int,...]):
+    """Bayes for the complete old-input stream after S and all Y arrive.
+
+    This is the input-matched final comparator for a learner that received
+    named old bits; further old-bit disclosures repeat existing input.
+    """
     if len(old)!=n or len(slots)!=len(new):
         raise ValueError("wrong dimensions")
     accepted=list(old)
@@ -121,3 +126,4 @@ def information_capacity(n:int,j:int):
             "extra_fixed_tag_bits":(biggest-1).bit_length(),
             "verified_old_sum_message_bits":j.bit_length(),
             "early_count_field_bits":n.bit_length()}
+
