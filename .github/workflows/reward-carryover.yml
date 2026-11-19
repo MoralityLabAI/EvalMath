@@ -1,0 +1,51 @@
+name: reward-carryover
+
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/evaluation_reward_carryover.py'
+      - 'tests/test_evaluation_reward_carryover.py'
+      - 'scripts/verify_reward_carryover.py'
+      - 'scripts/check_receipts.py'
+      - 'paper/reward_hacking_carryover.md'
+      - 'docs/rht26_carryover_protocol.md'
+      - 'configs/rht26_carryover_protocol.json'
+      - 'output/evaluation_reward_carryover/**'
+      - 'pyproject.toml'
+      - '.github/workflows/reward-carryover.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/evaluation_reward_carryover.py'
+      - 'tests/test_evaluation_reward_carryover.py'
+      - 'scripts/verify_reward_carryover.py'
+      - 'scripts/check_receipts.py'
+      - 'paper/reward_hacking_carryover.md'
+      - 'docs/rht26_carryover_protocol.md'
+      - 'configs/rht26_carryover_protocol.json'
+      - 'output/evaluation_reward_carryover/**'
+      - 'pyproject.toml'
+      - '.github/workflows/reward-carryover.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  exact-carryover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install
+        run: python -m pip install -e '.[test]'
+      - name: Independent path and boundary tests
+        run: python -m pytest -q tests/test_evaluation_reward_carryover.py
+      - name: Reproduce source-bound finite receipt
+        run: python scripts/check_receipts.py --only reward_carryover
