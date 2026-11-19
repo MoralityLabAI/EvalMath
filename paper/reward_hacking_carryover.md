@@ -266,7 +266,7 @@ python scripts/verify_reward_carryover.py
 python scripts/check_receipts.py --only reward_carryover
 ```
 
-The [receipt](../output/evaluation_reward_carryover/rht26_v1.json) records exact
+The [receipt](../output/evaluation_reward_carryover/rht26_v2.json) records exact
 values and source hashes. The [empirical protocol](../docs/rht26_carryover_protocol.md)
 and its [manifest](../configs/rht26_carryover_protocol.json) define a future
 Control-Harness study with independent source/target chains, matched shams,

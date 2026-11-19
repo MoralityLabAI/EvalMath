@@ -230,15 +230,24 @@ the sham floor, confirmation count and estimated resolution null.
 
 Budget the eventual decision rule as well as the planning approximation.
 [FSI-01](../paper/finite_sample_inference.md) uses a conservative root-level
-effect-floor bound for positive confirmation. With four comparisons and
+effect-floor bound for positive confirmation. For the artifact, learning and
+combined contrasts, root effects lie in `[-1,1]`. With four comparisons and
 `alpha=1/20`, an observed effect of `1/10` must satisfy
 
 \[
 \frac{1}{10}-\sqrt{\frac{2\log(80)}{G}}>\frac{1}{20}.
 \]
 
-That particular gate needs at least 3,506 independent roots at those values.
-This calculation describes the gate's resolution at declared values. The
+That gate needs at least 3,506 independent roots at those values. The raw
+interaction lies in `[-2,2]`. Applying the same gate to its half-scale values
+and converting back requires
+
+\[
+\frac{1}{10}-\sqrt{\frac{8\log(80)}{G}}>\frac{1}{20},
+\]
+
+which needs at least 14,023 roots for the stated raw interaction and floor.
+These calculations describe the gate's resolution at declared values. The
 compute budget awaits the observed pilot and a frozen decision rule. A pilot may
 support a larger intervention contrast, a different defensible prespecified
 inference method, or a development-only outcome. Do not describe a sample as

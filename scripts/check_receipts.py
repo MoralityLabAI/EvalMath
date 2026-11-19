@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
     "reward_carryover": ("scripts/verify_reward_carryover.py",
-                         "output/evaluation_reward_carryover/rht26_v1.json", [], False),
+                         "output/evaluation_reward_carryover/rht26_v2.json", [], False),
     "frozen_evidence": ("scripts/verify_evaluation_frozen_evidence.py",
                         "output/evaluation_frozen_evidence/fre01_v1.json", [], False),
     "finite_sample": ("scripts/verify_evaluation_finite_sample.py",

@@ -167,7 +167,7 @@ def verify() -> dict:
     if not all(checks.values()):
         raise AssertionError([key for key, value in checks.items() if not value])
     return {
-        "schema": "RHT-26-v1",
+        "schema": "RHT-26-v2",
         "evidence": "exact finite examples and synthetic mechanism results; no model training, measured neural mechanism, or empirical pilot",
         "state_order": [list(state) for state in STATES],
         "deterministic_cases": deterministic,
@@ -196,7 +196,7 @@ def verify() -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path,
-                        default=ROOT / "output/evaluation_reward_carryover/rht26_v1.json")
+                        default=ROOT / "output/evaluation_reward_carryover/rht26_v2.json")
     args = parser.parse_args()
     receipt = verify()
     args.output.parent.mkdir(parents=True, exist_ok=True)
