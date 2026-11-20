@@ -67,4 +67,43 @@ class RootPowerGuardTests(unittest.TestCase):
         with self.assertRaises(ValueError):pf.preflight(p)
 
 
+    def test_fsi01_positive_effect_floor_root_resolution_guard(self):
+        p=pilot(effects=['1/4']*64,shams=['0']*64,confirm=128,comparisons=4)
+        p['scientific_min_effect']='1/20'
+        p['target_effect']='1/10'
+        p['enforce_fsi01_floor']=True
+        out=pf.preflight(p)
+        self.assertEqual(out['fsi01_roots_at_target_for_effect_floor_resolution'],3506)
+        self.assertEqual(out['fsi01_roots_at_observed_pilot_mean_for_effect_floor_resolution'],220)
+        self.assertIn('fsi01_effect_floor_resolution_underpowered',out['reasons'])
+        self.assertEqual(out['decision'],'REDESIGN_OR_PILOT_ONLY')
+        p['enforce_fsi01_floor']=False
+        old=pf.preflight(p)
+        self.assertNotIn('fsi01_effect_floor_resolution_underpowered',old['reasons'])
+        self.assertEqual(old['decision'],'READY_FOR_CONFIRMATION')
+
+    def test_negative_effect_direction_is_explicit_and_signed(self):
+        p=pilot(effects=['-3/8']*64,shams=['0']*64,confirm=256,comparisons=4)
+        p['scientific_min_effect']='1/20'
+        p['target_effect']='1/4'
+        p['effect_direction']='decrease'
+        p['enforce_fsi01_floor']=True
+        out=pf.preflight(p)
+        self.assertEqual(out['mean_pilot_effect'],0.375)
+        self.assertEqual(out['effect_direction'],'decrease')
+        self.assertEqual(out['fsi01_roots_at_target_for_effect_floor_resolution'],220)
+        self.assertEqual(out['decision'],'READY_FOR_CONFIRMATION')
+        p['effect_direction']='increase'
+        opposite=pf.preflight(p)
+        self.assertIn('pilot_effect_not_above_mechanistic_variation_floor',opposite['reasons'])
+
+    def test_invalid_fsi_guard_and_direction_rejected(self):
+        p=pilot()
+        p['enforce_fsi01_floor']='yes'
+        with self.assertRaisesRegex(ValueError,'boolean'):pf.preflight(p)
+        del p['enforce_fsi01_floor']
+        p['effect_direction']='two_sided'
+        with self.assertRaisesRegex(ValueError,'effect_direction'):pf.preflight(p)
+
+
 if __name__=='__main__':unittest.main()

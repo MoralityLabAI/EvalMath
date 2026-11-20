@@ -1,0 +1,42 @@
+name: RHT-26 empirical math bridge (CPU)
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/evaluation_reward_carryover_bridge.py'
+      - 'tests/test_evaluation_reward_carryover_bridge.py'
+      - 'docs/rht26_empirical_math_review.md'
+      - 'skills/evalmath-mechinterp-power/scripts/preflight.py'
+      - 'skills/evalmath-mechinterp-power/scripts/test_preflight_resolution.py'
+      - '.github/workflows/rht26-empirical-bridge.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/evaluation_reward_carryover_bridge.py'
+      - 'tests/test_evaluation_reward_carryover_bridge.py'
+      - 'docs/rht26_empirical_math_review.md'
+      - 'skills/evalmath-mechinterp-power/scripts/preflight.py'
+      - 'skills/evalmath-mechinterp-power/scripts/test_preflight_resolution.py'
+      - '.github/workflows/rht26-empirical-bridge.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cpu-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      PYTHONPATH: src
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile pure-stdlib model and preflight
+        run: |
+          python -m compileall -q src/spiral_ln/evaluation_reward_carryover_bridge.py skills/evalmath-mechinterp-power/scripts/preflight.py tests/test_evaluation_reward_carryover_bridge.py
+      - name: Exact empirical bridge tests
+        run: python -m unittest discover -s tests -p 'test_evaluation_reward_carryover_bridge.py' -v
+      - name: Generic mechanistic-resolution and signed-FSI regressions
+        run: python -m unittest discover -s skills/evalmath-mechinterp-power/scripts -p 'test_*.py' -v
