@@ -32,6 +32,43 @@ def upper_quantile(shams, q=F(95,100), confidence=F(95,100)):
     return None,None
 
 
+
+def fsi01_floor_resolution(*, target, floor, alpha, comparisons, planned_roots):
+    """FSI-01's one-sided bounded-root Hoeffding gate, for effects in [-1, 1].
+
+    The result describes resolving a *prespecified* effect at a hypothetical
+    confirmation sample mean, not power estimated from selected pilot outcomes.
+    Interactions in [-2,2] must be divided by 2 before calling.
+    """
+    gap = float(target - floor)
+    radius = math.sqrt(2.0 * math.log(comparisons / float(alpha)) / planned_roots)
+    if gap <= 0:
+        required = None
+    else:
+        cutoff = 2.0 * math.log(comparisons / float(alpha)) / (gap * gap)
+        required = max(2, math.floor(cutoff) + 1)
+        # Enforce the strict '>' rule in floating arithmetic at integer edges.
+        while target - F(str(math.sqrt(
+            2.0 * math.log(comparisons / float(alpha)) / required
+        ))) <= floor:
+            required += 1
+        while required > 2 and target - F(str(math.sqrt(
+            2.0 * math.log(comparisons / float(alpha)) / (required - 1)
+        ))) > floor:
+            required -= 1
+    return {
+        'root_effect_support': '[-1,1]',
+        'minimum_roots_at_target': required,
+        'planned_roots': planned_roots,
+        'planned_root_bound_radius': radius,
+        'lower_bound_if_mean_equals_target': float(target) - radius,
+        'minimum_effect_for_planned_roots': float(floor) + radius,
+        'target_resolves_floor_at_planned_roots':
+            (float(target) - radius > float(floor)),
+        'interpretation': 'Conservative FSI-01 decision-rule resolution, not approximate test power.',
+    }
+
+
 def preflight(spec):
     if spec.get('schema_version')!=1:raise ValueError('schema_version must be 1')
     for field in ('experiment_id','independent_unit'):
@@ -56,6 +93,11 @@ def preflight(spec):
         null=row.get('sham_effects')
         if not isinstance(null,list) or not null:raise ValueError('matched shams required per independent world')
         shams.append(max(abs(fraction(z,'sham',True)) for z in null))
+    direction=spec.get('effect_direction','positive')
+    if direction not in ('positive','negative'):
+        raise ValueError('effect_direction must be positive or negative')
+    raw_observed_mean=sum(effects,F(0))/len(effects)
+    directed_effects=[-x if direction=='negative' else x for x in effects]
     floor,rank=upper_quantile(shams,quantile,confidence)
     external=spec.get('external_sham_floor')
     if external is not None:
@@ -63,8 +105,8 @@ def preflight(spec):
             raise ValueError('external_sham_source required')
         floor=max(floor or F(0),fraction(external,'external_sham_floor'))
     variation=max(min_effect,resolution,floor or F(0))
-    observed_mean=sum(effects,F(0))/len(effects)
-    sigma=stdev(map(float,effects)) if len(effects)>=2 else None
+    observed_mean=sum(directed_effects,F(0))/len(directed_effects)
+    sigma=stdev(map(float,directed_effects)) if len(directed_effects)>=2 else None
     delta=float(target-variation)
     z=NormalDist().inv_cdf(1-float(alpha)/(2*m))+NormalDist().inv_cdf(.80)
     # Even an ideal, all-positive exact sign test cannot clear a one-sided
@@ -80,7 +122,16 @@ def preflight(spec):
               if sigma is not None and delta>0 and not pilot_variance_uninformative else None)
     mde=(float(variation)+z*sigma/math.sqrt(g)
          if sigma is not None and not pilot_variance_uninformative else None)
+    fsi_rule = spec.get('require_final_fsi_gate', False)
+    if type(fsi_rule) is not bool:
+        raise ValueError('require_final_fsi_gate must be boolean')
+    fsi01 = fsi01_floor_resolution(
+        target=target, floor=variation, alpha=alpha,
+        comparisons=m, planned_roots=g)
+    fsi01['development_only_observed_mean_lower_bound'] = float(observed_mean) - fsi01['planned_root_bound_radius']
     reasons=[]
+    if fsi_rule and not fsi01['target_resolves_floor_at_planned_roots']:
+        reasons.append('fsi01_target_effect_floor_underresolved')
     if not spec.get('pilot_from_development_only') is True:reasons.append('development_pilot_unverified')
     if not spec.get('heldout_sealed') is True:reasons.append('heldout_unsealed')
     if not spec.get('units_independent') is True:reasons.append('independence_unverified')
@@ -96,11 +147,15 @@ def preflight(spec):
         'decision':'REDESIGN_OR_PILOT_ONLY' if reasons else 'READY_FOR_CONFIRMATION',
         'reasons':reasons,'independent_unit':spec['independent_unit'],
         'pilot_worlds':len(effects),'planned_confirmation_worlds':g,
-        'mean_pilot_effect':float(observed_mean),
+        'mean_pilot_effect':float(raw_observed_mean),
+        'effect_direction':direction,
+        'direction_adjusted_mean_pilot_effect':float(observed_mean),
         'pilot_world_sigma':sigma,'observed_worst_sham':float(max(shams)),
         'upper_sham_quantile':float(floor) if floor is not None else None,'order_statistic_rank':rank,
         'mechanistic_variation_floor':float(variation),'target_effect':float(target),
         'planned_comparisons':m,'minimum_exact_sign_test_roots':min_sign_roots,
+        'fsi01_rule_required_for_readiness': fsi_rule,
+        'fsi01_final_effect_floor_resolution': fsi01,
         'approx_worlds_for_80pct_power':required,
         'approx_resolvable_effect':mde,
         'limits':'Normal-based power is planning only. A zero-effect zero-variance pilot cannot support extrapolating a hypothetical positive effect. Root and sham independence, symmetry, readout sealing, and the scientific effect floor require independent audits. Repeated outcomes within a root are never additional worlds.'}

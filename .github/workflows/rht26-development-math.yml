@@ -1,0 +1,52 @@
+name: RHT-26 development math / FSI-01 resolution review
+
+on:
+  pull_request:
+    paths:
+      - 'skills/evalmath-mechinterp-power/**'
+      - 'src/spiral_ln/evaluation_reward_carryover_count.py'
+      - 'tests/test_evaluation_reward_carryover_count.py'
+      - 'paper/rht26_development_bridge.md'
+      - '.github/workflows/rht26-development-math.yml'
+  push:
+    paths:
+      - 'skills/evalmath-mechinterp-power/**'
+      - 'src/spiral_ln/evaluation_reward_carryover_count.py'
+      - 'tests/test_evaluation_reward_carryover_count.py'
+      - 'paper/rht26_development_bridge.md'
+      - '.github/workflows/rht26-development-math.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  math-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pure-stdlib resolution and finite count-state tests
+        run: |
+          python -m unittest discover -s skills/evalmath-mechinterp-power/scripts -p 'test_*.py' -v
+          PYTHONPATH=src python -m unittest tests.test_evaluation_reward_carryover_count -v
+      - name: Syntax checks, separate from model training
+        run: |
+          python -m compileall -q skills/evalmath-mechinterp-power/scripts src/spiral_ln/evaluation_reward_carryover_count.py
+      - name: Ensure original RHT-26 v2 source receipt remains hash-current
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          receipt=json.loads(Path("output/evaluation_reward_carryover/rht26_v2.json").read_text())
+          for fname,digest in receipt["source_sha256"].items():
+              assert hashlib.sha256(Path(fname).read_bytes()).hexdigest()==digest,fname
+          print("PASS: all 6 original RHT26 source digests unchanged")
+          PY
