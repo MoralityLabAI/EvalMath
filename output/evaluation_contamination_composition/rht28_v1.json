@@ -1,0 +1,175 @@
+{
+  "checks": {
+    "absorbing_history_state_retains_evidence": true,
+    "all_terminal_events_bound_checked": true,
+    "changed_endpoint_needs_own_discrepancy": true,
+    "complete_trace_allocation_guard": true,
+    "geometric_persistent_injection_sharp": true,
+    "independent_path_census_total": true,
+    "initial_distance_contraction_sharp": true,
+    "intermediate_clipping_can_strengthen_terminal_bound": true,
+    "minimum_of_two_contractions_is_licensed": true,
+    "one_step_full_half_probability_grid": true,
+    "reset_retains_ever_harm_event": true,
+    "reset_retains_full_history_distance": true,
+    "reset_terminal_distance_zero": true,
+    "row_average_can_understate_selected_state_error": true,
+    "time_varying_rectangular_state_spaces": true,
+    "two_step_all_deterministic_kernels_and_initial_grid": true,
+    "two_step_full_half_probability_kernel_grid": true,
+    "unrolled_initial_distance_term": true,
+    "unrolled_injection_time_order": true,
+    "unrolled_sum_exact": true,
+    "zero_discrepancy_does_not_remove_baseline_risk": true,
+    "zero_horizon_full_initial_grid": true
+  },
+  "comparison_count": 9603,
+  "evidence": "exact finite examples with algebraic proofs in the note; no empirical or neural safety claim",
+  "finite_census": {
+    "one_step_half_grid": 729,
+    "two_step_deterministic_kernels": 2304,
+    "two_step_half_grid_from_clean": 6561,
+    "zero_horizon": 9
+  },
+  "initial_distance_contraction": [
+    {
+      "horizon": 0,
+      "initial_contribution": "1",
+      "path_tv": "1",
+      "state_tv": "1"
+    },
+    {
+      "horizon": 1,
+      "initial_contribution": "1/2",
+      "path_tv": "1",
+      "state_tv": "1/2"
+    },
+    {
+      "horizon": 2,
+      "initial_contribution": "1/4",
+      "path_tv": "1",
+      "state_tv": "1/4"
+    },
+    {
+      "horizon": 3,
+      "initial_contribution": "1/8",
+      "path_tv": "1",
+      "state_tv": "1/8"
+    },
+    {
+      "horizon": 4,
+      "initial_contribution": "1/16",
+      "path_tv": "1",
+      "state_tv": "1/16"
+    },
+    {
+      "horizon": 5,
+      "initial_contribution": "1/32",
+      "path_tv": "1",
+      "state_tv": "1/32"
+    },
+    {
+      "horizon": 6,
+      "initial_contribution": "1/64",
+      "path_tv": "1",
+      "state_tv": "1/64"
+    },
+    {
+      "horizon": 7,
+      "initial_contribution": "1/128",
+      "path_tv": "1",
+      "state_tv": "1/128"
+    },
+    {
+      "horizon": 8,
+      "initial_contribution": "1/256",
+      "path_tv": "1",
+      "state_tv": "1/256"
+    }
+  ],
+  "persistent_injection": [
+    {
+      "bound": "0",
+      "horizon": 0,
+      "path_tv": "0",
+      "state_tv": "0"
+    },
+    {
+      "bound": "1/4",
+      "horizon": 1,
+      "path_tv": "1/4",
+      "state_tv": "1/4"
+    },
+    {
+      "bound": "7/16",
+      "horizon": 2,
+      "path_tv": "7/16",
+      "state_tv": "7/16"
+    },
+    {
+      "bound": "37/64",
+      "horizon": 3,
+      "path_tv": "37/64",
+      "state_tv": "37/64"
+    },
+    {
+      "bound": "175/256",
+      "horizon": 4,
+      "path_tv": "175/256",
+      "state_tv": "175/256"
+    },
+    {
+      "bound": "781/1024",
+      "horizon": 5,
+      "path_tv": "781/1024",
+      "state_tv": "781/1024"
+    },
+    {
+      "bound": "3367/4096",
+      "horizon": 6,
+      "path_tv": "3367/4096",
+      "state_tv": "3367/4096"
+    },
+    {
+      "bound": "14197/16384",
+      "horizon": 7,
+      "path_tv": "14197/16384",
+      "state_tv": "14197/16384"
+    },
+    {
+      "bound": "58975/65536",
+      "horizon": 8,
+      "path_tv": "58975/65536",
+      "state_tv": "58975/65536"
+    }
+  ],
+  "reset_history_witness": {
+    "augmented_state_tv": "1",
+    "ever_harm_risks": [
+      "1",
+      "0"
+    ],
+    "path_tv": "1",
+    "terminal_tv": "0"
+  },
+  "schema": "RHT-28-v1",
+  "source_sha256": {
+    "TrainingParanoia/RHT-28/contamination_composition.md": "001db2b41f21088b58a707813ff18718fd2cddadffacaafc8c5cd6202cf07841",
+    "lean/FeedbackChannel/TrainingParanoia.lean": "78ae805870d278875040a135eb27bbdb42333b2c9ff9d9035ec44c0c340847e3",
+    "scripts/verify_evaluation_contamination_composition.py": "75e4ffc5b95e464c69df369e52995a3c75c6fd8a8f4f10929f1d2215e65d1de4",
+    "src/spiral_ln/evaluation_contamination_composition.py": "d71e709f0925ff2fc807c4bb0eaa3315d08f477df4473aa1c6f955189f772a61",
+    "src/spiral_ln/evaluation_finite_kernels.py": "b32ade4e309a90672c2b284cc06c0fa35a3e84dae6b67b69301ff25c3ef30af1",
+    "tests/test_evaluation_contamination_composition.py": "4a714cb8d7d3155621a27a09818ea8e8e6a932a8bcd9aa4ba47fde7e185bcebd",
+    "tests/test_evaluation_finite_kernels.py": "6b0a44ecc09825d25dc6b5d2a149f9f1628dd1cb09bf28c0fc2e6382b86ca005"
+  },
+  "terminal_event_checks": 38412,
+  "unrolled_example": {
+    "initial_contribution": "1/16",
+    "injection_contributions": [
+      "1/16",
+      "1/24",
+      "0"
+    ],
+    "sum": "1/6"
+  }
+}

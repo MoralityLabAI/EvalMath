@@ -223,3 +223,14 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.FRC.randomized_audit_floor
 #print axioms FeedbackChannel.FRC.rejectedTriggers_card_le_sharp
 #print axioms FeedbackChannel.FRC.randomized_rejection_bound_sharp
+
+-- RHT-27/28: declared feedback factorization and affine composition
+#print axioms FeedbackChannel.TrainingParanoia.fibreConstant_iff_factors
+#print axioms FeedbackChannel.TrainingParanoia.fibreConstant_postprocess
+#print axioms FeedbackChannel.TrainingParanoia.identity_feedback_vacuous
+#print axioms FeedbackChannel.TrainingParanoia.unsafe_permitted_feedback
+#print axioms FeedbackChannel.TrainingParanoia.budget_eq_weighted
+#print axioms FeedbackChannel.TrainingParanoia.budget_mono
+#print axioms FeedbackChannel.TrainingParanoia.chain_le_budget
+#print axioms FeedbackChannel.TrainingParanoia.chain_le_weighted
+#print axioms FeedbackChannel.TrainingParanoia.chain_le_clipped

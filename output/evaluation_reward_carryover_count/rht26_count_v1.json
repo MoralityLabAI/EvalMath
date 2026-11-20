@@ -1,0 +1,46 @@
+{
+  "binary_case_assignments": 5460,
+  "binary_write_paths": 4599,
+  "binomial_cases": 81,
+  "capped_transition_cases": 81,
+  "checks": {
+    "all_endpoint_states_and_key_types_validated": true,
+    "binary_presence_loses_count_endpoint_information": true,
+    "binomial_laws_match_complete_path_oracle": true,
+    "boundary_clearing_returns_zero_count": true,
+    "capped_append_transition_boundaries": true,
+    "complete_binary_assignment_census": true,
+    "complete_task_marginal_identifies_clean_intersection": true,
+    "equal_mapping_count_endpoints_coincide": true,
+    "equal_mappings_can_have_different_insertion_order": true,
+    "frechet_endpoints_and_all_intermediate_counts_attained": true,
+    "last_occurrence_snapshot_oracle": true,
+    "synthetic_endpoint_can_decline_at_largest_count": true,
+    "terminal_store_keys_must_be_nonempty_strings": true,
+    "zero_horizon_validates_probability_and_clear_flag": true
+  },
+  "cleared_cases": 81,
+  "distinct_mapping_snapshots": 9,
+  "evidence": "exact finite count laws, declared synthetic endpoints and enumerated binary-case bounds; no new neural data",
+  "frechet_marginal_pairs": 139,
+  "schema": "RHT-26-count-v1",
+  "source_sha256": {
+    "TrainingParanoia/RHT-26/development_bridge.md": "b92a9e9654571cdf60fba265a0a09eaa8c5cf022f5c6ba44717a4400115c8b93",
+    "scripts/verify_reward_carryover_count.py": "c6d13097aba23ca528a58fc18ff787ae58f68d2e241afbed642211d399273301",
+    "src/spiral_ln/evaluation_finite_kernels.py": "b32ade4e309a90672c2b284cc06c0fa35a3e84dae6b67b69301ff25c3ef30af1",
+    "src/spiral_ln/evaluation_reward_carryover_count.py": "bd123d9445bf8d37f3fba2ff686689c321787df16103d541584cf0c84460966f",
+    "tests/test_evaluation_reward_carryover_count.py": "de07f181e1e88682fc54229c60eaf59b9e966624d5224eaf051a4d8fef58a4a9"
+  },
+  "store_histories": 341,
+  "synthetic_endpoint": {
+    "0": "0",
+    "1": "1/8",
+    "2": "1/2",
+    "3": "3/4",
+    "4": "1",
+    "5": "1",
+    "6": "1",
+    "7": "1",
+    "8": "7/8"
+  }
+}

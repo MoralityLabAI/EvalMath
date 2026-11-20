@@ -10,12 +10,15 @@ formalized, a Lean 4 proof. No model, judge or grader is run anywhere in this re
 It states each result, its evidence level and its Lean theorem, and lists what is open. A rendered copy
 of the notes is published at <https://moralitylabai.github.io/EvalMath/>.
 
-**New (RHT-26, 2026-11-19):** [inter-episode carryover](paper/reward_hacking_carryover.md)
-models retained artifacts and policy updates across episode boundaries. Exact examples
-cover reset order, dependence between copied evaluator cues, and drift that persists
-after correction. The [empirical protocol](docs/rht26_carryover_protocol.md) requires
-independent development chains before a confirmation run. Reproduce the finite
-receipt with `python scripts/check_receipts.py --only reward_carryover`.
+**TrainingParanoia (RHT-26–28, 2026-11-21):** [research sequence](TrainingParanoia/README.md)
+organizes the carryover model and its development review, then adds
+[evaluation noninterference](TrainingParanoia/RHT-27/evaluation_noninterference.md)
+and [contamination composition](TrainingParanoia/RHT-28/contamination_composition.md).
+The exact finite models specify permitted feedback, expose residual influence,
+and distinguish present-state recovery from failures recorded earlier in a chain.
+The [research plan](TrainingParanoia/evaluation_noninterference_plan.md) records
+the proof obligations and proposed follow-ups. Reproduce this sequence with
+`python scripts/check_receipts.py --only reward_carryover reward_carryover_count noninterference contamination_composition`.
 
 New: [capacity-sensitive leakage](paper/leak_capacity.md) certifies when a positive rational
 feedback fibre produces an actual binary-record collision at declared cell capacities,
@@ -94,6 +97,7 @@ statement is separately audited in [draft PR #13](https://github.com/MoralityLab
 
 | Path | Contents |
 |---|---|
+| `TrainingParanoia/` | Canonical RHT-26–28 papers, historical protocol, and downstream-behavior research plan. |
 | `paper/` | The notes. Each states its results with evidence levels and the commands that reproduce them. |
 | `src/spiral_ln/` | The exact modules, one per note (`evaluation_*.py`). Pure Python with `fractions.Fraction`. |
 | `tests/` | One test file per module. |

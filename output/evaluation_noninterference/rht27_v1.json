@@ -1,0 +1,100 @@
+{
+  "checks": {
+    "artifact_only_readout_hides_retained_policy_channel": true,
+    "artifact_reset_after_update_retains_policy_channel": true,
+    "artifact_reset_before_update_blocks_declared_write_channel": true,
+    "common_postprocessing_census": true,
+    "deterministic_two_fibre_census": true,
+    "exact_factorization_preserves_score_bit_learning": true,
+    "fully_covered_learning_fibres": true,
+    "identity_feedback_reports_vacuity": true,
+    "observational_conditioning_can_disagree_with_intervention": true,
+    "partial_coverage_is_reported": true,
+    "rational_full_event_oracle_census": true,
+    "reference_plus_residual_bound_is_sharp": true,
+    "transcript_specific_continuation_can_reintroduce_influence": true,
+    "zero_residual_can_have_certain_unsafe_behavior": true
+  },
+  "deterministic_cases": 256,
+  "evidence": "exact finite examples and algebraic bounds under declared interventional kernels; no model data or physical boundary certificate",
+  "learning_audit": {
+    "covered_transcripts": 4,
+    "epsilon": "0",
+    "fibres": 2,
+    "nontrivial_fibres": 2,
+    "row_comparisons": 4,
+    "states": 2,
+    "transcript_pairs": 2,
+    "transcripts": 4,
+    "witness": {
+      "event": [],
+      "feedback": "score:0",
+      "gap": "0",
+      "initial_state": 0,
+      "left": "score0:plain",
+      "right": "score0:hook"
+    }
+  },
+  "postprocessing_cases": 5625,
+  "rational_cases": 625,
+  "reset_after_update_audit": {
+    "covered_transcripts": 2,
+    "epsilon": "1",
+    "fibres": 1,
+    "nontrivial_fibres": 1,
+    "row_comparisons": 4,
+    "states": 4,
+    "transcript_pairs": 1,
+    "transcripts": 2,
+    "witness": {
+      "event": [
+        0
+      ],
+      "feedback": "score:0",
+      "gap": "1",
+      "initial_state": 0,
+      "left": "plain",
+      "right": "hook"
+    }
+  },
+  "reset_before_update_audit": {
+    "covered_transcripts": 2,
+    "epsilon": "0",
+    "fibres": 1,
+    "nontrivial_fibres": 1,
+    "row_comparisons": 4,
+    "states": 4,
+    "transcript_pairs": 1,
+    "transcripts": 2,
+    "witness": {
+      "event": [],
+      "feedback": "score:0",
+      "gap": "0",
+      "initial_state": 0,
+      "left": "plain",
+      "right": "hook"
+    }
+  },
+  "schema": "RHT-27-v1",
+  "sharp_reference_risk_certificate": {
+    "actual_risk": "3/8",
+    "reference_risk": "1/8",
+    "residual": "1/4",
+    "risk_bound": "3/8"
+  },
+  "source_sha256": {
+    "TrainingParanoia/RHT-27/evaluation_noninterference.md": "50c5ea219515a10bda6adae87ad4cdac74c6ca0fdbc6189e319400169b9ed551",
+    "lean/FeedbackChannel/TrainingParanoia.lean": "78ae805870d278875040a135eb27bbdb42333b2c9ff9d9035ec44c0c340847e3",
+    "scripts/verify_evaluation_noninterference.py": "8f1f5a3b509c15b88c616df2bd5b7bf39622eb39b2ff92d2f8946d0bfe040eb5",
+    "src/spiral_ln/evaluation_finite_kernels.py": "b32ade4e309a90672c2b284cc06c0fa35a3e84dae6b67b69301ff25c3ef30af1",
+    "src/spiral_ln/evaluation_noninterference.py": "9d0d4c076615b5170cb1bbfbb9ce7a13441e0e898840572b69467443d243fe7b",
+    "tests/test_evaluation_finite_kernels.py": "6b0a44ecc09825d25dc6b5d2a149f9f1628dd1cb09bf28c0fc2e6382b86ca005",
+    "tests/test_evaluation_noninterference.py": "03d63d076163038e5a95dbe4bc9176cd30bfce0519740e7a4fd9a6b8a0e7c42e"
+  },
+  "unsafe_permitted_feedback": {
+    "actual_risk": "1",
+    "reference_risk": "1",
+    "residual": "0",
+    "risk_bound": "1"
+  }
+}

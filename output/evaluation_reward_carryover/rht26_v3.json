@@ -133,7 +133,7 @@
   ],
   "interaction": "1/32",
   "negative_interaction_control": "-1/8",
-  "schema": "RHT-26-v2",
+  "schema": "RHT-26-v3",
   "sharp_contraction": [
     {
       "horizon": 0,
@@ -165,10 +165,10 @@
     }
   ],
   "source_sha256": {
+    "TrainingParanoia/RHT-26/carryover.md": "64bd8cc02340b8d366a8bcd98a2ce8479a61cfe944f232b2d5f8622748437917",
+    "TrainingParanoia/RHT-26/protocol.md": "16f5204cffe8a40ebdf4c026a7eb110ec876cbd23ce083cc9917397bfb9fcb9a",
     "configs/rht26_carryover_protocol.json": "73fec6655ffd10706b7a7fdb8c7d7bfcd47ee1e36dd9320b9cb7d386f4142650",
-    "docs/rht26_carryover_protocol.md": "e8ee602dd7979f4f17cc8017391cdd8d1e84e24de52439155c472422f68bee15",
-    "paper/reward_hacking_carryover.md": "3f024cc30b431273550df613dc44ac19797fb087f4da6dc5ce39d630ee8c3964",
-    "scripts/verify_reward_carryover.py": "b3bc0263b822d8b199118770ae9a5aab5cf002a123e2c5db08bc0adb4b48f733",
+    "scripts/verify_reward_carryover.py": "b88269d1dc57a33b77a091462158acfc5e81d2f8d08af81b847212d8c09f140d",
     "src/spiral_ln/evaluation_reward_carryover.py": "0e5fe577183bce973819f7e99858aa33dd7cf37691947c7da3fca913c5a8c23a",
     "tests/test_evaluation_reward_carryover.py": "981f4c334d681c73065010d15541a3b82c5e1f396d2a4255677abe78943ca72e"
   },

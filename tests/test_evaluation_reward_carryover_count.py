@@ -1,5 +1,7 @@
 """Exact integer-count / terminal-snapshot identification witnesses."""
 from fractions import Fraction as Q
+from itertools import product
+from math import comb
 import unittest
 
 from spiral_ln.evaluation_reward_carryover_count import (
@@ -40,12 +42,14 @@ class CountCarryoverTests(unittest.TestCase):
 
     def test_final_snapshot_equivalence_and_transplant(self):
         endpoint = saturating_fixture()
-        # Histories differ in execution order, then produce identical store bytes.
+        # The histories produce equal mappings under this count interface.
+        # Byte identity would additionally require a fixed serialization rule.
         chronological = tuple((f"ep-{i}", "cue") for i in range(1, 9))
         reversed_write = tuple(reversed(chronological))
         original = store_after_history(chronological)
         recipient = store_after_history(reversed_write)
         self.assertEqual(original, recipient)
+        self.assertNotEqual(tuple(original.items()), tuple(recipient.items()))
         self.assertEqual(terminal_cue_count(original), 8)
         self.assertEqual(terminal_risk(original, endpoint),
                          terminal_risk(recipient, endpoint))
@@ -73,6 +77,69 @@ class CountCarryoverTests(unittest.TestCase):
             point_mass(True)
         with self.assertRaises(ValueError):
             joint_persistence(point_mass(1), {1: Q(1, 2)})
+
+    def test_every_finite_horizon_matches_exact_binomial_formula(self):
+        for h, numerator in product(range(9), range(9)):
+            p = Q(numerator, 8)
+            expected = tuple(Q(comb(h, k)) * p ** k * (1 - p) ** (h - k)
+                             if k <= h else Q(0) for k in range(9))
+            self.assertEqual(after_exposures(h, write_probability=p), expected)
+            self.assertEqual(after_exposures(h, write_probability=p, clear_each_boundary=True),
+                             point_mass(0))
+
+    def test_frechet_extrema_from_independent_binary_assignments(self):
+        for n in range(1, 6):
+            attained = {}
+            for cases in product(range(4), repeat=n):
+                clean = sum(case // 2 for case in cases)
+                completed = sum(case % 2 for case in cases)
+                intersection = sum(case == 3 for case in cases)
+                attained.setdefault((clean, completed), set()).add(intersection)
+            for counts, intersections in attained.items():
+                self.assertEqual(safe_completion_bounds(n, *counts),
+                                 (Q(min(intersections), n), Q(max(intersections), n)))
+
+    def test_probabilities_and_flags_validate_at_zero_horizon(self):
+        for bad in (0.5, True, False):
+            with self.assertRaises(TypeError):
+                after_exposures(0, write_probability=bad)
+            with self.assertRaises(TypeError):
+                append_cue(point_mass(0), probability=bad)
+        for bad in (Q(-1, 8), Q(9, 8)):
+            with self.assertRaises(ValueError):
+                after_exposures(0, write_probability=bad)
+        for bad in (0, 1, "false", None):
+            with self.assertRaises(ValueError):
+                after_exposures(0, clear_each_boundary=bad)
+
+    def test_endpoint_validates_unused_states_and_integer_key_types(self):
+        for invalid in (Q(-1, 8), Q(9, 8), True, 0.5):
+            endpoint = saturating_fixture()
+            endpoint[0] = invalid
+            for evaluate in (lambda: binary_projection_failure(endpoint),
+                             lambda: terminal_risk({"a": "cue"}, endpoint),
+                             lambda: joint_persistence(point_mass(8), endpoint)):
+                with self.assertRaises((ValueError, TypeError)):
+                    evaluate()
+        for replacement in (False, 0.0, "0"):
+            endpoint = saturating_fixture()
+            del endpoint[0]
+            endpoint[replacement] = Q(0)
+            with self.assertRaises(ValueError):
+                binary_projection_failure(endpoint)
+        with self.assertRaises(ValueError):
+            terminal_risk({"a": "cue"}, {1: Q(1, 2)})
+
+    def test_terminal_store_validates_keys_and_last_write_semantics(self):
+        for key in ("", " ", 0, True, None):
+            with self.assertRaises(ValueError):
+                terminal_cue_count({key: "cue"})
+            with self.assertRaises(ValueError):
+                store_after_history(((key, "cue"),))
+        self.assertEqual(store_after_history((("a", "cue"), ("a", "sham"))),
+                         {"a": "sham"})
+        with self.assertRaises(ValueError):
+            terminal_cue_count({str(i): "cue" for i in range(9)})
 
 
 if __name__ == "__main__":
