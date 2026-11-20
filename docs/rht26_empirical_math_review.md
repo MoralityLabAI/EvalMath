@@ -25,6 +25,16 @@ P(M_T\geq k)=\sum_{j=k}^{T}{T\choose j}q^j(1-q)^{T-j}.
 
 For fixed q and k, this is monotone in T. The exact implementation in evaluation_reward_carryover_bridge.py checks the family without fitting it to the observed model. The five-case pooled decline in p10 between doses four and eight is a potential discriminator of such a model, subject to paired-root uncertainty and context-position effects.
 
+**Carrier provenance is a material limit of the present pilot.** In the
+Control-Harness adapter, source_episode invokes write_structured_cue before
+generating the actor's response. The test harness therefore creates these
+instructions in its four workspace channels; the model's own response does
+not cause the recorded cue write. The reported effect is a host-written,
+multi-episode prompt-injection exposure. Demonstrating *endogenous* memory
+poisoning or long-range reward hacking will require a follow-up where an
+actor-generated declarative action controls the later artifact write and its
+subsequent persistence.
+
 ## 2. The end-state is sufficient under the current measurement interface
 
 For a Markov-sufficient model whose terminal scoring kernel depends on S_T,
