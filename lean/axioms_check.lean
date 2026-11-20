@@ -223,3 +223,7 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.FRC.randomized_audit_floor
 #print axioms FeedbackChannel.FRC.rejectedTriggers_card_le_sharp
 #print axioms FeedbackChannel.FRC.randomized_rejection_bound_sharp
+-- Recursive spectral improvement (lean/FeedbackChannel/RSISpectralThreshold.lean)
+#print axioms FeedbackChannel.RSISpectralThreshold.dominant_gt_one_iff
+#print axioms FeedbackChannel.RSISpectralThreshold.budget_balance
+#print axioms FeedbackChannel.RSISpectralThreshold.budget_balance_attained

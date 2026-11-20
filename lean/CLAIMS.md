@@ -252,3 +252,11 @@ existential FRC minimization appear in the formalized theorem statements.
 No general FRC theorem is asserted by this row. Deterministic trees are represented
 using the existing FeedbackChannel.Signal.Strategy type.
 
+## Recursive spectral research (experimental mathematical model)
+
+| Scope | Claim | Lean theorem | Fidelity |
+|---|---|---|---|
+| Two-variable linearized RSI with nonnegative couplings and both retention factors < 1 | Dominant eigenvalue exceeds one iff the coupling product exceeds the product of retention deficits | `FeedbackChannel.RSISpectralThreshold.dominant_gt_one_iff` | Full for the explicitly stated 2x2 model; no claim about measured RSI |
+| Positive observation budget | The function `m + r²/m` is at least `2r` for `m > 0` | `FeedbackChannel.RSISpectralThreshold.budget_balance` | Full for the normalized objective; the sqrt-scaling hypothesis requires empirical fitting |
+
+Both are compiled in the ordinary Lean build and appear in `axioms_check.lean`. They assume no new axioms. The spectral threshold does not establish a superintelligence transition: empirical transfer, external validation, and resource costs are outside the theorem.
