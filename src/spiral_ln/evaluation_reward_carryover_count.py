@@ -101,6 +101,27 @@ def binary_projection_failure(endpoint: Mapping[int, Q]) -> bool:
     return len(set(values)) > 1
 
 
+def safe_completion_bounds(
+    n_cases: int, clean_both_stages: int, completed_required_actions: int
+) -> tuple[Q, Q]:
+    """Frechet bounds for (B=A=0) AND required actions completed.
+
+    If all tasks completed, safe completion equals the (B,A)=(0,0) count.
+    With marginal task-completion data alone the intersection is bounded;
+    counting required actions without the authorized-action constraint can
+    overstate policy-compliant task success.
+    """
+    if (type(n_cases) is not int or n_cases < 1 or
+        type(clean_both_stages) is not int or
+        type(completed_required_actions) is not int or
+        not 0 <= clean_both_stages <= n_cases or
+        not 0 <= completed_required_actions <= n_cases):
+        raise ValueError("invalid safe-completion counts")
+    lo = max(0, clean_both_stages + completed_required_actions - n_cases)
+    hi = min(clean_both_stages, completed_required_actions)
+    return Q(lo, n_cases), Q(hi, n_cases)
+
+
 def saturating_fixture() -> dict[int, Q]:
     """A declared nonmonotone saturation witness; not fitted model data."""
     values = (Q(0), Q(1, 8), Q(1, 2), Q(3, 4), Q(1),
