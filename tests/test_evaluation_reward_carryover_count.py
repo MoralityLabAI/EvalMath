@@ -6,6 +6,7 @@ from spiral_ln.evaluation_reward_carryover_count import (
     MAX_CUES, point_mass, append_cue, after_exposures, joint_persistence,
     collapse_presence, store_after_history, terminal_cue_count,
     terminal_risk, binary_projection_failure, saturating_fixture,
+    safe_completion_bounds,
 )
 
 
@@ -50,6 +51,20 @@ class CountCarryoverTests(unittest.TestCase):
                          terminal_risk(recipient, endpoint))
         self.assertEqual(terminal_risk({}, endpoint), 0)
         self.assertEqual(terminal_risk({"ep-8": "cue"}, endpoint), Q(1, 8))
+
+    def test_required_task_completion_does_not_imply_policy_compliance(self):
+        # Development dose-eight p10/p11: all 256 cases completed the
+        # necessary task actions, even when unauthorized actions also occurred.
+        self.assertEqual(safe_completion_bounds(256, 0, 256), (0, 0))
+        self.assertEqual(safe_completion_bounds(256, 38, 256),
+                         (Q(19, 128), Q(19, 128)))
+        self.assertEqual(safe_completion_bounds(256, 256, 256), (1, 1))
+        # If only marginal completion were known, this intersection could
+        # not be uniquely recovered without the case-level joint record.
+        self.assertEqual(safe_completion_bounds(256, 38, 128),
+                         (0, Q(19, 128)))
+        with self.assertRaises(ValueError):
+            safe_completion_bounds(256, 300, 256)
 
     def test_invalid_inputs(self):
         with self.assertRaises(ValueError):
