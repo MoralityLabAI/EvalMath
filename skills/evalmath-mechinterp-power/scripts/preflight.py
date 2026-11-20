@@ -93,6 +93,11 @@ def preflight(spec):
         null=row.get('sham_effects')
         if not isinstance(null,list) or not null:raise ValueError('matched shams required per independent world')
         shams.append(max(abs(fraction(z,'sham',True)) for z in null))
+    direction=spec.get('effect_direction','positive')
+    if direction not in ('positive','negative'):
+        raise ValueError('effect_direction must be positive or negative')
+    raw_observed_mean=sum(effects,F(0))/len(effects)
+    directed_effects=[-x if direction=='negative' else x for x in effects]
     floor,rank=upper_quantile(shams,quantile,confidence)
     external=spec.get('external_sham_floor')
     if external is not None:
@@ -100,8 +105,8 @@ def preflight(spec):
             raise ValueError('external_sham_source required')
         floor=max(floor or F(0),fraction(external,'external_sham_floor'))
     variation=max(min_effect,resolution,floor or F(0))
-    observed_mean=sum(effects,F(0))/len(effects)
-    sigma=stdev(map(float,effects)) if len(effects)>=2 else None
+    observed_mean=sum(directed_effects,F(0))/len(directed_effects)
+    sigma=stdev(map(float,directed_effects)) if len(directed_effects)>=2 else None
     delta=float(target-variation)
     z=NormalDist().inv_cdf(1-float(alpha)/(2*m))+NormalDist().inv_cdf(.80)
     # Even an ideal, all-positive exact sign test cannot clear a one-sided
@@ -142,7 +147,9 @@ def preflight(spec):
         'decision':'REDESIGN_OR_PILOT_ONLY' if reasons else 'READY_FOR_CONFIRMATION',
         'reasons':reasons,'independent_unit':spec['independent_unit'],
         'pilot_worlds':len(effects),'planned_confirmation_worlds':g,
-        'mean_pilot_effect':float(observed_mean),
+        'mean_pilot_effect':float(raw_observed_mean),
+        'effect_direction':direction,
+        'direction_adjusted_mean_pilot_effect':float(observed_mean),
         'pilot_world_sigma':sigma,'observed_worst_sham':float(max(shams)),
         'upper_sham_quantile':float(floor) if floor is not None else None,'order_statistic_rank':rank,
         'mechanistic_variation_floor':float(variation),'target_effect':float(target),
