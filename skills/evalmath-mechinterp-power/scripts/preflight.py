@@ -43,6 +43,11 @@ def preflight(spec):
     quantile=fraction(spec.get('sham_quantile'),'sham_quantile')
     confidence=fraction(spec.get('sham_confidence'),'sham_confidence')
     if not 0<alpha<1 or not 0<quantile<1 or not 0<confidence<1:raise ValueError('invalid probability')
+    direction=spec.get('effect_direction','increase')
+    if direction not in ('increase','decrease'):raise ValueError('effect_direction must be increase or decrease')
+    enforce_fsi=spec.get('enforce_fsi01_floor',False)
+    if type(enforce_fsi) is not bool:raise ValueError('enforce_fsi01_floor must be boolean')
+    sign=1 if direction=='increase' else -1
     m,g=spec.get('planned_comparisons'),spec.get('confirm_units_planned')
     if type(m)!=int or m<1 or type(g)!=int or g<2:raise ValueError('invalid comparisons or confirmation units')
     rows=spec.get('pilot')
@@ -52,7 +57,7 @@ def preflight(spec):
         rid=row.get('unit_id')
         if not isinstance(rid,str) or not rid or rid in ids:raise ValueError('unique pilot unit_id required')
         ids.add(rid)
-        effects.append(fraction(row.get('paired_effect'),'paired_effect',True))
+        effects.append(sign*fraction(row.get('paired_effect'),'paired_effect',True))
         null=row.get('sham_effects')
         if not isinstance(null,list) or not null:raise ValueError('matched shams required per independent world')
         shams.append(max(abs(fraction(z,'sham',True)) for z in null))
@@ -80,6 +85,18 @@ def preflight(spec):
               if sigma is not None and delta>0 and not pilot_variance_uninformative else None)
     mde=(float(variation)+z*sigma/math.sqrt(g)
          if sigma is not None and not pilot_variance_uninformative else None)
+    # FSI-01 uses an independent-root, one-sided Hoeffding lower bound.
+    # Each signed root contrast here has range [-1,1], width 2; interactions
+    # in [-2,2] must first be multiplied by 1/2 by the caller.
+    # This is a finite-sample *resolution* requirement if the observed
+    # confirmation mean equals the chosen target, not an 80%-power claim.
+    log_family=math.log(m/float(alpha))
+    fsi_roots_at_target=(math.ceil(2*log_family/delta**2) if delta>0 else None)
+    observed_gap=float(observed_mean-variation)
+    fsi_roots_at_observed=(math.ceil(2*log_family/observed_gap**2)
+                           if observed_gap>0 else None)
+    fsi_resolvable_mean=float(variation)+math.sqrt(2*log_family/g)
+    fsi_development_lower=float(observed_mean)-math.sqrt(2*log_family/len(effects))
     reasons=[]
     if not spec.get('pilot_from_development_only') is True:reasons.append('development_pilot_unverified')
     if not spec.get('heldout_sealed') is True:reasons.append('heldout_unsealed')
@@ -92,6 +109,8 @@ def preflight(spec):
     if pilot_variance_uninformative:
         reasons.append('zero_variance_pilot_power_uninformative')
     if required is None or required>g:reasons.append('confirmation_underpowered')
+    if enforce_fsi and (fsi_roots_at_target is None or fsi_roots_at_target>g):
+        reasons.append('fsi01_effect_floor_resolution_underpowered')
     return {'schema':'EvalMath/mechinterp-power-preflight/v1','experiment_id':spec['experiment_id'],
         'decision':'REDESIGN_OR_PILOT_ONLY' if reasons else 'READY_FOR_CONFIRMATION',
         'reasons':reasons,'independent_unit':spec['independent_unit'],
@@ -103,6 +122,12 @@ def preflight(spec):
         'planned_comparisons':m,'minimum_exact_sign_test_roots':min_sign_roots,
         'approx_worlds_for_80pct_power':required,
         'approx_resolvable_effect':mde,
+        'effect_direction':direction,'enforce_fsi01_floor':enforce_fsi,
+        'fsi01_roots_at_target_for_effect_floor_resolution':fsi_roots_at_target,
+        'fsi01_roots_at_observed_pilot_mean_for_effect_floor_resolution':fsi_roots_at_observed,
+        'fsi01_resolvable_mean_at_planned_roots':fsi_resolvable_mean,
+        'fsi01_development_pilot_lower_bound':fsi_development_lower,
+        'fsi01_note':'One-sided independent-root Hoeffding floor resolution, width 2 and Bonferroni m; this is not an 80%-power claim. The observed-pilot projection is post-development sensitivity only. Interactions in [-2,2] must be scaled by 1/2; effect_direction must be frozen before a fresh confirmation readout.',
         'limits':'Normal-based power is planning only. A zero-effect zero-variance pilot cannot support extrapolating a hypothetical positive effect. Root and sham independence, symmetry, readout sealing, and the scientific effect floor require independent audits. Repeated outcomes within a root are never additional worlds.'}
 
 
