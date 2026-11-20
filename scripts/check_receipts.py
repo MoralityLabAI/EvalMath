@@ -25,8 +25,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "noninterference": ("scripts/verify_evaluation_noninterference.py",
+                        "output/evaluation_noninterference/rht27_v1.json", [], False),
+    "contamination_composition": ("scripts/verify_evaluation_contamination_composition.py",
+                                  "output/evaluation_contamination_composition/rht28_v1.json", [], False),
+    "reward_carryover_count": ("scripts/verify_reward_carryover_count.py",
+                               "output/evaluation_reward_carryover_count/rht26_count_v1.json", [], False),
     "reward_carryover": ("scripts/verify_reward_carryover.py",
-                         "output/evaluation_reward_carryover/rht26_v2.json", [], False),
+                         "output/evaluation_reward_carryover/rht26_v3.json", [], False),
     "frozen_evidence": ("scripts/verify_evaluation_frozen_evidence.py",
                         "output/evaluation_frozen_evidence/fre01_v1.json", [], False),
     "finite_sample": ("scripts/verify_evaluation_finite_sample.py",

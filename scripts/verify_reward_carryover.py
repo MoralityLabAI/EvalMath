@@ -21,8 +21,8 @@ SOURCE_FILES = (
     "src/spiral_ln/evaluation_reward_carryover.py",
     "tests/test_evaluation_reward_carryover.py",
     "scripts/verify_reward_carryover.py",
-    "paper/reward_hacking_carryover.md",
-    "docs/rht26_carryover_protocol.md",
+    "TrainingParanoia/RHT-26/carryover.md",
+    "TrainingParanoia/RHT-26/protocol.md",
     "configs/rht26_carryover_protocol.json",
 )
 
@@ -167,7 +167,7 @@ def verify() -> dict:
     if not all(checks.values()):
         raise AssertionError([key for key, value in checks.items() if not value])
     return {
-        "schema": "RHT-26-v2",
+        "schema": "RHT-26-v3",
         "evidence": "exact finite examples and synthetic mechanism results; no model training, measured neural mechanism, or empirical pilot",
         "state_order": [list(state) for state in STATES],
         "deterministic_cases": deterministic,
@@ -196,7 +196,7 @@ def verify() -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path,
-                        default=ROOT / "output/evaluation_reward_carryover/rht26_v2.json")
+                        default=ROOT / "output/evaluation_reward_carryover/rht26_v3.json")
     args = parser.parse_args()
     receipt = verify()
     args.output.parent.mkdir(parents=True, exist_ok=True)

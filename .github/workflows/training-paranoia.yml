@@ -1,0 +1,79 @@
+name: training-paranoia
+
+on:
+  push:
+    paths:
+      - 'TrainingParanoia/**'
+      - 'src/spiral_ln/evaluation_finite_kernels.py'
+      - 'src/spiral_ln/evaluation_noninterference.py'
+      - 'src/spiral_ln/evaluation_contamination_composition.py'
+      - 'src/spiral_ln/evaluation_reward_carryover*.py'
+      - 'tests/test_evaluation_finite_kernels.py'
+      - 'tests/test_evaluation_noninterference.py'
+      - 'tests/test_evaluation_contamination_composition.py'
+      - 'tests/test_evaluation_reward_carryover*.py'
+      - 'scripts/verify_evaluation_noninterference.py'
+      - 'scripts/verify_evaluation_contamination_composition.py'
+      - 'scripts/verify_reward_carryover*.py'
+      - 'scripts/verify_training_paranoia_layout.py'
+      - 'scripts/check_receipts.py'
+      - 'output/evaluation_noninterference/**'
+      - 'output/evaluation_contamination_composition/**'
+      - 'output/evaluation_reward_carryover*/**'
+      - 'lean/FeedbackChannel/TrainingParanoia.lean'
+      - 'lean/CLAIMS.md'
+      - 'lean/axioms_check.lean'
+      - '.github/workflows/training-paranoia.yml'
+      - 'pyproject.toml'
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  finite-boundaries:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact finite package and test runner
+        run: python -m pip install -e '.[test]'
+      - name: Boundary, intervention and independent path tests
+        run: >-
+          python -m pytest -q
+          tests/test_evaluation_finite_kernels.py
+          tests/test_evaluation_reward_carryover.py
+          tests/test_evaluation_reward_carryover_count.py
+          tests/test_evaluation_noninterference.py
+          tests/test_evaluation_contamination_composition.py
+      - name: Verify existing resolution-planner gates
+        run: python -m unittest discover -s skills/evalmath-mechinterp-power/scripts -p 'test_*.py' -v
+      - name: Replay every TrainingParanoia source-bound receipt
+        run: >-
+          python scripts/check_receipts.py --only
+          reward_carryover reward_carryover_count noninterference contamination_composition
+      - name: Verify original RHT-26 numerical payload and canonical paths
+        run: python scripts/verify_training_paranoia_layout.py
+      - name: Publish reviewed finite evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: training-paranoia-finite-evidence
+          if-no-files-found: error
+          path: |
+            output/evaluation_reward_carryover/rht26_v3.json
+            output/evaluation_reward_carryover_count/rht26_count_v1.json
+            output/evaluation_noninterference/rht27_v1.json
+            output/evaluation_contamination_composition/rht28_v1.json
+            TrainingParanoia/

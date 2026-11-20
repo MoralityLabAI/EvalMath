@@ -1,0 +1,19 @@
+{
+  "current_receipt": "output/evaluation_reward_carryover/rht26_v3.json",
+  "historical_commit": "6ad6ee1741231cc8f1f410008a2361408d1bc4a9",
+  "historical_receipt": "output/evaluation_reward_carryover/rht26_v2.json",
+  "historical_receipt_sha256": "be0fa00df74ec05c759159daa662bf9b1927e268a41998506ec1214f7c80f300",
+  "moved_documents": {
+    "docs/rht26_carryover_protocol.md": "TrainingParanoia/RHT-26/protocol.md",
+    "paper/reward_hacking_carryover.md": "TrainingParanoia/RHT-26/carryover.md",
+    "paper/rht26_development_bridge.md": "TrainingParanoia/RHT-26/development_bridge.md"
+  },
+  "schema": "TrainingParanoia/RHT-26-source-migration/v1",
+  "scope": "Path migration and historical-status clarification; original four-state finite numerical payload and sources listed above retain their bytes. The later count extension has its own receipt.",
+  "unchanged_payload_sha256": "82526b52acba2c95a40bee200659aed696e3bbbd589629cda11823fb5ed72802",
+  "unchanged_source_sha256": {
+    "configs/rht26_carryover_protocol.json": "73fec6655ffd10706b7a7fdb8c7d7bfcd47ee1e36dd9320b9cb7d386f4142650",
+    "src/spiral_ln/evaluation_reward_carryover.py": "0e5fe577183bce973819f7e99858aa33dd7cf37691947c7da3fca913c5a8c23a",
+    "tests/test_evaluation_reward_carryover.py": "981f4c334d681c73065010d15541a3b82c5e1f396d2a4255677abe78943ca72e"
+  }
+}

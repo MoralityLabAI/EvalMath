@@ -252,3 +252,27 @@ existential FRC minimization appear in the formalized theorem statements.
 No general FRC theorem is asserted by this row. Deterministic trees are represented
 using the existing FeedbackChannel.Signal.Strategy type.
 
+## TrainingParanoia: RHT-27 and RHT-28
+
+The source is `FeedbackChannel/TrainingParanoia.lean`. RHT-27's `Outcome` type
+may represent an entire probability kernel, so equality includes every state
+and output component chosen by that representation. The feedback map is fixed
+externally. The Lean result does not verify a physical system's state coverage.
+
+| Note claim | Lean theorem | Fidelity | Scope and outstanding work |
+|---|---|---|---|
+| RHT-27 exact fibre noninterference iff permitted-feedback factorization | `FeedbackChannel.TrainingParanoia.fibreConstant_iff_factors` | full for the abstract equality/factorization claim | Factors through the attained feedback image; arbitrary transcript, state, and outcome types, including empty types. Identifying zero total variation with kernel equality remains in the finite Python implementation and note. |
+| RHT-27 common downstream processing preserves exact noninterference | `FeedbackChannel.TrainingParanoia.fibreConstant_postprocess` | supporting lemma | An arbitrary common map on outcomes preserves equality. The quantitative stochastic contraction inequality remains outside this formalization. |
+| RHT-27 identity disclosure is vacuous | `FeedbackChannel.TrainingParanoia.identity_feedback_vacuous` | full | Every mechanism satisfies fibre constancy when all transcript details are permitted. |
+| RHT-27 permitted feedback can transmit harmful behavior | `FeedbackChannel.TrainingParanoia.unsafe_permitted_feedback` | special case | Boolean output changes across permitted values despite exact constancy within two-element fibres. The meaning of harm is external to the theorem. |
+| RHT-28 initial discrepancy plus later-weighted injections | `FeedbackChannel.TrainingParanoia.budget_eq_weighted` | full for the algebraic expansion | Every chronological finite real-valued affine schedule, including the empty schedule. `gain` is the product of contraction factors and `injected` sums each discrepancy times all subsequent factors. |
+| RHT-28 recurrence preserves an upper bound on the starting discrepancy | `FeedbackChannel.TrainingParanoia.budget_mono` | supporting lemma | Requires nonnegative contraction factors. |
+| RHT-28 induction from local bounds to final discrepancy | `FeedbackChannel.TrainingParanoia.chain_le_budget` | supporting lemma | Every finite chain satisfying the one-step affine inequalities. Deriving these inequalities from Markov kernels and total variation remains in the note. |
+| RHT-28 unrolled contamination bound | `FeedbackChannel.TrainingParanoia.chain_le_weighted` | supporting lemma | Includes the initial term and all later-weighted injections. Probabilistic kernel assumptions are not encoded here. |
+| RHT-28 total-variation bound clipped at one | `FeedbackChannel.TrainingParanoia.chain_le_clipped` | supporting lemma | Also assumes final discrepancy at most one. Trajectory coupling and the distinction between endpoint state and recorded actions remain outside this formalization. |
+
+The Lean claims do not establish neural non-poisoning or a measured
+contraction coefficient. Exact finite examples and the symbolic proofs in
+`TrainingParanoia/RHT-27/evaluation_noninterference.md` and
+`TrainingParanoia/RHT-28/contamination_composition.md` carry their own scope.
+
