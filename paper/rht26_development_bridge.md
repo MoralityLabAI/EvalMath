@@ -119,6 +119,14 @@ The updated planner exposes `fsi01_final_effect_floor_resolution` and
 can enforce it using `require_final_fsi_gate: true`. Historical clients
 retain the prior normal-planning behavior by default.
 
+The observed interaction is negative (`-99/128` in raw units).
+A prospective test of **suppression** can set `effect_direction: "negative"`
+so that the planner uses `-d_i/2` as its positive-direction planning effect,
+while retaining the original signed mean in its report. The directional claim
+must be frozen before independent confirmation. The originally prespecified
+positive-interaction question and its development history remain part of the
+selection record.
+
 The sham floor remains uncalibrated with eight roots. The registered
 95%/95% nonparametric tolerance bound needs at least 59 independent
 calibration roots, one family-wide maximum per root across the registered
