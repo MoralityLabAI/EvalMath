@@ -10,6 +10,13 @@ formalized, a Lean 4 proof. No model, judge or grader is run anywhere in this re
 It states each result, its evidence level and its Lean theorem, and lists what is open. A rendered copy
 of the notes is published at <https://moralitylabai.github.io/EvalMath/>.
 
+**New (RHT-26, 2026-11-19):** [inter-episode carryover](paper/reward_hacking_carryover.md)
+models retained artifacts and policy updates across episode boundaries. Exact examples
+cover reset order, dependence between copied evaluator cues, and drift that persists
+after correction. The [empirical protocol](docs/rht26_carryover_protocol.md) requires
+independent development chains before a confirmation run. Reproduce the finite
+receipt with `python scripts/check_receipts.py --only reward_carryover`.
+
 New: [capacity-sensitive leakage](paper/leak_capacity.md) certifies when a positive rational
 feedback fibre produces an actual binary-record collision at declared cell capacities,
 and computes exact collision probabilities with two independent finite algorithms.

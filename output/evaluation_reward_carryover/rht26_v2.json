@@ -1,0 +1,193 @@
+{
+  "artifact_accumulation": [
+    {
+      "exposures": 0,
+      "probability": "0"
+    },
+    {
+      "exposures": 1,
+      "probability": "1/4"
+    },
+    {
+      "exposures": 2,
+      "probability": "7/16"
+    },
+    {
+      "exposures": 3,
+      "probability": "37/64"
+    },
+    {
+      "exposures": 4,
+      "probability": "175/256"
+    },
+    {
+      "exposures": 5,
+      "probability": "781/1024"
+    },
+    {
+      "exposures": 6,
+      "probability": "3367/4096"
+    },
+    {
+      "exposures": 7,
+      "probability": "14197/16384"
+    },
+    {
+      "exposures": 8,
+      "probability": "58975/65536"
+    }
+  ],
+  "checks": {
+    "artifact_reset_preserves_policy_transmission": true,
+    "conditional_endpoint_denominators": true,
+    "copied_hook_not_fresh_evidence": true,
+    "deterministic_map_census": true,
+    "dobrushin_values": true,
+    "four_factorial_risks": true,
+    "frozen_update_preserves_existing_policy": true,
+    "full_reset_removes_declared_state_transmission": true,
+    "impossible_transcript_undefined": true,
+    "independent_hooks_accumulate_evidence": true,
+    "interaction_can_be_negative": true,
+    "learned_state_survives_artifact_reset": true,
+    "positive_interaction_exact": true,
+    "post_drift_distinct_from_persistence": true,
+    "reset_before_update_blocks_this_learning_channel": true,
+    "reset_frozen_no_carry": true,
+    "reset_order_changes_endpoint": true,
+    "retained_artifact_geometric_accrual": true,
+    "same_marginals_different_joint_risk": true,
+    "stochastic_complete_path_census": true,
+    "zero_exposure_arms_coincide": true,
+    "zero_hooks_preserve_prior": true,
+    "zero_pre_drift_has_no_conditional_rate": true
+  },
+  "complete_path_cases": 48,
+  "correlation_risks": [
+    "1/2",
+    "1/4"
+  ],
+  "cue_posteriors": {
+    "copied_positive_three": "3/4",
+    "independent_positive_three": "27/28"
+  },
+  "deterministic_cases": 16384,
+  "evidence": "exact finite examples and synthetic mechanism results; no model training, measured neural mechanism, or empirical pilot",
+  "factorial_one_episode": [
+    {
+      "conditional_persistence": "1/2",
+      "joint_persistence": "1/8",
+      "keep_artifacts": false,
+      "learn": false,
+      "post_drift": "1/8",
+      "pre_drift": "1/4",
+      "state_law": [
+        "1",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "conditional_persistence": "5/9",
+      "joint_persistence": "5/32",
+      "keep_artifacts": false,
+      "learn": true,
+      "post_drift": "5/32",
+      "pre_drift": "9/32",
+      "state_law": [
+        "7/8",
+        "1/8",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "conditional_persistence": "9/20",
+      "joint_persistence": "9/64",
+      "keep_artifacts": true,
+      "learn": false,
+      "post_drift": "9/64",
+      "pre_drift": "5/16",
+      "state_law": [
+        "7/8",
+        "0",
+        "1/8",
+        "0"
+      ]
+    },
+    {
+      "conditional_persistence": "13/22",
+      "joint_persistence": "13/64",
+      "keep_artifacts": true,
+      "learn": true,
+      "post_drift": "13/64",
+      "pre_drift": "11/32",
+      "state_law": [
+        "7/8",
+        "0",
+        "0",
+        "1/8"
+      ]
+    }
+  ],
+  "interaction": "1/32",
+  "negative_interaction_control": "-1/8",
+  "schema": "RHT-26-v2",
+  "sharp_contraction": [
+    {
+      "horizon": 0,
+      "tv": "1"
+    },
+    {
+      "horizon": 1,
+      "tv": "1/3"
+    },
+    {
+      "horizon": 2,
+      "tv": "1/9"
+    },
+    {
+      "horizon": 3,
+      "tv": "1/27"
+    },
+    {
+      "horizon": 4,
+      "tv": "1/81"
+    },
+    {
+      "horizon": 5,
+      "tv": "1/243"
+    },
+    {
+      "horizon": 6,
+      "tv": "1/729"
+    }
+  ],
+  "source_sha256": {
+    "configs/rht26_carryover_protocol.json": "73fec6655ffd10706b7a7fdb8c7d7bfcd47ee1e36dd9320b9cb7d386f4142650",
+    "docs/rht26_carryover_protocol.md": "e8ee602dd7979f4f17cc8017391cdd8d1e84e24de52439155c472422f68bee15",
+    "paper/reward_hacking_carryover.md": "3f024cc30b431273550df613dc44ac19797fb087f4da6dc5ce39d630ee8c3964",
+    "scripts/verify_reward_carryover.py": "b3bc0263b822d8b199118770ae9a5aab5cf002a123e2c5db08bc0adb4b48f733",
+    "src/spiral_ln/evaluation_reward_carryover.py": "0e5fe577183bce973819f7e99858aa33dd7cf37691947c7da3fca913c5a8c23a",
+    "tests/test_evaluation_reward_carryover.py": "981f4c334d681c73065010d15541a3b82c5e1f396d2a4255677abe78943ca72e"
+  },
+  "state_order": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ]
+  ]
+}
