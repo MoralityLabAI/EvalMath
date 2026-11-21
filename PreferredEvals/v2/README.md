@@ -36,3 +36,7 @@ See [catalog](catalog.json), [skills](../README.md) and [papers](../papers/READM
 ## Connected rollout execution
 
 Use [the runnable gym](../gym/README.md) for local model endpoints and [execution coverage](../gym/STATUS.md) for current adapter boundaries. Native profiles do not install dependencies, obtain private data, or score with an alternative judge. Prompt tasks keep label files separate; pairwise position swaps and samples inherit the task's independent root. The `compare.py` bridge exports unsealed development cases for EvalMath FSI-01, with multiple attempts nested under roots.
+
+### Prime v0.4.1 saved Episodes
+
+`vf-run` v0.4.1 writes `Episode` JSONL records, with `episode.task` and nested `traces`, including `dropped` cases. Use [`gym/ingest_prime.py`](../gym/ingest_prime.py) for those native outputs and an explicit task-key/ID to independent-root map. It reports dropped/unscored/infrastructure-error records separately, and retains original `traces.jsonl` as the authoritative source. The older `prime_v1.py` importer remains limited to the earlier serialization assumptions.

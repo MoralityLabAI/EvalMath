@@ -5,7 +5,7 @@
 | Research taste | Generic authorized pairwise prompts, order swap, exact reference scoring | TASTE access request; expert-annotated public proposal benchmark |
 | Experimental design | Catalog only | Fixed-Coder TasteVal-style open project runner with compute-budget receipts |
 | Software engineering | Inkling Verify DeepSWE native launcher | SWE-bench/Terminal-Bench adapter and gold-task audit before public comparisons |
-| Agents and MCP | Verifiers v0.4.1 `vf-run` native launcher | Prime taskset installation and per-episode trace import for current Episode schema |
+| Agents and MCP | Verifiers v0.4.1 `vf-run` native launcher | Prime taskset installation and live native rollout receipt verification; Episode importer implemented |
 | Formal science | Native HLE launcher; generic short-answer prompts | StepFun Lean, FrontierMath, PaperBench exact/rubric adapter |
 | Safety/control | Catalog only | Anthropic Bloom/Petri native audit integration |
 | Recurrence and context | Inkling NIAH launcher | Freeze per-layer loop counts; benchmark matched no-CoT depth and throughput |

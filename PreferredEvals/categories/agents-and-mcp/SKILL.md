@@ -35,3 +35,5 @@ See [the annotated reading notes](../../papers/agents-and-mcp.md) and [the resea
 ### Native runner compatibility
 
 For `verifiers==0.4.1` use `vf-run` for local in-process episodes and `prime-rl` for hosted/full evaluation; `vf-eval` is an older CLI. The [PreferredEvals native launch profile](../../gym/README.md) uses the `verifiers.v1` taskset/harness contract and explicit `subprocess` runtime by default. Keep version-specific trace schema and model endpoint settings in the run receipt; do not treat a successful subprocess exit as task success.
+
+For current `vf-run` Episode JSONL, [the native Episode importer](../../gym/ingest_prime.py) explicitly maps `task.key` or stable IDs to a registered root, keeps `dropped` and failed episodes, and reports only the scored reward subset. A task's repeated traces share the same statistical root.

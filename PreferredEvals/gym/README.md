@@ -97,13 +97,29 @@ Without `--execute`, `external.py` only prints a command plan. Remote inference 
 
 The DeepSWE example requires Linux x86-64 with rootless Podman. WSL on Windows needs a reachable host endpoint; verify its URL with `curl` from *inside WSL*. Prime packages and environment versions must be installed explicitly at the pinned release. HLE may use a self-judge by default, so record a separate judge when making score claims.
 
-## 4. CPU smoke / CI
+## 4. Import native Prime v0.4.1 episodes
+
+The 0.4.1 `vf-run` runner saves **Episode** records in `traces.jsonl`, with one episode holding an attributed task, zero or more agent traces, a `dropped` status and weighted reward fields. Our `ingest_prime.py` consumes this current schema (and the matching serialized subset of earlier v1 files). Supply an **explicit** mapping from task key / ID to independent world root, then retain the original upstream trace file as the evidence artifact:
+
+```bash
+cat > runs/prime-root-map.json <<'JSON'
+{"task-001": "world-01", "task-002": "world-02"}
+JSON
+python PreferredEvals/gym/ingest_prime.py \
+  --traces /path/to/vf-run-output/traces.jsonl \
+  --root-map runs/prime-root-map.json \
+  --out runs/prime-summary.json
+```
+
+It records scored/dropped/unscored/error episodes separately and computes an equal-root descriptive reward only on scored traces. It doesn't substitute for native Prime judgment, nor does it certify that task roots are independent. Older `PreferredEvals/v2/prime_v1.py` remains the narrow historical importer for the serialized task/traces subset used in earlier development runs.
+
+## 5. CPU smoke / CI
 
 ```bash
 python -m unittest discover -s PreferredEvals/gym/tests -p 'test_*.py' -v
 ```
 
-The integration tests start a scripted local HTTP Chat Completions server, run two prompt pairs in both orders, score against separate labels, test resume/remote safeguards, and check an unsealed root-clustered FSI-01 export. They also validate the native command plans without contacting any external services. This verifies the gym pipeline. **It is not a Bonsai, Qwen, TASTE, HLE or SWE-bench result.**
+The integration tests start a scripted local HTTP Chat Completions server, run two prompt pairs in both orders, score against separate labels, test resume/remote safeguards, and check an unsealed root-clustered FSI-01 export. They validate the native command plans and the current Prime Episode importer, including dropped/error traces, without contacting external services. This verifies the gym pipeline. **It is not a Bonsai, Qwen, TASTE, HLE or SWE-bench result.**
 
 ## Next benchmark gaps
 
