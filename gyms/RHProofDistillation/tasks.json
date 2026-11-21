@@ -86,5 +86,21 @@
     "anchor": "weighted_bound",
     "description": "Transport the error-window bound to the exponent budget by multiplying two nonnegative real powers, an isolated arithmetic obligation behind proposition_size_bound.",
     "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem window_error_power_bound\n    (x C eps Err bracket : ℝ) (hx : 0 < x)\n    (hErr : Err ≤ x ^ (C * eps) * bracket)\n    (hBracket : bracket ≤ x ^ ((1 / 2 : ℝ) + eps)) :\n    Err ≤ x ^ ((1 / 2 : ℝ) + (C + 1) * eps) := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-012",
+    "difficulty": "medium",
+    "category": "size_window_feasibility",
+    "anchor": "weighted_bound",
+    "description": "Prove a necessary source-derived size requirement n² ≥ x from the integer group-size, sampling-depth and k-window inequalities of the published SizeWindows predicate.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem size_window_group_card_floor\n    (x eps k : ℝ) (n m : ℕ) (hx : 0 < x)\n    (hm : x ^ ((1 / 2 : ℝ) - eps) ≤ (m : ℝ))\n    (hk_lower : x * (m : ℝ) ≤ k)\n    (hk_upper : k ≤ (n : ℝ) ^ 2 * x ^ ((1 / 2 : ℝ) - eps)) :\n    x ≤ (n : ℝ) ^ 2 := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-013",
+    "difficulty": "medium",
+    "category": "size_window_feasibility",
+    "anchor": "weighted_bound",
+    "description": "From the published SizeWindows bounds and positive x,n, prove that the TT, T2 and recurrence-depth counts are all nonzero.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem size_window_counts_positive\n    (x eps : ℝ) (n nT nT2 m : ℕ)\n    (hx : 0 < x) (hn : 0 < n)\n    (hTT : x ^ (-(eps / 8)) * (n : ℝ) / 2 ≤ (nT : ℝ))\n    (hT2 : x ^ (-eps) ≤ (nT2 : ℝ) / (n : ℝ))\n    (hm : x ^ ((1 / 2 : ℝ) - eps) ≤ (m : ℝ)) :\n    0 < nT ∧ 0 < nT2 ∧ 0 < m := by\n__PROOF__\n\nend RHGym\n"
   }
 ]
