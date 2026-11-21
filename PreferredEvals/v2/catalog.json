@@ -484,6 +484,17 @@
       "status": "root_level_inference",
       "priority": "P0",
       "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "ideation-arena-human-pairs",
+      "name": "Ideation Arena Eval (human research preference pairs)",
+      "category": "research-taste",
+      "provider": "EMNLP 2026 / Chen et al.",
+      "url": "https://aclanthology.org/2026.emnlp-main.688/",
+      "access": "public_cc_by_nc_4_0_separate_json_sources",
+      "status": "human_annotated_pairwise_judge_agreement_development_only",
+      "priority": "P0",
+      "integration": "manual_dataset_revision_pin_and_explicit_noncommercial_license_ack_required"
     }
   ]
 }
