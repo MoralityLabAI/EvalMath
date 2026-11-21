@@ -86,7 +86,7 @@ def plan(profile, *, model, base_url, out, limit=4, rollouts=1, taskset=None,
         if runtime == "prime":
             notes.append("Paid Prime runtime requested; requires --allow-paid on execution")
     return {"schema":"preferred-evals/native-plan-v1", "profile":profile, "model":model,
-            "url_host":uri.hostname, "release":meta.get("release","pin upstream Inkling commit"),
+            "url_host":uri.hostname, "release":meta.get("release","pin upstream Inkling commit"), "runtime":runtime,
             "command":command, "prepare_command":prepare, "notes":notes,
             "dry_run_only":True}
 
@@ -95,7 +95,7 @@ def run(plan_data, *, workdir, execute=False, do_prepare=False, allow_paid=False
         allow_downloads=False, allow_remote=False):
     if not execute:
         return {"executed":False, "plan":plan_data}
-    if plan_data["profile"] == "prime-v041" and "prime" in plan_data["command"] and not allow_paid:
+    if plan_data["profile"] == "prime-v041" and plan_data.get("runtime") == "prime" and not allow_paid:
         raise ValueError("paid Prime runtime requires --allow-paid")
     host = plan_data["url_host"]
     if host.lower() not in ("localhost", "127.0.0.1", "::1") and not allow_remote:
