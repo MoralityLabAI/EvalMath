@@ -35,3 +35,9 @@ See [v2 design and executable preflight](v2/README.md), [annotated papers](paper
 - **Generalization:** public ARC-AGI-3 games, GDPval deliverables and multimodal tasks, with task quality and licensing checks.
 
 The first v2 change is a standard-library validation/receipt adapter and catalog. There are no new model scores in this repository unless accompanied by raw trace hashes, a registered experimental protocol and a separately identified grader.
+
+## Gym rollout status
+
+[The executable rollout gym](gym/README.md) now runs user-supplied, public or authorized single-turn pairwise/choice/short-answer tasks against OpenAI-compatible local models, or launches a native pinned external framework. [Coverage by category](gym/STATUS.md) distinguishes executable profiles from catalog-only benchmarks. TASTE's 92 human-labeled proposal pairs require research access, so the bundled two-pair fixture is explicitly synthetic and tests only the HTTP/format/scoring path. A provider-independent CPU mock validates the integration but is not a model benchmark result.
+
+**Prime compatibility:** the 2026-11-03 `verifiers` 0.4.1 release uses `vf-run` (local) and moves full evals to `prime-rl`; earlier `vf-eval` commands in the September Prime atlas remain historically pinned and must not be used unmodified for 0.4.1.

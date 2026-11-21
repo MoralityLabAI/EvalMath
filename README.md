@@ -179,3 +179,8 @@ Future research agents should read [`skills/evalmath-mechinterp-power/SKILL.md`]
 ## PreferredEvals: external benchmark diversity and v2 receipts
 
 The [PreferredEvals catalog](PreferredEvals/README.md) adds ten externally oriented evaluation skill categories and an annotated [papers index](PreferredEvals/papers/README.md). It tracks research taste, experimental design, coding/terminal tasks, tool-using agents, formal science, safety, recurrence and long context, interactive world models, professional work and benchmark quality. The [v2 contract](PreferredEvals/v2/README.md) validates experimental plans and exports clustered paired results to FSI-01. Prime Intellect's current `verifiers.v1` remains the execution framework; PreferredEvals v2 is an EvalMath standards layer, not a fork of upstream Verifiers.
+
+
+### PreferredEvals local rollout gym
+
+[PreferredEvals/gym/README.md](PreferredEvals/gym/README.md) describes the executable local Chat Completions runner, native Inkling Verify and Verifiers 0.4.1 launch profiles, separate reference scoring, task-root pairing and FSI-01 export. A mock server is used only in CI, and native benchmark scoring remains owned by the upstream harness. Rollout commands and limitations are documented with independent-data and access restrictions.

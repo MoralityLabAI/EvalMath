@@ -23,7 +23,7 @@ The CLI lints a *plan*. A valid manifest means its structure is coherent, never 
 
 ## Adapter policy
 
-Prime v1 tasksets and traces remain native upstream. Store `TaskData.id/key/hash`, installed taskset version, harness ID/version, runtime type, environment and agent configurations, model sampling, error codes and `ModelCall` usage. Use `vf-eval @ config.toml --dry-run` before paid or GPU runs. Preserve `traces.jsonl`; never replay an errored rollout as an independent new task. Maintain a strict v1 converter for archived summaries, rather than silently guessing trace schema.
+Prime v1 tasksets and traces remain native upstream. As of Verifiers 0.4.1, the local runner is `vf-run`, while the full evaluator is in `prime-rl`; archived `vf-eval` recipes require their original version. Store `TaskData.id/key/hash`, installed taskset version, harness ID/version, runtime type, environment and agent configurations, model sampling, error codes and `ModelCall` usage. With the pinned 0.4.1 CLI, use `vf-run --dry-run` before model evaluation; older `vf-eval @ config.toml --dry-run` belongs to prior releases. Preserve `traces.jsonl`; never replay an errored rollout as an independent new task. Maintain a strict v1 converter for archived summaries, rather than silently guessing trace schema.
 
 For other frameworks, create ingestion adapters behind the same evidence contract. If a task requires a paid sandbox, missing API judge, or private TasteVal item, record that limitation and choose a public alternative for development.
 
@@ -32,3 +32,7 @@ For other frameworks, create ingestion adapters behind the same evidence contrac
 A proposed "new Verifiers v2 set" is warranted for **missing scientific controls**, not replacement infrastructure: research taste with human paired judgments, progressive experimental design with equal fixed Coder, causal intervention transfer, model self-monitorability and graded artifact repair. Each custom set needs benchmark-independent task roots, available gold verifier, human adjudication for subjective labels, contamination audit and reusable external comparator.
 
 See [catalog](catalog.json), [skills](../README.md) and [papers](../papers/README.md).
+
+## Connected rollout execution
+
+Use [the runnable gym](../gym/README.md) for local model endpoints and [execution coverage](../gym/STATUS.md) for current adapter boundaries. Native profiles do not install dependencies, obtain private data, or score with an alternative judge. Prompt tasks keep label files separate; pairwise position swaps and samples inherit the task's independent root. The `compare.py` bridge exports unsealed development cases for EvalMath FSI-01, with multiple attempts nested under roots.

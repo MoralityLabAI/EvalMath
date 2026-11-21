@@ -31,3 +31,7 @@ Apply the [common contract](../../v2/README.md) and a pinned `preferred-evals/v2
 ## Papers and methods
 
 See [the annotated reading notes](../../papers/agents-and-mcp.md) and [the research paper index](../../papers/README.md). Papers are conceptual references; they do not grant use of withheld tasks or private grader data.
+
+### Native runner compatibility
+
+For `verifiers==0.4.1` use `vf-run` for local in-process episodes and `prime-rl` for hosted/full evaluation; `vf-eval` is an older CLI. The [PreferredEvals native launch profile](../../gym/README.md) uses the `verifiers.v1` taskset/harness contract and explicit `subprocess` runtime by default. Keep version-specific trace schema and model endpoint settings in the run receipt; do not treat a successful subprocess exit as task success.

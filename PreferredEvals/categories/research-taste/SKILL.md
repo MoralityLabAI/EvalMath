@@ -31,3 +31,7 @@ Apply the [common contract](../../v2/README.md) and a pinned `preferred-evals/v2
 ## Papers and methods
 
 See [the annotated reading notes](../../papers/research-taste.md) and [the research paper index](../../papers/README.md). Papers are conceptual references; they do not grant use of withheld tasks or private grader data.
+
+### Dataset rights and pair dependencies
+
+Anthropic TASTE distributes its 92 scored proposal pairs by request to AI safety researchers. Use an authorized local copy only. Pair labels are not a generic public benchmark, and repeated proposal identities induce dependence between comparison pairs. Use the [gym pairwise runner](../../gym/README.md) for candidate-model rollouts once rights are established, and group inferential units by independent proposal/source graph rather than automatically by pair. The included demo pairs are authored examples with synthetic answer letters, not TASTE data.

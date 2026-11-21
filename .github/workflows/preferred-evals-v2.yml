@@ -34,4 +34,10 @@ jobs:
           PYTHONPATH=src python -m spiral_ln.evaluation_finite_sample \
             --manifest "$RUNNER_TEMP/fsi.json" --output "$RUNNER_TEMP/fsi-result.json"
           python -c 'import json,os; d=json.load(open(os.environ["RUNNER_TEMP"]+"/fsi-result.json")); assert d["verdict"] != "confirmed"; assert "readout_used_in_selection_or_unsealed" in d["gate_reasons"]; assert d["n_clusters"]==2'
-
+      - name: PreferredEvals native rollout gym CPU and adapter smoke
+        run: |
+          python -m unittest discover -s PreferredEvals/gym/tests -p 'test_*.py' -v
+          python PreferredEvals/gym/external.py --list
+          python PreferredEvals/gym/external.py --profile prime-v041 --taskset gsm8k --model dummy-model --out "$RUNNER_TEMP/prime-smoke" --write-plan "$RUNNER_TEMP/prime-plan.json"
+          python PreferredEvals/gym/external.py --profile inkling-deepswe --model dummy-model --out "$RUNNER_TEMP/inkling-smoke" --write-plan "$RUNNER_TEMP/inkling-plan.json"
+          python -c 'import json,os; p=json.load(open(os.environ["RUNNER_TEMP"]+"/prime-plan.json")); assert p["command"][0]=="vf-run"; assert not p["dry_run_only"] is False'

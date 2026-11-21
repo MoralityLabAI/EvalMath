@@ -62,10 +62,10 @@
       "category": "research-taste",
       "provider": "Anthropic",
       "url": "https://alignment.anthropic.com/2026/taste/",
-      "access": "research_protocol",
+      "access": "permissioned_dataset",
       "status": "expert_labeled_pairwise",
       "priority": "P0",
-      "integration": "pin_upstream_and_review_license_before_execution"
+      "integration": "researcher_authorization_and_release_required"
     },
     {
       "id": "tasteval",
@@ -208,7 +208,7 @@
       "access": "public_tooling_some_paid_tasks",
       "status": "taskset_harness_trace_contract",
       "priority": "P0",
-      "integration": "pin_upstream_and_review_license_before_execution"
+      "integration": "verifiers_v041_vf_run_local_prime_rl_full"
     },
     {
       "id": "tau2-bench",
