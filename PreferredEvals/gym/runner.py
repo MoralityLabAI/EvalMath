@@ -19,7 +19,9 @@ import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
+import threading
 from collections import Counter, defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 TASK_SCHEMA = "preferred-evals/prompt-task-v1"
@@ -110,7 +112,25 @@ def prompt_for(task, order):
     return task["question"] + "\n\nReturn only the final short answer.", None
 
 
-def parse_output(text, kind, allowed):
+RESPONSE_MODES = ("answer_only", "cot_final_line")
+COT_SYSTEM = ("Reason step by step in plain text, then finish with one last line of the form "
+              "'Answer: <answer>' in exactly the requested answer format.")
+COT_SUFFIX = ("\n\nWork through it step by step. Then end your reply with a final line 'Answer: ' followed by "
+              "the answer in the requested format.")
+FINAL_LINE = re.compile(r"(?im)^\s*\**answer\**\s*:\s*(.+?)\s*$")
+
+
+def final_line_answer(text):
+    """The text after the last 'Answer:' line, or None when the reply has none."""
+    if not isinstance(text, str):
+        return None
+    hits = FINAL_LINE.findall(text)
+    return hits[-1].strip().strip("*").strip() if hits else None
+
+
+def parse_output(text, kind, allowed, mode="answer_only"):
+    if mode == "cot_final_line":
+        text = final_line_answer(text)
     if not isinstance(text, str):
         return None
     if kind == "exact_text":
@@ -142,11 +162,12 @@ def check_endpoint(base_url, allow_remote):
     return base_url.rstrip("/")
 
 
-def completion_call(*, base_url, model, prompt, seed, temperature, max_tokens, timeout, key_env, extra=None):
+def completion_call(*, base_url, model, prompt, seed, temperature, max_tokens, timeout, key_env, extra=None,
+                    system=None):
     url = base_url + "/chat/completions"
     request = {"model": model,
-               "messages": [{"role": "system", "content": "Answer with exactly the requested format. "
-                                                        "Do not reveal chain-of-thought."},
+               "messages": [{"role": "system", "content": system or ("Answer with exactly the requested format. "
+                                                                     "Do not reveal chain-of-thought.")},
                             {"role": "user", "content": prompt}],
                "temperature": temperature, "max_tokens": max_tokens, "seed": seed}
     request.update(extra or {})
@@ -179,7 +200,11 @@ def completion_call(*, base_url, model, prompt, seed, temperature, max_tokens, t
 def run_tasks(*, dataset, out_dir, benchmark, model, base_url, limit=None, rollouts=1,
               orders="normal", temperature=0.0, seed=42, max_tokens=256, timeout=120,
               key_env="PREFERRED_EVALS_API_KEY", allow_remote=False, resume=False,
-              client=completion_call, request_extra=None):
+              client=completion_call, request_extra=None, response_mode="answer_only", concurrency=1):
+    if response_mode not in RESPONSE_MODES:
+        raise ValueError(f"response_mode must be one of {RESPONSE_MODES}")
+    if type(concurrency) is not int or not 1 <= concurrency <= 16:
+        raise ValueError("concurrency must be 1..16")
     request_extra = dict(request_extra or {})
     if set(request_extra) & RESERVED_REQUEST_KEYS:
         raise ValueError("request_extra may not override model, messages, sampling or token budget fields")
@@ -207,6 +232,8 @@ def run_tasks(*, dataset, out_dir, benchmark, model, base_url, limit=None, rollo
               "evidence_class": "unscored model inference; reference labels were not read"}
     if request_extra:
         config["request_extra"] = request_extra
+    if response_mode != "answer_only":
+        config["response_mode"] = response_mode
     if path.exists() and (meta_path.exists() or rows_path.exists()):
         if not resume:
             raise FileExistsError("run directory has receipts; pass --resume with exactly the original config")
@@ -224,37 +251,52 @@ def run_tasks(*, dataset, out_dir, benchmark, model, base_url, limit=None, rollo
         if key in seen:
             raise ValueError("duplicate receipt rows: unsafe resume")
         seen.add(key)
-    count = 0
+    jobs = []
     for task in tasks:
         for order in (("normal", "swapped") if orders == "both" and task["kind"] == "pairwise" else ("normal",)):
             prompt, allowed = prompt_for(task, order)
+            if response_mode == "cot_final_line":
+                prompt = prompt + COT_SUFFIX
             for sample in range(rollouts):
-                key = (task["task_id"], order, sample)
-                if key in seen:
-                    continue
-                request_seed = seed + sample
-                call = dict(base_url=base_url, model=model, prompt=prompt, seed=request_seed,
-                            temperature=temperature, max_tokens=max_tokens, timeout=timeout, key_env=key_env)
-                if request_extra:
-                    call["extra"] = request_extra
-                provider = client(**call)
-                result = {"task_id": task["task_id"], "root_id": task["root_id"],
-                          "kind": task["kind"], "order": order, "sample": sample,
-                          "prompt_sha256": digest(prompt), "request_seed": request_seed,
-                          "status": provider["status"], "duration_seconds": provider.get("duration_seconds")}
-                if provider["status"] == "completed":
-                    choice = parse_output(provider["answer"], task["kind"], allowed)
-                    result.update({"parsed": choice, "format_valid": choice is not None,
-                                   "answer": provider["answer"], "usage": provider.get("usage"),
-                                   "finish_reason": provider.get("finish_reason")})
-                    if "reasoning_chars" in provider:
-                        result["reasoning_chars"] = provider["reasoning_chars"]
-                else:
-                    result.update({"error_type": provider.get("error_type"),
-                                   "http_status": provider.get("http_status")})
-                append_jsonl(rows_path, result)
-                seen.add(key)
-                count += 1
+                if (task["task_id"], order, sample) not in seen:
+                    jobs.append((task, order, sample, prompt, allowed))
+    lock = threading.Lock()
+
+    def one(job):
+        task, order, sample, prompt, allowed = job
+        request_seed = seed + sample
+        call = dict(base_url=base_url, model=model, prompt=prompt, seed=request_seed,
+                    temperature=temperature, max_tokens=max_tokens, timeout=timeout, key_env=key_env)
+        if request_extra:
+            call["extra"] = request_extra
+        if response_mode == "cot_final_line":
+            call["system"] = COT_SYSTEM
+        provider = client(**call)
+        result = {"task_id": task["task_id"], "root_id": task["root_id"],
+                  "kind": task["kind"], "order": order, "sample": sample,
+                  "prompt_sha256": digest(prompt), "request_seed": request_seed,
+                  "status": provider["status"], "duration_seconds": provider.get("duration_seconds")}
+        if provider["status"] == "completed":
+            choice = parse_output(provider["answer"], task["kind"], allowed, response_mode)
+            result.update({"parsed": choice, "format_valid": choice is not None,
+                           "answer": provider["answer"], "usage": provider.get("usage"),
+                           "finish_reason": provider.get("finish_reason")})
+            if "reasoning_chars" in provider:
+                result["reasoning_chars"] = provider["reasoning_chars"]
+        else:
+            result.update({"error_type": provider.get("error_type"),
+                           "http_status": provider.get("http_status")})
+        with lock:
+            append_jsonl(rows_path, result)
+            seen.add((task["task_id"], order, sample))
+
+    if concurrency == 1:
+        for job in jobs:
+            one(job)
+    else:
+        with ThreadPoolExecutor(max_workers=concurrency) as pool:
+            list(pool.map(one, jobs))
+    count = len(jobs)
     return {"schema": RUN_SCHEMA, "new_rollout_rows": count, "total_receipt_rows": len(seen),
             "run_dir": str(path), "n_independent_roots_declared": config["n_independent_roots_declared"]}
 
@@ -364,6 +406,9 @@ def main():
     r.add_argument("--request-extra",type=json.loads,default=None,
                    help='JSON object merged into each request and recorded in run.json, '
                         'e.g. \'{"chat_template_kwargs":{"enable_thinking":false}}\'')
+    r.add_argument("--response-mode",choices=RESPONSE_MODES,default="answer_only",
+                   help="answer_only (default) or cot_final_line: visible reasoning, scored on the last 'Answer:' line")
+    r.add_argument("--concurrency",type=int,default=1,help="requests in flight (receipts are order-independent)")
     s=sub.add_parser("score",help="Offline grade saved model rollouts against separate labels")
     s.add_argument("--run-dir",type=Path,required=True)
     s.add_argument("--labels",type=Path,required=True)
@@ -375,7 +420,8 @@ def main():
                          rollouts=args.rollouts,orders=args.orders,temperature=args.temperature,
                          seed=args.seed,max_tokens=args.max_tokens,timeout=args.timeout,
                          key_env=args.api_key_env,allow_remote=args.allow_remote,resume=args.resume,
-                         request_extra=args.request_extra)
+                         request_extra=args.request_extra,response_mode=args.response_mode,
+                         concurrency=args.concurrency)
     else:
         result=score_run(run_dir=args.run_dir,labels_path=args.labels,out_path=args.out)
     print(json.dumps(result,sort_keys=True))

@@ -121,6 +121,36 @@ class PromptGymTests(unittest.TestCase):
         self.assertEqual(canonical_text('`42`'),'42')
         self.assertEqual(canonical_text('Wait...'),'wait...')
 
+    def test_cot_final_line_mode_and_concurrency(self):
+        from runner import final_line_answer
+        self.assertEqual(final_line_answer('a = 3\nso b = 9\n**Answer:** 9'), '9')
+        self.assertEqual(final_line_answer('Answer: 4\nwait\nAnswer: 5'), '5')
+        self.assertIsNone(final_line_answer('just 7'))
+        seen_systems = []
+
+        def scripted(**call):
+            seen_systems.append(call.get('system'))
+            text = 'step one\nAnswer: 12' if call['prompt'].count('q1') else 'no final line'
+            return {'status': 'completed', 'answer': text, 'usage': {'completion_tokens': 5},
+                    'duration_seconds': 0.01, 'finish_reason': 'stop'}
+        with TemporaryDirectory() as td:
+            temp = Path(td)
+            tasks = temp / 't.jsonl'
+            tasks.write_text('\n'.join(json.dumps({'schema': 'preferred-evals/prompt-task-v1', 'benchmark_id': 'b',
+                                                   'task_id': f'q{i}', 'root_id': f'q{i}', 'kind': 'exact_text',
+                                                   'question': f'q{i}?'}) for i in range(1, 9)) + '\n')
+            (temp / 'l.jsonl').write_text(''.join(json.dumps({'task_id': f'q{i}', 'answer': '12'}) + '\n'
+                                                   for i in range(1, 9)))
+            r = run_tasks(dataset=tasks, out_dir=temp / 'run', benchmark='b', model='m', base_url=self.endpoint,
+                          client=scripted, response_mode='cot_final_line', concurrency=4)
+            self.assertEqual(r['total_receipt_rows'], 8)
+            self.assertTrue(all(s and 'Answer:' in s for s in seen_systems))
+            s = score_run(run_dir=temp / 'run', labels_path=temp / 'l.jsonl', out_path=temp / 's.json')
+            self.assertEqual(s['n_correct'], 1)
+            rows = load_jsonl(temp / 'run' / 'rollouts.jsonl')
+            self.assertEqual(sum(1 for x in rows if not x['format_valid']), 7)
+            self.assertEqual(json.loads((temp / 'run' / 'run.json').read_text())['response_mode'], 'cot_final_line')
+
     def test_reject_partial_label_file(self):
         with TemporaryDirectory() as td:
             temp=Path(td)
