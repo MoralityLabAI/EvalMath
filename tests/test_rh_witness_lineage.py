@@ -21,3 +21,9 @@ def test_declarations_and_references(tmp_path):
 def test_invalid_limit(tmp_path):
     with pytest.raises(ValueError):
         scan(tmp_path, limit=0)
+
+
+def test_gate_catalog_pins_read_only_original_source():
+    from spiral_ln.rh_witness_lineage import GATE_CHECKS, GATE_FILES
+    assert len(GATE_CHECKS) == 7
+    assert all(len(blob) == 40 for _, blob in GATE_FILES.values())

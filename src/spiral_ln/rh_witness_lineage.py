@@ -13,7 +13,11 @@ BASE = Path(__file__).resolve().parents[2] / "gyms/RHProofDistillation"
 PIN = "f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3"
 TERMS = ("SizeWindows", "SmallCosts", "GrowthInequalityDataExists",
          "ReducedGrowthInequalityDataExists", "ChainTied", "CoreAtH",
-         "RestSize", "Chain2aSizesModelEv", "FamCoreConstantBounds")
+         "RestSize", "Chain2aSizesModelEv", "FamCoreConstantBounds",
+    "SizesAt", "PlacesAt", "adm5", "adm6", "adm7",
+    "FamilyPropTwoSix", "FamilyCharacterSumBounds", "SizesFe", "TOPF",
+    "proposition_eleven_two_at_scale", "proposition_eleven_two_along_family",
+    "proposition_eleven_two_small_epsilon", "ChainCore")
 DECL = re.compile(r"^\s*(?:(?:private|protected|noncomputable)\s+)*(?:theorem|lemma|def|structure|class|abbrev|instance)\s+([^\s(:]+)")
 BOUNDARIES = {t: re.compile(r"(?<![\w'])" + re.escape(t) + r"(?![\w'])") for t in TERMS}
 
@@ -84,6 +88,7 @@ def main() -> None:
     root = args.source_root.resolve()
     result = scan(root)
     result["identity"] = verify(root)
+    result["gates"] = audit_gate_sources(root)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print(json.dumps({
@@ -93,6 +98,62 @@ def main() -> None:
         "proof_term_data": False,
     }, sort_keys=True))
 
+
+
+# Source-observed witness transitions. No theorem proof terms are re-exported.
+GATE_FILES = {
+    "family": ("src/Formalism/SharpRestriction/GlobalSchurBounds/RamificationTwoAndConjugationAtQAndD.lean",
+               "1c1495ef81c77fa96f3c1a70106c1da9e24c0c5d"),
+    "cost": ("src/Development/AutomorphicArithmetic/ConductorsKronecker/CostPropositionBasicBound.lean",
+             "99e6384355aea45f0b5fe4726b4154444e7e82e1"),
+    "split": ("src/Formalism/SizeWindowBrackets/ChainSlopeWindows/PChain.lean",
+              "57559bc6dedbabbac7365c9f31fbbab09164edca"),
+}
+GATE_CHECKS = {
+    "windows": ("family", ("SizesAt D s", "PlacesAt D s", "ThickSetMeanBounds.SizeWindows")),
+    "smallCosts": ("family", ("SizesAt D s", "LargeX s.x", "ThickSetMeanBounds.SmallCosts")),
+    "proposition_eleven_two_at_scale": ("family", (
+        "adm5 D s", "adm6 D s", "adm7 D s", "SizesAt D s", "PlacesAt D s",
+        "ThickSetMeanBounds.SmallCosts", "ThickSetMeanBounds.SizeWindows",
+        "cost_proposition_at_scale")),
+    "proposition_eleven_two_along_family": ("family", (
+        "adm5", "adm6", "SizesAt", "PlacesAt", "adm7",
+        "proposition_eleven_two_at_scale")),
+    "proposition_eleven_two_small_epsilon": ("family", (
+        "FamilyPropTwoSix", "FamilyCharacterSumBounds", "SizesFe", "TOPF")),
+    "cost_proposition_at_scale": ("cost", (
+        "GrowthInequalityHypotheses", "SmallCosts", "SizeWindows",
+        "proposition_size_bound", "card_mul_delta_le_err")),
+    "size_windows_split": ("split", ("SizeWindows", "RestSize")),
+}
+
+
+def audit_gate_sources(root: Path) -> dict:
+    sources, file_ids = {}, {}
+    for key, (name, expected_sha) in GATE_FILES.items():
+        raw = (root / name).read_bytes()
+        if git_blob_sha(raw) != expected_sha:
+            raise ValueError("upstream gate source blob mismatch: " + name)
+        sources[key] = raw.decode("utf-8")
+        file_ids[key] = {"path": name, "git_blob": expected_sha}
+    sites = {}
+    for name, (file_key, needles) in GATE_CHECKS.items():
+        text = sources[file_key]
+        marker = "theorem " + name + " "
+        start = text.find(marker)
+        if start < 0:
+            raise ValueError("upstream theorem missing: " + name)
+        stop = text.find("\ntheorem ", start + len(marker))
+        body = text[start:stop if stop >= 0 else len(text)]
+        absent = [needle for needle in needles if needle not in body]
+        if absent:
+            raise ValueError(f"upstream theorem {name} missing markers: {absent}")
+        sites[name] = {"path": file_ids[file_key]["path"],
+                       "git_blob": file_ids[file_key]["git_blob"],
+                       "start_line": text[:start].count("\n") + 1,
+                       "observed_text_calls": list(needles)}
+    return {"mode": "pinned_source_text_calls_only", "proof_term_data": False,
+            "files": file_ids, "gates": sites}
 
 if __name__ == "__main__":
     main()
