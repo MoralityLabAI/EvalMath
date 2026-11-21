@@ -62,5 +62,29 @@
     "anchor": "weighted_bound",
     "description": "Reconstruct the essential existential-witness projection used when ChainTied is reduced to a core-bound structure, with all geometric and arithmetic assertions treated as explicit variables.",
     "template": "import Mathlib\n\nnamespace RHGym\n\ndef ChainTiedProxy {I : Type} (TiePts TieGlobal CoreWindow CoreBounds : I → Prop) : Prop :=\n  ∃ i : I, TiePts i ∧ TieGlobal i ∧ CoreWindow i ∧ CoreBounds i\n\ndef CoreAtHProxy {I : Type} (CoreWindow CoreBounds : I → Prop) : Prop :=\n  ∃ i : I, CoreWindow i ∧ CoreBounds i\n\ntheorem chain_tied_to_core {I : Type}\n    {TiePts TieGlobal CoreWindow CoreBounds : I → Prop}\n    (h : ChainTiedProxy TiePts TieGlobal CoreWindow CoreBounds) :\n    CoreAtHProxy CoreWindow CoreBounds := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-009",
+    "difficulty": "medium",
+    "category": "finite_character_averaging",
+    "anchor": "weighted_bound",
+    "description": "Recover the strict-cardinality cancellation step of CharacterBalanceMoves.core after averaging a pointwise error bound over a nonempty finite group.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem character_average_cancel\n    {ι : Type} [Fintype ι] [Nonempty ι]\n    (f : ι → ℝ) (A Err : ℝ)\n    (hpoint : ∀ i, f i ≤ Err)\n    (horth : (∑ i, f i) = (Fintype.card ι : ℝ) * A) :\n    A ≤ Err := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-010",
+    "difficulty": "medium",
+    "category": "finite_character_averaging",
+    "anchor": "weighted_bound",
+    "description": "Aggregate the per-character local kernel correction across TT × Fin m into the exact 2|TT|mb/x remainder used in CharacterBalanceMoves.core.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem sum_local_kernel_error\n    {H : Type} [DecidableEq H]\n    (TT : Finset H) (m : ℕ)\n    (f g : H → Fin m → ℝ) (b x : ℝ) (hx : 0 < x)\n    (hlocal : ∀ t ∈ TT, ∀ j : Fin m,\n      f t j ≤ g t j + 2 * b / x) :\n    (∑ t ∈ TT, ∑ j : Fin m, f t j) ≤\n      (∑ t ∈ TT, ∑ j : Fin m, g t j) +\n        2 * (TT.card : ℝ) * (m : ℝ) * b / x := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-011",
+    "difficulty": "medium",
+    "category": "size_window_power_bound",
+    "anchor": "weighted_bound",
+    "description": "Transport the error-window bound to the exponent budget by multiplying two nonnegative real powers, an isolated arithmetic obligation behind proposition_size_bound.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem window_error_power_bound\n    (x C eps Err bracket : ℝ) (hx : 0 < x)\n    (hErr : Err ≤ x ^ (C * eps) * bracket)\n    (hBracket : bracket ≤ x ^ ((1 / 2 : ℝ) + eps)) :\n    Err ≤ x ^ ((1 / 2 : ℝ) + (C + 1) * eps) := by\n__PROOF__\n\nend RHGym\n"
   }
 ]

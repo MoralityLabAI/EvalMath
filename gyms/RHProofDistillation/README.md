@@ -54,3 +54,7 @@ Evidence levels here remain those used in EvalMath: a compiled Lean theorem, a f
 ## Second pass: source-site proof ledger and dependency probe
 
 See [core_gm_proof_map.md](core_gm_proof_map.md) and [core_gm_sources.json](core_gm_sources.json). The two new exercises RH-D-005/006 reconstruct the +7-epsilon bookkeeping of the prime-sum bound. `spiral_ln.rh_dependency` builds a separate Lean probe using `ConstantInfo.value? (allowOpaque := true)` and `Expr.getUsedConstants`, with a toy-compilation smoke check in CI. An upstream proof-term graph is reported only after the compiled pinned mirror has been inspected; the ledger is based on source call sites.
+
+## Character-balance and size-window benchmarks
+
+Tasks RH-D-009 through RH-D-011 are new isolated Lean subgoals suggested by the source-verified `CharacterBalanceMoves.core` and compiled `proposition_size_bound` references. They test cancellation of finite-group averaging, aggregation of a double-indexed local correction, and real-power bound propagation. The real analytic and geometric hypotheses remain explicit. Each reference proof is compiled by the standard Lean CI grader; the gold proof file is intended only for smoke tests.
