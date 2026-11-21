@@ -1,0 +1,748 @@
+{
+  "accuracy_scored": 0.0125,
+  "benchmark_id": "sealed-multihop-binding",
+  "by_order": {
+    "normal": {
+      "correct": 1,
+      "n": 80
+    }
+  },
+  "evidence_class": "development or observed rollout score, not prospective confirmation",
+  "labels_sha256": "fcabaadc5364472e1f88458ce4291f48c9a0c6d15edcf138830415347a2f27ab",
+  "macro_root_accuracy": 0.0125,
+  "model": "bonsai-27b-ptq1",
+  "n_assigned_tasks": 80,
+  "n_correct": 1,
+  "n_rollouts_recorded": 80,
+  "n_roots_assigned": 80,
+  "n_roots_scored": 80,
+  "n_scored": 80,
+  "rows": [
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-2",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-2"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-1",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-1"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-3",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-3"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-4",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-4"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-6",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-6"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-5",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-5"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-7",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-7"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-8",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-8"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-9",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-9"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-11",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-11"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-12",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-12"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-13",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-13"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-14",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-14"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-15",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-15"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-16",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d02-16"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-17",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-17"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-10",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-10"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-18",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-18"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-19",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-19"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-20",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d02-20"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-1",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-1"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-2",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-2"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-3",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-3"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-4",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-4"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-5",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-5"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-6",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-6"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-8",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-8"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-9",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-9"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-7",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-7"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-10",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-10"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-11",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-11"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-12",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-12"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-13",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-13"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-14",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-14"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-15",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-15"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-16",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-16"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-18",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-18"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-19",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-19"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-20",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-20"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-1",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-1"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-2",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-2"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-3",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-3"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-4",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-4"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-5",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-5"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-6",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-6"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-17",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d04-17"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-7",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-7"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-8",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-8"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-10",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-10"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-11",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-11"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-12",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-12"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-9",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-9"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-13",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-13"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-15",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-15"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-16",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-16"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-17",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-17"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-18",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-18"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-19",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-19"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-20",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-20"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-1",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-1"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-2",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-2"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-14",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d08-14"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-3",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-3"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-5",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-5"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-4",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-4"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-7",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-7"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-6",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-6"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-8",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-8"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-9",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-9"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-11",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-11"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-12",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-12"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-10",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-10"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-13",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-13"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-14",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-14"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-16",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-16"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-15",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-15"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-18",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-18"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-19",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-19"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-20",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-20"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-17",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-17"
+    }
+  ],
+  "run_manifest_sha256": "1af53cb7ba61d2f8d22fde1a31c85fdeae6061acd37d30cb666a53c01d5a5c84",
+  "schema": "preferred-evals/prompt-score-v1",
+  "scope_warning": "Samples and order-swaps share task roots; apply EvalMath FSI-01 on independent roots for claims.",
+  "statuses": {
+    "completed": 80
+  }
+}

@@ -90,6 +90,31 @@ class CampaignLedger(unittest.TestCase):
         self.assertEqual(_holm([0.01, 0.04, 0.03]), [0.03, 0.06, 0.06])
 
 
+class BudgetTables(unittest.TestCase):
+    def test_depth_budget_cells_and_smallest_budget(self):
+        from budget_sweep import tables
+        with TemporaryDirectory() as td:
+            root = Path(td)
+            tasks = root / "tasks.jsonl"
+            tasks.write_text("\n".join(json.dumps({"task_id": f"t{i}", "hops": 2 if i < 2 else 8}) for i in range(4)))
+            for name, scores in (("m-b0", [1, 0, 0, 0]), ("m-b64", [1, 1, 1, 0])):
+                run = root / "runs" / name
+                run.mkdir(parents=True)
+                (run / "scores.json").write_text(json.dumps({"rows": [
+                    {"task_id": f"t{i}", "score": s, "status": "completed", "format_valid": i != 3}
+                    for i, s in enumerate(scores)]}))
+                (run / "rollouts.jsonl").write_text("\n".join(json.dumps({
+                    "task_id": f"t{i}", "usage": {"completion_tokens": 16},
+                    "finish_reason": "length" if i == 3 else "stop"}) for i in range(4)))
+            spec = {"conditions": {"m-b0": {"model": "m", "budget": 0}, "m-b64": {"model": "m", "budget": 64}}}
+            t = tables(root, tasks, spec, target=0.5)
+            cell = next(c for c in t["cells"] if c["budget"] == 64 and c["depth"] == 8)
+            self.assertEqual((cell["correct"], cell["cap_truncated"], cell["no_answer"]), (1, 1, 1))
+            self.assertEqual(cell["completion_tokens_per_hop_correct"], 2.0)
+            smallest = {(s["depth"]): s["smallest_budget"] for s in t["smallest_budget_reaching_target"]}
+            self.assertEqual(smallest, {2: 0, 8: 64})
+
+
 class SweScore(unittest.TestCase):
     def test_outcome_classes_follow_the_harness_report(self):
         with TemporaryDirectory() as td:

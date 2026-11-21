@@ -223,7 +223,7 @@ def paired(ledger: dict, cand: str, base: str, comparison: dict) -> dict:
                 "minimum_effect": comparison["minimum_effect"],
                 "planned_comparisons": comparison["planned_comparisons"],
                 "hypothesis_preregistered": bool(comparison.get("preregistered", False)),
-                "sealed_readout": False,
+                "sealed_readout": bool(comparison.get("sealed_readout", False)),
                 "clusters_independent": bool(comparison.get("clusters_independent", False)),
                 "exchangeable_pair_labels": bool(comparison.get("exchangeable_pair_labels", False)),
                 "cases": cases}
@@ -326,8 +326,12 @@ def main() -> None:
     summary["_registered_ids"] = [comp.get("registered_id") for comp in spec.get("comparisons", [])
                                   if comp["candidate"] in ledger and comp["baseline"] in ledger]
     ps = [_first_p(c["fsi_01_result"]) for c in summary["comparisons"]]
+    # Registered comparisons that were not run stay in the Holm family with p = 1.
+    summary["registered_not_run"] = [c["id"] for c in spec.get("comparisons", [])
+                                     if not (c["candidate"] in ledger and c["baseline"] in ledger)]
     if ps and all(p is not None for p in ps):
-        for c, adj in zip(summary["comparisons"], _holm(ps)):
+        adjusted = _holm(ps + [1.0] * len(summary["registered_not_run"]))
+        for c, adj in zip(summary["comparisons"], adjusted):
             c["p_raw"], c["p_holm"] = _first_p(c["fsi_01_result"]), round(adj, 4)
     # Exploratory comparisons are reported with their own unadjusted p and stay out of the Holm family.
     summary["exploratory_comparisons"] = []
