@@ -5,4 +5,4 @@
 {"id":"RH-D-005","proof":"rw [max_eq_left h]\nring"}
 {"id":"RH-D-006","proof":"have hB : 0 ≤ x ^ ((1 / 2 : ℝ) + (eD + eL + 6) * eps) :=\n  Real.rpow_nonneg hx.le _\nhave hterm : K * x ^ ((1 / 2 : ℝ) + eps) ≤\n    K * x ^ ((1 / 2 : ℝ) + (eD + eL + 6) * eps) :=\n  mul_le_mul_of_nonneg_left hSmall hK\nhave hcomp : G ≤ (1 + K) * x ^ ((1 / 2 : ℝ) + (eD + eL + 6) * eps) := by\n  nlinarith\nhave hcoeff := mul_le_mul_of_nonneg_right hErr hB\nhave hpow : x ^ eps * x ^ ((1 / 2 : ℝ) + (eD + eL + 6) * eps) =\n    x ^ ((1 / 2 : ℝ) + (eD + eL + 7) * eps) := by\n  rw [← Real.rpow_add hx]\n  congr 1\n  ring\nrw [hpow] at hcoeff\nexact le_trans hcomp hcoeff"}
 {"id":"RH-D-007","proof":"constructor\n· intro h\n  exact ⟨h.caraianiLocalGlobalDual, h.localLanglandsExists⟩\n· rintro ⟨hrow, hrec⟩\n  exact ⟨hrow, hrec, hrow⟩"}
-{"id":"RH-D-008","proof":"exact ⟨h.index, h.window, h.bounds⟩"}
+{"id":"RH-D-008","proof":"rcases h with ⟨i, _, _, hw, hb⟩\nexact ⟨i, hw, hb⟩"}
