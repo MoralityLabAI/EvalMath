@@ -84,9 +84,22 @@ def main():
     ap.add_argument("--out",type=Path,required=True)
     ap.add_argument("--fsi-out",type=Path)
     ap.add_argument("--alpha",default="0.05")
+    ap.add_argument("--registration",type=Path,help="frozen campaign registration; overrides generic comparison defaults")
     ap.add_argument("--minimum-effect",default="0.05")
     ap.add_argument("--planned-comparisons",type=int,default=1)
     args=ap.parse_args()
+    if args.registration:
+        reg=read(args.registration)
+        if reg.get("schema")!="preferred-evals/campaign-registration-v1":
+            raise ValueError("unknown campaign registration schema")
+        test=reg["test"]
+        minimum=str(test["minimum_effect"])
+        if minimum!="0.10" or test.get("multiplicity")!="Holm over the 8 comparisons above":
+            raise ValueError("campaign registration differs from the frozen eight-comparison protocol")
+        if len(reg["comparisons"]) + (1 if reg.get("within_model_comparison") else 0)!=8:
+            raise ValueError("campaign comparison family must include all eight")
+        args.minimum_effect=minimum
+        args.planned_comparisons=8
     result=compare(args.candidate_run,args.baseline_run,args.candidate_scores,args.baseline_scores,
                    alpha=args.alpha,minimum_effect=args.minimum_effect,
                    planned_comparisons=args.planned_comparisons)
