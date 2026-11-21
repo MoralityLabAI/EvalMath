@@ -30,3 +30,8 @@ def test_disk_and_count_guards(tmp_path):
         assure_disk(tmp_path, 9, max_modules=3, min_free_gib=0)
     with pytest.raises(ValueError, match="required"):
         assure_disk(tmp_path, 1, max_modules=2, min_free_gib=10**6)
+
+
+def test_analytic_declaration_uses_lean_namespace():
+    from spiral_ln.rh_selective_olean import COMPILED_DECLARATIONS
+    assert COMPILED_DECLARATIONS['analytic_window'] == 'Deduction.zeroFree_of_rpow_window'

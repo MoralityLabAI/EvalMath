@@ -29,6 +29,8 @@ CACHE_URL = ("https://rh-cache.taucetiproject.org/bootstrap/"
 MANIFEST_SHA256 = "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04"
 REPOSITORY = "leanprover-community/riemann-hypothesis"
 MAP_FORMAT = "2026-03-17"
+# The source anchor is spelled within a namespace; the elaborated constant is fully qualified.
+COMPILED_DECLARATIONS = {"analytic_window": "Deduction.zeroFree_of_rpow_window"}
 
 
 def load_restore_script(root: Path):
@@ -175,13 +177,14 @@ def main() -> None:
         dependencies = {}
         for anchor in anchors:
             import_module = module_name(anchor["path"])
-            src = build_probe([import_module], [anchor["declaration"]],
+            compiled_name = COMPILED_DECLARATIONS.get(anchor["id"], anchor["declaration"])
+            src = build_probe([import_module], [compiled_name],
                               depth=args.max_depth, max_nodes=args.max_nodes,
                               prefixes=["UpperTheory.", "Deduction.", "Formalism."])
             result = run_lean(src, root, timeout=args.timeout)
-            proof_root = next((n for n in result["nodes"] if n["name"] == anchor["declaration"]), None)
+            proof_root = next((n for n in result["nodes"] if n["name"] == compiled_name), None)
             if proof_root is None or proof_root["kind"] == "missing":
-                raise RuntimeError(f"source-pinned theorem not present in compiled env: {anchor['declaration']}")
+                raise RuntimeError(f"source-pinned theorem not present in compiled env: {compiled_name}")
             result["source_anchor"] = anchor["id"]
             dependencies[anchor["id"]] = result
         receipt["proofs"] = dependencies
@@ -193,9 +196,7 @@ def main() -> None:
     print(json.dumps({"status": receipt["status"], "source_commit": receipt["source_commit"],
                       "required_modules": receipt["required_modules"],
                       "proof_term_data": receipt["proof_term_data"],
-                      "roots": {k: v["source_closures"] if False else v["closure_modules"]
-                                for k, v in closures.items()} if False else
-                               {k: v["closure_modules"] for k, v in closures.items()}},
+                      "roots": {k: v["closure_modules"] for k, v in closures.items()}},
                      sort_keys=True))
 
 
