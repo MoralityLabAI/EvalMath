@@ -1,0 +1,29 @@
+{
+  "schema": "preferred-evals/campaign-receipt-index-v1",
+  "comparisons": {
+    "between-1": {
+      "reason": "Model-scored paired and FSI receipts not committed at frozen registration commit; pending import"
+    },
+    "between-2": {
+      "reason": "Model-scored paired and FSI receipts not committed at frozen registration commit; pending import"
+    },
+    "between-3": {
+      "reason": "Model-scored paired and FSI receipts not committed at frozen registration commit; pending import"
+    },
+    "between-4": {
+      "reason": "Model-scored paired and FSI receipts not committed at frozen registration commit; pending import"
+    },
+    "between-5": {
+      "reason": "Model-scored paired and FSI receipts not committed at frozen registration commit; pending import"
+    },
+    "between-6": {
+      "reason": "Model-scored paired and FSI receipts not committed at frozen registration commit; pending import"
+    },
+    "between-7": {
+      "reason": "Model-scored paired and FSI receipts not committed at frozen registration commit; pending import"
+    },
+    "within-8": {
+      "reason": "Within-Bonsai paired and FSI receipts not committed; pending import"
+    }
+  }
+}

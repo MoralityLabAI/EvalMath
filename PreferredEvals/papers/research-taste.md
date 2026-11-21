@@ -6,3 +6,5 @@
 - [SciTaste-Bench, Gao et al., Oct. 2026](https://arxiv.org/abs/2610.28653): cross-disciplinary academic taste dimensions and metadata-based scoring. Document field normalization and label provenance.
 
 **Design move:** pairwise blinded scoring with confidence, majority/adjudication, plus a separate prospective experimental budget trial. Measure how often preferred proposals succeed and experiment quality per cost. Test judge agreement on held-out authors/topics before optimization.
+
+- [Chen et al., Ideation Arena (EMNLP 2026)](https://aclanthology.org/2026.emnlp-main.688/): more than 6,000 double-blind research ideation comparisons from 105 researchers and a downstream judge-alignment evaluation. [Data](https://huggingface.co/datasets/yolo1213811/research-ideation-arena-dataset) licensed CC BY-NC 4.0; the two JSON sources have different schemas and should be loaded separately. Human choice labels measure evaluator agreement, not prospective scientific success.

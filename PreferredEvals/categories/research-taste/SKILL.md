@@ -35,3 +35,7 @@ See [the annotated reading notes](../../papers/research-taste.md) and [the resea
 ### Dataset rights and pair dependencies
 
 Anthropic TASTE distributes its 92 scored proposal pairs by request to AI safety researchers. Use an authorized local copy only. Pair labels are not a generic public benchmark, and repeated proposal identities induce dependence between comparison pairs. Use the [gym pairwise runner](../../gym/README.md) for candidate-model rollouts once rights are established, and group inferential units by independent proposal/source graph rather than automatically by pair. The included demo pairs are authored examples with synthetic answer letters, not TASTE data.
+
+## Ideation Arena researcher-labeled development pairs
+
+Use the [Ideation Arena conversion contract](../../results/campaign-20261121/README.md) for external human-labeled research idea comparisons. Record NC license acceptance, upstream source revision and human-label dimension. Analyze repeated contexts as one root, and test swapped order sensitivity. Preserve the label file outside inference prompts.
