@@ -1,0 +1,39 @@
+name: RH-CRYPTO-26 count-to-find exact control
+
+on:
+  push:
+    paths:
+      - "src/spiral_ln/rh_count_to_find.py"
+      - "tests/test_rh_count_to_find.py"
+      - "scripts/verify_rh_count_to_find.py"
+      - "paper/rh_count_to_find_2026_11_22.md"
+      - ".github/workflows/rh-count-to-find.yml"
+  pull_request:
+    paths:
+      - "src/spiral_ln/rh_count_to_find.py"
+      - "tests/test_rh_count_to_find.py"
+      - "scripts/verify_rh_count_to_find.py"
+      - "paper/rh_count_to_find_2026_11_22.md"
+      - ".github/workflows/rh-count-to-find.yml"
+  workflow_dispatch:
+
+jobs:
+  exact-control:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install EvalMath test requirements
+        run: python -m pip install -e ".[test]"
+      - name: Exact finite domain tests
+        run: python -m pytest -q tests/test_rh_count_to_find.py
+      - name: Generate development-only receipt
+        run: PYTHONPATH=src python scripts/verify_rh_count_to_find.py --phase dev --output output/rh_count_to_find/dev.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rh-count-to-find-development
+          path: output/rh_count_to_find/dev.json
+          if-no-files-found: error
