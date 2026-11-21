@@ -87,8 +87,8 @@ def build_probe(imports: list[str], roots: list[str], depth: int,
                 "end RHGraphToy\n") if toy else ""
     quoted_roots = ", ".join(chr(96) * 2 + name for name in roots)
     quoted_prefixes = ", ".join(json.dumps(p, ensure_ascii=False) for p in prefixes)
-    cmd = ("\nrun_cmd do\n"
-           "  let env \u2190 Lean.Elab.Command.getEnv\n"
+    cmd = ("\nopen Lean Elab Command\nrun_cmd do\n"
+           "  let env \u2190 getEnv\n"
            f"  liftIO <| RHDepProbe.emit env #[{quoted_roots}] {depth} {max_nodes} #[{quoted_prefixes}]\n")
     return header + "\n" + body + fixtures + cmd
 

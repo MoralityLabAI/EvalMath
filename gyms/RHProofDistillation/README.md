@@ -50,3 +50,7 @@ The grader compiles each candidate via lake env lean in the existing EvalMath Ma
 First extract declaration-level dependencies from exported Lean proof data and compare them with the import graph. Then identify and reprove explicit intermediate obligations in the Landau bound, theta scalar, Galois localization and covolume chain. Held-out tasks should split by dependency component, with exact provenance, contamination audit, compilation receipts and per-proof resource use.
 
 Evidence levels here remain those used in EvalMath: a compiled Lean theorem, a finite test, a source-verified declaration and an open research conjecture are distinct claims.
+
+## Second pass: source-site proof ledger and dependency probe
+
+See [core_gm_proof_map.md](core_gm_proof_map.md) and [core_gm_sources.json](core_gm_sources.json). The two new exercises RH-D-005/006 reconstruct the +7-epsilon bookkeeping of the prime-sum bound. `spiral_ln.rh_dependency` builds a separate Lean probe using `ConstantInfo.value? (allowOpaque := true)` and `Expr.getUsedConstants`, with a toy-compilation smoke check in CI. An upstream proof-term graph is reported only after the compiled pinned mirror has been inspected; the ledger is based on source call sites.

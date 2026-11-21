@@ -30,5 +30,21 @@
     "anchor": "weighted_bound",
     "description": "Remove arbitrarily small positive exponent slack over the reals.",
     "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem epsilon_squeeze (r : ℝ)\n    (h : ∀ ε : ℝ, 0 < ε → r ≤ (1 / 2 : ℝ) + ε) :\n    r ≤ (1 / 2 : ℝ) := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-005",
+    "difficulty": "medium",
+    "category": "exponent_accounting",
+    "anchor": "weighted_bound",
+    "description": "Reconstruct the exact +7-epsilon budget of the upstream core_gm proof, from a nonnegative sum of divisorial and loss exponents.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem exponent_budget (eD eL eps : ℝ) (h : 0 ≤ eD + eL) :\n    (1 / 2 : ℝ) + ((max (eD + eL) 0 + 3) + 3) * eps + eps =\n      (1 / 2 : ℝ) + (eD + eL + 7) * eps := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-006",
+    "difficulty": "medium",
+    "category": "exponent_accounting",
+    "anchor": "weighted_bound",
+    "description": "Absorb the excluded-character term into one additional x^eps factor under explicit large-x and comparison hypotheses.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem absorb_correction\n    (x eps K eD eL G : ℝ) (hx : 0 < x) (hK : 0 ≤ K)\n    (hErr : 1 + K ≤ x ^ eps)\n    (hSmall : x ^ ((1 / 2 : ℝ) + eps) ≤\n      x ^ ((1 / 2 : ℝ) + (eD + eL + 6) * eps))\n    (hMain : G ≤ x ^ ((1 / 2 : ℝ) + (eD + eL + 6) * eps) +\n      K * x ^ ((1 / 2 : ℝ) + eps)) :\n    G ≤ x ^ ((1 / 2 : ℝ) + (eD + eL + 7) * eps) := by\n__PROOF__\n\nend RHGym\n"
   }
 ]
