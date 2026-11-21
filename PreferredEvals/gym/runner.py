@@ -25,8 +25,9 @@ from pathlib import Path
 TASK_SCHEMA = "preferred-evals/prompt-task-v1"
 RUN_SCHEMA = "preferred-evals/prompt-run-v1"
 SCORE_SCHEMA = "preferred-evals/prompt-score-v1"
-LETTERS = "ABCDEF"
-CHOICE = re.compile(r"^\s*(?:(?:answer|choice)\s*:\s*)?([A-F])\s*[.!]?\s*$", re.I)
+LETTERS = "ABCDEFGHIJ"
+CHOICE = re.compile(r"^\s*(?:(?:answer|choice)\s*:\s*)?([A-J])\s*[.!]?\s*$", re.I)
+RESERVED_REQUEST_KEYS = {"model", "messages", "temperature", "max_tokens", "seed", "stream"}
 
 
 def digest(value):
@@ -75,8 +76,8 @@ def validate_tasks(tasks, benchmark):
             choices = task.get("choices")
             if not isinstance(task.get("question"), str) or not task["question"].strip():
                 raise ValueError(f"{tid}: question is required")
-            if not isinstance(choices, list) or not 2 <= len(choices) <= 6:
-                raise ValueError(f"{tid}: 2..6 choices required")
+            if not isinstance(choices, list) or not 2 <= len(choices) <= len(LETTERS):
+                raise ValueError(f"{tid}: 2..{len(LETTERS)} choices required")
             if not all(isinstance(s, str) and s.strip() for s in choices):
                 raise ValueError(f"{tid}: all choices must be nonempty text")
         elif task.get("kind") == "exact_text":
@@ -122,7 +123,13 @@ def parse_output(text, kind, allowed):
 
 
 def canonical_text(value):
-    return unicodedata.normalize("NFKC", value).strip().casefold()
+    """NFKC, casefold, outer whitespace, one layer of quotes/backticks and one trailing period removed."""
+    text = unicodedata.normalize("NFKC", value).strip()
+    if len(text) >= 2 and text[0] == text[-1] and text[0] in "\"'`":
+        text = text[1:-1].strip()
+    if text.endswith(".") and not text.endswith(".."):
+        text = text[:-1].rstrip()
+    return text.casefold()
 
 
 def check_endpoint(base_url, allow_remote):
@@ -135,13 +142,14 @@ def check_endpoint(base_url, allow_remote):
     return base_url.rstrip("/")
 
 
-def completion_call(*, base_url, model, prompt, seed, temperature, max_tokens, timeout, key_env):
+def completion_call(*, base_url, model, prompt, seed, temperature, max_tokens, timeout, key_env, extra=None):
     url = base_url + "/chat/completions"
     request = {"model": model,
                "messages": [{"role": "system", "content": "Answer with exactly the requested format. "
                                                         "Do not reveal chain-of-thought."},
                             {"role": "user", "content": prompt}],
                "temperature": temperature, "max_tokens": max_tokens, "seed": seed}
+    request.update(extra or {})
     encoded = json.dumps(request, ensure_ascii=False).encode("utf-8")
     headers = {"Content-Type": "application/json"}
     if key_env and os.environ.get(key_env):
@@ -151,12 +159,14 @@ def completion_call(*, base_url, model, prompt, seed, temperature, max_tokens, t
     try:
         with urllib.request.urlopen(req, timeout=timeout) as response:
             data = json.load(response)
-        answer = (data.get("choices") or [{}])[0].get("message", {}).get("content")
+        message = (data.get("choices") or [{}])[0].get("message", {})
+        answer = message.get("content")
         if not isinstance(answer, str):
             raise ValueError("response contained no assistant text")
         usage = data.get("usage") or {}
         return {"status": "completed", "answer": answer,
                 "usage": {key: usage.get(key) for key in ("prompt_tokens", "completion_tokens", "total_tokens")},
+                "reasoning_chars": len(message.get("reasoning_content") or ""),
                 "duration_seconds": round(time.monotonic() - start, 6),
                 "finish_reason": (data.get("choices") or [{}])[0].get("finish_reason")}
     except (urllib.error.URLError, TimeoutError, ValueError, KeyError, OSError) as exc:
@@ -169,7 +179,10 @@ def completion_call(*, base_url, model, prompt, seed, temperature, max_tokens, t
 def run_tasks(*, dataset, out_dir, benchmark, model, base_url, limit=None, rollouts=1,
               orders="normal", temperature=0.0, seed=42, max_tokens=256, timeout=120,
               key_env="PREFERRED_EVALS_API_KEY", allow_remote=False, resume=False,
-              client=completion_call):
+              client=completion_call, request_extra=None):
+    request_extra = dict(request_extra or {})
+    if set(request_extra) & RESERVED_REQUEST_KEYS:
+        raise ValueError("request_extra may not override model, messages, sampling or token budget fields")
     tasks = load_jsonl(dataset)
     validate_tasks(tasks, benchmark)
     if limit is not None:
@@ -192,6 +205,8 @@ def run_tasks(*, dataset, out_dir, benchmark, model, base_url, limit=None, rollo
                                   "kind":t["kind"], "options_len": len(t.get("choices", []))} for t in tasks],
               "n_independent_roots_declared": len({t["root_id"] for t in tasks}),
               "evidence_class": "unscored model inference; reference labels were not read"}
+    if request_extra:
+        config["request_extra"] = request_extra
     if path.exists() and (meta_path.exists() or rows_path.exists()):
         if not resume:
             raise FileExistsError("run directory has receipts; pass --resume with exactly the original config")
@@ -218,9 +233,11 @@ def run_tasks(*, dataset, out_dir, benchmark, model, base_url, limit=None, rollo
                 if key in seen:
                     continue
                 request_seed = seed + sample
-                provider = client(base_url=base_url, model=model, prompt=prompt, seed=request_seed,
-                                  temperature=temperature, max_tokens=max_tokens, timeout=timeout,
-                                  key_env=key_env)
+                call = dict(base_url=base_url, model=model, prompt=prompt, seed=request_seed,
+                            temperature=temperature, max_tokens=max_tokens, timeout=timeout, key_env=key_env)
+                if request_extra:
+                    call["extra"] = request_extra
+                provider = client(**call)
                 result = {"task_id": task["task_id"], "root_id": task["root_id"],
                           "kind": task["kind"], "order": order, "sample": sample,
                           "prompt_sha256": digest(prompt), "request_seed": request_seed,
@@ -230,6 +247,8 @@ def run_tasks(*, dataset, out_dir, benchmark, model, base_url, limit=None, rollo
                     result.update({"parsed": choice, "format_valid": choice is not None,
                                    "answer": provider["answer"], "usage": provider.get("usage"),
                                    "finish_reason": provider.get("finish_reason")})
+                    if "reasoning_chars" in provider:
+                        result["reasoning_chars"] = provider["reasoning_chars"]
                 else:
                     result.update({"error_type": provider.get("error_type"),
                                    "http_status": provider.get("http_status")})
@@ -342,6 +361,9 @@ def main():
     r.add_argument("--api-key-env",default="PREFERRED_EVALS_API_KEY")
     r.add_argument("--allow-remote",action="store_true")
     r.add_argument("--resume",action="store_true")
+    r.add_argument("--request-extra",type=json.loads,default=None,
+                   help='JSON object merged into each request and recorded in run.json, '
+                        'e.g. \'{"chat_template_kwargs":{"enable_thinking":false}}\'')
     s=sub.add_parser("score",help="Offline grade saved model rollouts against separate labels")
     s.add_argument("--run-dir",type=Path,required=True)
     s.add_argument("--labels",type=Path,required=True)
@@ -352,7 +374,8 @@ def main():
                          model=args.model,base_url=args.base_url,limit=args.limit,
                          rollouts=args.rollouts,orders=args.orders,temperature=args.temperature,
                          seed=args.seed,max_tokens=args.max_tokens,timeout=args.timeout,
-                         key_env=args.api_key_env,allow_remote=args.allow_remote,resume=args.resume)
+                         key_env=args.api_key_env,allow_remote=args.allow_remote,resume=args.resume,
+                         request_extra=args.request_extra)
     else:
         result=score_run(run_dir=args.run_dir,labels_path=args.labels,out_path=args.out)
     print(json.dumps(result,sort_keys=True))

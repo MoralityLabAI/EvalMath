@@ -1,0 +1,23 @@
+{
+  "benchmark_id": "public-proxy-iclr2026-oral-vs-reject",
+  "contamination_note": "ICLR 2026 decisions (January 2026) postdate Qwen3-4B-Instruct-2507 (July 2025); a later model may have seen them",
+  "decision_counts_seen": {
+    "Accept (Oral)": 224,
+    "Accept (Poster)": 5124,
+    "Conditional Accept (Oral)": 1,
+    "Conditional Accept (Poster)": 10,
+    "Reject": 8816,
+    "Unknown": 5639
+  },
+  "label_semantics": "venue decision (accepted as oral vs rejected); a public proxy, not expert taste labels",
+  "labels_sha256": "7cd65f8c392d695e291a240203586af41b69f97fd7c0b31af85fc050bbb1b2a8",
+  "license_note": "ICLR submissions on OpenReview are CC BY 4.0; forum ids are in source_ids",
+  "n_roots": 12,
+  "n_tasks": 12,
+  "not": "not Anthropic TASTE; not withheld or expert-judged",
+  "origin": "OpenReview ICLR 2026 records",
+  "papers_seen": 19814,
+  "selection": "seeded hash order over primary areas with both an oral and a rejected paper; seed 2026",
+  "source": "huggingface:JerMa88/ICLR_Peer_Reviews_2026@4054df6b7ad2871a32f78e4a47582ea4645317f9",
+  "tasks_sha256": "ebe276628541b12fbf879435b2eb982fdbc0196639dc03fe5ec661e17e9987db"
+}

@@ -93,6 +93,34 @@ class PromptGymTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'benchmark_id'):
             validate_tasks(load_jsonl(self.tasks),'hle')
 
+    def test_ten_choices_text_normalization_and_request_extra(self):
+        with TemporaryDirectory() as td:
+            temp=Path(td)
+            tasks=temp/'tasks.jsonl'
+            labels=temp/'labels.jsonl'
+            rows=[{'schema':'preferred-evals/prompt-task-v1','benchmark_id':'b','task_id':'mc10','root_id':'r1',
+                   'kind':'choice','question':'Pick one','choices':[f'option {i}' for i in range(10)]},
+                  {'schema':'preferred-evals/prompt-task-v1','benchmark_id':'b','task_id':'txt','root_id':'r2',
+                   'kind':'exact_text','question':'Say A'}]
+            tasks.write_text('\n'.join(json.dumps(x) for x in rows)+'\n')
+            labels.write_text('{"task_id":"mc10","answer":"A"}\n{"task_id":"txt","answer":"a"}\n')
+            MockModel.calls=[]
+            run_tasks(dataset=tasks,out_dir=temp/'run',benchmark='b',model='m',base_url=self.endpoint,
+                      request_extra={'chat_template_kwargs':{'enable_thinking':False}})
+            self.assertTrue(all(c['chat_template_kwargs']=={'enable_thinking':False} for c in MockModel.calls))
+            self.assertIn('J. option 9',prompt_for(rows[0],'normal')[0])
+            cfg=json.loads((temp/'run'/'run.json').read_text())
+            self.assertEqual(cfg['request_extra'],{'chat_template_kwargs':{'enable_thinking':False}})
+            s=score_run(run_dir=temp/'run',labels_path=labels,out_path=temp/'s.json')
+            self.assertEqual(s['n_correct'],2)
+            with self.assertRaisesRegex(ValueError,'request_extra'):
+                run_tasks(dataset=tasks,out_dir=temp/'run2',benchmark='b',model='m',base_url=self.endpoint,
+                          request_extra={'max_tokens':5})
+        from runner import canonical_text
+        self.assertEqual(canonical_text(' "Paris." '),'paris')
+        self.assertEqual(canonical_text('`42`'),'42')
+        self.assertEqual(canonical_text('Wait...'),'wait...')
+
     def test_reject_partial_label_file(self):
         with TemporaryDirectory() as td:
             temp=Path(td)
