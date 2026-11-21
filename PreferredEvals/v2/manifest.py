@@ -88,6 +88,10 @@ def lint(spec, catalog):
         errors.append("benchmark_id must match a registered catalog benchmark")
     elif benchmark["access"] == "tasks_withheld":
         errors.append("benchmark tasks withheld: only original method may be cited, register an open proxy separately")
+    elif benchmark["access"] == "permissioned_dataset":
+        source = spec.get("provenance")
+        if not isinstance(source, dict) or source.get("dataset_authorized") is not True:
+            errors.append("permissioned benchmark requires provenance.dataset_authorized=true before evaluation")
     elif benchmark["access"] in {"restricted_verifiers", "public_subset_review_required"}:
         warnings.append("external benchmark has restricted or task-quality-limited access; certify source version and task rights")
 
