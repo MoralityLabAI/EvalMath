@@ -102,5 +102,21 @@
     "anchor": "weighted_bound",
     "description": "From the published SizeWindows bounds and positive x,n, prove that the TT, T2 and recurrence-depth counts are all nonzero.",
     "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem size_window_counts_positive\n    (x eps : ℝ) (n nT nT2 m : ℕ)\n    (hx : 0 < x) (hn : 0 < n)\n    (hTT : x ^ (-(eps / 8)) * (n : ℝ) / 2 ≤ (nT : ℝ))\n    (hT2 : x ^ (-eps) ≤ (nT2 : ℝ) / (n : ℝ))\n    (hm : x ^ ((1 / 2 : ℝ) - eps) ≤ (m : ℝ)) :\n    0 < nT ∧ 0 < nT2 ∧ 0 < m := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-014",
+    "difficulty": "medium",
+    "category": "small_cost_feasibility",
+    "anchor": "weighted_bound",
+    "description": "Derive the lower bound on b that follows from the published SmallCosts remainder inequality and nonnegative eta.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem small_cost_forces_large_b\n    (x f eta b : ℝ) (hx : 0 < x) (hf : 0 ≤ f) (heta : 0 ≤ eta)\n    (hcost : 6 * f * (x + 1) * (eta + 1) ≤ b / x) :\n    6 * f * x * (x + 1) ≤ b := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-015",
+    "difficulty": "medium",
+    "category": "small_cost_feasibility",
+    "anchor": "weighted_bound",
+    "description": "Bound the theta tolerance from the SmallCosts normalized character error budget when f and x are positive.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem small_cost_caps_theta\n    (x f theta : ℝ) (hx : 0 < x) (hf : 0 < f)\n    (hcost : 2 * f * (x + 1) * theta ≤ 1 / x) :\n    theta ≤ 1 / (2 * f * x * (x + 1)) := by\n__PROOF__\n\nend RHGym\n"
   }
 ]
