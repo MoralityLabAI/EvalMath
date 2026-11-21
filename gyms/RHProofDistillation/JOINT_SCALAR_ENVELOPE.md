@@ -45,3 +45,7 @@ prove the general logarithm and exponential comparison facts in Lean.
 These free scalar choices are not asserted to be the actual
 Scale.b or Scale.theta, nor do they construct any arithmetic
 character estimates, adm5/6/7, or the eventual family witness.
+
+## Verified CI receipt
+
+The exact source-attested [workflow run](https://github.com/MoralityLabAI/EvalMath/actions/runs/44903295524) passed 12 CPU-only tests and emitted the complete [JSON artifact](https://github.com/MoralityLabAI/EvalMath/actions/runs/44903295524/artifacts/14706404309). The archived JSON SHA-256 is `8b28912df718694c1e3978fc8520d270ed3f1b5a845d5ad2430735598c40249d`. The repo retains a [compact machine-readable verification receipt](joint_scalar_envelope_receipt.json) with the same source identities, scale exponents, pass counts and limitations.
