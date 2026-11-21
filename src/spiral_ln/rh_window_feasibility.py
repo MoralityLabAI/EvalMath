@@ -18,6 +18,10 @@ from spiral_ln.rh_distillation import git_blob_sha
 PIN = "f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3"
 PREDICATE_FILE = "src/Formalism/SizeWindowBrackets/GrowthBoundGivesRiemannHypothesis.lean"
 PREDICATE_BLOB = "a3ece4b4aea97a95ba2977fa9e8d437e72677774"
+SCALE_FILE = "src/Formalism/SharpRestriction/GlobalSchurBounds/ZetaZeroFreeRegion.lean"
+SCALE_BLOB = "7746e5a5affe67117d4ba907dbcd2788f539db6e"
+WINDOWS_FILE = "src/Formalism/SharpRestriction/GlobalSchurBounds/RamificationTwoAndConjugationAtQAndD.lean"
+WINDOWS_BLOB = "1c1495ef81c77fa96f3c1a70106c1da9e24c0c5d"
 CLAUSES = (
     "x_min", "eps_positive", "C_nonnegative", "n_positive",
     "b_positive", "aE_nonnegative", "aE_cap", "nT_floor",
@@ -120,10 +124,99 @@ def source_pin(root: Path) -> dict:
                    "nT2 ≤ n", "Err ≤ x ^ (C * ε)", "x ^ (-(ε / 8)) * n / 2 ≤ nT"):
         if phrase not in statement:
             raise ValueError(f"pinned predicate wording no longer matches: {phrase}")
+    scales = (root / SCALE_FILE).read_bytes()
+    if git_blob_sha(scales) != SCALE_BLOB:
+        raise ValueError("pinned SizesAt/PlacesAt source blob differs")
+    scale_text = scales.decode("utf-8")
+    for phrase in ("def SizesAt ", "def PlacesAt ", "2 + 8 * s.eps - δ",
+                   "s.delta1 * D.R.n / 2", "s.x ^ (-s.eps)"):
+        if phrase not in scale_text:
+            raise ValueError("pinned family scale changed: " + phrase)
+    windows = (root / WINDOWS_FILE).read_bytes()
+    if git_blob_sha(windows) != WINDOWS_BLOB:
+        raise ValueError("pinned family windows source blob differs")
+    if "s.x * s.delta1 = s.x ^ (1 - s.eps / 8)" not in windows.decode("utf-8"):
+        raise ValueError("pinned delta1 scale identity missing")
     return {"source_commit": PIN, "source_file": PREDICATE_FILE,
+            "family_scale_file": SCALE_FILE, "family_scale_blob": SCALE_BLOB,
+            "windows_file": WINDOWS_FILE, "windows_blob": WINDOWS_BLOB,
             "git_blob": PREDICATE_BLOB,
             "predicate_sha256": hashlib.sha256(statement.encode()).hexdigest(),
             "original_unlicensed_source_redistributed": False}
+
+
+
+
+def scale_witness(level: int) -> WindowParams:
+    """Central, exact dyadic SizesAt/PlacesAt scales in epsilon < 1/52."""
+    if type(level) is not int or level not in (6, 7):
+        raise ValueError("source-regime epsilon level must be 6 or 7")
+    inv = 1 << level
+    xp = 16 * inv
+    ne = 2 * xp + 128
+    me = xp // 2 - 1
+    ke = 9 * xp // 2 + 160
+    return WindowParams(
+        x_log2=xp, epsilon=Fraction(1, inv), n=1 << ne,
+        nT=1 << (ne - 3), nT2=1 << (ne - 16),
+        m=1 << me, k=Fraction(1 << ke),
+    )
+
+
+def binary_exponent(value: int) -> int:
+    if type(value) is not int or value <= 0 or value & (value - 1):
+        raise ValueError("positive integer power of two required")
+    return value.bit_length() - 1
+
+
+def evaluate_scale(p: WindowParams) -> dict:
+    """Check six SizesAt, three PlacesAt and caps by rational log2 exponents.
+
+    Assumes the original windows theorem identity x * delta1 = x^(1-eps/8).
+    """
+    xl, eps = Fraction(p.x_log2), p.epsilon
+    delta = eps / 4
+    nlog, ntlog, nt2log, mlog = (
+        Fraction(binary_exponent(value))
+        for value in (p.n, p.nT, p.nT2, p.m)
+    )
+    if p.k.denominator != 1:
+        raise ValueError("integer k required for exact power-of-two certificate")
+    klog = Fraction(binary_exponent(p.k.numerator))
+    xdelta = xl * (1 - eps / 8)
+    checks = {
+        "epsilon_below_1_52": 0 < eps < Fraction(1, 52),
+        "SizesAt_n_lower": xl * (2 + 8 * eps - delta) <= nlog,
+        "SizesAt_n_upper": nlog <= xl * (2 + 8 * eps + delta),
+        "SizesAt_m_lower": xdelta * (Fraction(1, 2) - delta) <= mlog,
+        "SizesAt_m_upper": mlog <= xdelta * (Fraction(1, 2) + delta),
+        "SizesAt_k_lower": xl * (Fraction(9, 2) + 10 * eps - delta) <= klog,
+        "SizesAt_k_upper": klog <= xl * (Fraction(9, 2) + 10 * eps + delta),
+        "PlacesAt_TT_lower": nlog - xl * eps / 8 - 1 <= ntlog,
+        "PlacesAt_TT_upper": ntlog <= nlog - xl * eps / 8 + 1,
+        "PlacesAt_T2_lower": -xl * eps <= nt2log - nlog,
+        "finite_TT_cap": ntlog <= nlog,
+        "finite_T2_cap": nt2log <= nlog,
+    }
+    scalar = evaluate(p)
+    return {
+        "epsilon": str(eps),
+        "x_log2": p.x_log2,
+        "delta": str(delta),
+        "power_of_two_logs": {
+            "n": int(nlog), "nT": int(ntlog), "nT2": int(nt2log),
+            "m": int(mlog), "k": int(klog),
+        },
+        "source_predicates": ["SizesAt", "PlacesAt", "SizeWindows"],
+        "checks": checks,
+        "passes": sum(checks.values()),
+        "total": len(checks),
+        "all_scale_checks_pass": all(checks.values()),
+        "sizewindows_passes": scalar["passes"],
+        "sizewindows_total": scalar["total"],
+        "sizewindows_pass": scalar["all_pass"],
+        "full_geometric_witness": False,
+    }
 
 
 def campaign(levels=range(1, 6)) -> dict:
@@ -145,7 +238,15 @@ def campaign(levels=range(1, 6)) -> dict:
     early = evaluate(smaller)
     if early["all_pass"] or early["checks"]["eventual_x"]:
         raise AssertionError("small x negative control did not fail eventual threshold")
+    source_cases = [evaluate_scale(scale_witness(j)) for j in (6, 7)]
+    if not all(c["all_scale_checks_pass"] and c["sizewindows_pass"] for c in source_cases):
+        raise AssertionError("source-regime scale witness failed an exact inequality")
+    weak = evaluate_scale(dyadic_witness(6))
+    if weak["checks"]["SizesAt_n_lower"]:
+        raise AssertionError("weak scalar witness meets strong family rank bound")
     return {
+        "source_regime_examples": source_cases,
+        "weak_sizewindows_witness_fails_strong_SizesAt_n_lower": True,
         "schema_version": 1,
         "method": "Fraction arithmetic on dyadic integer powers, no floats",
         "predicate": "Formalism.LFunctionChainParameters.ThickSetMeanBounds.SizeWindows",
@@ -174,6 +275,7 @@ def main() -> None:
                       "negative_controls": len(result["negative_controls"]),
                       "all_positive_pass": all(x["all_pass"] for x in result["positive_examples"]),
                       "exact_arithmetic": True,
+                      "strong_source_regime_examples": len(result["source_regime_examples"]),
                       "full_geometric_witness": False}, sort_keys=True))
 
 

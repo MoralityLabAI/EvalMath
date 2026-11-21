@@ -45,3 +45,23 @@ def test_power_exactness_and_exponent_budget_fail_closed():
 def test_pin_rejects_missing_source(tmp_path):
     with pytest.raises(Exception):
         source_pin(tmp_path)
+
+
+def test_original_sizesat_placesat_small_epsilon_regime():
+    from spiral_ln.rh_window_feasibility import scale_witness, evaluate_scale
+    for j in (6, 7):
+        certificate = evaluate_scale(scale_witness(j))
+        assert certificate["passes"] == certificate["total"] == 12
+        assert certificate["all_scale_checks_pass"]
+        assert certificate["sizewindows_passes"] == certificate["sizewindows_total"] == 16
+        assert certificate["sizewindows_pass"]
+    assert not evaluate_scale(dyadic_witness(6))["checks"]["SizesAt_n_lower"]
+    with pytest.raises(ValueError):
+        scale_witness(5)
+
+
+def test_exact_exponent_log2_requires_power_of_two():
+    from spiral_ln.rh_window_feasibility import binary_exponent
+    assert binary_exponent(2**2176) == 2176
+    with pytest.raises(ValueError):
+        binary_exponent(3)
