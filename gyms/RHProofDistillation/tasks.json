@@ -61,6 +61,6 @@
     "category": "witness_transport",
     "anchor": "weighted_bound",
     "description": "Reconstruct the essential existential-witness projection used when ChainTied is reduced to a core-bound structure, with all geometric and arithmetic assertions treated as explicit variables.",
-    "template": "import Mathlib\n\nnamespace RHGym\n\nstructure ChainTiedProxy {I : Type} (TiePts TieGlobal CoreWindow CoreBounds : I → Prop) : Prop where\n  index : I\n  tiePoints : TiePts index\n  tieGlobal : TieGlobal index\n  window : CoreWindow index\n  bounds : CoreBounds index\n\ndef CoreAtHProxy {I : Type} (CoreWindow CoreBounds : I → Prop) : Prop :=\n  ∃ i : I, CoreWindow i ∧ CoreBounds i\n\ntheorem chain_tied_to_core {I : Type}\n    {TiePts TieGlobal CoreWindow CoreBounds : I → Prop}\n    (h : ChainTiedProxy TiePts TieGlobal CoreWindow CoreBounds) :\n    CoreAtHProxy CoreWindow CoreBounds := by\n__PROOF__\n\nend RHGym\n"
+    "template": "import Mathlib\n\nnamespace RHGym\n\ndef ChainTiedProxy {I : Type} (TiePts TieGlobal CoreWindow CoreBounds : I → Prop) : Prop :=\n  ∃ i : I, TiePts i ∧ TieGlobal i ∧ CoreWindow i ∧ CoreBounds i\n\ndef CoreAtHProxy {I : Type} (CoreWindow CoreBounds : I → Prop) : Prop :=\n  ∃ i : I, CoreWindow i ∧ CoreBounds i\n\ntheorem chain_tied_to_core {I : Type}\n    {TiePts TieGlobal CoreWindow CoreBounds : I → Prop}\n    (h : ChainTiedProxy TiePts TieGlobal CoreWindow CoreBounds) :\n    CoreAtHProxy CoreWindow CoreBounds := by\n__PROOF__\n\nend RHGym\n"
   }
 ]
