@@ -1,0 +1,65 @@
+name: RH locate published size-bound declarations
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/rh-locate-size-bound.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-symbols:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: leanprover-community/riemann-hypothesis
+          ref: f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3
+          path: upstream
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            src/Formalism/
+      - name: Locate exact theorem and proposition declarations
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, re, subprocess
+          from pathlib import Path
+
+          root = Path("upstream")
+          pin = "f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3"
+          head = subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
+          assert head == pin, (head, pin)
+          pattern = re.compile(
+              r"^\s*(?:private\s+|noncomputable\s+|protected\s+)*"
+              r"(?:theorem|lemma|def|structure|class|abbrev)\s+([\w.₁₂₃₄₅]+)", re.UNICODE)
+          targets = ("proposition_size_bound", "GrowthSizeBound")
+          out, matching_files = [], []
+          for path in sorted((root / "src/Formalism").rglob("*.lean")):
+              raw = path.read_bytes()
+              if not any(t.encode() in raw for t in targets):
+                  continue
+              matching_files.append(path.relative_to(root).as_posix())
+              blob = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
+              for lineno, line in enumerate(raw.decode("utf-8").splitlines(), 1):
+                  m = pattern.match(line)
+                  if m and any(m.group(1).endswith(t) for t in targets):
+                      out.append({"symbol": m.group(1), "path": path.relative_to(root).as_posix(),
+                                  "line": lineno, "git_blob": blob})
+          if not out:
+              raise SystemExit("No size-bound declarations found in Formalism")
+          receipt = {"source_commit": head, "scan": "source_declaration_lines_only",
+                     "proof_term_data": False, "files_with_mentions": len(matching_files),
+                     "declarations": out}
+          Path("source-symbols.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+          print(json.dumps(receipt, sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rh-size-bound-source-symbols
+          path: source-symbols.json
+          if-no-files-found: ignore

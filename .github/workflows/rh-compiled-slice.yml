@@ -1,0 +1,75 @@
+name: RH selective compiled proof-expression probe
+
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/rh_selective_olean.py'
+      - 'src/spiral_ln/rh_dependency.py'
+      - 'src/spiral_ln/rh_full_closure.py'
+      - 'tests/test_rh_selective_olean.py'
+      - 'gyms/RHProofDistillation/anchors.json'
+      - '.github/workflows/rh-compiled-slice.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/rh_selective_olean.py'
+      - 'src/spiral_ln/rh_dependency.py'
+      - 'src/spiral_ln/rh_full_closure.py'
+      - 'tests/test_rh_selective_olean.py'
+      - 'gyms/RHProofDistillation/anchors.json'
+      - '.github/workflows/rh-compiled-slice.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compiled-analytic-slice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: evalmath
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: leanprover-community/riemann-hypothesis
+          ref: f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3
+          path: upstream
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audit Python code
+        working-directory: evalmath
+        run: |
+          python -m pip install -e '.[test]'
+          python -m pytest -q tests/test_rh_selective_olean.py
+      - name: Install Lean version from upstream's original toolchain
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o "$RUNNER_TEMP/elan-init.sh"
+          bash "$RUNNER_TEMP/elan-init.sh" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch official Mathlib cache without building the RH proof
+        working-directory: upstream
+        env:
+          MATHLIB_CACHE_GET_URL: https://cache.mathlib.org/mathlib4
+        run: |
+          lake exe mathlib/cache get
+          df -h .
+      - name: Restore only the 30- and 115-module upstream analytic slices
+        working-directory: evalmath
+        run: |
+          mkdir -p rh-compiled-slice
+          python -m spiral_ln.rh_selective_olean \
+            --source-root ../upstream \
+            --anchors analytic_window weighted_bound \
+            --max-modules 200 --max-depth 2 --max-nodes 120 \
+            --output rh-compiled-slice/analytic-proof-refs.json
+      - name: Upload full compiled expression references
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rh-compiled-analytic-proof-refs
+          path: evalmath/rh-compiled-slice/
+          if-no-files-found: ignore

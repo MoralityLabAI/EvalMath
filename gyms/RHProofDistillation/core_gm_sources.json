@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "mode": "manually_verified_source_calls",
+  "source_repository": "leanprover-community/riemann-hypothesis",
+  "source_commit": "f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3",
+  "caller": "UpperTheory.Comparison₂.core_gm",
+  "caller_file": "src/Development/AutomorphicArithmetic/PrimitiveCosets/CoreGm.lean",
+  "caller_blob": "3ba7a590e84c5993882ea6c5dcf9fdbed5f07d4d",
+  "status": "source-inspected, term dependency not executed against upstream",
+  "edges": [
+    {
+      "callee": "Deduction.ch_core",
+      "role": "character-balance bound with exponent C + 3",
+      "source": "DedekindLFunctions/LandauTheorems/ChCore.lean",
+      "blob": "878f5077bc382426c7da988e5a375b85deeaa7de"
+    },
+    {
+      "callee": "Deduction.ch_top",
+      "role": "gap estimate via size and error windows",
+      "source": "DedekindLFunctions/LandauTheorems/ChTop.lean",
+      "blob": "ce06a34a9e0b1b332e10d3b7efb04a06e9ab77f5"
+    },
+    {
+      "callee": "UpperTheory.Comparison₂.charsA",
+      "role": "translate character hypotheses",
+      "source": "PrimitiveCosets/charsA.lean",
+      "blob": "7d6a3faa3f6dcc1923a65473d848d8da0601e7a2"
+    },
+    {
+      "callee": "UpperTheory.Comparison₂.gmA_eq",
+      "role": "identify GmA with Level.Gm",
+      "source": "PrimitiveCosets/GmAEq.lean",
+      "blob": "2f1a763f43d65eea1f6e61018c8b70c02d2dfa03"
+    },
+    {
+      "callee": "UpperTheory.Comparison₂.sigA_le",
+      "role": "bound excluded-character contribution",
+      "source": "PrimitiveCosets/SigALe.lean",
+      "blob": "e9c80e2017ec149ac559bc20c184b9264b9ec0c2"
+    },
+    {
+      "callee": "UpperTheory.Comparison₂.hostFactsS",
+      "role": "supply the HostFactsS assumption",
+      "source": "PrimitiveCosets/hostFactsS.lean",
+      "blob": "440a45819936cf0cb7fb8e81156e94b25288459c"
+    }
+  ],
+  "downstream": [
+    {
+      "theorem": "UpperTheory.Comparison₂.windowInequality_of_artinInputs",
+      "source": "PrimitiveCosets/WindowInequalityOfArtinInputs.lean",
+      "blob": "c349e34925ac26b8bc76bd36e9b91562f86d6b8d",
+      "relation": "calls core_gm"
+    },
+    {
+      "theorem": "UpperTheory.Comparison₂.level_gm_le_on_family_scales",
+      "source": "PrimitiveCosets/LevelGmLeOnFamilyScales.lean",
+      "blob": "de994949e6fd2d7238cfcb1c19d361ccdfe904fc",
+      "relation": "calls windowInequality_of_artinInputs"
+    }
+  ]
+}

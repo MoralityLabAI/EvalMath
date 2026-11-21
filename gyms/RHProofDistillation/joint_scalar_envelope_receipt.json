@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "kind": "pinned_original_source_scalar_joint_feasibility",
+  "proof_term_data": false,
+  "source_commit": "f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3",
+  "evalmath_commit_under_test": "5ccbe666d2565ad42f47b5748359fd17f903d81e",
+  "workflow_run": "https://github.com/MoralityLabAI/EvalMath/actions/runs/44903295524",
+  "workflow_artifact": "https://github.com/MoralityLabAI/EvalMath/actions/runs/44903295524/artifacts/14706404309",
+  "archived_json_sha256": "8b28912df718694c1e3978fc8520d270ed3f1b5a845d5ad2430735598c40249d",
+  "zip_sha256": "ea433bec65b2f0e4d9e484857ed2108db5e9c13191c408cd6f50d9c91c1c72cf",
+  "source_blobs": {
+    "SizeWindows": "a3ece4b4aea97a95ba2977fa9e8d437e72677774",
+    "SizesAt_PlacesAt": "7746e5a5affe67117d4ba907dbcd2788f539db6e",
+    "windows_LargeX_smallCosts": "1c1495ef81c77fa96f3c1a70106c1da9e24c0c5d"
+  },
+  "cases": [
+    {
+      "epsilon": "1/64",
+      "x_log2": 16384,
+      "n_log2": 34816,
+      "k_log2": 76288,
+      "b_bits": 67589,
+      "theta_denominator_bits": 67588,
+      "SizesAt_PlacesAt_and_caps": "12/12",
+      "SizeWindows": "16/16",
+      "largeX_and_smallCosts_sufficient_tests": "11/11"
+    },
+    {
+      "epsilon": "1/128",
+      "x_log2": 32768,
+      "n_log2": 67584,
+      "k_log2": 150016,
+      "b_bits": 133125,
+      "theta_denominator_bits": 133124,
+      "SizesAt_PlacesAt_and_caps": "12/12",
+      "SizeWindows": "16/16",
+      "largeX_and_smallCosts_sufficient_tests": "11/11"
+    }
+  ],
+  "negative_control": {
+    "epsilon": "1/64",
+    "x_log2": 1024,
+    "finding": "The shorter scale fails the sufficient 8*x^5 exponential comparison; this does not by itself refute LargeX"
+  },
+  "proof_assumptions": [
+    "For x=2^L, log(x+1) <= L+1 and log(2) <= 1",
+    "Monotonicity of exp converts the rational-exponent comparisons into sufficient LargeX bounds",
+    "Parameter values are chosen freely, not via the original structured Scale object",
+    "Source predicates are matched by pinned Git blobs; original unlicensed proof bodies are not redistributed"
+  ],
+  "limitations": [
+    "The numerical checks are exact, but generic logarithmic lemmas were used as mathematical facts rather than independently formalized in Lean",
+    "Only two epsilon values were tested, with single x values each",
+    "These checks do not construct the original Scale, D7, FamP, adm5, adm6, adm7, GPsi, or theta/Galois data",
+    "The overall claimed RH proof has not been independently reconstructed here"
+  ]
+}

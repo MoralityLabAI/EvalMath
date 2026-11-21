@@ -1,0 +1,82 @@
+name: RH pinned upstream source audit
+
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/rh_source_audit.py'
+      - 'src/spiral_ln/rh_dependency.py'
+      - 'gyms/RHProofDistillation/anchors.json'
+      - 'gyms/RHProofDistillation/core_gm_sources.json'
+      - 'tests/test_rh_source_audit.py'
+      - '.github/workflows/rh-pinned-source.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/rh_source_audit.py'
+      - 'src/spiral_ln/rh_dependency.py'
+      - 'gyms/RHProofDistillation/anchors.json'
+      - 'gyms/RHProofDistillation/core_gm_sources.json'
+      - 'tests/test_rh_source_audit.py'
+      - '.github/workflows/rh-pinned-source.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pinned-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: evalmath
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: leanprover-community/riemann-hypothesis
+          ref: f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3
+          path: upstream
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            src/Main.lean
+            src/Statements.lean
+            src/Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean
+            src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean
+            src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean
+            src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+            src/Formalism/SharpRestriction/GlobalSchurBounds/TieGlobal.lean
+            src/Development/AutomorphicArithmetic/PrimitiveCosets/
+            src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audit-only Python package
+        working-directory: evalmath
+        run: python -m pip install -e '.[test]'
+      - name: Unit tests
+        working-directory: evalmath
+        run: python -m pytest -q tests/test_rh_source_audit.py
+      - name: Extract pinned source callsite and boundary graph
+        working-directory: evalmath
+        run: |
+          mkdir -p rh-source
+          python -m spiral_ln.rh_source_audit \
+            --source-root ../upstream \
+            --output rh-source/core-gm-pinned-source.json
+      - name: Emit proof-term probe script for large runner
+        working-directory: evalmath
+        run: |
+          python -m spiral_ln.rh_dependency upstream \
+            --source-root ../upstream \
+            --anchors weighted_bound \
+            --max-depth 2 --max-nodes 120 \
+            --emit-script rh-source/core-gm-proof-term-probe.lean \
+            --output rh-source/proof-probe-staging.json
+      - name: Upload pinned-source receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rh-pinned-source-receipts
+          path: evalmath/rh-source/
+          if-no-files-found: ignore
