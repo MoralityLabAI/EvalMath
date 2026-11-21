@@ -46,3 +46,9 @@ must inspect and records their upstream Git blob hashes.
 
 CI stages this investigation in `rh-pinned-source.yml` using a sparse
 source checkout. No upstream Lean proof artifacts are executed.
+
+## An explicit duplicate premise in the literature interface
+
+The pinned file defines `OpenLiteratureStatements : Prop` with exactly three fields: `caraianiLocalGlobalDual : UpperTheory.One.M.Row`, `localLanglandsExists : UpperTheory.Zero.LLC.RecTExists`, and `galoisRepOfPolarizedPairLit : UpperTheory.One.M.Row`. The two Galois-row fields share a proposition, so this interface is equivalent to the conjunction of one row witness with the local-Langlands existence witness. That structural equivalence is modeled by proxy task `RH-D-007`. The upstream code provides these witnesses through the Galois row and `recTExists`; this observation does not discharge any hidden arithmetic or geometric proof obligations.
+
+Task `RH-D-008` models the existential-index projection performed by `tiedCore_of_chainTied`, with geometric assertions left as explicit parameters. Both are independent miniature Lean tasks, never the upstream proofs themselves.

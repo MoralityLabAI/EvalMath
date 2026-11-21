@@ -46,5 +46,21 @@
     "anchor": "weighted_bound",
     "description": "Absorb the excluded-character term into one additional x^eps factor under explicit large-x and comparison hypotheses.",
     "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem absorb_correction\n    (x eps K eD eL G : ℝ) (hx : 0 < x) (hK : 0 ≤ K)\n    (hErr : 1 + K ≤ x ^ eps)\n    (hSmall : x ^ ((1 / 2 : ℝ) + eps) ≤\n      x ^ ((1 / 2 : ℝ) + (eD + eL + 6) * eps))\n    (hMain : G ≤ x ^ ((1 / 2 : ℝ) + (eD + eL + 6) * eps) +\n      K * x ^ ((1 / 2 : ℝ) + eps)) :\n    G ≤ x ^ ((1 / 2 : ℝ) + (eD + eL + 7) * eps) := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-007",
+    "difficulty": "medium",
+    "category": "source_structural_equivalence",
+    "anchor": "all_characters",
+    "description": "Prove the observed three-field OpenLiteratureStatements interface collapses to a row proposition and a local Langlands-existence proposition; two fields have the same row type in the upstream source.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\nstructure OpenLiteratureProxy (Row RecTExists : Prop) : Prop where\n  caraianiLocalGlobalDual : Row\n  localLanglandsExists : RecTExists\n  galoisRepOfPolarizedPairLit : Row\n\ntheorem open_literature_duplicate_row (Row RecTExists : Prop) :\n    OpenLiteratureProxy Row RecTExists ↔ Row ∧ RecTExists := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-008",
+    "difficulty": "medium",
+    "category": "witness_transport",
+    "anchor": "weighted_bound",
+    "description": "Reconstruct the essential existential-witness projection used when ChainTied is reduced to a core-bound structure, with all geometric and arithmetic assertions treated as explicit variables.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\nstructure ChainTiedProxy {I : Type} (TiePts TieGlobal CoreWindow CoreBounds : I → Prop) : Prop where\n  index : I\n  tiePoints : TiePts index\n  tieGlobal : TieGlobal index\n  window : CoreWindow index\n  bounds : CoreBounds index\n\ndef CoreAtHProxy {I : Type} (CoreWindow CoreBounds : I → Prop) : Prop :=\n  ∃ i : I, CoreWindow i ∧ CoreBounds i\n\ntheorem chain_tied_to_core {I : Type}\n    {TiePts TieGlobal CoreWindow CoreBounds : I → Prop}\n    (h : ChainTiedProxy TiePts TieGlobal CoreWindow CoreBounds) :\n    CoreAtHProxy CoreWindow CoreBounds := by\n__PROOF__\n\nend RHGym\n"
   }
 ]
