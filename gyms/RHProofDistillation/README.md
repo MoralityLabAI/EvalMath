@@ -58,3 +58,18 @@ See [core_gm_proof_map.md](core_gm_proof_map.md) and [core_gm_sources.json](core
 ## Character-balance and size-window benchmarks
 
 Tasks RH-D-009 through RH-D-011 are new isolated Lean subgoals suggested by the source-verified `CharacterBalanceMoves.core` and compiled `proposition_size_bound` references. They test cancellation of finite-group averaging, aggregation of a double-indexed local correction, and real-power bound propagation. The real analytic and geometric hypotheses remain explicit. Each reference proof is compiled by the standard Lean CI grader; the gold proof file is intended only for smoke tests.
+
+## Canonical mathematical research home: MathCan
+
+The mathematical analysis, independent Init-only Lean integer exponent
+certificates, exact SizeWindows/SizesAt/PlacesAt scalar checks,
+and joint LargeX/SmallCosts feasibility oracles have been moved to
+[MathCan PR #148](https://github.com/patrickdugan/MathCan/pull/148),
+under `research/rh_proof_distillation` and `MathCan/RHWindowExponents.lean`.
+
+This EvalMath directory retains the **scored Lean reconstruction gym**,
+its Mathlib reference proofs, source-pinned published-cache dependency
+extractor and CI receipts. MathCan uses Lean 4.35 with Init; the source
+proof and this benchmark use a separate Mathlib environment.
+Current research should file mathematical propositions and formal lemmas
+in MathCan and reuse this gym for evaluation experiments.
