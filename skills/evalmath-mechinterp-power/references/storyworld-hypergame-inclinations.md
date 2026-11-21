@@ -42,3 +42,13 @@ A benchmark win following development search stays a development result until fr
 `MoralityLabAI/GPTStoryworld`, branch `research/hgw04-causal-inclinations-evalmath-20261121`:
 `codex-skills/hyperworld-builder/scripts/causal_inclinations.py` and
 `scripts/benchmark_receipts.py` generate EvalMath-compatible development preflight and FSI-01 manifests. Their included eight-root and four-root fixtures explicitly fail confirmation requirements. Use the public test suite and CI integration to verify the manifests, and preserve the older Cairo Hyperworld fixtures unchanged.
+
+## HGW-05 registered development-root example (November 21, 2026)
+
+The public HGW-05 prototype in [GPTStoryworld PR #20](https://github.com/MoralityLabAI/GPTStoryworld/pull/20) generates 64 development roots for each of four causal task families. Direct and confounded versions of each observational sample share a root; hence the 2,048 scored cases constitute 192 distinct synthetic generator roots. Its causal-inclination program is a privileged algorithmic ceiling.
+
+The main causal twin contrast has an exploratory root-macro improvement of 223/512 = 43.55 percentage points against an observational baseline, with a descriptive root bootstrap 95% interval of [41.90, 45.22] points. A parity-only second-order belief test achieves 392/512 against 266/512 by a first-order-only control. Per-source-root evidence deduplication yields 512/512 normative decisions against 338/512 for a replay-naive baseline. These results describe source-defined synthetic tasks; they do not establish neural or real-world causal competence.
+
+The **p2** pilot has root-level standard deviation approximately 0.20889, mechanistic floor 0.125 and registered target effect 0.20. With five planned comparisons, EvalMath's normal power preflight estimates **91 independent confirmation roots** for 80% planning power. The HGW-05 registration was amended to plan **128 fresh roots per family**, none generated or unsealed. The direct-cause family alone has an effect of only 1/32, below its scientific-variation floor; the paired direct+confounded discriminator remains the prospective primary contrast.
+
+HGW-05's exact irrelevant-source sham effects are zero by construction, so their 64-root order-statistic envelope is a structural instrument check rather than a learned-model sham distribution. The preflight remains **REDESIGN_OR_PILOT_ONLY** because the development data are unsealed. Sealed model confirmation requires a new matched-sham calibration from model outcomes and a separate frozen root population.
