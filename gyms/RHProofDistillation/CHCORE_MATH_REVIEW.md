@@ -85,6 +85,30 @@ and `n>0`, also enforce `nT>0`, `nT2>0`, and `m>0`.
 Tasks `RH-D-012` and `RH-D-013` formalize these necessities
 as standalone Lean propositions.
 
+## Four explicit error-term inequalities
+
+The four named `SZ` lemmas in
+[`LipschitzWeightAndMinimum.lean`](https://github.com/leanprover-community/riemann-hypothesis/blob/f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3/src/Formalism/SizeWindowBrackets/ChainSlopeWindows/LipschitzWeightAndMinimum.lean#L25-L130)
+bound each contribution in the `SizeWindows` error expression.
+With `Y=x^(1/2+13ε/8)` and `Q=nT*m*b`, their estimates are:
+
+| Source lemma | Contribution | Upper bound |
+| --- | --- | ---: |
+| `SZ.T1` | `nT*aE` | `2YQ` |
+| `SZ.T2` | `nT*aE*m²/k` | `2YQ` |
+| `SZ.T3` | `m*(2n*m*b*x^ε)` | `4YQ` |
+| `SZ.T4` | `m*(nT2*k*b*x^ε / (n²*x^(-ε)))` | `2YQ` |
+
+The sum is `10YQ`, which becomes `10*x^(Cε)*YQ` after
+multiplication by the error-window factor. This is the exact source
+of the coefficient 10 in `hErr'`. The subsequent bound 22 arises
+after dividing by the positive `Q` and absorbing `2Q/x`.
+
+These lemmas isolate a valuable reconstruction curriculum.
+`T1` and `T2` are scalar inequalities. `T3` uses the lower bound
+on `nT` and upper bound on `m`; `T4` uses the upper bounds
+on `nT2` and `k`. Their separate hypotheses make them natural
+targets for compact reasoner tests and counterexample checks.
 ## Where the research difficulty remains
 
 `proposition_size_bound` is a conditional analytic estimate with explicit
