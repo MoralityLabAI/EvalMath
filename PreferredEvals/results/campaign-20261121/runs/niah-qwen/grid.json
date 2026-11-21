@@ -1,0 +1,38 @@
+[
+  {
+    "context_length": 4000,
+    "depth_percent": 25,
+    "expected": 2,
+    "completed": 2,
+    "correct": 2.0,
+    "accuracy": 1.0,
+    "provisional_accuracy": 1.0
+  },
+  {
+    "context_length": 4000,
+    "depth_percent": 75,
+    "expected": 2,
+    "completed": 2,
+    "correct": 2.0,
+    "accuracy": 1.0,
+    "provisional_accuracy": 1.0
+  },
+  {
+    "context_length": 16000,
+    "depth_percent": 25,
+    "expected": 2,
+    "completed": 2,
+    "correct": 2.0,
+    "accuracy": 1.0,
+    "provisional_accuracy": 1.0
+  },
+  {
+    "context_length": 16000,
+    "depth_percent": 75,
+    "expected": 2,
+    "completed": 2,
+    "correct": 2.0,
+    "accuracy": 1.0,
+    "provisional_accuracy": 1.0
+  }
+]

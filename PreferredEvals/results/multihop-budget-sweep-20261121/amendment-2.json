@@ -1,0 +1,9 @@
+{
+ "schema": "preferred-evals/registration-amendment-v1",
+ "campaign_id": "PE2-MULTIHOP-BUDGET-20261121",
+ "amends": "registration.json (commit b646c06), after amendment-1.json (commit 10c183f)",
+ "written": "2026-11-21, after the four Bonsai conditions finished and before any Qwen condition was run",
+ "change": "The Qwen conditions (qwen-b0, qwen-b64, qwen-b256, qwen-b1536) are not run, by the user's decision during the sweep. Comparisons H3-qwen-b1536-vs-b0 and H4-bonsai-b1536-vs-qwen-b1536 are therefore not tested.",
+ "multiplicity": "H3 and H4 stay in the registered Holm family of four with p = 1, so the adjusted p-values of H1 and H2 are what the registration would have produced had H3 and H4 been non-significant.",
+ "unchanged": "H1 and H2, the task set, the effect floor and alpha"
+}

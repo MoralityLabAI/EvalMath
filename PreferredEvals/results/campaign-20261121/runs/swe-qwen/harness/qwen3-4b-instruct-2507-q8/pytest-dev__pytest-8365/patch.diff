@@ -1,0 +1,25 @@
+
+--- a/src/_pytest/tmpdir.py
++++ b/src/_pytest/tmpdir.py
+@@ -150,10 +150,14 @@
+ def get_user() -> Optional[str]:
+     """Return the current user name, or None if getuser() does not work
+     in the current environment (see #1010)."""
+-    import getpass
+-
+-    try:
+-        return getpass.getuser()
+-    except (ImportError, KeyError):
+-        return None
++    import getpass
++
++    try:
++        user = getpass.getuser()
++        # Sanitize username by replacing backslashes and other invalid directory characters
++        # with underscores. Windows directory names cannot contain backslashes.
++        sanitized = user.replace("\\", "_")
++        # Also remove other potentially invalid characters (e.g., colons, parentheses)
++        sanitized = re.sub(r"[^a-zA-Z0-9_]", "_", sanitized)
++        return sanitized if sanitized else "unknown"
++    except (ImportError, KeyError):
++        return None

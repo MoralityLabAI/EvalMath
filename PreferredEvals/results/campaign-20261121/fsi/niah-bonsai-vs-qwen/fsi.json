@@ -1,0 +1,63 @@
+{
+ "schema_version": 1,
+ "experiment_id": "PE2-niah-bonsai-vs-qwen",
+ "target_population": "NIAH cases; prompts are tokenizer-specific, so a pair shares the generator cell and seed, not identical text",
+ "evaluation_mode": "sampled",
+ "alpha": "0.05",
+ "minimum_effect": "0.10",
+ "planned_comparisons": 8,
+ "hypothesis_preregistered": true,
+ "sealed_readout": false,
+ "clusters_independent": true,
+ "exchangeable_pair_labels": true,
+ "cases": [
+  {
+   "case_id": "niah-16000-d25-c0#0",
+   "cluster_id": "niah-16000-d25-c0",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "niah-16000-d25-c1#0",
+   "cluster_id": "niah-16000-d25-c1",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "niah-16000-d75-c0#0",
+   "cluster_id": "niah-16000-d75-c0",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "niah-16000-d75-c1#0",
+   "cluster_id": "niah-16000-d75-c1",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "niah-4000-d25-c0#0",
+   "cluster_id": "niah-4000-d25-c0",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "niah-4000-d25-c1#0",
+   "cluster_id": "niah-4000-d25-c1",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "niah-4000-d75-c0#0",
+   "cluster_id": "niah-4000-d75-c0",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "niah-4000-d75-c1#0",
+   "cluster_id": "niah-4000-d75-c1",
+   "candidate": 1,
+   "baseline": 1
+  }
+ ]
+}

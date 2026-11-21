@@ -1,0 +1,11 @@
+{
+  "benchmark_id": "public-mmlu-pro-science",
+  "labels_sha256": "6c4bd122d6c9cf538248f361871f2947c42848a6b6022a486e757a239097a912",
+  "license_note": "MMLU-Pro is MIT licensed",
+  "n_roots": 8,
+  "n_tasks": 8,
+  "not": "not HLE; a public multiple-choice science stand-in while cais/hle is gated",
+  "selection": "physics, chemistry and biology test questions in seeded hash order; seed 2026",
+  "source": "huggingface:TIGER-Lab/MMLU-Pro@b189ec765aa7ed75c8acfea42df31fdae71f97be",
+  "tasks_sha256": "41af23414463efd94bb06d572e8a95e86fcfbf6e4119df9f36462e5b26fc993a"
+}

@@ -1,0 +1,248 @@
+{
+  "accuracy_scored": 0.4583333333333333,
+  "benchmark_id": "public-proxy-iclr2026-oral-vs-reject",
+  "by_order": {
+    "normal": {
+      "correct": 7,
+      "n": 12
+    },
+    "swapped": {
+      "correct": 4,
+      "n": 12
+    }
+  },
+  "evidence_class": "development or observed rollout score, not prospective confirmation",
+  "labels_sha256": "7cd65f8c392d695e291a240203586af41b69f97fd7c0b31af85fc050bbb1b2a8",
+  "macro_root_accuracy": 0.4583333333333333,
+  "model": "bonsai-27b-ptq1",
+  "n_assigned_tasks": 12,
+  "n_correct": 11,
+  "n_rollouts_recorded": 24,
+  "n_roots_assigned": 12,
+  "n_roots_scored": 12,
+  "n_scored": 24,
+  "rows": [
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "iclr26-pair-01",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-01"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-01",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-01"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "iclr26-pair-02",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-02"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-02",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-02"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "iclr26-pair-03",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-03"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-03",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-03"
+    },
+    {
+      "format_valid": false,
+      "order": "normal",
+      "root_id": "iclr26-pair-04",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-04"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-04",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-04"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "iclr26-pair-05",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "iclr26-pair-05"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-05",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "iclr26-pair-05"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "iclr26-pair-06",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "iclr26-pair-06"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-06",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "iclr26-pair-06"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "iclr26-pair-07",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "iclr26-pair-07"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-07",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "iclr26-pair-07"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "iclr26-pair-08",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "iclr26-pair-08"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-08",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-08"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "iclr26-pair-09",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "iclr26-pair-09"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-09",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-09"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "iclr26-pair-10",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "iclr26-pair-10"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-10",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-10"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "iclr26-pair-11",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-11"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-11",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "iclr26-pair-11"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "iclr26-pair-12",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "iclr26-pair-12"
+    },
+    {
+      "format_valid": true,
+      "order": "swapped",
+      "root_id": "iclr26-pair-12",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "iclr26-pair-12"
+    }
+  ],
+  "run_manifest_sha256": "bbb78f43ed887a67bdd0bee2aa80faa774967754e9e01dca3eb4bdb456db5290",
+  "schema": "preferred-evals/prompt-score-v1",
+  "scope_warning": "Samples and order-swaps share task roots; apply EvalMath FSI-01 on independent roots for claims.",
+  "statuses": {
+    "completed": 24
+  }
+}

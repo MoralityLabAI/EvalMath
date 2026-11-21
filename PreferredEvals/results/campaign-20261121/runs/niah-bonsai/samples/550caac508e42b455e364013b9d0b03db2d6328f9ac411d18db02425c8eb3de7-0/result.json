@@ -1,0 +1,32 @@
+{
+  "id": "niah_uuid_key_to_value_16000_75_1667628074",
+  "sample_index": 0,
+  "score": 1.0,
+  "answer": "793bed1b-14f9-4394-ba20-74034ab427e3",
+  "details": {
+    "context_length": 16000,
+    "depth_percent": 75,
+    "sample_index": 0,
+    "prompt_tokens": 15858,
+    "target_key": "a3607681-2bbb-489d-b4fa-dee106969d48",
+    "stop_reason": "stop"
+  },
+  "seconds": 36.01418647199171,
+  "attempt": "attempt-0001",
+  "calls": [
+    {
+      "usage": {
+        "input_tokens": 15870,
+        "output_tokens": 33,
+        "cached_input_tokens": 0
+      },
+      "stop_reason": "stop",
+      "seconds": 36.01323064198368
+    }
+  ],
+  "usage": {
+    "input_tokens": 15870,
+    "output_tokens": 33,
+    "cached_input_tokens": 0
+  }
+}

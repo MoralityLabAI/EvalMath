@@ -1,0 +1,5 @@
+def _get_assertion_info(value, statement, lineno, source, ...):
+    if not source:
+        return None
+    source = source.getstatementrange(lineno)
+    ...

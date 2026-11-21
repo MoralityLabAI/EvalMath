@@ -1,0 +1,10 @@
+{
+ "schema": "preferred-evals/registration-amendment-v1",
+ "campaign_id": "PE2-MULTIHOP-BUDGET-20261121",
+ "amends": "registration.json (commit b646c06)",
+ "written": "2026-11-21 after an aborted first bonsai-b0 pass and before any sweep rollout was scored",
+ "change": "Condition bonsai-b0 is run with chat_template_kwargs {\"enable_thinking\": false} under the answer-only prompt, instead of thinking_budget_tokens=0.",
+ "reason": "PrismML llama-server b10743 treats thinking_budget_tokens=0 as no budget: the first bonsai-b0 pass produced 200 to 500 completion tokens of thinking per chain. Positive budgets are enforced (64 -> 68 and 256 -> 260 completion tokens on a development chain), and a budget of 1 breaks reasoning extraction, so 0 cannot be approximated by a tiny budget. enable_thinking=false with the answer-only prompt produced 2 to 3 completion tokens per chain in campaign-20261121.",
+ "exposure": "The aborted pass wrote receipts for some sealed chains. Their answer strings were displayed for 6 chains; no receipt was compared with the labels. The aborted receipts are archived beside this file and excluded.",
+ "unchanged": "every other condition, the task set, the four comparisons, the effect floor, alpha and Holm"
+}

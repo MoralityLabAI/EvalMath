@@ -1,0 +1,1882 @@
+{
+ "_registered_ids": [
+  "between-1",
+  "between-2",
+  "between-3",
+  "between-4",
+  "between-5",
+  "between-6",
+  "between-7",
+  "within-8"
+ ],
+ "blocked": [
+  {
+   "benchmark": "HLE text (Inkling Verify hle)",
+   "class": "missing_dependency",
+   "reason": "cais/hle is gated on Hugging Face and this account has no access (DatasetNotFoundError at prepare)"
+  },
+  {
+   "benchmark": "DeepSWE (Inkling Verify deepswe)",
+   "class": "missing_dependency",
+   "reason": "needs rootless Podman on native x86-64 Linux and four-hour agent budgets; Podman is not installed in this WSL"
+  },
+  {
+   "benchmark": "PaperBench",
+   "class": "missing_dependency",
+   "reason": "needs multi-hour agent runs and rubric judging; no executable proxy staged"
+  },
+  {
+   "benchmark": "Prime sandbox tasksets",
+   "class": "excluded_by_policy",
+   "reason": "paid Prime sandboxes are out of scope for this campaign"
+  }
+ ],
+ "campaign_id": "PE2-LOCAL-20261121",
+ "campaign_sha256": "e5bc0708a35850597213d865875d126cbe92920ce2862c8436d1ff69bad68c20",
+ "comparisons": [
+  {
+   "baseline_correct": 9,
+   "baseline_run": "taste-qwen",
+   "candidate_correct": 11,
+   "candidate_run": "taste-bonsai",
+   "fsi_01_manifest": {
+    "alpha": "0.05",
+    "cases": [
+     {
+      "baseline": 1,
+      "candidate": 0,
+      "case_id": "iclr26-pair-01#normal-0",
+      "cluster_id": "iclr26-pair-01"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "iclr26-pair-01#swapped-0",
+      "cluster_id": "iclr26-pair-01"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "iclr26-pair-02#normal-0",
+      "cluster_id": "iclr26-pair-02"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "iclr26-pair-02#swapped-0",
+      "cluster_id": "iclr26-pair-02"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "iclr26-pair-03#normal-0",
+      "cluster_id": "iclr26-pair-03"
+     },
+     {
+      "baseline": 1,
+      "candidate": 0,
+      "case_id": "iclr26-pair-03#swapped-0",
+      "cluster_id": "iclr26-pair-03"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "iclr26-pair-04#normal-0",
+      "cluster_id": "iclr26-pair-04"
+     },
+     {
+      "baseline": 1,
+      "candidate": 0,
+      "case_id": "iclr26-pair-04#swapped-0",
+      "cluster_id": "iclr26-pair-04"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "iclr26-pair-05#normal-0",
+      "cluster_id": "iclr26-pair-05"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "iclr26-pair-05#swapped-0",
+      "cluster_id": "iclr26-pair-05"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "iclr26-pair-06#normal-0",
+      "cluster_id": "iclr26-pair-06"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "iclr26-pair-06#swapped-0",
+      "cluster_id": "iclr26-pair-06"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "iclr26-pair-07#normal-0",
+      "cluster_id": "iclr26-pair-07"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "iclr26-pair-07#swapped-0",
+      "cluster_id": "iclr26-pair-07"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "iclr26-pair-08#normal-0",
+      "cluster_id": "iclr26-pair-08"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "iclr26-pair-08#swapped-0",
+      "cluster_id": "iclr26-pair-08"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "iclr26-pair-09#normal-0",
+      "cluster_id": "iclr26-pair-09"
+     },
+     {
+      "baseline": 1,
+      "candidate": 0,
+      "case_id": "iclr26-pair-09#swapped-0",
+      "cluster_id": "iclr26-pair-09"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "iclr26-pair-10#normal-0",
+      "cluster_id": "iclr26-pair-10"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "iclr26-pair-10#swapped-0",
+      "cluster_id": "iclr26-pair-10"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "iclr26-pair-11#normal-0",
+      "cluster_id": "iclr26-pair-11"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "iclr26-pair-11#swapped-0",
+      "cluster_id": "iclr26-pair-11"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "iclr26-pair-12#normal-0",
+      "cluster_id": "iclr26-pair-12"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "iclr26-pair-12#swapped-0",
+      "cluster_id": "iclr26-pair-12"
+     }
+    ],
+    "clusters_independent": true,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-taste-bonsai-vs-qwen",
+    "hypothesis_preregistered": true,
+    "minimum_effect": "0.10",
+    "planned_comparisons": 8,
+    "schema_version": 1,
+    "sealed_readout": false,
+    "target_population": "declared development task roots"
+   },
+   "fsi_01_result": {
+    "accuracy_intervals": null,
+    "alpha": 0.05,
+    "baseline_accuracy": 0.375,
+    "baseline_correct": 9,
+    "baseline_only": 4,
+    "candidate_accuracy": 0.4583333333333333,
+    "candidate_correct": 11,
+    "candidate_only": 6,
+    "case_effect_exact": "1/12",
+    "case_weighted_effect": 0.08333333333333333,
+    "cluster_bootstrap_interval": [
+     -0.2916666666666667,
+     0.5416666666666666
+    ],
+    "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
+    "cluster_bootstrap_resamples": 4096,
+    "cluster_effect_exact": "1/12",
+    "cluster_macro_effect": 0.08333333333333333,
+    "clusters_independent": true,
+    "discordant": 10,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-taste-bonsai-vs-qwen",
+    "familywise_alpha": 0.00625,
+    "gate_reasons": [
+     "readout_used_in_selection_or_unsealed",
+     "insufficient_independent_clusters_for_policy",
+     "adjusted_test_not_significant",
+     "cluster_interval_crosses_effect_floor",
+     "nonasymptotic_effect_floor_bound_not_met"
+    ],
+    "hoeffding_one_sided_effect_bounds": [
+     -0.8363743933597564,
+     1.0
+    ],
+    "hypothesis_preregistered": true,
+    "min_independent_clusters": 20,
+    "minimum_effect": 0.1,
+    "n_cases": 24,
+    "n_clusters": 12,
+    "p_bonferroni": 1.0,
+    "p_exact_fraction": "51/64",
+    "p_unadjusted": 0.796875,
+    "planned_comparisons": 8,
+    "resample_seed": 20261117,
+    "schema_version": 1,
+    "scope_note": "Independent representative clusters and symmetric paired-label null are declared assumptions; clustered bootstrap has weak small-G coverage. Floors above zero require conservative Hoeffding lower bounds. Bonferroni covers the stated preplanned family only. Reuse requires an untouched sealed confirmation readout.",
+    "sealed_readout": false,
+    "target_population": "declared development task roots",
+    "test": "exact_cluster_sign_flip",
+    "ties": 14,
+    "verdict": "inconclusive"
+   },
+   "id": "taste-bonsai-vs-qwen",
+   "n_paired_attempts": 24,
+   "n_paired_roots": 12,
+   "p_holm": 1.0,
+   "p_raw": 0.796875,
+   "unpaired": []
+  },
+  {
+   "baseline_correct": 5,
+   "baseline_run": "mmlupro-qwen",
+   "candidate_correct": 7,
+   "candidate_run": "mmlupro-bonsai",
+   "fsi_01_manifest": {
+    "alpha": "0.05",
+    "cases": [
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "mmlu-pro-10193#normal-0",
+      "cluster_id": "mmlu-pro-10193"
+     },
+     {
+      "baseline": 1,
+      "candidate": 0,
+      "case_id": "mmlu-pro-10238#normal-0",
+      "cluster_id": "mmlu-pro-10238"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "mmlu-pro-3066#normal-0",
+      "cluster_id": "mmlu-pro-3066"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "mmlu-pro-3438#normal-0",
+      "cluster_id": "mmlu-pro-3438"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "mmlu-pro-9307#normal-0",
+      "cluster_id": "mmlu-pro-9307"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "mmlu-pro-9369#normal-0",
+      "cluster_id": "mmlu-pro-9369"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "mmlu-pro-9811#normal-0",
+      "cluster_id": "mmlu-pro-9811"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "mmlu-pro-9972#normal-0",
+      "cluster_id": "mmlu-pro-9972"
+     }
+    ],
+    "clusters_independent": true,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-mmlupro-bonsai-vs-qwen",
+    "hypothesis_preregistered": true,
+    "minimum_effect": "0.10",
+    "planned_comparisons": 8,
+    "schema_version": 1,
+    "sealed_readout": false,
+    "target_population": "declared development task roots"
+   },
+   "fsi_01_result": {
+    "accuracy_intervals": {
+     "baseline": [
+      0.15300750732421875,
+      0.9597969055175781
+     ],
+     "candidate": [
+      0.3429603576660156,
+      0.9996109008789062
+     ],
+     "method": "outward_exact_Clopper_Pearson_iid_cases"
+    },
+    "alpha": 0.05,
+    "baseline_accuracy": 0.625,
+    "baseline_correct": 5,
+    "baseline_only": 1,
+    "candidate_accuracy": 0.875,
+    "candidate_correct": 7,
+    "candidate_only": 3,
+    "case_effect_exact": "1/4",
+    "case_weighted_effect": 0.25,
+    "cluster_bootstrap_interval": [
+     -0.375,
+     0.875
+    ],
+    "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
+    "cluster_bootstrap_resamples": 4096,
+    "cluster_effect_exact": "1/4",
+    "cluster_macro_effect": 0.25,
+    "clusters_independent": true,
+    "discordant": 4,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-mmlupro-bonsai-vs-qwen",
+    "familywise_alpha": 0.00625,
+    "gate_reasons": [
+     "readout_used_in_selection_or_unsealed",
+     "insufficient_independent_clusters_for_policy",
+     "adjusted_test_not_significant",
+     "cluster_interval_crosses_effect_floor",
+     "nonasymptotic_effect_floor_bound_not_met"
+    ],
+    "hoeffding_one_sided_effect_bounds": [
+     -0.8764073214465788,
+     1.0
+    ],
+    "hypothesis_preregistered": true,
+    "min_independent_clusters": 20,
+    "minimum_effect": 0.1,
+    "n_cases": 8,
+    "n_clusters": 8,
+    "p_bonferroni": 1.0,
+    "p_exact_fraction": "5/8",
+    "p_unadjusted": 0.625,
+    "planned_comparisons": 8,
+    "resample_seed": 20261117,
+    "schema_version": 1,
+    "scope_note": "Independent representative clusters and symmetric paired-label null are declared assumptions; clustered bootstrap has weak small-G coverage. Floors above zero require conservative Hoeffding lower bounds. Bonferroni covers the stated preplanned family only. Reuse requires an untouched sealed confirmation readout.",
+    "sealed_readout": false,
+    "target_population": "declared development task roots",
+    "test": "exact_McNemar_independent_pairs",
+    "ties": 4,
+    "verdict": "suggestive"
+   },
+   "id": "mmlupro-bonsai-vs-qwen",
+   "n_paired_attempts": 8,
+   "n_paired_roots": 8,
+   "p_holm": 1.0,
+   "p_raw": 0.625,
+   "unpaired": []
+  },
+  {
+   "baseline_correct": 0,
+   "baseline_run": "multihop-qwen",
+   "candidate_correct": 11,
+   "candidate_run": "multihop-bonsai",
+   "fsi_01_manifest": {
+    "alpha": "0.05",
+    "cases": [
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d02-1#normal-0",
+      "cluster_id": "multihop-d02-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d02-2#normal-0",
+      "cluster_id": "multihop-d02-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d02-3#normal-0",
+      "cluster_id": "multihop-d02-3"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d04-1#normal-0",
+      "cluster_id": "multihop-d04-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d04-2#normal-0",
+      "cluster_id": "multihop-d04-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d04-3#normal-0",
+      "cluster_id": "multihop-d04-3"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d08-1#normal-0",
+      "cluster_id": "multihop-d08-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d08-2#normal-0",
+      "cluster_id": "multihop-d08-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d08-3#normal-0",
+      "cluster_id": "multihop-d08-3"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d12-1#normal-0",
+      "cluster_id": "multihop-d12-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d12-2#normal-0",
+      "cluster_id": "multihop-d12-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d12-3#normal-0",
+      "cluster_id": "multihop-d12-3"
+     }
+    ],
+    "clusters_independent": true,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-multihop-bonsai-vs-qwen",
+    "hypothesis_preregistered": true,
+    "minimum_effect": "0.10",
+    "planned_comparisons": 8,
+    "schema_version": 1,
+    "sealed_readout": false,
+    "target_population": "declared development task roots"
+   },
+   "fsi_01_result": {
+    "accuracy_intervals": {
+     "baseline": [
+      0.0,
+      0.3816490173339844
+     ],
+     "candidate": [
+      0.499237060546875,
+      0.9997406005859375
+     ],
+     "method": "outward_exact_Clopper_Pearson_iid_cases"
+    },
+    "alpha": 0.05,
+    "baseline_accuracy": 0.0,
+    "baseline_correct": 0,
+    "baseline_only": 0,
+    "candidate_accuracy": 0.9166666666666666,
+    "candidate_correct": 11,
+    "candidate_only": 11,
+    "case_effect_exact": "11/12",
+    "case_weighted_effect": 0.9166666666666666,
+    "cluster_bootstrap_interval": [
+     0.6666666666666666,
+     1.0
+    ],
+    "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
+    "cluster_bootstrap_resamples": 4096,
+    "cluster_effect_exact": "11/12",
+    "cluster_macro_effect": 0.9166666666666666,
+    "clusters_independent": true,
+    "discordant": 11,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-multihop-bonsai-vs-qwen",
+    "familywise_alpha": 0.00625,
+    "gate_reasons": [
+     "readout_used_in_selection_or_unsealed",
+     "insufficient_independent_clusters_for_policy",
+     "nonasymptotic_effect_floor_bound_not_met"
+    ],
+    "hoeffding_one_sided_effect_bounds": [
+     -0.003041060026423126,
+     1.0
+    ],
+    "hypothesis_preregistered": true,
+    "min_independent_clusters": 20,
+    "minimum_effect": 0.1,
+    "n_cases": 12,
+    "n_clusters": 12,
+    "p_bonferroni": 0.0078125,
+    "p_exact_fraction": "1/1024",
+    "p_unadjusted": 0.0009765625,
+    "planned_comparisons": 8,
+    "resample_seed": 20261117,
+    "schema_version": 1,
+    "scope_note": "Independent representative clusters and symmetric paired-label null are declared assumptions; clustered bootstrap has weak small-G coverage. Floors above zero require conservative Hoeffding lower bounds. Bonferroni covers the stated preplanned family only. Reuse requires an untouched sealed confirmation readout.",
+    "sealed_readout": false,
+    "target_population": "declared development task roots",
+    "test": "exact_McNemar_independent_pairs",
+    "ties": 1,
+    "verdict": "suggestive"
+   },
+   "id": "multihop-bonsai-vs-qwen",
+   "n_paired_attempts": 12,
+   "n_paired_roots": 12,
+   "p_holm": 0.0078,
+   "p_raw": 0.0009765625,
+   "unpaired": []
+  },
+  {
+   "baseline_correct": 12,
+   "baseline_run": "gsm8k-qwen",
+   "candidate_correct": 12,
+   "candidate_run": "gsm8k-bonsai",
+   "fsi_01_manifest": {
+    "alpha": "0.05",
+    "cases": [
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "398ef15d986d190a74a6473abe0e2585abdc178563d7dfb00879210f8f56881d#0",
+      "cluster_id": "398ef15d986d190a74a6473abe0e2585abdc178563d7dfb00879210f8f56881d"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "398ef15d986d190a74a6473abe0e2585abdc178563d7dfb00879210f8f56881d#1",
+      "cluster_id": "398ef15d986d190a74a6473abe0e2585abdc178563d7dfb00879210f8f56881d"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "50f750b7b9969eb381d75248828744c26959a66c5714dbeaf5a69f4edc57887c#0",
+      "cluster_id": "50f750b7b9969eb381d75248828744c26959a66c5714dbeaf5a69f4edc57887c"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "50f750b7b9969eb381d75248828744c26959a66c5714dbeaf5a69f4edc57887c#1",
+      "cluster_id": "50f750b7b9969eb381d75248828744c26959a66c5714dbeaf5a69f4edc57887c"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "5fd386ff4b24876b4a58448650951d76409928413e4c845d56ebd5c116ed92f0#0",
+      "cluster_id": "5fd386ff4b24876b4a58448650951d76409928413e4c845d56ebd5c116ed92f0"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "5fd386ff4b24876b4a58448650951d76409928413e4c845d56ebd5c116ed92f0#1",
+      "cluster_id": "5fd386ff4b24876b4a58448650951d76409928413e4c845d56ebd5c116ed92f0"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "670a87bf7f58c7b28b3b6132dadeec836ffedf5f5839ed59b2a28bc6282115a8#0",
+      "cluster_id": "670a87bf7f58c7b28b3b6132dadeec836ffedf5f5839ed59b2a28bc6282115a8"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "670a87bf7f58c7b28b3b6132dadeec836ffedf5f5839ed59b2a28bc6282115a8#1",
+      "cluster_id": "670a87bf7f58c7b28b3b6132dadeec836ffedf5f5839ed59b2a28bc6282115a8"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "9b64e471d1c34177965f77a48dc64263054f2315bce1cf97766a4e1042f52530#0",
+      "cluster_id": "9b64e471d1c34177965f77a48dc64263054f2315bce1cf97766a4e1042f52530"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "9b64e471d1c34177965f77a48dc64263054f2315bce1cf97766a4e1042f52530#1",
+      "cluster_id": "9b64e471d1c34177965f77a48dc64263054f2315bce1cf97766a4e1042f52530"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "a4543d855cd6138259179145771489de6896a9f8124880aee030dc8c92759160#0",
+      "cluster_id": "a4543d855cd6138259179145771489de6896a9f8124880aee030dc8c92759160"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "a4543d855cd6138259179145771489de6896a9f8124880aee030dc8c92759160#1",
+      "cluster_id": "a4543d855cd6138259179145771489de6896a9f8124880aee030dc8c92759160"
+     }
+    ],
+    "clusters_independent": true,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-gsm8k-bonsai-vs-qwen",
+    "hypothesis_preregistered": true,
+    "minimum_effect": "0.10",
+    "planned_comparisons": 8,
+    "schema_version": 1,
+    "sealed_readout": false,
+    "target_population": "declared development task roots"
+   },
+   "fsi_01_result": {
+    "accuracy_intervals": null,
+    "alpha": 0.05,
+    "baseline_accuracy": 1.0,
+    "baseline_correct": 12,
+    "baseline_only": 0,
+    "candidate_accuracy": 1.0,
+    "candidate_correct": 12,
+    "candidate_only": 0,
+    "case_effect_exact": "0",
+    "case_weighted_effect": 0.0,
+    "cluster_bootstrap_interval": [
+     0.0,
+     0.0
+    ],
+    "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
+    "cluster_bootstrap_resamples": 4096,
+    "cluster_effect_exact": "0",
+    "cluster_macro_effect": 0.0,
+    "clusters_independent": true,
+    "discordant": 0,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-gsm8k-bonsai-vs-qwen",
+    "familywise_alpha": 0.00625,
+    "gate_reasons": [
+     "readout_used_in_selection_or_unsealed",
+     "insufficient_independent_clusters_for_policy",
+     "adjusted_test_not_significant",
+     "cluster_interval_crosses_effect_floor",
+     "nonasymptotic_effect_floor_bound_not_met"
+    ],
+    "hoeffding_one_sided_effect_bounds": [
+     -1.0,
+     1.0
+    ],
+    "hypothesis_preregistered": true,
+    "min_independent_clusters": 20,
+    "minimum_effect": 0.1,
+    "n_cases": 12,
+    "n_clusters": 6,
+    "p_bonferroni": 1.0,
+    "p_exact_fraction": "1",
+    "p_unadjusted": 1.0,
+    "planned_comparisons": 8,
+    "resample_seed": 20261117,
+    "schema_version": 1,
+    "scope_note": "Independent representative clusters and symmetric paired-label null are declared assumptions; clustered bootstrap has weak small-G coverage. Floors above zero require conservative Hoeffding lower bounds. Bonferroni covers the stated preplanned family only. Reuse requires an untouched sealed confirmation readout.",
+    "sealed_readout": false,
+    "target_population": "declared development task roots",
+    "test": "exact_cluster_sign_flip",
+    "ties": 12,
+    "verdict": "inconclusive"
+   },
+   "id": "gsm8k-bonsai-vs-qwen",
+   "n_paired_attempts": 12,
+   "n_paired_roots": 6,
+   "p_holm": 1.0,
+   "p_raw": 1.0,
+   "unpaired": []
+  },
+  {
+   "baseline_correct": 8,
+   "baseline_run": "niah-qwen",
+   "candidate_correct": 8,
+   "candidate_run": "niah-bonsai",
+   "fsi_01_manifest": {
+    "alpha": "0.05",
+    "cases": [
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "niah-16000-d25-c0#0",
+      "cluster_id": "niah-16000-d25-c0"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "niah-16000-d25-c1#0",
+      "cluster_id": "niah-16000-d25-c1"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "niah-16000-d75-c0#0",
+      "cluster_id": "niah-16000-d75-c0"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "niah-16000-d75-c1#0",
+      "cluster_id": "niah-16000-d75-c1"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "niah-4000-d25-c0#0",
+      "cluster_id": "niah-4000-d25-c0"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "niah-4000-d25-c1#0",
+      "cluster_id": "niah-4000-d25-c1"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "niah-4000-d75-c0#0",
+      "cluster_id": "niah-4000-d75-c0"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "niah-4000-d75-c1#0",
+      "cluster_id": "niah-4000-d75-c1"
+     }
+    ],
+    "clusters_independent": true,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-niah-bonsai-vs-qwen",
+    "hypothesis_preregistered": true,
+    "minimum_effect": "0.10",
+    "planned_comparisons": 8,
+    "schema_version": 1,
+    "sealed_readout": false,
+    "target_population": "NIAH cases; prompts are tokenizer-specific, so a pair shares the generator cell and seed, not identical text"
+   },
+   "fsi_01_result": {
+    "accuracy_intervals": {
+     "baseline": [
+      0.48624420166015625,
+      1.0
+     ],
+     "candidate": [
+      0.48624420166015625,
+      1.0
+     ],
+     "method": "outward_exact_Clopper_Pearson_iid_cases"
+    },
+    "alpha": 0.05,
+    "baseline_accuracy": 1.0,
+    "baseline_correct": 8,
+    "baseline_only": 0,
+    "candidate_accuracy": 1.0,
+    "candidate_correct": 8,
+    "candidate_only": 0,
+    "case_effect_exact": "0",
+    "case_weighted_effect": 0.0,
+    "cluster_bootstrap_interval": [
+     0.0,
+     0.0
+    ],
+    "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
+    "cluster_bootstrap_resamples": 4096,
+    "cluster_effect_exact": "0",
+    "cluster_macro_effect": 0.0,
+    "clusters_independent": true,
+    "discordant": 0,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-niah-bonsai-vs-qwen",
+    "familywise_alpha": 0.00625,
+    "gate_reasons": [
+     "readout_used_in_selection_or_unsealed",
+     "insufficient_independent_clusters_for_policy",
+     "adjusted_test_not_significant",
+     "cluster_interval_crosses_effect_floor",
+     "nonasymptotic_effect_floor_bound_not_met"
+    ],
+    "hoeffding_one_sided_effect_bounds": [
+     -1.0,
+     1.0
+    ],
+    "hypothesis_preregistered": true,
+    "min_independent_clusters": 20,
+    "minimum_effect": 0.1,
+    "n_cases": 8,
+    "n_clusters": 8,
+    "p_bonferroni": 1.0,
+    "p_exact_fraction": "1",
+    "p_unadjusted": 1.0,
+    "planned_comparisons": 8,
+    "resample_seed": 20261117,
+    "schema_version": 1,
+    "scope_note": "Independent representative clusters and symmetric paired-label null are declared assumptions; clustered bootstrap has weak small-G coverage. Floors above zero require conservative Hoeffding lower bounds. Bonferroni covers the stated preplanned family only. Reuse requires an untouched sealed confirmation readout.",
+    "sealed_readout": false,
+    "target_population": "NIAH cases; prompts are tokenizer-specific, so a pair shares the generator cell and seed, not identical text",
+    "test": "exact_McNemar_independent_pairs",
+    "ties": 8,
+    "verdict": "inconclusive"
+   },
+   "id": "niah-bonsai-vs-qwen",
+   "n_paired_attempts": 8,
+   "n_paired_roots": 8,
+   "p_holm": 1.0,
+   "p_raw": 1.0,
+   "unpaired": []
+  },
+  {
+   "baseline_correct": 3,
+   "baseline_run": "sqlite-qwen",
+   "candidate_correct": 6,
+   "candidate_run": "sqlite-bonsai",
+   "fsi_01_manifest": {
+    "alpha": "0.05",
+    "cases": [
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "cancel_ts_column#0",
+      "cluster_id": "cancel_ts_column"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "channel_edi#0",
+      "cluster_id": "channel_edi"
+     },
+     {
+      "baseline": 1,
+      "candidate": 0,
+      "case_id": "code_domains#0",
+      "cluster_id": "code_domains"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "code_meaning_x#0",
+      "cluster_id": "code_meaning_x"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "discount_column#0",
+      "cluster_id": "discount_column"
+     },
+     {
+      "baseline": 1,
+      "candidate": 1,
+      "case_id": "dupe_count#0",
+      "cluster_id": "dupe_count"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "mgr_column#0",
+      "cluster_id": "mgr_column"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "staff_current#0",
+      "cluster_id": "staff_current"
+     }
+    ],
+    "clusters_independent": true,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-sqlite-bonsai-vs-qwen",
+    "hypothesis_preregistered": true,
+    "minimum_effect": "0.10",
+    "planned_comparisons": 8,
+    "schema_version": 1,
+    "sealed_readout": false,
+    "target_population": "declared development task roots"
+   },
+   "fsi_01_result": {
+    "accuracy_intervals": {
+     "baseline": [
+      0.040203094482421875,
+      0.8469924926757812
+     ],
+     "candidate": [
+      0.2365875244140625,
+      0.9892082214355469
+     ],
+     "method": "outward_exact_Clopper_Pearson_iid_cases"
+    },
+    "alpha": 0.05,
+    "baseline_accuracy": 0.375,
+    "baseline_correct": 3,
+    "baseline_only": 1,
+    "candidate_accuracy": 0.75,
+    "candidate_correct": 6,
+    "candidate_only": 4,
+    "case_effect_exact": "3/8",
+    "case_weighted_effect": 0.375,
+    "cluster_bootstrap_interval": [
+     -0.375,
+     1.0
+    ],
+    "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
+    "cluster_bootstrap_resamples": 4096,
+    "cluster_effect_exact": "3/8",
+    "cluster_macro_effect": 0.375,
+    "clusters_independent": true,
+    "discordant": 5,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-sqlite-bonsai-vs-qwen",
+    "familywise_alpha": 0.00625,
+    "gate_reasons": [
+     "readout_used_in_selection_or_unsealed",
+     "insufficient_independent_clusters_for_policy",
+     "adjusted_test_not_significant",
+     "cluster_interval_crosses_effect_floor",
+     "nonasymptotic_effect_floor_bound_not_met"
+    ],
+    "hoeffding_one_sided_effect_bounds": [
+     -0.7514073214465788,
+     1.0
+    ],
+    "hypothesis_preregistered": true,
+    "min_independent_clusters": 20,
+    "minimum_effect": 0.1,
+    "n_cases": 8,
+    "n_clusters": 8,
+    "p_bonferroni": 1.0,
+    "p_exact_fraction": "3/8",
+    "p_unadjusted": 0.375,
+    "planned_comparisons": 8,
+    "resample_seed": 20261117,
+    "schema_version": 1,
+    "scope_note": "Independent representative clusters and symmetric paired-label null are declared assumptions; clustered bootstrap has weak small-G coverage. Floors above zero require conservative Hoeffding lower bounds. Bonferroni covers the stated preplanned family only. Reuse requires an untouched sealed confirmation readout.",
+    "sealed_readout": false,
+    "target_population": "declared development task roots",
+    "test": "exact_McNemar_independent_pairs",
+    "ties": 3,
+    "verdict": "suggestive"
+   },
+   "id": "sqlite-bonsai-vs-qwen",
+   "n_paired_attempts": 8,
+   "n_paired_roots": 8,
+   "p_holm": 1.0,
+   "p_raw": 0.375,
+   "unpaired": []
+  },
+  {
+   "baseline_correct": 0,
+   "baseline_run": "swe-qwen",
+   "candidate_correct": 0,
+   "candidate_run": "swe-bonsai",
+   "fsi_01_manifest": {
+    "alpha": "0.05",
+    "cases": [
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "pallets__flask-4992#0",
+      "cluster_id": "pallets__flask-4992"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "pytest-dev__pytest-7168#0",
+      "cluster_id": "pytest-dev__pytest-7168"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "pytest-dev__pytest-7373#0",
+      "cluster_id": "pytest-dev__pytest-7373"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "pytest-dev__pytest-7432#0",
+      "cluster_id": "pytest-dev__pytest-7432"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "pytest-dev__pytest-8365#0",
+      "cluster_id": "pytest-dev__pytest-8365"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "pytest-dev__pytest-9359#0",
+      "cluster_id": "pytest-dev__pytest-9359"
+     }
+    ],
+    "clusters_independent": true,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-swe-bonsai-vs-qwen",
+    "hypothesis_preregistered": true,
+    "minimum_effect": "0.10",
+    "planned_comparisons": 8,
+    "schema_version": 1,
+    "sealed_readout": false,
+    "target_population": "declared development task roots"
+   },
+   "fsi_01_result": {
+    "accuracy_intervals": {
+     "baseline": [
+      0.0,
+      0.6176414489746094
+     ],
+     "candidate": [
+      0.0,
+      0.6176414489746094
+     ],
+     "method": "outward_exact_Clopper_Pearson_iid_cases"
+    },
+    "alpha": 0.05,
+    "baseline_accuracy": 0.0,
+    "baseline_correct": 0,
+    "baseline_only": 0,
+    "candidate_accuracy": 0.0,
+    "candidate_correct": 0,
+    "candidate_only": 0,
+    "case_effect_exact": "0",
+    "case_weighted_effect": 0.0,
+    "cluster_bootstrap_interval": [
+     0.0,
+     0.0
+    ],
+    "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
+    "cluster_bootstrap_resamples": 4096,
+    "cluster_effect_exact": "0",
+    "cluster_macro_effect": 0.0,
+    "clusters_independent": true,
+    "discordant": 0,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-swe-bonsai-vs-qwen",
+    "familywise_alpha": 0.00625,
+    "gate_reasons": [
+     "readout_used_in_selection_or_unsealed",
+     "insufficient_independent_clusters_for_policy",
+     "adjusted_test_not_significant",
+     "cluster_interval_crosses_effect_floor",
+     "nonasymptotic_effect_floor_bound_not_met"
+    ],
+    "hoeffding_one_sided_effect_bounds": [
+     -1.0,
+     1.0
+    ],
+    "hypothesis_preregistered": true,
+    "min_independent_clusters": 20,
+    "minimum_effect": 0.1,
+    "n_cases": 6,
+    "n_clusters": 6,
+    "p_bonferroni": 1.0,
+    "p_exact_fraction": "1",
+    "p_unadjusted": 1.0,
+    "planned_comparisons": 8,
+    "resample_seed": 20261117,
+    "schema_version": 1,
+    "scope_note": "Independent representative clusters and symmetric paired-label null are declared assumptions; clustered bootstrap has weak small-G coverage. Floors above zero require conservative Hoeffding lower bounds. Bonferroni covers the stated preplanned family only. Reuse requires an untouched sealed confirmation readout.",
+    "sealed_readout": false,
+    "target_population": "declared development task roots",
+    "test": "exact_McNemar_independent_pairs",
+    "ties": 6,
+    "verdict": "inconclusive"
+   },
+   "id": "swe-bonsai-vs-qwen",
+   "n_paired_attempts": 6,
+   "n_paired_roots": 6,
+   "p_holm": 1.0,
+   "p_raw": 1.0,
+   "unpaired": []
+  },
+  {
+   "baseline_correct": 0,
+   "baseline_run": "multihop-nocot-bonsai",
+   "candidate_correct": 11,
+   "candidate_run": "multihop-bonsai",
+   "fsi_01_manifest": {
+    "alpha": "0.05",
+    "cases": [
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d02-1#normal-0",
+      "cluster_id": "multihop-d02-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d02-2#normal-0",
+      "cluster_id": "multihop-d02-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d02-3#normal-0",
+      "cluster_id": "multihop-d02-3"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d04-1#normal-0",
+      "cluster_id": "multihop-d04-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d04-2#normal-0",
+      "cluster_id": "multihop-d04-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d04-3#normal-0",
+      "cluster_id": "multihop-d04-3"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d08-1#normal-0",
+      "cluster_id": "multihop-d08-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d08-2#normal-0",
+      "cluster_id": "multihop-d08-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d08-3#normal-0",
+      "cluster_id": "multihop-d08-3"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d12-1#normal-0",
+      "cluster_id": "multihop-d12-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 1,
+      "case_id": "multihop-d12-2#normal-0",
+      "cluster_id": "multihop-d12-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d12-3#normal-0",
+      "cluster_id": "multihop-d12-3"
+     }
+    ],
+    "clusters_independent": true,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-multihop-bonsai-reasoning-vs-nocot",
+    "hypothesis_preregistered": true,
+    "minimum_effect": "0.10",
+    "planned_comparisons": 8,
+    "schema_version": 1,
+    "sealed_readout": false,
+    "target_population": "declared development task roots"
+   },
+   "fsi_01_result": {
+    "accuracy_intervals": {
+     "baseline": [
+      0.0,
+      0.3816490173339844
+     ],
+     "candidate": [
+      0.499237060546875,
+      0.9997406005859375
+     ],
+     "method": "outward_exact_Clopper_Pearson_iid_cases"
+    },
+    "alpha": 0.05,
+    "baseline_accuracy": 0.0,
+    "baseline_correct": 0,
+    "baseline_only": 0,
+    "candidate_accuracy": 0.9166666666666666,
+    "candidate_correct": 11,
+    "candidate_only": 11,
+    "case_effect_exact": "11/12",
+    "case_weighted_effect": 0.9166666666666666,
+    "cluster_bootstrap_interval": [
+     0.6666666666666666,
+     1.0
+    ],
+    "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
+    "cluster_bootstrap_resamples": 4096,
+    "cluster_effect_exact": "11/12",
+    "cluster_macro_effect": 0.9166666666666666,
+    "clusters_independent": true,
+    "discordant": 11,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-multihop-bonsai-reasoning-vs-nocot",
+    "familywise_alpha": 0.00625,
+    "gate_reasons": [
+     "readout_used_in_selection_or_unsealed",
+     "insufficient_independent_clusters_for_policy",
+     "nonasymptotic_effect_floor_bound_not_met"
+    ],
+    "hoeffding_one_sided_effect_bounds": [
+     -0.003041060026423126,
+     1.0
+    ],
+    "hypothesis_preregistered": true,
+    "min_independent_clusters": 20,
+    "minimum_effect": 0.1,
+    "n_cases": 12,
+    "n_clusters": 12,
+    "p_bonferroni": 0.0078125,
+    "p_exact_fraction": "1/1024",
+    "p_unadjusted": 0.0009765625,
+    "planned_comparisons": 8,
+    "resample_seed": 20261117,
+    "schema_version": 1,
+    "scope_note": "Independent representative clusters and symmetric paired-label null are declared assumptions; clustered bootstrap has weak small-G coverage. Floors above zero require conservative Hoeffding lower bounds. Bonferroni covers the stated preplanned family only. Reuse requires an untouched sealed confirmation readout.",
+    "sealed_readout": false,
+    "target_population": "declared development task roots",
+    "test": "exact_McNemar_independent_pairs",
+    "ties": 1,
+    "verdict": "suggestive"
+   },
+   "id": "multihop-bonsai-reasoning-vs-nocot",
+   "n_paired_attempts": 12,
+   "n_paired_roots": 12,
+   "p_holm": 0.0078,
+   "p_raw": 0.0009765625,
+   "unpaired": []
+  }
+ ],
+ "exploratory_comparisons": [
+  {
+   "baseline_correct": 0,
+   "baseline_run": "multihop-qwen",
+   "candidate_correct": 0,
+   "candidate_run": "multihop-nocot-bonsai",
+   "exploratory": true,
+   "fsi_01_manifest": {
+    "alpha": "0.05",
+    "cases": [
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d02-1#normal-0",
+      "cluster_id": "multihop-d02-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d02-2#normal-0",
+      "cluster_id": "multihop-d02-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d02-3#normal-0",
+      "cluster_id": "multihop-d02-3"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d04-1#normal-0",
+      "cluster_id": "multihop-d04-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d04-2#normal-0",
+      "cluster_id": "multihop-d04-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d04-3#normal-0",
+      "cluster_id": "multihop-d04-3"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d08-1#normal-0",
+      "cluster_id": "multihop-d08-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d08-2#normal-0",
+      "cluster_id": "multihop-d08-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d08-3#normal-0",
+      "cluster_id": "multihop-d08-3"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d12-1#normal-0",
+      "cluster_id": "multihop-d12-1"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d12-2#normal-0",
+      "cluster_id": "multihop-d12-2"
+     },
+     {
+      "baseline": 0,
+      "candidate": 0,
+      "case_id": "multihop-d12-3#normal-0",
+      "cluster_id": "multihop-d12-3"
+     }
+    ],
+    "clusters_independent": true,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-multihop-bonsai-nocot-vs-qwen",
+    "hypothesis_preregistered": false,
+    "minimum_effect": "0.10",
+    "planned_comparisons": 1,
+    "schema_version": 1,
+    "sealed_readout": false,
+    "target_population": "declared development task roots"
+   },
+   "fsi_01_result": {
+    "accuracy_intervals": {
+     "baseline": [
+      0.0,
+      0.2646522521972656
+     ],
+     "candidate": [
+      0.0,
+      0.2646522521972656
+     ],
+     "method": "outward_exact_Clopper_Pearson_iid_cases"
+    },
+    "alpha": 0.05,
+    "baseline_accuracy": 0.0,
+    "baseline_correct": 0,
+    "baseline_only": 0,
+    "candidate_accuracy": 0.0,
+    "candidate_correct": 0,
+    "candidate_only": 0,
+    "case_effect_exact": "0",
+    "case_weighted_effect": 0.0,
+    "cluster_bootstrap_interval": [
+     0.0,
+     0.0
+    ],
+    "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
+    "cluster_bootstrap_resamples": 4096,
+    "cluster_effect_exact": "0",
+    "cluster_macro_effect": 0.0,
+    "clusters_independent": true,
+    "discordant": 0,
+    "evaluation_mode": "sampled",
+    "exchangeable_pair_labels": true,
+    "experiment_id": "PE2-multihop-bonsai-nocot-vs-qwen",
+    "familywise_alpha": 0.05,
+    "gate_reasons": [
+     "hypothesis_not_preregistered",
+     "readout_used_in_selection_or_unsealed",
+     "insufficient_independent_clusters_for_policy",
+     "adjusted_test_not_significant",
+     "cluster_interval_crosses_effect_floor",
+     "nonasymptotic_effect_floor_bound_not_met"
+    ],
+    "hoeffding_one_sided_effect_bounds": [
+     -0.7066036458008114,
+     0.7066036458008114
+    ],
+    "hypothesis_preregistered": false,
+    "min_independent_clusters": 20,
+    "minimum_effect": 0.1,
+    "n_cases": 12,
+    "n_clusters": 12,
+    "p_bonferroni": 1.0,
+    "p_exact_fraction": "1",
+    "p_unadjusted": 1.0,
+    "planned_comparisons": 1,
+    "resample_seed": 20261117,
+    "schema_version": 1,
+    "scope_note": "Independent representative clusters and symmetric paired-label null are declared assumptions; clustered bootstrap has weak small-G coverage. Floors above zero require conservative Hoeffding lower bounds. Bonferroni covers the stated preplanned family only. Reuse requires an untouched sealed confirmation readout.",
+    "sealed_readout": false,
+    "target_population": "declared development task roots",
+    "test": "exact_McNemar_independent_pairs",
+    "ties": 12,
+    "verdict": "inconclusive"
+   },
+   "id": "multihop-bonsai-nocot-vs-qwen",
+   "n_paired_attempts": 12,
+   "n_paired_roots": 12,
+   "p_holm": null,
+   "p_raw": 1.0,
+   "unpaired": []
+  }
+ ],
+ "not_run": [],
+ "runs": {
+  "gsm8k-bonsai": {
+   "accuracy_attempts": 1.0,
+   "accuracy_attempts_wilson95": [
+    0.7575,
+    1.0
+   ],
+   "attempts": 12,
+   "benchmark": "gsm8k (primeintellect/gsm8k 0.1.4)",
+   "category": "math word problems",
+   "completion_tokens_mean": 332.2,
+   "condition": "default",
+   "correct": 12,
+   "latency_s_mean": null,
+   "model": "bonsai-27b",
+   "outcomes": {
+    "correct": 12
+   },
+   "prompt_tokens_mean": 153.2,
+   "root_bootstrap95": [
+    1.0,
+    1.0
+   ],
+   "root_mean_accuracy": 1.0,
+   "roots_assigned": 6,
+   "roots_scored": 6,
+   "scored": 12,
+   "source": "vf-run 0.4.1, null harness, math_verify reward"
+  },
+  "gsm8k-qwen": {
+   "accuracy_attempts": 1.0,
+   "accuracy_attempts_wilson95": [
+    0.7575,
+    1.0
+   ],
+   "attempts": 12,
+   "benchmark": "gsm8k (primeintellect/gsm8k 0.1.4)",
+   "category": "math word problems",
+   "completion_tokens_mean": 247.7,
+   "condition": "default",
+   "correct": 12,
+   "latency_s_mean": null,
+   "model": "qwen3-4b",
+   "outcomes": {
+    "correct": 12
+   },
+   "prompt_tokens_mean": 109.3,
+   "root_bootstrap95": [
+    1.0,
+    1.0
+   ],
+   "root_mean_accuracy": 1.0,
+   "roots_assigned": 6,
+   "roots_scored": 6,
+   "scored": 12,
+   "source": "vf-run 0.4.1, null harness, math_verify reward"
+  },
+  "mmlupro-bonsai": {
+   "accuracy_attempts": 0.875,
+   "accuracy_attempts_wilson95": [
+    0.5291,
+    0.9776
+   ],
+   "attempts": 8,
+   "benchmark": "public-mmlu-pro-science",
+   "category": "science knowledge (HLE stand-in)",
+   "completion_tokens_mean": 591.4,
+   "condition": "default",
+   "correct": 7,
+   "latency_s_mean": 47.32,
+   "model": "bonsai-27b",
+   "outcomes": {
+    "correct": 7,
+    "wrong": 1
+   },
+   "prompt_tokens_mean": 255.2,
+   "root_bootstrap95": [
+    0.625,
+    1.0
+   ],
+   "root_mean_accuracy": 0.875,
+   "roots_assigned": 8,
+   "roots_scored": 8,
+   "scored": 8,
+   "source": "gym runner"
+  },
+  "mmlupro-qwen": {
+   "accuracy_attempts": 0.625,
+   "accuracy_attempts_wilson95": [
+    0.3057,
+    0.8632
+   ],
+   "attempts": 8,
+   "benchmark": "public-mmlu-pro-science",
+   "category": "science knowledge (HLE stand-in)",
+   "completion_tokens_mean": 2.0,
+   "condition": "default",
+   "correct": 5,
+   "latency_s_mean": 0.1,
+   "model": "qwen3-4b",
+   "outcomes": {
+    "correct": 5,
+    "wrong": 3
+   },
+   "prompt_tokens_mean": 210.0,
+   "root_bootstrap95": [
+    0.25,
+    0.875
+   ],
+   "root_mean_accuracy": 0.625,
+   "roots_assigned": 8,
+   "roots_scored": 8,
+   "scored": 8,
+   "source": "gym runner"
+  },
+  "multihop-bonsai": {
+   "accuracy_attempts": 0.9167,
+   "accuracy_attempts_wilson95": [
+    0.6461,
+    0.9851
+   ],
+   "attempts": 12,
+   "benchmark": "dev-multihop-binding",
+   "category": "recursive reasoning (generated)",
+   "completion_tokens_mean": 632.3,
+   "condition": "default reasoning",
+   "correct": 11,
+   "latency_s_mean": 43.12,
+   "model": "bonsai-27b",
+   "outcomes": {
+    "correct": 11,
+    "wrong": 1
+   },
+   "prompt_tokens_mean": 228.2,
+   "root_bootstrap95": [
+    0.75,
+    1.0
+   ],
+   "root_mean_accuracy": 0.9167,
+   "roots_assigned": 12,
+   "roots_scored": 12,
+   "scored": 12,
+   "source": "gym runner"
+  },
+  "multihop-nocot-bonsai": {
+   "accuracy_attempts": 0.0,
+   "accuracy_attempts_wilson95": [
+    0.0,
+    0.2425
+   ],
+   "attempts": 12,
+   "benchmark": "dev-multihop-binding",
+   "category": "recursive reasoning (generated)",
+   "completion_tokens_mean": 2.9,
+   "condition": "enable_thinking=false",
+   "correct": 0,
+   "latency_s_mean": 0.77,
+   "model": "bonsai-27b",
+   "outcomes": {
+    "wrong": 12
+   },
+   "prompt_tokens_mean": 192.2,
+   "root_bootstrap95": [
+    0.0,
+    0.0
+   ],
+   "root_mean_accuracy": 0.0,
+   "roots_assigned": 12,
+   "roots_scored": 12,
+   "scored": 12,
+   "source": "gym runner"
+  },
+  "multihop-qwen": {
+   "accuracy_attempts": 0.0,
+   "accuracy_attempts_wilson95": [
+    0.0,
+    0.2425
+   ],
+   "attempts": 12,
+   "benchmark": "dev-multihop-binding",
+   "category": "recursive reasoning (generated)",
+   "completion_tokens_mean": 3.0,
+   "condition": "default (non-thinking model)",
+   "correct": 0,
+   "latency_s_mean": 0.09,
+   "model": "qwen3-4b",
+   "outcomes": {
+    "wrong": 12
+   },
+   "prompt_tokens_mean": 187.5,
+   "root_bootstrap95": [
+    0.0,
+    0.0
+   ],
+   "root_mean_accuracy": 0.0,
+   "roots_assigned": 12,
+   "roots_scored": 12,
+   "scored": 12,
+   "source": "gym runner"
+  },
+  "niah-bonsai": {
+   "accuracy_attempts": 1.0,
+   "accuracy_attempts_wilson95": [
+    0.6756,
+    1.0
+   ],
+   "attempts": 8,
+   "benchmark": "niah (Inkling Verify, 4K and 16K)",
+   "category": "long context",
+   "completion_tokens_mean": 32.2,
+   "condition": "default",
+   "correct": 8,
+   "latency_s_mean": null,
+   "model": "bonsai-27b",
+   "outcomes": {
+    "correct": 8
+   },
+   "prompt_tokens_mean": 9849.5,
+   "root_bootstrap95": [
+    1.0,
+    1.0
+   ],
+   "root_mean_accuracy": 1.0,
+   "roots_assigned": 8,
+   "roots_scored": 8,
+   "scored": 8,
+   "source": "Inkling Verify 94fd95b, Qwen3.5 tokenizer grid"
+  },
+  "niah-qwen": {
+   "accuracy_attempts": 1.0,
+   "accuracy_attempts_wilson95": [
+    0.6756,
+    1.0
+   ],
+   "attempts": 8,
+   "benchmark": "niah (Inkling Verify, 4K and 16K)",
+   "category": "long context",
+   "completion_tokens_mean": 82.0,
+   "condition": "default",
+   "correct": 8,
+   "latency_s_mean": null,
+   "model": "qwen3-4b",
+   "outcomes": {
+    "correct": 8
+   },
+   "prompt_tokens_mean": 9842.9,
+   "root_bootstrap95": [
+    1.0,
+    1.0
+   ],
+   "root_mean_accuracy": 1.0,
+   "roots_assigned": 8,
+   "roots_scored": 8,
+   "scored": 8,
+   "source": "Inkling Verify 94fd95b, Qwen3 tokenizer grid"
+  },
+  "sqlite-bonsai": {
+   "accuracy_attempts": 0.75,
+   "accuracy_attempts_wilson95": [
+    0.4093,
+    0.9285
+   ],
+   "attempts": 8,
+   "benchmark": "mcp-sqlite 0.1.0",
+   "category": "agentic tools (MCP)",
+   "completion_tokens_mean": 650.4,
+   "condition": "default",
+   "correct": 6,
+   "latency_s_mean": null,
+   "model": "bonsai-27b",
+   "outcomes": {
+    "correct": 6,
+    "wrong": 2
+   },
+   "prompt_tokens_mean": 1130.8,
+   "root_bootstrap95": [
+    0.375,
+    1.0
+   ],
+   "root_mean_accuracy": 0.75,
+   "roots_assigned": 8,
+   "roots_scored": 8,
+   "scored": 8,
+   "source": "vf-run 0.4.1, taskset harness, API judge removed"
+  },
+  "sqlite-qwen": {
+   "accuracy_attempts": 0.375,
+   "accuracy_attempts_wilson95": [
+    0.1368,
+    0.6943
+   ],
+   "attempts": 8,
+   "benchmark": "mcp-sqlite 0.1.0",
+   "category": "agentic tools (MCP)",
+   "completion_tokens_mean": 169.5,
+   "condition": "default",
+   "correct": 3,
+   "latency_s_mean": null,
+   "model": "qwen3-4b",
+   "outcomes": {
+    "correct": 3,
+    "wrong": 5
+   },
+   "prompt_tokens_mean": 625.9,
+   "root_bootstrap95": [
+    0.125,
+    0.75
+   ],
+   "root_mean_accuracy": 0.375,
+   "roots_assigned": 8,
+   "roots_scored": 8,
+   "scored": 8,
+   "source": "vf-run 0.4.1, taskset harness, API judge removed"
+  },
+  "swe-bonsai": {
+   "accuracy_attempts": 0.0,
+   "accuracy_attempts_wilson95": [
+    0.0,
+    0.3903
+   ],
+   "attempts": 6,
+   "benchmark": "swe-bench-lite oracle single-shot",
+   "category": "software engineering",
+   "completion_tokens_mean": 2807.5,
+   "condition": "default",
+   "correct": 0,
+   "latency_s_mean": 222.12,
+   "model": "bonsai-27b",
+   "outcomes": {
+    "format_invalid": 5,
+    "wrong": 1
+   },
+   "prompt_tokens_mean": 5425.3,
+   "root_bootstrap95": [
+    0.0,
+    0.0
+   ],
+   "root_mean_accuracy": 0.0,
+   "roots_assigned": 6,
+   "roots_scored": 6,
+   "scored": 6,
+   "source": "princeton-nlp/SWE-bench_Lite_oracle, swebench 5.0.2 harness"
+  },
+  "swe-qwen": {
+   "accuracy_attempts": 0.0,
+   "accuracy_attempts_wilson95": [
+    0.0,
+    0.3903
+   ],
+   "attempts": 6,
+   "benchmark": "swe-bench-lite oracle single-shot",
+   "category": "software engineering",
+   "completion_tokens_mean": 1119.7,
+   "condition": "default",
+   "correct": 0,
+   "latency_s_mean": 14.47,
+   "model": "qwen3-4b",
+   "outcomes": {
+    "format_invalid": 6
+   },
+   "prompt_tokens_mean": 5167.3,
+   "root_bootstrap95": [
+    0.0,
+    0.0
+   ],
+   "root_mean_accuracy": 0.0,
+   "roots_assigned": 6,
+   "roots_scored": 6,
+   "scored": 6,
+   "source": "princeton-nlp/SWE-bench_Lite_oracle, swebench 5.0.2 harness"
+  },
+  "taste-bonsai": {
+   "accuracy_attempts": 0.4583,
+   "accuracy_attempts_wilson95": [
+    0.2789,
+    0.6493
+   ],
+   "attempts": 24,
+   "benchmark": "public-proxy-iclr2026-oral-vs-reject",
+   "category": "research-taste (public proxy)",
+   "completion_tokens_mean": 692.9,
+   "condition": "default",
+   "correct": 11,
+   "latency_s_mean": 55.24,
+   "model": "bonsai-27b",
+   "outcomes": {
+    "correct": 11,
+    "format_invalid": 1,
+    "wrong": 12
+   },
+   "prompt_tokens_mean": 662.1,
+   "root_bootstrap95": [
+    0.2083,
+    0.7083
+   ],
+   "root_mean_accuracy": 0.4583,
+   "roots_assigned": 12,
+   "roots_scored": 12,
+   "scored": 24,
+   "source": "gym runner"
+  },
+  "taste-qwen": {
+   "accuracy_attempts": 0.375,
+   "accuracy_attempts_wilson95": [
+    0.2116,
+    0.5729
+   ],
+   "attempts": 24,
+   "benchmark": "public-proxy-iclr2026-oral-vs-reject",
+   "category": "research-taste (public proxy)",
+   "completion_tokens_mean": 2.0,
+   "condition": "default",
+   "correct": 9,
+   "latency_s_mean": 0.19,
+   "model": "qwen3-4b",
+   "outcomes": {
+    "correct": 9,
+    "wrong": 15
+   },
+   "prompt_tokens_mean": 617.5,
+   "root_bootstrap95": [
+    0.1667,
+    0.625
+   ],
+   "root_mean_accuracy": 0.375,
+   "roots_assigned": 12,
+   "roots_scored": 12,
+   "scored": 24,
+   "source": "gym runner"
+  }
+ },
+ "schema": "preferred-evals/campaign-summary-v1"
+}

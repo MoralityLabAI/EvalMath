@@ -1,0 +1,62 @@
+{
+  "request": {
+    "model": "bonsai-27b-ptq1",
+    "max_completion_tokens": 4096,
+    "temperature": 0.0,
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "A special magic uuid is hidden within the following text. Make sure to memorize it. I will quiz you about the uuid afterwards.\nOne of the special magic uuids for 66aa9385-dd59-4a71-b6b8-24817b3a4e3e is: 610461e3-2a25-4888-8f02-bad0e7067ef4.\nOne of the special magic uuids for 43e458fc-63f2-4e24-bc3d-3348008d4127 is: 747b6dba-c8fe-4ccd-88b8-d9c6ed3049cf.\nOne of the special magic uuids for f512c4c3-b253-4218-ac4a-37ea490617f2 is: 8e46d534-c88a-418e-bed4-057dbb026576.\nOne of the special magic uuids for 27a0c3d7-7c96-4f79-b7e9-9acaa97065e1 is: f7fd5646-37bb-4eec-8bf5-0b52309d258c.\nOne of the special magic uuids for 8acd4e10-bc59-4585-9445-28c00ef8c2d6 is: 0ea2622b-5048-47ba-bf7b-539b0f9aea4b.\nOne of the special magic uuids for 80bacd64-7a0e-4fea-958c-a9ba0cd620c2 is: 284d82e5-87f7-41fb-9a4b-d9caeb5cf467.\nOne of the special magic uuids for 14822f53-8201-4c62-b5f5-9b220e8fa8e0 is: 98543881-118a-4d29-af92-3996d9f195d0.\nOne of the special magic uuids for 3c365296-dca0-4eec-acda-bacc1165e210 is: e3e9de99-f10c-418b-9eb0-e38a675dd5af.\nOne of the special magic uuids for 98326856-9434-4a03-bf07-f81491d63f78 is: 6b5252e3-14fc-4d54-9e8f-c9650a2c827e.\nOne of the special magic uuids for 85d51695-90b2-4633-956b-8c0ca8499b92 is: 344a54b8-42c1-4a62-af48-e8d550fd9d3f.\nOne of the special magic uuids for 3d1a85dd-506e-4a9a-b758-588dab73295b is: abf3e3fc-2181-4d25-a552-38a643ff5011.\nOne of the special magic uuids for 50f0fd0a-750c-4b75-8ccc-9bc2a53f8a28 is: 12922f83-ef8c-485b-807a-30f2edd4253b.\nOne of the special magic uuids for ff9ab5c2-9f04-4aed-b552-332702627f73 is: 12c136e0-1998-4f15-bf00-2d4d902059e4.\nOne of the special magic uuids for 43e42caf-8181-48cc-b691-47eb89a2688b is: e1805081-5958-4499-aeea-163e21e8ac68.\nOne of the special magic uuids for 5e9953d2-3e89-4c64-a117-dac3119c4ea3 is: d5704f32-702c-4d20-a862-18b848f4ef12.\nOne of the special magic uuids for 9c96e9ec-4d71-4366-b41b-31438b10550c is: a76afde6-ce9e-4a11-bcbb-4e59fbddcf7c.\nOne of the special magic uuids for d12dbc9a-aaf9-4531-8200-b1f08768a84f is: a9d3d7c7-ee87-405e-8ca4-15ea8dfa6a56.\nOne of the special magic uuids for 2260e70f-e0cc-4dc5-b05d-b76e1a84a51a is: 1b66b5a9-e3c4-4657-9d8c-bbac43b409ef.\nOne of the special magic uuids for 45b89cd9-27cb-4f2a-8da0-1097be0f051b is: b7b56ea7-35eb-432d-9ad6-20ab48212ddb.\nOne of the special magic uuids for a25d6b29-afff-4fd2-b41e-f40b57c700aa is: 7d106c60-8162-4cf1-8394-72e6da587e8a.\nOne of the special magic uuids for d89a40c0-e87d-4c78-a7c4-21c740497b71 is: 6c6f7633-a260-4723-97a0-df490d01280f.\nOne of the special magic uuids for 00e85ece-0b49-452d-86d4-83f3d450281c is: a319dcb4-217d-45a0-8568-11cd5563f616.\nOne of the special magic uuids for bdc14f1f-295d-4fbf-830f-801dfad409e2 is: 6d7ce3c9-b4a6-4f3c-8d3a-ed99711c21c9.\nOne of the special magic uuids for 13432e61-1ca3-4448-8279-b6a68f9797b0 is: e767dcea-b0e6-4969-a213-42b0f1eedba3.\nOne of the special magic uuids for d5a804eb-0939-43de-8bab-ce3b26286bfb is: 25e97977-8d72-48e2-951f-58d05e84f058.\nOne of the special magic uuids for 4eea04e7-0ab5-4bde-a0a0-45026e068097 is: cbceabde-eede-4b07-a623-a6895d59cd2a.\nOne of the special magic uuids for e61fecc0-0a36-4ce7-9c57-0131f8e1daa7 is: 3fe12e47-ae9b-4c36-b5c7-936c5b9962c6.\nOne of the special magic uuids for c7b5b2bc-5a8a-4eca-9a50-aec3aabc25fa is: 6808593f-dfed-4c43-a256-a6dc8f5486b7.\nOne of the special magic uuids for 2790cebd-bfdd-43d9-9ee3-ac2af94d6204 is: dd56cc94-3c9a-414c-ae0c-aeb5ecfedb99.\nOne of the special magic uuids for cf8ebc5a-ccc5-4569-b9e8-a3692999b735 is: 0658663a-698c-406f-a1a4-7e102d534dd0.\nOne of the special magic uuids for 550a1b46-ecab-4301-bc8f-7d292dea9493 is: cd5f4822-6966-48aa-ae49-f329c84a7b28.\nOne of the special magic uuids for cf8d446a-bc2c-4b0d-9d33-4cc7ab7f089a is: c991603f-28c1-4091-844d-610b3f87e362.\nOne of the special magic uuids for df465290-61ee-411a-9bac-27a7b386f7a4 is: 38f16a81-787f-4425-9bcc-c47709e9db0a.\nOne of the special magic uuids for 75d66ed4-eb1f-49f2-910b-d1d033173470 is: cb9bc326-d20e-4c17-8e20-fd1a598336e3.\nOne of the special magic uuids for 060edf5b-3911-4497-ba43-b2badf0f06cb is: 5408f9ac-6601-4dd0-b170-f437a8f7ef5a.\nOne of the special magic uuids for f7860b50-11c5-4ef0-9d46-3c09475287aa is: a43825b5-59e4-4671-8774-bc58c5f8bc16.\nOne of the special magic uuids for fb2ca025-adf4-462d-a651-529e8268690b is: f071d879-54c6-4cd8-8945-6f27d7fa2d8d.\nOne of the special magic uuids for f86c2ca2-e085-46db-9d87-09660710d430 is: f668a617-94a1-475d-adb6-9edb42deffcc.\nOne of the special magic uuids for 1bc044fc-09cb-4942-83f5-9a85fbc9f87a is: ba81edd9-587e-4344-af3f-920c98b8e4cc.\nOne of the special magic uuids for 9b3080d5-6fb7-4271-904d-281fc9535b63 is: 629c2ae3-1d9a-4659-82ec-9f2dfbf6e16f.\nOne of the special magic uuids for 41357e8c-30a9-40ad-939b-462de645f129 is: 006ed6e3-6fa1-4735-b572-f3d00b5cea6a.\nOne of the special magic uuids for 89d7fd6c-ce77-4f00-acf2-7e7685197ff4 is: bdf070aa-f0b5-456b-b82c-9074afd5dea5.\nOne of the special magic uuids for 5d3d9e56-3270-44fa-abae-4f43bcae8081 is: aa0b7b14-f2e9-402d-91e9-cdaa6e6981a3.\nOne of the special magic uuids for 505cc686-9f87-4ce7-9487-fd4febb7a385 is: b841d0a0-1fe7-41d6-9917-8793a9d3c2e6.\nOne of the special magic uuids for 4f2d4796-81d2-47de-8ce1-eb90e6697833 is: 6703b636-5380-4904-a88c-7015aab97e49.\nOne of the special magic uuids for 2095eef6-8ded-49fb-8bb0-0f20b27c4026 is: f0bbac67-aa38-40a1-aba2-5efe311c6eb6.\nOne of the special magic uuids for e71e43a6-bf85-4f0e-ad64-b56c610faa3f is: 4d0b0d1a-91b0-41d9-9d92-62af2c8d0e44.\nOne of the special magic uuids for 001a9a8b-d56f-4350-8c45-9ce267f48ad5 is: 6e0d2648-35ce-4841-8973-2d6c4dcabfb7.\nWhat is the special magic uuid for 50f0fd0a-750c-4b75-8ccc-9bc2a53f8a28 mentioned in the provided text? The special magic uuid for 50f0fd0a-750c-4b75-8ccc-9bc2a53f8a28 mentioned in the provided text is"
+          }
+        ]
+      }
+    ],
+    "reasoning_effort": "none"
+  },
+  "response": {
+    "id": "chatcmpl-aPJoaWOWjd7Mgg4lazu1Kbqizy9CziH8",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "content": "12922f83-ef8c-485b-807a-30f2edd4253b",
+          "role": "assistant"
+        }
+      }
+    ],
+    "created": 1795251474,
+    "model": "bonsai-27b-ptq1",
+    "object": "chat.completion",
+    "system_fingerprint": "b10743-adfffbe41",
+    "usage": {
+      "completion_tokens": 34,
+      "prompt_tokens": 3814,
+      "total_tokens": 3848,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 3814,
+      "prompt_ms": 4436.394,
+      "prompt_per_token_ms": 1.163186680650236,
+      "prompt_per_second": 859.7072306923144,
+      "predicted_n": 34,
+      "predicted_ms": 2604.724,
+      "predicted_per_token_ms": 78.93103030303031,
+      "predicted_per_second": 12.6692885695375
+    }
+  },
+  "usage": {
+    "input_tokens": 3814,
+    "output_tokens": 34,
+    "cached_input_tokens": 0
+  },
+  "stop_reason": "stop",
+  "seconds": 7.53997491998598
+}

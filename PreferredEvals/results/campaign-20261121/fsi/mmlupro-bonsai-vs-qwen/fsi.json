@@ -1,0 +1,63 @@
+{
+ "schema_version": 1,
+ "experiment_id": "PE2-mmlupro-bonsai-vs-qwen",
+ "target_population": "declared development task roots",
+ "evaluation_mode": "sampled",
+ "alpha": "0.05",
+ "minimum_effect": "0.10",
+ "planned_comparisons": 8,
+ "hypothesis_preregistered": true,
+ "sealed_readout": false,
+ "clusters_independent": true,
+ "exchangeable_pair_labels": true,
+ "cases": [
+  {
+   "case_id": "mmlu-pro-10193#normal-0",
+   "cluster_id": "mmlu-pro-10193",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "mmlu-pro-10238#normal-0",
+   "cluster_id": "mmlu-pro-10238",
+   "candidate": 0,
+   "baseline": 1
+  },
+  {
+   "case_id": "mmlu-pro-3066#normal-0",
+   "cluster_id": "mmlu-pro-3066",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "mmlu-pro-3438#normal-0",
+   "cluster_id": "mmlu-pro-3438",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "mmlu-pro-9307#normal-0",
+   "cluster_id": "mmlu-pro-9307",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "mmlu-pro-9369#normal-0",
+   "cluster_id": "mmlu-pro-9369",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "mmlu-pro-9811#normal-0",
+   "cluster_id": "mmlu-pro-9811",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "mmlu-pro-9972#normal-0",
+   "cluster_id": "mmlu-pro-9972",
+   "candidate": 1,
+   "baseline": 0
+  }
+ ]
+}

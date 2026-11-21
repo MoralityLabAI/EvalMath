@@ -1,0 +1,63 @@
+18:30:07 SWEEP BEGIN
+18:30:07 queued bonsai server (10G)
+18:34:06 server bonsai: 0.17.055.264 I srv  llama_server: listening on http://127.0.0.1:18127
+18:34:06 start bonsai-b0
+Traceback (most recent call last):
+  File "C:\Users\patri\Documents\Codex\EvalMath-pe2\PreferredEvals\gym\runner.py", line 431, in <module>
+    main()
+  File "C:\Users\patri\Documents\Codex\EvalMath-pe2\PreferredEvals\gym\runner.py", line 418, in main
+    result=run_tasks(dataset=args.tasks,out_dir=args.out,benchmark=args.benchmark,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\patri\Documents\Codex\EvalMath-pe2\PreferredEvals\gym\runner.py", line 298, in run_tasks
+    list(pool.map(one, jobs))
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\patri\Documents\Codex\EvalMath-pe2\PreferredEvals\gym\runner.py", line 290, in one
+    append_jsonl(rows_path, result)
+  File "C:\Users\patri\Documents\Codex\EvalMath-pe2\PreferredEvals\gym\runner.py", line 53, in append_jsonl
+    with Path(path).open("a", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python312\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\patri\\Documents\\Codex\\pe2-work\\sweep\\bonsai-b0\\rollouts.jsonl'
+Traceback (most recent call last):
+  File "C:\Users\patri\Documents\Codex\EvalMath-pe2\PreferredEvals\gym\runner.py", line 431, in <module>
+    main()
+  File "C:\Users\patri\Documents\Codex\EvalMath-pe2\PreferredEvals\gym\runner.py", line 426, in main
+    result=score_run(run_dir=args.run_dir,labels_path=args.labels,out_path=args.out)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\patri\Documents\Codex\EvalMath-pe2\PreferredEvals\gym\runner.py", line 326, in score_run
+    raise ValueError("duplicate rollout keys in model receipts")
+ValueError: duplicate rollout keys in model receipts
+18:46:12 end bonsai-b0 
+18:46:12 start bonsai-b64
+18:47:42 RESTART 2 (single instance; duplicate-runner receipts archived)
+18:47:44 SWEEP BEGIN
+18:47:46 server bonsai already serving bonsai-27b-ptq1
+18:47:47 start bonsai-b0
+{"n_independent_roots_declared": 80, "new_rollout_rows": 80, "run_dir": "C:\\Users\\patri\\Documents\\Codex\\pe2-work\\sweep\\bonsai-b0", "schema": "preferred-evals/prompt-run-v1", "total_receipt_rows": 80}
+{"macro_root_accuracy": 0.1, "n_correct": 8, "n_rollouts_recorded": 80, "n_scored": 80, "statuses": {"completed": 80}}
+18:49:21 end bonsai-b0 
+18:49:21 start bonsai-b64
+{"n_independent_roots_declared": 80, "new_rollout_rows": 80, "run_dir": "C:\\Users\\patri\\Documents\\Codex\\pe2-work\\sweep\\bonsai-b64", "schema": "preferred-evals/prompt-run-v1", "total_receipt_rows": 80}
+{"macro_root_accuracy": 0.0125, "n_correct": 1, "n_rollouts_recorded": 80, "n_scored": 80, "statuses": {"completed": 80}}
+19:00:13 end bonsai-b64 
+19:00:14 start bonsai-b256
+{"n_independent_roots_declared": 80, "new_rollout_rows": 80, "run_dir": "C:\\Users\\patri\\Documents\\Codex\\pe2-work\\sweep\\bonsai-b256", "schema": "preferred-evals/prompt-run-v1", "total_receipt_rows": 80}
+{"macro_root_accuracy": 0.15, "n_correct": 12, "n_rollouts_recorded": 80, "n_scored": 80, "statuses": {"completed": 80}}
+19:16:10 end bonsai-b256 
+19:16:10 start bonsai-b1536
+{"n_independent_roots_declared": 80, "new_rollout_rows": 80, "run_dir": "C:\\Users\\patri\\Documents\\Codex\\pe2-work\\sweep\\bonsai-b1536", "schema": "preferred-evals/prompt-run-v1", "total_receipt_rows": 80}

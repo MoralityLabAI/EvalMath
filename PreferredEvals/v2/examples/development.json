@@ -1,0 +1,65 @@
+{
+  "schema": "preferred-evals/v2",
+  "experiment_id": "PREF-DEV-001",
+  "benchmark_id": "deepswe",
+  "stage": "development",
+  "claim": {
+    "target_population": "Independent Python repair tasks in public audited repositories",
+    "primary_outcome": "valid_patch_resolved",
+    "minimum_effect": "0.05",
+    "alpha": "0.05",
+    "planned_comparisons": 2,
+    "causal": false
+  },
+  "sampling": {
+    "independent_unit": "repository issue",
+    "root_ids": [
+      "dev-repo-task-01",
+      "dev-repo-task-02",
+      "dev-repo-task-03"
+    ],
+    "samples_per_root": 2,
+    "split_name": "development-only",
+    "exposure": "development",
+    "heldout_sealed": false,
+    "selection_frozen": false,
+    "root_independence_attested": false
+  },
+  "runner": {
+    "harness": "inkling_verify",
+    "harness_version": "pin_before_run",
+    "api": "external",
+    "harness_config_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "model_id": "future-local-model",
+    "provider_id": "local-chat-completions",
+    "max_completion_tokens": 2048,
+    "sampling_seed": 23,
+    "resources": {
+      "cpu_floor": 2,
+      "cpu_ceiling": 6,
+      "ram_gb_floor": 4,
+      "ram_gb_ceiling": 12,
+      "network": "disabled",
+      "timeout_seconds": 3600
+    }
+  },
+  "grader": {
+    "kind": "deterministic",
+    "version": "pin_before_run",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "infra_failure_policy": "separate",
+    "invalid_task_policy": "report_all",
+    "gold_check": "unverified"
+  },
+  "controls": {
+    "baseline_id": "raw-minimal-agent",
+    "matched_sham_id": null,
+    "registration_frozen": false
+  },
+  "provenance": {
+    "taskset_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "runner_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "selection_manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "hashes_verified": false
+  }
+}

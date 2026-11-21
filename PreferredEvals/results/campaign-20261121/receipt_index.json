@@ -1,0 +1,37 @@
+{
+  "comparisons": {
+    "between-1": {
+      "fsi_result": "fsi/taste-bonsai-vs-qwen/fsi-result.json",
+      "paired_receipt": "fsi/taste-bonsai-vs-qwen/paired.json"
+    },
+    "between-2": {
+      "fsi_result": "fsi/mmlupro-bonsai-vs-qwen/fsi-result.json",
+      "paired_receipt": "fsi/mmlupro-bonsai-vs-qwen/paired.json"
+    },
+    "between-3": {
+      "fsi_result": "fsi/multihop-bonsai-vs-qwen/fsi-result.json",
+      "paired_receipt": "fsi/multihop-bonsai-vs-qwen/paired.json"
+    },
+    "between-4": {
+      "fsi_result": "fsi/gsm8k-bonsai-vs-qwen/fsi-result.json",
+      "paired_receipt": "fsi/gsm8k-bonsai-vs-qwen/paired.json"
+    },
+    "between-5": {
+      "fsi_result": "fsi/niah-bonsai-vs-qwen/fsi-result.json",
+      "paired_receipt": "fsi/niah-bonsai-vs-qwen/paired.json"
+    },
+    "between-6": {
+      "fsi_result": "fsi/sqlite-bonsai-vs-qwen/fsi-result.json",
+      "paired_receipt": "fsi/sqlite-bonsai-vs-qwen/paired.json"
+    },
+    "between-7": {
+      "fsi_result": "fsi/swe-bonsai-vs-qwen/fsi-result.json",
+      "paired_receipt": "fsi/swe-bonsai-vs-qwen/paired.json"
+    },
+    "within-8": {
+      "fsi_result": "fsi/multihop-bonsai-reasoning-vs-nocot/fsi-result.json",
+      "paired_receipt": "fsi/multihop-bonsai-reasoning-vs-nocot/paired.json"
+    }
+  },
+  "schema": "preferred-evals/campaign-receipt-index-v1"
+}

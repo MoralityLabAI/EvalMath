@@ -1,0 +1,500 @@
+{
+  "schema": "preferred-evals/catalog-v2",
+  "reviewed_at": "2026-11-21",
+  "maintainer": "EvalMath PreferredEvals",
+  "disclaimer": "Surveyed public sources, check licenses, versions, grading access, and whether datasets remain available before running.",
+  "categories": [
+    {
+      "slug": "research-taste",
+      "name": "Research taste and proposal judgment",
+      "skill": "categories/research-taste/SKILL.md"
+    },
+    {
+      "slug": "experimental-design",
+      "name": "Experiment selection and scientific execution",
+      "skill": "categories/experimental-design/SKILL.md"
+    },
+    {
+      "slug": "software-engineering",
+      "name": "Repository repair and terminal engineering",
+      "skill": "categories/software-engineering/SKILL.md"
+    },
+    {
+      "slug": "agents-and-mcp",
+      "name": "Agentic tools, retrieval and cooperation",
+      "skill": "categories/agents-and-mcp/SKILL.md"
+    },
+    {
+      "slug": "science-and-formal",
+      "name": "Mathematical proof and scientific reasoning",
+      "skill": "categories/science-and-formal/SKILL.md"
+    },
+    {
+      "slug": "safety-and-control",
+      "name": "Behavioral safety and monitorability",
+      "skill": "categories/safety-and-control/SKILL.md"
+    },
+    {
+      "slug": "recursive-and-context",
+      "name": "Looped models, long context and monitorability",
+      "skill": "categories/recursive-and-context/SKILL.md"
+    },
+    {
+      "slug": "causal-world-models",
+      "name": "Causal inference and interactive world models",
+      "skill": "categories/causal-world-models/SKILL.md"
+    },
+    {
+      "slug": "professional-and-multimodal",
+      "name": "Practical work products and multimodal tasks",
+      "skill": "categories/professional-and-multimodal/SKILL.md"
+    },
+    {
+      "slug": "evaluation-integrity",
+      "name": "Judge reliability, harness effects and benchmark forensics",
+      "skill": "categories/evaluation-integrity/SKILL.md"
+    }
+  ],
+  "benchmarks": [
+    {
+      "id": "taste",
+      "name": "TASTE",
+      "category": "research-taste",
+      "provider": "Anthropic",
+      "url": "https://alignment.anthropic.com/2026/taste/",
+      "access": "permissioned_dataset",
+      "status": "expert_labeled_pairwise",
+      "priority": "P0",
+      "integration": "researcher_authorization_and_release_required"
+    },
+    {
+      "id": "tasteval",
+      "name": "TasteVal",
+      "category": "research-taste",
+      "provider": "P-Zero Research",
+      "url": "https://arxiv.org/abs/2610.06824",
+      "access": "tasks_withheld",
+      "status": "research_experiment_budget",
+      "priority": "P0",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "ideataste",
+      "name": "IdeaTaste",
+      "category": "research-taste",
+      "provider": "Academic",
+      "url": "https://arxiv.org/abs/2611.03424",
+      "access": "public_paper_and_leaderboard",
+      "status": "future_publication_match",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "scitaste",
+      "name": "SciTaste",
+      "category": "research-taste",
+      "provider": "Academic",
+      "url": "https://arxiv.org/abs/2610.28653",
+      "access": "public_paper",
+      "status": "paper_value_assessment",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "paperbench",
+      "name": "PaperBench",
+      "category": "experimental-design",
+      "provider": "OpenAI",
+      "url": "https://openai.com/index/paperbench/",
+      "access": "public_framework",
+      "status": "human_authored_rubrics",
+      "priority": "P0",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "mle-bench",
+      "name": "MLE-bench",
+      "category": "experimental-design",
+      "provider": "OpenAI",
+      "url": "https://github.com/openai/mle-bench",
+      "access": "public_code_data_external_dependencies",
+      "status": "kaggle_ml_engineering",
+      "priority": "P0",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "metr-time-horizon",
+      "name": "METR time horizon",
+      "category": "experimental-design",
+      "provider": "METR",
+      "url": "https://metr.org/blog/2026-11-20-q4-2026-capability-update/",
+      "access": "research_and_method",
+      "status": "horizon_estimates",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "swe-bench-verified",
+      "name": "SWE-bench Verified",
+      "category": "software-engineering",
+      "provider": "OpenAI",
+      "url": "https://evals.openai.com/",
+      "access": "public_data",
+      "status": "stale_or_contamination_sensitive",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "swe-bench-pro",
+      "name": "SWE-bench Pro",
+      "category": "software-engineering",
+      "provider": "Scale AI / OpenAI audit",
+      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations/",
+      "access": "public_subset_review_required",
+      "status": "known_task_quality_problems",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "swe-bench-pro-verified",
+      "name": "SWE-bench Pro Verified",
+      "category": "software-engineering",
+      "provider": "Academic",
+      "url": "https://arxiv.org/abs/2609.08149",
+      "access": "paper_verify_suite_before_use",
+      "status": "proposed_audited_variant",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "deepswe",
+      "name": "DeepSWE",
+      "category": "software-engineering",
+      "provider": "Thinking Machines Lab",
+      "url": "https://github.com/thinking-machines-lab/inkling-verify",
+      "access": "public_scripts_images_required",
+      "status": "fresh_container_patch_tests",
+      "priority": "P0",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "terminal-bench-2",
+      "name": "Terminal-Bench 2",
+      "category": "software-engineering",
+      "provider": "Terminal Bench / Anthropic audit",
+      "url": "https://www.anthropic.com/research/infrastructure-noise",
+      "access": "public_tasks_container_required",
+      "status": "resource_sensitive",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "swe-lancer",
+      "name": "SWE-Lancer",
+      "category": "software-engineering",
+      "provider": "OpenAI",
+      "url": "https://evals.openai.com/",
+      "access": "benchmark_subset_and_paper",
+      "status": "end_to_end_contracts",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "prime-verifiers-v1",
+      "name": "Prime Verifiers v1",
+      "category": "agents-and-mcp",
+      "provider": "Prime Intellect",
+      "url": "https://github.com/PrimeIntellect-ai/verifiers/blob/main/docs/v1/overview.md",
+      "access": "public_tooling_some_paid_tasks",
+      "status": "taskset_harness_trace_contract",
+      "priority": "P0",
+      "integration": "verifiers_v041_vf_run_local_prime_rl_full"
+    },
+    {
+      "id": "tau2-bench",
+      "name": "tau2-bench",
+      "category": "agents-and-mcp",
+      "provider": "Prime Intellect atlas",
+      "url": "https://github.com/MoralityLabAI/EvalMath/blob/main/paper/prime_intellect_eval_atlas.md",
+      "access": "public_package_verify_hub",
+      "status": "simulated_user_tool_tasks",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "browsecomp",
+      "name": "BrowseComp",
+      "category": "agents-and-mcp",
+      "provider": "OpenAI",
+      "url": "https://openai.com/index/browsecomp/",
+      "access": "public_eval",
+      "status": "hard_retrieval",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "arc-agi-3",
+      "name": "ARC-AGI-3",
+      "category": "agents-and-mcp",
+      "provider": "ARC Prize",
+      "url": "https://arcprize.org/arc-agi/3",
+      "access": "public_games_and_sdk",
+      "status": "interactive_world_model",
+      "priority": "P0",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "frontiermath",
+      "name": "FrontierMath",
+      "category": "science-and-formal",
+      "provider": "Epoch AI",
+      "url": "https://epoch.ai/latest/openai-and-frontiermath",
+      "access": "restricted_verifiers",
+      "status": "independent_mathematician_problems",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "stepfun-prover",
+      "name": "StepFun Prover",
+      "category": "science-and-formal",
+      "provider": "Prime Intellect",
+      "url": "https://github.com/MoralityLabAI/EvalMath/blob/main/paper/prime_intellect_eval_atlas.md",
+      "access": "hub_version_dependent",
+      "status": "iterative_lean_proof",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "gpqa-diamond",
+      "name": "GPQA Diamond",
+      "category": "science-and-formal",
+      "provider": "Thinking Machines Lab",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+      "access": "benchmark_license_review",
+      "status": "science_reasoning",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "hle",
+      "name": "HLE",
+      "category": "science-and-formal",
+      "provider": "Thinking Machines Lab",
+      "url": "https://github.com/thinking-machines-lab/inkling-verify",
+      "access": "public_eval_scripts",
+      "status": "challenging_knowledge",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "bloom",
+      "name": "Bloom",
+      "category": "safety-and-control",
+      "provider": "Anthropic",
+      "url": "https://alignment.anthropic.com/2025/bloom-auto-evals/",
+      "access": "open_framework",
+      "status": "seeded_behavioral_suites",
+      "priority": "P0",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "petri-2-0",
+      "name": "Petri 2.0",
+      "category": "safety-and-control",
+      "provider": "Anthropic",
+      "url": "https://alignment.anthropic.com/2026/petri-v2/",
+      "access": "open_framework",
+      "status": "multi_turn_behavioral_audit",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "linuxarena",
+      "name": "LinuxArena",
+      "category": "safety-and-control",
+      "provider": "Thinking Machines Lab",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+      "access": "source_requires_harness_review",
+      "status": "attack_detection_in_agentic_work",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "inkling-verify",
+      "name": "Inkling Verify",
+      "category": "recursive-and-context",
+      "provider": "Thinking Machines Lab",
+      "url": "https://github.com/thinking-machines-lab/inkling-verify",
+      "access": "public_scripts",
+      "status": "multi_provider_reproduction",
+      "priority": "P0",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "think-fast",
+      "name": "Think Fast",
+      "category": "recursive-and-context",
+      "provider": "Thinking Machines Lab",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+      "access": "benchmark_method",
+      "status": "no_cot_time_horizon",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "n-hop-lookup",
+      "name": "N-Hop Lookup",
+      "category": "recursive-and-context",
+      "provider": "Thinking Machines Lab",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+      "access": "benchmark_method",
+      "status": "serial_latent_reasoning",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "mrcr",
+      "name": "MRCR",
+      "category": "recursive-and-context",
+      "provider": "Thinking Machines Lab",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+      "access": "benchmark_method",
+      "status": "long_context_multihop",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "hgw-05-causal-families",
+      "name": "HGW-05 causal families",
+      "category": "causal-world-models",
+      "provider": "MoralityLabAI",
+      "url": "https://github.com/MoralityLabAI/GPTStoryworld/pull/20",
+      "access": "public_synthetic_development",
+      "status": "structural_control_not_confirmation",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "counterfactual-task-pairs",
+      "name": "counterfactual task pairs",
+      "category": "causal-world-models",
+      "provider": "EvalMath proposal",
+      "url": "https://github.com/MoralityLabAI/EvalMath/blob/main/paper/evaluation_design_calculus.md",
+      "access": "design_pattern",
+      "status": "generator_needed",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "gdpval",
+      "name": "GDPval",
+      "category": "professional-and-multimodal",
+      "provider": "OpenAI",
+      "url": "https://openai.com/index/gdpval/",
+      "access": "open_gold_subset",
+      "status": "professional_deliverable",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "mmmu-pro",
+      "name": "MMMU-Pro",
+      "category": "professional-and-multimodal",
+      "provider": "Thinking Machines Lab",
+      "url": "https://github.com/thinking-machines-lab/inkling-verify",
+      "access": "open_eval_scripts",
+      "status": "multimodal_reasoning",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "charxiv",
+      "name": "CharXiv",
+      "category": "professional-and-multimodal",
+      "provider": "Thinking Machines Lab",
+      "url": "https://thinkingmachines.ai/model-card/inkling/",
+      "access": "benchmark_data_review",
+      "status": "chart_interpretation",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "healthbench",
+      "name": "HealthBench",
+      "category": "professional-and-multimodal",
+      "provider": "OpenAI",
+      "url": "https://github.com/openai/simple-evals",
+      "access": "public_eval_high_stakes",
+      "status": "expert_rubric",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "mmau",
+      "name": "MMAU",
+      "category": "professional-and-multimodal",
+      "provider": "Thinking Machines Lab",
+      "url": "https://github.com/thinking-machines-lab/inkling-verify",
+      "access": "open_scripts_audio_required",
+      "status": "audio_understanding",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "openai-swe-bench-audit",
+      "name": "OpenAI SWE-bench audit",
+      "category": "evaluation-integrity",
+      "provider": "OpenAI",
+      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations/",
+      "access": "public_audit",
+      "status": "grading_error",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "anthropic-infrastructure-noise",
+      "name": "Anthropic infrastructure noise",
+      "category": "evaluation-integrity",
+      "provider": "Anthropic",
+      "url": "https://www.anthropic.com/research/infrastructure-noise",
+      "access": "public_study",
+      "status": "runtime_configuration_effect",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "bloom-judge-trust",
+      "name": "Bloom judge trust",
+      "category": "evaluation-integrity",
+      "provider": "Anthropic",
+      "url": "https://alignment.anthropic.com/2025/bloom-auto-evals/",
+      "access": "published_method",
+      "status": "grader_sensitivity",
+      "priority": "P1",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "evalmath-fsi-01",
+      "name": "EvalMath FSI-01",
+      "category": "evaluation-integrity",
+      "provider": "EvalMath",
+      "url": "https://github.com/MoralityLabAI/EvalMath/blob/main/paper/finite_sample_inference.md",
+      "access": "public_code",
+      "status": "root_level_inference",
+      "priority": "P0",
+      "integration": "pin_upstream_and_review_license_before_execution"
+    },
+    {
+      "id": "ideation-arena-human-pairs",
+      "name": "Ideation Arena Eval (human research preference pairs)",
+      "category": "research-taste",
+      "provider": "EMNLP 2026 / Chen et al.",
+      "url": "https://aclanthology.org/2026.emnlp-main.688/",
+      "access": "public_cc_by_nc_4_0_separate_json_sources",
+      "status": "human_annotated_pairwise_judge_agreement_development_only",
+      "priority": "P0",
+      "integration": "manual_dataset_revision_pin_and_explicit_noncommercial_license_ack_required"
+    }
+  ]
+}

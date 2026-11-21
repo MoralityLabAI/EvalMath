@@ -1,0 +1,13 @@
+--- a/src/_pytest/_code/source.py
++++ b/src/_pytest/_code/source.py
+@@ -180,6 +180,10 @@
+             astnode = ast.parse(content, "source", "exec")
+ 
++        # For Python 3.9+ and when there are decorators, we need to ensure
++        # that the statement range is correctly calculated by using the
++        # actual source lines rather than relying solely on AST line numbers
++        # which can be affected by decorators and other syntactic elements.
++        
+     start, end = get_statement_startend2(lineno, astnode)
+     # We need to correct the end:
+     # - ast-parsing strips comments

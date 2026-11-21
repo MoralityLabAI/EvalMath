@@ -14,3 +14,4 @@ lean/lean-toolchain text eol=lf
 # never normalize either tree.
 output/** -text
 docs/session_logs/** -text
+PreferredEvals/gym/sets/** -text

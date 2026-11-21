@@ -1,0 +1,53 @@
+{
+  "base_url": "http://127.0.0.1:18130/raw/swe-bonsai/v1",
+  "max_tokens": 4096,
+  "model": "bonsai-27b-ptq1",
+  "schema": "preferred-evals/swebench-oracle-run-v1",
+  "seed": 42,
+  "selection": {
+    "dataset": "princeton-nlp/SWE-bench_Lite_oracle",
+    "gold_valid_pool": [
+      "pallets__flask-4045",
+      "pallets__flask-4992",
+      "pallets__flask-5063",
+      "psf__requests-3362",
+      "pytest-dev__pytest-11143",
+      "pytest-dev__pytest-11148",
+      "pytest-dev__pytest-5103",
+      "pytest-dev__pytest-5221",
+      "pytest-dev__pytest-5227",
+      "pytest-dev__pytest-5413",
+      "pytest-dev__pytest-5495",
+      "pytest-dev__pytest-5692",
+      "pytest-dev__pytest-6116",
+      "pytest-dev__pytest-7168",
+      "pytest-dev__pytest-7220",
+      "pytest-dev__pytest-7373",
+      "pytest-dev__pytest-7432",
+      "pytest-dev__pytest-7490",
+      "pytest-dev__pytest-8365",
+      "pytest-dev__pytest-8906",
+      "pytest-dev__pytest-9359"
+    ],
+    "instance_ids": [
+      "pytest-dev__pytest-7373",
+      "pytest-dev__pytest-8365",
+      "pallets__flask-4992",
+      "pytest-dev__pytest-9359",
+      "pytest-dev__pytest-7168",
+      "pytest-dev__pytest-7432"
+    ],
+    "missing_from_dataset": [],
+    "prompt_chars": {
+      "pallets__flask-4992": 18985,
+      "pytest-dev__pytest-7168": 19365,
+      "pytest-dev__pytest-7373": 13388,
+      "pytest-dev__pytest-7432": 19969,
+      "pytest-dev__pytest-8365": 18326,
+      "pytest-dev__pytest-9359": 19026
+    },
+    "revision": "6fc5a85316392edbd1c2779120eeea362c535c82",
+    "selection": "the 6 shortest oracle prompts (at most 90000 characters) among 21 instances whose gold patch resolves on this host"
+  },
+  "temperature": 0.0
+}

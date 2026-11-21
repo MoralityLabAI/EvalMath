@@ -1,0 +1,229 @@
+{
+ "campaign_id": "PE2-LOCAL-20261121",
+ "registration": "registration.json (commit bffa41b, pushed before any Qwen rollout)",
+ "test": {
+  "alpha": "0.05",
+  "minimum_effect": "0.10"
+ },
+ "runs": {
+  "taste-bonsai": {
+   "kind": "prompt",
+   "benchmark": "public-proxy-iclr2026-oral-vs-reject",
+   "category": "research-taste (public proxy)",
+   "model": "bonsai-27b",
+   "source": "gym runner"
+  },
+  "taste-qwen": {
+   "kind": "prompt",
+   "benchmark": "public-proxy-iclr2026-oral-vs-reject",
+   "category": "research-taste (public proxy)",
+   "model": "qwen3-4b",
+   "source": "gym runner"
+  },
+  "mmlupro-bonsai": {
+   "kind": "prompt",
+   "benchmark": "public-mmlu-pro-science",
+   "category": "science knowledge (HLE stand-in)",
+   "model": "bonsai-27b",
+   "source": "gym runner"
+  },
+  "mmlupro-qwen": {
+   "kind": "prompt",
+   "benchmark": "public-mmlu-pro-science",
+   "category": "science knowledge (HLE stand-in)",
+   "model": "qwen3-4b",
+   "source": "gym runner"
+  },
+  "multihop-bonsai": {
+   "kind": "prompt",
+   "benchmark": "dev-multihop-binding",
+   "category": "recursive reasoning (generated)",
+   "model": "bonsai-27b",
+   "condition": "default reasoning",
+   "source": "gym runner"
+  },
+  "multihop-nocot-bonsai": {
+   "kind": "prompt",
+   "benchmark": "dev-multihop-binding",
+   "category": "recursive reasoning (generated)",
+   "model": "bonsai-27b",
+   "condition": "enable_thinking=false",
+   "source": "gym runner"
+  },
+  "multihop-qwen": {
+   "kind": "prompt",
+   "benchmark": "dev-multihop-binding",
+   "category": "recursive reasoning (generated)",
+   "model": "qwen3-4b",
+   "condition": "default (non-thinking model)",
+   "source": "gym runner"
+  },
+  "gsm8k-bonsai": {
+   "kind": "vf",
+   "benchmark": "gsm8k (primeintellect/gsm8k 0.1.4)",
+   "category": "math word problems",
+   "model": "bonsai-27b",
+   "source": "vf-run 0.4.1, null harness, math_verify reward"
+  },
+  "gsm8k-qwen": {
+   "kind": "vf",
+   "benchmark": "gsm8k (primeintellect/gsm8k 0.1.4)",
+   "category": "math word problems",
+   "model": "qwen3-4b",
+   "source": "vf-run 0.4.1, null harness, math_verify reward"
+  },
+  "niah-bonsai": {
+   "kind": "inkling",
+   "benchmark": "niah (Inkling Verify, 4K and 16K)",
+   "category": "long context",
+   "model": "bonsai-27b",
+   "source": "Inkling Verify 94fd95b, Qwen3.5 tokenizer grid"
+  },
+  "niah-qwen": {
+   "kind": "inkling",
+   "benchmark": "niah (Inkling Verify, 4K and 16K)",
+   "category": "long context",
+   "model": "qwen3-4b",
+   "source": "Inkling Verify 94fd95b, Qwen3 tokenizer grid"
+  },
+  "sqlite-bonsai": {
+   "kind": "vf",
+   "benchmark": "mcp-sqlite 0.1.0",
+   "category": "agentic tools (MCP)",
+   "model": "bonsai-27b",
+   "score_metric": "exact_match",
+   "source": "vf-run 0.4.1, taskset harness, API judge removed"
+  },
+  "sqlite-qwen": {
+   "kind": "vf",
+   "benchmark": "mcp-sqlite 0.1.0",
+   "category": "agentic tools (MCP)",
+   "model": "qwen3-4b",
+   "score_metric": "exact_match",
+   "source": "vf-run 0.4.1, taskset harness, API judge removed"
+  },
+  "swe-bonsai": {
+   "kind": "swe",
+   "benchmark": "swe-bench-lite oracle single-shot",
+   "category": "software engineering",
+   "model": "bonsai-27b",
+   "source": "princeton-nlp/SWE-bench_Lite_oracle, swebench 5.0.2 harness"
+  },
+  "swe-qwen": {
+   "kind": "swe",
+   "benchmark": "swe-bench-lite oracle single-shot",
+   "category": "software engineering",
+   "model": "qwen3-4b",
+   "source": "princeton-nlp/SWE-bench_Lite_oracle, swebench 5.0.2 harness"
+  }
+ },
+ "comparisons": [
+  {
+   "id": "taste-bonsai-vs-qwen",
+   "candidate": "taste-bonsai",
+   "baseline": "taste-qwen",
+   "preregistered": true,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true,
+   "registered_id": "between-1"
+  },
+  {
+   "id": "mmlupro-bonsai-vs-qwen",
+   "candidate": "mmlupro-bonsai",
+   "baseline": "mmlupro-qwen",
+   "preregistered": true,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true,
+   "registered_id": "between-2"
+  },
+  {
+   "id": "multihop-bonsai-vs-qwen",
+   "candidate": "multihop-bonsai",
+   "baseline": "multihop-qwen",
+   "preregistered": true,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true,
+   "registered_id": "between-3"
+  },
+  {
+   "id": "gsm8k-bonsai-vs-qwen",
+   "candidate": "gsm8k-bonsai",
+   "baseline": "gsm8k-qwen",
+   "preregistered": true,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true,
+   "registered_id": "between-4"
+  },
+  {
+   "id": "niah-bonsai-vs-qwen",
+   "candidate": "niah-bonsai",
+   "baseline": "niah-qwen",
+   "preregistered": true,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true,
+   "population": "NIAH cases; prompts are tokenizer-specific, so a pair shares the generator cell and seed, not identical text",
+   "registered_id": "between-5"
+  },
+  {
+   "id": "sqlite-bonsai-vs-qwen",
+   "candidate": "sqlite-bonsai",
+   "baseline": "sqlite-qwen",
+   "preregistered": true,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true,
+   "registered_id": "between-6"
+  },
+  {
+   "id": "swe-bonsai-vs-qwen",
+   "candidate": "swe-bonsai",
+   "baseline": "swe-qwen",
+   "preregistered": true,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true,
+   "registered_id": "between-7"
+  },
+  {
+   "id": "multihop-bonsai-reasoning-vs-nocot",
+   "candidate": "multihop-bonsai",
+   "baseline": "multihop-nocot-bonsai",
+   "preregistered": true,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true,
+   "registered_id": "within-8"
+  }
+ ],
+ "exploratory_comparisons": [
+  {
+   "id": "multihop-bonsai-nocot-vs-qwen",
+   "candidate": "multihop-nocot-bonsai",
+   "baseline": "multihop-qwen",
+   "preregistered": false,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true,
+   "note": "added after the runs: both answer without a reasoning phase, unlike the registered multihop-bonsai-vs-qwen pair"
+  }
+ ],
+ "independence_note": "Each root is a distinct item drawn by seeded hash order (or generated with a fixed seed) from its source; attempts and presentation orders of one item share its root. Declared, not proven.",
+ "blocked": [
+  {
+   "benchmark": "HLE text (Inkling Verify hle)",
+   "reason": "cais/hle is gated on Hugging Face and this account has no access (DatasetNotFoundError at prepare)",
+   "class": "missing_dependency"
+  },
+  {
+   "benchmark": "DeepSWE (Inkling Verify deepswe)",
+   "reason": "needs rootless Podman on native x86-64 Linux and four-hour agent budgets; Podman is not installed in this WSL",
+   "class": "missing_dependency"
+  },
+  {
+   "benchmark": "PaperBench",
+   "reason": "needs multi-hour agent runs and rubric judging; no executable proxy staged",
+   "class": "missing_dependency"
+  },
+  {
+   "benchmark": "Prime sandbox tasksets",
+   "reason": "paid Prime sandboxes are out of scope for this campaign",
+   "class": "excluded_by_policy"
+  }
+ ]
+}

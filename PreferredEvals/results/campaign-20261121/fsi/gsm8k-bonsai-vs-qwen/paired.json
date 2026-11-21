@@ -1,0 +1,14 @@
+{
+ "schema": "preferred-evals/paired-prompt-runs-v1",
+ "comparison": "gsm8k-bonsai-vs-qwen",
+ "candidate_run": "gsm8k-bonsai",
+ "baseline_run": "gsm8k-qwen",
+ "total_assigned_rollouts": 12,
+ "n_paired_scored": 12,
+ "n_infra_or_missing": 0,
+ "non_scored": [],
+ "n_roots_paired_scored": 6,
+ "candidate_correct_paired": 12,
+ "baseline_correct_paired": 12,
+ "evidence_class": "development; unsealed readout"
+}
