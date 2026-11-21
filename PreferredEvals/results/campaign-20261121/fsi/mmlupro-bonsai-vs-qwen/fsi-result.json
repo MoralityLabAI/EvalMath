@@ -1,0 +1,64 @@
+{
+ "schema_version": 1,
+ "experiment_id": "PE2-mmlupro-bonsai-vs-qwen",
+ "target_population": "declared development task roots",
+ "evaluation_mode": "sampled",
+ "n_cases": 8,
+ "n_clusters": 8,
+ "candidate_correct": 7,
+ "baseline_correct": 5,
+ "candidate_accuracy": 0.875,
+ "baseline_accuracy": 0.625,
+ "case_weighted_effect": 0.25,
+ "cluster_macro_effect": 0.25,
+ "case_effect_exact": "1/4",
+ "cluster_effect_exact": "1/4",
+ "candidate_only": 3,
+ "baseline_only": 1,
+ "discordant": 4,
+ "ties": 4,
+ "minimum_effect": 0.1,
+ "alpha": 0.05,
+ "planned_comparisons": 8,
+ "verdict": "suggestive",
+ "gate_reasons": [
+  "readout_used_in_selection_or_unsealed",
+  "insufficient_independent_clusters_for_policy",
+  "adjusted_test_not_significant",
+  "cluster_interval_crosses_effect_floor",
+  "nonasymptotic_effect_floor_bound_not_met"
+ ],
+ "hypothesis_preregistered": true,
+ "sealed_readout": false,
+ "clusters_independent": true,
+ "exchangeable_pair_labels": true,
+ "min_independent_clusters": 20,
+ "cluster_bootstrap_interval": [
+  -0.375,
+  0.875
+ ],
+ "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
+ "familywise_alpha": 0.00625,
+ "hoeffding_one_sided_effect_bounds": [
+  -0.8764073214465788,
+  1.0
+ ],
+ "cluster_bootstrap_resamples": 4096,
+ "resample_seed": 20261117,
+ "test": "exact_McNemar_independent_pairs",
+ "p_unadjusted": 0.625,
+ "p_exact_fraction": "5/8",
+ "p_bonferroni": 1.0,
+ "accuracy_intervals": {
+  "candidate": [
+   0.3429603576660156,
+   0.9996109008789062
+  ],
+  "baseline": [
+   0.15300750732421875,
+   0.9597969055175781
+  ],
+  "method": "outward_exact_Clopper_Pearson_iid_cases"
+ },
+ "scope_note": "Independent representative clusters and symmetric paired-label null are declared assumptions; clustered bootstrap has weak small-G coverage. Floors above zero require conservative Hoeffding lower bounds. Bonferroni covers the stated preplanned family only. Reuse requires an untouched sealed confirmation readout."
+}

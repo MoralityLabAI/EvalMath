@@ -1,0 +1,64 @@
+{
+ "schema_version": 1,
+ "experiment_id": "PE2-niah-bonsai-vs-qwen",
+ "target_population": "NIAH cases; prompts are tokenizer-specific, so a pair shares the generator cell and seed, not identical text",
+ "evaluation_mode": "sampled",
+ "n_cases": 8,
+ "n_clusters": 8,
+ "candidate_correct": 8,
+ "baseline_correct": 8,
+ "candidate_accuracy": 1.0,
+ "baseline_accuracy": 1.0,
+ "case_weighted_effect": 0.0,
+ "cluster_macro_effect": 0.0,
+ "case_effect_exact": "0",
+ "cluster_effect_exact": "0",
+ "candidate_only": 0,
+ "baseline_only": 0,
+ "discordant": 0,
+ "ties": 8,
+ "minimum_effect": 0.1,
+ "alpha": 0.05,
+ "planned_comparisons": 8,
+ "verdict": "inconclusive",
+ "gate_reasons": [
+  "readout_used_in_selection_or_unsealed",
+  "insufficient_independent_clusters_for_policy",
+  "adjusted_test_not_significant",
+  "cluster_interval_crosses_effect_floor",
+  "nonasymptotic_effect_floor_bound_not_met"
+ ],
+ "hypothesis_preregistered": true,
+ "sealed_readout": false,
+ "clusters_independent": true,
+ "exchangeable_pair_labels": true,
+ "min_independent_clusters": 20,
+ "cluster_bootstrap_interval": [
+  0.0,
+  0.0
+ ],
+ "cluster_bootstrap_method": "approximate_equal_cluster_percentile_resampling",
+ "familywise_alpha": 0.00625,
+ "hoeffding_one_sided_effect_bounds": [
+  -1.0,
+  1.0
+ ],
+ "cluster_bootstrap_resamples": 4096,
+ "resample_seed": 20261117,
+ "test": "exact_McNemar_independent_pairs",
+ "p_unadjusted": 1.0,
+ "p_exact_fraction": "1",
+ "p_bonferroni": 1.0,
+ "accuracy_intervals": {
+  "candidate": [
+   0.48624420166015625,
+   1.0
+  ],
+  "baseline": [
+   0.48624420166015625,
+   1.0
+  ],
+  "method": "outward_exact_Clopper_Pearson_iid_cases"
+ },
+ "scope_note": "Independent representative clusters and symmetric paired-label null are declared assumptions; clustered bootstrap has weak small-G coverage. Floors above zero require conservative Hoeffding lower bounds. Bonferroni covers the stated preplanned family only. Reuse requires an untouched sealed confirmation readout."
+}

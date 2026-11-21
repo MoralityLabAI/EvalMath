@@ -1,0 +1,87 @@
+{
+ "schema_version": 1,
+ "experiment_id": "PE2-multihop-bonsai-reasoning-vs-nocot",
+ "target_population": "declared development task roots",
+ "evaluation_mode": "sampled",
+ "alpha": "0.05",
+ "minimum_effect": "0.10",
+ "planned_comparisons": 8,
+ "hypothesis_preregistered": true,
+ "sealed_readout": false,
+ "clusters_independent": true,
+ "exchangeable_pair_labels": true,
+ "cases": [
+  {
+   "case_id": "multihop-d02-1#normal-0",
+   "cluster_id": "multihop-d02-1",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "multihop-d02-2#normal-0",
+   "cluster_id": "multihop-d02-2",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "multihop-d02-3#normal-0",
+   "cluster_id": "multihop-d02-3",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "multihop-d04-1#normal-0",
+   "cluster_id": "multihop-d04-1",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "multihop-d04-2#normal-0",
+   "cluster_id": "multihop-d04-2",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "multihop-d04-3#normal-0",
+   "cluster_id": "multihop-d04-3",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "multihop-d08-1#normal-0",
+   "cluster_id": "multihop-d08-1",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "multihop-d08-2#normal-0",
+   "cluster_id": "multihop-d08-2",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "multihop-d08-3#normal-0",
+   "cluster_id": "multihop-d08-3",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "multihop-d12-1#normal-0",
+   "cluster_id": "multihop-d12-1",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "multihop-d12-2#normal-0",
+   "cluster_id": "multihop-d12-2",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "multihop-d12-3#normal-0",
+   "cluster_id": "multihop-d12-3",
+   "candidate": 0,
+   "baseline": 0
+  }
+ ]
+}

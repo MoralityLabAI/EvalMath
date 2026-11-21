@@ -1,0 +1,50 @@
+{
+  "schema_version": 4,
+  "benchmark": "niah",
+  "configuration": {
+    "api": "openai-completions",
+    "model": "qwen3-4b-instruct-2507-q8",
+    "base_url": "http://127.0.0.1:18130/raw/niah-qwen/v1",
+    "api_key_env": "PREFERRED_EVALS_API_KEY",
+    "dataset": {
+      "repository": "synthetic/niah-uuid-key-to-value",
+      "revision": "1",
+      "count": 8,
+      "examples_sha256": "37c6c332b66baf61dec76631d819d56994bc32cd10a14da73e330fc7d2984f81",
+      "grid": {
+        "context_lengths": [
+          4000,
+          16000
+        ],
+        "depths": [
+          25,
+          75
+        ],
+        "samples_per_cell": 2
+      },
+      "tokenizer_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+    },
+    "dataset_size": 8,
+    "selected_size": 8,
+    "full_dataset": true,
+    "request_timeout_seconds": 43200
+  },
+  "generation": {
+    "max_tokens": 4096,
+    "temperature": 0.0,
+    "top_p": null,
+    "reasoning_effort": "none"
+  },
+  "concurrency": 2,
+  "samples_per_problem": 1,
+  "examples": [
+    "niah_uuid_key_to_value_4000_25_4161807235",
+    "niah_uuid_key_to_value_4000_25_2901796894",
+    "niah_uuid_key_to_value_4000_75_3092697141",
+    "niah_uuid_key_to_value_4000_75_3596931684",
+    "niah_uuid_key_to_value_16000_25_4189199982",
+    "niah_uuid_key_to_value_16000_25_504169141",
+    "niah_uuid_key_to_value_16000_75_3668931881",
+    "niah_uuid_key_to_value_16000_75_3407580927"
+  ]
+}

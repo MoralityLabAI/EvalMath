@@ -1,0 +1,103 @@
+{
+  "base_url": "http://127.0.0.1:18127/v1",
+  "benchmark_id": "public-proxy-iclr2026-oral-vs-reject",
+  "dataset_sha256": "ebe276628541b12fbf879435b2eb982fdbc0196639dc03fe5ec661e17e9987db",
+  "evidence_class": "unscored model inference; reference labels were not read",
+  "limit": null,
+  "max_tokens": 4096,
+  "model": "bonsai-27b-ptq1",
+  "n_independent_roots_declared": 12,
+  "orders": "both",
+  "rollouts": 1,
+  "schema": "preferred-evals/prompt-run-v1",
+  "seed": 42,
+  "selected_tasks": [
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-01",
+      "task_id": "iclr26-pair-01"
+    },
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-02",
+      "task_id": "iclr26-pair-02"
+    },
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-03",
+      "task_id": "iclr26-pair-03"
+    },
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-04",
+      "task_id": "iclr26-pair-04"
+    },
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-05",
+      "task_id": "iclr26-pair-05"
+    },
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-06",
+      "task_id": "iclr26-pair-06"
+    },
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-07",
+      "task_id": "iclr26-pair-07"
+    },
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-08",
+      "task_id": "iclr26-pair-08"
+    },
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-09",
+      "task_id": "iclr26-pair-09"
+    },
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-10",
+      "task_id": "iclr26-pair-10"
+    },
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-11",
+      "task_id": "iclr26-pair-11"
+    },
+    {
+      "kind": "pairwise",
+      "options_len": 0,
+      "root_id": "iclr26-pair-12",
+      "task_id": "iclr26-pair-12"
+    }
+  ],
+  "selection_task_ids": [
+    "iclr26-pair-01",
+    "iclr26-pair-02",
+    "iclr26-pair-03",
+    "iclr26-pair-04",
+    "iclr26-pair-05",
+    "iclr26-pair-06",
+    "iclr26-pair-07",
+    "iclr26-pair-08",
+    "iclr26-pair-09",
+    "iclr26-pair-10",
+    "iclr26-pair-11",
+    "iclr26-pair-12"
+  ],
+  "temperature": 0.0
+}

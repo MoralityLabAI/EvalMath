@@ -1,0 +1,14 @@
+{
+ "schema": "preferred-evals/paired-prompt-runs-v1",
+ "comparison": "mmlupro-bonsai-vs-qwen",
+ "candidate_run": "mmlupro-bonsai",
+ "baseline_run": "mmlupro-qwen",
+ "total_assigned_rollouts": 8,
+ "n_paired_scored": 8,
+ "n_infra_or_missing": 0,
+ "non_scored": [],
+ "n_roots_paired_scored": 8,
+ "candidate_correct_paired": 7,
+ "baseline_correct_paired": 5,
+ "evidence_class": "development; unsealed readout"
+}

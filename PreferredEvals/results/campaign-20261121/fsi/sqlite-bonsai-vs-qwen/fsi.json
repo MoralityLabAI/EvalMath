@@ -1,0 +1,63 @@
+{
+ "schema_version": 1,
+ "experiment_id": "PE2-sqlite-bonsai-vs-qwen",
+ "target_population": "declared development task roots",
+ "evaluation_mode": "sampled",
+ "alpha": "0.05",
+ "minimum_effect": "0.10",
+ "planned_comparisons": 8,
+ "hypothesis_preregistered": true,
+ "sealed_readout": false,
+ "clusters_independent": true,
+ "exchangeable_pair_labels": true,
+ "cases": [
+  {
+   "case_id": "cancel_ts_column#0",
+   "cluster_id": "cancel_ts_column",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "channel_edi#0",
+   "cluster_id": "channel_edi",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "code_domains#0",
+   "cluster_id": "code_domains",
+   "candidate": 0,
+   "baseline": 1
+  },
+  {
+   "case_id": "code_meaning_x#0",
+   "cluster_id": "code_meaning_x",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "discount_column#0",
+   "cluster_id": "discount_column",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "dupe_count#0",
+   "cluster_id": "dupe_count",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "mgr_column#0",
+   "cluster_id": "mgr_column",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "staff_current#0",
+   "cluster_id": "staff_current",
+   "candidate": 1,
+   "baseline": 0
+  }
+ ]
+}

@@ -1,0 +1,121 @@
+{
+  "env": {
+    "taskset": {
+      "task": {
+        "judges": [],
+        "stops": {},
+        "metrics": {},
+        "rewards": {},
+        "tools": {
+          "runtime": {
+            "type": "subprocess"
+          },
+          "url": null,
+          "timeout": {
+            "startup": 600.0
+          },
+          "colocated": false,
+          "service": null,
+          "db_path": "",
+          "max_rows": 100,
+          "max_chars": 8000,
+          "query_timeout_s": 15.0
+        }
+      },
+      "system_prompt": null,
+      "id": "mcp-sqlite",
+      "buckets": [],
+      "db_seed": 20260825
+    },
+    "timeout": {
+      "episode": null,
+      "finalize": null
+    },
+    "retries": {
+      "max_retries": 0,
+      "rules": []
+    },
+    "max_concurrent_agents": 1,
+    "interception": {
+      "type": "elastic",
+      "multiplex": 32
+    },
+    "id": "",
+    "agent": {
+      "harness": null,
+      "runtime": {
+        "type": "subprocess"
+      },
+      "scoring": {},
+      "deployment": {
+        "mode": "colocated",
+        "trust_compose": false
+      },
+      "model": null,
+      "client": null,
+      "sampling": null,
+      "max_turns": 20,
+      "max_input_tokens": null,
+      "max_output_tokens": null,
+      "max_total_tokens": null,
+      "max_turn_tokens": null,
+      "timeout": {
+        "setup": null,
+        "rollout": null,
+        "finalize": null,
+        "scoring": null
+      },
+      "retries": {
+        "max_retries": 0,
+        "rules": []
+      },
+      "network_notice": true
+    }
+  },
+  "run": {
+    "name": "mcp-sqlite--qwen3-4b-instruct-2507-q8--mcp-sqlite--3d546842",
+    "dir": "mcp-sqlite--qwen3-4b-instruct-2507-q8--mcp-sqlite--3d546842"
+  },
+  "model": "qwen3-4b-instruct-2507-q8",
+  "client": {
+    "base_url": "http://127.0.0.1:18130/raw/sqlite-qwen/v1",
+    "api_key_var": "PREFERRED_EVALS_API_KEY",
+    "headers": {},
+    "headers_from_env": {},
+    "timeout": {
+      "connect": 30.0,
+      "read": null,
+      "write": null,
+      "pool": null
+    },
+    "type": "eval"
+  },
+  "sampling": {
+    "temperature": 0.6,
+    "top_p": null,
+    "reasoning_effort": null,
+    "max_tokens": 4096
+  },
+  "select": {
+    "include": {
+      "idx": [],
+      "ids": [],
+      "keys": [],
+      "names": []
+    },
+    "exclude": {
+      "idx": [],
+      "ids": [],
+      "keys": [],
+      "names": []
+    },
+    "shuffle": false,
+    "seed": 0,
+    "skip": 0,
+    "limit": 8
+  },
+  "num_rollouts": 1,
+  "max_concurrent": 2,
+  "output_dir": "/root/pe2/runs/sqlite-qwen",
+  "verbose": false
+}

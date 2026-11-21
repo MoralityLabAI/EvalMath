@@ -1,0 +1,108 @@
+{
+  "base_url": "http://127.0.0.1:18127/v1",
+  "benchmark_id": "dev-multihop-binding",
+  "dataset_sha256": "c684af1dfe5d3e915374e674239302bfa9a0aac34e6e4d4cc7f7f19e782b8e39",
+  "evidence_class": "unscored model inference; reference labels were not read",
+  "limit": null,
+  "max_tokens": 4096,
+  "model": "bonsai-27b-ptq1",
+  "n_independent_roots_declared": 12,
+  "orders": "normal",
+  "request_extra": {
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "rollouts": 1,
+  "schema": "preferred-evals/prompt-run-v1",
+  "seed": 42,
+  "selected_tasks": [
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d02-1",
+      "task_id": "multihop-d02-1"
+    },
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d02-2",
+      "task_id": "multihop-d02-2"
+    },
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d02-3",
+      "task_id": "multihop-d02-3"
+    },
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d04-1",
+      "task_id": "multihop-d04-1"
+    },
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d04-2",
+      "task_id": "multihop-d04-2"
+    },
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d04-3",
+      "task_id": "multihop-d04-3"
+    },
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d08-1",
+      "task_id": "multihop-d08-1"
+    },
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d08-2",
+      "task_id": "multihop-d08-2"
+    },
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d08-3",
+      "task_id": "multihop-d08-3"
+    },
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d12-1",
+      "task_id": "multihop-d12-1"
+    },
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d12-2",
+      "task_id": "multihop-d12-2"
+    },
+    {
+      "kind": "exact_text",
+      "options_len": 0,
+      "root_id": "multihop-d12-3",
+      "task_id": "multihop-d12-3"
+    }
+  ],
+  "selection_task_ids": [
+    "multihop-d02-1",
+    "multihop-d02-2",
+    "multihop-d02-3",
+    "multihop-d04-1",
+    "multihop-d04-2",
+    "multihop-d04-3",
+    "multihop-d08-1",
+    "multihop-d08-2",
+    "multihop-d08-3",
+    "multihop-d12-1",
+    "multihop-d12-2",
+    "multihop-d12-3"
+  ],
+  "temperature": 0.0
+}

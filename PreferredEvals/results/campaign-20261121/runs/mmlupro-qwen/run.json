@@ -1,0 +1,75 @@
+{
+  "base_url": "http://127.0.0.1:18127/v1",
+  "benchmark_id": "public-mmlu-pro-science",
+  "dataset_sha256": "41af23414463efd94bb06d572e8a95e86fcfbf6e4119df9f36462e5b26fc993a",
+  "evidence_class": "unscored model inference; reference labels were not read",
+  "limit": null,
+  "max_tokens": 4096,
+  "model": "qwen3-4b-instruct-2507-q8",
+  "n_independent_roots_declared": 8,
+  "orders": "normal",
+  "rollouts": 1,
+  "schema": "preferred-evals/prompt-run-v1",
+  "seed": 42,
+  "selected_tasks": [
+    {
+      "kind": "choice",
+      "options_len": 10,
+      "root_id": "mmlu-pro-10238",
+      "task_id": "mmlu-pro-10238"
+    },
+    {
+      "kind": "choice",
+      "options_len": 10,
+      "root_id": "mmlu-pro-9369",
+      "task_id": "mmlu-pro-9369"
+    },
+    {
+      "kind": "choice",
+      "options_len": 10,
+      "root_id": "mmlu-pro-9811",
+      "task_id": "mmlu-pro-9811"
+    },
+    {
+      "kind": "choice",
+      "options_len": 8,
+      "root_id": "mmlu-pro-3438",
+      "task_id": "mmlu-pro-3438"
+    },
+    {
+      "kind": "choice",
+      "options_len": 10,
+      "root_id": "mmlu-pro-9972",
+      "task_id": "mmlu-pro-9972"
+    },
+    {
+      "kind": "choice",
+      "options_len": 10,
+      "root_id": "mmlu-pro-3066",
+      "task_id": "mmlu-pro-3066"
+    },
+    {
+      "kind": "choice",
+      "options_len": 10,
+      "root_id": "mmlu-pro-10193",
+      "task_id": "mmlu-pro-10193"
+    },
+    {
+      "kind": "choice",
+      "options_len": 10,
+      "root_id": "mmlu-pro-9307",
+      "task_id": "mmlu-pro-9307"
+    }
+  ],
+  "selection_task_ids": [
+    "mmlu-pro-10238",
+    "mmlu-pro-9369",
+    "mmlu-pro-9811",
+    "mmlu-pro-3438",
+    "mmlu-pro-9972",
+    "mmlu-pro-3066",
+    "mmlu-pro-10193",
+    "mmlu-pro-9307"
+  ],
+  "temperature": 0.0
+}

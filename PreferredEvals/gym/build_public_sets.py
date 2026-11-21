@@ -40,15 +40,15 @@ def _write(out: Path, benchmark: str, tasks: list[dict], labels: list[dict], pro
     for task in tasks:
         task.setdefault("schema", SCHEMA)
         task["benchmark_id"] = benchmark
-    (out / "tasks.jsonl").write_text("".join(json.dumps(t, ensure_ascii=False, sort_keys=True) + "\n"
-                                             for t in tasks), encoding="utf-8")
-    (out / "labels.jsonl").write_text("".join(json.dumps(l, sort_keys=True) + "\n" for l in labels),
-                                      encoding="utf-8")
+    # Bytes, not text mode: the recorded hashes must not depend on the platform's newline convention.
+    (out / "tasks.jsonl").write_bytes("".join(json.dumps(t, ensure_ascii=False, sort_keys=True) + "\n"
+                                              for t in tasks).encode("utf-8"))
+    (out / "labels.jsonl").write_bytes("".join(json.dumps(l, sort_keys=True) + "\n" for l in labels).encode("utf-8"))
     provenance = dict(provenance, benchmark_id=benchmark, n_tasks=len(tasks),
                       n_roots=len({t["root_id"] for t in tasks}),
                       tasks_sha256=hashlib.sha256((out / "tasks.jsonl").read_bytes()).hexdigest(),
                       labels_sha256=hashlib.sha256((out / "labels.jsonl").read_bytes()).hexdigest())
-    (out / "provenance.json").write_text(json.dumps(provenance, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    (out / "provenance.json").write_bytes((json.dumps(provenance, indent=2, sort_keys=True) + "\n").encode("utf-8"))
     return provenance
 
 

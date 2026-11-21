@@ -14,7 +14,14 @@ The gym is intentionally split. The simple prompt runner sends real, explicitly 
 | Scientific knowledge | `external.py --profile inkling-hle` | Inkling Verify, public preparation and judge selection | Native HLE score, judge caveats |
 | Long context | `external.py --profile inkling-niah` | Inkling Verify and tokenizer | Native UUID retrieval by context length |
 | Vision and audio | `inkling-mmmu-pro`, `inkling-mmau` | Multimodal model, media and optional container tools | Native task metrics |
-| Prime agentic tool/tasksets | `external.py --profile prime-v041` | Installed Prime Verifiers v0.4.1 taskset and harness | Native episodes/traces, tool and task scores |
+| Prime agentic tool/tasksets | `external.py --profile prime-v041 --harness ...` | Installed Prime Verifiers v0.4.1 taskset and harness | Native episodes/traces, tool and task scores |
+| SWE-bench Lite, single-shot | `swebench_oracle.py` + `swebench.harness.run_evaluation` | `princeton-nlp/SWE-bench_Lite_oracle`, Docker, swebench 5.x | Resolved / unresolved / inapplicable patch per instance |
+| Public and generated prompt sets | `build_public_sets.py` | ICLR 2026 oral-vs-reject pairs (taste proxy), MMLU-Pro science, generated multi-hop chains | Task and label files with provenance |
+| Campaign ledger and scorecard | `campaign.py --root RESULTS` | Results tree with `campaign.json` | Per-attempt outcome classes, roots, Wilson and root-bootstrap intervals, paired FSI-01 with Holm |
+
+**Prime harness choice is mandatory.** vf-run 0.4.1 resolves an unset harness to the taskset's exported harness, and otherwise to its `bash` harness, which hands the model a shell in the runtime. For a chat-only taskset such as `gsm8k` pass `--harness null`; `--harness taskset` keeps a taskset's own harness (as `mcp-sqlite` exports).
+
+The first live campaign with Bonsai 27B and Qwen3-4B is in [`../results/campaign-20261121`](../results/campaign-20261121/README.md).
 
 **Research taste requires care:** Anthropic TASTE releases the 92 proposal comparisons to researchers by request, not as a bundled public test dataset. Our `demo-research-taste` fixture consists of *two newly written synthetic examples*. Scores from that fixture are not TASTE scores, and its author-picked answer letters are not expert labels. TASTE reuses proposals across pairs, so statistical roots must account for shared proposal identity rather than treating 92 pairs as independent.
 
@@ -77,7 +84,7 @@ python PreferredEvals/gym/external.py --list
 # Prime Verifiers 0.4.1, local taskset and subprocess runtime; --prepare executes vf-run --dry-run.
 python PreferredEvals/gym/external.py --profile prime-v041 --taskset gsm8k \
   --model bonsai-27b --base-url http://127.0.0.1:18127/v1 \
-  --out runs/prime-gsm8k --limit 6 --rollouts 2 --workdir /path/to/verifiers \
+  --harness null --out runs/prime-gsm8k --limit 6 --rollouts 2 --workdir /path/to/verifiers \
   --prepare --execute
 
 # Thinking Machines Inkling Verify on two coding tasks. Preparation can download data.

@@ -1,0 +1,14 @@
+{
+ "schema": "preferred-evals/paired-prompt-runs-v1",
+ "comparison": "niah-bonsai-vs-qwen",
+ "candidate_run": "niah-bonsai",
+ "baseline_run": "niah-qwen",
+ "total_assigned_rollouts": 8,
+ "n_paired_scored": 8,
+ "n_infra_or_missing": 0,
+ "non_scored": [],
+ "n_roots_paired_scored": 8,
+ "candidate_correct_paired": 8,
+ "baseline_correct_paired": 8,
+ "evidence_class": "development; unsealed readout"
+}

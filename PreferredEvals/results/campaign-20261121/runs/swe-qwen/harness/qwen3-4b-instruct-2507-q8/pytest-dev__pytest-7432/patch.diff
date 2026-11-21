@@ -1,0 +1,18 @@
+
+--- a/src/_pytest/skipping.py
++++ b/src/_pytest/skipping.py
+@@ -298,13 +298,14 @@
+         # skipped by mark.skipif; change the location of the failure
+         # to point to the item definition, otherwise it will display
+         # the location of where the skip exception was raised within pytest
+-        _, _, reason = rep.longrepr
+-        filename, line = item.reportinfo()[:2]
+-        assert line is not None
+-        rep.longrepr = str(filename), line + 1, reason
++
++        # Only modify location when not running xfail tests
++        if not item.config.option.runxfail:
++            _, _, reason = rep.longrepr
++            filename, line = item.reportinfo()[:2]
++            assert line is not None
++            rep.longrepr = str(filename), line + 1, reason

@@ -1,0 +1,159 @@
+{
+ "schema_version": 1,
+ "experiment_id": "PE2-taste-bonsai-vs-qwen",
+ "target_population": "declared development task roots",
+ "evaluation_mode": "sampled",
+ "alpha": "0.05",
+ "minimum_effect": "0.10",
+ "planned_comparisons": 8,
+ "hypothesis_preregistered": true,
+ "sealed_readout": false,
+ "clusters_independent": true,
+ "exchangeable_pair_labels": true,
+ "cases": [
+  {
+   "case_id": "iclr26-pair-01#normal-0",
+   "cluster_id": "iclr26-pair-01",
+   "candidate": 0,
+   "baseline": 1
+  },
+  {
+   "case_id": "iclr26-pair-01#swapped-0",
+   "cluster_id": "iclr26-pair-01",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-02#normal-0",
+   "cluster_id": "iclr26-pair-02",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-02#swapped-0",
+   "cluster_id": "iclr26-pair-02",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-03#normal-0",
+   "cluster_id": "iclr26-pair-03",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-03#swapped-0",
+   "cluster_id": "iclr26-pair-03",
+   "candidate": 0,
+   "baseline": 1
+  },
+  {
+   "case_id": "iclr26-pair-04#normal-0",
+   "cluster_id": "iclr26-pair-04",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-04#swapped-0",
+   "cluster_id": "iclr26-pair-04",
+   "candidate": 0,
+   "baseline": 1
+  },
+  {
+   "case_id": "iclr26-pair-05#normal-0",
+   "cluster_id": "iclr26-pair-05",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-05#swapped-0",
+   "cluster_id": "iclr26-pair-05",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-06#normal-0",
+   "cluster_id": "iclr26-pair-06",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "iclr26-pair-06#swapped-0",
+   "cluster_id": "iclr26-pair-06",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "iclr26-pair-07#normal-0",
+   "cluster_id": "iclr26-pair-07",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "iclr26-pair-07#swapped-0",
+   "cluster_id": "iclr26-pair-07",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "iclr26-pair-08#normal-0",
+   "cluster_id": "iclr26-pair-08",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-08#swapped-0",
+   "cluster_id": "iclr26-pair-08",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-09#normal-0",
+   "cluster_id": "iclr26-pair-09",
+   "candidate": 1,
+   "baseline": 1
+  },
+  {
+   "case_id": "iclr26-pair-09#swapped-0",
+   "cluster_id": "iclr26-pair-09",
+   "candidate": 0,
+   "baseline": 1
+  },
+  {
+   "case_id": "iclr26-pair-10#normal-0",
+   "cluster_id": "iclr26-pair-10",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-10#swapped-0",
+   "cluster_id": "iclr26-pair-10",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-11#normal-0",
+   "cluster_id": "iclr26-pair-11",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-11#swapped-0",
+   "cluster_id": "iclr26-pair-11",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-12#normal-0",
+   "cluster_id": "iclr26-pair-12",
+   "candidate": 1,
+   "baseline": 0
+  },
+  {
+   "case_id": "iclr26-pair-12#swapped-0",
+   "cluster_id": "iclr26-pair-12",
+   "candidate": 1,
+   "baseline": 0
+  }
+ ]
+}
