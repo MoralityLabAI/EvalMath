@@ -1,0 +1,35 @@
+[
+  {
+    "case_id": "task-01-a",
+    "root_id": "dev-repo-task-01",
+    "status": "scored",
+    "candidate": 1,
+    "baseline": 0
+  },
+  {
+    "case_id": "task-01-b",
+    "root_id": "dev-repo-task-01",
+    "status": "scored",
+    "candidate": 0,
+    "baseline": 0
+  },
+  {
+    "case_id": "task-02-a",
+    "root_id": "dev-repo-task-02",
+    "status": "infra_error",
+    "reason": "synthetic container restart"
+  },
+  {
+    "case_id": "task-03-a",
+    "root_id": "dev-repo-task-03",
+    "status": "invalid_gold",
+    "reason": "synthetic gold sanity failed"
+  },
+  {
+    "case_id": "task-03-b",
+    "root_id": "dev-repo-task-03",
+    "status": "scored",
+    "candidate": 1,
+    "baseline": 1
+  }
+]

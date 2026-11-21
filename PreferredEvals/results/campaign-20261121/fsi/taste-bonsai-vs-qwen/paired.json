@@ -1,0 +1,14 @@
+{
+ "schema": "preferred-evals/paired-prompt-runs-v1",
+ "comparison": "taste-bonsai-vs-qwen",
+ "candidate_run": "taste-bonsai",
+ "baseline_run": "taste-qwen",
+ "total_assigned_rollouts": 24,
+ "n_paired_scored": 24,
+ "n_infra_or_missing": 0,
+ "non_scored": [],
+ "n_roots_paired_scored": 12,
+ "candidate_correct_paired": 11,
+ "baseline_correct_paired": 9,
+ "evidence_class": "development; unsealed readout"
+}

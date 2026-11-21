@@ -1,0 +1,126 @@
+{
+ "campaign_id": "PE2-MULTIHOP-BUDGET-GRID-20261121",
+ "registration": "registration.json, pushed before any grid rollout",
+ "test": {
+  "alpha": "0.05",
+  "minimum_effect": "0.10"
+ },
+ "runs": {
+  "bonsai-b256": {
+   "kind": "prompt",
+   "benchmark": "sealed-multihop-binding",
+   "category": "recursive reasoning (held-out)",
+   "model": "bonsai-27b",
+   "condition": "thinking budget 256",
+   "source": "gym runner"
+  },
+  "bonsai-b384": {
+   "kind": "prompt",
+   "benchmark": "sealed-multihop-binding",
+   "category": "recursive reasoning (held-out)",
+   "model": "bonsai-27b",
+   "condition": "thinking budget 384",
+   "source": "gym runner"
+  },
+  "bonsai-b512": {
+   "kind": "prompt",
+   "benchmark": "sealed-multihop-binding",
+   "category": "recursive reasoning (held-out)",
+   "model": "bonsai-27b",
+   "condition": "thinking budget 512",
+   "source": "gym runner"
+  },
+  "bonsai-b768": {
+   "kind": "prompt",
+   "benchmark": "sealed-multihop-binding",
+   "category": "recursive reasoning (held-out)",
+   "model": "bonsai-27b",
+   "condition": "thinking budget 768",
+   "source": "gym runner"
+  },
+  "bonsai-b1024": {
+   "kind": "prompt",
+   "benchmark": "sealed-multihop-binding",
+   "category": "recursive reasoning (held-out)",
+   "model": "bonsai-27b",
+   "condition": "thinking budget 1024",
+   "source": "gym runner"
+  },
+  "bonsai-b1536": {
+   "kind": "prompt",
+   "benchmark": "sealed-multihop-binding",
+   "category": "recursive reasoning (held-out)",
+   "model": "bonsai-27b",
+   "condition": "thinking budget 1536",
+   "source": "gym runner"
+  }
+ },
+ "conditions": {
+  "bonsai-b256": {
+   "model": "bonsai-27b",
+   "budget": 256
+  },
+  "bonsai-b384": {
+   "model": "bonsai-27b",
+   "budget": 384
+  },
+  "bonsai-b512": {
+   "model": "bonsai-27b",
+   "budget": 512
+  },
+  "bonsai-b768": {
+   "model": "bonsai-27b",
+   "budget": 768
+  },
+  "bonsai-b1024": {
+   "model": "bonsai-27b",
+   "budget": 1024
+  },
+  "bonsai-b1536": {
+   "model": "bonsai-27b",
+   "budget": 1536
+  }
+ },
+ "comparisons": [
+  {
+   "id": "G1-bonsai-b768-vs-b384",
+   "candidate": "bonsai-b768",
+   "baseline": "bonsai-b384",
+   "preregistered": true,
+   "sealed_readout": true,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true
+  },
+  {
+   "id": "G2-bonsai-b1024-vs-b512",
+   "candidate": "bonsai-b1024",
+   "baseline": "bonsai-b512",
+   "preregistered": true,
+   "sealed_readout": true,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true
+  }
+ ],
+ "exploratory_comparisons": [
+  {
+   "id": "X1-bonsai-b384-vs-b256",
+   "candidate": "bonsai-b384",
+   "baseline": "bonsai-b256",
+   "preregistered": true,
+   "sealed_readout": false,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true
+  },
+  {
+   "id": "X2-bonsai-b1536-vs-b1024",
+   "candidate": "bonsai-b1536",
+   "baseline": "bonsai-b1024",
+   "preregistered": true,
+   "sealed_readout": false,
+   "clusters_independent": true,
+   "exchangeable_pair_labels": true
+  }
+ ],
+ "independence_note": "Each chain is an independent draw of the generator; one attempt per chain, so each case is its own root.",
+ "blocked": []
+}

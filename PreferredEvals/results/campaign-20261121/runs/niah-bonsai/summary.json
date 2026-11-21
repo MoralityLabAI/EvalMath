@@ -1,0 +1,24 @@
+{
+  "status": "completed",
+  "updated_utc": "2026-11-21T08:59:26.080918+00:00",
+  "expected": 8,
+  "completed": 8,
+  "failed": 0,
+  "processed": 8,
+  "coverage": 1.0,
+  "accuracy": 1.0,
+  "provisional_accuracy": 1.0,
+  "usage": {
+    "input_tokens": 78796,
+    "output_tokens": 258,
+    "cached_input_tokens": 0
+  },
+  "current_session_seconds": 98.81452226199326,
+  "current_session_completed_output_tokens_per_second": 2.6109522577657978,
+  "recorded_usage": {
+    "input_tokens": 78796,
+    "output_tokens": 258,
+    "cached_input_tokens": 0
+  },
+  "full_dataset": true
+}

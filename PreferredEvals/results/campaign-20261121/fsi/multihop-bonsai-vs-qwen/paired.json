@@ -1,0 +1,14 @@
+{
+ "schema": "preferred-evals/paired-prompt-runs-v1",
+ "comparison": "multihop-bonsai-vs-qwen",
+ "candidate_run": "multihop-bonsai",
+ "baseline_run": "multihop-qwen",
+ "total_assigned_rollouts": 12,
+ "n_paired_scored": 12,
+ "n_infra_or_missing": 0,
+ "non_scored": [],
+ "n_roots_paired_scored": 12,
+ "candidate_correct_paired": 11,
+ "baseline_correct_paired": 0,
+ "evidence_class": "development; unsealed readout"
+}

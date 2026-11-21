@@ -1,0 +1,51 @@
+{
+ "schema_version": 1,
+ "experiment_id": "PE2-swe-bonsai-vs-qwen",
+ "target_population": "declared development task roots",
+ "evaluation_mode": "sampled",
+ "alpha": "0.05",
+ "minimum_effect": "0.10",
+ "planned_comparisons": 8,
+ "hypothesis_preregistered": true,
+ "sealed_readout": false,
+ "clusters_independent": true,
+ "exchangeable_pair_labels": true,
+ "cases": [
+  {
+   "case_id": "pallets__flask-4992#0",
+   "cluster_id": "pallets__flask-4992",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "pytest-dev__pytest-7168#0",
+   "cluster_id": "pytest-dev__pytest-7168",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "pytest-dev__pytest-7373#0",
+   "cluster_id": "pytest-dev__pytest-7373",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "pytest-dev__pytest-7432#0",
+   "cluster_id": "pytest-dev__pytest-7432",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "pytest-dev__pytest-8365#0",
+   "cluster_id": "pytest-dev__pytest-8365",
+   "candidate": 0,
+   "baseline": 0
+  },
+  {
+   "case_id": "pytest-dev__pytest-9359#0",
+   "cluster_id": "pytest-dev__pytest-9359",
+   "candidate": 0,
+   "baseline": 0
+  }
+ ]
+}

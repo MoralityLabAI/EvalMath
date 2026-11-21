@@ -1,0 +1,47 @@
+{
+ "schema": "preferred-evals/campaign-registration-v1",
+ "campaign_id": "PE2-MULTIHOP-BUDGET-GRID-20261121",
+ "written": "2026-11-21, after the readout of PE2-MULTIHOP-BUDGET-20261121 (commit 43a7a05) and before any rollout of the four grid conditions below",
+ "follows": "PE2-MULTIHOP-BUDGET-20261121: budget 256 scored 12/80 and budget 1536 scored 79/80 on the same 80 chains, so the threshold lies between them",
+ "evidence_class": "confirmatory for G1 and G2, which compare only conditions not yet run. The task set is no longer secret (its seed was revealed in 43a7a05), but the model weights are frozen and predate it, so the set stays a valid held-out set for this model. The predictions below were written from the first sweep's per-hop token counts.",
+ "task_set": {"path": "set/tasks.jsonl", "sha256_prefix": "d4f2bc61", "chains": 80, "depths": [2, 4, 8, 12], "chains_per_depth": 20, "same_as": "multihop-budget-sweep-20261121/set"},
+ "model": "Ternary Bonsai 2 27B PTQ1_0 (sha256 53107f53...3ee3), PrismML llama-server b10743, 2 x 8192-token slots, --reasoning-format deepseek",
+ "conditions": {
+  "bonsai-b384": "thinking_budget_tokens=384, answer-only prompt, max_tokens 4096",
+  "bonsai-b512": "thinking_budget_tokens=512",
+  "bonsai-b768": "thinking_budget_tokens=768",
+  "bonsai-b1024": "thinking_budget_tokens=1024"
+ },
+ "reference_runs": {
+  "bonsai-b256": "copied unchanged from multihop-budget-sweep-20261121/runs (same server build, model, settings); used only in descriptive tables and exploratory contrasts",
+  "bonsai-b1536": "same"
+ },
+ "shared_settings": {"temperature": 0, "seed": 42, "attempts_per_chain": 1, "concurrency": 2, "scoring": "exact integer after the runner's text normalization; a missing or unparseable answer scores 0"},
+ "comparisons": [
+  {"id": "G1-bonsai-b768-vs-b384", "candidate": "bonsai-b768", "baseline": "bonsai-b384", "prediction": "candidate better"},
+  {"id": "G2-bonsai-b1024-vs-b512", "candidate": "bonsai-b1024", "baseline": "bonsai-b512", "prediction": "candidate better"}
+ ],
+ "exploratory": [
+  {"id": "X1-bonsai-b384-vs-b256", "candidate": "bonsai-b384", "baseline": "bonsai-b256"},
+  {"id": "X2-bonsai-b1536-vs-b1024", "candidate": "bonsai-b1536", "baseline": "bonsai-b1024"}
+ ],
+ "test": {
+  "statistic": "paired difference in success over the 80 chains",
+  "procedure": "EvalMath FSI-01: exact McNemar, Hoeffding effect-floor bound, cluster bootstrap interval",
+  "minimum_effect": "0.10",
+  "alpha": "0.05",
+  "multiplicity": "Holm over G1 and G2; X1 and X2 are reported unadjusted and are not confirmatory",
+  "declarations": "hypotheses preregistered; readout of the grid conditions sealed until all four finish; chains independent draws of the generator; pair labels exchangeable under the null"
+ },
+ "descriptive_predictions": {
+  "basis": "correct answers at budget 1536 used a median of about 490, 570, 750 and 1070 completion tokens in total at 2, 4, 8 and 12 hops",
+  "smallest_budget_reaching_0.8": {"2": 512, "4": 768, "8": 1024, "12": 1536},
+  "shape": "within each depth, accuracy is non-decreasing in budget; the smallest budget reaching 0.8 is non-decreasing in depth"
+ },
+ "descriptive": [
+  "accuracy by depth and budget for all six budgets (with Wilson intervals)",
+  "smallest budget reaching 0.8 at each depth, against the prediction",
+  "completion tokens per hop among correct answers",
+  "share of replies cut by the output cap or with no answer"
+ ]
+}

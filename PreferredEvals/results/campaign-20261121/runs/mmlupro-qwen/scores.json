@@ -1,0 +1,100 @@
+{
+  "accuracy_scored": 0.625,
+  "benchmark_id": "public-mmlu-pro-science",
+  "by_order": {
+    "normal": {
+      "correct": 5,
+      "n": 8
+    }
+  },
+  "evidence_class": "development or observed rollout score, not prospective confirmation",
+  "labels_sha256": "6c4bd122d6c9cf538248f361871f2947c42848a6b6022a486e757a239097a912",
+  "macro_root_accuracy": 0.625,
+  "model": "qwen3-4b-instruct-2507-q8",
+  "n_assigned_tasks": 8,
+  "n_correct": 5,
+  "n_rollouts_recorded": 8,
+  "n_roots_assigned": 8,
+  "n_roots_scored": 8,
+  "n_scored": 8,
+  "rows": [
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "mmlu-pro-10238",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "mmlu-pro-10238"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "mmlu-pro-9369",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "mmlu-pro-9369"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "mmlu-pro-9811",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "mmlu-pro-9811"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "mmlu-pro-3438",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "mmlu-pro-3438"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "mmlu-pro-9972",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "mmlu-pro-9972"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "mmlu-pro-3066",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "mmlu-pro-3066"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "mmlu-pro-10193",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "mmlu-pro-10193"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "mmlu-pro-9307",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "mmlu-pro-9307"
+    }
+  ],
+  "run_manifest_sha256": "279136db674f3b835c8f9dfcf62d18f4e2645b31cf082de4ee89c2b8aeac85e9",
+  "schema": "preferred-evals/prompt-score-v1",
+  "scope_warning": "Samples and order-swaps share task roots; apply EvalMath FSI-01 on independent roots for claims.",
+  "statuses": {
+    "completed": 8
+  }
+}

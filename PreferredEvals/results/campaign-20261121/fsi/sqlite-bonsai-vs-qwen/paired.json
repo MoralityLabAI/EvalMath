@@ -1,0 +1,14 @@
+{
+ "schema": "preferred-evals/paired-prompt-runs-v1",
+ "comparison": "sqlite-bonsai-vs-qwen",
+ "candidate_run": "sqlite-bonsai",
+ "baseline_run": "sqlite-qwen",
+ "total_assigned_rollouts": 8,
+ "n_paired_scored": 8,
+ "n_infra_or_missing": 0,
+ "non_scored": [],
+ "n_roots_paired_scored": 8,
+ "candidate_correct_paired": 6,
+ "baseline_correct_paired": 3,
+ "evidence_class": "development; unsealed readout"
+}

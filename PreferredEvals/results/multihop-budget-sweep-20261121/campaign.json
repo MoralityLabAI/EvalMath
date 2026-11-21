@@ -1,0 +1,33 @@
+{
+ "campaign_id": "PE2-MULTIHOP-BUDGET-20261121",
+ "registration": "registration.json (commit b646c06) and amendment-1.json (commit 10c183f), both pushed before any sweep rollout was scored",
+ "test": {"alpha": "0.05", "minimum_effect": "0.10"},
+ "runs": {
+  "bonsai-b0": {"kind": "prompt", "benchmark": "sealed-multihop-binding", "category": "recursive reasoning (sealed)", "model": "bonsai-27b", "condition": "thinking off (enable_thinking=false)", "source": "gym runner"},
+  "bonsai-b64": {"kind": "prompt", "benchmark": "sealed-multihop-binding", "category": "recursive reasoning (sealed)", "model": "bonsai-27b", "condition": "thinking budget 64", "source": "gym runner"},
+  "bonsai-b256": {"kind": "prompt", "benchmark": "sealed-multihop-binding", "category": "recursive reasoning (sealed)", "model": "bonsai-27b", "condition": "thinking budget 256", "source": "gym runner"},
+  "bonsai-b1536": {"kind": "prompt", "benchmark": "sealed-multihop-binding", "category": "recursive reasoning (sealed)", "model": "bonsai-27b", "condition": "thinking budget 1536", "source": "gym runner"},
+  "qwen-b0": {"kind": "prompt", "benchmark": "sealed-multihop-binding", "category": "recursive reasoning (sealed)", "model": "qwen3-4b", "condition": "answer only", "source": "gym runner"},
+  "qwen-b64": {"kind": "prompt", "benchmark": "sealed-multihop-binding", "category": "recursive reasoning (sealed)", "model": "qwen3-4b", "condition": "visible CoT, cap 128", "source": "gym runner"},
+  "qwen-b256": {"kind": "prompt", "benchmark": "sealed-multihop-binding", "category": "recursive reasoning (sealed)", "model": "qwen3-4b", "condition": "visible CoT, cap 320", "source": "gym runner"},
+  "qwen-b1536": {"kind": "prompt", "benchmark": "sealed-multihop-binding", "category": "recursive reasoning (sealed)", "model": "qwen3-4b", "condition": "visible CoT, cap 1600", "source": "gym runner"}
+ },
+ "conditions": {
+  "bonsai-b0": {"model": "bonsai-27b", "budget": 0},
+  "bonsai-b64": {"model": "bonsai-27b", "budget": 64},
+  "bonsai-b256": {"model": "bonsai-27b", "budget": 256},
+  "bonsai-b1536": {"model": "bonsai-27b", "budget": 1536},
+  "qwen-b0": {"model": "qwen3-4b", "budget": 0},
+  "qwen-b64": {"model": "qwen3-4b", "budget": 64},
+  "qwen-b256": {"model": "qwen3-4b", "budget": 256},
+  "qwen-b1536": {"model": "qwen3-4b", "budget": 1536}
+ },
+ "comparisons": [
+  {"id": "H1-bonsai-b1536-vs-b0", "candidate": "bonsai-b1536", "baseline": "bonsai-b0", "preregistered": true, "sealed_readout": true, "clusters_independent": true, "exchangeable_pair_labels": true},
+  {"id": "H2-bonsai-b256-vs-b0", "candidate": "bonsai-b256", "baseline": "bonsai-b0", "preregistered": true, "sealed_readout": true, "clusters_independent": true, "exchangeable_pair_labels": true},
+  {"id": "H3-qwen-b1536-vs-b0", "candidate": "qwen-b1536", "baseline": "qwen-b0", "preregistered": true, "sealed_readout": true, "clusters_independent": true, "exchangeable_pair_labels": true},
+  {"id": "H4-bonsai-b1536-vs-qwen-b1536", "candidate": "bonsai-b1536", "baseline": "qwen-b1536", "preregistered": true, "sealed_readout": true, "clusters_independent": true, "exchangeable_pair_labels": true}
+ ],
+ "independence_note": "Each chain is an independent draw of the generator under the sealed seed; one attempt per chain, so each case is its own root.",
+ "blocked": []
+}

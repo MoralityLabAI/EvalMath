@@ -1,0 +1,39 @@
+{
+ "schema": "preferred-evals/campaign-registration-v1",
+ "campaign_id": "PE2-LOCAL-20261121",
+ "written": "2026-11-21T16:58+08:00, before any Qwen3-4B rollout of this campaign and while the Bonsai 27B rollouts were running",
+ "evidence_class": "development; no confirmation claims. Bonsai results were partly visible when this was written, so nothing here is a sealed prospective test.",
+ "models": {
+  "candidate": "Ternary Bonsai 2 27B PTQ1_0 (prism-ml/Ternary-Bonsai-2-27B-gguf rev 94dd51cd, sha256 53107f53...3ee3), PrismML llama-server b10743, reasoning budget 1536",
+  "baseline": "Qwen3-4B-Instruct-2507 (official bf16 snapshot cdbee75f) converted to Q8_0 GGUF with the PrismML converter (sha256 c892d312...65bc), same llama-server"
+ },
+ "shared_settings": {
+  "output_budget_tokens": 4096,
+  "server_slots": "2 x 32768 tokens",
+  "temperature": "0 for prompt-runner sets and NIAH and SWE; 0.6 for GSM8K (2 attempts) and mcp-sqlite",
+  "seed": 42
+ },
+ "comparisons": [
+  {"benchmark": "public-proxy-iclr2026-oral-vs-reject", "unit": "pair x presentation order", "roots": "pair"},
+  {"benchmark": "public-mmlu-pro-science", "unit": "question", "roots": "question"},
+  {"benchmark": "dev-multihop-binding (default reasoning)", "unit": "chain", "roots": "chain"},
+  {"benchmark": "gsm8k (primeintellect/gsm8k 0.1.4, vf-run 0.4.1)", "unit": "problem x attempt", "roots": "problem"},
+  {"benchmark": "niah (Inkling Verify 94fd95b, 4K/16K x depth 25/75 x 2)", "unit": "case", "roots": "case; tokenizer-specific prompts"},
+  {"benchmark": "mcp-sqlite 0.1.0 (vf-run 0.4.1, exact_match)", "unit": "question", "roots": "question"},
+  {"benchmark": "swe-bench-lite oracle single-shot (6 gold-valid instances)", "unit": "instance", "roots": "instance"}
+ ],
+ "within_model_comparison": {"benchmark": "dev-multihop-binding", "candidate": "Bonsai default reasoning", "baseline": "Bonsai with enable_thinking false (no chain of thought)"},
+ "test": {
+  "statistic": "paired difference in root-mean success (candidate minus baseline)",
+  "procedure": "EvalMath FSI-01 (spiral_ln.evaluation_finite_sample): exact McNemar, cluster sign-flip, cluster bootstrap interval",
+  "minimum_effect": "0.10",
+  "alpha": "0.05",
+  "multiplicity": "Holm over the 8 comparisons above",
+  "denominators": "every assigned attempt is reported; infrastructure failures and missing dependencies are listed apart from model failures and never scored as wrong answers"
+ },
+ "blocked_at_registration": {
+  "hle": "cais/hle is gated on Hugging Face and this account has no access; MMLU-Pro science is reported separately as a public stand-in, not as HLE",
+  "deepswe": "Inkling DeepSWE needs rootless Podman on x86-64 Linux and four-hour agent budgets; not installed here",
+  "paperbench": "needs agent compute and rubric judging beyond this host"
+ }
+}

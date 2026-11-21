@@ -1,0 +1,136 @@
+{
+  "accuracy_scored": 0.9166666666666666,
+  "benchmark_id": "dev-multihop-binding",
+  "by_order": {
+    "normal": {
+      "correct": 11,
+      "n": 12
+    }
+  },
+  "evidence_class": "development or observed rollout score, not prospective confirmation",
+  "labels_sha256": "578425aaabe5091800ac8a0bf8597577b1311d6bb84ce380ccc66c3ce01a93c7",
+  "macro_root_accuracy": 0.9166666666666666,
+  "model": "bonsai-27b-ptq1",
+  "n_assigned_tasks": 12,
+  "n_correct": 11,
+  "n_rollouts_recorded": 12,
+  "n_roots_assigned": 12,
+  "n_roots_scored": 12,
+  "n_scored": 12,
+  "rows": [
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-1",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d02-1"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-2",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d02-2"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d02-3",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d02-3"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-1",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d04-1"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-2",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d04-2"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d04-3",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d04-3"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-1",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d08-1"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-2",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d08-2"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d08-3",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d08-3"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-1",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d12-1"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-2",
+      "sample": 0,
+      "score": 1,
+      "status": "completed",
+      "task_id": "multihop-d12-2"
+    },
+    {
+      "format_valid": true,
+      "order": "normal",
+      "root_id": "multihop-d12-3",
+      "sample": 0,
+      "score": 0,
+      "status": "completed",
+      "task_id": "multihop-d12-3"
+    }
+  ],
+  "run_manifest_sha256": "b93d784bb75a9adef239713edd23a1890b73595d50e066fb211561fb0636d253",
+  "schema": "preferred-evals/prompt-score-v1",
+  "scope_warning": "Samples and order-swaps share task roots; apply EvalMath FSI-01 on independent roots for claims.",
+  "statuses": {
+    "completed": 12
+  }
+}

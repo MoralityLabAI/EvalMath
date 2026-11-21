@@ -1,0 +1,115 @@
+{
+  "env": {
+    "taskset": {
+      "task": {
+        "judges": [],
+        "stops": {},
+        "metrics": {},
+        "rewards": {}
+      },
+      "system_prompt": null,
+      "id": "gsm8k",
+      "split": "test"
+    },
+    "timeout": {
+      "episode": null,
+      "finalize": null
+    },
+    "retries": {
+      "max_retries": 0,
+      "rules": []
+    },
+    "max_concurrent_agents": 1,
+    "interception": {
+      "type": "elastic",
+      "multiplex": 32
+    },
+    "id": "",
+    "agent": {
+      "harness": {
+        "id": "null",
+        "env": {},
+        "forward_env": [],
+        "mcp_header_env": {},
+        "tool_timeout": 600.0,
+        "disabled_tools": null,
+        "dialect": "chat_completions",
+        "skills": [],
+        "compaction": null
+      },
+      "runtime": {
+        "type": "subprocess"
+      },
+      "scoring": {},
+      "deployment": {
+        "mode": "colocated",
+        "trust_compose": false
+      },
+      "model": null,
+      "client": null,
+      "sampling": null,
+      "max_turns": null,
+      "max_input_tokens": null,
+      "max_output_tokens": null,
+      "max_total_tokens": null,
+      "max_turn_tokens": null,
+      "timeout": {
+        "setup": null,
+        "rollout": null,
+        "finalize": null,
+        "scoring": null
+      },
+      "retries": {
+        "max_retries": 0,
+        "rules": []
+      },
+      "network_notice": true
+    }
+  },
+  "run": {
+    "name": "gsm8k--bonsai-27b-ptq1--null--10fbb712",
+    "dir": "gsm8k--bonsai-27b-ptq1--null--10fbb712"
+  },
+  "model": "bonsai-27b-ptq1",
+  "client": {
+    "base_url": "http://127.0.0.1:18130/raw/gsm8k-bonsai/v1",
+    "api_key_var": "PREFERRED_EVALS_API_KEY",
+    "headers": {},
+    "headers_from_env": {},
+    "timeout": {
+      "connect": 30.0,
+      "read": null,
+      "write": null,
+      "pool": null
+    },
+    "type": "eval"
+  },
+  "sampling": {
+    "temperature": 0.6,
+    "top_p": null,
+    "reasoning_effort": null,
+    "max_tokens": 4096
+  },
+  "select": {
+    "include": {
+      "idx": [],
+      "ids": [],
+      "keys": [],
+      "names": []
+    },
+    "exclude": {
+      "idx": [],
+      "ids": [],
+      "keys": [],
+      "names": []
+    },
+    "shuffle": false,
+    "seed": 0,
+    "skip": 0,
+    "limit": 6
+  },
+  "num_rollouts": 2,
+  "max_concurrent": 2,
+  "output_dir": "/root/pe2/runs/gsm8k-bonsai",
+  "verbose": false
+}

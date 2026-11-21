@@ -1,0 +1,50 @@
+{
+  "harness_counts": {
+    "completed_instances": 0,
+    "empty_patch_instances": 0,
+    "error_instances": 6,
+    "resolved_instances": 0,
+    "submitted_instances": 6,
+    "unresolved_instances": 0
+  },
+  "n": 6,
+  "outcomes": {
+    "patch_failed_to_apply_or_run": 6
+  },
+  "report": "report.json",
+  "report_sha256": "e00128e14d69550ce69a1f1259aafac731f11c304eecbda17eb61a668ac4fd5b",
+  "resolved": 0,
+  "rows": [
+    {
+      "instance_id": "pytest-dev__pytest-7373",
+      "outcome": "patch_failed_to_apply_or_run",
+      "score": 0
+    },
+    {
+      "instance_id": "pytest-dev__pytest-8365",
+      "outcome": "patch_failed_to_apply_or_run",
+      "score": 0
+    },
+    {
+      "instance_id": "pallets__flask-4992",
+      "outcome": "patch_failed_to_apply_or_run",
+      "score": 0
+    },
+    {
+      "instance_id": "pytest-dev__pytest-9359",
+      "outcome": "patch_failed_to_apply_or_run",
+      "score": 0
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7168",
+      "outcome": "patch_failed_to_apply_or_run",
+      "score": 0
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7432",
+      "outcome": "patch_failed_to_apply_or_run",
+      "score": 0
+    }
+  ],
+  "schema": "preferred-evals/swebench-oracle-score-v1"
+}

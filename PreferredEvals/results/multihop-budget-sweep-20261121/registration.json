@@ -1,0 +1,51 @@
+{
+ "schema": "preferred-evals/campaign-registration-v1",
+ "campaign_id": "PE2-MULTIHOP-BUDGET-20261121",
+ "written": "2026-11-21, before the task set was generated and before any rollout of this sweep",
+ "evidence_class": "confirmatory for the four registered contrasts below: fresh tasks from a sealed seed; the 12-chain development set of campaign-20261121 motivated the design and is not reused",
+ "task_set": {
+  "generator": "PreferredEvals/gym/build_public_sets.py multihop",
+  "benchmark_id": "sealed-multihop-binding",
+  "depths": [2, 4, 8, 12],
+  "chains_per_depth": 20,
+  "roots": 80,
+  "seed_sha256": "0656c5f041bfa1a6a47be43ce6b1240fa3496056c118de1c99f6bb8089f0fa49",
+  "seal": "the seed is held outside the repository and published with the results; the task file is generated from it only after this registration is pushed"
+ },
+ "models": {
+  "bonsai": "Ternary Bonsai 2 27B PTQ1_0 (sha256 53107f53...3ee3), PrismML llama-server b10743, 2 x 32768-token slots",
+  "qwen": "Qwen3-4B-Instruct-2507 Q8_0 (sha256 c892d312...65bc), same server, 2 x 24576-token slots"
+ },
+ "conditions": {
+  "bonsai-b0": "hidden thinking budget 0 tokens (thinking_budget_tokens=0), answer-only prompt, max_tokens 4096",
+  "bonsai-b64": "thinking_budget_tokens=64",
+  "bonsai-b256": "thinking_budget_tokens=256",
+  "bonsai-b1536": "thinking_budget_tokens=1536",
+  "qwen-b0": "answer-only prompt, max_tokens 4096",
+  "qwen-b64": "visible chain of thought scored on the last 'Answer:' line (response_mode cot_final_line), hard cap max_tokens 128",
+  "qwen-b256": "same, max_tokens 320",
+  "qwen-b1536": "same, max_tokens 1600"
+ },
+ "shared_settings": {"temperature": 0, "seed": 42, "attempts_per_chain": 1, "scoring": "exact integer after the runner's text normalization; a missing or unparseable answer is a model failure scored 0"},
+ "comparisons": [
+  {"id": "H1-bonsai-b1536-vs-b0", "candidate": "bonsai-b1536", "baseline": "bonsai-b0", "prediction": "candidate better"},
+  {"id": "H2-bonsai-b256-vs-b0", "candidate": "bonsai-b256", "baseline": "bonsai-b0", "prediction": "candidate better"},
+  {"id": "H3-qwen-b1536-vs-b0", "candidate": "qwen-b1536", "baseline": "qwen-b0", "prediction": "candidate better"},
+  {"id": "H4-bonsai-b1536-vs-qwen-b1536", "candidate": "bonsai-b1536", "baseline": "qwen-b1536", "prediction": "no direction registered; two-sided"}
+ ],
+ "test": {
+  "statistic": "paired difference in success over the 80 chains (one attempt each, so cases are roots)",
+  "procedure": "EvalMath FSI-01 (spiral_ln.evaluation_finite_sample): exact McNemar, Hoeffding effect-floor bound, cluster bootstrap interval",
+  "minimum_effect": "0.10",
+  "alpha": "0.05",
+  "multiplicity": "Holm over the 4 comparisons above",
+  "declarations": "hypotheses preregistered; readout sealed; chains independent draws of the generator; pair labels exchangeable under the null"
+ },
+ "descriptive": [
+  "accuracy by depth and budget for every condition",
+  "smallest budget reaching 0.8 accuracy at each depth",
+  "completion tokens per hop among correct answers",
+  "share of answers truncated by the output cap or missing a final line"
+ ],
+ "known_asymmetry": "Bonsai's budget is enforced by the server, which closes the thinking block and lets the model answer; Qwen's visible reasoning is cut off at the cap, so a truncated Qwen reply has no answer"
+}
