@@ -135,3 +135,32 @@ pre-data model selection accounting remain requirements upstream.
 
 Null results should be retained. No protected split is available
 to this source-only module.
+
+
+## 2026-11-21 source-compatible execution on genuine generated receipts
+
+The LoopedTransformers
+[RMP-INK-PC01 Actions run #44900273337](https://github.com/MoralityLabAI/LoopedTransformers/actions/runs/44900273337)
+pinned this auditor to source commit
+ff32b93a311842967da1e4e33ac08e4ac576c46e and executed it
+on the full synthetic trained-gate rollout. It processed 512 task
+instances from 64 distinct source graphs at six inference depths,
+with an exact, complete 3,072-row paired matrix. The 1-pass to
+3-pass root-macro difference was +0.25 on the development roots.
+The BPD sibling auditor independently replayed the graph targets,
+recurrent transition rule and physical state interventions.
+
+The retained Actions artifact includes report.json and
+fsi_dev_manifest.json. The FSI manifest has 512 case rows and
+sealed_readout=false, hypothesis_preregistered=false,
+clusters_independent=false. Those flags intentionally prevent
+promotion to scientific confirmation. The model's one trained
+parameter only sets the mixture between an **explicit graph
+transition operator** and the current state. The 1-vs-3 depth gain
+is therefore a constructed instrumentation positive control,
+not a neural reasoning or monitorability result.
+
+The next native-model study needs fresh, independent roots,
+unselected outcome populations, model/pass/configuration receipts
+and measured cost where meaningful. The sealed compartments
+in unrelated EvalMath campaigns remain untouched.
