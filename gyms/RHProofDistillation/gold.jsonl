@@ -1,0 +1,4 @@
+{"id":"RH-D-001","proof":"exact landau (convert hWindow)"}
+{"id":"RH-D-002","proof":"exact hConstruct hTheta"}
+{"id":"RH-D-003","proof":"have hle : s.re ≤ 1 / 2 := by\n  by_contra hc\n  exact (hRight s (lt_of_not_ge hc)) hz\nhave hflip : L (1 - s) = 0 := hFlip s hs0 hs1 hz\nhave hleflip : (1 - s).re ≤ 1 / 2 := by\n  by_contra hc\n  exact (hRight (1 - s) (lt_of_not_ge hc)) hflip\nhave hge : 1 / 2 ≤ s.re := by\n  have hreal : (1 - s).re = 1 - s.re := by simp\n  linarith\nexact le_antisymm hle hge"}
+{"id":"RH-D-004","proof":"by_contra hc\nhave hpos : 0 < (r - 1 / 2) / 2 := by linarith\nhave hbound := h ((r - 1 / 2) / 2) hpos\nlinarith"}

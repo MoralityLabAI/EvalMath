@@ -1,0 +1,34 @@
+[
+  {
+    "id": "RH-D-001",
+    "difficulty": "warmup",
+    "category": "analytic_bridge",
+    "anchor": "analytic_window",
+    "description": "Rebuild the proposition-level Landau window-to-zero-free wrapper; analytic inputs are explicit hypotheses.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem window_to_zero_free (Window Bridge ZeroFree : Prop)\n    (hWindow : Window) (convert : Window → Bridge) (landau : Bridge → ZeroFree) : ZeroFree := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-002",
+    "difficulty": "warmup",
+    "category": "galois_bridge",
+    "anchor": "theta_galois",
+    "description": "Rebuild the theta-to-Galois application shell with visible assumptions.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem galois_from_theta (ThetaLift Galois : Prop)\n    (hTheta : ThetaLift) (hConstruct : ThetaLift → Galois) : Galois := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-003",
+    "difficulty": "medium",
+    "category": "analytic_bridge",
+    "anchor": "final_rh",
+    "description": "Prove critical-strip zeros lie on the central line from right zero-freeness and an explicitly assumed reflection principle.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem strip_symmetry_from_right_zero_free\n    (L : ℂ → ℂ)\n    (hRight : ∀ z : ℂ, 1 / 2 < z.re → L z ≠ 0)\n    (hFlip : ∀ z : ℂ, 0 < z.re → z.re < 1 → L z = 0 → L (1 - z) = 0)\n    (s : ℂ) (hs0 : 0 < s.re) (hs1 : s.re < 1) (hz : L s = 0) :\n    s.re = 1 / 2 := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-004",
+    "difficulty": "medium",
+    "category": "exponent_limit",
+    "anchor": "weighted_bound",
+    "description": "Remove arbitrarily small positive exponent slack over the reals.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem epsilon_squeeze (r : ℝ)\n    (h : ∀ ε : ℝ, 0 < ε → r ≤ (1 / 2 : ℝ) + ε) :\n    r ≤ (1 / 2 : ℝ) := by\n__PROOF__\n\nend RHGym\n"
+  }
+]
