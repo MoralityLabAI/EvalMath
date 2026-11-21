@@ -77,7 +77,7 @@ def audit(root: Path, manifest: dict, ledger: dict) -> dict:
     if ledger["caller_blob"] != anchor["blob_sha"]:
         raise ValueError("source ledger disagrees with pinned anchor")
     caller, rec = verified_file(root, CORE, ledger["caller_blob"])
-    body = region(caller, "theorem UpperTheory.Comparison₂.core_gm", "\nend")
+    body = caller[caller.index("theorem UpperTheory.Comparison₂.core_gm"):]
     records = [rec]
     calls = []
     for dependency in ledger["edges"]:
