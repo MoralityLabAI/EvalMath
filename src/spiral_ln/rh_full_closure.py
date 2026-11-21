@@ -12,14 +12,12 @@ from functools import lru_cache
 import hashlib
 import json
 from pathlib import Path
-import re
 import subprocess
 from typing import Iterable
 
 from spiral_ln.rh_distillation import anchor_audit, parse_imports
 
 ROOT = Path(__file__).resolve().parents[2] / "gyms" / "RHProofDistillation"
-MODULE = re.compile(r"^[^\s/]+(?:\.[^\s/]+)*$", re.UNICODE)
 INTERNAL = frozenset({
     "Statements", "Main", "Development", "Formalism", "GroundTheory",
     "ReciprocityTheory", "CompanionTheory", "PositivityTheory",
@@ -34,10 +32,11 @@ def module_name(path: str) -> str:
 
 
 def module_file(src: Path, module: str) -> Path:
-    if not MODULE.fullmatch(module) or any(part in ("", ".", "..") for part in module.split(".")):
+    # Component-wise validation is linear in the input size.
+    parts = module.split(".")
+    if any(not part or any(ch.isspace() or ch in ("/", chr(92)) or ord(ch) == 0 for ch in part) for part in parts):
         raise ValueError(f"invalid Lean module: {module!r}")
-    return src.joinpath(*module.split(".")).with_suffix(".lean")
-
+    return src.joinpath(*parts).with_suffix(".lean")
 
 def verify_full_checkout(root: Path, manifest: dict, minimum: int) -> dict:
     head = subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
