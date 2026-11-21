@@ -48,6 +48,14 @@ class PreferredEvalsV2Tests(unittest.TestCase):
         self.assertIn(">=20 independent roots", failures)
         self.assertIn("verified hash provenance", failures)
 
+    def test_taste_requires_dataset_authorization(self):
+        data = copy.deepcopy(self.manifest)
+        data["benchmark_id"] = "taste"
+        errors = " ".join(lint(data, self.catalog)["errors"])
+        self.assertIn("dataset_authorized", errors)
+        data["provenance"]["dataset_authorized"] = True
+        self.assertEqual(lint(data, self.catalog)["decision"], "PILOT_ONLY")
+
     def test_root_id_uniqueness_and_resource_headroom(self):
         data = copy.deepcopy(self.manifest)
         data["sampling"]["root_ids"].append("dev-repo-task-01")
