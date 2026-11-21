@@ -69,7 +69,7 @@ def emit (env : Environment) (roots : Array Name) (maxDepth maxNodes : Nat)
           depthLimited := true
   let endRecord := Json.mkObj [
     ("visited", toJson count),
-    ("truncated", toJson (idx < queue.size)),
+    ("truncated", toJson (decide (idx < queue.size))),
     ("depth_limited", toJson depthLimited),
     ("queued", toJson queue.size),
     ("max_depth", toJson maxDepth),
