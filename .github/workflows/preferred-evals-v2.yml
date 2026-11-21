@@ -31,3 +31,7 @@ jobs:
             --rows PreferredEvals/v2/examples/paired-development.json \
             --out "$RUNNER_TEMP/paired.json" --fsi-out "$RUNNER_TEMP/fsi.json"
           python -c 'import json,os; d=json.load(open(os.environ["RUNNER_TEMP"]+"/fsi.json")); assert len(d["cases"])==3; assert not d["sealed_readout"]; assert not d["clusters_independent"]'
+          PYTHONPATH=src python -m spiral_ln.evaluation_finite_sample \
+            --manifest "$RUNNER_TEMP/fsi.json" --output "$RUNNER_TEMP/fsi-result.json"
+          python -c 'import json,os; d=json.load(open(os.environ["RUNNER_TEMP"]+"/fsi-result.json")); assert d["verdict"] != "confirmed"; assert "readout_used_in_selection_or_unsealed" in d["gate_reasons"]; assert d["n_clusters"]==2'
+
