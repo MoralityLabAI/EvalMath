@@ -25,10 +25,17 @@ def test_bad_module_name_rejected(tmp_path):
     assert module_name("src/Development/Foo.lean") == "Development.Foo"
     with pytest.raises(ValueError):
         module_name("Development/Foo.lean")
-    for m in ("../evil", "A..B", "C/D"):
+    for m in ("../evil", "A..B", "C/D", "C\\D", "A. B", "A.\nB", "", "A.", "A\x00B"):
         with pytest.raises(ValueError):
             module_file(tmp_path, m)
 
+
+def test_long_adversarial_module_is_rejected_in_linear_scan(tmp_path):
+    with pytest.raises(ValueError):
+        module_file(tmp_path, "!." * 12000 + "/")
+    assert module_file(tmp_path, "Development.AutomorphicArithmetic.X") == (
+        tmp_path / "Development" / "AutomorphicArithmetic" / "X.lean"
+    )
 
 def test_unresolved_internal_count(tmp_path):
     src = tmp_path / "src"
