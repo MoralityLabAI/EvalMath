@@ -1,0 +1,62 @@
+name: RH full pinned import closure
+
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/rh_full_closure.py'
+      - 'tests/test_rh_full_closure.py'
+      - 'gyms/RHProofDistillation/anchors.json'
+      - '.github/workflows/rh-full-closure.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/rh_full_closure.py'
+      - 'tests/test_rh_full_closure.py'
+      - 'gyms/RHProofDistillation/anchors.json'
+      - '.github/workflows/rh-full-closure.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  complete-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: evalmath
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: leanprover-community/riemann-hypothesis
+          ref: f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3
+          path: upstream
+          persist-credentials: false
+          sparse-checkout: |
+            src
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install EvalMath and run closure unit tests
+        working-directory: evalmath
+        run: |
+          python -m pip install -e '.[test]'
+          python -m pytest -q tests/test_rh_full_closure.py
+      - name: Count full pinned import dependencies for four anchors and Main
+        working-directory: evalmath
+        run: |
+          mkdir -p rh-full-closure
+          python -m spiral_ln.rh_full_closure \
+            --source-root ../upstream \
+            --roots weighted_bound all_characters theta_galois analytic_window \
+            --include-main \
+            --output rh-full-closure/closures.json
+      - name: Upload complete-source import graph receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rh-full-import-closure
+          path: evalmath/rh-full-closure/
+          if-no-files-found: ignore
