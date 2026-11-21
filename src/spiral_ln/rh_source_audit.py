@@ -42,6 +42,32 @@ BRIDGES = {
     "DedekindLFunctions/LandauTheorems/ChTop.lean": ["ch_top_main_eq", "each_unit_bound_statement", "errX5at_le"],
 }
 
+
+# Source-verified upper branches. These are related proof routes; this audit
+# makes no claim that they form a complete path between the two strands.
+UPPER_BRIDGES = {
+    "src/Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean": {
+        "blob": "ee340012ab19713a8acfecf8adc6a331cbc2f1a4",
+        "uses": ["every_character_of_literature_of_vWin", "vwin_of_row",
+                 "galoisLocalGlobalStrong_recParameter"]},
+    "src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean": {
+        "blob": "f769999ac5e49241993e5efbf81e4d2cded18acd",
+        "uses": ["galoisRepresentations_of_thetaLift", "tLiftK"]},
+    "src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean": {
+        "blob": "4cba179acd45ac08d3cad21f51c9b9d62715a9a4",
+        "uses": ["automorphic_window_of_inputs", "OpenImageCondition.mk", "baseChangeN"]},
+    "src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean": {
+        "blob": "a13ba1f8c38d4dbf2ddd809fbf9610a007936c24",
+        "uses": ["every_character_of_theta_integrals_local_matching",
+                 "topCovolSlim2_use_alt_alt",
+                 "theta_integrals_agree_and_local_matching_of_literature",
+                 "local_langlands_gl_recT_exists_of_literature"]},
+    "src/Formalism/SharpRestriction/GlobalSchurBounds/TieGlobal.lean": {
+        "blob": "00acf811793877fe42d18c0d69f2d5833f75bf94",
+        "uses": ["ChainTied", "TiePts", "TieGlobal", "TieLocal", "TieArith",
+                 "ErrWindows", "GrowthInequalityRemainingHyps"]},
+}
+
 def match_name(text: str, name: str) -> bool:
     return re.search(r"(?<![\w'])" + re.escape(name) + r"(?![\w'])", text) is not None
 
@@ -110,6 +136,16 @@ def audit(root: Path, manifest: dict, ledger: dict) -> dict:
         src, verified = verified_file(root, path, item["blob"])
         if not match_name(src, item["theorem"].rsplit(".", 1)[-1]):
             raise ValueError("downstream declaration missing: " + item["theorem"])
+    upper = []
+    for path_text, spec in UPPER_BRIDGES.items():
+        path = Path(path_text)
+        src, item = verified_file(root, path, spec["blob"])
+        missing = [n for n in spec["uses"] if not match_name(src, n)]
+        if missing:
+            raise ValueError("upper proof bridge site missing: " + str(missing))
+        records.append(item)
+        upper.append({"path": path_text, "blob": item["git_blob"],
+                      "uses": spec["uses"]})
     graph = walk_imports(root / "src",
                          ["Development.AutomorphicArithmetic.PrimitiveCosets.CoreGm"], 120)
     unique = {r["path"]: r for r in records}
@@ -124,6 +160,7 @@ def audit(root: Path, manifest: dict, ledger: dict) -> dict:
         "core_at_h_obligations": list(REQUIRED),
         "core_at_h_contract_sha256": hashlib.sha256(contract.encode()).hexdigest(),
         "verified_bridges": bridges,
+        "upper_source_routes": upper,
         "import_graph": {
             "visited_modules": graph["visited_modules"],
             "edges": graph["import_edges"], "truncated": graph["truncated"],
@@ -148,6 +185,7 @@ def main() -> None:
                       "direct_calls": len(receipt["direct_call_sites"]),
                       "obligations": len(receipt["core_at_h_obligations"]),
                       "bridges": len(receipt["verified_bridges"]),
+                      "upper_routes": len(receipt["upper_source_routes"]),
                       "imports": receipt["import_graph"]["visited_modules"],
                       "proof_term_data": False}, sort_keys=True))
 

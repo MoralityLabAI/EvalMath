@@ -43,6 +43,9 @@ jobs:
             src/Statements.lean
             src/Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean
             src/Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean
+            src/Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean
+            src/Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+            src/Formalism/SharpRestriction/GlobalSchurBounds/TieGlobal.lean
             src/Development/AutomorphicArithmetic/PrimitiveCosets/
             src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/
       - uses: actions/setup-python@v5

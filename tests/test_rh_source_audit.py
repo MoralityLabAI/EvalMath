@@ -30,3 +30,13 @@ def test_contract_has_named_arithmetic_obligations():
     assert "C.eLoss ≤ eL" in REQUIRED.values()
     assert "HostAddCharCompatible H ell" in REQUIRED.values()
     assert "ErrWindows Dd C Xpp" in REQUIRED.values()
+
+
+def test_upper_bridge_sources_pin_actual_math_junction():
+    from spiral_ln.rh_source_audit import UPPER_BRIDGES
+    assert len(UPPER_BRIDGES) == 5
+    assert all(len(x['blob']) == 40 for x in UPPER_BRIDGES.values())
+    combined = {name for item in UPPER_BRIDGES.values() for name in item['uses']}
+    assert 'topCovolSlim2_use_alt_alt' in combined
+    assert 'every_character_of_theta_integrals_local_matching' in combined
+    assert 'GrowthInequalityRemainingHyps' in combined
