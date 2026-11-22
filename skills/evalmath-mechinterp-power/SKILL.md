@@ -42,3 +42,12 @@ On BPD/ARG-03, development data from 96 cases contained 103 reported paired comp
 Every research handoff must include `unit`, `n_units`, `n_cases`, `primary contrast`, `physical dose`, `scientific variation floor`, `matched-sham floor with confidence/source`, `planned and actual comparisons`, `estimated resolution/power`, `readout selection exposure`, `causal controls`, `verdict`, and `exact evidence provenance`. For small n, report *what further data would change the conclusion* rather than a false certainty.
 
 See [resolution notes](references/resolution-and-evidence.md), [EvalMath FSI-01](../../paper/finite_sample_inference.md), [selection and adaptive reuse](../../paper/evaluation_feedback_multigen.md).
+
+
+## Storyworld and Hypergames authoring
+
+When building or climbing Storyworlds, SWMD or Hypergames gyms, load [storyworld causal-inclination contract](references/storyworld-hypergame-inclinations.md). It distinguishes bounded character traits, pValue/p2Value *beliefs*, latent posterior microstates, world-generator roots and independent evaluations. A pValue is a belief pointer rather than a hypothesis-test p-value. Reward, legal-action, causal-sensitivity, calibration and submission metrics require separately declared gates.
+
+An authored inclination such as `I0=1/2+Σβ_ix_i+Σγ_ij x_ix_j` is a deterministic game-design score unless a stochastic choice law is calibrated separately. Require visible feature provenance, an L1 bound on coefficients, a graph of causal parents, a registered matched do/sham intervention and a root-level evaluation. Distinguish a true exogenous intervention from conditioning on correlated evidence. The generic builder integration lives in `MoralityLabAI/GPTStoryworld` under `codex-skills/hyperworld-builder/` (HGW-04).
+
+A generator's 1,024 posterior possibilities or thousands of decisions within one world cannot substitute for independent world roots. Use the strict preflight on development roots; the example HGW-04 fixtures intentionally fail confirmation. For new neural-model claims, pin generator and score hashes, matched candidate/baseline/sham cases, and post-selection exposure before sealed confirmation. Output `evaluation_finite_sample` JSON with `cluster_id` at the independent-root level. Keep exact finite posterior proofs separate from statistically estimated agent capabilities.
