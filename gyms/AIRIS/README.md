@@ -53,3 +53,7 @@ The dedicated native workflow publishes this gate's JSON independently of AIRIS-
 ## AIRIS-03: delayed causal rule discovery
 
 See [TEMPORAL.md](TEMPORAL.md). Six-bit linear hidden mechanisms, two-step episodes, correlated passive observations, exact goal-identification certificates, matched trajectory/terminal sensor comparison and finite optimal acquisition. Native smoke workflow [45277428137](https://github.com/MoralityLabAI/EvalMath/actions/runs/45277428137) reported PASS_WIRING_ONLY with one action and one post-observation; the static heap concern was not reproduced in this runtime gate. No native learning result yet.
+
+## AIRIS-04: hidden external drivers and sufficient memory
+
+See [PARTIAL.md](PARTIAL.md). An unobserved Markov driver aliases immediate and delayed action effects. The full trajectory has an exact two-bit sufficient statistic; independent fair noise yields an identifiability impossibility. Matched three-transition episodes compare six exact acquisition/readout arms under known and unknown noise regimes. This remains a synthetic finite oracle and makes no native learning claim. AIRIS-03 [receipt replay](https://github.com/MoralityLabAI/EvalMath/actions/runs/45278195255) passed all 15 tests.
