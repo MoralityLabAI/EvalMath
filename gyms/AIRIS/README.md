@@ -1,6 +1,6 @@
 # AIRIS-EvalMath (AIRIS-01)
 
-Status: exact finite synthetic development gym; upstream AIRIS runtime comparison pending.
+Status: exact finite synthetic development gym; native no-op wiring verified; native learning comparison pending.
 Base: EvalMath 497f87cd83fd1ca8d53f9e39ebd74474612f1dfe. CPU only, Python 3.10+, standard library.
 
 ## Motivation and source boundary
@@ -8,7 +8,7 @@ Base: EvalMath 497f87cd83fd1ca8d53f9e39ebd74474612f1dfe. CPU only, Python 3.10+,
 Cook & Hammer, *Autonomous Intelligent Reinforcement Inferred Symbolism* (AGI 2024, pp. 53–62), learns partial state-change rules from action-conditioned observations, composes them to predict future states, and explores low-confidence states. See https://kth.diva-portal.org/smash/record.jsf?pid=diva2:1890142 and https://github.com/berickcook/AIRIS_Public.
 The separately maintained generalized implementation is https://github.com/singnet/AIRIS-general/tree/db19ad4e2cea33e6129c8bf03e85797da8cf7625 (Apache-2.0 LICENSE at this pin; inspect NOTICE before copying). Goertzel's September 2025 SubRep/PLN integration is a proposed extension, summarized with implementation boundaries at https://wiki.hyperon.dev/Hyperon_AI_Algorithms%2BAIRIS_Autonomous_Intelligent_Reinforcement_Inferred_Symbolism%2BAIRIS_Deep_Dive.
 
-This is an original finite specialization of the AIRIS idea: learn action-conditioned coordinate changes, predict their composition, search a generated graph, and acquire observations to resolve uncertainty. It uses exact version-space counts rather than upstream precondition-match voting. The affine grammar, explicit structural zeros, resettable contexts, uniform independent prior, and conservative planner are declared assumptions. No upstream code is copied or executed. No neural training or Lean theorem is claimed.
+This is an original finite specialization of the AIRIS idea: learn action-conditioned coordinate changes, predict their composition, search a generated graph, and acquire observations to resolve uncertainty. It uses exact version-space counts rather than upstream precondition-match voting. The affine grammar, explicit structural zeros, resettable contexts, uniform independent prior, and conservative planner are declared assumptions. No upstream code is copied or executed by AIRIS-01. No neural training or Lean theorem is claimed.
 
 ## AIRIS-01 mathematical contract
 
@@ -49,3 +49,7 @@ heap pushes are commented out (roughly lines 285–295). The smoke gate determin
 whether that is reached at runtime. Any repair must be a separately labeled arm,
 with its own source fingerprint, never an invisible patch to the native baseline.
 The dedicated native workflow publishes this gate's JSON independently of AIRIS-01.
+
+## AIRIS-03: delayed causal rule discovery
+
+See [TEMPORAL.md](TEMPORAL.md). Six-bit linear hidden mechanisms, two-step episodes, correlated passive observations, exact goal-identification certificates, matched trajectory/terminal sensor comparison and finite optimal acquisition. Native smoke workflow [45277428137](https://github.com/MoralityLabAI/EvalMath/actions/runs/45277428137) reported PASS_WIRING_ONLY with one action and one post-observation; the static heap concern was not reproduced in this runtime gate. No native learning result yet.
