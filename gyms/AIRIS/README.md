@@ -69,3 +69,7 @@ See [ROUTER.md](ROUTER.md). Native AIRIS-05 MeTTa passed [CI and replay](https:/
 ## AIRIS-07: chronology-sensitive causal curriculum
 
 See [NONSTATIONARY.md](NONSTATIONARY.md). AIRIS-06 failed its registered development target: tied recurrence had greater long-history regret than the trained reset control in every seed ([CPU run](https://github.com/MoralityLabAI/EvalMath/actions/runs/45282821342)). AIRIS-07 changes the target mechanism between episodes, computes exact orderless decision-regret floors over a complete matched-pair census, and exports separately labeled training candidates and unlabeled development pairs for DataGoblin. No admitted corpus or learned nonstationary result yet.
+
+## AIRIS-08: chronological recurrent learning pilot
+
+See [CHRONOLOGY.md](CHRONOLOGY.md). Bounded gated recurrence, ungated residual recurrence, trained reset, ordered flat and histogram+last networks are compared on AIRIS-07 strict chronology pairs and ordinary simulated histories. Full observation multisets are disjoint across train/development, k=2 is held out, and exact orderless floors provide a structural reference. This is public development only, with three seeds and no mechanistic inference.
