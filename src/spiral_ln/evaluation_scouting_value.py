@@ -252,7 +252,7 @@ def development_views() -> list[dict]:
     cs = {w.case_id: w for w in development_cases() if w.root_id == "scout-cost-001"}
     pr = {w.case_id: w for w in development_cases() if w.root_id == "provenance-003"}
     packs = [
-        (cs["cheap"], cs["expensive"], replace(cs["cheap"], case_id="cosmetic_sham",
+        (cs["cheap"], cs["expensive"], replace(cs["cheap"], case_id="cheap",
                                                 cue_favors_right=True), "cue_following"),
         (pr["shared_relays"], pr["independent_witnesses"], pr["cosmetic_cue"],
          "double_count_relays"),
