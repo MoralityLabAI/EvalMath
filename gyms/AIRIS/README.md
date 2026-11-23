@@ -33,3 +33,19 @@ Run:
 Pin both the reference and generalized upstream implementation before executing either. At the generalized pin, class Airis(knowledge_json, state_graph_json) consumes JSON in pre_capture_input(s_input,u_input,actions,tasks), returns a JSON action, and receives observed JSON via post_capture_input(p_s_input,p_u_input,p_actions). Source: airis.py, lines 1–238. It opens relative log paths and redirects sys.stdout in initialization. Run it in an isolated subprocess with temporary working directory and its own logs; capture every input, action, prediction, outcome and budget. Verify the action schema and a no-op round trip before comparing. Native failure or unsupported planning/reset semantics must be recorded as BLOCKED, never replaced by a silent stub. The current finite solver is a separate arm.
 
 Next: delayed/exogenous transitions, partial observation and evidence provenance; paired interventional aliases; expected decision value vs confidence under costly probes; independently generated development roots and preregistered sealed roots with EvalMath's mechinterp-power preflight. Export only public transition traces for downstream DataGoblin, MeTTa or recurrent controller training. Native upstream AIRIS and any learned router remain distinct arms with equal environmental observation budgets; report compute and verifier calls separately.
+
+### AIRIS-02 pinned native smoke gate
+
+Run with the exact upstream source file:
+    python gyms/AIRIS/native_smoke.py /path/to/AIRIS-general/airis.py
+
+The adapter verifies the Git blob (7ea338b80275e62f1f42ea073bdad452df3474f7),
+uses an isolated child process and fixed random seed, allows only the no-op
+action, and reports the actual API outcome. It executes the unmodified source;
+a successful no-op is wiring evidence only. A failure records the failing stage,
+exception and applied-action/observation counts. Source mismatch is a hard error.
+At the pinned source, make_plan initializes an empty state_heap and the initial
+heap pushes are commented out (roughly lines 285–295). The smoke gate determines
+whether that is reached at runtime. Any repair must be a separately labeled arm,
+with its own source fingerprint, never an invisible patch to the native baseline.
+The dedicated native workflow publishes this gate's JSON independently of AIRIS-01.
