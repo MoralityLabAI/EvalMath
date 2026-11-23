@@ -57,3 +57,7 @@ See [TEMPORAL.md](TEMPORAL.md). Six-bit linear hidden mechanisms, two-step episo
 ## AIRIS-04: hidden external drivers and sufficient memory
 
 See [PARTIAL.md](PARTIAL.md). An unobserved Markov driver aliases immediate and delayed action effects. The full trajectory has an exact two-bit sufficient statistic; independent fair noise yields an identifiability impossibility. Matched three-transition episodes compare six exact acquisition/readout arms under known and unknown noise regimes. This remains a synthetic finite oracle and makes no native learning claim. AIRIS-03 [receipt replay](https://github.com/MoralityLabAI/EvalMath/actions/runs/45278195255) passed all 15 tests.
+
+## AIRIS-05: native MeTTa causal memory
+
+See [METTA.md](METTA.md). Hyperon 0.2.10 derives temporal statistics, looks up likelihoods, and updates exact posterior weights from provenance-addressed public evidence atoms. Host acquisition scores are checked against AIRIS-04. The native census and evidence lifecycle tests have their own CPU workflow; this is distinct from the upstream AIRIS smoke arm.
