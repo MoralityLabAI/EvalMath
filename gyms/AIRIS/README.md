@@ -61,3 +61,7 @@ See [PARTIAL.md](PARTIAL.md). An unobserved Markov driver aliases immediate and 
 ## AIRIS-05: native MeTTa causal memory
 
 See [METTA.md](METTA.md). Hyperon 0.2.10 derives temporal statistics, looks up likelihoods, and updates exact posterior weights from provenance-addressed public evidence atoms. Host acquisition scores are checked against AIRIS-04. The native census and evidence lifecycle tests have their own CPU workflow; this is distinct from the upstream AIRIS smoke arm.
+
+## AIRIS-06: recurrent experiment selector
+
+See [ROUTER.md](ROUTER.md). Native AIRIS-05 MeTTa passed [CI and replay](https://github.com/MoralityLabAI/EvalMath/actions/runs/45279764314), covering 64 public histories, 6 evidence lifecycle cases and 1,232 native queries. AIRIS-06 trains a 2,144-parameter tied residual controller, a trained memory-reset control and a near-matched 2,120-parameter orderless histogram model against exact all-action values. This is a CPU development pilot on one grammar. Posterior-equivalent histories cannot cross splits; longer histories are scored separately. No mechanistic claim is registered.
