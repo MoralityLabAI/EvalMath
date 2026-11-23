@@ -120,9 +120,11 @@ class ScoutingValueTests(unittest.TestCase):
             self.assertEqual({v["view"] for v in views if v["parent_root"] == root},
                              {"play", "revise", "hold_steady", "repair"})
         for v in views:
+            world = next(w for w in worlds if w.root_id == v["parent_root"]
+                         and w.case_id == v["grader_case_id"])
+            if v["view"] == "hold_steady":
+                self.assertEqual(v["public_task"]["legal_actions"], list(s.values(world)))
             if v["view"] == "repair":
-                world = next(w for w in worlds if w.root_id == v["parent_root"]
-                             and w.case_id == v["grader_case_id"])
                 self.assertGreater(s.regret(world, v["recorded_bad_action"]), 0)
 
     def test_development_baseline_failure_patterns(self):
