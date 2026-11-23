@@ -537,7 +537,7 @@
   "source_sha256": {
     "paper/scout01_information_purchase.md": "035f5a1c94d4c0dd84e19c9389300d4e5e9bdb761d5e03b373af082454d77651",
     "scripts/verify_evaluation_scouting_value.py": "cfc1521fd6451cf9a42b8ab889695008bc04461a2a019ffd5f2a2ff504d9e504",
-    "src/spiral_ln/evaluation_scouting_value.py": "55eb8f1e56495ec472e6d507e927502f79dfab5ad1a02947150cbe9de113af31",
-    "tests/test_evaluation_scouting_value.py": "1adecf4cf3fdada85e47b91c5ec22f1d83b7cbebfdad72b1b9d97f771dc9858b"
+    "src/spiral_ln/evaluation_scouting_value.py": "b2812f41fe9d98a58468ec42ae5ce7fc28def6a20b119829e68f998ecde1b286",
+    "tests/test_evaluation_scouting_value.py": "fb57f536bba9a40b862375083137f730289b857a8dc53bca3fa5fe1325707fc9"
   }
 }
