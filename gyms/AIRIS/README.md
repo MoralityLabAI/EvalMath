@@ -65,3 +65,7 @@ See [METTA.md](METTA.md). Hyperon 0.2.10 derives temporal statistics, looks up l
 ## AIRIS-06: recurrent experiment selector
 
 See [ROUTER.md](ROUTER.md). Native AIRIS-05 MeTTa passed [CI and replay](https://github.com/MoralityLabAI/EvalMath/actions/runs/45279764314), covering 64 public histories, 6 evidence lifecycle cases and 1,232 native queries. AIRIS-06 trains a 2,144-parameter tied residual controller, a trained memory-reset control and a near-matched 2,120-parameter orderless histogram model against exact all-action values. This is a CPU development pilot on one grammar. Posterior-equivalent histories cannot cross splits; longer histories are scored separately. No mechanistic claim is registered.
+
+## AIRIS-07: chronology-sensitive causal curriculum
+
+See [NONSTATIONARY.md](NONSTATIONARY.md). AIRIS-06 failed its registered development target: tied recurrence had greater long-history regret than the trained reset control in every seed ([CPU run](https://github.com/MoralityLabAI/EvalMath/actions/runs/45282821342)). AIRIS-07 changes the target mechanism between episodes, computes exact orderless decision-regret floors over a complete matched-pair census, and exports separately labeled training candidates and unlabeled development pairs for DataGoblin. No admitted corpus or learned nonstationary result yet.
