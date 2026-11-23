@@ -1,0 +1,543 @@
+{
+  "case_records_sha256": "c6700f9b65b98b383bfe4cf1b340d40f557a7a3486a839433c1a2e084da93675",
+  "cases": [
+    {
+      "case_id": "cheap",
+      "grader": {
+        "action_values": {
+          "commit_left": "1/2",
+          "commit_right": "1/2",
+          "scout": "7/10"
+        },
+        "case_id": "cheap",
+        "gross_information_value": "3/10",
+        "optimal_actions": [
+          "scout"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_left",
+            "regret": "1/5"
+          },
+          "always_scout": {
+            "action": "scout",
+            "regret": "0"
+          },
+          "cue_following": {
+            "action": "commit_left",
+            "regret": "1/5"
+          },
+          "double_count_relays": {
+            "action": "scout",
+            "regret": "0"
+          },
+          "exact": {
+            "action": "scout",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "1/2",
+        "root_id": "scout-cost-001"
+      },
+      "public_task_sha256": "c1986650deb625427b20fb751c55fa9476a13da85996aacaa93bb91f51f0e62b",
+      "root_id": "scout-cost-001",
+      "split": "dev"
+    },
+    {
+      "case_id": "break_even",
+      "grader": {
+        "action_values": {
+          "commit_left": "1/2",
+          "commit_right": "1/2",
+          "scout": "1/2"
+        },
+        "case_id": "break_even",
+        "gross_information_value": "3/10",
+        "optimal_actions": [
+          "commit_left",
+          "commit_right",
+          "scout"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "always_scout": {
+            "action": "scout",
+            "regret": "0"
+          },
+          "cue_following": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "double_count_relays": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "exact": {
+            "action": "commit_left",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "1/2",
+        "root_id": "scout-cost-001"
+      },
+      "public_task_sha256": "89b32b7c2ee322f5679eab72dd48976deda124193894c2961e3bd1b433af6d6a",
+      "root_id": "scout-cost-001",
+      "split": "dev"
+    },
+    {
+      "case_id": "expensive",
+      "grader": {
+        "action_values": {
+          "commit_left": "1/2",
+          "commit_right": "1/2",
+          "scout": "2/5"
+        },
+        "case_id": "expensive",
+        "gross_information_value": "3/10",
+        "optimal_actions": [
+          "commit_left",
+          "commit_right"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "always_scout": {
+            "action": "scout",
+            "regret": "1/10"
+          },
+          "cue_following": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "double_count_relays": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "exact": {
+            "action": "commit_left",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "1/2",
+        "root_id": "scout-cost-001"
+      },
+      "public_task_sha256": "85edca0a11abd88e9195728a02b3f581f9f36917d372bb19659738fea362f86c",
+      "root_id": "scout-cost-001",
+      "split": "dev"
+    },
+    {
+      "case_id": "cue_conflict",
+      "grader": {
+        "action_values": {
+          "commit_left": "1/5",
+          "commit_right": "4/5",
+          "scout": "7/10"
+        },
+        "case_id": "cue_conflict",
+        "gross_information_value": "0",
+        "optimal_actions": [
+          "commit_right"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_right",
+            "regret": "0"
+          },
+          "always_scout": {
+            "action": "scout",
+            "regret": "1/10"
+          },
+          "cue_following": {
+            "action": "commit_left",
+            "regret": "3/5"
+          },
+          "double_count_relays": {
+            "action": "commit_right",
+            "regret": "0"
+          },
+          "exact": {
+            "action": "commit_right",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "4/5",
+        "root_id": "cue-trap-002"
+      },
+      "public_task_sha256": "0c30cc6316cf9322457234a594b1ef1ba6ff737a0a17c91804565bc78b9ad3ad",
+      "root_id": "cue-trap-002",
+      "split": "dev"
+    },
+    {
+      "case_id": "cosmetic_cue",
+      "grader": {
+        "action_values": {
+          "commit_left": "1/5",
+          "commit_right": "4/5",
+          "scout": "7/10"
+        },
+        "case_id": "cosmetic_cue",
+        "gross_information_value": "0",
+        "optimal_actions": [
+          "commit_right"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_right",
+            "regret": "0"
+          },
+          "always_scout": {
+            "action": "scout",
+            "regret": "1/10"
+          },
+          "cue_following": {
+            "action": "commit_right",
+            "regret": "0"
+          },
+          "double_count_relays": {
+            "action": "commit_right",
+            "regret": "0"
+          },
+          "exact": {
+            "action": "commit_right",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "4/5",
+        "root_id": "cue-trap-002"
+      },
+      "public_task_sha256": "0a1e42c1f18274c6df09d7a5808e6b490efaf3a7cc2c6e567503d5e1cdc61332",
+      "root_id": "cue-trap-002",
+      "split": "dev"
+    },
+    {
+      "case_id": "shared_relays",
+      "grader": {
+        "action_values": {
+          "commit_left": "3/5",
+          "commit_right": "2/5",
+          "scout": "7/10"
+        },
+        "case_id": "shared_relays",
+        "gross_information_value": "1/5",
+        "optimal_actions": [
+          "scout"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_left",
+            "regret": "1/10"
+          },
+          "always_scout": {
+            "action": "scout",
+            "regret": "0"
+          },
+          "cue_following": {
+            "action": "commit_left",
+            "regret": "1/10"
+          },
+          "double_count_relays": {
+            "action": "commit_left",
+            "regret": "1/10"
+          },
+          "exact": {
+            "action": "scout",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "2/5",
+        "root_id": "provenance-003"
+      },
+      "public_task_sha256": "f4ca67efdb835ec311d856309df84a3bbb4d814ca591ca9a1fde8c19a196221b",
+      "root_id": "provenance-003",
+      "split": "dev"
+    },
+    {
+      "case_id": "cosmetic_cue",
+      "grader": {
+        "action_values": {
+          "commit_left": "3/5",
+          "commit_right": "2/5",
+          "scout": "7/10"
+        },
+        "case_id": "cosmetic_cue",
+        "gross_information_value": "1/5",
+        "optimal_actions": [
+          "scout"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_left",
+            "regret": "1/10"
+          },
+          "always_scout": {
+            "action": "scout",
+            "regret": "0"
+          },
+          "cue_following": {
+            "action": "commit_right",
+            "regret": "3/10"
+          },
+          "double_count_relays": {
+            "action": "commit_left",
+            "regret": "1/10"
+          },
+          "exact": {
+            "action": "scout",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "2/5",
+        "root_id": "provenance-003"
+      },
+      "public_task_sha256": "ca139e67213d2b118e9507f2178063f8b24fb1695fdf941fd991b1037ec30b9c",
+      "root_id": "provenance-003",
+      "split": "dev"
+    },
+    {
+      "case_id": "independent_witnesses",
+      "grader": {
+        "action_values": {
+          "commit_left": "27/35",
+          "commit_right": "8/35",
+          "scout": "7/10"
+        },
+        "case_id": "independent_witnesses",
+        "gross_information_value": "1/35",
+        "optimal_actions": [
+          "commit_left"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "always_scout": {
+            "action": "scout",
+            "regret": "1/14"
+          },
+          "cue_following": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "double_count_relays": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "exact": {
+            "action": "commit_left",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "8/35",
+        "root_id": "provenance-003"
+      },
+      "public_task_sha256": "b0fc40faa4ff72be74934dcaff91d395b81d8db06238cb19c992eca9e33a2dc3",
+      "root_id": "provenance-003",
+      "split": "dev"
+    },
+    {
+      "case_id": "scout_available",
+      "grader": {
+        "action_values": {
+          "commit_left": "1/2",
+          "commit_right": "1/2",
+          "scout": "7/10"
+        },
+        "case_id": "scout_available",
+        "gross_information_value": "3/10",
+        "optimal_actions": [
+          "scout"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_left",
+            "regret": "1/5"
+          },
+          "always_scout": {
+            "action": "scout",
+            "regret": "0"
+          },
+          "cue_following": {
+            "action": "commit_left",
+            "regret": "1/5"
+          },
+          "double_count_relays": {
+            "action": "scout",
+            "regret": "0"
+          },
+          "exact": {
+            "action": "scout",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "1/2",
+        "root_id": "access-004"
+      },
+      "public_task_sha256": "cd23fba21bb7f6d4576720643fb5a7d0e354e4c5268d7a677f1a7527f9f5923e",
+      "root_id": "access-004",
+      "split": "dev"
+    },
+    {
+      "case_id": "scout_unavailable",
+      "grader": {
+        "action_values": {
+          "commit_left": "1/2",
+          "commit_right": "1/2"
+        },
+        "case_id": "scout_unavailable",
+        "gross_information_value": "0",
+        "optimal_actions": [
+          "commit_left",
+          "commit_right"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "always_scout": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "cue_following": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "double_count_relays": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "exact": {
+            "action": "commit_left",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "1/2",
+        "root_id": "access-004"
+      },
+      "public_task_sha256": "10ca9d554d609d1098518ceeb9d8b3c84b7534e9667a12450e932307a5d9e085",
+      "root_id": "access-004",
+      "split": "dev"
+    },
+    {
+      "case_id": "informative_scout",
+      "grader": {
+        "action_values": {
+          "commit_left": "1/2",
+          "commit_right": "1/2",
+          "scout": "7/10"
+        },
+        "case_id": "informative_scout",
+        "gross_information_value": "3/10",
+        "optimal_actions": [
+          "scout"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_left",
+            "regret": "1/5"
+          },
+          "always_scout": {
+            "action": "scout",
+            "regret": "0"
+          },
+          "cue_following": {
+            "action": "commit_left",
+            "regret": "1/5"
+          },
+          "double_count_relays": {
+            "action": "scout",
+            "regret": "0"
+          },
+          "exact": {
+            "action": "scout",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "1/2",
+        "root_id": "signal-quality-005"
+      },
+      "public_task_sha256": "c1986650deb625427b20fb751c55fa9476a13da85996aacaa93bb91f51f0e62b",
+      "root_id": "signal-quality-005",
+      "split": "dev"
+    },
+    {
+      "case_id": "uninformative_scout",
+      "grader": {
+        "action_values": {
+          "commit_left": "1/2",
+          "commit_right": "1/2",
+          "scout": "2/5"
+        },
+        "case_id": "uninformative_scout",
+        "gross_information_value": "0",
+        "optimal_actions": [
+          "commit_left",
+          "commit_right"
+        ],
+        "policies": {
+          "always_commit": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "always_scout": {
+            "action": "scout",
+            "regret": "1/10"
+          },
+          "cue_following": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "double_count_relays": {
+            "action": "commit_left",
+            "regret": "0"
+          },
+          "exact": {
+            "action": "commit_left",
+            "regret": "0"
+          }
+        },
+        "posterior_right": "1/2",
+        "root_id": "signal-quality-005"
+      },
+      "public_task_sha256": "82532de12038d3b99a3c91720bd3986ef9382993852c10752ab1be82ff96ea43",
+      "root_id": "signal-quality-005",
+      "split": "dev"
+    }
+  ],
+  "checks": {
+    "always_scout_control_fails": true,
+    "cosmetic_sham_invariant": true,
+    "cost_point_four_commit": true,
+    "cost_point_one_scout": true,
+    "cost_point_three_exact_tie": true,
+    "cue_control_fails": true,
+    "distinct_root_count_five": true,
+    "double_count_control_fails": true,
+    "eight_views_two_roots": true,
+    "exact_policy_zero_regret": true,
+    "gross_value_three_tenths": true,
+    "independent_enumerator_agrees": true,
+    "independent_reports_commit": true,
+    "public_omits_oracle": true,
+    "shared_report_scout": true,
+    "twelve_development_cases": true
+  },
+  "development_cases": 12,
+  "development_views": 8,
+  "evidence_level": "finite synthetic development; unsealed",
+  "heldout_sealed": false,
+  "independent_generator_roots": 5,
+  "schema": "scout01-dev-v1",
+  "source_sha256": {
+    "paper/scout01_information_purchase.md": "035f5a1c94d4c0dd84e19c9389300d4e5e9bdb761d5e03b373af082454d77651",
+    "scripts/verify_evaluation_scouting_value.py": "cfc1521fd6451cf9a42b8ab889695008bc04461a2a019ffd5f2a2ff504d9e504",
+    "src/spiral_ln/evaluation_scouting_value.py": "55eb8f1e56495ec472e6d507e927502f79dfab5ad1a02947150cbe9de113af31",
+    "tests/test_evaluation_scouting_value.py": "1adecf4cf3fdada85e47b91c5ec22f1d83b7cbebfdad72b1b9d97f771dc9858b"
+  }
+}
