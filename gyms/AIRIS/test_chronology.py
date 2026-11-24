@@ -30,7 +30,7 @@ class ChronologyDataTests(unittest.TestCase):
     @unittest.skipUnless(find_spec("torch"),"dedicated CPU workflow installs torch")
     def test_matched_models_and_orderless_invariance(self):
         import torch
-        from chronology_router import ARMS,model,count,encode,fit,actions
+        from chronology_router import ARMS,model,count,encode,fit,actions,representation_keys
         rows=[(1,(0,23,1)),(1,(23,0,1))]
         x,k,y=encode(rows,True)
         counts=[]
@@ -39,9 +39,23 @@ class ChronologyDataTests(unittest.TestCase):
             counts.append(count(m))
             self.assertEqual(tuple(m(x,k).shape),(2,8))
             if arm in ("hist_last","reset"):
-                self.assertTrue(torch.equal(m(x,k)[0],m(x,k)[1]))
+                logits=m(x,k)
+                torch.testing.assert_close(logits[0],logits[1],rtol=1e-5,atol=1e-6)
+                self.assertEqual(len(set(representation_keys(m,(x,k)))),1)
+                self.assertEqual(len(set(actions(m,(x,k)))),1)
             m,trace=fit(arm,101,(x,k,y),1)
             self.assertEqual(len(trace),1)
+            if arm in ("hist_last","reset"):
+                self.assertEqual(len(set(actions(m,(x,k)))),1)
+        # The inference reset ablation must share the last-only quotient,
+        # even for repeats separated by a batch boundary.
+        repeated=[rows[0]]+[(0,(i%32,(i//32)%32,(i//1024)%32)) for i in range(257)]+[rows[1]]
+        batch=encode(repeated)
+        m=model("gated")
+        picks=actions(m,batch,"reset")
+        self.assertEqual(picks[0],picks[-1])
+        self.assertEqual(representation_keys(m,batch,"reset")[0],
+                         representation_keys(m,batch,"reset")[-1])
         self.assertEqual(counts,[2696,2792,2696,2696,2762])
         self.assertLess(max(counts)/min(counts),1.05)
 

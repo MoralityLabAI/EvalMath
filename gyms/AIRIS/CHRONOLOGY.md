@@ -85,3 +85,7 @@ DataGoblin integration: upstream AIRIS-07 training artifact was independently
 checked in DataGoblin workflow 45285549008. AIRIS-08 is an EvalMath-local
 synthetic development experiment; this does not authorize training admission
 of the DataGoblin candidate bundle.
+
+## AIRIS-08a: numerical inference contract
+
+The first dedicated run [45285908794](https://github.com/MoralityLabAI/EvalMath/actions/runs/45285908794) stopped before optimization: a bitwise equality assertion on identical model-visible features was stricter than floating-point BLAS arithmetic. A local CPU reproduction observed differences of order 3e-8. The revised test uses a numerical tolerance for logits. To preserve the exact structural information bound at decision time (including a near tie), evaluate one representative per model-visible key and broadcast its selected action. Reset keys are (rate,last event); histogram+last keys are (rate,sorted multiset,last event); ordered keys are (rate,ordered events). No teacher value, group label or hidden state enters this mapping. The training data, architectures, optimization, seeds, exact scoring, and registered primary gate are unchanged. No training result from the aborted run exists.

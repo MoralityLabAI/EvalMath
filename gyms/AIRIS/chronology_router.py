@@ -119,12 +119,35 @@ def fit(arm,seed,batch,epochs):
     return m,trace
 
 
+def representation_keys(m,batch,sham=None):
+    """Only public model-visible features define the inference quotient."""
+    x,k=batch
+    events=x.argmax(-1).tolist()
+    rates=k.flatten().tolist()
+    if isinstance(m,Gated) and (m.reset or sham=="reset"):
+        return [(rate,h[-1]) for rate,h in zip(rates,events,strict=True)]
+    if isinstance(m,Flat) and m.orderless:
+        return [(rate,*sorted(h),h[-1]) for rate,h in zip(rates,events,strict=True)]
+    return [(rate,*h) for rate,h in zip(rates,events,strict=True)]
+
+
 @torch.no_grad()
 def actions(m,batch,sham=None):
     m.eval()
     x,k=batch
-    return [int(a) for i in torch.arange(len(x)).split(BATCH)
+    # BLAS can round identical feature rows differently at different batch
+    # positions. Evaluate each distinct visible representation once, then
+    # broadcast its action. This enforces the policy's information contract,
+    # including exact ties, without reading the teacher or changing training.
+    keys=representation_keys(m,batch,sham)
+    first={}
+    for i,key in enumerate(keys):
+        first.setdefault(key,i)
+    idx=torch.tensor(list(first.values()),dtype=torch.long)
+    chosen=[int(a) for i in idx.split(BATCH)
             for a in m(x[i],k[i],sham=sham).argmax(-1)]
+    by_key=dict(zip(first,chosen,strict=True))
+    return [by_key[key] for key in keys]
 
 
 def run(out,epochs=EPOCHS):
