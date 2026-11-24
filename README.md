@@ -87,6 +87,8 @@ statement is separately audited in [draft PR #13](https://github.com/MoralityLab
 
 **New (PDI-02):** [Noisy proof audits and dependency amplification](paper/proof_dependency_noisy.md) proves a pathwise downstream exposure bound and checks exact noisy audit policies. A synthetic adaptive audit improves utility from 2/5 to 51/100 while false authorization rises from 1/20 to 3/25. Reproduce with `python scripts/check_receipts.py --only pdi_noisy`.
 
+**New (PDI-03):** [Risk-constrained proof discovery](paper/proof_dependency_frontier.md) computes exact deterministic and randomized audit frontiers. At expected false-weight budget 3/40 the synthetic randomized optimum achieves 18/35 true weight versus 9/20 deterministic; 64 exhaustive frontier comparisons and 256 scalar checks pass. A versioned evidence projection and action-selection leakage counterexample mark the revocation limits. Reproduce with `python scripts/check_receipts.py --only pdi_frontier`.
+
 ## Layout
 
 | Path | Contents |
