@@ -1,0 +1,41 @@
+{
+  "checks": {
+    "compromise": true,
+    "mixture_convexity": true,
+    "oracles_agree": true,
+    "sharp_union": true
+  },
+  "evidence": "finite verified synthetic examples",
+  "experiment": "CCF-01C",
+  "minimax_oracle_comparisons": 384,
+  "mixture_grid_points": 11,
+  "optimal_codes": [
+    "010"
+  ],
+  "policy_oracle_comparisons": 3072,
+  "robust_value": "3/20",
+  "scenario_risks": {
+    "000": [
+      "9/20",
+      "9/20"
+    ],
+    "001": [
+      "1/10",
+      "1/5"
+    ],
+    "010": [
+      "3/20",
+      "3/20"
+    ],
+    "011": [
+      "1/5",
+      "1/10"
+    ]
+  },
+  "sharp_flag_couplings": 720,
+  "source_sha256": {
+    "scripts/verify_evaluation_ccf_robust.py": "3583dcdc71fb9923376feea561d6b889fba22c9c9f3521ff5afb615f8147528b",
+    "src/spiral_ln/evaluation_ccf_robust.py": "e906fd79b36a106c92c1e5ce28efcfdfa032de681a1b837bab288502e94d4449",
+    "tests/test_evaluation_ccf_robust.py": "0e89f9155032233a1cbee6c71bca5c8667dc20fe1c85d95995f6cf8d464b5431"
+  }
+}
