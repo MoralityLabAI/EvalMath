@@ -1,3 +1,5 @@
+import Mathlib
+
 /- CCF-01 draft; kernel build and axiom audit pending. -/
 namespace CertificateContext
 
