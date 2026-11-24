@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "all_colorings_agree": true,
+    "all_decoders_faithful": true,
+    "cycle_and_weighted_fixtures": true
+  },
+  "chromatic_histogram": {
+    "1": 1,
+    "2": 375,
+    "3": 582,
+    "4": 65,
+    "5": 1
+  },
+  "coloring_agreements": 1024,
+  "cycle_two_label_risks": [
+    "1/10",
+    "1/10"
+  ],
+  "evidence": "finite verified example; synthetic",
+  "experiment": "CCF-01",
+  "faithful_decoders": 1024,
+  "graphs": 1024,
+  "source_sha256": {
+    "scripts/verify_evaluation_ccf.py": "56d3086becec6eac7f1894aa49847aef7ed722ca19feea19ffd95c1718ae2b1b",
+    "src/spiral_ln/evaluation_ccf.py": "a7732bee93c0547285bc79971fc40a3f4c1c7b07ee8533f1f668a2ff7019836e",
+    "tests/test_evaluation_ccf.py": "8968f8a9befb249ad1dc40e80d7d3340303d3e2c33df80b4d534d35cc0e25f5c"
+  }
+}
