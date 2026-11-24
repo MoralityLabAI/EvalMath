@@ -1,0 +1,67 @@
+{
+  "checks": {
+    "all_frontiers_agree": true,
+    "hidden_gap": true,
+    "optimum_changes": true,
+    "selection_oracles_agree": true
+  },
+  "evidence": "finite verified example; synthetic",
+  "experiment": "CCF-01B",
+  "hidden_coupling": {
+    "000": [
+      "9/20",
+      "9/20",
+      "11/20"
+    ],
+    "001": [
+      "1/10",
+      "1/10",
+      "1/5"
+    ],
+    "010": [
+      "1/5",
+      "1/5",
+      "1/5"
+    ],
+    "011": [
+      "3/20",
+      "3/20",
+      "3/20"
+    ]
+  },
+  "source_sha256": {
+    "scripts/verify_evaluation_ccf_weighted.py": "78a7e7e8a688bc47bd776bfafab46e3b542d31e11ed5d4cc4a0ea49777b7c4b1",
+    "src/spiral_ln/evaluation_ccf.py": "a7732bee93c0547285bc79971fc40a3f4c1c7b07ee8533f1f668a2ff7019836e",
+    "src/spiral_ln/evaluation_ccf_weighted.py": "6d09cda36ae2f114f21b1ade97286a7860d1fba79c3b2e15da5fff24b54167fb",
+    "tests/test_evaluation_ccf_weighted.py": "922913bfacd43077a912b6120fe346efef6956b68fd5a8240c160cd8d4a078f6"
+  },
+  "strict_pareto_tradeoff_cases": 109,
+  "visibility_order": [
+    "none",
+    "receipt",
+    "world"
+  ],
+  "visible_coupling": {
+    "000": [
+      "9/20",
+      "11/20",
+      "11/20"
+    ],
+    "001": [
+      "1/10",
+      "1/5",
+      "1/5"
+    ],
+    "010": [
+      "1/5",
+      "1/5",
+      "1/5"
+    ],
+    "011": [
+      "3/20",
+      "3/20",
+      "3/20"
+    ]
+  },
+  "weighted_budget_cases": 384
+}
