@@ -35,13 +35,14 @@ Enumerate all 2^10=1024 labeled simple graphs on five vertices. Convert each gra
 Reproduce:
     PYTHONPATH=src python -m pytest -q tests/test_evaluation_ccf.py
     python scripts/verify_evaluation_ccf.py
+    python scripts/check_receipts.py --only ccf01
 The receipt hashes the module, tests and verifier. Lean draft CertificateContext.lean is not compiled and remains outside the umbrella import until the pinned toolchain build succeeds.
 
 ## 5. Next gates
 
 CCF-01B: extend the finite solver to weighted partial-context cells, compare partition search against exhaustive labeled assignments, and compute the Pareto frontier of conservative missed mass vs optimistic false-authorization mass. Register a held-out graph family with fixed context costs. For adaptive selection, compare full-world and transcript-limited selectors under declared correlated joint laws.
 
-CCF-01D: compile the iff theorem using the repository toolchain, audit axioms, formalize exact extremal envelopes and the fixed-width finite-cardinality claim, and integrate the receipt checker and Lean imports after verification.
+CCF-01D: compile the iff theorem using the repository toolchain, audit axioms, formalize exact extremal envelopes and the fixed-width finite-cardinality claim, and integrate the Lean imports after verification. The receipt is registered in check_receipts.py; the full repository runner has not been executed locally.
 
 CCF-02: pin OpenAI manuscript, comparator source and theorem declarations; map each actual quantifier, epsilon, dimension, Schwartz-data condition, and strict-range endpoint. Include the p=2 exception as a specific adversarial mutation control. Audit independently of any cryptographic provenance claim.
 
