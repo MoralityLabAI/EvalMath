@@ -1,0 +1,249 @@
+{
+  "protocol": "VAD-02",
+  "evidence": "finite exact synthetic control",
+  "source_sha256": "c937743770c8a9c19aa0dde9b7eb54f4f9b3996f38eeefc29fa47ad666e9c60c",
+  "shortest_path_checks": 9216,
+  "build_order_checks": 576,
+  "summary": [
+    {
+      "regime": "shared",
+      "method": "greedy",
+      "horizon": 32,
+      "baseline": 16384,
+      "total": 19648,
+      "gain": "256/307",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "shared",
+      "method": "greedy",
+      "horizon": 64,
+      "baseline": 32768,
+      "total": 36032,
+      "gain": "512/563",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "shared",
+      "method": "greedy",
+      "horizon": 128,
+      "baseline": 65536,
+      "total": 68800,
+      "gain": "1024/1075",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "shared",
+      "method": "greedy",
+      "horizon": 256,
+      "baseline": 131072,
+      "total": 134336,
+      "gain": "2048/2099",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "shared",
+      "method": "joint",
+      "horizon": 32,
+      "baseline": 16384,
+      "total": 34432,
+      "gain": "128/269",
+      "profitable": 0,
+      "pair_found": 32
+    },
+    {
+      "regime": "shared",
+      "method": "joint",
+      "horizon": 64,
+      "baseline": 32768,
+      "total": 46720,
+      "gain": "256/365",
+      "profitable": 0,
+      "pair_found": 32
+    },
+    {
+      "regime": "shared",
+      "method": "joint",
+      "horizon": 128,
+      "baseline": 65536,
+      "total": 71296,
+      "gain": "512/557",
+      "profitable": 0,
+      "pair_found": 32
+    },
+    {
+      "regime": "shared",
+      "method": "joint",
+      "horizon": 256,
+      "baseline": 131072,
+      "total": 120448,
+      "gain": "1024/941",
+      "profitable": 32,
+      "pair_found": 32
+    },
+    {
+      "regime": "shifted",
+      "method": "greedy",
+      "horizon": 32,
+      "baseline": 16384,
+      "total": 19648,
+      "gain": "256/307",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "shifted",
+      "method": "greedy",
+      "horizon": 64,
+      "baseline": 32768,
+      "total": 36032,
+      "gain": "512/563",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "shifted",
+      "method": "greedy",
+      "horizon": 128,
+      "baseline": 65536,
+      "total": 68800,
+      "gain": "1024/1075",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "shifted",
+      "method": "greedy",
+      "horizon": 256,
+      "baseline": 131072,
+      "total": 134336,
+      "gain": "2048/2099",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "shifted",
+      "method": "joint",
+      "horizon": 32,
+      "baseline": 16384,
+      "total": 38528,
+      "gain": "128/301",
+      "profitable": 0,
+      "pair_found": 32
+    },
+    {
+      "regime": "shifted",
+      "method": "joint",
+      "horizon": 64,
+      "baseline": 32768,
+      "total": 54912,
+      "gain": "256/429",
+      "profitable": 0,
+      "pair_found": 32
+    },
+    {
+      "regime": "shifted",
+      "method": "joint",
+      "horizon": 128,
+      "baseline": 65536,
+      "total": 87680,
+      "gain": "512/685",
+      "profitable": 0,
+      "pair_found": 32
+    },
+    {
+      "regime": "shifted",
+      "method": "joint",
+      "horizon": 256,
+      "baseline": 131072,
+      "total": 153216,
+      "gain": "1024/1197",
+      "profitable": 0,
+      "pair_found": 32
+    },
+    {
+      "regime": "null",
+      "method": "greedy",
+      "horizon": 32,
+      "baseline": 16384,
+      "total": 19648,
+      "gain": "256/307",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "null",
+      "method": "greedy",
+      "horizon": 64,
+      "baseline": 32768,
+      "total": 36032,
+      "gain": "512/563",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "null",
+      "method": "greedy",
+      "horizon": 128,
+      "baseline": 65536,
+      "total": 68800,
+      "gain": "1024/1075",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "null",
+      "method": "greedy",
+      "horizon": 256,
+      "baseline": 131072,
+      "total": 134336,
+      "gain": "2048/2099",
+      "profitable": 0,
+      "pair_found": 0
+    },
+    {
+      "regime": "null",
+      "method": "joint",
+      "horizon": 32,
+      "baseline": 16384,
+      "total": 38284,
+      "gain": "4096/9571",
+      "profitable": 0,
+      "pair_found": 32
+    },
+    {
+      "regime": "null",
+      "method": "joint",
+      "horizon": 64,
+      "baseline": 32768,
+      "total": 54424,
+      "gain": "4096/6803",
+      "profitable": 0,
+      "pair_found": 32
+    },
+    {
+      "regime": "null",
+      "method": "joint",
+      "horizon": 128,
+      "baseline": 65536,
+      "total": 86704,
+      "gain": "4096/5419",
+      "profitable": 0,
+      "pair_found": 32
+    },
+    {
+      "regime": "null",
+      "method": "joint",
+      "horizon": 256,
+      "baseline": 131072,
+      "total": 151256,
+      "gain": "16384/18907",
+      "profitable": 0,
+      "pair_found": 32
+    }
+  ]
+}
