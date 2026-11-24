@@ -227,3 +227,9 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.RSISpectralThreshold.dominant_gt_one_iff
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance_attained
+
+-- CPF-01: candidate sharp joint false-acceptance interval and audit contraction
+#print axioms FeedbackChannel.CPF.frechet
+#print axioms FeedbackChannel.CPF.witness
+#print axioms FeedbackChannel.CPF.atom_total
+#print axioms FeedbackChannel.CPF.conditional_audit

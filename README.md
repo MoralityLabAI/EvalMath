@@ -71,6 +71,8 @@ Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 **New (BPD-01, 2026-11-15):** [interventional separation and looped Lean curriculum](paper/bpd_interventional_separation.md) formalizes routed mechanism-pair coverage, optimal fixed/adaptive probes, clock-versus-state observability floors and a recurrence-repair counterexample. Exact 512-matrix and 96 seeded audits are source-hashed in `output/evaluation_bpd/bpd_01.json`. Reproduce via `python scripts/check_receipts.py --only bpd`. It supplies design mathematics, not a neural decomposition result.
 
+**New (CPF-01):** [Correlated proof fidelity](paper/correlated_proof_fidelity.md) derives sharp conditional joint-error bounds and an exact adaptive certified-rejection audit oracle, with a preliminary OpenAI/Anthropic VP-VNP source crosswalk. Synthetic evidence only; Lean verification pending. Reproduce with `python scripts/check_receipts.py --only cpf`.
+
 ## Self-designed evaluation and FRC
 
 The [HRC-FRC-01 extension](paper/frc_harmonic_self_evaluation.md) studies
