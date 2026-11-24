@@ -75,6 +75,8 @@ Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 **New (CPF-02):** [Canonical VP/VNP circuit bridge](paper/cpf02_canonical_circuit_bridge.md) pins both labs' interfaces, gives a constructive linear gate-budget translation with a finite formal-polynomial census, and proposes Lean statement-level bridges. Full upstream proof and class equivalence remain open. Reproduce with `python scripts/check_receipts.py --only cpf02`.
 
+**New (CPF-03):** [Statement-mutation curriculum](paper/cpf03_semantic_mutations.md) provides 42 proof-fidelity prompts with group-disjoint public splits, separate reproducible gold exports, exact finite checks and candidate Lean logic witnesses. Reproduce with `python scripts/check_receipts.py --only cpf03`.
+
 ## Self-designed evaluation and FRC
 
 The [HRC-FRC-01 extension](paper/frc_harmonic_self_evaluation.md) studies

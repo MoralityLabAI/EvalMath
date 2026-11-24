@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "abstract_logic": true,
+    "group_disjoint": true,
+    "unique_ids": true
+  },
+  "export_sha256": {
+    "gold": "f120920b5ffa1dfac327338af311da892a8e249f45b4577bd99b20f3d48663f4",
+    "prompts": "2e45c638c8a045ecd5a897dc2abe0553139bb33a11a5f9317d56fb05bb197de0"
+  },
+  "schema": "CPF-03.0",
+  "scope": "curriculum fixture; public held-out split; no model runs or upstream rebuild",
+  "source_sha256": {
+    "lean/FeedbackChannel/CPF03.lean": "04a80f66a6b6242d042f3976416c52cda121e36c0b53ba2fedc25350eb06fa0b",
+    "paper/cpf03_semantic_mutations.md": "5f01ea3bb081d726bf98590543cc31aa502b750d9e98a380ebf660a1824037a6",
+    "scripts/verify_evaluation_cpf03.py": "16500b3f45ba3df930c092c682b5d97904402896f45feee08247d5cb0b0420a5",
+    "src/spiral_ln/evaluation_cpf03.py": "0a8c3a768dff45f619b03c5788c735239d764e5fee056f03f4b55118d319fa53",
+    "tests/test_evaluation_cpf03.py": "f63d45ce79f4785015b1929035a3fa7e502fb5d5b6985fc21d2c7cf855f9e251"
+  },
+  "summary": {
+    "cases": 42,
+    "groups": {
+      "approximation": 6,
+      "characteristic": 6,
+      "degree": 6,
+      "gate": 6,
+      "polynomial": 6,
+      "scope": 6,
+      "uniformity": 6
+    },
+    "labels": {
+      "counterexample": 18,
+      "entailed": 21,
+      "unresolved": 3
+    },
+    "splits": {
+      "dev": 6,
+      "test": 18,
+      "train": 18
+    }
+  }
+}

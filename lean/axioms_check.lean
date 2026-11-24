@@ -239,3 +239,9 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.CPF02.anthropic_exact_to_canonical
 #print axioms FeedbackChannel.CPF02.anthropic_approx_to_canonical
 #print axioms FeedbackChannel.CPF02.lower_transfer
+
+-- CPF-03: semantic mutation witnesses
+#print axioms FeedbackChannel.CPF03.approximate_bound_transfer
+#print axioms FeedbackChannel.CPF03.no_reverse_bound
+#print axioms FeedbackChannel.CPF03.pointwise_threshold
+#print axioms FeedbackChannel.CPF03.no_uniform_threshold
