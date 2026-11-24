@@ -83,6 +83,8 @@ connects finite translation Unique Games to graph cohomology and records an exha
 census, two independent exact oracles, and a conditional ETH size audit. The OpenAI theorem's Lean
 statement is separately audited in [draft PR #13](https://github.com/MoralityLabAI/EvalMath/pull/13).
 
+**New (PDI-01):** [Proof dependency information and adaptive certification](paper/proof_dependency_information.md) studies shared certificate obligations and optimal exact audits under arbitrary finite rational priors. The source-hashed receipt checks 64 shared-gate cases, 64 exhaustive policy-tree comparisons and a strict adaptive advantage. Lean algebraic targets are pending kernel verification. Reproduce with `python scripts/check_receipts.py --only pdi`.
+
 ## Layout
 
 | Path | Contents |

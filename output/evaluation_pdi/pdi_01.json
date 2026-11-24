@@ -1,0 +1,27 @@
+{
+  "adaptive_witness": {
+    "adaptive": "3/4",
+    "fixed": "1/2"
+  },
+  "checks": {
+    "policy_tree_agreement": true,
+    "shared_grid": true,
+    "strict_adaptive_gain": true,
+    "two_event_sharp_bounds": true
+  },
+  "evidence": "exact finite synthetic audit; no model or manuscript validity estimate",
+  "policy_cases": 64,
+  "schema": "PDI-01-v1",
+  "shared_cases": 64,
+  "source_sha256": {
+    "lean/FeedbackChannel/ProofDependency.lean": "08a03e693f176572a40e60518160fb302f6abbe430e726963819679175988904",
+    "paper/proof_dependency_information.md": "36d6d9fe4d30dbc2ee32a5bc6f5586eb253493fccee197ddd32478a08816f2a4",
+    "scripts/verify_evaluation_pdi.py": "6ecde35ca6cddd20f8871dbd95adfd4f7aeb5d7fcd172c35ea753582b764d4d7",
+    "src/spiral_ln/evaluation_pdi.py": "12e16c03f9f0c948ec6d411aeb6b645e1c036b97f011a523fa7a9da659770d9b",
+    "tests/test_evaluation_pdi.py": "2c89e08e1ba865206319bf0f33fcabb31c57cf12cd5f331f557c18ee3d11eba3"
+  },
+  "two_event_bounds": [
+    "5/12",
+    "2/3"
+  ]
+}

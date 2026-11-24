@@ -227,3 +227,9 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.RSISpectralThreshold.dominant_gt_one_iff
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance_attained
+
+-- PDI-01 algebraic targets
+#print axioms FeedbackChannel.ProofDependency.shared_floor
+#print axioms FeedbackChannel.ProofDependency.shared_two_gap
+#print axioms FeedbackChannel.ProofDependency.shared_two_dominates
+#print axioms FeedbackChannel.ProofDependency.two_event_bounds
