@@ -233,3 +233,9 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.CPF.witness
 #print axioms FeedbackChannel.CPF.atom_total
 #print axioms FeedbackChannel.CPF.conditional_audit
+
+-- CPF-02: candidate statement-level circuit bridges
+#print axioms FeedbackChannel.CPF02.openai_exact_iff
+#print axioms FeedbackChannel.CPF02.anthropic_exact_to_canonical
+#print axioms FeedbackChannel.CPF02.anthropic_approx_to_canonical
+#print axioms FeedbackChannel.CPF02.lower_transfer

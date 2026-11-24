@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "cpf02": ("scripts/verify_evaluation_cpf02.py",
+              "output/evaluation_cpf/cpf_02.json", [], False),
     "cpf": ("scripts/verify_evaluation_cpf.py",
             "output/evaluation_cpf/cpf_01.json", [], False),
     "frozen_evidence": ("scripts/verify_evaluation_frozen_evidence.py",
