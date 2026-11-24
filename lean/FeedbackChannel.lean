@@ -21,3 +21,4 @@ import FeedbackChannel.SelectionTieRules
 import FeedbackChannel.SelectionTieFree
 import FeedbackChannel.FRCAdaptiveAudit
 import FeedbackChannel.RSISpectralThreshold
+import FeedbackChannel.InstrumentTransfer
