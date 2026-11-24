@@ -18,8 +18,8 @@
   "schema": "CPF-02.0",
   "scope": "finite compiler census, not upstream proof verification",
   "source_sha256": {
-    "lean/FeedbackChannel/CPF02/Canonical.lean": "d9687df7cf77cf06f8c8c6f502d93b03ceb748273c383ab5bc35c16c8f252430",
-    "paper/cpf02_canonical_circuit_bridge.md": "c7132f7bc903c5518c808b105b93d919a1de5ab9bcf8f5895eb0eca74e2f06d4",
+    "lean/FeedbackChannel/CPF02/Canonical.lean": "871d2552a54cc18d4db62389533e423b8c23cbd0dabb1a2e81a6d1fdc41671e8",
+    "paper/cpf02_canonical_circuit_bridge.md": "07c1827b30cc54de99cc3730325f366f6b1dcbd73fc6eb2fa6692ad444a6b52f",
     "scripts/verify_evaluation_cpf02.py": "809f02f83f321d4514b71d101138e6b274c1e9f85feca5bc913d09210c02e821",
     "src/spiral_ln/evaluation_cpf02.py": "bc20223e1796a88dd499c063bc9306a0dfd2f71127a97d6cc95e572096fe1292",
     "tests/test_evaluation_cpf02.py": "74d197c5d937dd7ac59ed492604e70bc7bd32ee2887b8e43067e6e0b21f0a65c"

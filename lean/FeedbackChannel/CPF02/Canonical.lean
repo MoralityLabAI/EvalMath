@@ -22,7 +22,7 @@ def Computes {F V : Type*} [Field F] (p : MvPolynomial V F) (s : ℕ) : Prop :=
 /-- Laurent-series approximation, with no claim here about geometric closure. -/
 def Approximates {F : Type u} {V : Type} [Field F] (f : MvPolynomial V F) (s : ℕ) : Prop :=
   ∃ q : MvPolynomial V (LaurentSeries F), Computes q s ∧
-    ∀ (d : V →₀ ℕ) (i : ℤ), i ≤ 0 → (coeff d q).coeff i = if i = 0 then coeff d f else 0
+    ∀ (d : V →₀ ℕ) (i : ℤ), i ≤ 0 → (q.coeff d).coeff i = if i = 0 then f.coeff d else 0
 
 def PolyBounded (s : ℕ → ℕ) : Prop := ∃ A d N : ℕ, ∀ n ≥ N, s n ≤ A * n ^ d
 

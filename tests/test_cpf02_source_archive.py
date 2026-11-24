@@ -17,7 +17,11 @@ def test_pinned_git_blobs():
 def test_imports_are_derived_from_pins():
     archive = ROOT / "fixtures/external/cpf02"
     lean = ROOT / "lean/FeedbackChannel/CPF02"
-    assert (lean / "AnthropicStatement.lean").read_bytes() == (archive / "anthropic/Statement.lean").read_bytes()
+    raw_anthropic = (archive / "anthropic/Statement.lean").read_text(encoding="utf-8")
+    adapted = raw_anthropic.replace("(coeff d q).coeff i", "(q.coeff d).coeff i").replace(
+        "then coeff d f else 0", "then f.coeff d else 0")
+    assert adapted != raw_anthropic
+    assert (lean / "AnthropicStatement.lean").read_text(encoding="utf-8") == adapted
     raw = (archive / "openai/Comparator.lean").read_text(encoding="utf-8")
     header = "-- Derived from the Apache-2.0 licensed OpenAI comparator at f5702854040e97fa7675c21ba37a9608f5f92dd3.\n"
     header += "-- Admitted endpoint removed; definitions copied verbatim. See fixtures/external/cpf02/openai/LICENSE.\n"

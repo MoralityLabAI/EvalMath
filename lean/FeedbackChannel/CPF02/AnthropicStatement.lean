@@ -52,7 +52,7 @@ computes some `q = f + ε * g`, where the coefficients of `g` are power series i
 the coefficient of `ε ^ i` in the series `a`. -/
 def Approximates {F : Type u} {V : Type} [Field F] (f : MvPolynomial V F) (s : ℕ) : Prop :=
   ∃ q : MvPolynomial V (LaurentSeries F), Computes q s ∧
-    ∀ (d : V →₀ ℕ) (i : ℤ), i ≤ 0 → (coeff d q).coeff i = if i = 0 then coeff d f else 0
+    ∀ (d : V →₀ ℕ) (i : ℤ), i ≤ 0 → (q.coeff d).coeff i = if i = 0 then f.coeff d else 0
 
 /-- **Main theorem, approximate form.** The same bound, for circuits that only approximate. -/
 def MainTheoremApprox : Prop :=
