@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "math_persistence_cost": ("scripts/verify_math_persistence_cost.py",
+                              "output/evaluation_math_persistence_cost/em_mpt_02_v0_1.json", [], False),
     "math_persistence": ("scripts/verify_math_persistence.py",
                          "output/evaluation_math_persistence/em_mpt_01_v0_1.json", [], False),
     "frozen_evidence": ("scripts/verify_evaluation_frozen_evidence.py",
