@@ -1,0 +1,1620 @@
+{
+  "source_git_blob_sha": "191ec14ea22a212a1e3487131c8e958b414885be",
+  "schema": "nfas-02-v1",
+  "probability_denominator": 2048,
+  "policy_checks": 4608,
+  "support_checks": 126,
+  "fixed_baseline_checks": 36,
+  "instances": [
+    {
+      "weights": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "epsilon": "0/1",
+      "frontiers": {
+        "independent": {
+          "online": [
+            {
+              "utility": "1/2",
+              "residual": "1/4"
+            },
+            {
+              "utility": "1/1",
+              "residual": "3/8"
+            },
+            {
+              "utility": "3/2",
+              "residual": "5/8"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "5/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "11/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "13/8",
+              "residual": "3/4"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "1/1",
+            "residual": "3/8"
+          },
+          "lambda2_offline": {
+            "utility": "11/8",
+            "residual": "1/2"
+          }
+        },
+        "failure_first": {
+          "online": [
+            {
+              "utility": "5/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "13/8",
+              "residual": "3/4"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "5/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "11/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "13/8",
+              "residual": "3/4"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "5/8",
+            "residual": "1/4"
+          },
+          "lambda2_offline": {
+            "utility": "11/8",
+            "residual": "1/2"
+          }
+        },
+        "success_first": {
+          "online": [
+            {
+              "utility": "1/2",
+              "residual": "1/4"
+            },
+            {
+              "utility": "11/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "3/2",
+              "residual": "3/4"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "5/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "11/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "13/8",
+              "residual": "3/4"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "11/8",
+            "residual": "1/2"
+          },
+          "lambda2_offline": {
+            "utility": "11/8",
+            "residual": "1/2"
+          }
+        }
+      },
+      "blind_lambda2_mask": 17,
+      "frozen_transfer": {
+        "independent": {
+          "utility": "1/1",
+          "residual": "3/8"
+        },
+        "failure_first": {
+          "utility": "5/8",
+          "residual": "1/4"
+        },
+        "success_first": {
+          "utility": "11/8",
+          "residual": "1/2"
+        }
+      },
+      "always_first": {
+        "independent": {
+          "utility": "1/1",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "1/2",
+          "residual": "1/4"
+        },
+        "success_first": {
+          "utility": "3/2",
+          "residual": "3/4"
+        }
+      },
+      "always_second": {
+        "independent": {
+          "utility": "1/1",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "3/2",
+          "residual": "3/4"
+        },
+        "success_first": {
+          "utility": "1/2",
+          "residual": "1/4"
+        }
+      },
+      "robust_deterministic_pareto": [
+        {
+          "mask": 51,
+          "utility": "1/2",
+          "residual": "1/4"
+        },
+        {
+          "mask": 23,
+          "utility": "13/16",
+          "residual": "3/8"
+        },
+        {
+          "mask": 29,
+          "utility": "9/8",
+          "residual": "1/2"
+        },
+        {
+          "mask": 93,
+          "utility": "11/8",
+          "residual": "5/8"
+        },
+        {
+          "mask": 204,
+          "utility": "3/2",
+          "residual": "3/4"
+        }
+      ],
+      "robust_lambda2": {
+        "mask": 29,
+        "utility": "9/8",
+        "residual": "1/2",
+        "by_mode": {
+          "independent": {
+            "utility": "5/4",
+            "residual": "1/2"
+          },
+          "failure_first": {
+            "utility": "9/8",
+            "residual": "1/2"
+          },
+          "success_first": {
+            "utility": "11/8",
+            "residual": "1/2"
+          }
+        }
+      }
+    },
+    {
+      "weights": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "epsilon": "1/4",
+      "frontiers": {
+        "independent": {
+          "online": [
+            {
+              "utility": "3/4",
+              "residual": "3/8"
+            },
+            {
+              "utility": "17/16",
+              "residual": "7/16"
+            },
+            {
+              "utility": "5/4",
+              "residual": "1/2"
+            },
+            {
+              "utility": "21/16",
+              "residual": "9/16"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "7/8",
+              "residual": "3/8"
+            },
+            {
+              "utility": "9/8",
+              "residual": "7/16"
+            },
+            {
+              "utility": "21/16",
+              "residual": "1/2"
+            },
+            {
+              "utility": "11/8",
+              "residual": "9/16"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "5/4",
+            "residual": "1/2"
+          },
+          "lambda2_offline": {
+            "utility": "21/16",
+            "residual": "1/2"
+          }
+        },
+        "failure_first": {
+          "online": [
+            {
+              "utility": "1/2",
+              "residual": "1/4"
+            },
+            {
+              "utility": "23/32",
+              "residual": "5/16"
+            },
+            {
+              "utility": "9/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "47/32",
+              "residual": "11/16"
+            },
+            {
+              "utility": "3/2",
+              "residual": "3/4"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "1/2",
+              "residual": "1/4"
+            },
+            {
+              "utility": "11/16",
+              "residual": "9/32"
+            },
+            {
+              "utility": "1/1",
+              "residual": "3/8"
+            },
+            {
+              "utility": "11/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "3/2",
+              "residual": "5/8"
+            },
+            {
+              "utility": "25/16",
+              "residual": "23/32"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "9/8",
+            "residual": "1/2"
+          },
+          "lambda2_offline": {
+            "utility": "11/8",
+            "residual": "1/2"
+          }
+        },
+        "success_first": {
+          "online": [
+            {
+              "utility": "1/2",
+              "residual": "1/4"
+            },
+            {
+              "utility": "11/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "3/2",
+              "residual": "3/4"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "1/2",
+              "residual": "1/4"
+            },
+            {
+              "utility": "11/16",
+              "residual": "9/32"
+            },
+            {
+              "utility": "1/1",
+              "residual": "3/8"
+            },
+            {
+              "utility": "11/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "3/2",
+              "residual": "5/8"
+            },
+            {
+              "utility": "25/16",
+              "residual": "23/32"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "11/8",
+            "residual": "1/2"
+          },
+          "lambda2_offline": {
+            "utility": "11/8",
+            "residual": "1/2"
+          }
+        }
+      },
+      "blind_lambda2_mask": 85,
+      "frozen_transfer": {
+        "independent": {
+          "utility": "5/4",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "9/8",
+          "residual": "1/2"
+        },
+        "success_first": {
+          "utility": "11/8",
+          "residual": "1/2"
+        }
+      },
+      "always_first": {
+        "independent": {
+          "utility": "1/1",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "1/2",
+          "residual": "1/4"
+        },
+        "success_first": {
+          "utility": "3/2",
+          "residual": "3/4"
+        }
+      },
+      "always_second": {
+        "independent": {
+          "utility": "1/1",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "3/2",
+          "residual": "3/4"
+        },
+        "success_first": {
+          "utility": "1/2",
+          "residual": "1/4"
+        }
+      },
+      "robust_deterministic_pareto": [
+        {
+          "mask": 51,
+          "utility": "3/4",
+          "residual": "3/8"
+        },
+        {
+          "mask": 23,
+          "utility": "15/16",
+          "residual": "7/16"
+        },
+        {
+          "mask": 85,
+          "utility": "9/8",
+          "residual": "1/2"
+        },
+        {
+          "mask": 77,
+          "utility": "19/16",
+          "residual": "9/16"
+        },
+        {
+          "mask": 93,
+          "utility": "81/64",
+          "residual": "19/32"
+        }
+      ],
+      "robust_lambda2": {
+        "mask": 85,
+        "utility": "9/8",
+        "residual": "1/2",
+        "by_mode": {
+          "independent": {
+            "utility": "5/4",
+            "residual": "1/2"
+          },
+          "failure_first": {
+            "utility": "9/8",
+            "residual": "1/2"
+          },
+          "success_first": {
+            "utility": "11/8",
+            "residual": "1/2"
+          }
+        }
+      }
+    },
+    {
+      "weights": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "epsilon": "1/2",
+      "frontiers": {
+        "independent": {
+          "online": [
+            {
+              "utility": "5/4",
+              "residual": "1/2"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "5/4",
+              "residual": "1/2"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "5/4",
+            "residual": "1/2"
+          },
+          "lambda2_offline": {
+            "utility": "5/4",
+            "residual": "1/2"
+          }
+        },
+        "failure_first": {
+          "online": [
+            {
+              "utility": "1/2",
+              "residual": "1/4"
+            },
+            {
+              "utility": "9/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "3/2",
+              "residual": "3/4"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "1/2",
+              "residual": "1/4"
+            },
+            {
+              "utility": "1/1",
+              "residual": "3/8"
+            },
+            {
+              "utility": "11/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "3/2",
+              "residual": "5/8"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "9/8",
+            "residual": "1/2"
+          },
+          "lambda2_offline": {
+            "utility": "11/8",
+            "residual": "1/2"
+          }
+        },
+        "success_first": {
+          "online": [
+            {
+              "utility": "1/2",
+              "residual": "1/4"
+            },
+            {
+              "utility": "11/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "3/2",
+              "residual": "3/4"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "1/2",
+              "residual": "1/4"
+            },
+            {
+              "utility": "1/1",
+              "residual": "3/8"
+            },
+            {
+              "utility": "11/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "3/2",
+              "residual": "5/8"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "11/8",
+            "residual": "1/2"
+          },
+          "lambda2_offline": {
+            "utility": "11/8",
+            "residual": "1/2"
+          }
+        }
+      },
+      "blind_lambda2_mask": 85,
+      "frozen_transfer": {
+        "independent": {
+          "utility": "5/4",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "9/8",
+          "residual": "1/2"
+        },
+        "success_first": {
+          "utility": "11/8",
+          "residual": "1/2"
+        }
+      },
+      "always_first": {
+        "independent": {
+          "utility": "1/1",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "1/2",
+          "residual": "1/4"
+        },
+        "success_first": {
+          "utility": "3/2",
+          "residual": "3/4"
+        }
+      },
+      "always_second": {
+        "independent": {
+          "utility": "1/1",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "3/2",
+          "residual": "3/4"
+        },
+        "success_first": {
+          "utility": "1/2",
+          "residual": "1/4"
+        }
+      },
+      "robust_deterministic_pareto": [
+        {
+          "mask": 85,
+          "utility": "9/8",
+          "residual": "1/2"
+        },
+        {
+          "mask": 87,
+          "utility": "37/32",
+          "residual": "9/16"
+        }
+      ],
+      "robust_lambda2": {
+        "mask": 85,
+        "utility": "9/8",
+        "residual": "1/2",
+        "by_mode": {
+          "independent": {
+            "utility": "5/4",
+            "residual": "1/2"
+          },
+          "failure_first": {
+            "utility": "9/8",
+            "residual": "1/2"
+          },
+          "success_first": {
+            "utility": "11/8",
+            "residual": "1/2"
+          }
+        }
+      }
+    },
+    {
+      "weights": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "epsilon": "0/1",
+      "frontiers": {
+        "independent": {
+          "online": [
+            {
+              "utility": "7/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "23/16",
+              "residual": "5/16"
+            },
+            {
+              "utility": "29/16",
+              "residual": "3/8"
+            },
+            {
+              "utility": "37/16",
+              "residual": "1/2"
+            },
+            {
+              "utility": "43/16",
+              "residual": "5/8"
+            },
+            {
+              "utility": "11/4",
+              "residual": "11/16"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "19/16",
+              "residual": "1/4"
+            },
+            {
+              "utility": "31/16",
+              "residual": "3/8"
+            },
+            {
+              "utility": "41/16",
+              "residual": "1/2"
+            },
+            {
+              "utility": "45/16",
+              "residual": "5/8"
+            },
+            {
+              "utility": "47/16",
+              "residual": "3/4"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "43/16",
+            "residual": "5/8"
+          },
+          "lambda2_offline": {
+            "utility": "41/16",
+            "residual": "1/2"
+          }
+        },
+        "failure_first": {
+          "online": [
+            {
+              "utility": "9/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "17/8",
+              "residual": "1/2"
+            },
+            {
+              "utility": "23/8",
+              "residual": "3/4"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "19/16",
+              "residual": "1/4"
+            },
+            {
+              "utility": "31/16",
+              "residual": "3/8"
+            },
+            {
+              "utility": "41/16",
+              "residual": "1/2"
+            },
+            {
+              "utility": "45/16",
+              "residual": "5/8"
+            },
+            {
+              "utility": "47/16",
+              "residual": "3/4"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "23/8",
+            "residual": "3/4"
+          },
+          "lambda2_offline": {
+            "utility": "41/16",
+            "residual": "1/2"
+          }
+        },
+        "success_first": {
+          "online": [
+            {
+              "utility": "7/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "29/16",
+              "residual": "3/8"
+            },
+            {
+              "utility": "5/2",
+              "residual": "1/2"
+            },
+            {
+              "utility": "43/16",
+              "residual": "5/8"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "19/16",
+              "residual": "1/4"
+            },
+            {
+              "utility": "31/16",
+              "residual": "3/8"
+            },
+            {
+              "utility": "41/16",
+              "residual": "1/2"
+            },
+            {
+              "utility": "45/16",
+              "residual": "5/8"
+            },
+            {
+              "utility": "47/16",
+              "residual": "3/4"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "5/2",
+            "residual": "1/2"
+          },
+          "lambda2_offline": {
+            "utility": "41/16",
+            "residual": "1/2"
+          }
+        }
+      },
+      "blind_lambda2_mask": 221,
+      "frozen_transfer": {
+        "independent": {
+          "utility": "43/16",
+          "residual": "5/8"
+        },
+        "failure_first": {
+          "utility": "23/8",
+          "residual": "3/4"
+        },
+        "success_first": {
+          "utility": "5/2",
+          "residual": "1/2"
+        }
+      },
+      "always_first": {
+        "independent": {
+          "utility": "7/4",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "7/8",
+          "residual": "1/4"
+        },
+        "success_first": {
+          "utility": "21/8",
+          "residual": "3/4"
+        }
+      },
+      "always_second": {
+        "independent": {
+          "utility": "7/4",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "21/8",
+          "residual": "3/4"
+        },
+        "success_first": {
+          "utility": "7/8",
+          "residual": "1/4"
+        }
+      },
+      "robust_deterministic_pareto": [
+        {
+          "mask": 51,
+          "utility": "7/8",
+          "residual": "1/4"
+        },
+        {
+          "mask": 23,
+          "utility": "25/16",
+          "residual": "3/8"
+        },
+        {
+          "mask": 29,
+          "utility": "17/8",
+          "residual": "1/2"
+        },
+        {
+          "mask": 93,
+          "utility": "5/2",
+          "residual": "5/8"
+        },
+        {
+          "mask": 205,
+          "utility": "43/16",
+          "residual": "3/4"
+        }
+      ],
+      "robust_lambda2": {
+        "mask": 93,
+        "utility": "5/2",
+        "residual": "5/8",
+        "by_mode": {
+          "independent": {
+            "utility": "5/2",
+            "residual": "9/16"
+          },
+          "failure_first": {
+            "utility": "5/2",
+            "residual": "5/8"
+          },
+          "success_first": {
+            "utility": "5/2",
+            "residual": "1/2"
+          }
+        }
+      }
+    },
+    {
+      "weights": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "epsilon": "1/4",
+      "frontiers": {
+        "independent": {
+          "online": [
+            {
+              "utility": "21/16",
+              "residual": "3/8"
+            },
+            {
+              "utility": "27/16",
+              "residual": "13/32"
+            },
+            {
+              "utility": "17/8",
+              "residual": "15/32"
+            },
+            {
+              "utility": "9/4",
+              "residual": "1/2"
+            },
+            {
+              "utility": "75/32",
+              "residual": "17/32"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "13/8",
+              "residual": "3/8"
+            },
+            {
+              "utility": "121/64",
+              "residual": "13/32"
+            },
+            {
+              "utility": "147/64",
+              "residual": "15/32"
+            },
+            {
+              "utility": "39/16",
+              "residual": "1/2"
+            },
+            {
+              "utility": "161/64",
+              "residual": "17/32"
+            },
+            {
+              "utility": "163/64",
+              "residual": "19/32"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "75/32",
+            "residual": "17/32"
+          },
+          "lambda2_offline": {
+            "utility": "161/64",
+            "residual": "17/32"
+          }
+        },
+        "failure_first": {
+          "online": [
+            {
+              "utility": "7/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "73/64",
+              "residual": "9/32"
+            },
+            {
+              "utility": "109/64",
+              "residual": "13/32"
+            },
+            {
+              "utility": "33/16",
+              "residual": "1/2"
+            },
+            {
+              "utility": "151/64",
+              "residual": "19/32"
+            },
+            {
+              "utility": "171/64",
+              "residual": "23/32"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "7/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "139/128",
+              "residual": "17/64"
+            },
+            {
+              "utility": "79/64",
+              "residual": "9/32"
+            },
+            {
+              "utility": "173/128",
+              "residual": "19/64"
+            },
+            {
+              "utility": "107/64",
+              "residual": "11/32"
+            },
+            {
+              "utility": "251/128",
+              "residual": "25/64"
+            },
+            {
+              "utility": "71/32",
+              "residual": "7/16"
+            },
+            {
+              "utility": "313/128",
+              "residual": "31/64"
+            },
+            {
+              "utility": "327/128",
+              "residual": "33/64"
+            },
+            {
+              "utility": "85/32",
+              "residual": "9/16"
+            },
+            {
+              "utility": "349/128",
+              "residual": "39/64"
+            },
+            {
+              "utility": "177/64",
+              "residual": "21/32"
+            },
+            {
+              "utility": "355/128",
+              "residual": "45/64"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "171/64",
+            "residual": "23/32"
+          },
+          "lambda2_offline": {
+            "utility": "85/32",
+            "residual": "9/16"
+          }
+        },
+        "success_first": {
+          "online": [
+            {
+              "utility": "7/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "29/16",
+              "residual": "3/8"
+            },
+            {
+              "utility": "5/2",
+              "residual": "1/2"
+            },
+            {
+              "utility": "43/16",
+              "residual": "5/8"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "7/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "139/128",
+              "residual": "17/64"
+            },
+            {
+              "utility": "79/64",
+              "residual": "9/32"
+            },
+            {
+              "utility": "173/128",
+              "residual": "19/64"
+            },
+            {
+              "utility": "107/64",
+              "residual": "11/32"
+            },
+            {
+              "utility": "251/128",
+              "residual": "25/64"
+            },
+            {
+              "utility": "71/32",
+              "residual": "7/16"
+            },
+            {
+              "utility": "313/128",
+              "residual": "31/64"
+            },
+            {
+              "utility": "327/128",
+              "residual": "33/64"
+            },
+            {
+              "utility": "85/32",
+              "residual": "9/16"
+            },
+            {
+              "utility": "349/128",
+              "residual": "39/64"
+            },
+            {
+              "utility": "177/64",
+              "residual": "21/32"
+            },
+            {
+              "utility": "355/128",
+              "residual": "45/64"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "5/2",
+            "residual": "1/2"
+          },
+          "lambda2_offline": {
+            "utility": "85/32",
+            "residual": "9/16"
+          }
+        }
+      },
+      "blind_lambda2_mask": 93,
+      "frozen_transfer": {
+        "independent": {
+          "utility": "75/32",
+          "residual": "17/32"
+        },
+        "failure_first": {
+          "utility": "151/64",
+          "residual": "19/32"
+        },
+        "success_first": {
+          "utility": "149/64",
+          "residual": "15/32"
+        }
+      },
+      "always_first": {
+        "independent": {
+          "utility": "7/4",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "7/8",
+          "residual": "1/4"
+        },
+        "success_first": {
+          "utility": "21/8",
+          "residual": "3/4"
+        }
+      },
+      "always_second": {
+        "independent": {
+          "utility": "7/4",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "21/8",
+          "residual": "3/4"
+        },
+        "success_first": {
+          "utility": "7/8",
+          "residual": "1/4"
+        }
+      },
+      "robust_deterministic_pareto": [
+        {
+          "mask": 51,
+          "utility": "21/16",
+          "residual": "3/8"
+        },
+        {
+          "mask": 23,
+          "utility": "57/32",
+          "residual": "7/16"
+        },
+        {
+          "mask": 29,
+          "utility": "33/16",
+          "residual": "1/2"
+        },
+        {
+          "mask": 77,
+          "utility": "71/32",
+          "residual": "9/16"
+        },
+        {
+          "mask": 93,
+          "utility": "149/64",
+          "residual": "19/32"
+        }
+      ],
+      "robust_lambda2": {
+        "mask": 93,
+        "utility": "149/64",
+        "residual": "19/32",
+        "by_mode": {
+          "independent": {
+            "utility": "75/32",
+            "residual": "17/32"
+          },
+          "failure_first": {
+            "utility": "151/64",
+            "residual": "19/32"
+          },
+          "success_first": {
+            "utility": "149/64",
+            "residual": "15/32"
+          }
+        }
+      }
+    },
+    {
+      "weights": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "epsilon": "1/2",
+      "frontiers": {
+        "independent": {
+          "online": [
+            {
+              "utility": "9/4",
+              "residual": "1/2"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "19/8",
+              "residual": "1/2"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "9/4",
+            "residual": "1/2"
+          },
+          "lambda2_offline": {
+            "utility": "19/8",
+            "residual": "1/2"
+          }
+        },
+        "failure_first": {
+          "online": [
+            {
+              "utility": "7/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "25/16",
+              "residual": "3/8"
+            },
+            {
+              "utility": "39/16",
+              "residual": "5/8"
+            },
+            {
+              "utility": "21/8",
+              "residual": "3/4"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "7/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "45/32",
+              "residual": "5/16"
+            },
+            {
+              "utility": "71/32",
+              "residual": "7/16"
+            },
+            {
+              "utility": "5/2",
+              "residual": "1/2"
+            },
+            {
+              "utility": "85/32",
+              "residual": "9/16"
+            },
+            {
+              "utility": "87/32",
+              "residual": "11/16"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "39/16",
+            "residual": "5/8"
+          },
+          "lambda2_offline": {
+            "utility": "85/32",
+            "residual": "9/16"
+          }
+        },
+        "success_first": {
+          "online": [
+            {
+              "utility": "7/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "29/16",
+              "residual": "3/8"
+            },
+            {
+              "utility": "5/2",
+              "residual": "1/2"
+            },
+            {
+              "utility": "43/16",
+              "residual": "5/8"
+            }
+          ],
+          "offline": [
+            {
+              "utility": "7/8",
+              "residual": "1/4"
+            },
+            {
+              "utility": "45/32",
+              "residual": "5/16"
+            },
+            {
+              "utility": "71/32",
+              "residual": "7/16"
+            },
+            {
+              "utility": "5/2",
+              "residual": "1/2"
+            },
+            {
+              "utility": "85/32",
+              "residual": "9/16"
+            },
+            {
+              "utility": "87/32",
+              "residual": "11/16"
+            }
+          ],
+          "lambda2_online": {
+            "utility": "5/2",
+            "residual": "1/2"
+          },
+          "lambda2_offline": {
+            "utility": "85/32",
+            "residual": "9/16"
+          }
+        }
+      },
+      "blind_lambda2_mask": 85,
+      "frozen_transfer": {
+        "independent": {
+          "utility": "9/4",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "2/1",
+          "residual": "1/2"
+        },
+        "success_first": {
+          "utility": "5/2",
+          "residual": "1/2"
+        }
+      },
+      "always_first": {
+        "independent": {
+          "utility": "7/4",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "7/8",
+          "residual": "1/4"
+        },
+        "success_first": {
+          "utility": "21/8",
+          "residual": "3/4"
+        }
+      },
+      "always_second": {
+        "independent": {
+          "utility": "7/4",
+          "residual": "1/2"
+        },
+        "failure_first": {
+          "utility": "21/8",
+          "residual": "3/4"
+        },
+        "success_first": {
+          "utility": "7/8",
+          "residual": "1/4"
+        }
+      },
+      "robust_deterministic_pareto": [
+        {
+          "mask": 15,
+          "utility": "2/1",
+          "residual": "1/2"
+        },
+        {
+          "mask": 87,
+          "utility": "69/32",
+          "residual": "9/16"
+        }
+      ],
+      "robust_lambda2": {
+        "mask": 87,
+        "utility": "69/32",
+        "residual": "9/16",
+        "by_mode": {
+          "independent": {
+            "utility": "35/16",
+            "residual": "1/2"
+          },
+          "failure_first": {
+            "utility": "71/32",
+            "residual": "9/16"
+          },
+          "success_first": {
+            "utility": "69/32",
+            "residual": "7/16"
+          }
+        }
+      }
+    }
+  ],
+  "two_block_identical_frontiers": {
+    "independent": {
+      "online": [
+        {
+          "utility": "3/2",
+          "residual": "3/4"
+        },
+        {
+          "utility": "17/8",
+          "residual": "7/8"
+        },
+        {
+          "utility": "5/2",
+          "residual": "1/1"
+        },
+        {
+          "utility": "21/8",
+          "residual": "9/8"
+        }
+      ],
+      "offline": [
+        {
+          "utility": "7/4",
+          "residual": "3/4"
+        },
+        {
+          "utility": "9/4",
+          "residual": "7/8"
+        },
+        {
+          "utility": "21/8",
+          "residual": "1/1"
+        },
+        {
+          "utility": "11/4",
+          "residual": "9/8"
+        }
+      ]
+    },
+    "failure_first": {
+      "online": [
+        {
+          "utility": "1/1",
+          "residual": "1/2"
+        },
+        {
+          "utility": "23/16",
+          "residual": "5/8"
+        },
+        {
+          "utility": "9/4",
+          "residual": "1/1"
+        },
+        {
+          "utility": "47/16",
+          "residual": "11/8"
+        },
+        {
+          "utility": "3/1",
+          "residual": "3/2"
+        }
+      ],
+      "offline": [
+        {
+          "utility": "1/1",
+          "residual": "1/2"
+        },
+        {
+          "utility": "11/8",
+          "residual": "9/16"
+        },
+        {
+          "utility": "2/1",
+          "residual": "3/4"
+        },
+        {
+          "utility": "11/4",
+          "residual": "1/1"
+        },
+        {
+          "utility": "3/1",
+          "residual": "5/4"
+        },
+        {
+          "utility": "25/8",
+          "residual": "23/16"
+        }
+      ]
+    },
+    "success_first": {
+      "online": [
+        {
+          "utility": "1/1",
+          "residual": "1/2"
+        },
+        {
+          "utility": "11/4",
+          "residual": "1/1"
+        },
+        {
+          "utility": "3/1",
+          "residual": "3/2"
+        }
+      ],
+      "offline": [
+        {
+          "utility": "1/1",
+          "residual": "1/2"
+        },
+        {
+          "utility": "11/8",
+          "residual": "9/16"
+        },
+        {
+          "utility": "2/1",
+          "residual": "3/4"
+        },
+        {
+          "utility": "11/4",
+          "residual": "1/1"
+        },
+        {
+          "utility": "3/1",
+          "residual": "5/4"
+        },
+        {
+          "utility": "25/8",
+          "residual": "23/16"
+        }
+      ]
+    }
+  }
+}
