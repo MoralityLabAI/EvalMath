@@ -100,7 +100,9 @@ sampling model. If the auxiliary object is intended to depend on the target,
 charge its discovery budget and separately audit any external feedback, rather
 than claiming it has target-independent preprocessing.
 
-## ACD-01B registration proposal (not run)
+## ACD-01B registration proposal (original design)
+
+The exploratory follow-up is now available in [Auxiliary selection under family shift](auxiliary_selection_family_shift.md). It tests a common reachability representation across three settings, with a calibrated symbolic selector rather than a trained model; the stronger specialized-construction and neural tests remain prospective.
 
 Move from supplied elimination to a library of candidate constructions and
 freeze the selector before evaluation. Use graph reachability (path/cut),
