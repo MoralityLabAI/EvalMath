@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "dp_matches_prefix_oracle": true,
+    "equal_loss_witness": true,
+    "homogeneous_binomial_and_reset": true,
+    "persistence_dominates_static": true
+  },
+  "evidence": "exact finite synthetic mechanism",
+  "heterogeneous_cases": 7029,
+  "homogeneous_cases": 330,
+  "schema": "em-mpt-01-v0.1",
+  "source_sha256": {
+    "scripts/verify_math_persistence.py": "6861ba028eac5a9c423bdae5b0460b9e04f3e2e6bd30603c5d97ebeb4605e3eb",
+    "src/spiral_ln/evaluation_math_persistence.py": "ce58552da9d76e8b61d1e5f1128a6f4dc7a5683a8992eedf373cad11bf9596a2",
+    "tests/test_evaluation_math_persistence.py": "8561dca38618296b8fa66d2a8b9ae4d850e6842aa78194c8871e08901e8715b8"
+  },
+  "values": {
+    "balanced": "1/2",
+    "concentrated": "7/16",
+    "fixed_d4_b8": "81/256",
+    "persistent_d4_b8": "163/256",
+    "reset_d4_b8": "3/16"
+  }
+}
