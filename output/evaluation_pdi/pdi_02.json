@@ -1,0 +1,36 @@
+{
+  "adaptive": [
+    "51/100",
+    "63/100",
+    "3/25"
+  ],
+  "checks": {
+    "independent_noisy_oracle": true,
+    "pathwise_bound": true,
+    "selection_two": true,
+    "sharp_gate": true,
+    "utility_risk_tradeoff": true
+  },
+  "evidence": "synthetic exact finite oracle; conditional independent noise; no model measurements",
+  "fixed": [
+    "2/5",
+    "9/20",
+    "1/20"
+  ],
+  "policy_instances": 48,
+  "schema": "PDI-02-v1",
+  "selection_risk_8_at_5_percent": "8616436959/25600000000",
+  "source_sha256": {
+    "paper/proof_dependency_noisy.md": "4ac8f7ac8ec9efaffe09613112e46483492b1231eac03aa561de2c3d010112b8",
+    "scripts/verify_evaluation_pdi_noisy.py": "3bf650de0beb7a6a6ce9415abf4f1e8cf51b104fde66331f8db2bdef4f015dcf",
+    "src/spiral_ln/evaluation_pdi.py": "12e16c03f9f0c948ec6d411aeb6b645e1c036b97f011a523fa7a9da659770d9b",
+    "src/spiral_ln/evaluation_pdi_noisy.py": "f76c618eb3c9fa08e23f4a42bc8a30584a085be059701242d0fd6665e47d611a",
+    "tests/test_evaluation_pdi_noisy.py": "ff0fbcbcc99f8026b76dbcef6e191cd1ca64a5af4498102557257dda91cabbc5"
+  },
+  "utility_tuple_order": [
+    "utility",
+    "true_weight",
+    "false_weight"
+  ],
+  "world_acceptance_pairs": 4096
+}

@@ -85,6 +85,8 @@ statement is separately audited in [draft PR #13](https://github.com/MoralityLab
 
 **New (PDI-01):** [Proof dependency information and adaptive certification](paper/proof_dependency_information.md) studies shared certificate obligations and optimal exact audits under arbitrary finite rational priors. The source-hashed receipt checks 64 shared-gate cases, 64 exhaustive policy-tree comparisons and a strict adaptive advantage. Lean algebraic targets are pending kernel verification. Reproduce with `python scripts/check_receipts.py --only pdi`.
 
+**New (PDI-02):** [Noisy proof audits and dependency amplification](paper/proof_dependency_noisy.md) proves a pathwise downstream exposure bound and checks exact noisy audit policies. A synthetic adaptive audit improves utility from 2/5 to 51/100 while false authorization rises from 1/20 to 3/25. Reproduce with `python scripts/check_receipts.py --only pdi_noisy`.
+
 ## Layout
 
 | Path | Contents |
