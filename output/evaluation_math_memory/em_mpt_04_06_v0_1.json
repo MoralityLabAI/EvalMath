@@ -1,0 +1,95 @@
+{
+  "checks": {
+    "all_grid_checks": true,
+    "confidence_coverage": true,
+    "coupling_bound": true,
+    "minimax_dual": true,
+    "policy_reconstruction": true,
+    "rectangular_corner_oracle": true,
+    "regret_telescope": true
+  },
+  "counts": {
+    "compression": 225,
+    "coupling": 81,
+    "coverage": 492,
+    "envelope": 27,
+    "minimax": 225,
+    "quantization": 900,
+    "stress": 5
+  },
+  "evidence": "exact finite synthetic mechanism and confidence-grid checks",
+  "schema": "em-mpt-04-06-v0.1",
+  "source_sha256": {
+    "scripts/verify_math_memory.py": "92979aa1bda7a830f42a251dcd38ccc80ba7b9a61be410070bc23bfec38f24e2",
+    "src/spiral_ln/evaluation_math_controller.py": "06a656333f3edfbb9a261dd630907deffa5bbe6f6b9853a735a5004922af6927",
+    "src/spiral_ln/evaluation_math_memory.py": "4dfa0fd4f358839281e6da2e124886f00063b2849e1600e1323c20d2755aba61",
+    "tests/test_evaluation_math_memory.py": "f8aa34a862f183ac01c95474eb02dff42a7ca2bacd2102f76ac12ede142b2d89"
+  },
+  "stress": [
+    {
+      "bits": 1,
+      "budget": 6,
+      "closure": "3889/4096",
+      "d": 2,
+      "table_rows": 19,
+      "width": 2
+    },
+    {
+      "bits": 2,
+      "budget": 6,
+      "closure": "211/256",
+      "d": 3,
+      "table_rows": 26,
+      "width": 3
+    },
+    {
+      "bits": 1,
+      "budget": 8,
+      "closure": "62053/65536",
+      "d": 3,
+      "table_rows": 34,
+      "width": 2
+    },
+    {
+      "bits": 2,
+      "budget": 8,
+      "closure": "55771/65536",
+      "d": 4,
+      "table_rows": 45,
+      "width": 3
+    },
+    {
+      "bits": 2,
+      "budget": 10,
+      "closure": "498017/524288",
+      "d": 4,
+      "table_rows": 55,
+      "width": 3
+    }
+  ],
+  "values": {
+    "blind": "199/256",
+    "compiled_bits": 1,
+    "deterministic_minimax": "199/256",
+    "mixture": [
+      [
+        "193/256",
+        "217/256"
+      ],
+      [
+        "217/256",
+        "193/256"
+      ],
+      "1/2"
+    ],
+    "optimal": "205/256",
+    "quantized": {
+      "1": "155/256",
+      "16": "205/256",
+      "2": "199/256",
+      "3": "205/256",
+      "8": "205/256"
+    },
+    "randomized_minimax": "205/256"
+  }
+}
