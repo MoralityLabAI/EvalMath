@@ -77,6 +77,8 @@ Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 **New (CPF-03):** [Statement-mutation curriculum](paper/cpf03_semantic_mutations.md) provides 42 proof-fidelity prompts with group-disjoint public splits, separate reproducible gold exports, exact finite checks and candidate Lean logic witnesses. Reproduce with `python scripts/check_receipts.py --only cpf03`.
 
+**New (CPF-04–06):** [Prospective critique suite](paper/cpf04_06_prospective_critique_suite.md) provides a procedural semantic benchmark, matched-budget model inference runner and joint-error scoring protocol. The 5,120-root synthetic census and mock-server tests are local evidence; real model runs remain pending. Reproduce with `python scripts/check_receipts.py --only cpf_suite`.
+
 ## Self-designed evaluation and FRC
 
 The [HRC-FRC-01 extension](paper/frc_harmonic_self_evaluation.md) studies
