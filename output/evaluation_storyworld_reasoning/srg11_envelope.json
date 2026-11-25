@@ -1,0 +1,1370 @@
+{
+  "evidence": "post-selection diagnostic only; no retuning, no model inference",
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg10/curriculum.mjs": "058b7974b7111684c8b3f00a8058f7104a79892f",
+    "integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md": "cb174a3efb031eaa046b01a2acc526ef7d122345",
+    "integrations/sweepweave-ts/srg11/optimizer.mjs": "a6117a89ac1da147e03700cf16188fa4afbbd02b",
+    "output/evaluation_storyworld_reasoning/srg11.json": "d5ad1bb8d3fc12a5b4f69676d36370f306f89be0"
+  },
+  "economics": {
+    "candidates": 18,
+    "all_scenario_feasible": 0,
+    "max_validation_passes": 2,
+    "rows": [
+      {
+        "params": {
+          "cost": 1,
+          "settle": 7
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 1,
+          "settle": 8
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 1,
+          "settle": 9
+        },
+        "calibration": 3,
+        "validation": 2,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 1,
+          "settle": 10
+        },
+        "calibration": 3,
+        "validation": 2,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 1,
+          "settle": 11
+        },
+        "calibration": 1,
+        "validation": 2,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 1,
+          "settle": 12
+        },
+        "calibration": 0,
+        "validation": 1,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 7
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 8
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 9
+        },
+        "calibration": 1,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 10
+        },
+        "calibration": 1,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 11
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 12
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 7
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 8
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": false,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 9
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 10
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 11
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 12
+        },
+        "calibration": 0,
+        "validation": 0,
+        "validation_checks": [
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": true
+          },
+          {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": true,
+            "adaptive_gain": false,
+            "margin": false
+          }
+        ]
+      }
+    ]
+  },
+  "story": {
+    "candidates": 11,
+    "all_cohort_feasible": 0,
+    "rows": [
+      {
+        "delta": -0.1,
+        "calibration": false,
+        "validation": [
+          false,
+          false
+        ]
+      },
+      {
+        "delta": -0.05,
+        "calibration": false,
+        "validation": [
+          false,
+          false
+        ]
+      },
+      {
+        "delta": 0,
+        "calibration": false,
+        "validation": [
+          false,
+          false
+        ]
+      },
+      {
+        "delta": 0.025,
+        "calibration": false,
+        "validation": [
+          false,
+          false
+        ]
+      },
+      {
+        "delta": 0.05,
+        "calibration": false,
+        "validation": [
+          false,
+          false
+        ]
+      },
+      {
+        "delta": 0.075,
+        "calibration": true,
+        "validation": [
+          false,
+          false
+        ]
+      },
+      {
+        "delta": 0.1,
+        "calibration": false,
+        "validation": [
+          false,
+          false
+        ]
+      },
+      {
+        "delta": 0.125,
+        "calibration": false,
+        "validation": [
+          false,
+          false
+        ]
+      },
+      {
+        "delta": 0.15,
+        "calibration": false,
+        "validation": [
+          false,
+          false
+        ]
+      },
+      {
+        "delta": 0.2,
+        "calibration": false,
+        "validation": [
+          false,
+          false
+        ]
+      },
+      {
+        "delta": 0.3,
+        "calibration": false,
+        "validation": [
+          false,
+          false
+        ]
+      }
+    ],
+    "validation_grids": [
+      {
+        "cohort": {
+          "seed": 1397887234,
+          "campaigns": 256
+        },
+        "grid": [
+          {
+            "delta": -0.1,
+            "roots": 256,
+            "opportunities": 6,
+            "unique": 6,
+            "chosen": 6,
+            "eligible": 177,
+            "all": 768,
+            "low_margin": 6,
+            "changed": 22,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.0234375,
+            "unique_fraction": 1,
+            "low_margin_fraction": 1,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": -0.05,
+            "roots": 256,
+            "opportunities": 10,
+            "unique": 9,
+            "chosen": 11,
+            "eligible": 177,
+            "all": 768,
+            "low_margin": 4,
+            "changed": 17,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.0390625,
+            "unique_fraction": 0.9,
+            "low_margin_fraction": 0.36363636363636365,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0,
+            "roots": 256,
+            "opportunities": 19,
+            "unique": 14,
+            "chosen": 28,
+            "eligible": 177,
+            "all": 768,
+            "low_margin": 15,
+            "changed": 0,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.07421875,
+            "unique_fraction": 0.7368421052631579,
+            "low_margin_fraction": 0.5357142857142857,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.025,
+            "roots": 256,
+            "opportunities": 25,
+            "unique": 15,
+            "chosen": 42,
+            "eligible": 177,
+            "all": 768,
+            "low_margin": 14,
+            "changed": 14,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.09765625,
+            "unique_fraction": 0.6,
+            "low_margin_fraction": 0.3333333333333333,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.05,
+            "roots": 256,
+            "opportunities": 29,
+            "unique": 16,
+            "chosen": 53,
+            "eligible": 177,
+            "all": 768,
+            "low_margin": 16,
+            "changed": 25,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.11328125,
+            "unique_fraction": 0.5517241379310345,
+            "low_margin_fraction": 0.3018867924528302,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.075,
+            "roots": 256,
+            "opportunities": 33,
+            "unique": 20,
+            "chosen": 57,
+            "eligible": 177,
+            "all": 768,
+            "low_margin": 12,
+            "changed": 29,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.12890625,
+            "unique_fraction": 0.6060606060606061,
+            "low_margin_fraction": 0.21052631578947367,
+            "checks": {
+              "opportunity": true,
+              "unique": false,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.1,
+            "roots": 256,
+            "opportunities": 45,
+            "unique": 25,
+            "chosen": 85,
+            "eligible": 177,
+            "all": 768,
+            "low_margin": 29,
+            "changed": 57,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.17578125,
+            "unique_fraction": 0.5555555555555556,
+            "low_margin_fraction": 0.3411764705882353,
+            "checks": {
+              "opportunity": true,
+              "unique": false,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.125,
+            "roots": 256,
+            "opportunities": 48,
+            "unique": 22,
+            "chosen": 100,
+            "eligible": 177,
+            "all": 768,
+            "low_margin": 22,
+            "changed": 72,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.1875,
+            "unique_fraction": 0.4583333333333333,
+            "low_margin_fraction": 0.22,
+            "checks": {
+              "opportunity": true,
+              "unique": false,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.15,
+            "roots": 256,
+            "opportunities": 50,
+            "unique": 20,
+            "chosen": 110,
+            "eligible": 177,
+            "all": 768,
+            "low_margin": 10,
+            "changed": 82,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.1953125,
+            "unique_fraction": 0.4,
+            "low_margin_fraction": 0.09090909090909091,
+            "checks": {
+              "opportunity": true,
+              "unique": false,
+              "margin": true,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.2,
+            "roots": 256,
+            "opportunities": 52,
+            "unique": 19,
+            "chosen": 118,
+            "eligible": 177,
+            "all": 768,
+            "low_margin": 4,
+            "changed": 90,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.203125,
+            "unique_fraction": 0.36538461538461536,
+            "low_margin_fraction": 0.03389830508474576,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "margin": true,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.3,
+            "roots": 256,
+            "opportunities": 59,
+            "unique": 2,
+            "chosen": 173,
+            "eligible": 177,
+            "all": 768,
+            "low_margin": 2,
+            "changed": 145,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.23046875,
+            "unique_fraction": 0.03389830508474576,
+            "low_margin_fraction": 0.011560693641618497,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "margin": true,
+              "scope": true
+            },
+            "pass": false
+          }
+        ]
+      },
+      {
+        "cohort": {
+          "seed": 1397887235,
+          "campaigns": 256
+        },
+        "grid": [
+          {
+            "delta": -0.1,
+            "roots": 256,
+            "opportunities": 8,
+            "unique": 7,
+            "chosen": 10,
+            "eligible": 168,
+            "all": 768,
+            "low_margin": 10,
+            "changed": 18,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.03125,
+            "unique_fraction": 0.875,
+            "low_margin_fraction": 1,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": -0.05,
+            "roots": 256,
+            "opportunities": 14,
+            "unique": 10,
+            "chosen": 19,
+            "eligible": 168,
+            "all": 768,
+            "low_margin": 9,
+            "changed": 9,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.0546875,
+            "unique_fraction": 0.7142857142857143,
+            "low_margin_fraction": 0.47368421052631576,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0,
+            "roots": 256,
+            "opportunities": 23,
+            "unique": 19,
+            "chosen": 28,
+            "eligible": 168,
+            "all": 768,
+            "low_margin": 6,
+            "changed": 0,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.08984375,
+            "unique_fraction": 0.8260869565217391,
+            "low_margin_fraction": 0.21428571428571427,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.025,
+            "roots": 256,
+            "opportunities": 26,
+            "unique": 19,
+            "chosen": 37,
+            "eligible": 168,
+            "all": 768,
+            "low_margin": 10,
+            "changed": 9,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.1015625,
+            "unique_fraction": 0.7307692307692307,
+            "low_margin_fraction": 0.2702702702702703,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.05,
+            "roots": 256,
+            "opportunities": 31,
+            "unique": 20,
+            "chosen": 53,
+            "eligible": 168,
+            "all": 768,
+            "low_margin": 16,
+            "changed": 25,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.12109375,
+            "unique_fraction": 0.6451612903225806,
+            "low_margin_fraction": 0.3018867924528302,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.075,
+            "roots": 256,
+            "opportunities": 34,
+            "unique": 22,
+            "chosen": 58,
+            "eligible": 168,
+            "all": 768,
+            "low_margin": 10,
+            "changed": 30,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.1328125,
+            "unique_fraction": 0.6470588235294118,
+            "low_margin_fraction": 0.1724137931034483,
+            "checks": {
+              "opportunity": true,
+              "unique": false,
+              "margin": true,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.1,
+            "roots": 256,
+            "opportunities": 39,
+            "unique": 18,
+            "chosen": 80,
+            "eligible": 168,
+            "all": 768,
+            "low_margin": 22,
+            "changed": 52,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.15234375,
+            "unique_fraction": 0.46153846153846156,
+            "low_margin_fraction": 0.275,
+            "checks": {
+              "opportunity": true,
+              "unique": false,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.125,
+            "roots": 256,
+            "opportunities": 47,
+            "unique": 17,
+            "chosen": 106,
+            "eligible": 168,
+            "all": 768,
+            "low_margin": 35,
+            "changed": 78,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.18359375,
+            "unique_fraction": 0.3617021276595745,
+            "low_margin_fraction": 0.330188679245283,
+            "checks": {
+              "opportunity": true,
+              "unique": false,
+              "margin": false,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.15,
+            "roots": 256,
+            "opportunities": 52,
+            "unique": 13,
+            "chosen": 128,
+            "eligible": 168,
+            "all": 768,
+            "low_margin": 24,
+            "changed": 100,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.203125,
+            "unique_fraction": 0.25,
+            "low_margin_fraction": 0.1875,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "margin": true,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.2,
+            "roots": 256,
+            "opportunities": 52,
+            "unique": 13,
+            "chosen": 128,
+            "eligible": 168,
+            "all": 768,
+            "low_margin": 0,
+            "changed": 100,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.203125,
+            "unique_fraction": 0.25,
+            "low_margin_fraction": 0,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "margin": true,
+              "scope": true
+            },
+            "pass": false
+          },
+          {
+            "delta": 0.3,
+            "roots": 256,
+            "opportunities": 56,
+            "unique": 0,
+            "chosen": 168,
+            "eligible": 168,
+            "all": 768,
+            "low_margin": 2,
+            "changed": 140,
+            "non_target_changes": 0,
+            "opportunity_rate": 0.21875,
+            "unique_fraction": 0,
+            "low_margin_fraction": 0.011904761904761904,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "margin": true,
+              "scope": true
+            },
+            "pass": false
+          }
+        ]
+      }
+    ]
+  }
+}
