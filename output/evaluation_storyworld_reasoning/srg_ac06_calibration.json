@@ -1,0 +1,3097 @@
+{
+  "schema": "ac06.cal.v1",
+  "cohort": {
+    "seed": 1397892609,
+    "n": 96
+  },
+  "counts": {
+    "prefix_steps": 2764,
+    "suffix_steps": 6300,
+    "nodes": 6588,
+    "subset_fits": 130,
+    "subset_edges": 384,
+    "policy_replays": 130,
+    "conflict_checks": 128
+  },
+  "selected": 34,
+  "selected_features": [
+    "char_pink.Radio_Record",
+    "char_white.Crew_Loyalty"
+  ],
+  "raw_roots": 288,
+  "distinct_histories": 272,
+  "informative_roots": 98,
+  "subset": {
+    "rows": [
+      {
+        "mask": 0,
+        "k": 0,
+        "value": 134,
+        "privileged": 134,
+        "full": 149,
+        "cells": 169,
+        "informative_cells": 34,
+        "initial_gap": 15,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 1,
+        "k": 1,
+        "value": 137,
+        "privileged": 137,
+        "full": 149,
+        "cells": 260,
+        "informative_cells": 42,
+        "initial_gap": 12,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 2,
+        "k": 1,
+        "value": 136,
+        "privileged": 136,
+        "full": 149,
+        "cells": 268,
+        "informative_cells": 48,
+        "initial_gap": 13,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 3,
+        "k": 2,
+        "value": 138,
+        "privileged": 138,
+        "full": 149,
+        "cells": 388,
+        "informative_cells": 56,
+        "initial_gap": 11,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 4,
+        "k": 1,
+        "value": 140,
+        "privileged": 140,
+        "full": 149,
+        "cells": 274,
+        "informative_cells": 48,
+        "initial_gap": 9,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 5,
+        "k": 2,
+        "value": 143,
+        "privileged": 143,
+        "full": 149,
+        "cells": 398,
+        "informative_cells": 56,
+        "initial_gap": 6,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 6,
+        "k": 2,
+        "value": 147,
+        "privileged": 147,
+        "full": 149,
+        "cells": 417,
+        "informative_cells": 69,
+        "initial_gap": 2,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 7,
+        "k": 3,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 578,
+        "informative_cells": 74,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 8,
+        "k": 1,
+        "value": 136,
+        "privileged": 136,
+        "full": 149,
+        "cells": 453,
+        "informative_cells": 49,
+        "initial_gap": 13,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 9,
+        "k": 2,
+        "value": 138,
+        "privileged": 138,
+        "full": 149,
+        "cells": 524,
+        "informative_cells": 57,
+        "initial_gap": 11,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 10,
+        "k": 2,
+        "value": 137,
+        "privileged": 137,
+        "full": 149,
+        "cells": 582,
+        "informative_cells": 56,
+        "initial_gap": 12,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 11,
+        "k": 3,
+        "value": 138,
+        "privileged": 138,
+        "full": 149,
+        "cells": 622,
+        "informative_cells": 63,
+        "initial_gap": 11,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 12,
+        "k": 2,
+        "value": 147,
+        "privileged": 147,
+        "full": 149,
+        "cells": 623,
+        "informative_cells": 63,
+        "initial_gap": 2,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 13,
+        "k": 3,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 695,
+        "informative_cells": 71,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 14,
+        "k": 3,
+        "value": 148,
+        "privileged": 148,
+        "full": 149,
+        "cells": 715,
+        "informative_cells": 70,
+        "initial_gap": 1,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 15,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 756,
+        "informative_cells": 74,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 16,
+        "k": 1,
+        "value": 145,
+        "privileged": 145,
+        "full": 149,
+        "cells": 384,
+        "informative_cells": 68,
+        "initial_gap": 4,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 17,
+        "k": 2,
+        "value": 146,
+        "privileged": 146,
+        "full": 149,
+        "cells": 530,
+        "informative_cells": 77,
+        "initial_gap": 3,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 18,
+        "k": 2,
+        "value": 147,
+        "privileged": 147,
+        "full": 149,
+        "cells": 494,
+        "informative_cells": 81,
+        "initial_gap": 2,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 19,
+        "k": 3,
+        "value": 147,
+        "privileged": 147,
+        "full": 149,
+        "cells": 654,
+        "informative_cells": 86,
+        "initial_gap": 2,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 20,
+        "k": 2,
+        "value": 148,
+        "privileged": 148,
+        "full": 149,
+        "cells": 547,
+        "informative_cells": 94,
+        "initial_gap": 1,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 21,
+        "k": 3,
+        "value": 148,
+        "privileged": 148,
+        "full": 149,
+        "cells": 686,
+        "informative_cells": 96,
+        "initial_gap": 1,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 22,
+        "k": 3,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 680,
+        "informative_cells": 99,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 23,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 813,
+        "informative_cells": 101,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 24,
+        "k": 2,
+        "value": 147,
+        "privileged": 147,
+        "full": 149,
+        "cells": 725,
+        "informative_cells": 90,
+        "initial_gap": 2,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 25,
+        "k": 3,
+        "value": 147,
+        "privileged": 147,
+        "full": 149,
+        "cells": 777,
+        "informative_cells": 93,
+        "initial_gap": 2,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 26,
+        "k": 3,
+        "value": 147,
+        "privileged": 147,
+        "full": 149,
+        "cells": 828,
+        "informative_cells": 90,
+        "initial_gap": 2,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 27,
+        "k": 4,
+        "value": 147,
+        "privileged": 147,
+        "full": 149,
+        "cells": 869,
+        "informative_cells": 93,
+        "initial_gap": 2,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 28,
+        "k": 3,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 871,
+        "informative_cells": 99,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 29,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 904,
+        "informative_cells": 101,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 30,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 925,
+        "informative_cells": 99,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 31,
+        "k": 5,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 948,
+        "informative_cells": 101,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 32,
+        "k": 1,
+        "value": 144,
+        "privileged": 144,
+        "full": 149,
+        "cells": 384,
+        "informative_cells": 44,
+        "initial_gap": 5,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 33,
+        "k": 2,
+        "value": 144,
+        "privileged": 144,
+        "full": 149,
+        "cells": 475,
+        "informative_cells": 50,
+        "initial_gap": 5,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 34,
+        "k": 2,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 549,
+        "informative_cells": 60,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 35,
+        "k": 3,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 643,
+        "informative_cells": 65,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 36,
+        "k": 2,
+        "value": 144,
+        "privileged": 144,
+        "full": 149,
+        "cells": 539,
+        "informative_cells": 53,
+        "initial_gap": 5,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 37,
+        "k": 3,
+        "value": 144,
+        "privileged": 144,
+        "full": 149,
+        "cells": 619,
+        "informative_cells": 59,
+        "initial_gap": 5,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 38,
+        "k": 3,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 721,
+        "informative_cells": 73,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 39,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 790,
+        "informative_cells": 76,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 40,
+        "k": 2,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 631,
+        "informative_cells": 61,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 41,
+        "k": 3,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 679,
+        "informative_cells": 67,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 42,
+        "k": 3,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 756,
+        "informative_cells": 67,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 43,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 780,
+        "informative_cells": 72,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 44,
+        "k": 3,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 741,
+        "informative_cells": 68,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 45,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 786,
+        "informative_cells": 74,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 46,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 815,
+        "informative_cells": 73,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 47,
+        "k": 5,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 839,
+        "informative_cells": 76,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 48,
+        "k": 2,
+        "value": 148,
+        "privileged": 148,
+        "full": 149,
+        "cells": 596,
+        "informative_cells": 79,
+        "initial_gap": 1,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 49,
+        "k": 3,
+        "value": 148,
+        "privileged": 148,
+        "full": 149,
+        "cells": 714,
+        "informative_cells": 85,
+        "initial_gap": 1,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 50,
+        "k": 3,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 760,
+        "informative_cells": 91,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 51,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 860,
+        "informative_cells": 94,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 52,
+        "k": 3,
+        "value": 148,
+        "privileged": 148,
+        "full": 149,
+        "cells": 788,
+        "informative_cells": 94,
+        "initial_gap": 1,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 53,
+        "k": 4,
+        "value": 148,
+        "privileged": 148,
+        "full": 149,
+        "cells": 849,
+        "informative_cells": 96,
+        "initial_gap": 1,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 54,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 910,
+        "informative_cells": 99,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 55,
+        "k": 5,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 955,
+        "informative_cells": 101,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 56,
+        "k": 3,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 836,
+        "informative_cells": 99,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 57,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 868,
+        "informative_cells": 101,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 58,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 918,
+        "informative_cells": 99,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 59,
+        "k": 5,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 940,
+        "informative_cells": 101,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 60,
+        "k": 4,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 902,
+        "informative_cells": 99,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 61,
+        "k": 5,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 929,
+        "informative_cells": 101,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 62,
+        "k": 5,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 946,
+        "informative_cells": 99,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      },
+      {
+        "mask": 63,
+        "k": 6,
+        "value": 149,
+        "privileged": 149,
+        "full": 149,
+        "cells": 968,
+        "informative_cells": 101,
+        "initial_gap": 0,
+        "continuation_gap": 0
+      }
+    ],
+    "full": 149,
+    "all": 149,
+    "frontier": [
+      {
+        "k": 0,
+        "value": 134,
+        "masks": [
+          0
+        ]
+      },
+      {
+        "k": 1,
+        "value": 145,
+        "masks": [
+          16
+        ]
+      },
+      {
+        "k": 2,
+        "value": 149,
+        "masks": [
+          34,
+          40
+        ]
+      },
+      {
+        "k": 3,
+        "value": 149,
+        "masks": [
+          7,
+          13,
+          22,
+          28,
+          35,
+          38,
+          41,
+          42,
+          44,
+          50,
+          56
+        ]
+      },
+      {
+        "k": 4,
+        "value": 149,
+        "masks": [
+          15,
+          23,
+          29,
+          30,
+          39,
+          43,
+          45,
+          46,
+          51,
+          54,
+          57,
+          58,
+          60
+        ]
+      },
+      {
+        "k": 5,
+        "value": 149,
+        "masks": [
+          31,
+          47,
+          55,
+          59,
+          61,
+          62
+        ]
+      },
+      {
+        "k": 6,
+        "value": 149,
+        "masks": [
+          63
+        ]
+      }
+    ],
+    "full_min": {
+      "target": 149,
+      "min_cardinality": 2,
+      "minimum_masks": [
+        34,
+        40
+      ],
+      "inclusion_minimal": [
+        7,
+        13,
+        22,
+        28,
+        34,
+        40
+      ]
+    },
+    "all_min": {
+      "target": 149,
+      "min_cardinality": 2,
+      "minimum_masks": [
+        34,
+        40
+      ],
+      "inclusion_minimal": [
+        7,
+        13,
+        22,
+        28,
+        34,
+        40
+      ]
+    },
+    "near_min": {
+      "target": 142,
+      "min_cardinality": 1,
+      "minimum_masks": [
+        16,
+        32
+      ],
+      "inclusion_minimal": [
+        5,
+        6,
+        12,
+        16,
+        32
+      ]
+    }
+  },
+  "weak": {
+    "value": 140,
+    "privileged": 140,
+    "full": 149,
+    "cells": 235,
+    "informative_cells": 39,
+    "initial_gap": 9,
+    "continuation_gap": 0
+  },
+  "public": {
+    "value": 149,
+    "privileged": 149,
+    "full": 149,
+    "cells": 1528,
+    "informative_cells": 199,
+    "initial_gap": 0,
+    "continuation_gap": 0
+  },
+  "conflicts": {
+    "strict_roots": 57,
+    "total_pairs": 210,
+    "unseparable": 0,
+    "conflict_masks": [
+      {
+        "mask": 10,
+        "count": 2
+      },
+      {
+        "mask": 26,
+        "count": 14
+      },
+      {
+        "mask": 36,
+        "count": 4
+      },
+      {
+        "mask": 47,
+        "count": 4
+      },
+      {
+        "mask": 49,
+        "count": 1
+      },
+      {
+        "mask": 51,
+        "count": 1
+      },
+      {
+        "mask": 52,
+        "count": 94
+      },
+      {
+        "mask": 53,
+        "count": 12
+      },
+      {
+        "mask": 54,
+        "count": 2
+      },
+      {
+        "mask": 58,
+        "count": 18
+      },
+      {
+        "mask": 62,
+        "count": 48
+      },
+      {
+        "mask": 63,
+        "count": 10
+      }
+    ],
+    "collisions": [
+      210,
+      182,
+      111,
+      98,
+      36,
+      34,
+      1,
+      0,
+      114,
+      100,
+      111,
+      98,
+      2,
+      0,
+      1,
+      0,
+      10,
+      6,
+      4,
+      4,
+      2,
+      2,
+      0,
+      0,
+      4,
+      4,
+      4,
+      4,
+      0,
+      0,
+      0,
+      0,
+      16,
+      16,
+      0,
+      0,
+      16,
+      16,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      2,
+      0,
+      0,
+      2,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "collision_free": [
+      7,
+      13,
+      22,
+      28,
+      34,
+      40
+    ],
+    "hits_all_separable": [
+      7,
+      13,
+      22,
+      28,
+      34,
+      40
+    ],
+    "min_cardinality": 2
+  },
+  "pairs": {
+    "pairs": 8,
+    "capacity": 8,
+    "roots": 16,
+    "subset": {
+      "rows": [
+        {
+          "mask": 0,
+          "k": 0,
+          "value": 8,
+          "privileged": 8,
+          "full": 16,
+          "cells": 67,
+          "informative_cells": 9,
+          "initial_gap": 8,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 1,
+          "k": 1,
+          "value": 10,
+          "privileged": 10,
+          "full": 16,
+          "cells": 69,
+          "informative_cells": 11,
+          "initial_gap": 6,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 2,
+          "k": 1,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 80,
+          "informative_cells": 13,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 3,
+          "k": 2,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 4,
+          "k": 1,
+          "value": 8,
+          "privileged": 8,
+          "full": 16,
+          "cells": 67,
+          "informative_cells": 9,
+          "initial_gap": 8,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 5,
+          "k": 2,
+          "value": 10,
+          "privileged": 10,
+          "full": 16,
+          "cells": 69,
+          "informative_cells": 11,
+          "initial_gap": 6,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 6,
+          "k": 2,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 80,
+          "informative_cells": 13,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 7,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 8,
+          "k": 1,
+          "value": 14,
+          "privileged": 14,
+          "full": 16,
+          "cells": 79,
+          "informative_cells": 12,
+          "initial_gap": 2,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 9,
+          "k": 2,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 10,
+          "k": 2,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 80,
+          "informative_cells": 13,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 11,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 12,
+          "k": 2,
+          "value": 14,
+          "privileged": 14,
+          "full": 16,
+          "cells": 79,
+          "informative_cells": 12,
+          "initial_gap": 2,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 13,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 14,
+          "k": 3,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 80,
+          "informative_cells": 13,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 15,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 16,
+          "k": 1,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 95,
+          "informative_cells": 15,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 17,
+          "k": 2,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 95,
+          "informative_cells": 15,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 18,
+          "k": 2,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 19,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 20,
+          "k": 2,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 95,
+          "informative_cells": 15,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 21,
+          "k": 3,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 95,
+          "informative_cells": 15,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 22,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 23,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 24,
+          "k": 2,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 25,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 26,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 27,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 28,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 29,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 30,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 31,
+          "k": 5,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 32,
+          "k": 1,
+          "value": 13,
+          "privileged": 13,
+          "full": 16,
+          "cells": 75,
+          "informative_cells": 12,
+          "initial_gap": 3,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 33,
+          "k": 2,
+          "value": 13,
+          "privileged": 13,
+          "full": 16,
+          "cells": 75,
+          "informative_cells": 12,
+          "initial_gap": 3,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 34,
+          "k": 2,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 35,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 36,
+          "k": 2,
+          "value": 13,
+          "privileged": 13,
+          "full": 16,
+          "cells": 75,
+          "informative_cells": 12,
+          "initial_gap": 3,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 37,
+          "k": 3,
+          "value": 13,
+          "privileged": 13,
+          "full": 16,
+          "cells": 75,
+          "informative_cells": 12,
+          "initial_gap": 3,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 38,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 39,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 40,
+          "k": 2,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 41,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 42,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 43,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 44,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 45,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 46,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 47,
+          "k": 5,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 81,
+          "informative_cells": 14,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 48,
+          "k": 2,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 97,
+          "informative_cells": 15,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 49,
+          "k": 3,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 97,
+          "informative_cells": 15,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 50,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 51,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 52,
+          "k": 3,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 97,
+          "informative_cells": 15,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 53,
+          "k": 4,
+          "value": 15,
+          "privileged": 15,
+          "full": 16,
+          "cells": 97,
+          "informative_cells": 15,
+          "initial_gap": 1,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 54,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 55,
+          "k": 5,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 56,
+          "k": 3,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 57,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 58,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 59,
+          "k": 5,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 60,
+          "k": 4,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 61,
+          "k": 5,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 62,
+          "k": 5,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        },
+        {
+          "mask": 63,
+          "k": 6,
+          "value": 16,
+          "privileged": 16,
+          "full": 16,
+          "cells": 99,
+          "informative_cells": 16,
+          "initial_gap": 0,
+          "continuation_gap": 0
+        }
+      ],
+      "full": 16,
+      "all": 16,
+      "frontier": [
+        {
+          "k": 0,
+          "value": 8,
+          "masks": [
+            0
+          ]
+        },
+        {
+          "k": 1,
+          "value": 15,
+          "masks": [
+            2,
+            16
+          ]
+        },
+        {
+          "k": 2,
+          "value": 16,
+          "masks": [
+            3,
+            9,
+            18,
+            24,
+            34,
+            40
+          ]
+        },
+        {
+          "k": 3,
+          "value": 16,
+          "masks": [
+            7,
+            11,
+            13,
+            19,
+            22,
+            25,
+            26,
+            28,
+            35,
+            38,
+            41,
+            42,
+            44,
+            50,
+            56
+          ]
+        },
+        {
+          "k": 4,
+          "value": 16,
+          "masks": [
+            15,
+            23,
+            27,
+            29,
+            30,
+            39,
+            43,
+            45,
+            46,
+            51,
+            54,
+            57,
+            58,
+            60
+          ]
+        },
+        {
+          "k": 5,
+          "value": 16,
+          "masks": [
+            31,
+            47,
+            55,
+            59,
+            61,
+            62
+          ]
+        },
+        {
+          "k": 6,
+          "value": 16,
+          "masks": [
+            63
+          ]
+        }
+      ],
+      "full_min": {
+        "target": 16,
+        "min_cardinality": 2,
+        "minimum_masks": [
+          3,
+          9,
+          18,
+          24,
+          34,
+          40
+        ],
+        "inclusion_minimal": [
+          3,
+          9,
+          18,
+          24,
+          34,
+          40
+        ]
+      },
+      "all_min": {
+        "target": 16,
+        "min_cardinality": 2,
+        "minimum_masks": [
+          3,
+          9,
+          18,
+          24,
+          34,
+          40
+        ],
+        "inclusion_minimal": [
+          3,
+          9,
+          18,
+          24,
+          34,
+          40
+        ]
+      },
+      "near_min": {
+        "target": 16,
+        "min_cardinality": 2,
+        "minimum_masks": [
+          3,
+          9,
+          18,
+          24,
+          34,
+          40
+        ],
+        "inclusion_minimal": [
+          3,
+          9,
+          18,
+          24,
+          34,
+          40
+        ]
+      }
+    },
+    "conflicts": {
+      "strict_roots": 16,
+      "total_pairs": 16,
+      "unseparable": 0,
+      "conflict_masks": [
+        {
+          "mask": 10,
+          "count": 2
+        },
+        {
+          "mask": 26,
+          "count": 3
+        },
+        {
+          "mask": 49,
+          "count": 1
+        },
+        {
+          "mask": 51,
+          "count": 1
+        },
+        {
+          "mask": 58,
+          "count": 9
+        }
+      ],
+      "collisions": [
+        16,
+        14,
+        1,
+        0,
+        16,
+        14,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        5,
+        0,
+        0,
+        5,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "collision_free": [
+        3,
+        9,
+        18,
+        24,
+        34,
+        40
+      ],
+      "hits_all_separable": [
+        3,
+        9,
+        18,
+        24,
+        34,
+        40
+      ],
+      "min_cardinality": 2
+    },
+    "examples": [
+      {
+        "projection": [
+          [
+            "page_sirens_at_the_rollup_door",
+            11,
+            "decision",
+            [
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_0",
+                "text": "Hold Orange's head, whispering his final truth in the blood"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_1",
+                "text": "Grab the satchel, Pink, and bolt through the side alley"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_2",
+                "text": "Cut a cold professional truce before SWAT rams the door"
+              }
+            ]
+          ],
+          [
+            1
+          ]
+        ],
+        "a": {
+          "arm": "baseline",
+          "rep": 5,
+          "history": [
+            [
+              "opt_page_start_2",
+              "rxn_page_start_2_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_1",
+              "rxn_page_color_aliases_and_stash_1_0"
+            ],
+            [
+              "opt_page_cadillac_trunk_2",
+              "rxn_page_cadillac_trunk_2_0"
+            ],
+            [
+              "opt_page_chair_duct_tape_0",
+              "rxn_page_chair_duct_tape_0_1"
+            ],
+            [
+              "opt_page_k_billy_razor_2",
+              "rxn_page_k_billy_razor_2_0"
+            ],
+            [
+              "opt_page_orange_gun_on_the_ramp_1",
+              "rxn_page_orange_gun_on_the_ramp_1_0"
+            ],
+            [
+              "opt_page_eddie_and_blonde_story_1",
+              "rxn_page_eddie_and_blonde_story_1_1"
+            ],
+            [
+              "opt_page_cabot_verdict_0",
+              "rxn_page_cabot_verdict_0_0"
+            ],
+            [
+              "opt_page_mexican_standoff_0",
+              "rxn_page_mexican_standoff_0_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 0,
+            "opt_page_sirens_at_the_rollup_door_2": 1
+          },
+          "values": [
+            0.125,
+            0.125,
+            0.0625,
+            9,
+            10,
+            10
+          ]
+        },
+        "b": {
+          "arm": "baseline",
+          "rep": 89,
+          "history": [
+            [
+              "opt_page_start_1",
+              "rxn_page_start_1_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_2",
+              "rxn_page_color_aliases_and_stash_2_0"
+            ],
+            [
+              "opt_page_blonde_arrives_0",
+              "rxn_page_blonde_arrives_0_0"
+            ],
+            [
+              "opt_page_cadillac_trunk_1",
+              "rxn_page_cadillac_trunk_1_0"
+            ],
+            [
+              "opt_page_eddie_call_and_alibi_0",
+              "rxn_page_eddie_call_and_alibi_0_0"
+            ],
+            [
+              "opt_page_k_billy_razor_3",
+              "rxn_page_k_billy_razor_3_1"
+            ],
+            [
+              "opt_page_orange_gun_on_the_ramp_2",
+              "rxn_page_orange_gun_on_the_ramp_2_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_2",
+              "rxn_page_nash_confession_shockwave_2_0"
+            ],
+            [
+              "opt_page_eddie_and_blonde_story_1",
+              "rxn_page_eddie_and_blonde_story_1_0"
+            ],
+            [
+              "opt_page_mexican_standoff_0",
+              "rxn_page_mexican_standoff_0_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 1,
+            "opt_page_sirens_at_the_rollup_door_2": 0
+          },
+          "values": [
+            0,
+            0,
+            0.0625,
+            9,
+            8,
+            6
+          ]
+        }
+      },
+      {
+        "projection": [
+          [
+            "page_sirens_at_the_rollup_door",
+            11,
+            "decision",
+            [
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_0",
+                "text": "Hold Orange's head, whispering his final truth in the blood"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_1",
+                "text": "Grab the satchel, Pink, and bolt through the side alley"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_2",
+                "text": "Cut a cold professional truce before SWAT rams the door"
+              }
+            ]
+          ],
+          [
+            0
+          ]
+        ],
+        "a": {
+          "arm": "baseline",
+          "rep": 31,
+          "history": [
+            [
+              "opt_page_start_2",
+              "rxn_page_start_2_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_2",
+              "rxn_page_color_aliases_and_stash_2_0"
+            ],
+            [
+              "opt_page_blonde_arrives_0",
+              "rxn_page_blonde_arrives_0_0"
+            ],
+            [
+              "opt_page_cadillac_trunk_1",
+              "rxn_page_cadillac_trunk_1_0"
+            ],
+            [
+              "opt_page_eddie_call_and_alibi_2",
+              "rxn_page_eddie_call_and_alibi_2_0"
+            ],
+            [
+              "opt_page_k_billy_razor_1",
+              "rxn_page_k_billy_razor_1_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_0",
+              "rxn_page_cabot_verdict_0_0"
+            ],
+            [
+              "opt_page_mexican_standoff_1",
+              "rxn_page_mexican_standoff_1_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 1,
+            "opt_page_sirens_at_the_rollup_door_2": 0
+          },
+          "values": [
+            0.125,
+            0,
+            0,
+            9,
+            7,
+            9
+          ]
+        },
+        "b": {
+          "arm": "all",
+          "rep": 9,
+          "history": [
+            [
+              "opt_page_start_0",
+              "rxn_page_start_0_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_0",
+              "rxn_page_color_aliases_and_stash_0_1"
+            ],
+            [
+              "opt_page_cadillac_trunk_2",
+              "rxn_page_cadillac_trunk_2_0"
+            ],
+            [
+              "opt_page_chair_duct_tape_2",
+              "rxn_page_chair_duct_tape_2_2"
+            ],
+            [
+              "opt_page_eddie_call_and_alibi_0",
+              "rxn_page_eddie_call_and_alibi_0_0"
+            ],
+            [
+              "opt_page_k_billy_razor_1",
+              "rxn_page_k_billy_razor_1_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_2",
+              "rxn_page_cabot_verdict_2_2"
+            ],
+            [
+              "opt_page_mexican_standoff_2",
+              "rxn_page_mexican_standoff_2_1"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 0,
+            "opt_page_sirens_at_the_rollup_door_2": 1
+          },
+          "values": [
+            0.125,
+            0.125,
+            0,
+            8,
+            7,
+            9
+          ]
+        }
+      },
+      {
+        "projection": [
+          [
+            "page_sirens_at_the_rollup_door",
+            11,
+            "decision",
+            [
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_0",
+                "text": "Hold Orange's head, whispering his final truth in the blood"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_1",
+                "text": "Grab the satchel, Pink, and bolt through the side alley"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_2",
+                "text": "Cut a cold professional truce before SWAT rams the door"
+              }
+            ]
+          ],
+          [
+            0
+          ]
+        ],
+        "a": {
+          "arm": "frozen",
+          "rep": 31,
+          "history": [
+            [
+              "opt_page_start_0",
+              "rxn_page_start_0_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_2",
+              "rxn_page_color_aliases_and_stash_2_0"
+            ],
+            [
+              "opt_page_blonde_arrives_0",
+              "rxn_page_blonde_arrives_0_0"
+            ],
+            [
+              "opt_page_cadillac_trunk_1",
+              "rxn_page_cadillac_trunk_1_0"
+            ],
+            [
+              "opt_page_eddie_call_and_alibi_2",
+              "rxn_page_eddie_call_and_alibi_2_0"
+            ],
+            [
+              "opt_page_k_billy_razor_1",
+              "rxn_page_k_billy_razor_1_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_0",
+              "rxn_page_cabot_verdict_0_0"
+            ],
+            [
+              "opt_page_mexican_standoff_1",
+              "rxn_page_mexican_standoff_1_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 1,
+            "opt_page_sirens_at_the_rollup_door_2": 0
+          },
+          "values": [
+            0.125,
+            0,
+            0,
+            9,
+            7,
+            9
+          ]
+        },
+        "b": {
+          "arm": "all",
+          "rep": 61,
+          "history": [
+            [
+              "opt_page_start_0",
+              "rxn_page_start_0_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_1",
+              "rxn_page_color_aliases_and_stash_1_0"
+            ],
+            [
+              "opt_page_cadillac_trunk_2",
+              "rxn_page_cadillac_trunk_2_0"
+            ],
+            [
+              "opt_page_chair_duct_tape_1",
+              "rxn_page_chair_duct_tape_1_0"
+            ],
+            [
+              "opt_page_k_billy_razor_0",
+              "rxn_page_k_billy_razor_0_0"
+            ],
+            [
+              "opt_page_orange_gun_on_the_ramp_0",
+              "rxn_page_orange_gun_on_the_ramp_0_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_0",
+              "rxn_page_cabot_verdict_0_0"
+            ],
+            [
+              "opt_page_mexican_standoff_3",
+              "rxn_page_mexican_standoff_3_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 0,
+            "opt_page_sirens_at_the_rollup_door_2": 1
+          },
+          "values": [
+            0.125,
+            0.125,
+            0,
+            8,
+            9,
+            9
+          ]
+        }
+      },
+      {
+        "projection": [
+          [
+            "page_sirens_at_the_rollup_door",
+            10,
+            "decision",
+            [
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_0",
+                "text": "Hold Orange's head, whispering his final truth in the blood"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_1",
+                "text": "Grab the satchel, Pink, and bolt through the side alley"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_2",
+                "text": "Cut a cold professional truce before SWAT rams the door"
+              }
+            ]
+          ],
+          [
+            1
+          ]
+        ],
+        "a": {
+          "arm": "baseline",
+          "rep": 37,
+          "history": [
+            [
+              "opt_page_start_0",
+              "rxn_page_start_0_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_0",
+              "rxn_page_color_aliases_and_stash_0_1"
+            ],
+            [
+              "opt_page_cadillac_trunk_0",
+              "rxn_page_cadillac_trunk_0_0"
+            ],
+            [
+              "opt_page_chair_duct_tape_0",
+              "rxn_page_chair_duct_tape_0_1"
+            ],
+            [
+              "opt_page_k_billy_razor_1",
+              "rxn_page_k_billy_razor_1_1"
+            ],
+            [
+              "opt_page_orange_gun_on_the_ramp_1",
+              "rxn_page_orange_gun_on_the_ramp_1_0"
+            ],
+            [
+              "opt_page_eddie_and_blonde_story_1",
+              "rxn_page_eddie_and_blonde_story_1_1"
+            ],
+            [
+              "opt_page_cabot_verdict_1",
+              "rxn_page_cabot_verdict_1_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 0,
+            "opt_page_sirens_at_the_rollup_door_2": 1
+          },
+          "values": [
+            0.125,
+            0,
+            0.0625,
+            9,
+            10,
+            8
+          ]
+        },
+        "b": {
+          "arm": "baseline",
+          "rep": 76,
+          "history": [
+            [
+              "opt_page_start_1",
+              "rxn_page_start_1_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_2",
+              "rxn_page_color_aliases_and_stash_2_0"
+            ],
+            [
+              "opt_page_blonde_arrives_2",
+              "rxn_page_blonde_arrives_2_0"
+            ],
+            [
+              "opt_page_cadillac_trunk_1",
+              "rxn_page_cadillac_trunk_1_0"
+            ],
+            [
+              "opt_page_eddie_call_and_alibi_0",
+              "rxn_page_eddie_call_and_alibi_0_0"
+            ],
+            [
+              "opt_page_k_billy_razor_2",
+              "rxn_page_k_billy_razor_2_2"
+            ],
+            [
+              "opt_page_orange_gun_on_the_ramp_1",
+              "rxn_page_orange_gun_on_the_ramp_1_0"
+            ],
+            [
+              "opt_page_eddie_and_blonde_story_1",
+              "rxn_page_eddie_and_blonde_story_1_0"
+            ],
+            [
+              "opt_page_mexican_standoff_3",
+              "rxn_page_mexican_standoff_3_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 1,
+            "opt_page_sirens_at_the_rollup_door_2": 0
+          },
+          "values": [
+            0,
+            0,
+            0.0625,
+            9,
+            9,
+            6
+          ]
+        }
+      },
+      {
+        "projection": [
+          [
+            "page_sirens_at_the_rollup_door",
+            9,
+            "decision",
+            [
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_0",
+                "text": "Hold Orange's head, whispering his final truth in the blood"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_1",
+                "text": "Grab the satchel, Pink, and bolt through the side alley"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_2",
+                "text": "Cut a cold professional truce before SWAT rams the door"
+              }
+            ]
+          ],
+          [
+            0
+          ]
+        ],
+        "a": {
+          "arm": "baseline",
+          "rep": 88,
+          "history": [
+            [
+              "opt_page_start_0",
+              "rxn_page_start_0_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_1",
+              "rxn_page_color_aliases_and_stash_1_0"
+            ],
+            [
+              "opt_page_cadillac_trunk_1",
+              "rxn_page_cadillac_trunk_1_0"
+            ],
+            [
+              "opt_page_eddie_call_and_alibi_1",
+              "rxn_page_eddie_call_and_alibi_1_0"
+            ],
+            [
+              "opt_page_orange_gun_on_the_ramp_2",
+              "rxn_page_orange_gun_on_the_ramp_2_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_1",
+              "rxn_page_cabot_verdict_1_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 1,
+            "opt_page_sirens_at_the_rollup_door_2": 0
+          },
+          "values": [
+            0.125,
+            0,
+            0,
+            9,
+            6,
+            7
+          ]
+        },
+        "b": {
+          "arm": "all",
+          "rep": 88,
+          "history": [
+            [
+              "opt_page_start_0",
+              "rxn_page_start_0_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_1",
+              "rxn_page_color_aliases_and_stash_1_0"
+            ],
+            [
+              "opt_page_cadillac_trunk_2",
+              "rxn_page_cadillac_trunk_2_0"
+            ],
+            [
+              "opt_page_chair_duct_tape_1",
+              "rxn_page_chair_duct_tape_1_0"
+            ],
+            [
+              "opt_page_k_billy_razor_3",
+              "rxn_page_k_billy_razor_3_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_1",
+              "rxn_page_cabot_verdict_1_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 0,
+            "opt_page_sirens_at_the_rollup_door_2": 1
+          },
+          "values": [
+            0.125,
+            0.125,
+            0,
+            8,
+            8,
+            7
+          ]
+        }
+      },
+      {
+        "projection": [
+          [
+            "page_sirens_at_the_rollup_door",
+            10,
+            "decision",
+            [
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_0",
+                "text": "Hold Orange's head, whispering his final truth in the blood"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_1",
+                "text": "Grab the satchel, Pink, and bolt through the side alley"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_2",
+                "text": "Cut a cold professional truce before SWAT rams the door"
+              }
+            ]
+          ],
+          [
+            0
+          ]
+        ],
+        "a": {
+          "arm": "frozen",
+          "rep": 10,
+          "history": [
+            [
+              "opt_page_start_0",
+              "rxn_page_start_0_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_0",
+              "rxn_page_color_aliases_and_stash_0_1"
+            ],
+            [
+              "opt_page_cadillac_trunk_1",
+              "rxn_page_cadillac_trunk_1_0"
+            ],
+            [
+              "opt_page_eddie_call_and_alibi_1",
+              "rxn_page_eddie_call_and_alibi_1_0"
+            ],
+            [
+              "opt_page_orange_gun_on_the_ramp_0",
+              "rxn_page_orange_gun_on_the_ramp_0_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_2",
+              "rxn_page_cabot_verdict_2_2"
+            ],
+            [
+              "opt_page_mexican_standoff_3",
+              "rxn_page_mexican_standoff_3_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 1,
+            "opt_page_sirens_at_the_rollup_door_2": 0
+          },
+          "values": [
+            0.125,
+            0,
+            0,
+            9,
+            6,
+            9
+          ]
+        },
+        "b": {
+          "arm": "all",
+          "rep": 51,
+          "history": [
+            [
+              "opt_page_start_0",
+              "rxn_page_start_0_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_0",
+              "rxn_page_color_aliases_and_stash_0_1"
+            ],
+            [
+              "opt_page_cadillac_trunk_2",
+              "rxn_page_cadillac_trunk_2_0"
+            ],
+            [
+              "opt_page_chair_duct_tape_0",
+              "rxn_page_chair_duct_tape_0_1"
+            ],
+            [
+              "opt_page_k_billy_razor_0",
+              "rxn_page_k_billy_razor_0_0"
+            ],
+            [
+              "opt_page_orange_gun_on_the_ramp_2",
+              "rxn_page_orange_gun_on_the_ramp_2_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_3",
+              "rxn_page_cabot_verdict_3_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 0,
+            "opt_page_sirens_at_the_rollup_door_2": 1
+          },
+          "values": [
+            0.125,
+            0.125,
+            0,
+            8,
+            8,
+            7
+          ]
+        }
+      },
+      {
+        "projection": [
+          [
+            "page_sirens_at_the_rollup_door",
+            10,
+            "decision",
+            [
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_0",
+                "text": "Hold Orange's head, whispering his final truth in the blood"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_1",
+                "text": "Grab the satchel, Pink, and bolt through the side alley"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_2",
+                "text": "Cut a cold professional truce before SWAT rams the door"
+              }
+            ]
+          ],
+          [
+            0
+          ]
+        ],
+        "a": {
+          "arm": "frozen",
+          "rep": 17,
+          "history": [
+            [
+              "opt_page_start_0",
+              "rxn_page_start_0_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_1",
+              "rxn_page_color_aliases_and_stash_1_0"
+            ],
+            [
+              "opt_page_cadillac_trunk_1",
+              "rxn_page_cadillac_trunk_1_0"
+            ],
+            [
+              "opt_page_eddie_call_and_alibi_2",
+              "rxn_page_eddie_call_and_alibi_2_0"
+            ],
+            [
+              "opt_page_k_billy_razor_3",
+              "rxn_page_k_billy_razor_3_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_2",
+              "rxn_page_cabot_verdict_2_2"
+            ],
+            [
+              "opt_page_mexican_standoff_3",
+              "rxn_page_mexican_standoff_3_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 1,
+            "opt_page_sirens_at_the_rollup_door_2": 0
+          },
+          "values": [
+            0.125,
+            0,
+            0,
+            9,
+            6,
+            9
+          ]
+        },
+        "b": {
+          "arm": "all",
+          "rep": 87,
+          "history": [
+            [
+              "opt_page_start_2",
+              "rxn_page_start_2_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_1",
+              "rxn_page_color_aliases_and_stash_1_0"
+            ],
+            [
+              "opt_page_cadillac_trunk_2",
+              "rxn_page_cadillac_trunk_2_0"
+            ],
+            [
+              "opt_page_chair_duct_tape_2",
+              "rxn_page_chair_duct_tape_2_2"
+            ],
+            [
+              "opt_page_eddie_call_and_alibi_0",
+              "rxn_page_eddie_call_and_alibi_0_0"
+            ],
+            [
+              "opt_page_k_billy_razor_1",
+              "rxn_page_k_billy_razor_1_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_3",
+              "rxn_page_cabot_verdict_3_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 0,
+            "opt_page_sirens_at_the_rollup_door_2": 1
+          },
+          "values": [
+            0.125,
+            0.125,
+            0,
+            8,
+            8,
+            7
+          ]
+        }
+      },
+      {
+        "projection": [
+          [
+            "page_sirens_at_the_rollup_door",
+            10,
+            "decision",
+            [
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_0",
+                "text": "Hold Orange's head, whispering his final truth in the blood"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_1",
+                "text": "Grab the satchel, Pink, and bolt through the side alley"
+              },
+              {
+                "id": "opt_page_sirens_at_the_rollup_door_2",
+                "text": "Cut a cold professional truce before SWAT rams the door"
+              }
+            ]
+          ],
+          [
+            0
+          ]
+        ],
+        "a": {
+          "arm": "frozen",
+          "rep": 37,
+          "history": [
+            [
+              "opt_page_start_0",
+              "rxn_page_start_0_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_0",
+              "rxn_page_color_aliases_and_stash_0_1"
+            ],
+            [
+              "opt_page_cadillac_trunk_1",
+              "rxn_page_cadillac_trunk_1_0"
+            ],
+            [
+              "opt_page_eddie_call_and_alibi_0",
+              "rxn_page_eddie_call_and_alibi_0_0"
+            ],
+            [
+              "opt_page_k_billy_razor_1",
+              "rxn_page_k_billy_razor_1_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_2",
+              "rxn_page_cabot_verdict_2_2"
+            ],
+            [
+              "opt_page_mexican_standoff_1",
+              "rxn_page_mexican_standoff_1_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 1,
+            "opt_page_sirens_at_the_rollup_door_2": 0
+          },
+          "values": [
+            0.125,
+            0,
+            0,
+            9,
+            6,
+            9
+          ]
+        },
+        "b": {
+          "arm": "all",
+          "rep": 95,
+          "history": [
+            [
+              "opt_page_start_2",
+              "rxn_page_start_2_0"
+            ],
+            [
+              "opt_page_pink_ambush_theory_0",
+              "rxn_page_pink_ambush_theory_0_0"
+            ],
+            [
+              "opt_page_color_aliases_and_stash_1",
+              "rxn_page_color_aliases_and_stash_1_0"
+            ],
+            [
+              "opt_page_cadillac_trunk_2",
+              "rxn_page_cadillac_trunk_2_0"
+            ],
+            [
+              "opt_page_chair_duct_tape_0",
+              "rxn_page_chair_duct_tape_0_1"
+            ],
+            [
+              "opt_page_k_billy_razor_1",
+              "rxn_page_k_billy_razor_1_1"
+            ],
+            [
+              "opt_page_orange_gun_on_the_ramp_0",
+              "rxn_page_orange_gun_on_the_ramp_0_0"
+            ],
+            [
+              "opt_page_nash_confession_shockwave_1",
+              "rxn_page_nash_confession_shockwave_1_0"
+            ],
+            [
+              "opt_page_cabot_verdict_1",
+              "rxn_page_cabot_verdict_1_0"
+            ]
+          ],
+          "q": {
+            "opt_page_sirens_at_the_rollup_door_0": 0,
+            "opt_page_sirens_at_the_rollup_door_1": 0,
+            "opt_page_sirens_at_the_rollup_door_2": 1
+          },
+          "values": [
+            0.125,
+            0.125,
+            0,
+            8,
+            9,
+            7
+          ]
+        }
+      }
+    ]
+  },
+  "first_legal": 17
+}
