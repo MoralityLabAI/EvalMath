@@ -291,3 +291,12 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.CFH07.replay_retains
 #print axioms FeedbackChannel.CFH07.replay_subset
 #print axioms FeedbackChannel.CFH07.singleton_identification
+
+-- CFH-16 abstract budget and checkpoint invariants
+#print axioms FeedbackChannel.CFH16.charge_preserves
+#print axioms FeedbackChannel.CFH16.charge_reject
+#print axioms FeedbackChannel.CFH16.merge_sound
+#print axioms FeedbackChannel.CFH16.merge_preserves
+#print axioms FeedbackChannel.CFH16.checkpoint_safe
+#print axioms FeedbackChannel.CFH16.interrupt_safe
+#print axioms FeedbackChannel.CFH16.observation_safe
