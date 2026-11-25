@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "test_bad_certificates_rejected": true,
+    "test_development_roots": true
+  },
+  "development_roots": 64,
+  "evidence": "finite verified development fixtures",
+  "false_targets": 64,
+  "families": 2,
+  "manifest_sha256": "6a89460180284aa20c4b8946d2d24e1102707aba084a7a8eb80e6c60c307fd21",
+  "model_runs": 0,
+  "preflight": "BLOCKED_NO_MEASURED_DEVELOPMENT_EFFECTS_OR_SHAMS",
+  "prompt_rows": 512,
+  "schema": "mit01b-dev-v0.1",
+  "sealed_roots": 0,
+  "source_sha256": {
+    "gyms/MathematicalInstrumentTransfer/development.py": "f97b013fd6e6196a658da2d20ab1a40a0ba4d609ffe6a79bae987379e0b15d35",
+    "scripts/verify_mit_development.py": "9a9c5db331520a91b32f92d04f46655c5014169024b25a4121174a1a320269a0",
+    "tests/test_mit_development.py": "054b2c0635a053bd9e59b8a0489e7d6eb2d6026abb2fc2277a707ccce12c7a9d"
+  },
+  "true_targets": 64
+}

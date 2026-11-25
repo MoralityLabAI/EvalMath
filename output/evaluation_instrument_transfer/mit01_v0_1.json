@@ -1,0 +1,23 @@
+{
+  "adaptive": "1",
+  "checks": {
+    "test_adaptive_gap": true,
+    "test_break_even_and_anti_hint": true,
+    "test_dp_against_independent_oracle": true,
+    "test_noisy_query_and_validation": true,
+    "test_shortlist_exhaustive": true
+  },
+  "evidence": "exact finite synthetic mechanism",
+  "fixed_prefix": "3/4",
+  "paid_shortlist_half_reliable": [
+    "3/8",
+    "3/8",
+    "1/4"
+  ],
+  "schema": "mit01-v0.1",
+  "source_sha256": {
+    "scripts/verify_instrument_transfer.py": "f1027f6d2ffcd39a01e77631d506c6d4c412605fe8b4ac5c49abe34f8ea28a83",
+    "src/spiral_ln/evaluation_instrument_transfer.py": "a08fbfbc028ba2985d397cb0fb5662fa87e24da601e5dc55b235073a8a82a6da",
+    "tests/test_instrument_transfer.py": "994c9c1ad43d518ffc9a6a189a6461cd5f167c51ccd3673913e88ab5c164fb98"
+  }
+}

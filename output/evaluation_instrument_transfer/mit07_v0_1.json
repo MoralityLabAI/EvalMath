@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "test_boundary_cost_and_prior": true,
+    "test_coupling_bounds_and_policy_regret": true,
+    "test_noisy_against_fraction_oracle": true,
+    "test_nonzero_channel_policy_regret": true,
+    "test_projection_merges": true,
+    "test_regret_bound_sharp_prior_tie": true,
+    "test_repeated_noisy_signatures": true
+  },
+  "dynamic_states": 1818,
+  "evidence": "algebraic argument plus exact finite synthetic checks",
+  "noisy_random_roots": 48,
+  "perturbation_roots": 32,
+  "random_perturbation_positive_regrets": 0,
+  "repeated_roots": 10,
+  "row_manifest_sha256": "b45b9404289b410a516d7849ecc5ae78cb7a6c3856b7ff87b7b3a5f7e8e80cec",
+  "schema": "mit07-v0.1",
+  "source_sha256": {
+    "scripts/verify_noisy_instrument_quotient.py": "303d1c18c3b48970a21bc8402dbe029be2b7d46b7a26b9e429193adc80c83c9b",
+    "src/spiral_ln/evaluation_instrument_transfer.py": "a08fbfbc028ba2985d397cb0fb5662fa87e24da601e5dc55b235073a8a82a6da",
+    "src/spiral_ln/evaluation_noisy_instrument_quotient.py": "a2ea10173b4708dfc8411473ca40c26a21d716ab103b764714c9724870cdae60",
+    "tests/test_noisy_instrument_quotient.py": "a3552829f368732a0cca2dab6f69579e484033ac37ef0bb57f9c9414911abea8"
+  },
+  "static_states": 6009,
+  "stress_max_regret": "1/20",
+  "stress_mean_regret": "13/320",
+  "stress_positive_regrets": 16,
+  "stress_roots": 16
+}

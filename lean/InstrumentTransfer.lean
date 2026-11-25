@@ -1,0 +1,3 @@
+import FeedbackChannel.InstrumentTransfer
+
+#print axioms InstrumentTransfer.paid_gain_iff
