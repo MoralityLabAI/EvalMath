@@ -1,0 +1,60 @@
+{
+  "target_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "arithmetic_controls": 400,
+  "hf_membership_controls": 351,
+  "lcm_controls": 105,
+  "divisibility_controls": 169,
+  "counterexample": {
+    "n": "r:1",
+    "d": "r:1",
+    "a": 0,
+    "b": 0,
+    "lhs": 0,
+    "rhs": 0,
+    "holds": false
+  },
+  "bounds": [
+    {
+      "encoding": "unary",
+      "foundation_preserved": true,
+      "possibly_false_family_floors": {
+        "separation": 58,
+        "replacement": 125,
+        "union": 94,
+        "power": 86,
+        "choice": 199
+      },
+      "minimum_false_axiom_line": 58,
+      "previous": 570175,
+      "semantic_lower": 570233,
+      "cases": {
+        "axiom_at_1": 570233,
+        "axiom_at_2": 570242,
+        "axiom_at_3": 570260,
+        "at_least_4": 570278,
+        "generalization": 684183
+      }
+    },
+    {
+      "encoding": "compact",
+      "foundation_preserved": true,
+      "possibly_false_family_floors": {
+        "separation": 36,
+        "replacement": 70,
+        "union": 46,
+        "power": 38,
+        "choice": 96
+      },
+      "minimum_false_axiom_line": 36,
+      "previous": 69365,
+      "semantic_lower": 69401,
+      "cases": {
+        "axiom_at_1": 69401,
+        "axiom_at_2": 69407,
+        "axiom_at_3": 69419,
+        "at_least_4": 69431,
+        "generalization": 83220
+      }
+    }
+  ]
+}
