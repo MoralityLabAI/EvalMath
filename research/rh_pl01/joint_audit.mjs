@@ -3,7 +3,7 @@ import {kernel} from './kernel.mjs';
 import {transport} from './transport.mjs';
 import {denominator} from './denominator.mjs';
 import {numerator} from './numerator.mjs';
-function certificate(raw){
+export function certificate(raw){
  const need=new Set(),todo=raw.ids.slice();
  while(todo.length){const i=todo.pop();if(need.has(i))continue;need.add(i);const n=raw.nodes[i];if(!n)throw Error('missing node');if(n.tag==='n')todo.push(n.x);if(n.tag==='i')todo.push(n.x,n.y);if(n.tag==='a')todo.push(n.y)}
  const nodes=[null],map=new Map();
