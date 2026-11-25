@@ -1,0 +1,129 @@
+{
+  "source_repository": "MoralityLabAI/GPTStoryworld",
+  "source_revision": "ee1c6918db77d1e0924877f59eca819bae3f1c8c",
+  "source_git_blobs": {
+    "storyworlds/tsun01b_last_train_home/tsun01b.sweepweave.json": "9067b02e536c9407cd90c466fed0f4ea2c3edc2e",
+    "storyworlds/tsun01b_last_train_home/tsun01b_env.py": "72f43fccf9dd617e42a5fe01d0b378b0d6178d5a",
+    "storyworlds/balance_of_reason/source_cards.json": "2503e811ebdd6e0f8e5c1a61dc178c2448acc666",
+    "storyworlds/balance_of_reason/engine.mjs": "34f56047948f699a07b18edc07aebf19b4e530ca"
+  },
+  "evidence": "source-pinned authored-world audit; binary64 replay, exhaustive TSUN route tree, sampled paired Balance of Reason policies",
+  "tsun01b": {
+    "pages": 13,
+    "options": 21,
+    "reactions": 42,
+    "mechanical_equivalence_menus": 21,
+    "common_mode_coordinates": {
+      "Vulnerability": 21
+    },
+    "relative_coordinates": {
+      "Care": 21,
+      "Pride": 21
+    },
+    "reachable_prefixes": 22,
+    "leaves": 45,
+    "terminal_path_counts": {
+      "page_end_success_protected": 2,
+      "page_end_privacy_cost": 2,
+      "page_end_failure_silence": 18,
+      "page_end_failure_delay": 9,
+      "page_end_failure_unverified": 7,
+      "page_end_failure_privacy_unverified": 7
+    },
+    "terminal_probability_numerator_over_81": {
+      "page_end_success_protected": 2,
+      "page_end_privacy_cost": 2,
+      "page_end_failure_silence": 36,
+      "page_end_failure_delay": 27,
+      "page_end_failure_unverified": 7,
+      "page_end_failure_privacy_unverified": 7
+    },
+    "protected_numerator_over_81": 4,
+    "protected_private_numerator_over_81": 1,
+    "gate_failures_signed": 0,
+    "gate_failures_additive": 0,
+    "effect_scripts": 234,
+    "zero_nudges": 6,
+    "example_private_protected_path": [
+      "INSPECT_CARD",
+      "VERIFY_DISPATCH",
+      "COMMIT_ANNOUNCE",
+      "ANNOUNCE_MINIMAL"
+    ],
+    "menus_with_multiple_observed_winner_sets": 0,
+    "reachable_menu_evaluations": 66
+  },
+  "balance_of_reason": {
+    "policy_sequences": 128,
+    "paired_final_ending_disagreements": 118,
+    "paired_final_turn_disagreements": 73,
+    "original_endings": {
+      "war_of_oracles": 6,
+      "red_mihna": 11,
+      "fractured_ummah": 10,
+      "unsettled_mandate": 1,
+      "council_of_equals": 6,
+      "machine_armistice": 5,
+      "mandarin_crescent": 12,
+      "global_fire": 20,
+      "free_cities": 5,
+      "peoples_reconstruction": 4,
+      "development_covenant": 22,
+      "paper_caliphate": 15,
+      "fifth_article": 4,
+      "strategic_retrenchment": 4,
+      "cold_war_fatwas": 3
+    },
+    "signed_mutant_endings": {
+      "war_of_oracles": 2,
+      "unsettled_mandate": 33,
+      "council_of_equals": 14,
+      "development_covenant": 3,
+      "peoples_reconstruction": 3,
+      "cold_war_fatwas": 55,
+      "fractured_ummah": 2,
+      "free_cities": 8,
+      "fifth_article": 5,
+      "red_mihna": 1,
+      "strategic_retrenchment": 2
+    },
+    "paired_same_state_action_checks": 30234,
+    "successor_route_disagreements": 92,
+    "any_coordinate_differences": 30234,
+    "max_abs_coordinate_difference": 0.3528,
+    "original_total_squared_step_energy": 2859.43545489,
+    "signed_mutant_total_squared_step_energy": 3312.56084744,
+    "first_route_disagreement": {
+      "trial": 1,
+      "turn": 83,
+      "phase": "final",
+      "action": 0,
+      "original": "7|0|end|red_mihna",
+      "mutant": "7|0|end|unsettled_mandate"
+    },
+    "update_sites_replaced": 16,
+    "always_same_index": [
+      {
+        "index": 0,
+        "original": "fifth_article",
+        "mutant": "fifth_article",
+        "original_turns": 77,
+        "mutant_turns": 77
+      },
+      {
+        "index": 1,
+        "original": "global_fire",
+        "mutant": "global_fire",
+        "original_turns": 46,
+        "mutant_turns": 56
+      },
+      {
+        "index": 2,
+        "original": "fifth_article",
+        "mutant": "fifth_article",
+        "original_turns": 77,
+        "mutant_turns": 77
+      }
+    ]
+  }
+}
