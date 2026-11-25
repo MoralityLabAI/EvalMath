@@ -1,0 +1,614 @@
+{
+  "policies": 720,
+  "feasible": 106,
+  "strict": 64,
+  "positive_both": 102,
+  "strict_positive_both": 62,
+  "best": {
+    "p": [
+      0,
+      0,
+      1,
+      2
+    ],
+    "cohorts": [
+      {
+        "p": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "roots": 32,
+        "reached": 32,
+        "invalid": 0,
+        "fallback": 0,
+        "h1": 28,
+        "h3": 30,
+        "info": 23,
+        "unique": 4,
+        "active": 21,
+        "random": 27,
+        "complete": 32,
+        "visits": [
+          32,
+          32,
+          32,
+          21
+        ],
+        "energy": {
+          "mean_share": 0.17616289580644592,
+          "max_share": 0.21088340507407222,
+          "max_step": 0.06169986
+        },
+        "goal4": {
+          "value": 30,
+          "full": 30,
+          "gap": 0,
+          "cells": 115,
+          "informative": 20,
+          "rootCells": 16,
+          "rootInfo": 12
+        },
+        "ledger": {
+          "value": 30,
+          "full": 30,
+          "gap": 0,
+          "cells": 81,
+          "informative": 15,
+          "rootCells": 8,
+          "rootInfo": 7
+        },
+        "gains": 27,
+        "losses": 0,
+        "delta": {
+          "goal4": 27,
+          "ledger": 27,
+          "info": 20,
+          "active": 15,
+          "h3": 27,
+          "random": 25
+        },
+        "checks": {
+          "coverage": true,
+          "fallback": true,
+          "goal4": true,
+          "ledger": true,
+          "info": true,
+          "active": true,
+          "loss": true
+        },
+        "pass": true,
+        "strict": true
+      },
+      {
+        "p": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "roots": 32,
+        "reached": 32,
+        "invalid": 0,
+        "fallback": 0,
+        "h1": 30,
+        "h3": 30,
+        "info": 20,
+        "unique": 2,
+        "active": 24,
+        "random": 23,
+        "complete": 32,
+        "visits": [
+          32,
+          32,
+          32,
+          24
+        ],
+        "energy": {
+          "mean_share": 0.1763882173970136,
+          "max_share": 0.21088340507407222,
+          "max_step": 0.06169986
+        },
+        "goal4": {
+          "value": 30,
+          "full": 30,
+          "gap": 0,
+          "cells": 77,
+          "informative": 15,
+          "rootCells": 13,
+          "rootInfo": 7
+        },
+        "ledger": {
+          "value": 30,
+          "full": 30,
+          "gap": 0,
+          "cells": 54,
+          "informative": 12,
+          "rootCells": 8,
+          "rootInfo": 6
+        },
+        "gains": 25,
+        "losses": 0,
+        "delta": {
+          "goal4": 25,
+          "ledger": 25,
+          "info": 18,
+          "active": 17,
+          "h3": 25,
+          "random": 19
+        },
+        "checks": {
+          "coverage": true,
+          "fallback": true,
+          "goal4": true,
+          "ledger": true,
+          "info": true,
+          "active": true,
+          "loss": true
+        },
+        "pass": true,
+        "strict": true
+      }
+    ],
+    "pass": true,
+    "strict": true
+  },
+  "strictBest": {
+    "p": [
+      0,
+      0,
+      1,
+      2
+    ],
+    "cohorts": [
+      {
+        "p": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "roots": 32,
+        "reached": 32,
+        "invalid": 0,
+        "fallback": 0,
+        "h1": 28,
+        "h3": 30,
+        "info": 23,
+        "unique": 4,
+        "active": 21,
+        "random": 27,
+        "complete": 32,
+        "visits": [
+          32,
+          32,
+          32,
+          21
+        ],
+        "energy": {
+          "mean_share": 0.17616289580644592,
+          "max_share": 0.21088340507407222,
+          "max_step": 0.06169986
+        },
+        "goal4": {
+          "value": 30,
+          "full": 30,
+          "gap": 0,
+          "cells": 115,
+          "informative": 20,
+          "rootCells": 16,
+          "rootInfo": 12
+        },
+        "ledger": {
+          "value": 30,
+          "full": 30,
+          "gap": 0,
+          "cells": 81,
+          "informative": 15,
+          "rootCells": 8,
+          "rootInfo": 7
+        },
+        "gains": 27,
+        "losses": 0,
+        "delta": {
+          "goal4": 27,
+          "ledger": 27,
+          "info": 20,
+          "active": 15,
+          "h3": 27,
+          "random": 25
+        },
+        "checks": {
+          "coverage": true,
+          "fallback": true,
+          "goal4": true,
+          "ledger": true,
+          "info": true,
+          "active": true,
+          "loss": true
+        },
+        "pass": true,
+        "strict": true
+      },
+      {
+        "p": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "roots": 32,
+        "reached": 32,
+        "invalid": 0,
+        "fallback": 0,
+        "h1": 30,
+        "h3": 30,
+        "info": 20,
+        "unique": 2,
+        "active": 24,
+        "random": 23,
+        "complete": 32,
+        "visits": [
+          32,
+          32,
+          32,
+          24
+        ],
+        "energy": {
+          "mean_share": 0.1763882173970136,
+          "max_share": 0.21088340507407222,
+          "max_step": 0.06169986
+        },
+        "goal4": {
+          "value": 30,
+          "full": 30,
+          "gap": 0,
+          "cells": 77,
+          "informative": 15,
+          "rootCells": 13,
+          "rootInfo": 7
+        },
+        "ledger": {
+          "value": 30,
+          "full": 30,
+          "gap": 0,
+          "cells": 54,
+          "informative": 12,
+          "rootCells": 8,
+          "rootInfo": 6
+        },
+        "gains": 25,
+        "losses": 0,
+        "delta": {
+          "goal4": 25,
+          "ledger": 25,
+          "info": 18,
+          "active": 17,
+          "h3": 25,
+          "random": 19
+        },
+        "checks": {
+          "coverage": true,
+          "fallback": true,
+          "goal4": true,
+          "ledger": true,
+          "info": true,
+          "active": true,
+          "loss": true
+        },
+        "pass": true,
+        "strict": true
+      }
+    ],
+    "pass": true,
+    "strict": true
+  },
+  "improved": true,
+  "frozen": [
+    0,
+    0,
+    1,
+    2
+  ],
+  "all": {
+    "p": [
+      "r",
+      0,
+      2,
+      2
+    ],
+    "cohorts": [
+      {
+        "p": [
+          "r",
+          0,
+          2,
+          2
+        ],
+        "roots": 32,
+        "reached": 32,
+        "invalid": 0,
+        "fallback": 0,
+        "h1": 12,
+        "h3": 12,
+        "info": 8,
+        "unique": 6,
+        "active": 26,
+        "random": 10,
+        "complete": 32,
+        "visits": [
+          32,
+          13,
+          32,
+          21
+        ],
+        "energy": {
+          "mean_share": 0.14756612465089775,
+          "max_share": 0.17581881423498494,
+          "max_step": 0.06169986
+        },
+        "goal4": {
+          "value": 12,
+          "full": 12,
+          "gap": 0,
+          "cells": 161,
+          "informative": 21,
+          "rootCells": 25,
+          "rootInfo": 7
+        },
+        "ledger": {
+          "value": 12,
+          "full": 12,
+          "gap": 0,
+          "cells": 126,
+          "informative": 20,
+          "rootCells": 12,
+          "rootInfo": 6
+        },
+        "gains": 9,
+        "losses": 0,
+        "delta": {
+          "goal4": 9,
+          "ledger": 9,
+          "info": 5,
+          "active": 20,
+          "h3": 9,
+          "random": 8
+        },
+        "checks": {
+          "coverage": true,
+          "fallback": true,
+          "goal4": true,
+          "ledger": true,
+          "info": true,
+          "active": true,
+          "loss": true
+        },
+        "pass": true,
+        "strict": true
+      },
+      {
+        "p": [
+          "r",
+          0,
+          2,
+          2
+        ],
+        "roots": 32,
+        "reached": 32,
+        "invalid": 0,
+        "fallback": 0,
+        "h1": 15,
+        "h3": 15,
+        "info": 11,
+        "unique": 10,
+        "active": 29,
+        "random": 6,
+        "complete": 32,
+        "visits": [
+          32,
+          16,
+          32,
+          25
+        ],
+        "energy": {
+          "mean_share": 0.1510182838160333,
+          "max_share": 0.18821240060154792,
+          "max_step": 0.06169986
+        },
+        "goal4": {
+          "value": 15,
+          "full": 15,
+          "gap": 0,
+          "cells": 173,
+          "informative": 23,
+          "rootCells": 24,
+          "rootInfo": 7
+        },
+        "ledger": {
+          "value": 15,
+          "full": 15,
+          "gap": 0,
+          "cells": 122,
+          "informative": 15,
+          "rootCells": 13,
+          "rootInfo": 7
+        },
+        "gains": 10,
+        "losses": 0,
+        "delta": {
+          "goal4": 10,
+          "ledger": 10,
+          "info": 9,
+          "active": 22,
+          "h3": 10,
+          "random": 2
+        },
+        "checks": {
+          "coverage": true,
+          "fallback": true,
+          "goal4": true,
+          "ledger": true,
+          "info": true,
+          "active": true,
+          "loss": true
+        },
+        "pass": true,
+        "strict": true
+      }
+    ],
+    "pass": true,
+    "strict": true
+  },
+  "baseline": {
+    "p": [
+      "r",
+      "r",
+      "r",
+      "r"
+    ],
+    "cohorts": [
+      {
+        "p": [
+          "r",
+          "r",
+          "r",
+          "r"
+        ],
+        "roots": 32,
+        "reached": 32,
+        "invalid": 0,
+        "fallback": 0,
+        "h1": 2,
+        "h3": 3,
+        "info": 3,
+        "unique": 1,
+        "active": 6,
+        "random": 2,
+        "complete": 32,
+        "visits": [
+          32,
+          13,
+          30,
+          22
+        ],
+        "energy": {
+          "mean_share": 0.13070032983092067,
+          "max_share": 0.16625919526100053,
+          "max_step": 0.06169986
+        },
+        "goal4": {
+          "value": 3,
+          "full": 3,
+          "gap": 0,
+          "cells": 192,
+          "informative": 3,
+          "rootCells": 29,
+          "rootInfo": 3
+        },
+        "ledger": {
+          "value": 3,
+          "full": 3,
+          "gap": 0,
+          "cells": 156,
+          "informative": 3,
+          "rootCells": 17,
+          "rootInfo": 3
+        },
+        "gains": 0,
+        "losses": 0,
+        "delta": {
+          "goal4": 0,
+          "ledger": 0,
+          "info": 0,
+          "active": 0,
+          "h3": 0,
+          "random": 0
+        },
+        "checks": {
+          "coverage": true,
+          "fallback": true,
+          "goal4": true,
+          "ledger": true,
+          "info": true,
+          "active": true,
+          "loss": true
+        },
+        "pass": true,
+        "strict": true
+      },
+      {
+        "p": [
+          "r",
+          "r",
+          "r",
+          "r"
+        ],
+        "roots": 32,
+        "reached": 32,
+        "invalid": 0,
+        "fallback": 0,
+        "h1": 3,
+        "h3": 5,
+        "info": 2,
+        "unique": 0,
+        "active": 7,
+        "random": 4,
+        "complete": 32,
+        "visits": [
+          32,
+          16,
+          28,
+          24
+        ],
+        "energy": {
+          "mean_share": 0.1365143046039725,
+          "max_share": 0.18760280627181555,
+          "max_step": 0.06169986
+        },
+        "goal4": {
+          "value": 5,
+          "full": 5,
+          "gap": 0,
+          "cells": 256,
+          "informative": 15,
+          "rootCells": 31,
+          "rootInfo": 1
+        },
+        "ledger": {
+          "value": 5,
+          "full": 5,
+          "gap": 0,
+          "cells": 205,
+          "informative": 15,
+          "rootCells": 18,
+          "rootInfo": 1
+        },
+        "gains": 0,
+        "losses": 0,
+        "delta": {
+          "goal4": 0,
+          "ledger": 0,
+          "info": 0,
+          "active": 0,
+          "h3": 0,
+          "random": 0
+        },
+        "checks": {
+          "coverage": true,
+          "fallback": true,
+          "goal4": true,
+          "ledger": true,
+          "info": true,
+          "active": true,
+          "loss": true
+        },
+        "pass": true,
+        "strict": true
+      }
+    ],
+    "pass": true,
+    "strict": true
+  }
+}
