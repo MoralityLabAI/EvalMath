@@ -102,6 +102,12 @@ def summarize(rows, frozen):
 
 def run(out,cmd,families,horizons,repeats,blocks,timeout):
     out.mkdir(parents=True,exist_ok=True)
+    # Include the entire fresh split namespace in the existing renderer audit.
+    original_held = G.held_out_names
+    new_held = {f"vad_t_{family}_{910000+block*10000+5000+i}"
+                for family in families for block in range(blocks)
+                for i in range(max(horizons))}
+    G.held_out_names = lambda per=None: original_held(per) | new_held
     version=subprocess.check_output(cmd+["--version"],text=True).strip()
     rows=[]; frozen={}
     meta=dict(protocol="VAD-13C",version=version,platform=platform.platform(),
