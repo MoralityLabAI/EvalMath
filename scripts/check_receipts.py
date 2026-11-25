@@ -25,6 +25,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "pdi_transfer": ("scripts/verify_evaluation_pdi_transfer.py", "output/evaluation_pdi/pdi_08.json", [], False),
+    "pdi_robust": ("scripts/verify_evaluation_pdi_robust.py", "output/evaluation_pdi/pdi_04_06.json", [], False),
+    "pdi_frontier": ("scripts/verify_evaluation_pdi_frontier.py", "output/evaluation_pdi/pdi_03.json", [], False),
+    "pdi_noisy": ("scripts/verify_evaluation_pdi_noisy.py", "output/evaluation_pdi/pdi_02.json", [], False),
+    "pdi": ("scripts/verify_evaluation_pdi.py", "output/evaluation_pdi/pdi_01.json", [], False),
     "frozen_evidence": ("scripts/verify_evaluation_frozen_evidence.py",
                         "output/evaluation_frozen_evidence/fre01_v1.json", [], False),
     "finite_sample": ("scripts/verify_evaluation_finite_sample.py",

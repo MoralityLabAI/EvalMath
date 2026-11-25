@@ -1,0 +1,87 @@
+{
+  "adaptive": [
+    [
+      "0",
+      "0"
+    ],
+    [
+      "1/40",
+      "9/40"
+    ],
+    [
+      "1/20",
+      "9/20"
+    ],
+    [
+      "3/25",
+      "63/100"
+    ]
+  ],
+  "checks": {
+    "independent_frontiers": true,
+    "risk_mixture": true,
+    "scalar_support": true,
+    "selection_leak": true,
+    "version_eligibility": true
+  },
+  "deterministic": [
+    "1/20",
+    "9/20"
+  ],
+  "evidence": "exact synthetic finite frontiers, no empirical safety estimate",
+  "fixed": [
+    [
+      "0",
+      "0"
+    ],
+    [
+      "1/40",
+      "9/40"
+    ],
+    [
+      "1/20",
+      "9/20"
+    ]
+  ],
+  "frontier_comparisons": 64,
+  "mixture": [
+    [
+      "9/14",
+      [
+        "1/20",
+        "9/20"
+      ]
+    ],
+    [
+      "5/14",
+      [
+        "3/25",
+        "63/100"
+      ]
+    ]
+  ],
+  "point_order": [
+    "false_weight",
+    "true_weight"
+  ],
+  "randomized": [
+    "3/40",
+    "18/35"
+  ],
+  "revocation": {
+    "hidden_action": "1/2",
+    "left": "0",
+    "right": "1"
+  },
+  "risk_budget": "3/40",
+  "scalar_support_checks": 256,
+  "schema": "PDI-03-v1",
+  "source_sha256": {
+    "paper/proof_dependency_frontier.md": "20a637f00d101d9da1ed5f753d48e1cedf4f58ca9eb2781e38819dfe7747641b",
+    "scripts/verify_evaluation_pdi_frontier.py": "6f332116d768149bc3af3ccc65352e490ad03fc39105e61a3537eecc46b698a0",
+    "src/spiral_ln/evaluation_pdi.py": "12e16c03f9f0c948ec6d411aeb6b645e1c036b97f011a523fa7a9da659770d9b",
+    "src/spiral_ln/evaluation_pdi_frontier.py": "57c72700b68afd6c8dbe5c06d19782d65aa2532f7fd5cb6b7cf5b9ad20eac412",
+    "src/spiral_ln/evaluation_pdi_noisy.py": "f76c618eb3c9fa08e23f4a42bc8a30584a085be059701242d0fd6665e47d611a",
+    "tests/test_evaluation_pdi_frontier.py": "6c87e4ba629d88d79c6ad364b85d2e0a32dde7b336a830a8e97915687f1ca160"
+  }
+}

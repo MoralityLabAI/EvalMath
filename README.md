@@ -83,6 +83,16 @@ connects finite translation Unique Games to graph cohomology and records an exha
 census, two independent exact oracles, and a conditional ETH size audit. The OpenAI theorem's Lean
 statement is separately audited in [draft PR #13](https://github.com/MoralityLabAI/EvalMath/pull/13).
 
+**New (PDI-01):** [Proof dependency information and adaptive certification](paper/proof_dependency_information.md) studies shared certificate obligations and optimal exact audits under arbitrary finite rational priors. The source-hashed receipt checks 64 shared-gate cases, 64 exhaustive policy-tree comparisons and a strict adaptive advantage. Lean algebraic targets are pending kernel verification. Reproduce with `python scripts/check_receipts.py --only pdi`.
+
+**New (PDI-02):** [Noisy proof audits and dependency amplification](paper/proof_dependency_noisy.md) proves a pathwise downstream exposure bound and checks exact noisy audit policies. A synthetic adaptive audit improves utility from 2/5 to 51/100 while false authorization rises from 1/20 to 3/25. Reproduce with `python scripts/check_receipts.py --only pdi_noisy`.
+
+**New (PDI-03):** [Risk-constrained proof discovery](paper/proof_dependency_frontier.md) computes exact deterministic and randomized audit frontiers. At expected false-weight budget 3/40 the synthetic randomized optimum achieves 18/35 true weight versus 9/20 deterministic; 64 exhaustive frontier comparisons and 256 scalar checks pass. A versioned evidence projection and action-selection leakage counterexample mark the revocation limits. Reproduce with `python scripts/check_receipts.py --only pdi_frontier`.
+
+**New (PDI-04--06):** [Robust audits, full-filtration risk and proof reuse](paper/proof_dependency_robust.md) extends the finite suite to common-policy ambiguity sets, exact rational risk-constrained mixtures with executable trees, actor-conditioned hazards, versioned posterior recomputation and a synthetic transfer workload. The receipt checks 32 robust frontiers, 56 replayed vectors, 96 single-scenario reductions and 512 false-count distributions. The public downstream protocol is prospective; no sealed model run or new Lean verification. Reproduce with `python scripts/check_receipts.py --only pdi_robust`.
+
+**New (PDI-07/08):** [Formal risk targets and proof-transfer pilot](paper/proof_dependency_transfer_pilot.md) adds seven Lean risk targets (pending CI) and an exact scorer for 160 paired family-arm receipts. The synthetic fixture verifies the plumbing only; an independently sealed pilot and model runs remain pending. Reproduce with `python scripts/check_receipts.py --only pdi_transfer`.
+
 ## Layout
 
 | Path | Contents |

@@ -1,0 +1,86 @@
+{
+  "checks": {
+    "conditional_hazard": true,
+    "one_scenario_reduction": true,
+    "robust_frontier": true,
+    "robust_mixture": true,
+    "selection_prepeek": true,
+    "transfer_distribution": true,
+    "versioned_posterior": true,
+    "witness_replay": true
+  },
+  "evidence": "exact finite synthetic; no neural measurements or new Lean verification",
+  "hazard_witness": {
+    "prepeek_risk": "1",
+    "product_bound": "3/5"
+  },
+  "replayed_vectors": 56,
+  "robust_cases": 32,
+  "robust_witness": {
+    "best_deterministic": "0",
+    "mixture": [
+      {
+        "tree": [
+          "audit",
+          1,
+          [
+            "leaf",
+            []
+          ],
+          [
+            "leaf",
+            [
+              0
+            ]
+          ]
+        ],
+        "weight": "1/2"
+      },
+      {
+        "tree": [
+          "audit",
+          0,
+          [
+            "leaf",
+            []
+          ],
+          [
+            "leaf",
+            [
+              0
+            ]
+          ]
+        ],
+        "weight": "1/2"
+      }
+    ],
+    "risk_cap": "1/20",
+    "scenario_vector": [
+      "1/20",
+      "3/10",
+      "1/20",
+      "3/10"
+    ],
+    "worst_true": "3/10"
+  },
+  "schema": "PDI-04-06-v1",
+  "single_scenario_checks": 96,
+  "source_sha256": {
+    "paper/proof_dependency_robust.md": "733785e97ca5c03c07eee581f1e2ecd14c4ac29aa8379b2be57c5df74f50204a",
+    "scripts/verify_evaluation_pdi_robust.py": "7b76f13e4c8aee64754607754d30e72d3057cca4317337888666a6aed837e693",
+    "src/spiral_ln/evaluation_pdi.py": "12e16c03f9f0c948ec6d411aeb6b645e1c036b97f011a523fa7a9da659770d9b",
+    "src/spiral_ln/evaluation_pdi_frontier.py": "57c72700b68afd6c8dbe5c06d19782d65aa2532f7fd5cb6b7cf5b9ad20eac412",
+    "src/spiral_ln/evaluation_pdi_noisy.py": "f76c618eb3c9fa08e23f4a42bc8a30584a085be059701242d0fd6665e47d611a",
+    "src/spiral_ln/evaluation_pdi_robust.py": "ddf3d4a55bc8dda068d2e89126688090760de569b5df27e5b37584007ef7ea47",
+    "tests/test_evaluation_pdi_robust.py": "57401ac7c0601e8b47606275fe990d593d618b19e3bc10815933a66bbf288223"
+  },
+  "transfer_distributions": 512,
+  "transfer_witness": {
+    "independent_all_false": "1/10000",
+    "independent_targets": 2,
+    "independent_true": "81/50",
+    "shared_all_false": "1/100",
+    "shared_targets": 8,
+    "shared_true": "162/25"
+  }
+}
