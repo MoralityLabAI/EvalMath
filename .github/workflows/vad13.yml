@@ -1,0 +1,53 @@
+name: VAD-13 batch pilot
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/verify_vad_batch.py'
+      - 'scripts/verify_vad_joint_demand.mjs'
+      - 'scripts/vad_gym.py'
+      - 'output/verified_abstraction/vad_13a.json'
+      - '.github/workflows/vad13.yml'
+  workflow_dispatch:
+
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Replay VAD-13A
+        run: |
+          node scripts/verify_vad_joint_demand.mjs output/verified_abstraction/vad_11_gym.json > /tmp/vad13a.json
+          cmp /tmp/vad13a.json output/verified_abstraction/vad_13a.json
+
+  batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        lean: ['4.19.0', '4.35.0']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned Lean
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh
+          bash /tmp/elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v${{ matrix.lean }}
+      - name: Matched batch pilot
+        run: |
+          python scripts/verify_vad_batch.py --out /tmp/vad13 --lean elan run leanprover/lean4:v${{ matrix.lean }} lean --families F1 F5 --horizons 8 32 --repeats 2
+      - name: Upload physical timing receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vad13-${{ matrix.lean }}
+          path: /tmp/vad13/receipt.json
+          if-no-files-found: warn
