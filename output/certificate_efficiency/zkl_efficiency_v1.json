@@ -7,7 +7,7 @@
   "schema": "zkl-certificate-efficiency/v1",
   "scope": "exact finite arithmetic checks",
   "source_sha256": {
-    "scripts/verify_certificate_efficiency.py": "aa074024b28d5ea2acc39fc891059c55194ff14858f56de74ae3400797ca105d",
+    "scripts/verify_certificate_efficiency.py": "101b19d11d412d1b5b5234911dbd3b43bdbb08c26aecaf6d844bfb6dddd13838",
     "src/spiral_ln/certificate_efficiency.py": "b0c992fafac8e2b941358cc515dd5b7806643f9780822fadd5687a0acf0f9485",
     "tests/test_certificate_efficiency.py": "469ca2ffeb8509edc22d5f22e95b52668294da4e69366f0b882c2ecf773addc5"
   }

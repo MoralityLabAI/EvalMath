@@ -13,7 +13,7 @@ from spiral_ln.certificate_efficiency import CheckedCost, CostBounds, aggregate,
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--out', type=Path, default=ROOT / 'output/certificate_efficiency/zkl_efficiency_v1.json')
+    parser.add_argument('--out', '--output', type=Path, default=ROOT / 'output/certificate_efficiency/zkl_efficiency_v1.json')
     args = parser.parse_args()
     count = 0
     valid = True
