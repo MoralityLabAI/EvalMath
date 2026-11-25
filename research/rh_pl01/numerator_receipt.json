@@ -1,0 +1,143 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "rows": [
+    {
+      "name": "exact_numerator_base",
+      "root_bytes": 5102,
+      "lines": 6018,
+      "unary": 20348786,
+      "compact": 2910541,
+      "axioms": {
+        "propositional": 2930,
+        "forall-elimination": 29,
+        "forall-distribution": 31,
+        "extensionality": 1,
+        "equality-reflexivity": 2,
+        "equality-substitution": 5
+      },
+      "structural_replay": true,
+      "original_full_replay": true
+    },
+    {
+      "name": "exact_numerator_successor_normalization",
+      "root_bytes": 23370,
+      "lines": 28389,
+      "unary": 598319739,
+      "compact": 69076884,
+      "axioms": {
+        "propositional": 13784,
+        "forall-elimination": 126,
+        "forall-distribution": 176,
+        "equality-reflexivity": 10,
+        "equality-substitution": 22,
+        "extensionality": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": false
+    },
+    {
+      "name": "numerator_agreement_given_denominator_agreement",
+      "root_bytes": 47475,
+      "lines": 69221,
+      "unary": 1430045416,
+      "compact": 168153964,
+      "axioms": {
+        "propositional": 33578,
+        "forall-elimination": 328,
+        "forall-distribution": 420,
+        "equality-reflexivity": 19,
+        "equality-substitution": 41,
+        "extensionality": 1,
+        "separation": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": false
+    },
+    {
+      "name": "joint_harmonic_graph_agreement_from_exact_clauses",
+      "root_bytes": 57831,
+      "lines": 94425,
+      "unary": 2405544949,
+      "compact": 294631981,
+      "axioms": {
+        "propositional": 45709,
+        "forall-elimination": 399,
+        "forall-distribution": 526,
+        "extensionality": 1,
+        "equality-reflexivity": 20,
+        "equality-substitution": 50,
+        "separation": 2
+      },
+      "structural_replay": true,
+      "original_full_replay": false
+    }
+  ],
+  "source_clauses": [
+    0,
+    1,
+    2,
+    5,
+    6,
+    13,
+    14,
+    18,
+    19,
+    20,
+    21
+  ],
+  "comparison_graph_slots": {
+    "numerator": 44,
+    "denominator": 43
+  },
+  "source_formula_bytes": [
+    {
+      "index": 0,
+      "bytes": 732
+    },
+    {
+      "index": 1,
+      "bytes": 6
+    },
+    {
+      "index": 2,
+      "bytes": 28
+    },
+    {
+      "index": 5,
+      "bytes": 5576
+    },
+    {
+      "index": 6,
+      "bytes": 5579
+    },
+    {
+      "index": 13,
+      "bytes": 2612
+    },
+    {
+      "index": 14,
+      "bytes": 2615
+    },
+    {
+      "index": 18,
+      "bytes": 724
+    },
+    {
+      "index": 19,
+      "bytes": 726
+    },
+    {
+      "index": 20,
+      "bytes": 7704
+    },
+    {
+      "index": 21,
+      "bytes": 4391
+    }
+  ],
+  "base_discharged": true,
+  "step_discharged": true,
+  "denominator_premise_discharged": true,
+  "formula_nodes": 129549,
+  "actual_rh_proof": false
+}
