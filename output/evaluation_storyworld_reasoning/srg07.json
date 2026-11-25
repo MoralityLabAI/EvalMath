@@ -1,0 +1,2726 @@
+{
+  "evidence": "executed public generator controls; third cohort public evaluation-template smoke, not a sealed benchmark",
+  "configurations": [
+    {
+      "split": "train_public",
+      "seed": 1397884673,
+      "role": "train_public"
+    },
+    {
+      "split": "calibration_public",
+      "seed": 1397884674,
+      "role": "calibration_public"
+    },
+    {
+      "split": "evaluation_private",
+      "seed": 1397884675,
+      "role": "public_smoke_only"
+    }
+  ],
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg07/curriculum.mjs": "037bf16dbfcb6f789a09cf2227387ede2f6c22e0"
+  },
+  "cohorts": [
+    {
+      "split": "train_public",
+      "replicates": 1,
+      "totals": {
+        "cases": 18,
+        "verified_cases": 18,
+        "probes": 440,
+        "gold": 440,
+        "defective": 0,
+        "pad_parity": 440,
+        "energy_checks": 440,
+        "relevance_witnesses": 168,
+        "planning_checks": 36,
+        "repair": 440,
+        "sham": 0,
+        "scope_injection_rejected": 18
+      },
+      "families": [
+        "parity",
+        "majority"
+      ],
+      "rows": [
+        {
+          "id": "sw_65f7f5d8_f2dbb7be",
+          "family": "parity",
+          "k_relevant": 4,
+          "horizon": 1,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            8,
+            8,
+            8
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_cb816483_053f966b",
+          "family": "parity",
+          "k_relevant": 4,
+          "horizon": 3,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            8,
+            8,
+            8
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_bf2b04c3_29d2685a",
+          "family": "parity",
+          "k_relevant": 4,
+          "horizon": 5,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            8,
+            8,
+            8
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_f92f9087_6cd1d618",
+          "family": "parity",
+          "k_relevant": 8,
+          "horizon": 1,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128
+          ],
+          "probe_rows": 25,
+          "gold": 25,
+          "defective": 0,
+          "pad_parity": 25,
+          "energy_checks": 25,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 25,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_053c3a53_ccb57668",
+          "family": "parity",
+          "k_relevant": 8,
+          "horizon": 3,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128
+          ],
+          "probe_rows": 24,
+          "gold": 24,
+          "defective": 0,
+          "pad_parity": 24,
+          "energy_checks": 24,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 24,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_a3afc71b_32dddd1d",
+          "family": "parity",
+          "k_relevant": 8,
+          "horizon": 5,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128,
+            128
+          ],
+          "probe_rows": 25,
+          "gold": 25,
+          "defective": 0,
+          "pad_parity": 25,
+          "energy_checks": 25,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 25,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_6ce757f4_452b0bf8",
+          "family": "parity",
+          "k_relevant": 16,
+          "horizon": 1,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768
+          ],
+          "probe_rows": 33,
+          "gold": 33,
+          "defective": 0,
+          "pad_parity": 33,
+          "energy_checks": 33,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 33,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_345f1e7b_2592a3d3",
+          "family": "parity",
+          "k_relevant": 16,
+          "horizon": 3,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768
+          ],
+          "probe_rows": 33,
+          "gold": 33,
+          "defective": 0,
+          "pad_parity": 33,
+          "energy_checks": 33,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 33,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_f894b1bd_bac7fb6c",
+          "family": "parity",
+          "k_relevant": 16,
+          "horizon": 5,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768,
+            32768
+          ],
+          "probe_rows": 33,
+          "gold": 33,
+          "defective": 0,
+          "pad_parity": 33,
+          "energy_checks": 33,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 33,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_19c47fe1_513a8b5d",
+          "family": "majority",
+          "k_relevant": 4,
+          "horizon": 1,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            6,
+            2,
+            2,
+            2
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 14,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_2b4d7052_2da92cd1",
+          "family": "majority",
+          "k_relevant": 4,
+          "horizon": 3,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            6,
+            2,
+            2,
+            2
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 14,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_e8f37712_443ff75a",
+          "family": "majority",
+          "k_relevant": 4,
+          "horizon": 5,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            6,
+            2,
+            2,
+            2
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 14,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_1e4a15d6_c2ef8e6e",
+          "family": "majority",
+          "k_relevant": 8,
+          "horizon": 1,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            70,
+            30,
+            30,
+            30,
+            30,
+            30,
+            30,
+            30
+          ],
+          "probe_rows": 24,
+          "gold": 24,
+          "defective": 0,
+          "pad_parity": 24,
+          "energy_checks": 24,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 24,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 210,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_91316f95_24b1af74",
+          "family": "majority",
+          "k_relevant": 8,
+          "horizon": 3,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            70,
+            30,
+            30,
+            30,
+            30,
+            30,
+            30,
+            30
+          ],
+          "probe_rows": 25,
+          "gold": 25,
+          "defective": 0,
+          "pad_parity": 25,
+          "energy_checks": 25,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 25,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 210,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_54c37cd4_5065ce78",
+          "family": "majority",
+          "k_relevant": 8,
+          "horizon": 5,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            70,
+            30,
+            30,
+            30,
+            30,
+            30,
+            30,
+            30
+          ],
+          "probe_rows": 23,
+          "gold": 23,
+          "defective": 0,
+          "pad_parity": 23,
+          "energy_checks": 23,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 23,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 210,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_d21b6856_5d2f0c1e",
+          "family": "majority",
+          "k_relevant": 16,
+          "horizon": 1,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            12870,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006
+          ],
+          "probe_rows": 33,
+          "gold": 33,
+          "defective": 0,
+          "pad_parity": 33,
+          "energy_checks": 33,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 33,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 51602,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_506833bf_95e0eeb0",
+          "family": "majority",
+          "k_relevant": 16,
+          "horizon": 3,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            12870,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006
+          ],
+          "probe_rows": 33,
+          "gold": 33,
+          "defective": 0,
+          "pad_parity": 33,
+          "energy_checks": 33,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 33,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 51602,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_5ef78c8e_43a57c9d",
+          "family": "majority",
+          "k_relevant": 16,
+          "horizon": 5,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            12870,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006,
+            6006
+          ],
+          "probe_rows": 33,
+          "gold": 33,
+          "defective": 0,
+          "pad_parity": 33,
+          "energy_checks": 33,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 33,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 51602,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        }
+      ],
+      "role": "train_public"
+    },
+    {
+      "split": "calibration_public",
+      "replicates": 1,
+      "totals": {
+        "cases": 18,
+        "verified_cases": 18,
+        "probes": 499,
+        "gold": 499,
+        "defective": 0,
+        "pad_parity": 499,
+        "energy_checks": 499,
+        "relevance_witnesses": 168,
+        "planning_checks": 36,
+        "repair": 499,
+        "sham": 0,
+        "scope_injection_rejected": 18
+      },
+      "families": [
+        "anchored_quorum",
+        "adjacent_conjunction"
+      ],
+      "rows": [
+        {
+          "id": "sw_65fb95bb_fed33dbd",
+          "family": "anchored_quorum",
+          "k_relevant": 4,
+          "horizon": 1,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            4,
+            4,
+            4
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 12,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_b85e6563_eab5dc5a",
+          "family": "anchored_quorum",
+          "k_relevant": 4,
+          "horizon": 3,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            4,
+            4,
+            4
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 12,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_d3fcbf36_c751fa5b",
+          "family": "anchored_quorum",
+          "k_relevant": 4,
+          "horizon": 5,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            4,
+            4,
+            4
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 12,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_db8bf1f4_131146ee",
+          "family": "anchored_quorum",
+          "k_relevant": 8,
+          "horizon": 1,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            40,
+            40,
+            40,
+            40,
+            40,
+            40,
+            40
+          ],
+          "probe_rows": 25,
+          "gold": 25,
+          "defective": 0,
+          "pad_parity": 25,
+          "energy_checks": 25,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 25,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 192,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_b478283e_9e89a0a1",
+          "family": "anchored_quorum",
+          "k_relevant": 8,
+          "horizon": 3,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            40,
+            40,
+            40,
+            40,
+            40,
+            40,
+            40
+          ],
+          "probe_rows": 26,
+          "gold": 26,
+          "defective": 0,
+          "pad_parity": 26,
+          "energy_checks": 26,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 26,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 192,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_53390d55_20e1179c",
+          "family": "anchored_quorum",
+          "k_relevant": 8,
+          "horizon": 5,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            40,
+            40,
+            40,
+            40,
+            40,
+            40,
+            40
+          ],
+          "probe_rows": 26,
+          "gold": 26,
+          "defective": 0,
+          "pad_parity": 26,
+          "energy_checks": 26,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 26,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 192,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_73b83d5a_f67bad33",
+          "family": "anchored_quorum",
+          "k_relevant": 16,
+          "horizon": 1,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864
+          ],
+          "probe_rows": 34,
+          "gold": 34,
+          "defective": 0,
+          "pad_parity": 34,
+          "energy_checks": 34,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 34,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 49152,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_ad8f68bd_5385f6d1",
+          "family": "anchored_quorum",
+          "k_relevant": 16,
+          "horizon": 3,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864
+          ],
+          "probe_rows": 34,
+          "gold": 34,
+          "defective": 0,
+          "pad_parity": 34,
+          "energy_checks": 34,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 34,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 49152,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_7e41bfe4_7e1e7c7a",
+          "family": "anchored_quorum",
+          "k_relevant": 16,
+          "horizon": 5,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864,
+            6864
+          ],
+          "probe_rows": 34,
+          "gold": 34,
+          "defective": 0,
+          "pad_parity": 34,
+          "energy_checks": 34,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 34,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 49152,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_96117233_b2be8d18",
+          "family": "adjacent_conjunction",
+          "k_relevant": 4,
+          "horizon": 1,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            2,
+            6,
+            2
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 10,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_03d49c4e_9bff9860",
+          "family": "adjacent_conjunction",
+          "k_relevant": 4,
+          "horizon": 3,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            2,
+            6,
+            2
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 10,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_4bbbac9e_fb2602ca",
+          "family": "adjacent_conjunction",
+          "k_relevant": 4,
+          "horizon": 5,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            2,
+            6,
+            2
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 10,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_6b436a9f_c401bb77",
+          "family": "adjacent_conjunction",
+          "k_relevant": 8,
+          "horizon": 1,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            16,
+            36,
+            28,
+            32,
+            28,
+            36,
+            16
+          ],
+          "probe_rows": 29,
+          "gold": 29,
+          "defective": 0,
+          "pad_parity": 29,
+          "energy_checks": 29,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 29,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 188,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_1c207822_77a207b0",
+          "family": "adjacent_conjunction",
+          "k_relevant": 8,
+          "horizon": 3,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            16,
+            36,
+            28,
+            32,
+            28,
+            36,
+            16
+          ],
+          "probe_rows": 30,
+          "gold": 30,
+          "defective": 0,
+          "pad_parity": 30,
+          "energy_checks": 30,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 30,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 188,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_e7cb0e42_4662a523",
+          "family": "adjacent_conjunction",
+          "k_relevant": 8,
+          "horizon": 5,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            16,
+            36,
+            28,
+            32,
+            28,
+            36,
+            16
+          ],
+          "probe_rows": 27,
+          "gold": 27,
+          "defective": 0,
+          "pad_parity": 27,
+          "energy_checks": 27,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 27,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 188,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_d7baaea8_cf921c7f",
+          "family": "adjacent_conjunction",
+          "k_relevant": 16,
+          "horizon": 1,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            754,
+            1686,
+            1330,
+            1466,
+            1414,
+            1434,
+            1426,
+            1430,
+            1426,
+            1434,
+            1414,
+            1466,
+            1330,
+            1686,
+            754
+          ],
+          "probe_rows": 46,
+          "gold": 46,
+          "defective": 0,
+          "pad_parity": 46,
+          "energy_checks": 46,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 46,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 62342,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_dabc9f4f_63fe2745",
+          "family": "adjacent_conjunction",
+          "k_relevant": 16,
+          "horizon": 3,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            754,
+            1686,
+            1330,
+            1466,
+            1414,
+            1434,
+            1426,
+            1430,
+            1426,
+            1434,
+            1414,
+            1466,
+            1330,
+            1686,
+            754
+          ],
+          "probe_rows": 46,
+          "gold": 46,
+          "defective": 0,
+          "pad_parity": 46,
+          "energy_checks": 46,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 46,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 62342,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_3edd7693_91e48c14",
+          "family": "adjacent_conjunction",
+          "k_relevant": 16,
+          "horizon": 5,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            754,
+            1686,
+            1330,
+            1466,
+            1414,
+            1434,
+            1426,
+            1430,
+            1426,
+            1434,
+            1414,
+            1466,
+            1330,
+            1686,
+            754
+          ],
+          "probe_rows": 46,
+          "gold": 46,
+          "defective": 0,
+          "pad_parity": 46,
+          "energy_checks": 46,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 46,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 62342,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        }
+      ],
+      "role": "calibration_public"
+    },
+    {
+      "split": "evaluation_private",
+      "replicates": 1,
+      "totals": {
+        "cases": 18,
+        "verified_cases": 18,
+        "probes": 453,
+        "gold": 453,
+        "defective": 0,
+        "pad_parity": 453,
+        "energy_checks": 453,
+        "relevance_witnesses": 168,
+        "planning_checks": 36,
+        "repair": 453,
+        "sham": 0,
+        "scope_injection_rejected": 18
+      },
+      "families": [
+        "selector",
+        "leading_run"
+      ],
+      "rows": [
+        {
+          "id": "sw_65ffb59a_fadb3bbc",
+          "family": "selector",
+          "k_relevant": 4,
+          "horizon": 1,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            4,
+            4,
+            4
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_44f47689_8e8340fb",
+          "family": "selector",
+          "k_relevant": 4,
+          "horizon": 3,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            4,
+            4,
+            4
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_4c36c48e_004e957d",
+          "family": "selector",
+          "k_relevant": 4,
+          "horizon": 5,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            4,
+            4,
+            4
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_c565e4df_46393c20",
+          "family": "selector",
+          "k_relevant": 8,
+          "horizon": 1,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            100,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          "probe_rows": 27,
+          "gold": 27,
+          "defective": 0,
+          "pad_parity": 27,
+          "energy_checks": 27,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 27,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 224,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_e24f7353_8887bd61",
+          "family": "selector",
+          "k_relevant": 8,
+          "horizon": 3,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            100,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          "probe_rows": 27,
+          "gold": 27,
+          "defective": 0,
+          "pad_parity": 27,
+          "energy_checks": 27,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 27,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 224,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_3b5e8418_9063cf36",
+          "family": "selector",
+          "k_relevant": 8,
+          "horizon": 5,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            100,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          "probe_rows": 26,
+          "gold": 26,
+          "defective": 0,
+          "pad_parity": 26,
+          "energy_checks": 26,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 26,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 224,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_6d6f45b4_3ee96c58",
+          "family": "selector",
+          "k_relevant": 16,
+          "horizon": 1,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            32260,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256
+          ],
+          "probe_rows": 35,
+          "gold": 35,
+          "defective": 0,
+          "pad_parity": 35,
+          "energy_checks": 35,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 35,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 65024,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_2b681f8e_3ba0b382",
+          "family": "selector",
+          "k_relevant": 16,
+          "horizon": 3,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            32260,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256
+          ],
+          "probe_rows": 35,
+          "gold": 35,
+          "defective": 0,
+          "pad_parity": 35,
+          "energy_checks": 35,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 35,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 65024,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_d1b6ce57_07f96749",
+          "family": "selector",
+          "k_relevant": 16,
+          "horizon": 5,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            32260,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256,
+            256
+          ],
+          "probe_rows": 35,
+          "gold": 35,
+          "defective": 0,
+          "pad_parity": 35,
+          "energy_checks": 35,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 35,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 65024,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_1c351f85_4779ec87",
+          "family": "leading_run",
+          "k_relevant": 4,
+          "horizon": 1,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            6,
+            2,
+            2
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 14,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_225c857d_ec9cfc84",
+          "family": "leading_run",
+          "k_relevant": 4,
+          "horizon": 3,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            6,
+            2,
+            2
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 14,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_8a86118e_5e494f75",
+          "family": "leading_run",
+          "k_relevant": 4,
+          "horizon": 5,
+          "k_ambient": 5,
+          "padded_k_ambient": 33,
+          "truth_rows": 16,
+          "balanced_positive": 8,
+          "influence_pair_counts": [
+            8,
+            6,
+            2,
+            2
+          ],
+          "probe_rows": 16,
+          "gold": 16,
+          "defective": 0,
+          "pad_parity": 16,
+          "energy_checks": 16,
+          "relevance_witnesses": 4,
+          "planning_checks": 2,
+          "repair": 16,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 8,
+              "denominator": 16
+            },
+            {
+              "shown": 2,
+              "numerator": 14,
+              "denominator": 16
+            },
+            {
+              "shown": 4,
+              "numerator": 16,
+              "denominator": 16
+            }
+          ]
+        },
+        {
+          "id": "sw_2eb81181_bd8cdf65",
+          "family": "leading_run",
+          "k_relevant": 8,
+          "horizon": 1,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            86,
+            42,
+            22,
+            10,
+            6,
+            2,
+            2
+          ],
+          "probe_rows": 24,
+          "gold": 24,
+          "defective": 0,
+          "pad_parity": 24,
+          "energy_checks": 24,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 24,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 246,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_7bf40b46_a90a7708",
+          "family": "leading_run",
+          "k_relevant": 8,
+          "horizon": 3,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            86,
+            42,
+            22,
+            10,
+            6,
+            2,
+            2
+          ],
+          "probe_rows": 25,
+          "gold": 25,
+          "defective": 0,
+          "pad_parity": 25,
+          "energy_checks": 25,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 25,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 246,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_75f10af6_c153f481",
+          "family": "leading_run",
+          "k_relevant": 8,
+          "horizon": 5,
+          "k_ambient": 9,
+          "padded_k_ambient": 65,
+          "truth_rows": 256,
+          "balanced_positive": 128,
+          "influence_pair_counts": [
+            128,
+            86,
+            42,
+            22,
+            10,
+            6,
+            2,
+            2
+          ],
+          "probe_rows": 24,
+          "gold": 24,
+          "defective": 0,
+          "pad_parity": 24,
+          "energy_checks": 24,
+          "relevance_witnesses": 8,
+          "planning_checks": 2,
+          "repair": 24,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 128,
+              "denominator": 256
+            },
+            {
+              "shown": 4,
+              "numerator": 246,
+              "denominator": 256
+            },
+            {
+              "shown": 8,
+              "numerator": 256,
+              "denominator": 256
+            }
+          ]
+        },
+        {
+          "id": "sw_e3e0b58a_5f606b62",
+          "family": "leading_run",
+          "k_relevant": 16,
+          "horizon": 1,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            21846,
+            10922,
+            5462,
+            2730,
+            1366,
+            682,
+            342,
+            170,
+            86,
+            42,
+            22,
+            10,
+            6,
+            2,
+            2
+          ],
+          "probe_rows": 33,
+          "gold": 33,
+          "defective": 0,
+          "pad_parity": 33,
+          "energy_checks": 33,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 33,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 65366,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_6ad8cd22_1cea271c",
+          "family": "leading_run",
+          "k_relevant": 16,
+          "horizon": 3,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            21846,
+            10922,
+            5462,
+            2730,
+            1366,
+            682,
+            342,
+            170,
+            86,
+            42,
+            22,
+            10,
+            6,
+            2,
+            2
+          ],
+          "probe_rows": 33,
+          "gold": 33,
+          "defective": 0,
+          "pad_parity": 33,
+          "energy_checks": 33,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 33,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 65366,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        },
+        {
+          "id": "sw_51873a31_6ee96b71",
+          "family": "leading_run",
+          "k_relevant": 16,
+          "horizon": 5,
+          "k_ambient": 17,
+          "padded_k_ambient": 141,
+          "truth_rows": 65536,
+          "balanced_positive": 32768,
+          "influence_pair_counts": [
+            32768,
+            21846,
+            10922,
+            5462,
+            2730,
+            1366,
+            682,
+            342,
+            170,
+            86,
+            42,
+            22,
+            10,
+            6,
+            2,
+            2
+          ],
+          "probe_rows": 33,
+          "gold": 33,
+          "defective": 0,
+          "pad_parity": 33,
+          "energy_checks": 33,
+          "relevance_witnesses": 16,
+          "planning_checks": 2,
+          "repair": 33,
+          "sham": 0,
+          "scope_injection_rejected": true,
+          "information": [
+            {
+              "shown": 0,
+              "numerator": 32768,
+              "denominator": 65536
+            },
+            {
+              "shown": 8,
+              "numerator": 65366,
+              "denominator": 65536
+            },
+            {
+              "shown": 16,
+              "numerator": 65536,
+              "denominator": 65536
+            }
+          ]
+        }
+      ],
+      "role": "public_smoke_only"
+    }
+  ],
+  "total": {
+    "cases": 54,
+    "verified_cases": 54,
+    "probes": 1392,
+    "gold": 1392,
+    "defective": 0,
+    "pad_parity": 1392,
+    "energy_checks": 1392,
+    "relevance_witnesses": 504,
+    "planning_checks": 108,
+    "repair": 1392,
+    "sham": 0,
+    "scope_injection_rejected": 54
+  }
+}
