@@ -167,6 +167,10 @@ conclusions about theological claims.
 The associated [draft PR #16](https://github.com/MoralityLabAI/EvalMath/pull/16)
 remains open for review.
 
+## Noise-constrained auditing (NFAS-01–04, research draft)
+
+[Noise-constrained selection](paper/noise_constrained_selection.md), [verified utility and residual risk](paper/verified_utility_residual_risk.md), [robust randomized auditing](paper/robust_randomized_auditing.md), and [three-candidate seed visibility](paper/three_candidate_seed_visibility.md) study noisy evaluation feedback, partition quotas and adversarial scheduling. The three-world witness exhibits a strict private-seed advantage (1/2 vs 1/3) for one audit among three candidates, even though the fully informed two-candidate scalar model has a common-threshold deterministic-optimum theorem. All results concern finite synthetic models or paper identities; upstream OpenAI manuscripts are cited conditionally. Reproduce the four exact standalone receipts with Node 22 and `python scripts/check_receipts.py --only nfas01 nfas02 nfas03 nfas04`. Supporting Lean algebra is proposed; see `lean/CLAIMS.md`.
+
 ## License
 
 Apache License 2.0; see [`LICENSE`](LICENSE).

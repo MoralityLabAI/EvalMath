@@ -25,6 +25,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "nfas01": ("scripts/verify_nfas01.mjs", "output/nfas01.json", [], False),
+    "nfas02": ("scripts/verify_nfas02.mjs", "output/nfas02.json", [], False),
+    "nfas03": ("scripts/verify_nfas03.mjs", "output/nfas03.json", [], False),
+    "nfas04": ("scripts/verify_nfas04.mjs", "output/nfas04.json", [], False),
     "frozen_evidence": ("scripts/verify_evaluation_frozen_evidence.py",
                         "output/evaluation_frozen_evidence/fre01_v1.json", [], False),
     "finite_sample": ("scripts/verify_evaluation_finite_sample.py",
@@ -150,6 +154,36 @@ def main() -> int:
     for name in names:
         verifier, receipt_path, extra, _ = RECEIPTS[name]
         committed = json.loads((ROOT / receipt_path).read_text(encoding="utf-8"))
+        # NFAS exact JavaScript oracles embed rational certificates and compare
+        # their complete JSON receipt. Git blob hashes include the byte count.
+        if verifier.endswith(".mjs"):
+            source = ROOT / verifier
+            payload = source.read_bytes()
+            digest = hashlib.sha1(b"blob " + str(len(payload)).encode("ascii") + b"\0" + payload).hexdigest()
+            hash_ok = committed.get("source_git_blob_sha") == digest
+            ok_checks, _ = all_checks_true(committed)
+            reproduced = True
+            detail = ""
+            if not args.no_regenerate and hash_ok and ok_checks:
+                try:
+                    run = subprocess.run(["node", str(source), "--check"],
+                                         cwd=ROOT, env=env, capture_output=True, text=True)
+                    reproduced = run.returncode == 0
+                    if not reproduced:
+                        detail = "; " + run.stderr.strip()[-300:]
+                except OSError as exc:
+                    reproduced = False
+                    detail = "; Node runtime unavailable: " + str(exc)
+            ok = hash_ok and ok_checks and reproduced
+            line = f"{name:17s} Git blob {'matches' if hash_ok else 'STALE'}"
+            if not args.no_regenerate:
+                line += "; exact receipt " + ("verified" if ok else "FAILED")
+            line += detail
+            if not ok:
+                annotate("error", f"receipt {name}", line)
+            failures += not ok
+            print(("ok   " if ok else "FAIL ") + line, flush=True)
+            continue
         ok_checks, n_checks = all_checks_true(committed)
         hashes = source_hashes(committed)
         stale = [rel for rel, digest in hashes.items()

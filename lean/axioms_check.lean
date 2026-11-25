@@ -227,3 +227,8 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.RSISpectralThreshold.dominant_gt_one_iff
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance_attained
+
+-- NFAS: supporting algebra for the two-action identity and three-world ceilings
+#print axioms FeedbackChannel.NFAS.three_conflict_ceiling
+#print axioms FeedbackChannel.NFAS.three_binary_ceiling
+#print axioms FeedbackChannel.NFAS.two_action_threshold
