@@ -36,18 +36,18 @@ export function scoreEvidence(suite,submissions){
 }
 export function scoreRepairs(suite,submissions){
  const {entries,duplicates}=index(submissions),expected=new Set(suite.repairs.map(r=>r.id)),results=[],counts={};
- let passed=0,total=0,weighted=0,weighted_total=0;
+ let passed=0,total=0,weighted=0,weighted_total=0,intervention_passed=0,intervention_total=0;
  for(const r of suite.repairs){
-   const p=entries.get(r.id);let status="missing",n=0,m=0;
+   const p=entries.get(r.id);let status="missing",n=0,m=0,inter=0,provenance=false;
    if(duplicates.has(r.id))status="duplicate";
    else if(p)try{
      if(Object.keys(p).sort().join(",")!=="after,before,id,line")fail("patch fields");
-     const out=r.score({line:p.line,before:p.before,after:p.after});n=out.pass;m=out.weighted;status=n===out.total?"pass":"fail";
+     const out=r.score({line:p.line,before:p.before,after:p.after});n=out.pass;m=out.weighted;inter=out.intervention_pass;provenance=out.provenance_exact;status=out.contract_pass?"pass":"fail";
    }catch{status="rejected";}
-   const d=r.stats.gold.total;passed+=n;total+=d;weighted+=m;weighted_total+=16384;
-   add(counts,status);results.push({id:r.id,status,passed:n,total:d,weighted:m,weighted_total:16384});
+   const d=r.stats.gold.total;passed+=n;total+=d;weighted+=m;weighted_total+=16384;intervention_passed+=inter;intervention_total+=r.stats.gold.intervention_total;
+   add(counts,status);results.push({id:r.id,status,passed:n,total:d,weighted:m,weighted_total:16384,intervention_passed:inter,intervention_total:r.stats.gold.intervention_total,provenance_exact:provenance});
  }
- return {kind:"author",counts,passed,total,weighted,weighted_total,unknown_ids:[...entries.keys()].filter(id=>!expected.has(id)),results};
+ return {kind:"author",counts,passed,total,weighted,weighted_total,intervention_passed,intervention_total,unknown_ids:[...entries.keys()].filter(id=>!expected.has(id)),results};
 }
 function make(){return runSuite({api,evaluate,seed});}
 function put(p,data){fs.writeFileSync(p,data,{flag:"wx",mode:0o600});}
