@@ -142,7 +142,7 @@ function buildPairs(tr,k){
  assert(ns[sg.f].y===F(at(graph,u,v),A(E(u,x),E(v,y))),'singleton graph equivalence');
  function get(name,pf,cap=0){const root=p.close(pf),r=cap?p.replay(root,cap):p.emit(root);return {name,raw:{nodes:ar.nodes,ids:r.ids,root:root.f,target:k.encode(ar.ast(root.f)),cost:r.cost},receipt:{name,target_bytes:ns[root.f].u,...r.cost,axioms:r.axioms,structural_replay:true,original_full_replay:!!r.original}}}
  function run(){return [get('ordered_pair_exists',pairProof,32000000),get('ordered_pair_injectivity',inject,32000000),get('ordered_pair_double_power_bound',bound,32000000),get('singleton_graph_application',sg)]}
- return {run,get,p,ar,ns,pair,single,double,pairProof,inject,bound,sg,singleExists,doubleExists,cases,pack,witness,allP,all,and,chain};
+ return {run,get,p,t,ar,ns,pair,single,double,pairProof,inject,bound,sg,singleExists,doubleExists,cases,pack,witness,allP,all,and,chain,explode,orLeft,orRight,refl};
  }
  return {prepare};
 }
