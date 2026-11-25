@@ -31,7 +31,7 @@ for mod in "$@"; do
   case "$mod" in
     root) /usr/bin/time -f "%e s" lean FeedbackChannel.lean -o "$OUT/FeedbackChannel.olean" -i "$OUT/FeedbackChannel.ilean" >> "$LOG" 2>&1 ;;
     axioms) /usr/bin/time -f "%e s" lean axioms_check.lean >> "$LOG" 2>&1 ;;
-    *) /usr/bin/time -f "%e s" lean "FeedbackChannel/$mod.lean" -o "$OUT/FeedbackChannel/$mod.olean" -i "$OUT/FeedbackChannel/$mod.ilean" >> "$LOG" 2>&1 ;;
+    *) mkdir -p "$(dirname "$OUT/FeedbackChannel/$mod")"; /usr/bin/time -f "%e s" lean "FeedbackChannel/$mod.lean" -o "$OUT/FeedbackChannel/$mod.olean" -i "$OUT/FeedbackChannel/$mod.ilean" >> "$LOG" 2>&1 ;;
   esac
   rc=$?
   echo "exit $rc for $mod" >> "$LOG"

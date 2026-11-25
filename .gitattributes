@@ -14,3 +14,6 @@ lean/lean-toolchain text eol=lf
 # never normalize either tree.
 output/** -text
 docs/session_logs/** -text
+
+# Pinned upstream archives are byte-exact (git blob SHAs are checked); never convert line endings.
+fixtures/external/** -text
