@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {development,validation,envelope,summarizeDevelopment} from './optimizer.mjs';
+const root=new URL('../../../',import.meta.url),read=f=>fs.readFileSync(new URL(f,root),"utf8");
+const source=read("integrations/sweepweave-ts/srg13/fixtures/reservoir-dogs-evidence-chain-candidate.swmd.md");
+const receipt=k=>JSON.parse(read("output/evaluation_storyworld_reasoning/srg_ac02_"+k+".json"));
+const [cmd="verify",...extra]=process.argv.slice(2);
+if(extra.length||cmd!=="verify")throw Error("usage: node integrations/sweepweave-ts/srg-ac02/cli.mjs verify");
+const d=development(source);assert.deepEqual(d,receipt("development"),"development drift");
+const v=validation(source,d.frozen);assert.deepEqual(v,receipt("validation"),"validation drift");
+const e={...summarizeDevelopment(d),envelope:envelope(source)};assert.deepEqual(e,receipt("diagnostic"),"diagnostic drift");
+console.log(JSON.stringify({replay:"pass",promotion:v.pass,grid:d.candidates.length,feasible:d.feasible,frozen:d.frozen,diagnostic:e},null,2));

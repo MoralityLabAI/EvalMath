@@ -1,0 +1,84 @@
+{
+  "grid": 19,
+  "feasible": 7,
+  "any_positive": 0,
+  "fail_cohort_counts": {
+    "full": 10,
+    "goal4": 10,
+    "ledger": 10,
+    "informative": 10,
+    "energy": 3
+  },
+  "max_energy": 1.2524670792127572,
+  "max_concentration": 0.015920519684658713,
+  "dev_actions": 7296,
+  "dev_forced": 7296,
+  "dev_provenance_combinations": 684,
+  "dev_provenance_checks": 6498,
+  "envelope": {
+    "scope": "post-development exact immediate-goal upper envelope on sampled reachable roots for continuous weight polytope, not H3 and not a shared feasible coefficient vector",
+    "proof": "uncapped weighted sum is linear in weights, extrema on permutations of (.5,1,1.5); cap is monotone. All other eligibility and ranking terms are independent of readiness, and secret priority has positive slope 4. A root's maximum possible immediate truce success is attained by a tested vertex. Rootwise envelope permits different weights for every root.",
+    "cohorts": [
+      {
+        "seed": 1397891585,
+        "roots": 64,
+        "eligible": 64,
+        "zero": 49,
+        "saturated": 3,
+        "interior": 12,
+        "constant": 49,
+        "variable": 15,
+        "baseTruce": 7,
+        "minTruce": 6,
+        "maxTruce": 7,
+        "newTruce": 0,
+        "baseGoal": 10,
+        "maxGoal": 10,
+        "patterns": {
+          "0,0,0.09375": 13,
+          "0,0,0": 16,
+          "0.125,0,0.0625": 2,
+          "0,0.125,0.09375": 6,
+          "0,0,0.0625": 9,
+          "0,0.125,0": 6,
+          "0.125,0,0": 5,
+          "0.125,0,0.09375": 3,
+          "0.125,0.125,0": 3,
+          "0,0.125,0.0625": 1
+        },
+        "witnesses": []
+      },
+      {
+        "seed": 1397891586,
+        "roots": 64,
+        "eligible": 64,
+        "zero": 54,
+        "saturated": 4,
+        "interior": 6,
+        "constant": 57,
+        "variable": 7,
+        "baseTruce": 6,
+        "minTruce": 3,
+        "maxTruce": 6,
+        "newTruce": 0,
+        "baseGoal": 10,
+        "maxGoal": 10,
+        "patterns": {
+          "0,0,0": 27,
+          "0,0,0.0625": 7,
+          "0,0,0.09375": 10,
+          "0.125,0,0.0625": 2,
+          "0.125,0,0": 5,
+          "0.125,0.125,0.0625": 1,
+          "0,0.125,0": 5,
+          "0.125,0.125,0.09375": 2,
+          "0.125,0.125,0": 1,
+          "0,0.125,0.0625": 1,
+          "0.125,0,0.09375": 1,
+          "0,0.125,0.09375": 2
+        },
+        "witnesses": []
+      }
+    ]
+  }
+}

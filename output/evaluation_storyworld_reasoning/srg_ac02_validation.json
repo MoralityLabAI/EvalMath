@@ -1,0 +1,236 @@
+{
+  "frozen": [
+    1,
+    1,
+    1
+  ],
+  "provenance": {
+    "allowed": [
+      [
+        0,
+        0.0625,
+        0.125
+      ],
+      [
+        0,
+        0.03125,
+        0.0625,
+        0.125
+      ],
+      [
+        0,
+        0.0625,
+        0.09375
+      ]
+    ],
+    "combinations": 36,
+    "checks": 342
+  },
+  "cohorts": [
+    {
+      "seed": 1397891601,
+      "missed": [],
+      "matched_prefixes": 128,
+      "base": {
+        "roots": 128,
+        "valid": 128,
+        "invalid": 0,
+        "nodes": 3054,
+        "actions": 384,
+        "forced": 384,
+        "full": 20,
+        "h1": 14,
+        "informative": 16,
+        "uniqueTruce": 4,
+        "goal4": {
+          "value": 20,
+          "full": 20,
+          "gap": 0,
+          "cells": 757,
+          "informative": 49,
+          "root_cells": 109,
+          "root_informative": 15
+        },
+        "ledger": {
+          "value": 18,
+          "full": 20,
+          "gap": 2,
+          "cells": 458,
+          "informative": 39,
+          "root_cells": 39,
+          "root_informative": 10
+        },
+        "lost": 0,
+        "newTruce": 0,
+        "newTruceUnwarranted": 0,
+        "scope": 0,
+        "maxEnergy": 1,
+        "maxConc": 0,
+        "maxReady": 0.125,
+        "changed": 0,
+        "witnesses": []
+      },
+      "candidate": {
+        "roots": 128,
+        "valid": 128,
+        "invalid": 0,
+        "nodes": 3054,
+        "actions": 384,
+        "forced": 384,
+        "full": 20,
+        "h1": 14,
+        "informative": 16,
+        "uniqueTruce": 4,
+        "goal4": {
+          "value": 20,
+          "full": 20,
+          "gap": 0,
+          "cells": 757,
+          "informative": 49,
+          "root_cells": 109,
+          "root_informative": 15
+        },
+        "ledger": {
+          "value": 18,
+          "full": 20,
+          "gap": 2,
+          "cells": 458,
+          "informative": 39,
+          "root_cells": 39,
+          "root_informative": 10
+        },
+        "lost": 0,
+        "newTruce": 0,
+        "newTruceUnwarranted": 0,
+        "scope": 0,
+        "maxEnergy": 1,
+        "maxConc": 0,
+        "maxReady": 0.125,
+        "changed": 0,
+        "witnesses": [],
+        "checks": {
+          "valid": true,
+          "scope": true,
+          "provenance": true,
+          "energy": true,
+          "concentration": true,
+          "full": true,
+          "goal4": true,
+          "ledger": true,
+          "informative": true
+        },
+        "pass": true,
+        "delta": {
+          "goal4": 0,
+          "ledger": 0,
+          "info": 0,
+          "full": 0
+        }
+      },
+      "pass": false
+    },
+    {
+      "seed": 1397891602,
+      "missed": [],
+      "matched_prefixes": 128,
+      "base": {
+        "roots": 128,
+        "valid": 128,
+        "invalid": 0,
+        "nodes": 3481,
+        "actions": 384,
+        "forced": 384,
+        "full": 22,
+        "h1": 20,
+        "informative": 12,
+        "uniqueTruce": 1,
+        "goal4": {
+          "value": 22,
+          "full": 22,
+          "gap": 0,
+          "cells": 829,
+          "informative": 48,
+          "root_cells": 100,
+          "root_informative": 10
+        },
+        "ledger": {
+          "value": 22,
+          "full": 22,
+          "gap": 0,
+          "cells": 515,
+          "informative": 48,
+          "root_cells": 40,
+          "root_informative": 10
+        },
+        "lost": 0,
+        "newTruce": 0,
+        "newTruceUnwarranted": 0,
+        "scope": 0,
+        "maxEnergy": 1,
+        "maxConc": 0,
+        "maxReady": 0.125,
+        "changed": 0,
+        "witnesses": []
+      },
+      "candidate": {
+        "roots": 128,
+        "valid": 128,
+        "invalid": 0,
+        "nodes": 3481,
+        "actions": 384,
+        "forced": 384,
+        "full": 22,
+        "h1": 20,
+        "informative": 12,
+        "uniqueTruce": 1,
+        "goal4": {
+          "value": 22,
+          "full": 22,
+          "gap": 0,
+          "cells": 829,
+          "informative": 48,
+          "root_cells": 100,
+          "root_informative": 10
+        },
+        "ledger": {
+          "value": 22,
+          "full": 22,
+          "gap": 0,
+          "cells": 515,
+          "informative": 48,
+          "root_cells": 40,
+          "root_informative": 10
+        },
+        "lost": 0,
+        "newTruce": 0,
+        "newTruceUnwarranted": 0,
+        "scope": 0,
+        "maxEnergy": 1,
+        "maxConc": 0,
+        "maxReady": 0.125,
+        "changed": 0,
+        "witnesses": [],
+        "checks": {
+          "valid": true,
+          "scope": true,
+          "provenance": true,
+          "energy": true,
+          "concentration": true,
+          "full": true,
+          "goal4": true,
+          "ledger": true,
+          "informative": true
+        },
+        "pass": true,
+        "delta": {
+          "goal4": 0,
+          "ledger": 0,
+          "info": 0,
+          "full": 0
+        }
+      },
+      "pass": false
+    }
+  ],
+  "pass": false
+}

@@ -1,0 +1,2898 @@
+{
+  "design": {
+    "development": [
+      {
+        "seed": 1397891585,
+        "n": 64
+      },
+      {
+        "seed": 1397891586,
+        "n": 64
+      }
+    ],
+    "validation": [
+      {
+        "seed": 1397891601,
+        "n": 128
+      },
+      {
+        "seed": 1397891602,
+        "n": 128
+      }
+    ],
+    "prefix_budget": 24,
+    "H": 3,
+    "max_energy_ratio": 1.25,
+    "max_concentration_increase": 0.025
+  },
+  "cohorts": [
+    {
+      "missed": [],
+      "roots": 64,
+      "valid": 64,
+      "invalid": 0,
+      "nodes": 1604,
+      "actions": 192,
+      "forced": 192,
+      "full": 10,
+      "h1": 10,
+      "informative": 6,
+      "uniqueTruce": 1,
+      "goal4": {
+        "value": 10,
+        "full": 10,
+        "gap": 0,
+        "cells": 418,
+        "informative": 10,
+        "root_cells": 58,
+        "root_informative": 6
+      },
+      "ledger": {
+        "value": 10,
+        "full": 10,
+        "gap": 0,
+        "cells": 293,
+        "informative": 10,
+        "root_cells": 28,
+        "root_informative": 6
+      },
+      "lost": 0,
+      "newTruce": 0,
+      "newTruceUnwarranted": 0,
+      "scope": 0,
+      "maxEnergy": 1,
+      "maxConc": 0,
+      "maxReady": 0.125,
+      "changed": 0,
+      "witnesses": []
+    },
+    {
+      "missed": [],
+      "roots": 64,
+      "valid": 64,
+      "invalid": 0,
+      "nodes": 1703,
+      "actions": 192,
+      "forced": 192,
+      "full": 10,
+      "h1": 10,
+      "informative": 8,
+      "uniqueTruce": 2,
+      "goal4": {
+        "value": 10,
+        "full": 10,
+        "gap": 0,
+        "cells": 424,
+        "informative": 14,
+        "root_cells": 58,
+        "root_informative": 8
+      },
+      "ledger": {
+        "value": 10,
+        "full": 10,
+        "gap": 0,
+        "cells": 299,
+        "informative": 13,
+        "root_cells": 28,
+        "root_informative": 7
+      },
+      "lost": 0,
+      "newTruce": 0,
+      "newTruceUnwarranted": 0,
+      "scope": 0,
+      "maxEnergy": 1,
+      "maxConc": 0,
+      "maxReady": 0.125,
+      "changed": 0,
+      "witnesses": []
+    }
+  ],
+  "candidates": [
+    {
+      "weights": [
+        0.5,
+        1,
+        1.5
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2449308917607986,
+          "maxConc": 0.015242036111570267,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1718,
+          "actions": 192,
+          "forced": 192,
+          "full": 9,
+          "h1": 9,
+          "informative": 7,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 428,
+            "informative": 13,
+            "root_cells": 58,
+            "root_informative": 7
+          },
+          "ledger": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 303,
+            "informative": 12,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 1,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2449308917607986,
+          "maxConc": 0.015920519684658713,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": false,
+            "goal4": false,
+            "ledger": false,
+            "informative": false
+          },
+          "pass": false,
+          "delta": {
+            "goal4": -1,
+            "ledger": -1,
+            "info": -1,
+            "full": -1
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        0.5,
+        1.25,
+        1.25
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.1825877983592261,
+          "maxConc": 0.011075902082573558,
+          "maxReady": 0.1171875,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1718,
+          "actions": 192,
+          "forced": 192,
+          "full": 9,
+          "h1": 9,
+          "informative": 7,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 428,
+            "informative": 13,
+            "root_cells": 58,
+            "root_informative": 7
+          },
+          "ledger": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 303,
+            "informative": 12,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 1,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.1804081439992262,
+          "maxConc": 0.011571832349918265,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": false,
+            "goal4": false,
+            "ledger": false,
+            "informative": false
+          },
+          "pass": false,
+          "delta": {
+            "goal4": -1,
+            "ledger": -1,
+            "info": -1,
+            "full": -1
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        0.5,
+        1.5,
+        1
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2524670792127572,
+          "maxConc": 0.004449322159654129,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": false,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": false,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1718,
+          "actions": 192,
+          "forced": 192,
+          "full": 9,
+          "h1": 9,
+          "informative": 7,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 428,
+            "informative": 13,
+            "root_cells": 58,
+            "root_informative": 7
+          },
+          "ledger": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 303,
+            "informative": 12,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 1,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2494532361470783,
+          "maxConc": 0.004428080924319289,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": false,
+            "goal4": false,
+            "ledger": false,
+            "informative": false
+          },
+          "pass": false,
+          "delta": {
+            "goal4": -1,
+            "ledger": -1,
+            "info": -1,
+            "full": -1
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        0.75,
+        0.75,
+        1.5
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1620,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 9,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 423,
+            "informative": 12,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 298,
+            "informative": 12,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2449308917607986,
+          "maxConc": 0.015242036111570267,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 9,
+          "h1": 9,
+          "informative": 7,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 424,
+            "informative": 13,
+            "root_cells": 58,
+            "root_informative": 7
+          },
+          "ledger": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 1,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2449308917607986,
+          "maxConc": 0.015920519684658713,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": false,
+            "goal4": false,
+            "ledger": false,
+            "informative": false
+          },
+          "pass": false,
+          "delta": {
+            "goal4": -1,
+            "ledger": -1,
+            "info": -1,
+            "full": -1
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        0.75,
+        1,
+        1.25
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.177137519934149,
+          "maxConc": 0.011075902082573558,
+          "maxReady": 0.1171875,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 8,
+          "uniqueTruce": 2,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 424,
+            "informative": 14,
+            "root_cells": 58,
+            "root_informative": 8
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.177137519934149,
+          "maxConc": 0.011571832349918265,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "weights": [
+        0.75,
+        1.25,
+        1
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.1825877983592261,
+          "maxConc": 0.0025639276466389305,
+          "maxReady": 0.1171875,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 8,
+          "uniqueTruce": 2,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 424,
+            "informative": 14,
+            "root_cells": 58,
+            "root_informative": 8
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.1804081439992262,
+          "maxConc": 0.002551762469165636,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "weights": [
+        0.75,
+        1.5,
+        0.75
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2524670792127572,
+          "maxConc": 0.0025639276466389305,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": false,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": false,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 8,
+          "uniqueTruce": 2,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 424,
+            "informative": 14,
+            "root_cells": 58,
+            "root_informative": 8
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2494532361470783,
+          "maxConc": 0.002551762469165636,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        1,
+        0.5,
+        1.5
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1620,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 9,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 423,
+            "informative": 12,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 298,
+            "informative": 12,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2449308917607986,
+          "maxConc": 0.015242036111570267,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 9,
+          "h1": 9,
+          "informative": 7,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 424,
+            "informative": 13,
+            "root_cells": 58,
+            "root_informative": 7
+          },
+          "ledger": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 1,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2449308917607986,
+          "maxConc": 0.015920519684658713,
+          "maxReady": 0.125,
+          "changed": 2,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": false,
+            "goal4": false,
+            "ledger": false,
+            "informative": false
+          },
+          "pass": false,
+          "delta": {
+            "goal4": -1,
+            "ledger": -1,
+            "info": -1,
+            "full": -1
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        1,
+        0.75,
+        1.25
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1620,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 9,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 423,
+            "informative": 12,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 298,
+            "informative": 12,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.177137519934149,
+          "maxConc": 0.011075902082573558,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 9,
+          "h1": 9,
+          "informative": 7,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 424,
+            "informative": 13,
+            "root_cells": 58,
+            "root_informative": 7
+          },
+          "ledger": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 1,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.177137519934149,
+          "maxConc": 0.011571832349918265,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": false,
+            "goal4": false,
+            "ledger": false,
+            "informative": false
+          },
+          "pass": false,
+          "delta": {
+            "goal4": -1,
+            "ledger": -1,
+            "info": -1,
+            "full": -1
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        1,
+        1,
+        1
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 8,
+          "uniqueTruce": 2,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 424,
+            "informative": 14,
+            "root_cells": 58,
+            "root_informative": 8
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "weights": [
+        1,
+        1.25,
+        0.75
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.1825877983592261,
+          "maxConc": 0.0015451145263300214,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 8,
+          "uniqueTruce": 2,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 424,
+            "informative": 14,
+            "root_cells": 58,
+            "root_informative": 8
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.1804081439992262,
+          "maxConc": 0.0010613143064104047,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "weights": [
+        1,
+        1.5,
+        0.5
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2524670792127572,
+          "maxConc": 0.0026706369933569007,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": false,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": false,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 8,
+          "uniqueTruce": 2,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 424,
+            "informative": 14,
+            "root_cells": 58,
+            "root_informative": 8
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.2494532361470783,
+          "maxConc": 0.001832495755207053,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        1.25,
+        0.5,
+        1.25
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1620,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 9,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 423,
+            "informative": 12,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 298,
+            "informative": 12,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.177137519934149,
+          "maxConc": 0.011075902082573558,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 9,
+          "h1": 9,
+          "informative": 7,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 424,
+            "informative": 13,
+            "root_cells": 58,
+            "root_informative": 7
+          },
+          "ledger": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 1,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.177137519934149,
+          "maxConc": 0.011571832349918265,
+          "maxReady": 0.125,
+          "changed": 2,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": false,
+            "goal4": false,
+            "ledger": false,
+            "informative": false
+          },
+          "pass": false,
+          "delta": {
+            "goal4": -1,
+            "ledger": -1,
+            "info": -1,
+            "full": -1
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        1.25,
+        0.75,
+        1
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1620,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 9,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 423,
+            "informative": 12,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 298,
+            "informative": 12,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0.0017443100476541018,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 9,
+          "h1": 9,
+          "informative": 7,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 424,
+            "informative": 13,
+            "root_cells": 58,
+            "root_informative": 7
+          },
+          "ledger": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 1,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0.0013019106661084634,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": false,
+            "goal4": false,
+            "ledger": false,
+            "informative": false
+          },
+          "pass": false,
+          "delta": {
+            "goal4": -1,
+            "ledger": -1,
+            "info": -1,
+            "full": -1
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        1.25,
+        1,
+        0.75
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0.0015451145263300214,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 8,
+          "uniqueTruce": 2,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 424,
+            "informative": 14,
+            "root_cells": 58,
+            "root_informative": 8
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0.0010613143064104047,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "weights": [
+        1.25,
+        1.25,
+        0.5
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.1825877983592261,
+          "maxConc": 0.0026706369933569007,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 8,
+          "uniqueTruce": 2,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 424,
+            "informative": 14,
+            "root_cells": 58,
+            "root_informative": 8
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1.1804081439992262,
+          "maxConc": 0.001832495755207053,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "weights": [
+        1.5,
+        0.5,
+        1
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1620,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 9,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 423,
+            "informative": 12,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 298,
+            "informative": 12,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0.0030128004631051475,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 9,
+          "h1": 9,
+          "informative": 7,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 424,
+            "informative": 13,
+            "root_cells": 58,
+            "root_informative": 7
+          },
+          "ledger": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 1,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0.002246365200871181,
+          "maxReady": 0.125,
+          "changed": 2,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": false,
+            "goal4": false,
+            "ledger": false,
+            "informative": false
+          },
+          "pass": false,
+          "delta": {
+            "goal4": -1,
+            "ledger": -1,
+            "info": -1,
+            "full": -1
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        1.5,
+        0.75,
+        0.75
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1620,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 9,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 423,
+            "informative": 12,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 298,
+            "informative": 12,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0.0017443100476541018,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 9,
+          "h1": 9,
+          "informative": 7,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 424,
+            "informative": 13,
+            "root_cells": 58,
+            "root_informative": 7
+          },
+          "ledger": {
+            "value": 9,
+            "full": 9,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 1,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0.0013019106661084634,
+          "maxReady": 0.125,
+          "changed": 1,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": false,
+            "goal4": false,
+            "ledger": false,
+            "informative": false
+          },
+          "pass": false,
+          "delta": {
+            "goal4": -1,
+            "ledger": -1,
+            "info": -1,
+            "full": -1
+          }
+        }
+      ],
+      "pass": false
+    },
+    {
+      "weights": [
+        1.5,
+        1,
+        0.5
+      ],
+      "provenance": {
+        "allowed": [
+          [
+            0,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.03125,
+            0.0625,
+            0.125
+          ],
+          [
+            0,
+            0.0625,
+            0.09375
+          ]
+        ],
+        "combinations": 36,
+        "checks": 342
+      },
+      "cohorts": [
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1604,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 6,
+          "uniqueTruce": 1,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 418,
+            "informative": 10,
+            "root_cells": 58,
+            "root_informative": 6
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 293,
+            "informative": 10,
+            "root_cells": 28,
+            "root_informative": 6
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0.0026706369933569007,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        },
+        {
+          "roots": 64,
+          "valid": 64,
+          "invalid": 0,
+          "nodes": 1703,
+          "actions": 192,
+          "forced": 192,
+          "full": 10,
+          "h1": 10,
+          "informative": 8,
+          "uniqueTruce": 2,
+          "goal4": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 424,
+            "informative": 14,
+            "root_cells": 58,
+            "root_informative": 8
+          },
+          "ledger": {
+            "value": 10,
+            "full": 10,
+            "gap": 0,
+            "cells": 299,
+            "informative": 13,
+            "root_cells": 28,
+            "root_informative": 7
+          },
+          "lost": 0,
+          "newTruce": 0,
+          "newTruceUnwarranted": 0,
+          "scope": 0,
+          "maxEnergy": 1,
+          "maxConc": 0.001832495755207053,
+          "maxReady": 0.125,
+          "changed": 0,
+          "witnesses": [],
+          "checks": {
+            "valid": true,
+            "scope": true,
+            "provenance": true,
+            "energy": true,
+            "concentration": true,
+            "full": true,
+            "goal4": true,
+            "ledger": true,
+            "informative": true
+          },
+          "pass": true,
+          "delta": {
+            "goal4": 0,
+            "ledger": 0,
+            "info": 0,
+            "full": 0
+          }
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "feasible": 7,
+  "selected": [
+    1,
+    1,
+    1
+  ],
+  "improved": false,
+  "frozen": [
+    1,
+    1,
+    1
+  ]
+}
