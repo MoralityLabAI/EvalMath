@@ -18,9 +18,10 @@
   "schema": "CPF-02.0",
   "scope": "finite compiler census, not upstream proof verification",
   "source_sha256": {
+    "lean/FeedbackChannel/CPF02/Bridges.lean": "d2e91321d27d14fa525cfdfefdfe61254cd1870fcf453028ab436983f77d4910",
     "lean/FeedbackChannel/CPF02/Canonical.lean": "871d2552a54cc18d4db62389533e423b8c23cbd0dabb1a2e81a6d1fdc41671e8",
-    "paper/cpf02_canonical_circuit_bridge.md": "07c1827b30cc54de99cc3730325f366f6b1dcbd73fc6eb2fa6692ad444a6b52f",
-    "scripts/verify_evaluation_cpf02.py": "809f02f83f321d4514b71d101138e6b274c1e9f85feca5bc913d09210c02e821",
+    "paper/cpf02_canonical_circuit_bridge.md": "0ae6c1bd611ef0fe5f2770126d03d732a00474fa7d752e93f4e5aeefd220ead6",
+    "scripts/verify_evaluation_cpf02.py": "20b448c63831f3af7a926768b5b9d9421bb0c1f4b630cc3ea6d0d69a8c00cb31",
     "src/spiral_ln/evaluation_cpf02.py": "bc20223e1796a88dd499c063bc9306a0dfd2f71127a97d6cc95e572096fe1292",
     "tests/test_evaluation_cpf02.py": "74d197c5d937dd7ac59ed492604e70bc7bd32ee2887b8e43067e6e0b21f0a65c"
   }

@@ -260,3 +260,22 @@ using the existing FeedbackChannel.Signal.Strategy type.
 | Positive observation budget | The function `m + r²/m` is at least `2r` for `m > 0` | `FeedbackChannel.RSISpectralThreshold.budget_balance` | Full for the normalized objective; the sqrt-scaling hypothesis requires empirical fitting |
 
 Both are compiled in the ordinary Lean build and appear in `axioms_check.lean`. They assume no new axioms. The spectral threshold does not establish a superintelligence transition: empirical transfer, external validation, and resource costs are outside the theorem.
+
+## Correlated proof fidelity (`paper/correlated_proof_fidelity.md`, `paper/cpf02_canonical_circuit_bridge.md`, `paper/cpf03_semantic_mutations.md`)
+
+Every theorem below is listed in `axioms_check.lean` with standard axioms only. No admitted comparator theorem is imported.
+
+| Note | Claim | Lean theorem | File | Fidelity | Remarks |
+|---|---|---|---|---|---|
+| CPF-01 §1 | four-atom interval max(0,a+b-1) <= r <= min(a,b) | `FeedbackChannel.CPF.frechet` | FeedbackChannel/CorrelatedProofFidelity.lean | full | rational masses |
+| CPF-01 §1 | every interval point is attained | `FeedbackChannel.CPF.witness` | FeedbackChannel/CorrelatedProofFidelity.lean | full | with `atom_total` |
+| CPF-01 §1 | audit contraction 0 <= rc <= r | `FeedbackChannel.CPF.conditional_audit` | FeedbackChannel/CorrelatedProofFidelity.lean | full | conditional calibration is an assumption, not proved |
+| CPF-02 | OpenAI exact circuits = canonical circuits | `FeedbackChannel.CPF02.openai_exact_iff` | FeedbackChannel/CPF02/Canonical.lean | full | against the verbatim comparator definition |
+| CPF-02 | C_O <= C_A <= 4 C_O + 2 | `FeedbackChannel.CPF02.charged_free_sandwich` | FeedbackChannel/CPF02/Bridges.lean | full | every field and characteristic |
+| CPF-02 | eventual and all-index polynomial bounds coincide | `FeedbackChannel.CPF02.polyBounded_iff_allIndex` | FeedbackChannel/CPF02/Bridges.lean | full |  |
+| CPF-02 | VP equal under OpenAI, canonical, Anthropic conventions | `FeedbackChannel.CPF02.vp_iff_anthropic` | FeedbackChannel/CPF02/Bridges.lean | full | with `openai_vp_iff` |
+| CPF-02 | OpenAI VNP witness transport to Fin (r n) | `FeedbackChannel.CPF02.openai_vnp_iff_canonical` | FeedbackChannel/CPF02/Bridges.lean | full |  |
+| CPF-02 | VP subset of VNP | `FeedbackChannel.CPF02.vp_subset_vnp` | FeedbackChannel/CPF02/Bridges.lean | full | canonical/OpenAI form |
+| CPF-02 | canonical VNP into Anthropic VNP | `FeedbackChannel.CPF02.canonical_vnp_to_anthropic` | FeedbackChannel/CPF02/Bridges.lean | special case | one direction; the converse needs a partial-evaluation degree lemma |
+| CPF-03 | approximate-inclusion transfer and its failed converse | `FeedbackChannel.CPF03.no_reverse_bound` | FeedbackChannel/CPF03.lean | full | logical countermodel only |
+| CPF-03 | pointwise vs uniform threshold | `FeedbackChannel.CPF03.no_uniform_threshold` | FeedbackChannel/CPF03.lean | full | with `pointwise_threshold` |

@@ -1,6 +1,6 @@
 # CPF-01: correlated proof fidelity and certified-rejection audits
 
-Status: research draft, algebraic identities and synthetic finite evidence. The Lean lemmas are candidates pending kernel checks. No empirical error rates, upstream rebuilds, or referee verdicts are claimed.
+Status: research draft, algebraic identities and synthetic finite evidence. The four-atom interval, its witness, the atom total and the audit contraction are kernel-checked (standard axioms only); the adaptive audit theorem has the paper induction and a finite oracle, not a Lean proof. No empirical error rates, upstream rebuilds, or referee verdicts are claimed.
 
 ## 1. Conditional null law
 

@@ -8,7 +8,8 @@ from spiral_ln.evaluation_cpf02 import census
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = ("src/spiral_ln/evaluation_cpf02.py", "tests/test_evaluation_cpf02.py",
            "scripts/verify_evaluation_cpf02.py", "paper/cpf02_canonical_circuit_bridge.md",
-           "lean/FeedbackChannel/CPF02/Canonical.lean")
+           "lean/FeedbackChannel/CPF02/Canonical.lean",
+           "lean/FeedbackChannel/CPF02/Bridges.lean")
 
 
 def report():
