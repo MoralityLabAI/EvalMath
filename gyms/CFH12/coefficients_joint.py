@@ -256,8 +256,7 @@ def main():
     for r in records:groups[r['cap'],r['price'],r['arm']].append(r)
     summary=[]
     for (cap,p,arm),rr in sorted(groups.items()):
-        n=len(rr);hits=sum(r['hit'] for r in rr);cost=sum(r['cost'] for r in rr)
-        summary.append(dict(cap=cap,price=p,arm=arm,n=n,hits=hits,cost=cost,mean_cost=cost/n,utility_ticks=SCALE*hits-p*cost,mean_utility=(SCALE*hits-p*cost)/(SCALE*n)))
+        n=len(rr);hits=sum(r['hit'] for r in rr);cost=sum(r['cost'] for r in rr);summary.append(dict(cap=cap,price=p,arm=arm,n=n,hits=hits,cost=cost,mean_cost=cost/n,utility_ticks=SCALE*hits-p*cost,mean_utility=(SCALE*hits-p*cost)/(SCALE*n)))
     for cap,p in product(CAPS,PRICES):
         z={r['arm']:r for r in summary if (r['cap'],r['price'])==(cap,p)};assert all(z['exact_cell']['utility_ticks']>=z[a]['utility_ticks'] for a in ARMS)
     out=dict(evidence='public finite development; logical coefficient-cell cost',scale=SCALE,manifest=ds,prior_graph_hashes=prior,small_audit=small_audit(),meta=meta,summary=summary,pairs=pair_rows,decisions=decisions,records=records,source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest());Path(args.out).write_text(json.dumps(out,separators=(',',':')))
