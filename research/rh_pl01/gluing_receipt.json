@@ -14,7 +14,7 @@
         "forall-distribution": 17
       },
       "structural_replay": true,
-      "original_full_replay": false
+      "original_full_replay": true
     },
     {
       "name": "recursive_graph_gluing_existence",
@@ -40,5 +40,48 @@
     4453
   ],
   "formula_nodes": 16446,
-  "actual_rh_proof": false
+  "actual_rh_proof": false,
+  "independent_replays": {
+    "union": {
+      "lines": 2292,
+      "unary": "25598945",
+      "compact": "2267409",
+      "nodes": 2786,
+      "target_bytes": "7981",
+      "rules": {
+        "K": 512,
+        "S": 447,
+        "classical": 139,
+        "mp": 1151,
+        "gen": 13
+      },
+      "nonpropositional_axioms": {
+        "union": 1,
+        "forall-elimination": 12,
+        "forall-distribution": 17
+      },
+      "certificate_json_bytes": 59395
+    },
+    "glue": {
+      "lines": 9854,
+      "unary": "167267210",
+      "compact": "15088339",
+      "nodes": 12743,
+      "target_bytes": "18150",
+      "rules": {
+        "K": 2252,
+        "S": 2047,
+        "classical": 460,
+        "mp": 4932,
+        "gen": 39
+      },
+      "nonpropositional_axioms": {
+        "union": 1,
+        "forall-elimination": 48,
+        "forall-distribution": 74,
+        "separation": 1
+      },
+      "certificate_json_bytes": 268965
+    }
+  }
 }
