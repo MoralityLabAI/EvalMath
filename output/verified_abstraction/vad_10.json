@@ -261,9 +261,9 @@
   ],
   "protocol": "VAD-10",
   "source_sha256": {
-    "vad_agenda.py": "5277777eacce847b7e7c673eda63b71fb74682a0202534f7e6db3c61925c6804",
+    "vad_agenda.py": "10ae61afeb2e1f958e9cebe22e373bc0d9d0b35d160d07f65e31c7e7ffac8e2c",
     "vad_agenda_naive.py": "5ecdf5cc384f581fcc3eef1a8c348306ffb18dbbaff4bb56a1fd5233cb5fd2d0",
-    "verify_vad_agenda.py": "d8174d25a2a538a9935447a5bf7f1b2f16383fc674a7940008ff3f206be319db"
+    "verify_vad_agenda.py": "96f4060d60d65bddbaf2d603ba9a864fcd6172a43936a320018903064b778c15"
   },
   "strategic_decomposition": {
     "('att', 0)": {

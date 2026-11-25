@@ -101,3 +101,11 @@ def test_misleading_signal_trusting_loses_to_ignoring():
     # and with the signal as reliable as assumed, trusting it is optimal
     _, honest = g.misleading_signal(true_reliable=True)
     assert g.evaluate(honest, oa, pol) == g.solve(honest)[1]
+
+
+def test_receipt_source_digests_current():
+    import hashlib, json
+    root = Path(__file__).resolve().parents[1]
+    rec = json.loads((root / "output/verified_abstraction/vad_10.json").read_text())
+    for name, digest in rec["source_sha256"].items():
+        assert hashlib.sha256((root / "scripts" / name).read_bytes()).hexdigest() == digest
