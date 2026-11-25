@@ -60,4 +60,26 @@ export function verifyCertificate(k,cert){
  ok(cert.claimed.lines===roots.length&&String(unary)===cert.claimed.unary&&String(compact)===cert.claimed.compact,'cost mismatch');
  return {lines:roots.length,unary:String(unary),compact:String(compact),nodes:nodes.length-1,target_bytes:String(u[cert.root]),rules,nonpropositional_axioms:axioms};
 }
-if(typeof process!=='undefined'&&process.argv[1]?.endsWith('/joint_audit.mjs')){const {readFileSync}=await import('node:fs');const raw=readFileSync(new URL('./rh_target.txt',import.meta.url),'utf8');const cert=certificate(numerator(transport,kernel,denominator,raw,'certificate'));if(process.argv.includes('--emit'))process.stdout.write(JSON.stringify(cert)+'\n');else console.log(JSON.stringify(verifyCertificate(kernel,cert),null,2));}
+export function mutationAudit(k,cert){
+ const rejects={};
+ function reject(name,obj){let error;try{verifyCertificate(k,obj)}catch(e){error=String(e)}if(!error)throw Error('accepted mutant '+name);rejects[name]=error}
+ reject('incorrect_cost',{...cert,claimed:{...cert.claimed,unary:String(BigInt(cert.claimed.unary)+1n)}});
+ reject('incorrect_root',{...cert,root:cert.lines[0]});
+ const badNodes=cert.nodes.slice();badNodes[1]=['n',1];reject('cyclic_formula',{...cert,nodes:badNodes});
+ function ast(i){const [t,x,y]=cert.nodes[i];return t==='n'?[t,ast(x)]:t==='i'?[t,ast(x),ast(y)]:t==='a'?[t,x,ast(y)]:[t,x,y]}
+ const sepId=cert.lines.find(i=>{const n=cert.nodes[i];if(n[0]!=='n')return false;const a=cert.nodes[n[1]];return a[0]==='a'&&a[1]===2&&k.axiom(ast(i))==='separation'});
+ if(!sepId)throw Error('no separation');
+ const without=cert.lines.filter(i=>i!==sepId);
+ reject('missing_separation',{...cert,lines:without,claimed:{...cert.claimed,lines:without.length}});
+ return rejects;
+}
+if(typeof process!=='undefined'&&process.argv[1]?.endsWith('/joint_audit.mjs')){
+ const {readFileSync}=await import('node:fs');
+ const inputIndex=process.argv.indexOf('--verify');
+ let cert;
+ if(inputIndex>=0)cert=JSON.parse(readFileSync(process.argv[inputIndex+1],'utf8'));
+ else{const raw=readFileSync(new URL('./rh_target.txt',import.meta.url),'utf8');cert=certificate(numerator(transport,kernel,denominator,raw,'certificate'));}
+ if(process.argv.includes('--emit'))process.stdout.write(JSON.stringify(cert)+'\n');
+ else if(process.argv.includes('--target'))process.stdout.write(cert.target+'\n');
+ else{const r=verifyCertificate(kernel,cert);if(process.argv.includes('--mutations'))r.negative_controls=mutationAudit(kernel,cert);console.log(JSON.stringify(r,null,2));}
+}
