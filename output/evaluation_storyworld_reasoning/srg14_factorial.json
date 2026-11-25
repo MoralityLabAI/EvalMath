@@ -1,0 +1,730 @@
+{
+  "evidence": "executed finite paired dynamic-policy factorial; public supplementary diagnostic",
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md": "cb174a3efb031eaa046b01a2acc526ef7d122345",
+    "integrations/sweepweave-ts/srg13/fixtures/reservoir-dogs-evidence-chain-candidate.swmd.md": "64d40ef2d0953a6034a92c4250c006f59f533fb2",
+    "integrations/sweepweave-ts/srg14/factorial.mjs": "4efd0a207c2158a1873d6524f654cebc916a2ae5"
+  },
+  "worlds": [
+    {
+      "world": "original_srg05",
+      "design": {
+        "seed": 1397888049,
+        "campaigns": 64,
+        "maxActions": 24,
+        "sites": [
+          {
+            "page": "page_pink_ambush_theory",
+            "off": 2,
+            "on": 0
+          },
+          {
+            "page": "page_cadillac_trunk",
+            "off": 1,
+            "on": 2
+          },
+          {
+            "page": "page_eddie_and_blonde_story",
+            "off": 0,
+            "on": 2
+          }
+        ],
+        "goal": "page_secret_undercover_truce",
+        "sirens": "page_sirens_at_the_rollup_door",
+        "truce": "opt_page_sirens_at_the_rollup_door_2",
+        "ledger": [
+          "char_pink.Timeline_Record",
+          "char_pink.Radio_Record",
+          "char_pink.Review_Request"
+        ],
+        "semantics": "Each bit selects an off/on policy at the first reached registered site before first sirens. Unvisited sites receive no intervention. Later choices use the same absolute-index exogenous words. All eight masks are evaluated per campaign. Public diagnostic."
+      },
+      "counts": {
+        "campaigns": 64,
+        "rollouts": 512,
+        "reachability_nodes": 14080
+      },
+      "tables": [
+        {
+          "mask": 0,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            47
+          ],
+          "h1": 12,
+          "h3": 15,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 13
+        },
+        {
+          "mask": 1,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            47
+          ],
+          "h1": 12,
+          "h3": 15,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 13
+        },
+        {
+          "mask": 2,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            51
+          ],
+          "h1": 0,
+          "h3": 0,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 1
+        },
+        {
+          "mask": 3,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            51
+          ],
+          "h1": 0,
+          "h3": 0,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 1
+        },
+        {
+          "mask": 4,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            47
+          ],
+          "h1": 12,
+          "h3": 15,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 13
+        },
+        {
+          "mask": 5,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            47
+          ],
+          "h1": 12,
+          "h3": 15,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 13
+        },
+        {
+          "mask": 6,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            51
+          ],
+          "h1": 0,
+          "h3": 0,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 1
+        },
+        {
+          "mask": 7,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            51
+          ],
+          "h1": 0,
+          "h3": 0,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 1
+        }
+      ],
+      "effects": {
+        "h1": {
+          "dividends": [
+            12,
+            0,
+            -12,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            -72,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            -0.1875,
+            0
+          ],
+          "total_change": -0.1875,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        },
+        "h3": {
+          "dividends": [
+            15,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            -90,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            -0.234375,
+            0
+          ],
+          "total_change": -0.234375,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        },
+        "unique_truce": {
+          "dividends": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            0,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            0,
+            0
+          ],
+          "total_change": 0,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        },
+        "unique_truce_deleted": {
+          "dividends": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            0,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            0,
+            0
+          ],
+          "total_change": 0,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        },
+        "random_goal": {
+          "dividends": [
+            13,
+            0,
+            -12,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            -72,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            -0.1875,
+            0
+          ],
+          "total_change": -0.1875,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "world": "srg13_candidate",
+      "design": {
+        "seed": 1397888049,
+        "campaigns": 64,
+        "maxActions": 24,
+        "sites": [
+          {
+            "page": "page_pink_ambush_theory",
+            "off": 2,
+            "on": 0
+          },
+          {
+            "page": "page_cadillac_trunk",
+            "off": 1,
+            "on": 2
+          },
+          {
+            "page": "page_eddie_and_blonde_story",
+            "off": 0,
+            "on": 2
+          }
+        ],
+        "goal": "page_secret_undercover_truce",
+        "sirens": "page_sirens_at_the_rollup_door",
+        "truce": "opt_page_sirens_at_the_rollup_door_2",
+        "ledger": [
+          "char_pink.Timeline_Record",
+          "char_pink.Radio_Record",
+          "char_pink.Review_Request"
+        ],
+        "semantics": "Each bit selects an off/on policy at the first reached registered site before first sirens. Unvisited sites receive no intervention. Later choices use the same absolute-index exogenous words. All eight masks are evaluated per campaign. Public diagnostic."
+      },
+      "counts": {
+        "campaigns": 64,
+        "rollouts": 512,
+        "reachability_nodes": 13601
+      },
+      "tables": [
+        {
+          "mask": 0,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            47
+          ],
+          "h1": 12,
+          "h3": 15,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 13
+        },
+        {
+          "mask": 1,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            47
+          ],
+          "h1": 15,
+          "h3": 18,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 15
+        },
+        {
+          "mask": 2,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            51
+          ],
+          "h1": 0,
+          "h3": 0,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 2
+        },
+        {
+          "mask": 3,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            51
+          ],
+          "h1": 6,
+          "h3": 6,
+          "unique_truce": 6,
+          "unique_truce_deleted": 0,
+          "random_goal": 5
+        },
+        {
+          "mask": 4,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            47
+          ],
+          "h1": 12,
+          "h3": 15,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 13
+        },
+        {
+          "mask": 5,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            47
+          ],
+          "h1": 29,
+          "h3": 29,
+          "unique_truce": 7,
+          "unique_truce_deleted": 0,
+          "random_goal": 24
+        },
+        {
+          "mask": 6,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            51
+          ],
+          "h1": 0,
+          "h3": 0,
+          "unique_truce": 0,
+          "unique_truce_deleted": 0,
+          "random_goal": 2
+        },
+        {
+          "mask": 7,
+          "arms": 64,
+          "complete": 64,
+          "reached": 64,
+          "unavailable": 0,
+          "applied_counts": [
+            29,
+            64,
+            51
+          ],
+          "h1": 28,
+          "h3": 28,
+          "unique_truce": 23,
+          "unique_truce_deleted": 0,
+          "random_goal": 20
+        }
+      ],
+      "effects": {
+        "h1": {
+          "dividends": [
+            12,
+            3,
+            -12,
+            3,
+            0,
+            14,
+            0,
+            8
+          ],
+          "shapley6": [
+            85,
+            -47,
+            58
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 25,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0.22135416666666666,
+            -0.12239583333333333,
+            0.15104166666666666
+          ],
+          "total_change": 0.25,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0.046875,
+            null,
+            0.21875,
+            0,
+            0.125
+          ]
+        },
+        "h3": {
+          "dividends": [
+            15,
+            3,
+            -15,
+            3,
+            0,
+            11,
+            0,
+            11
+          ],
+          "shapley6": [
+            82,
+            -59,
+            55
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 25,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0.21354166666666666,
+            -0.15364583333333334,
+            0.14322916666666666
+          ],
+          "total_change": 0.203125,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0.046875,
+            null,
+            0.171875,
+            0,
+            0.171875
+          ]
+        },
+        "unique_truce": {
+          "dividends": [
+            0,
+            0,
+            0,
+            6,
+            0,
+            7,
+            0,
+            10
+          ],
+          "shapley6": [
+            59,
+            38,
+            41
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 23,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0.15364583333333334,
+            0.09895833333333333,
+            0.10677083333333333
+          ],
+          "total_change": 0.359375,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0.09375,
+            null,
+            0.109375,
+            0,
+            0.15625
+          ]
+        },
+        "unique_truce_deleted": {
+          "dividends": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            0,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            0,
+            0
+          ],
+          "total_change": 0,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        },
+        "random_goal": {
+          "dividends": [
+            13,
+            2,
+            -11,
+            1,
+            0,
+            9,
+            0,
+            6
+          ],
+          "shapley6": [
+            54,
+            -51,
+            39
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 16,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0.140625,
+            -0.1328125,
+            0.1015625
+          ],
+          "total_change": 0.109375,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0.015625,
+            null,
+            0.140625,
+            0,
+            0.09375
+          ]
+        }
+      }
+    }
+  ]
+}
