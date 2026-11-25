@@ -1,0 +1,26 @@
+{
+  "arms": {
+    "astar": {
+      "coverage": "1",
+      "efficiency_lower": "1",
+      "efficiency_upper": "1",
+      "roots": 4,
+      "solved": 4,
+      "total_raw_step_constraints": 272025
+    },
+    "weighted_tree_shared": {
+      "coverage": "1",
+      "efficiency_lower": "25/28",
+      "efficiency_upper": "25/28",
+      "roots": 4,
+      "solved": 4,
+      "total_raw_step_constraints": 304668
+    }
+  },
+  "cost_profile": "26223c2775affe6d44eaa10e2c56acc2bdf1ae70:nova-0.76.0:affine:d6:r5:a2:raw-step-10881",
+  "schema": "zkl-16-score-v1",
+  "scope": "trusted CI receipt arithmetic and artifact integrity only",
+  "source_commit": "e7394fced457c059f20ef54128dbc80b0cc747a5",
+  "transport_sha256": "2d305d145514b39111e2eb06570f91c4bf3d5a0c8ca66afbb9a1d366ae50fce3",
+  "trusted_receipt_sha256": "31c9d31253221d02745035bf57fcadbab77814d5af4d22abd52336d24c748642"
+}

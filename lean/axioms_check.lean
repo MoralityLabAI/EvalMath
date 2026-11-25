@@ -283,3 +283,11 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.CPF03.no_reverse_bound
 #print axioms FeedbackChannel.CPF03.pointwise_threshold
 #print axioms FeedbackChannel.CPF03.no_uniform_threshold
+
+-- ZKL-20: bulk lifting and context lookup (unbounded syntax)
+#print axioms FeedbackChannel.CertificateLift.lift_add
+#print axioms FeedbackChannel.CertificateLift.lookup_bulk
+
+-- ZKL-21: structural raw lookup jumps
+#print axioms FeedbackChannel.CertificateLift.rawLookup_drop
+#print axioms FeedbackChannel.CertificateLift.rawLookup_jump

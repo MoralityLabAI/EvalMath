@@ -289,3 +289,13 @@ Every theorem below is listed in `axioms_check.lean` with standard axioms only. 
 | CPF-02 | VP subset of VPBar | `FeedbackChannel.CPF02.vp_subset_vpbar`, `FeedbackChannel.CPF02.statement_vp_subset_vpbar` | FeedbackChannel/CPF02/Bridges.lean | full | Laurent notion only; no geometric-closure claim |
 | CPF-03 | approximate-inclusion transfer and its failed converse | `FeedbackChannel.CPF03.no_reverse_bound` | FeedbackChannel/CPF03.lean | full | logical countermodel only |
 | CPF-03 | pointwise vs uniform threshold | `FeedbackChannel.CPF03.no_uniform_threshold` | FeedbackChannel/CPF03.lean | full | with `pointwise_threshold` |
+
+## ZKL-20 certificate lifting (`paper/certificate_lift_bulk.md`)
+
+| Claim | Mathematical statement | Lean declaration | File | Fidelity | Scope |
+|---|---|---|---|---|---|
+| Bulk shifts compose | L(k,b)(L(k,a)t)=L(k,a+b)t | `FeedbackChannel.CertificateLift.lift_add` | FeedbackChannel/CertificateLift.lean | full | unbounded annotated syntax, nonnegative natural distances |
+| Raw lookup with bulk shift | recursive lookup equals raw lookup mapped by L(0,i+1) | `FeedbackChannel.CertificateLift.lookup_bulk` | FeedbackChannel/CertificateLift.lean | full | includes missing binders; no cryptographic implementation claim |
+
+| Lookup after dropping context entries | rawLookup (drop d Γ) i = rawLookup Γ (d+i) | `FeedbackChannel.CertificateLift.rawLookup_drop` | FeedbackChannel/CertificateLift.lean | full | unbounded context lists; missing binders included |
+| Binary jumps | specialize d to 2^e | `FeedbackChannel.CertificateLift.rawLookup_jump` | FeedbackChannel/CertificateLift.lean | full | semantic abbreviation; public metadata admission and R1CS separately audited |
