@@ -1,0 +1,32 @@
+{
+  "alpha": "1/20",
+  "confirm_units_planned": 128,
+  "experiment_id": "RH-PL-17-Lean-gym-readiness",
+  "future_confirmation_count_status": "Planning input only; no confirmation data allocated or opened.",
+  "heldout_sealed": false,
+  "independent_unit": "the shared RH recurrence construction family (all prerequisite and renamed tasks stay grouped)",
+  "measurement_resolution": "1/128",
+  "observation_count": 4,
+  "observations_file": "preflight_observations.json",
+  "physical_dose": "Future planned loop counts 1 versus 4; same source context, output-token cap, verifier calls, and checkpoint data exposure.",
+  "pilot": [
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "rh-prefix-recurrence-family"
+    }
+  ],
+  "pilot_from_development_only": true,
+  "pilot_scope": "Deterministic verifier instrument calibration only: four prerequisite certificates replayed twice with byte-identical results, grouped as one construction family. No neural model was run; these observations cannot estimate a neural loop effect.",
+  "planned_comparisons": 2,
+  "proposed_primary_contrast": "Paired Lean-certified completion fraction: recurrent policy versus one-pass policy at equal verifier-call budget; second comparison against matched-compute feedforward policy.",
+  "readout_selection_exposure": "All present theorem tasks are public training/development material. Fresh external confirmation families have not been generated.",
+  "schema_version": 1,
+  "scientific_min_effect": "1/10",
+  "sham_confidence": "19/20",
+  "sham_quantile": "19/20",
+  "target_effect": "1/5",
+  "units_independent": false
+}

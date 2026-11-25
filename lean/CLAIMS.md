@@ -289,3 +289,48 @@ Every theorem below is listed in `axioms_check.lean` with standard axioms only. 
 | CPF-02 | VP subset of VPBar | `FeedbackChannel.CPF02.vp_subset_vpbar`, `FeedbackChannel.CPF02.statement_vp_subset_vpbar` | FeedbackChannel/CPF02/Bridges.lean | full | Laurent notion only; no geometric-closure claim |
 | CPF-03 | approximate-inclusion transfer and its failed converse | `FeedbackChannel.CPF03.no_reverse_bound` | FeedbackChannel/CPF03.lean | full | logical countermodel only |
 | CPF-03 | pointwise vs uniform threshold | `FeedbackChannel.CPF03.no_uniform_threshold` | FeedbackChannel/CPF03.lean | full | with `pointwise_threshold` |
+
+## RH-PL-17: Lean recurrence curriculum
+
+Source: `FeedbackChannel/RHCompactification.lean`; report: `research/rh_pl01/RH_PL_17.md`.
+
+The domain is Lean `Nat`, with functions and graph predicates. These theorems support the finite-prefix, overlap, gluing, and recurrence curriculum. The Hilbert calculus, its least-inductive-set construction, and its frozen RH target are separate proof obligations. The operation arguments are arbitrary total natural functions; numerical witnesses specialize them to `Nat.mul` and `Nat.add`.
+
+| Lean theorem | Fidelity to the RH proof-length work |
+|---|---|
+| `FeedbackChannel.RHCompactification.extend_at_new` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.extend_before` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.prefix_zero` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.prefix_restrict` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.prefix_extend` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.prefix_agreement` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.orbit_isPrefix` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.prefix_eq_orbit` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.prefix_exists` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.prefix_graph_domain` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.prefix_graph_functional` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.prefix_graph_overlap` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.glue_agrees` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.glued_graph_iff` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.glue_zero` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.glue_succ` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.orbit_recurrence` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.recurrence_unique` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.recurrence_exists_unique` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.glue_eq_orbit` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.denominator_zero` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.denominator_succ` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.denominator_unique` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.denominator_step_to_exact` | Supporting Nat/function analogue of the existential evaluation-order bridge |
+| `FeedbackChannel.RHCompactification.denominator_exact_to_step` | Supporting Nat/function analogue of the existential evaluation-order bridge |
+| `FeedbackChannel.RHCompactification.denominator_step_equiv` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.denominator_exact` | Supporting Nat/function analogue of the existential evaluation-order bridge |
+| `FeedbackChannel.RHCompactification.denominator_exact_unique` | Supporting Nat/function analogue of the existential evaluation-order bridge |
+| `FeedbackChannel.RHCompactification.joint_zero` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.joint_succ` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.joint_denominator` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.numerator_succ` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.joint_unique` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.joint_components_unique` | Supporting theorem in the native Nat/function recurrence curriculum |
+| `FeedbackChannel.RHCompactification.witness_denominator_six` | Supporting finite numerical witness, checked by kernel reduction |
+| `FeedbackChannel.RHCompactification.witness_joint_six` | Supporting finite numerical witness, checked by kernel reduction |

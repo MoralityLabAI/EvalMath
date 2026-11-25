@@ -40,3 +40,26 @@ jobs:
         run: >-
           cmp /tmp/denominator_${{ matrix.group }}_audit_receipt.json
           research/rh_pl01/denominator_${{ matrix.group }}_audit_receipt.json
+
+  numerator:
+    name: Replay numerator bridge
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out the proof sources
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Regenerate the numerator audit
+        run: >-
+          node research/rh_pl01/numerator_audit.mjs
+          --output /tmp/numerator_bridge_audit_receipt.json
+
+      - name: Compare the committed numerator receipt
+        run: >-
+          cmp /tmp/numerator_bridge_audit_receipt.json
+          research/rh_pl01/numerator_bridge_audit_receipt.json

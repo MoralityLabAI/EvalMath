@@ -1,0 +1,60 @@
+{
+  "confirmation": {
+    "scored": false,
+    "status": "unallocated"
+  },
+  "episode": {
+    "equal_budget_unit": "submitted candidate attempt",
+    "invalid_or_unknown_reward": "0",
+    "max_attempts_default": 4,
+    "max_proof_bytes": 16384,
+    "reward": "Change in verified-best potential: 1 + max(0,(reference-source_bytes)/reference)"
+  },
+  "evidence": "Lean theorem curriculum; public training/development only",
+  "expected_lean": "4.34.1",
+  "family": "rh-recurrence-construction-v1",
+  "independent_families": 1,
+  "language": "Lean 4",
+  "metric": "UTF-8 bytes of the complete supplied Lean source, including all prefix declarations",
+  "schema": "EvalMath/rh-compactification-curriculum/v1",
+  "scope": "Nat/function analogue of RH-PL-14 through RH-PL-17; Hilbert proof bytes remain separate",
+  "source": "lean/FeedbackChannel/RHCompactification.lean",
+  "source_sha256": "e7c8c6282aed3fa1392bf18b2caff43958c5839919529e6863cf5fcc57799f79",
+  "splits": {
+    "train": [
+      "RHCG-001",
+      "RHCG-002",
+      "RHCG-003",
+      "RHCG-004",
+      "RHCG-005",
+      "RHCG-006",
+      "RHCG-007",
+      "RHCG-008",
+      "RHCG-009",
+      "RHCG-010",
+      "RHCG-011",
+      "RHCG-012",
+      "RHCG-013",
+      "RHCG-014",
+      "RHCG-015",
+      "RHCG-016",
+      "RHCG-017",
+      "RHCG-018",
+      "RHCG-019",
+      "RHCG-020"
+    ]
+  },
+  "stages": [
+    "finite_prefix",
+    "overlap",
+    "gluing",
+    "recursion",
+    "denominator",
+    "joint_recurrence"
+  ],
+  "task_file": "tasks.jsonl",
+  "tasks": 20,
+  "tasks_sha256": "c8b2b6dd387a4e4b698f9543c3c8dcc07ee794a6a981f87ce447e51346a86a08",
+  "teacher_file": "teachers.jsonl",
+  "teachers_sha256": "b03b94100c74c5e36b1260794215174df24308dd2fdcb53cdd75b563ea3fdf11"
+}

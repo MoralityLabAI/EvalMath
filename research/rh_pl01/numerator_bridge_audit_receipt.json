@@ -1,0 +1,522 @@
+{
+  "schema_version": 1,
+  "group": "numerator_bridge",
+  "evidence_level": "checked derivation in the frozen candidate Hilbert calculus",
+  "frozen_blobs": {
+    "kernel.mjs": "35da89e237ecbd1a807ade3fffb39ffd57890ace",
+    "rh_target.txt": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+    "rh_target_compact.txt": "98fb1ce81784556af2f6dff8d0d6b31d9c69d7e5"
+  },
+  "source_sha256": {
+    "research/rh_pl01/assembler.mjs": "b4a485c74b3c786ff9ce02f789becf10256acc2eb7f85c38b49663c100db9257",
+    "research/rh_pl01/bounds.mjs": "c8b2f57715380363b562cac7c17fb47c3e3d391fca24855254ef79e63a9bc1e6",
+    "research/rh_pl01/compression.mjs": "bd0ffc65de672b768967c677d517fa11924923370edeb1b7e6987064116bd4fe",
+    "research/rh_pl01/denominator.mjs": "62472f49f7d8eb9356935a81cecb186730b3c2bc86176220a762e6fb0aba03f0",
+    "research/rh_pl01/denominator_audit.mjs": "50d24885debb48edf59aba0d03625b779b59246c545f2f38fff1c0ac8eba6afa",
+    "research/rh_pl01/denominator_predicates.mjs": "91e6240ee974e63b19ea0e1ca14d3a341430f0c82ca6729b19d825bcc3558bb1",
+    "research/rh_pl01/gluing.mjs": "8441ebc9eeaf93c5f2acc1dc9114bb1727cfa2b502c73ae1f2f9d05d8dc687e9",
+    "research/rh_pl01/induction.mjs": "396cf9cc5008b5c705085cc1e880c5de875c1fb94a112e86b8e8978eaca60bed",
+    "research/rh_pl01/interfaces.mjs": "f3e3a25c55f8c85f51a4e3c0c6e9848b23706eac514adac3123a296360d8ce47",
+    "research/rh_pl01/joint_audit.mjs": "0d867db461cbdd0af131122bcec327d7ae95ffc248bce68b7ce81a639dc2a3ed",
+    "research/rh_pl01/kernel.mjs": "8e69d415b5f756bdc97d82e0366fd601100bb8a67ea00e0f06f1a94d765c939b",
+    "research/rh_pl01/numerator.mjs": "63de8208bfed7f5d32c7e094955979c3b249769f0d8232dc1661a0cd2b7a5351",
+    "research/rh_pl01/numerator_audit.mjs": "09d5e60d81b0ada7e7ad60c7a207b09178518899fe88116cd951f66e4ded7473",
+    "research/rh_pl01/numerator_bridge.mjs": "97855b6705d9cc295dc4b032ff7193b75ac3c9c3bf7e0afdf8f8bbf45d610963",
+    "research/rh_pl01/numerator_predicates.mjs": "56977c50befe8f80d5c88b4dddead244620fe1580604699f6f0647af632898b0",
+    "research/rh_pl01/ordinal_audit.mjs": "927a88139e2a31bce0702324e176f21a9f3b993b174c2eaf92be7d4d20a15cac",
+    "research/rh_pl01/pairs.mjs": "e323c6944b232926ad5a68c83be04954ffb570267289424747ce4fc311ebd1d4",
+    "research/rh_pl01/prefix_family.mjs": "1387b32c2b4079b9ed99b534836c2ec36df647394d87831ab2940be292c3c075",
+    "research/rh_pl01/recursion_existence.mjs": "4cf4fca0cc1baf327b5bc06939da9f4ed1b556c72836a72c2d8d2e71692a0ceb",
+    "research/rh_pl01/rh_target.txt": "45f4182cf6a41b47f73b62e10c7b3b8542d81b49265346bf363dc1caa8a75826",
+    "research/rh_pl01/rh_target_compact.txt": "29f0fbdec5a162ac2b77473af1a84e9e5ae31f5ff0e5c6b5143b43a67981f97a",
+    "research/rh_pl01/spine.mjs": "fc50657dd171768ff013a726b9863d86c0934cdf42a544740377c4e679ce61d9",
+    "research/rh_pl01/transport.mjs": "fde690db2cd74fb1dbfb9ce8703ab62480fdaa79241fc10b2fc12d2a5f1dd03d"
+  },
+  "substitution_controls": {
+    "addition_numerator_slots_separate": true,
+    "multiplication_denominator_slots_separate": true,
+    "simultaneous_graph_swap": true,
+    "bound_source_unchanged": true,
+    "capture_avoided": true
+  },
+  "normalized_sources": {
+    "total_functionality_base": "RH-PL-13 normalized recurrence conclusion with initial value set to Z",
+    "update": "RH-PL-12 exact numerator successor normalization conclusion",
+    "prior_update_target_sha256": "b780bbe5f09de46530ad9a2b64f44f08aa05e8f81a4db22b4cbe276884cd7042",
+    "prior_update_goal_sha256": "869ab64f40680f2886b05a7de7a047b9945ae15db88ec3089dc4d009c922b2e0",
+    "prior_update_lines": 28389,
+    "prior_update_unary": 598319739
+  },
+  "checks": {
+    "frozen_files_match": true,
+    "exact_antecedents_checked": true,
+    "exact_consequents_checked": true,
+    "independent_certificate_replay": true,
+    "byte_counts_recomputed": true,
+    "mutation_controls_rejected": true
+  },
+  "rows": [
+    {
+      "name": "normalized_numerator_totality_to_exact_clause_13",
+      "target_bytes": 9707,
+      "lines": 3107,
+      "unary": 19861013,
+      "compact": 2045187,
+      "axioms": {
+        "propositional": 1477,
+        "forall-elimination": 45,
+        "forall-distribution": 45
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "source_clauses": [
+        13
+      ],
+      "source_slot_mapping": {
+        "0": 37,
+        "1": 60,
+        "2": 6,
+        "3": 7,
+        "4": 8,
+        "7": 62,
+        "8": 61
+      },
+      "exact_frozen_consequent": true,
+      "normalized_update_supplies_operation_witness": true,
+      "denominator_totality_is_explicit": false,
+      "joint_recurrence_existence": false,
+      "actual_rh_proof": false,
+      "independent_replay": {
+        "lines": 3107,
+        "unary": "19861013",
+        "compact": "2045187",
+        "nodes": 4441,
+        "target_bytes": "9707",
+        "rules": {
+          "K": 725,
+          "S": 596,
+          "classical": 156,
+          "mp": 1493,
+          "gen": 47
+        },
+        "nonpropositional_axioms": {
+          "forall-elimination": 45,
+          "forall-distribution": 45
+        }
+      },
+      "certificate_json_bytes": 90281,
+      "target_sha256": "cc2e0d71ea13f5b4a5c7652123fe2f2769071fd9854a9b446c38e1d8f891a461",
+      "target_fidelity": {
+        "source_slots": {
+          "0": 37,
+          "1": 60,
+          "2": 6,
+          "3": 7,
+          "4": 8,
+          "7": 62,
+          "8": 61
+        },
+        "source_clauses": [
+          13
+        ],
+        "clause_bytes": {
+          "13": 2962
+        },
+        "exact_antecedent_checked": true,
+        "exact_consequent_checked": true,
+        "antecedent_sha256": "6c5667c14bf088b5be881c2709d8071f483071d4eea4cc5b14344b1c551f953f",
+        "consequent_sha256": "e45d4d4421a4b625a584a851819721e2c51d4a4b3e7a0ac141d8b31071973721",
+        "statement_negative_controls": {
+          "wrong_conclusion": "actual theorem consequent differs from the audited statement",
+          "dropped_first_premise": "actual theorem antecedent differs from the audited statement"
+        }
+      },
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 3",
+          "costs_recomputed": true
+        }
+      }
+    },
+    {
+      "name": "normalized_numerator_base_to_exact_clause_18",
+      "target_bytes": 6400,
+      "lines": 1620,
+      "unary": 13558404,
+      "compact": 1282228,
+      "axioms": {
+        "propositional": 776,
+        "forall-elimination": 17,
+        "forall-distribution": 15
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "source_clauses": [
+        18
+      ],
+      "source_slot_mapping": {
+        "0": 37,
+        "1": 60,
+        "2": 6,
+        "3": 7,
+        "4": 8,
+        "7": 62,
+        "8": 61
+      },
+      "exact_frozen_consequent": true,
+      "normalized_update_supplies_operation_witness": true,
+      "denominator_totality_is_explicit": false,
+      "joint_recurrence_existence": false,
+      "actual_rh_proof": false,
+      "independent_replay": {
+        "lines": 1620,
+        "unary": "13558404",
+        "compact": "1282228",
+        "nodes": 2190,
+        "target_bytes": "6400",
+        "rules": {
+          "K": 368,
+          "S": 311,
+          "classical": 97,
+          "mp": 795,
+          "gen": 17
+        },
+        "nonpropositional_axioms": {
+          "forall-elimination": 17,
+          "forall-distribution": 15
+        }
+      },
+      "certificate_json_bytes": 45401,
+      "target_sha256": "4b031f50e9a8c52f2ffb5ed1583a5804ab4b8868181bae9d2852b49f01a1955f",
+      "target_fidelity": {
+        "source_slots": {
+          "0": 37,
+          "1": 60,
+          "2": 6,
+          "3": 7,
+          "4": 8,
+          "7": 62,
+          "8": 61
+        },
+        "source_clauses": [
+          18
+        ],
+        "clause_bytes": {
+          "18": 1347
+        },
+        "exact_antecedent_checked": true,
+        "exact_consequent_checked": true,
+        "antecedent_sha256": "1a5b00196772600c911b0a860a6e40f5855882f3427359a960b247f4fa33d8a3",
+        "consequent_sha256": "afb68fec5963acbba14aa7074901a3f8236c43fc604a47ad73e79d49b1dca659",
+        "statement_negative_controls": {
+          "wrong_conclusion": "actual theorem consequent differs from the audited statement",
+          "dropped_first_premise": "actual theorem antecedent differs from the audited statement"
+        }
+      },
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 3",
+          "costs_recomputed": true
+        }
+      }
+    },
+    {
+      "name": "normalized_numerator_update_to_exact_clause_20",
+      "target_bytes": 26770,
+      "lines": 12603,
+      "unary": 332506235,
+      "compact": 34003549,
+      "axioms": {
+        "propositional": 6051,
+        "forall-elimination": 116,
+        "forall-distribution": 124,
+        "equality-reflexivity": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": false,
+      "source_clauses": [
+        20
+      ],
+      "source_slot_mapping": {
+        "0": 37,
+        "1": 60,
+        "2": 6,
+        "3": 7,
+        "4": 8,
+        "7": 62,
+        "8": 61
+      },
+      "exact_frozen_consequent": true,
+      "normalized_update_supplies_operation_witness": true,
+      "denominator_totality_is_explicit": true,
+      "joint_recurrence_existence": false,
+      "actual_rh_proof": false,
+      "independent_replay": {
+        "lines": 12603,
+        "unary": "332506235",
+        "compact": "34003549",
+        "nodes": 17275,
+        "target_bytes": "26770",
+        "rules": {
+          "K": 2919,
+          "S": 2563,
+          "classical": 569,
+          "mp": 6200,
+          "gen": 111
+        },
+        "nonpropositional_axioms": {
+          "forall-elimination": 116,
+          "forall-distribution": 124,
+          "equality-reflexivity": 1
+        }
+      },
+      "certificate_json_bytes": 371587,
+      "target_sha256": "268e732be64987424911ff9cb97e4bb588617fac7538c277425822077debfa5a",
+      "target_fidelity": {
+        "source_slots": {
+          "0": 37,
+          "1": 60,
+          "2": 6,
+          "3": 7,
+          "4": 8,
+          "7": 62,
+          "8": 61
+        },
+        "source_clauses": [
+          20
+        ],
+        "clause_bytes": {
+          "20": 8171
+        },
+        "exact_antecedent_checked": true,
+        "exact_consequent_checked": true,
+        "antecedent_sha256": "8d3feadd11bc32a6137fb2cdf2f47058d00aa7a44d01cd12c6e0546b726a2396",
+        "consequent_sha256": "7f1790fa3210fa013196b935fd9d03e7a344ae738de85f621a7555a9e5b3345d",
+        "statement_negative_controls": {
+          "wrong_conclusion": "actual theorem consequent differs from the audited statement",
+          "dropped_first_premise": "actual theorem antecedent differs from the audited statement"
+        }
+      },
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 3",
+          "costs_recomputed": true
+        }
+      }
+    },
+    {
+      "name": "normalized_numerator_to_exact_frozen_clauses",
+      "target_bytes": 38183,
+      "lines": 18693,
+      "unary": 470512931,
+      "compact": 48289999,
+      "axioms": {
+        "propositional": 8976,
+        "forall-elimination": 174,
+        "forall-distribution": 180,
+        "equality-reflexivity": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": false,
+      "source_clauses": [
+        13,
+        18,
+        20
+      ],
+      "source_slot_mapping": {
+        "0": 37,
+        "1": 60,
+        "2": 6,
+        "3": 7,
+        "4": 8,
+        "7": 62,
+        "8": 61
+      },
+      "exact_frozen_consequent": true,
+      "normalized_update_supplies_operation_witness": true,
+      "denominator_totality_is_explicit": true,
+      "joint_recurrence_existence": false,
+      "actual_rh_proof": false,
+      "independent_replay": {
+        "lines": 18693,
+        "unary": "470512931",
+        "compact": "48289999",
+        "nodes": 25143,
+        "target_bytes": "38183",
+        "rules": {
+          "K": 4311,
+          "S": 3734,
+          "classical": 931,
+          "mp": 9195,
+          "gen": 167
+        },
+        "nonpropositional_axioms": {
+          "forall-elimination": 174,
+          "forall-distribution": 180,
+          "equality-reflexivity": 1
+        }
+      },
+      "certificate_json_bytes": 555532,
+      "target_sha256": "41ed53525962d66052115974616716a66d0dbe264a77e6ab79c6362845496e53",
+      "target_fidelity": {
+        "source_slots": {
+          "0": 37,
+          "1": 60,
+          "2": 6,
+          "3": 7,
+          "4": 8,
+          "7": 62,
+          "8": 61
+        },
+        "source_clauses": [
+          13,
+          18,
+          20
+        ],
+        "clause_bytes": {
+          "13": 2962,
+          "18": 1347,
+          "20": 8171
+        },
+        "exact_antecedent_checked": true,
+        "exact_consequent_checked": true,
+        "antecedent_sha256": "ae6b8c5483f31ac082d30a0f99edc1ffa52c1dd80d11251309fd26aae30b4796",
+        "consequent_sha256": "58a2b6e42370fb2151da4fe60cb294f846b7b565dac5b70aff50014075c883d1",
+        "statement_negative_controls": {
+          "wrong_conclusion": "actual theorem consequent differs from the audited statement",
+          "dropped_first_premise": "actual theorem antecedent differs from the audited statement"
+        }
+      },
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 3",
+          "costs_recomputed": true
+        }
+      }
+    },
+    {
+      "name": "normalized_numerator_to_original_frozen_slots",
+      "target_bytes": 34953,
+      "lines": 18711,
+      "unary": 471370349,
+      "compact": 48389788,
+      "axioms": {
+        "propositional": 8976,
+        "forall-elimination": 180,
+        "forall-distribution": 180,
+        "equality-reflexivity": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": false,
+      "source_clauses": [
+        13,
+        18,
+        20
+      ],
+      "source_slot_mapping": {
+        "0": 0,
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "7": 7,
+        "8": 8
+      },
+      "exact_frozen_consequent": true,
+      "normalized_update_supplies_operation_witness": true,
+      "denominator_totality_is_explicit": true,
+      "joint_recurrence_existence": false,
+      "actual_rh_proof": false,
+      "independent_replay": {
+        "lines": 18711,
+        "unary": "471370349",
+        "compact": "48389788",
+        "nodes": 26038,
+        "target_bytes": "34953",
+        "rules": {
+          "K": 4311,
+          "S": 3734,
+          "classical": 931,
+          "mp": 9201,
+          "gen": 173
+        },
+        "nonpropositional_axioms": {
+          "forall-elimination": 180,
+          "forall-distribution": 180,
+          "equality-reflexivity": 1
+        }
+      },
+      "certificate_json_bytes": 566120,
+      "target_sha256": "633f99290e2aaeb6e11388617966489c57784b10f0c7eadfc8daaf5e286ffba0",
+      "target_fidelity": {
+        "source_slots": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "7": 7,
+          "8": 8
+        },
+        "source_clauses": [
+          13,
+          18,
+          20
+        ],
+        "clause_bytes": {
+          "13": 2612,
+          "18": 724,
+          "20": 7704
+        },
+        "exact_antecedent_checked": true,
+        "exact_consequent_checked": true,
+        "antecedent_sha256": "ce40ba5ca7c8d725905d0ad748b7071ea426d95f5584ac64bef250c991c5bfda",
+        "consequent_sha256": "46cbc452b4d7a4e32392f54105098ba7f9e4bdabc14fcf877f71eb9ec64f7a18",
+        "statement_negative_controls": {
+          "wrong_conclusion": "actual theorem consequent differs from the audited statement",
+          "dropped_first_premise": "actual theorem antecedent differs from the audited statement"
+        }
+      },
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 3",
+          "costs_recomputed": true
+        }
+      }
+    }
+  ],
+  "shared_nonpropositional_axiom_recognizer": true,
+  "joint_recurrence_existence": false,
+  "actual_rh_proof": false,
+  "finite_rh_upper_bound": false
+}

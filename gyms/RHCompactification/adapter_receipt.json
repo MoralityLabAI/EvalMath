@@ -1,0 +1,89 @@
+{
+  "candidate_bytes_max": 95,
+  "candidate_labels": {
+    "negative": 12,
+    "positive": 12,
+    "unknown": 0
+  },
+  "contract_sha256": "3c0088787dce204c5fbee48286acaa71b48004c95ff0f9c9c36adfee6680aa24",
+  "families": 1,
+  "goal_bytes_max": 237,
+  "goals": 12,
+  "heldout_evaluation": false,
+  "lean_processes_executed": 0,
+  "lineages": 1,
+  "loaders_executed": [
+    "datagoblin.training_gym.rlt_pretrain_data.lean_rows",
+    "ppt_gym.data.load_checked_pack"
+  ],
+  "mixed_pretrain_ready": false,
+  "model_max_bytes": 384,
+  "pack_manifest_sha256": "3b024e31bff01bd1e2ec376d354ae9c7444fa4a6694c5a7bc80c67f0107a768d",
+  "schema": "evalmath.rh_compactification.datagoblin_adapter_check.v1",
+  "scientific_effect_claim": false,
+  "sources": {
+    "datagoblin": {
+      "commit": "48c99a7d9c2d37c82fe127369dfa0124b88bc8ab",
+      "entrypoint": "datagoblin.training_gym.rlt_pretrain_data.lean_rows",
+      "file_sha256": {
+        "src/datagoblin/__init__.py": "89613c9d8f7e0397b293fee8947c656ce8d5b2961fc04cde832b18af4e6e17ee",
+        "src/datagoblin/config.py": "712b973159abb700b3ff202ba678f8d60288a0d282b5f8c9702dba1c58d9a52e",
+        "src/datagoblin/constitution/__init__.py": "f88436100bc477224f1864f818068a2200fd3d185db6255c14e74e9659de0863",
+        "src/datagoblin/constitution/charter.py": "98fffcb5e728c9e0e30f62f770e980b7eda3f519563d53e4895135ca5a653854",
+        "src/datagoblin/constitution/rules.py": "18335d7b98056fec3b26e78ce555ae1f79ca9ed6a9d9260a1a45f5aed080295f",
+        "src/datagoblin/constitution/validator.py": "75e664fad3844ba3c075f07896f717a6efa7be4f92bee7a336ad993d2a4c5bc6",
+        "src/datagoblin/datasets/__init__.py": "0ee3a105d3b3b0d66a0c50736ca100f536821b14f681d48899db54d7058c4686",
+        "src/datagoblin/datasets/corruptions.py": "2d1fa9e1c0e1c1540eb5d52765a594e50649399708623039e7c3fabcc0c89dbf",
+        "src/datagoblin/datasets/exports.py": "14b5a45cddf874993aeaa5086fab46ccda085ef7b7211a3a397af315b365e2f7",
+        "src/datagoblin/domain/__init__.py": "23ec856a389217100ef4d38bf887c96d4f008fbc84bc887efc0b1d5cce2480f4",
+        "src/datagoblin/domain/builders.py": "3186f805f919a9b93599658032ee83cd5a2bbe737093261a84aedd680b0b74a6",
+        "src/datagoblin/domain/capabilities.py": "f8a956da2c7778cfd3c081507f4776f55f68d7bf221391988afd625241ec490e",
+        "src/datagoblin/domain/evidence.py": "e728a54bca926377ebbfdc3fcb8d301a526c0170714870891a8db3c38e22353a",
+        "src/datagoblin/domain/experiments.py": "2f1058223189bca40d51b7503c9f7b96ec03c175baf4639a0432403abf0c2868",
+        "src/datagoblin/domain/hypotheses.py": "43d562b112516fac1d5e6fc69722d3038f2bfaa323c31304997b8142735bc338",
+        "src/datagoblin/domain/learner.py": "3521c368e2ac27b28bddfd2f16436ac4eb770262710c8524a0368e62deaa7026",
+        "src/datagoblin/domain/recipes.py": "6f2854608ef7ffaa8c664af7c06415d96ee303784fcf5ccb03d90e6e2d2fa4de",
+        "src/datagoblin/domain/research_episode.py": "6e1aa1c3713c661e084e3efa737f1c4f77b03642e0dc04eba1394902d436b3c9",
+        "src/datagoblin/experiments/__init__.py": "080951530e4afa1d84d418fc3626f2750d66cae37a2e41ed95d776602ba2ad85",
+        "src/datagoblin/experiments/recipe_verdict_dataset.py": "fd65432280da803cb85ff4f9abd03f182a56b1829f1a38e1965f947819f58e98",
+        "src/datagoblin/hashing.py": "6e74939af8db1fc1cf88dd6caa0dc730032416bf1a69a9bf5273e115f1bd1f73",
+        "src/datagoblin/serialization.py": "9a85bd3babc7a12383bae2f7131a9d502e1db77ea7e2db517e9ed17990f0c54b",
+        "src/datagoblin/training_gym/__init__.py": "fd58b57221c3170b986ce6c90e16230af9e080efba4da4d0e6f2315a90fda34d",
+        "src/datagoblin/training_gym/candidate.py": "3b7acd664763943affe394a3d9a4ade3c623251789d3fede92075cd18e948b51",
+        "src/datagoblin/training_gym/comparison.py": "af2230817f4c10b2a09081b9da28c8b8373d91c1a9d3922970c65dfc767a6c98",
+        "src/datagoblin/training_gym/contract.py": "2d4dd5f1f3c6e299a3d117ee4744fdaff82be8cf9a70da39ee57a4cd7eaacf70",
+        "src/datagoblin/training_gym/demo.py": "8109047bc353947cf0b1c9d0db185c7480273750ad078bb085c34375d3c29ba6",
+        "src/datagoblin/training_gym/evaluation.py": "dadfc1ce3d48b906297e024ec7ea9b47504a02d7a35e0a8cfcc85860245e2d26",
+        "src/datagoblin/training_gym/rlt_lean_grounded.py": "da6ec9c275288114c7b1553c37e746bdec4054622308e2e45130281ab2933e97",
+        "src/datagoblin/training_gym/rlt_lean_labels.py": "c9a17da4ec5834255c50f788c23d1d00fcfa9d93a955e8ef27c7a2cb674f7e43",
+        "src/datagoblin/training_gym/rlt_lean_ldt.py": "65d22da61a6c1b757ce183f3f8021eb6c610a8c63eae12d230401506b90324aa",
+        "src/datagoblin/training_gym/rlt_lean_pool_export.py": "d18306ab840529664a636177058abea2dc07c7e247beab7f3a883c0194649756",
+        "src/datagoblin/training_gym/rlt_lean_rank.py": "f4af1c4f109b04212dfa4298b7e1fc4a6a0fea88888f47d37697a5a6bc04851f",
+        "src/datagoblin/training_gym/rlt_pretrain_data.py": "07052f78f4265fe9eaf29f84c5b636212cfd66cf9d6cdf032b8f9345c05e4d86",
+        "src/datagoblin/training_gym/rlt_revision.py": "8593e06e842af5fa490af436ef889c1d6e62ff927620f036132e1535b9a7c841"
+      },
+      "repository": "MoralityLabAI/DataGoblin",
+      "verified_files": 35
+    },
+    "looped_transformers": {
+      "commit": "8931f9d9cf0b064cea5cb3ad0760fe2dcd5197fa",
+      "entrypoint": "ppt_gym.data.load_checked_pack",
+      "file_sha256": {
+        "research/lean_cgrt_hrm400/ppt_gym/__init__.py": "45ff7e9ec79c063b7c4bbb9a589dd7bf9910bc75d99d7a1e6254ae27472f5427",
+        "research/lean_cgrt_hrm400/ppt_gym/__main__.py": "479c19168442d4c0651bb6e5b6478509230f65d2453578ff247ba78ec772cf93",
+        "research/lean_cgrt_hrm400/ppt_gym/cli.py": "47f0fa5ab734aa1af7e8a436c3dfc720512f157a3945914c0359c6cbd2909d4f",
+        "research/lean_cgrt_hrm400/ppt_gym/core.py": "adfb9c69da873a314d07757abc3aacb738bd783ba007d8c54f0479d9baf35c1c",
+        "research/lean_cgrt_hrm400/ppt_gym/data.py": "9c7c1110ea7018c9d57e62bf54963707b1e395d1c8cbee6cc7f1b9dc1e7f892e"
+      },
+      "repository": "MoralityLabAI/LoopedTransformers",
+      "verified_files": 5
+    }
+  },
+  "split": "train",
+  "status": "passed",
+  "training_steps": 0,
+  "truncated_inputs": 0,
+  "upstream_evidence_class": "lean_kernel_receipt_replay",
+  "usable_goals": 12,
+  "verification_scope": "pinned loader execution over previously generated Lean receipts"
+}

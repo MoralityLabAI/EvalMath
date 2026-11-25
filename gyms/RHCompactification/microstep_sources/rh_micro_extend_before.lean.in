@@ -1,0 +1,59 @@
+import Init
+
+/-!
+# RH compactification curriculum: recurrences and compatible finite prefixes
+
+This module supplies a Lean-native mathematical analogue of the finite-prefix,
+overlap, gluing, and recurrence constructions in `research/rh_pl01/`. Its domain
+is Lean's `Nat`, and its graphs are predicates or functions. It does not translate
+the custom Hilbert calculus, its set-theoretic encoding, or its frozen RH target.
+
+The operation arguments `mul` and `add` are arbitrary total natural functions.
+The general theorems impose no arithmetic laws on them. The final numerical
+witnesses specialize both operations to Lean's natural multiplication and addition.
+
+The marker comments delimit declarations for the proof-repair gym. A challenge
+receives the declarations preceding its target and the target's statement.
+-/
+
+set_option autoImplicit false
+
+namespace FeedbackChannel.RHCompactification
+
+universe u
+variable {α : Type u}
+
+-- RHGYM-BEGIN orbit
+/-- Primitive recursion with a step indexed by its predecessor. -/
+def orbit (step : Nat → α → α) (seed : α) : Nat → α
+  | 0 => seed
+  | n + 1 => step n (orbit step seed n)
+-- RHGYM-END orbit
+
+-- RHGYM-BEGIN IsPrefix
+/-- A recurrence contract through `bound`; values after `bound` are unrestricted. -/
+def IsPrefix (step : Nat → α → α) (seed : α) (bound : Nat) (f : Nat → α) : Prop :=
+  f 0 = seed ∧ ∀ i, i < bound → f (i + 1) = step i (f i)
+-- RHGYM-END IsPrefix
+
+-- RHGYM-BEGIN extend
+/-- Replace the next point while retaining every earlier value. -/
+def extend (f : Nat → α) (bound : Nat) (value : α) : Nat → α :=
+  fun i => if i = bound + 1 then value else f i
+-- RHGYM-END extend
+
+-- RHGYM-BEGIN extend_at_new
+theorem extend_at_new (f : Nat → α) (bound : Nat) (value : α) :
+    extend f bound value (bound + 1) = value := by
+  simp [extend]
+-- RHGYM-END extend_at_new
+
+-- RHGYM-BEGIN extend_before
+theorem extend_before (f : Nat → α) (bound i : Nat) (value : α)
+    (hi : i ≤ bound) : extend f bound value i = f i := by
+  have hne : i ≠ bound + 1 := Nat.ne_of_lt (Nat.lt_succ_of_le hi)
+  clear hi
+  __RHGYM_FRAGMENT__
+-- RHGYM-END extend_before
+
+end FeedbackChannel.RHCompactification

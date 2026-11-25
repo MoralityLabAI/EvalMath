@@ -1,8 +1,14 @@
 # RH-PL-01: Proof-length frontier, obstruction packing
 
-Status: exploratory proof-length program through RH-PL-16, 2026-11-25.
+Status: exploratory proof-length program through RH-PL-17, 2026-11-25.
 
-The latest stage, [RH-PL-16](RH_PL_16.md), constructs a denominator graph
+The latest stage, [RH-PL-17](RH_PL_17.md), proves the conditional numerator
+bridge and prepares the [native Lean recurrence gym](../../gyms/RHCompactification/README.md).
+Its five Hilbert certificates and the separate Lean curriculum retain their
+respective verifier identities. The training pack has completed the pinned
+PPT loader and a bounded CPU optimizer run.
+
+[RH-PL-16](RH_PL_16.md) constructs a denominator graph
 satisfying the exact frozen clauses 14, 19, and 21 from source clauses
 0, 1, 2, 3, 4, and 6. It proves both directions between those exact clauses
 and the normalized recurrence. The `denominator_audit.mjs` CLI checks the
@@ -142,3 +148,9 @@ circuit lower bound transfers without a resource-preserving reduction.
   https://users.math.cas.cz/~pudlak/fin-con.pdf
 - Sanford Buss, survey of Parikh's length-of-proof work:
   https://mathweb.ucsd.edu/~sbuss/ResearchWeb/parikh/paper.pdf
+
+## RH-PL-17 and the native Lean curriculum
+
+[RH_PL_17.md](RH_PL_17.md) derives exact numerator clauses 13, 18 and 20 from the normalized numerator contract, with five independently replayed certificates. Its original-slot bridge costs 471,370,349 unary bytes or 48,389,788 compact bytes. Constructing the normalized numerator graph remains open in the Hilbert calculus.
+
+The [RH recurrence gym](../../gyms/RHCompactification/README.md) adds 36 Lean theorems, 20 source-prefix proof exercises, and 12 bounded local repair tasks in the checked-candidate format accepted by the pinned DataGoblin and PPT loaders. The native Nat/function construction and the Hilbert proofs retain separate verifier identities. A 32-update CPU run checks the existing PPT training path. All current tasks belong to one public training/development family.
