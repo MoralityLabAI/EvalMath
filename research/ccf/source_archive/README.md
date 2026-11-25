@@ -1,0 +1,3 @@
+# CCF upstream source snapshots
+
+Unmodified Apache-2.0 repository files, archived from the exact commits recorded in sources.json. The original paths and Git blob IDs are recorded there; LICENSE copies are included. Copyright and authorship remain with the upstream authors. The reference challenge and solution are different compilation units. Their stored signatures are compared syntactically; nothing in this archive certifies upstream proof dependencies or execution. The FlashProve documentation records the distinctions between the protocol theorem, executable verification, covered token ranges and caller checks.

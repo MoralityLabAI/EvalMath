@@ -227,3 +227,12 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.RSISpectralThreshold.dominant_gt_one_iff
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance_attained
+
+-- CCF: certificate interface and finite risk core
+#print axioms CertificateContext.exact_iff_separates
+#print axioms CertificateContext.policy_le_upper
+#print axioms CertificateContext.policy_attains_upper
+#print axioms CertificateContext.cell_mixture_upper
+#print axioms CertificateContext.finite_mixture_upper
+#print axioms CertificateContext.union_indicator_le_sum
+#print axioms CertificateContext.missingness_bounds

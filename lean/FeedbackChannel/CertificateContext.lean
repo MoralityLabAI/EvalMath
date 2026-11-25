@@ -1,6 +1,6 @@
 import Mathlib
 
-/- CCF-01 draft; kernel build and axiom audit pending. -/
+/- CCF-01 exact-code iff. Kernel verification pending CI. -/
 namespace CertificateContext
 
 variable {X C K : Type}
@@ -46,4 +46,3 @@ theorem exact_iff_separates (feasible : C → X → Prop)
 
 end CertificateContext
 
-#print axioms CertificateContext.exact_iff_separates
