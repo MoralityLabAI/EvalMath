@@ -8,8 +8,10 @@ Private material (seeds, gold, call ledgers, server logs) lives in `%USERPROFILE
 |---|---|---|
 | Backend probe | done: 0 cap violations, usage on every call, 29.6 tok/s decode, 6.3 GB VRAM | three launch configurations measured at 0.65 to 2.6 tok/s under host-RAM pressure; no ledger calls |
 | Dev preflight, 48 roots × 4 stages | done, 192/192 calls (`dev48_preflight_bonsai.json`) | not started |
-| Primary panel, 240 roots × 4 stages | not started; GPU watcher armed | not started |
+| Primary panel, 240 roots × 4 stages | paused 2026-11-25 12:45 at 586/960 calls (146 roots complete, 1 root at 2/4); ledger snapshot sha256 `4d5e9864…f47192d` in `cpf-private/primary240/checkpoints/` | not started |
 | Scoring, analysis, Data Goblin ledger export | after both models complete | after both models complete |
+
+The pause was an operator stop to free the GPU for other work. The collector writes and fsyncs each call before the next, so the snapshot holds only complete rows; the in-flight request at the stop was discarded and is reissued on resume with the same per-call seed.
 
 Blockers met during the run:
 
