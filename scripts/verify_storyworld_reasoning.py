@@ -54,13 +54,13 @@ def receipt():
             "parity": parity, "hidden": hidden, "padded": padded,
             "adaptive_vs_fixed": {"adaptive": adaptive,"fixed": fixed},
             "formula": formula, "gradual": gradual, "jump": jump,
-            "sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}}
+            "source_sha256": {p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in paths}}
 
 
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--out",type=Path, default=ROOT/"output/evaluation_storyworld_reasoning/srg01.json")
+    parser.add_argument("--output", "--out", dest="out", type=Path, default=ROOT/"output/evaluation_storyworld_reasoning/srg01.json")
     args = parser.parse_args()
     data = receipt()
     if not all(data["checks"].values()):
