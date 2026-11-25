@@ -1,0 +1,198 @@
+{
+  "total": 25,
+  "feasible": 19,
+  "hardening_feasible": 0,
+  "best": {
+    "g": {
+      "action": null,
+      "feature": null,
+      "c": 0
+    },
+    "cohorts": [
+      {
+        "g": {
+          "action": null,
+          "feature": null,
+          "c": 0
+        },
+        "roots": 48,
+        "valid": 48,
+        "full": 40,
+        "info": 20,
+        "oracles": {
+          "menu": {
+            "value": 37,
+            "full": 40,
+            "cells": 69,
+            "informative_cells": 15,
+            "gap": 3
+          },
+          "weak": {
+            "value": 40,
+            "full": 40,
+            "cells": 72,
+            "informative_cells": 16,
+            "gap": 0
+          },
+          "ledger": {
+            "value": 40,
+            "full": 40,
+            "cells": 72,
+            "informative_cells": 16,
+            "gap": 0
+          },
+          "goal4": {
+            "value": 40,
+            "full": 40,
+            "cells": 96,
+            "informative_cells": 20,
+            "gap": 0
+          },
+          "public": {
+            "value": 40,
+            "full": 40,
+            "cells": 241,
+            "informative_cells": 44,
+            "gap": 0
+          }
+        },
+        "gap": 0,
+        "strict": {
+          "pairs": 0,
+          "cells": 0,
+          "examples": []
+        },
+        "script": {
+          "value": 36,
+          "rule": [
+            2,
+            0,
+            0
+          ]
+        },
+        "scope": {
+          "actions": 144,
+          "ordered_writes": 0,
+          "invalid": 0,
+          "unchanged": 144,
+          "warrant_zero": 0,
+          "max_adjust": 0,
+          "max_ratio": 1,
+          "max_share_increase": 0
+        },
+        "errors": [],
+        "lost": 0,
+        "gain": 0,
+        "checks": {
+          "valid": true,
+          "scope": true,
+          "adjust": true,
+          "energy": true,
+          "concentration": true,
+          "full": true,
+          "paired_loss": true,
+          "goal4": true,
+          "info": true
+        },
+        "pass": true,
+        "hardens": false
+      },
+      {
+        "g": {
+          "action": null,
+          "feature": null,
+          "c": 0
+        },
+        "roots": 48,
+        "valid": 48,
+        "full": 43,
+        "info": 36,
+        "oracles": {
+          "menu": {
+            "value": 35,
+            "full": 43,
+            "cells": 73,
+            "informative_cells": 11,
+            "gap": 8
+          },
+          "weak": {
+            "value": 43,
+            "full": 43,
+            "cells": 81,
+            "informative_cells": 14,
+            "gap": 0
+          },
+          "ledger": {
+            "value": 43,
+            "full": 43,
+            "cells": 81,
+            "informative_cells": 14,
+            "gap": 0
+          },
+          "goal4": {
+            "value": 43,
+            "full": 43,
+            "cells": 102,
+            "informative_cells": 19,
+            "gap": 0
+          },
+          "public": {
+            "value": 43,
+            "full": 43,
+            "cells": 246,
+            "informative_cells": 40,
+            "gap": 0
+          }
+        },
+        "gap": 0,
+        "strict": {
+          "pairs": 0,
+          "cells": 0,
+          "examples": []
+        },
+        "script": {
+          "value": 33,
+          "rule": [
+            1,
+            0,
+            1
+          ]
+        },
+        "scope": {
+          "actions": 144,
+          "ordered_writes": 0,
+          "invalid": 0,
+          "unchanged": 144,
+          "warrant_zero": 0,
+          "max_adjust": 0,
+          "max_ratio": 1,
+          "max_share_increase": 0
+        },
+        "errors": [],
+        "lost": 0,
+        "gain": 0,
+        "checks": {
+          "valid": true,
+          "scope": true,
+          "adjust": true,
+          "energy": true,
+          "concentration": true,
+          "full": true,
+          "paired_loss": true,
+          "goal4": true,
+          "info": true
+        },
+        "pass": true,
+        "hardens": false
+      }
+    ],
+    "pass": true,
+    "hardens": false
+  },
+  "frozen": {
+    "action": null,
+    "feature": null,
+    "c": 0
+  },
+  "improved": false
+}
