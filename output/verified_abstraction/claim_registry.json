@@ -130,12 +130,12 @@
   "level": "T",
   "claim": "Greedy-0 optimal on modular class (independent edges from facts, distinct conclusions, equal costs)",
   "evidence": "paper/verified_abstraction_agenda.md; test_vad_agenda.py",
-  "caveat": "proved; checked on 210 seeds"
+  "caveat": "proved; referee fuzz of 3,000 instances found no counterexample"
  },
  {
   "id": "VAD10-3",
   "level": "T/E",
-  "claim": "Chain of k edges: V=p^k R-1 and greedy-j optimal iff j>=k-1 (k=2..6 verified)",
+  "claim": "Chain of k edges (lambda=0, N=1, future mass on a fact, ties toward stopping): V=p^k R-1 and greedy-j optimal iff j>=k-1 (k=2..6 verified)",
   "evidence": "vad_10.json",
   "caveat": ""
  },
@@ -158,12 +158,12 @@
   "level": "E",
   "claim": "H=3 exact: blind 26.700, myopic filter 27.295, finite-horizon 31.255, with mode probe 40.181 (receding h=2 equal), law-known planner 40.184, mode oracle 53.430 (= both known)",
   "evidence": "output/verified_abstraction/vad_09d.json; tests/test_vad_voi.py",
-  "caveat": "menu of 7 actions plus two stipulated probes priced at 1; exact for this model only"
+  "caveat": "menu of 7 actions plus two stipulated probes priced at 1; of the 12.89 gap to myopic, 3.96 is planning depth and 8.93 is the probe"
  },
  {
   "id": "VAD09D-2",
   "level": "E",
-  "claim": "Planning advantage 12.89 utility over myopic for 119,709 Q-evaluations: break-even 1.1e-4 utility per Q-evaluation",
+  "claim": "No-probe planning advantage 3.96 over myopic: break-even about 3.3e-5 utility per Q-evaluation; with an exact mode probe, myopic filtering after the probe is already optimal",
   "evidence": "vad_09d.json",
   "caveat": "overhead in Q-evaluations, not measured physical compute"
  },
@@ -198,23 +198,23 @@
  {
   "id": "VAD11E-1",
   "level": "S",
-  "claim": "Replay of measured work: pooled gain vs direct proof: oracle 1.331, Bayes-online 1.259, greedy0 1.195, support 1.128, lookahead 1.102, retrieval-on-demand 0.492; break-even horizons F1 8.9, F2 7.1, F3 91, F4 2.5, F5 15.6",
+  "claim": "Replay of measured in-Lean work (Lean 4.35.0): Bayes-online 1.259, greedy0 1.195, support 1.128, lookahead 1.102, retrieval 0.492, best searched set 1.331; under Lean 4.19.0 1.087/1.101/1.043/1.016/0.510/1.270; per-file wall seconds (incl. start-up) 0.72-1.05 for every policy",
   "evidence": "output/verified_abstraction/vad_11e_economics.json; tests/test_vad_gym_economics.py",
-  "caveat": "one 20-target session per family; descriptive; excludes process start-up"
+  "caveat": "one 20-target session per family; calibration lemmas overlap test lemmas in 0-1 units for four of five families; library authored by the team; no horizon sweep; not an economic gain once verifier calls are counted"
  },
  {
   "id": "VAD12-1",
   "level": "N",
-  "claim": "Gate FAIL: no 12.2k-parameter controller within 0.01 of greedy-2 regret on any fresh family; memory and recurrence ablations show no benefit",
+  "claim": "Gate FAIL: no 12.2k-parameter controller within 0.01 of greedy-2 regret on any fresh family; memory and recurrence ablations indistinguishable from the full model at 2 seeds",
   "evidence": "output/verified_abstraction/vad_12_gate.json; LoopedTransformers 181bb78c",
-  "caveat": "tiny controllers; exact belief supplied as input; 2 seeds; CPU"
+  "caveat": "lossy features (no posterior over worlds), 1,000 training instances, labels tie toward stop, checkpoint by accuracy, shuffled-memory ablation off by one step, 2 seeds, CPU"
  },
  {
   "id": "PAPER-1",
-  "level": "E",
-  "claim": "Source facts: Anthropic FLT page dated 2026-09-04 (13M lines, 30,300 theorems, 11 days, dozens of agents); OpenAI page dated 2026-10-26 (local smoothing, auxiliary PDE, Lean next day, no peer review stated)",
-  "evidence": "primary pages opened by delegated worker and lead",
-  "caveat": "cited upstream claims, not reproduced; Lean files and statement fidelity of the OpenAI formalization not inspected"
+  "level": "C",
+  "claim": "Cited: Anthropic FLT page dated 2026-09-04 (13M lines, 30,300 theorems, 11 days, dozens of agents); OpenAI page dated 2026-10-26 (local smoothing, auxiliary PDE, Lean next day, no peer review stated)",
+  "evidence": "primary web pages read 2026-11-25; no snapshot archived in the repository",
+  "caveat": "vendor claims, not reproduced; Lean files and statement fidelity of the OpenAI formalization not inspected"
  },
  {
   "id": "VAD09D-3",
@@ -222,5 +222,12 @@
   "claim": "Exact mode probe is used at every price tested and stops paying near 7.08 (2 families) / 11.10 (3 families, 4-action menu); a law probe is never chosen",
   "evidence": "output/verified_abstraction/vad_09d_probes.json",
   "caveat": "probe is exact and priced by assumption; upper bound for a noisy probe"
+ },
+ {
+  "id": "VAD09D-4",
+  "level": "E",
+  "claim": "Decomposition: planning depth 3.96 and probe 8.93 over the myopic filter; law knowledge adds 0.97 to the no-probe planner, 0.003 with probes; probe-then-myopic equals the probe-using optimum exactly (40.18075)",
+  "evidence": "output/verified_abstraction/vad_09d_attribution.json; vad_09d_heuristic.json",
+  "caveat": "same model limits as VAD09D-1"
  }
 ]

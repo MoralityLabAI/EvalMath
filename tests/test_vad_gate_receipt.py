@@ -27,4 +27,4 @@ def test_datagoblin_records_well_formed():
         n[r["record_type"]] = n.get(r["record_type"], 0) + 1
     assert n["theorem_instance"] == 200 and n["proof_trace"] == n["verification_receipt"] == 880
     reg = json.loads((out / "claim_registry.json").read_text())
-    assert len({c["id"] for c in reg}) == len(reg) and all(c["level"] in ("T", "E", "S", "K", "N", "T/E") for c in reg)
+    assert len({c["id"] for c in reg}) == len(reg) and all(c["level"] in ("T", "E", "S", "K", "N", "T/E", "C") for c in reg)

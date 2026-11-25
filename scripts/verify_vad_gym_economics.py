@@ -1,7 +1,10 @@
 """VAD-11E: measured amortization economics and research-selection policies on the kernel-verified gym.
 
 Replays the measured in-Lean work (work_ms of each kernel-checked file) recorded in the VAD-11 receipt.
-A session is the frozen test targets of one family in seed order. Calibration instances of the same family
+A session is the frozen test targets of one family in seed order. The policy labelled oracle_prebuilt_set is the best
+prebuilt set found by a size-limited subset search (not a proven optimum). The primary metric is in-Lean work (work_ms,
+excluding process start-up and import time); the sensitivity block repeats the replay for both toolchains and for
+per-file wall seconds, which include start-up. Calibration instances of the same family
 are the development data. Lemma build costs are the measured work_ms of the library units; a target proved
 with S_lemma needs the lemma units it imports. Nothing here runs Lean; every number is a replay of kernel
 runs recorded in the receipt. Process start-up (about 1.5-2.5 s per file here) is excluded from work_ms and
@@ -17,18 +20,18 @@ HERE = Path(__file__).resolve().parent
 TC = "4.35.0"
 
 
-def load(path):
+def load(path, tc=TC, metric="work_ms"):
     d = json.loads(Path(path).read_text())
-    lib = {k: v["results"][TC]["work_ms"] for k, v in d["library"].items()}
+    lib = {k: v["results"][tc][metric] for k, v in d["library"].items()}
     fam = {}
     for i in d["instances"]:
         s = i["strategies"]
         base = "S_decide" if "S_decide" in s else "S_direct"  # F5 has no brute-force strategy; direct omega/mul chain
-        if not (s.get(base, {}).get(TC, {}).get("ok") and s.get("S_lemma", {}).get(TC, {}).get("ok")):
+        if not (s.get(base, {}).get(tc, {}).get("ok") and s.get("S_lemma", {}).get(tc, {}).get("ok")):
             continue
         fam.setdefault(i["family"], {"cal": [], "test": []})[i["split"]].append(dict(
-            id=i["id"], seed=i["seed"], decide=s[base][TC]["work_ms"], lemma=s["S_lemma"][TC]["work_ms"],
-            need=frozenset(s["S_lemma"][TC]["imports"])))
+            id=i["id"], seed=i["seed"], decide=s[base][tc][metric], lemma=s["S_lemma"][tc][metric],
+            need=frozenset(s["S_lemma"][tc]["imports"])))
     for f in fam.values():
         for k in f:
             f[k].sort(key=lambda r: r["seed"])
@@ -113,10 +116,10 @@ def oracle_best(test, lib, pool, max_size=6):
     return best_c, best
 
 
-def run(path):
-    d, lib, fam = load(path)
+def run(path, tc=TC, metric="work_ms", sensitivity=True):
+    d, lib, fam = load(path, tc, metric)
     out = {"protocol": "VAD-11E", "evidence": "replay of measured kernel-checked work_ms; no Lean executed",
-           "receipt_sha256": sha256(Path(path).read_bytes()).hexdigest(), "toolchain": TC, "families": {}}
+           "receipt_sha256": sha256(Path(path).read_bytes()).hexdigest(), "toolchain": tc, "metric": metric, "families": {}}
     pooled = {}
     for f, sp in sorted(fam.items()):
         cal, test = sp["cal"], sp["test"]
@@ -124,7 +127,9 @@ def run(path):
             continue
         pool = frozenset(l for t in cal + test for l in t["need"])
         direct = cost_with(test, frozenset(), lib)
+        cal_l = set().union(*[t["need"] for t in cal]); test_l = set().union(*[t["need"] for t in test])
         row = {"n_cal": len(cal), "n_test": len(test), "verifier_calls_per_session": len(test),
+               "lemma_units_cal": len(cal_l), "lemma_units_test": len(test_l), "lemma_units_shared": len(cal_l & test_l),
                "direct_ms": direct,
                "mean_saving_per_target_ms": sum(t["decide"] - t["lemma"] for t in test) / len(test),
                "lemma_units_needed": len(pool), "all_build_ms": sum(lib[l] for l in pool)}
@@ -148,6 +153,10 @@ def run(path):
     out["pooled_ms"] = pooled
     out["pooled_gain_vs_direct"] = {k: pooled["direct"] / v for k, v in pooled.items()}
     out["source_sha256"] = {"verify_vad_gym_economics.py": sha256(Path(__file__).read_bytes()).hexdigest()}
+    if sensitivity:
+        out["sensitivity"] = {f"{t}/{m}": {"pooled_gain_vs_direct": run(path, t, m, False)["pooled_gain_vs_direct"],
+                                           "per_family_gain": {f: r["gain_vs_direct"] for f, r in run(path, t, m, False)["families"].items()}}
+                              for t in ("4.35.0", "4.19.0") for m in ("work_ms", "seconds")}
     return out
 
 

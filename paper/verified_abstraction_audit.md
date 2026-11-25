@@ -1,4 +1,4 @@
-# Independent reproduction audit: VAD-01 .. VAD-08
+# Reproduction audit (same team, delegated worker): VAD-01 .. VAD-08, with the lead's VAD-09 replay
 
 Worktree: `C:\Users\patri\OneDrive\Documents\GitHub\EvalMath-vad`, branch research/vad01-verified-abstraction-20261125, HEAD d6646bf.
 Audit run by a delegated worker on 2026-11-25 and re-read by the lead. The audit itself modified no tracked file; scratch outputs were kept outside the repository.
