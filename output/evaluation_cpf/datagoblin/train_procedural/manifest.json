@@ -1,0 +1,71 @@
+{
+  "quarantine": "calibration and sealed_eval records carry loss.eligible=false",
+  "roots_by_custody": {
+    "train": 768
+  },
+  "schema_version": "rlt_gym.aleph_corpus.v1",
+  "sources": [
+    {
+      "excluded_ids_digest": "902726decbb59b4aab46d3d549d6caa7ba9dadcf454013d631320ab8f75ac006",
+      "families": [
+        "degree",
+        "determinant",
+        "gate"
+      ],
+      "gold_digest": "46fa72b6cf30a192c5f74113661cef7b6f877c92d4ea354c333c789e6af596d8",
+      "kind": "procedural_generator",
+      "per_family": 256,
+      "prompt_digest": "62ac0aabc8f9b546765980fd50a977265766580ca7b4e7b173ff6dfa5c4b6e16",
+      "seed_commitment": "bdb45e76ea5ff0ec4368dcf7e9b7c13f89d56e0835ad38d7687c4167a38d8a54"
+    }
+  ],
+  "split": "train",
+  "streams": {
+    "outcomes": {
+      "bytes": 0,
+      "families": {},
+      "roots": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unique_examples": 0
+    },
+    "preferences": {
+      "bytes": 0,
+      "families": {},
+      "roots": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unique_examples": 0
+    },
+    "repairs": {
+      "bytes": 0,
+      "families": {},
+      "roots": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unique_examples": 0
+    },
+    "research": {
+      "bytes": 0,
+      "families": {},
+      "roots": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unique_examples": 0
+    },
+    "sft": {
+      "bytes": 1178116,
+      "families": {
+        "degree": 256,
+        "determinant": 256,
+        "gate": 256
+      },
+      "roots": 768,
+      "sha256": "9414c94ba37a0ccc719f42a0c4e45d75b6a69ef09864387051395c83c875c3ee",
+      "unique_examples": 768
+    },
+    "transitions": {
+      "bytes": 0,
+      "families": {},
+      "roots": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unique_examples": 0
+    }
+  }
+}
