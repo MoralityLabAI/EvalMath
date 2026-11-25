@@ -1,0 +1,770 @@
+{
+  "cohort": {
+    "seed": 1397888017,
+    "n": 96
+  },
+  "grid": [
+    {
+      "params": {
+        "retention": 0,
+        "restraint": 0
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 0,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 3.5,
+          "h3": -1,
+          "unique_truce": 12,
+          "random_goal": -5.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 20,
+          "h3": 20,
+          "unique_truce": 14,
+          "random_goal": 12,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 0,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 0,
+        "mean_delta": {
+          "h1": 0.03888888888888889,
+          "h3": -0.011111111111111112,
+          "unique_truce": 0.13333333333333333,
+          "random_goal": -0.06111111111111111,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0,
+        "restraint": 0.04
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 18,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 4.5,
+          "h3": 0,
+          "unique_truce": 13,
+          "random_goal": -4.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 21,
+          "h3": 21,
+          "unique_truce": 15,
+          "random_goal": 13,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0.039999999999999994,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 2.7755575615628914e-17,
+        "dependent_p2_changes": 18,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 252,
+        "mean_delta": {
+          "h1": 0.05,
+          "h3": 0,
+          "unique_truce": 0.14444444444444443,
+          "random_goal": -0.05,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": true,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0,
+        "restraint": 0.08
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 18,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 2.5,
+          "h3": -2,
+          "unique_truce": 11,
+          "random_goal": -4.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 19,
+          "h3": 19,
+          "unique_truce": 13,
+          "random_goal": 13,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0.08,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 18,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 252,
+        "mean_delta": {
+          "h1": 0.027777777777777776,
+          "h3": -0.022222222222222223,
+          "unique_truce": 0.12222222222222222,
+          "random_goal": -0.05,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.04,
+        "restraint": 0
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 18,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 3.5,
+          "h3": -1,
+          "unique_truce": 11,
+          "random_goal": -4.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 20,
+          "h3": 20,
+          "unique_truce": 13,
+          "random_goal": 13,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0.039999999999999994,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 0,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 252,
+        "mean_delta": {
+          "h1": 0.03888888888888889,
+          "h3": -0.011111111111111112,
+          "unique_truce": 0.12222222222222222,
+          "random_goal": -0.05,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.04,
+        "restraint": 0.04
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 18,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 4.5,
+          "h3": 0,
+          "unique_truce": 12,
+          "random_goal": -3.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 21,
+          "h3": 21,
+          "unique_truce": 14,
+          "random_goal": 14,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0.039999999999999994,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 2.7755575615628914e-17,
+        "dependent_p2_changes": 18,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 252,
+        "mean_delta": {
+          "h1": 0.05,
+          "h3": 0,
+          "unique_truce": 0.13333333333333333,
+          "random_goal": -0.03888888888888889,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": true,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.04,
+        "restraint": 0.08
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 18,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 2.5,
+          "h3": -2,
+          "unique_truce": 8,
+          "random_goal": -4.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 19,
+          "h3": 19,
+          "unique_truce": 10,
+          "random_goal": 13,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0.08,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 18,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 252,
+        "mean_delta": {
+          "h1": 0.027777777777777776,
+          "h3": -0.022222222222222223,
+          "unique_truce": 0.08888888888888889,
+          "random_goal": -0.05,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.08,
+        "restraint": 0
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 18,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 3.5,
+          "h3": -1,
+          "unique_truce": 9,
+          "random_goal": -3.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 20,
+          "h3": 20,
+          "unique_truce": 11,
+          "random_goal": 14,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0.08,
+        "max_energy_ratio": 1.0103481212494876,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 0,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 252,
+        "mean_delta": {
+          "h1": 0.03888888888888889,
+          "h3": -0.011111111111111112,
+          "unique_truce": 0.1,
+          "random_goal": -0.03888888888888889,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.08,
+        "restraint": 0.04
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 18,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 5.5,
+          "h3": 1,
+          "unique_truce": 12,
+          "random_goal": -2.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 22,
+          "h3": 22,
+          "unique_truce": 14,
+          "random_goal": 15,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0.077848448,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 2.7755575615628914e-17,
+        "dependent_p2_changes": 18,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 252,
+        "mean_delta": {
+          "h1": 0.06111111111111111,
+          "h3": 0.011111111111111112,
+          "unique_truce": 0.13333333333333333,
+          "random_goal": -0.027777777777777776,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": true,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.08,
+        "restraint": 0.08
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 18,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 5.5,
+          "h3": 1,
+          "unique_truce": 11,
+          "random_goal": -4.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 22,
+          "h3": 22,
+          "unique_truce": 13,
+          "random_goal": 13,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0.08,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 18,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 252,
+        "mean_delta": {
+          "h1": 0.06111111111111111,
+          "h3": 0.011111111111111112,
+          "unique_truce": 0.12222222222222222,
+          "random_goal": -0.05,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": true,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.12,
+        "restraint": 0
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 18,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 3.5,
+          "h3": -1,
+          "unique_truce": 8,
+          "random_goal": -3.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 20,
+          "h3": 20,
+          "unique_truce": 10,
+          "random_goal": 14,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0.11999999999999998,
+        "max_energy_ratio": 1.1274569465949817,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 0,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 252,
+        "mean_delta": {
+          "h1": 0.03888888888888889,
+          "h3": -0.011111111111111112,
+          "unique_truce": 0.08888888888888889,
+          "random_goal": -0.03888888888888889,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.12,
+        "restraint": 0.04
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 18,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 5.5,
+          "h3": 1,
+          "unique_truce": 10,
+          "random_goal": -2.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 22,
+          "h3": 22,
+          "unique_truce": 12,
+          "random_goal": 15,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0.11784844799999998,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 2.7755575615628914e-17,
+        "dependent_p2_changes": 18,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 252,
+        "mean_delta": {
+          "h1": 0.06111111111111111,
+          "h3": 0.011111111111111112,
+          "unique_truce": 0.1111111111111111,
+          "random_goal": -0.027777777777777776,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": true,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.12,
+        "restraint": 0.08
+      },
+      "metrics": {
+        "prefixes": 90,
+        "edited": 18,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 90
+        },
+        "contrast": {
+          "h1": 5.5,
+          "h3": 1,
+          "unique_truce": 11,
+          "random_goal": -2.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 22,
+          "h3": 22,
+          "unique_truce": 13,
+          "random_goal": 15,
+          "complete": 90,
+          "reached": 90
+        },
+        "off": {
+          "h1": 16.5,
+          "h3": 21,
+          "unique_truce": 2,
+          "random_goal": 17.5,
+          "complete": 90,
+          "reached": 90
+        },
+        "max_delta": 0.11569689599999998,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 18,
+        "unchanged_non_target": 180,
+        "zero_warrant_checks": 72,
+        "route_changes": 0,
+        "off_replay_checks": 252,
+        "mean_delta": {
+          "h1": 0.06111111111111111,
+          "h3": 0.011111111111111112,
+          "unique_truce": 0.12222222222222222,
+          "random_goal": -0.027777777777777776,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": true,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    }
+  ],
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg13/fixtures/reservoir-dogs-evidence-chain-candidate.swmd.md": "64d40ef2d0953a6034a92c4250c006f59f533fb2",
+    "integrations/sweepweave-ts/srg15/radio-repair.mjs": "eb649bf294f309b529e80d9d5f2792363bf1cb99"
+  }
+}
