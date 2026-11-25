@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "gate_census_agrees": true,
+    "missingness_bounds_sharp": true,
+    "scope_cases_agree": true
+  },
+  "evidence": "finite synthetic fixtures, no verifier execution",
+  "experiment": "CCF-04",
+  "gate_combinations": 4096,
+  "legacy_invalid_acceptances": 1023,
+  "missingness_configurations": 1024,
+  "missingness_count_classes": 21,
+  "scope_cases": 37,
+  "scope_positive_cases": 11,
+  "source_sha256": {
+    "scripts/verify_evaluation_ccf_scope.py": "7c516de648218e2c3636f37b8c2c8fa4fa30353ffd6dfb2054864810832f4001",
+    "src/spiral_ln/evaluation_ccf_scope.py": "17500bf760bb2177ddf7432e71f1955db63349e7ff378fddb5834caebee5694e",
+    "tests/test_evaluation_ccf_scope.py": "436ef9ca266cef6d3324d75a23eea36a7732b8ac92d27cd3b6aa520cd82ebc74"
+  },
+  "strict_acceptances": 1
+}

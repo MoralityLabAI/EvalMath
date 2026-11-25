@@ -1,0 +1,68 @@
+{
+  "evidence": "source-pinned syntactic audit; no upstream kernel rebuild or verifier execution",
+  "sources": [
+    {
+      "repository": "openai/math",
+      "commit": "f5702854040e97fa7675c21ba37a9608f5f92dd3",
+      "source": "lean/ComparatorChallenges/LocalSmoothing.lean",
+      "path": "research/ccf/source_archive/openai/challenge.lean",
+      "blob_sha": "9e712197a604ecb440b9dade7469ef44ba5f716a"
+    },
+    {
+      "repository": "openai/math",
+      "commit": "f5702854040e97fa7675c21ba37a9608f5f92dd3",
+      "source": "lean/OAI/Analysis/Fourier/LocalSmoothing/Comparator.lean",
+      "path": "research/ccf/source_archive/openai/solution.lean",
+      "blob_sha": "6def181857b8148d9dbaed288876a225ca9ddbfb"
+    },
+    {
+      "repository": "openai/math",
+      "commit": "f5702854040e97fa7675c21ba37a9608f5f92dd3",
+      "source": "lean/ComparatorChallenges/LocalSmoothing.json",
+      "path": "research/ccf/source_archive/openai/manifest.json",
+      "blob_sha": "88c1e1c3368f66f9d64206a2b166a89bc87b4f9b"
+    },
+    {
+      "repository": "openai/math",
+      "commit": "f5702854040e97fa7675c21ba37a9608f5f92dd3",
+      "source": "lean/docs/079.md",
+      "path": "research/ccf/source_archive/openai/scope.md",
+      "blob_sha": "e6ea535832d6dfef60c539a2e0537b560c1b7108"
+    },
+    {
+      "repository": "openai/math",
+      "commit": "f5702854040e97fa7675c21ba37a9608f5f92dd3",
+      "source": "LICENSE",
+      "path": "research/ccf/source_archive/openai/LICENSE",
+      "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "repository": "anthropics/FlashProve",
+      "commit": "9e2bdd8ff5bf9c62f18263d7dac189b0400b260c",
+      "source": "lean/Johnson/Goal/Skeleton/SoundOfVerifyAt.lean",
+      "path": "research/ccf/source_archive/flashprove/sound.lean",
+      "blob_sha": "15cefdbba1dc415daf539cc7597fe49fc1ae0c92"
+    },
+    {
+      "repository": "anthropics/FlashProve",
+      "commit": "9e2bdd8ff5bf9c62f18263d7dac189b0400b260c",
+      "source": "lean/THEOREM.md",
+      "path": "research/ccf/source_archive/flashprove/THEOREM.md",
+      "blob_sha": "9a6ddb27fce00d75e1657356265ab97706ce9550"
+    },
+    {
+      "repository": "anthropics/FlashProve",
+      "commit": "9e2bdd8ff5bf9c62f18263d7dac189b0400b260c",
+      "source": "verifier/docs/output.md",
+      "path": "research/ccf/source_archive/flashprove/output.md",
+      "blob_sha": "1de5f78c024a69c76e1b10eba32be7616481ba21"
+    },
+    {
+      "repository": "anthropics/FlashProve",
+      "commit": "9e2bdd8ff5bf9c62f18263d7dac189b0400b260c",
+      "source": "LICENSE",
+      "path": "research/ccf/source_archive/flashprove/LICENSE",
+      "blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+    }
+  ]
+}

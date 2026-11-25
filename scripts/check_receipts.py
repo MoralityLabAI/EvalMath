@@ -25,6 +25,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "ccf04": ("scripts/verify_evaluation_ccf_scope.py",
+              "output/evaluation_ccf/ccf04.json", [], False),
+    "ccf01c": ("scripts/verify_evaluation_ccf_robust.py",
+               "output/evaluation_ccf/ccf01c.json", [], False),
+    "ccf01b": ("scripts/verify_evaluation_ccf_weighted.py",
+               "output/evaluation_ccf/ccf01b.json", [], False),
+    "ccf01": ("scripts/verify_evaluation_ccf.py",
+              "output/evaluation_ccf/ccf01.json", [], False),
     "frozen_evidence": ("scripts/verify_evaluation_frozen_evidence.py",
                         "output/evaluation_frozen_evidence/fre01_v1.json", [], False),
     "finite_sample": ("scripts/verify_evaluation_finite_sample.py",
