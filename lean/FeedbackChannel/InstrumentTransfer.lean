@@ -1,6 +1,6 @@
 import Mathlib
 
-/-! MIT-01 candidate supporting lemma. Rebuild and audit before listing in CLAIMS.md. -/
+/-! MIT-01 supporting lemma; listed in CLAIMS.md. -/
 namespace InstrumentTransfer
 
 theorem paid_gain_iff (n k b c q : ℚ) (hn : 0 < n) (hk : 0 < k)

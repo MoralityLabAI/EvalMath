@@ -1,0 +1,331 @@
+{
+  "checks": {
+    "test_bellman_oracle_matches_enumeration": true,
+    "test_certificates_sound_and_ordered": true,
+    "test_controllers_meet_target": true,
+    "test_drift_witness_breaks_unsafe_rules": true,
+    "test_envelope_is_tight_for_some_preimage": true,
+    "test_equal_scalar_accuracy_different_regret": true,
+    "test_full_precision_certificates_are_zero": true,
+    "test_planner_exact_bounds_and_merge": true,
+    "test_posterior_box_bound_equals_vertex_maximum": true,
+    "test_quantize_exact_rounding_lemma_and_envelope": true,
+    "test_solver_matches_quotient_and_reference_executor": true
+  },
+  "eta": "1/20",
+  "evidence": "algebraic arguments (paper), Lean supporting lemmas, exact finite synthetic checks",
+  "levels": [
+    "1",
+    "2",
+    "4",
+    "8",
+    "16",
+    "None"
+  ],
+  "mit09": [
+    {
+      "family": "random",
+      "online_certificate": "1333/114751",
+      "online_cost": "13740/49",
+      "online_regret": "0/1",
+      "oracle_glob": 272,
+      "oracle_hindsight": 52,
+      "oracle_policy": 224,
+      "seed": 910000,
+      "uniform_glob": 320
+    },
+    {
+      "family": "random",
+      "online_certificate": "1/144",
+      "online_cost": "132/1",
+      "online_regret": "0/1",
+      "oracle_glob": 180,
+      "oracle_hindsight": 52,
+      "oracle_policy": 116,
+      "seed": 910001,
+      "uniform_glob": 320
+    },
+    {
+      "family": "random",
+      "online_certificate": "1/128",
+      "online_cost": "260/1",
+      "online_regret": "0/1",
+      "oracle_glob": 288,
+      "oracle_hindsight": 54,
+      "oracle_policy": 228,
+      "seed": 910002,
+      "uniform_glob": 336
+    },
+    {
+      "family": "random",
+      "online_certificate": "0/1",
+      "online_cost": "124/1",
+      "online_regret": "0/1",
+      "oracle_glob": 212,
+      "oracle_hindsight": 56,
+      "oracle_policy": 116,
+      "seed": 910003,
+      "uniform_glob": 352
+    },
+    {
+      "family": "margin",
+      "online_certificate": "51695355/2105704448",
+      "online_cost": "384/1",
+      "online_regret": "0/1",
+      "oracle_glob": 336,
+      "oracle_hindsight": 80,
+      "oracle_policy": 336,
+      "seed": 911000,
+      "uniform_glob": 384
+    },
+    {
+      "family": "margin",
+      "online_certificate": "1215511/49577984",
+      "online_cost": "384/1",
+      "online_regret": "5/6054",
+      "oracle_glob": 336,
+      "oracle_hindsight": 60,
+      "oracle_policy": 336,
+      "seed": 911001,
+      "uniform_glob": 384
+    },
+    {
+      "family": "margin",
+      "online_certificate": "34841257/1449885696",
+      "online_cost": "384/1",
+      "online_regret": "0/1",
+      "oracle_glob": 336,
+      "oracle_hindsight": 60,
+      "oracle_policy": 336,
+      "seed": 911002,
+      "uniform_glob": 384
+    },
+    {
+      "family": "margin",
+      "online_certificate": "27712127/1136689152",
+      "online_cost": "384/1",
+      "online_regret": "0/1",
+      "oracle_glob": 336,
+      "oracle_hindsight": 60,
+      "oracle_policy": 336,
+      "seed": 911003,
+      "uniform_glob": 384
+    },
+    {
+      "family": "slack",
+      "online_certificate": "0/1",
+      "online_cost": "1072/1",
+      "online_regret": "0/1",
+      "oracle_glob": 336,
+      "oracle_hindsight": 60,
+      "oracle_policy": 336,
+      "seed": 912000,
+      "uniform_glob": 384
+    },
+    {
+      "family": "slack",
+      "online_certificate": "1014/80357",
+      "online_cost": "224/1",
+      "online_regret": "0/1",
+      "oracle_glob": 192,
+      "oracle_hindsight": 36,
+      "oracle_policy": 192,
+      "seed": 912001,
+      "uniform_glob": 224
+    },
+    {
+      "family": "slack",
+      "online_certificate": "0/1",
+      "online_cost": "1072/1",
+      "online_regret": "0/1",
+      "oracle_glob": 336,
+      "oracle_hindsight": 60,
+      "oracle_policy": 336,
+      "seed": 912002,
+      "uniform_glob": 384
+    },
+    {
+      "family": "slack",
+      "online_certificate": "0/1",
+      "online_cost": "912/1",
+      "online_regret": "0/1",
+      "oracle_glob": 288,
+      "oracle_hindsight": 54,
+      "oracle_policy": 288,
+      "seed": 912003,
+      "uniform_glob": 336
+    }
+  ],
+  "mit10": {
+    "drift_claims": {
+      "local": "0/1",
+      "plugin": "0/1",
+      "rootonly": "0/1",
+      "sound": "517/7000"
+    },
+    "drift_regret": "1/40",
+    "equal_accuracy_regrets": [
+      "0/1",
+      "1/96",
+      "1/48",
+      "1/32"
+    ]
+  },
+  "mit11": {
+    "bit_scan": [
+      {
+        "bits": 1,
+        "certificate": "1/1",
+        "regret": "479/225816",
+        "root": [
+          "q",
+          0
+        ]
+      },
+      {
+        "bits": 2,
+        "certificate": "1/1",
+        "regret": "1199/150544",
+        "root": [
+          "q",
+          0
+        ]
+      },
+      {
+        "bits": 3,
+        "certificate": "169/256",
+        "regret": "1199/150544",
+        "root": [
+          "q",
+          0
+        ]
+      },
+      {
+        "bits": 4,
+        "certificate": "721/2048",
+        "regret": "1199/150544",
+        "root": [
+          "q",
+          0
+        ]
+      },
+      {
+        "bits": 5,
+        "certificate": "2977/16384",
+        "regret": "671/451632",
+        "root": [
+          "q",
+          0
+        ]
+      },
+      {
+        "bits": 6,
+        "certificate": "12097/131072",
+        "regret": "0/1",
+        "root": [
+          "q",
+          3
+        ]
+      },
+      {
+        "bits": 7,
+        "certificate": "48769/1048576",
+        "regret": "0/1",
+        "root": [
+          "q",
+          3
+        ]
+      },
+      {
+        "bits": 8,
+        "certificate": "195841/8388608",
+        "regret": "0/1",
+        "root": [
+          "q",
+          3
+        ]
+      },
+      {
+        "bits": null,
+        "certificate": "0/1",
+        "regret": "0/1",
+        "root": [
+          "q",
+          3
+        ]
+      }
+    ],
+    "family": "palette",
+    "grid": [
+      {
+        "bits": 1,
+        "cap": null,
+        "certificate": "1/1",
+        "classes": 12,
+        "depth": 1,
+        "regret": "479/225816",
+        "states": 103
+      },
+      {
+        "bits": 4,
+        "cap": null,
+        "certificate": "3961/6144",
+        "classes": 11,
+        "depth": 2,
+        "regret": "1199/150544",
+        "states": 715
+      },
+      {
+        "bits": 16,
+        "cap": null,
+        "certificate": "241360214194467066999811/1208925819614629174706176",
+        "classes": 12,
+        "depth": 3,
+        "regret": "0/1",
+        "states": 2344
+      },
+      {
+        "bits": null,
+        "cap": null,
+        "certificate": "8902837561615/26380309269504",
+        "classes": 12,
+        "depth": 1,
+        "regret": "0/1",
+        "states": 128
+      },
+      {
+        "bits": null,
+        "cap": 6,
+        "certificate": "1/1",
+        "classes": 6,
+        "depth": null,
+        "regret": "1/291",
+        "states": 342
+      },
+      {
+        "bits": 8,
+        "cap": null,
+        "certificate": "195841/8388608",
+        "classes": 12,
+        "depth": null,
+        "regret": "0/1",
+        "states": 1012
+      }
+    ],
+    "optimum": "173347/451632",
+    "seed": 940001
+  },
+  "row_manifest_sha256": "1af110528b01e3a89638779e1e6894171ceb68faed0d8873e9b79c84730d2459",
+  "schema": "mit09-11-v0.1",
+  "source_sha256": {
+    "gyms/MathematicalInstrumentTransfer/certified_precision.py": "52c0c0954e0775135811bb8c07b6b1d323fb34def125a28d75521e5bf2c5fc96",
+    "gyms/MathematicalInstrumentTransfer/decision_certificates.py": "7c82cba53ee5a16422fb1991b8aafe9333664a32c0f88ff391a43b471aa55886",
+    "gyms/MathematicalInstrumentTransfer/depth_precision.py": "b0c58485a4a17d225c44922b983d1fd0e3bbecd9a51819dd9ea0d7b385af69fd",
+    "lean/FeedbackChannel/CertifiedPrecision.lean": "f7f3bb655d5f1b8b827d22199c26f34d8a57590b4878e617fb129610eb926434",
+    "scripts/verify_certified_precision.py": "7b61f92f1598c3ddd9b7ac59f73289c36e40609a98a54451e26b34c1dcf84822",
+    "src/spiral_ln/evaluation_adaptive_precision.py": "1dac82b37730a70a3143af473f2dcbb7fc0ea2850ed4f25358cc3921a510f101",
+    "src/spiral_ln/evaluation_decision_certificate.py": "a870b4377d8569d7bc8a5d741bd2f699393c9283f4807c81663003317e23b9b6",
+    "src/spiral_ln/evaluation_depth_precision.py": "48ff81d4139752ffe1e9540a29765b560f01c36e0c9c086a835374a844b4ea5a",
+    "tests/test_certified_precision.py": "f0e1a71d026880787a96b56862a054d4ab1d170c61951e9602c3c7c1bec70963"
+  }
+}

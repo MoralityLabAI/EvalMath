@@ -260,3 +260,17 @@ using the existing FeedbackChannel.Signal.Strategy type.
 | Positive observation budget | The function `m + r²/m` is at least `2r` for `m > 0` | `FeedbackChannel.RSISpectralThreshold.budget_balance` | Full for the normalized objective; the sqrt-scaling hypothesis requires empirical fitting |
 
 Both are compiled in the ordinary Lean build and appear in `axioms_check.lean`. They assume no new axioms. The spectral threshold does not establish a superintelligence transition: empirical transfer, external validation, and resource costs are outside the theorem.
+
+## Instrument transfer and certified precision (`paper/certified_instrument_transfer.md`)
+
+Built natively with Lean 4.34.1 (WSL direct build, 2026-11-25); `#print axioms` gives `[propext, Classical.choice, Quot.sound]` for all seven. No `sorry`, added axioms or `native_decide`.
+
+| Setting | Claim | Lean theorem | Fidelity |
+|---|---|---|---|
+| MIT-01 paid shortlist, 0 < n, 0 < k, 0 < B - c | B/N < (B-c)q/K iff q > BK/(N(B-c)) | `InstrumentTransfer.paid_gain_iff` | Supporting lemma: the algebraic equivalence; optimality of the shortlist-first allocation (H = B - c) is proved in the note, not in Lean |
+| Largest-remainder rounding at grid 1/U | A raised entry has positive fractional part, so every entry is within one grid unit: `|xU - q| < 1` | `CertifiedPrecision.lrr_entry_error` | Full for one entry (scaled); the normalization `sum q = U` is checked in Python |
+| Zero-sum perturbation bounded entrywise by u | `2 * sum max(d, 0) <= card * u`, i.e. TV <= m u / 2 | `CertifiedPrecision.tv_box_bound` | Supporting lemma: the note's envelope uses the sharper floor(m/2) u and the mass bounds, verified in Python |
+| Box bound for posterior TV | `a/(a+b) <= A/(A+B)` for `a <= A`, `B <= b` | `CertifiedPrecision.ratio_box_mono` | Supporting lemma for the subset formula; the formula's equality with the vertex maximum is tested exhaustively in Python |
+| Robust action dominance | Interval radii and the certified-gap inequality imply `Q a - g <= Q a*` for every action | `CertifiedPrecision.robust_dominance` | Full for one decision; that MIT-08 coupling gives valid radii is the note's argument |
+| Approximate argmax | Policy-specific radii bound regret by `rad p + rad phat` | `CertifiedPrecision.approx_argmax_regret` | Full over a finite policy set (gives 2D with uniform radii) |
+| Path bound on certified gaps | Induction step `W g + sum S_c <= W (g + M)` | `CertifiedPrecision.path_bound_step` | Supporting lemma: the performance-difference identity and the tree induction are in the note |

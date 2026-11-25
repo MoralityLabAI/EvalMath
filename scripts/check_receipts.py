@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "mit09": ("scripts/verify_certified_precision.py",
+              "output/evaluation_instrument_transfer/mit09_v0_1.json", [], False),
     "mit07": ("scripts/verify_noisy_instrument_quotient.py",
               "output/evaluation_instrument_transfer/mit07_v0_1.json", [], False),
     "mit01": ("scripts/verify_instrument_transfer.py",

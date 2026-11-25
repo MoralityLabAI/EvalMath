@@ -1,0 +1,4938 @@
+{
+ "meta": {
+  "schema": "mit11-open-dev-v1",
+  "roots": 36,
+  "families": [
+   "palette",
+   "structured",
+   "random"
+  ],
+  "bits": [
+   "1",
+   "2",
+   "4",
+   "8",
+   "16",
+   "None"
+  ],
+  "depths": [
+   "1",
+   "2",
+   "3",
+   "None"
+  ],
+  "caps": [
+   "None",
+   "6",
+   "3"
+  ],
+  "elapsed_s": 490.8371939000026,
+  "sources": {
+   "src/spiral_ln/evaluation_adaptive_precision.py": "1dac82b37730a70a3143af473f2dcbb7fc0ea2850ed4f25358cc3921a510f101",
+   "src/spiral_ln/evaluation_depth_precision.py": "48ff81d4139752ffe1e9540a29765b560f01c36e0c9c086a835374a844b4ea5a",
+   "gyms/MathematicalInstrumentTransfer/depth_precision.py": "b0c58485a4a17d225c44922b983d1fd0e3bbecd9a51819dd9ea0d7b385af69fd"
+  },
+  "evidence": "exact finite synthetic development roots; open; timings exploratory, one CPU, shared machine"
+ },
+ "analysis": {
+  "palette": {
+   "roots": 12,
+   "configs": [
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0543894143904772,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 96.58333333333333,
+     "mean_wall_ms": 66.41633333341208
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0543894143904772,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 101.91666666666667,
+     "mean_wall_ms": 66.47750833296111
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.03958901642635302,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 71.91666666666667,
+     "mean_wall_ms": 49.98290833373176
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.05383798830316128,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 53.666666666666664,
+     "mean_wall_ms": 31.149133333201462
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.05670352189393134,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 551,
+     "mean_wall_ms": 364.16121666691953
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.05670352189393134,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 603,
+     "mean_wall_ms": 400.1920583335353
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04452076026499451,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 327.75,
+     "mean_wall_ms": 112.32239166717288
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.05383798830316128,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 202.75,
+     "mean_wall_ms": 51.09740000019277
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.05670352189393134,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 1698.4166666666667,
+     "mean_wall_ms": 1254.1622499996568
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.05670352189393134,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 1935.4166666666667,
+     "mean_wall_ms": 1591.1700833333573
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04452076026499451,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 792.25,
+     "mean_wall_ms": 300.90482499993715
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.05383798830316128,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 386.75,
+     "mean_wall_ms": 104.94696666652696
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.05670352189393134,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 999.5833333333334,
+     "mean_wall_ms": 838.3720333331439
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.05670352189393134,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 1137.4166666666667,
+     "mean_wall_ms": 1025.2454000001308
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04452076026499451,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 399.1666666666667,
+     "mean_wall_ms": 169.42784166652322
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.05383798830316128,
+     "max_regret": 0.14253972260601552,
+     "mean_cert": 1.0,
+     "mean_states": 168.41666666666666,
+     "mean_wall_ms": 51.81629999970028
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 1.0,
+     "mean_states": 97.16666666666667,
+     "mean_wall_ms": 63.977775000845824
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 1.0,
+     "mean_states": 118.91666666666667,
+     "mean_wall_ms": 112.03697499998573
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.023216634339462215,
+     "max_regret": 0.075529413327665,
+     "mean_cert": 1.0,
+     "mean_states": 79.5,
+     "mean_wall_ms": 50.249949999852106
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.033060563319989134,
+     "max_regret": 0.08848797250859107,
+     "mean_cert": 1.0,
+     "mean_states": 56.75,
+     "mean_wall_ms": 30.822600000950235
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 1.0,
+     "mean_states": 554.75,
+     "mean_wall_ms": 416.90455833365075
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 1.0,
+     "mean_states": 808,
+     "mean_wall_ms": 702.879549999731
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.023216634339462215,
+     "max_regret": 0.075529413327665,
+     "mean_cert": 1.0,
+     "mean_states": 385.1666666666667,
+     "mean_wall_ms": 191.16696666696953
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.033060563319989134,
+     "max_regret": 0.08848797250859107,
+     "mean_cert": 1.0,
+     "mean_states": 224.91666666666666,
+     "mean_wall_ms": 75.39735833294496
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 1.0,
+     "mean_states": 1552.5,
+     "mean_wall_ms": 1321.8152249995303
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 1.0,
+     "mean_states": 2659.1666666666665,
+     "mean_wall_ms": 2748.2457500000237
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.023216634339462215,
+     "max_regret": 0.075529413327665,
+     "mean_cert": 1.0,
+     "mean_states": 913.25,
+     "mean_wall_ms": 475.7588916666767
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.033060563319989134,
+     "max_regret": 0.08848797250859107,
+     "mean_cert": 1.0,
+     "mean_states": 431.8333333333333,
+     "mean_wall_ms": 138.75818333387238
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 0.96875,
+     "mean_states": 764.5833333333334,
+     "mean_wall_ms": 666.5127666665285
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 0.96875,
+     "mean_states": 1465.3333333333333,
+     "mean_wall_ms": 1806.7850250002568
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.023216634339462215,
+     "max_regret": 0.075529413327665,
+     "mean_cert": 1.0,
+     "mean_states": 421.4166666666667,
+     "mean_wall_ms": 214.55865833377175
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.033060563319989134,
+     "max_regret": 0.08848797250859107,
+     "mean_cert": 1.0,
+     "mean_states": 185.33333333333334,
+     "mean_wall_ms": 63.42174166608554
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 0.616943359375,
+     "mean_states": 97.16666666666667,
+     "mean_wall_ms": 66.14117500006007
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 0.616943359375,
+     "mean_states": 118.91666666666667,
+     "mean_wall_ms": 105.32367500006028
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.023216634339462215,
+     "max_regret": 0.075529413327665,
+     "mean_cert": 0.9679226345486112,
+     "mean_states": 79.5,
+     "mean_wall_ms": 45.5476166665297
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.033060563319989134,
+     "max_regret": 0.08848797250859107,
+     "mean_cert": 1.0,
+     "mean_states": 56.75,
+     "mean_wall_ms": 29.26322499994664
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 0.572265625,
+     "mean_states": 554.75,
+     "mean_wall_ms": 381.4025083335461
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 0.572265625,
+     "mean_states": 808,
+     "mean_wall_ms": 736.2514500003575
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.023216634339462215,
+     "max_regret": 0.075529413327665,
+     "mean_cert": 0.9652642144097222,
+     "mean_states": 385.1666666666667,
+     "mean_wall_ms": 170.90155833314688
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.033060563319989134,
+     "max_regret": 0.08848797250859107,
+     "mean_cert": 1.0,
+     "mean_states": 224.91666666666666,
+     "mean_wall_ms": 60.551366666913964
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 0.4956868489583333,
+     "mean_states": 1552.5,
+     "mean_wall_ms": 1266.4238250002502
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 0.4956868489583333,
+     "mean_states": 2659.1666666666665,
+     "mean_wall_ms": 2806.8281000002266
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.023216634339462215,
+     "max_regret": 0.075529413327665,
+     "mean_cert": 0.9560953776041666,
+     "mean_states": 913.25,
+     "mean_wall_ms": 482.1730250005203
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.033060563319989134,
+     "max_regret": 0.08848797250859107,
+     "mean_cert": 1.0,
+     "mean_states": 431.8333333333333,
+     "mean_wall_ms": 123.03218333272525
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 0.3245849609375,
+     "mean_states": 764.5833333333334,
+     "mean_wall_ms": 687.3951916674438
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 0.3245849609375,
+     "mean_states": 1465.3333333333333,
+     "mean_wall_ms": 1775.1428083329301
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.023216634339462215,
+     "max_regret": 0.075529413327665,
+     "mean_cert": 0.9460042317708334,
+     "mean_states": 421.4166666666667,
+     "mean_wall_ms": 238.08030833364077
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.033060563319989134,
+     "max_regret": 0.08848797250859107,
+     "mean_cert": 1.0,
+     "mean_states": 185.33333333333334,
+     "mean_wall_ms": 65.17539166664695
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0001446605495919982,
+     "max_regret": 0.001682785985049775,
+     "mean_cert": 0.3153463495262372,
+     "mean_states": 124.83333333333333,
+     "mean_wall_ms": 114.4283999998758
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0001446605495919982,
+     "max_regret": 0.001682785985049775,
+     "mean_cert": 0.3153463495262372,
+     "mean_states": 124.83333333333333,
+     "mean_wall_ms": 117.59956666658884
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00841734347138083,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.944332639620097,
+     "mean_states": 83,
+     "mean_wall_ms": 69.39466666699445
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04797111734037151,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 57.75,
+     "mean_wall_ms": 35.69014166684307
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 5.166448199714222e-06,
+     "max_regret": 3.5427073369468946e-05,
+     "mean_cert": 0.270335937433414,
+     "mean_states": 815.1666666666666,
+     "mean_wall_ms": 779.709574999894
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 5.166448199714222e-06,
+     "max_regret": 3.5427073369468946e-05,
+     "mean_cert": 0.270335937433414,
+     "mean_states": 815.1666666666666,
+     "mean_wall_ms": 799.5751916669178
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.005695271076156398,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.9311130625478335,
+     "mean_states": 395.5833333333333,
+     "mean_wall_ms": 212.40201666569192
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04797111734037151,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 222.75,
+     "mean_wall_ms": 90.54503333330406
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 5.166448199714222e-06,
+     "max_regret": 3.5427073369468946e-05,
+     "mean_cert": 0.19355265285072518,
+     "mean_states": 2666.5,
+     "mean_wall_ms": 3067.42064166671
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 5.166448199714222e-06,
+     "max_regret": 3.5427073369468946e-05,
+     "mean_cert": 0.19355265285072518,
+     "mean_states": 2666.5,
+     "mean_wall_ms": 3058.679166666176
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.005695271076156398,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.898929389640796,
+     "mean_states": 949.9166666666666,
+     "mean_wall_ms": 543.6858999998245
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04797111734037151,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 421.8333333333333,
+     "mean_wall_ms": 150.75167500011352
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 5.166448199714222e-06,
+     "max_regret": 3.5427073369468946e-05,
+     "mean_cert": 0.021408170461654663,
+     "mean_states": 1465.4166666666667,
+     "mean_wall_ms": 1926.156849999946
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 5.166448199714222e-06,
+     "max_regret": 3.5427073369468946e-05,
+     "mean_cert": 0.021408170461654663,
+     "mean_states": 1465.4166666666667,
+     "mean_wall_ms": 1916.3467750004202
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.005695271076156398,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.8428833550877042,
+     "mean_states": 443.4166666666667,
+     "mean_wall_ms": 295.23385833272187
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04797111734037151,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 177.58333333333334,
+     "mean_wall_ms": 89.27824999985508
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.000143184421534937,
+     "max_regret": 0.001682785985049775,
+     "mean_cert": 0.2939384619103238,
+     "mean_states": 124.83333333333333,
+     "mean_wall_ms": 120.64474166678944
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.000143184421534937,
+     "max_regret": 0.001682785985049775,
+     "mean_cert": 0.2939384619103238,
+     "mean_states": 124.83333333333333,
+     "mean_wall_ms": 132.23985000058747
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00841734347138083,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.9385979058669848,
+     "mean_states": 83,
+     "mean_wall_ms": 69.28424999963075
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04797111734037151,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 57.75,
+     "mean_wall_ms": 47.034266666438874
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.24894617777717848,
+     "mean_states": 815,
+     "mean_wall_ms": 838.2866166666645
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.24894617777717848,
+     "mean_states": 815,
+     "mean_wall_ms": 811.6317833331171
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.005695271076156398,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.9250214343628812,
+     "mean_states": 395.5833333333333,
+     "mean_wall_ms": 212.26689166602833
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04797111734037151,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 222.75,
+     "mean_wall_ms": 87.45505833364102
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.17229108864050233,
+     "mean_states": 2666.3333333333335,
+     "mean_wall_ms": 3224.4303499995417
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.17229108864050233,
+     "mean_states": 2666.3333333333335,
+     "mean_wall_ms": 3216.1575666668796
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.005695271076156398,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.8928845666813141,
+     "mean_states": 949.9166666666666,
+     "mean_wall_ms": 581.0081249995468
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04797111734037151,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 421.8333333333333,
+     "mean_wall_ms": 146.7962833336666
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 8.39221756958608e-05,
+     "mean_states": 1465.4166666666667,
+     "mean_wall_ms": 1949.080824999328
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 8.39221756958608e-05,
+     "mean_states": 1465.4166666666667,
+     "mean_wall_ms": 1990.0550999994568
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.005695271076156398,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.8346231736133185,
+     "mean_states": 443.4166666666667,
+     "mean_wall_ms": 310.40286666696676
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04797111734037151,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 177.58333333333334,
+     "mean_wall_ms": 79.74427499963592
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.000143184421534937,
+     "max_regret": 0.001682785985049775,
+     "mean_cert": 0.2938542260182359,
+     "mean_states": 124.83333333333333,
+     "mean_wall_ms": 128.77373333261252
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.000143184421534937,
+     "max_regret": 0.001682785985049775,
+     "mean_cert": 0.2938542260182359,
+     "mean_states": 124.83333333333333,
+     "mean_wall_ms": 122.69721666658977
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.007861765773904418,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.9385736654076076,
+     "mean_states": 83.41666666666667,
+     "mean_wall_ms": 60.74879166620425
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04074104211688572,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 57,
+     "mean_wall_ms": 35.77740833376689
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.24886189359883665,
+     "mean_states": 815,
+     "mean_wall_ms": 799.7340416662458
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.24886189359883665,
+     "mean_states": 815,
+     "mean_wall_ms": 851.4880083333386
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.005032305062528784,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.9249972300871497,
+     "mean_states": 396.4166666666667,
+     "mean_wall_ms": 213.1492666661264
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04074104211688572,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 222.91666666666666,
+     "mean_wall_ms": 81.35468333390843
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.17220737427860677,
+     "mean_states": 2666.3333333333335,
+     "mean_wall_ms": 3082.862383333122
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.17220737427860677,
+     "mean_states": 2666.3333333333335,
+     "mean_wall_ms": 3164.8148583338602
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.005032305062528784,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.8928605424336178,
+     "mean_states": 952.25,
+     "mean_wall_ms": 547.8192833334106
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04074104211688572,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 423.5,
+     "mean_wall_ms": 140.05212500008687
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.0,
+     "mean_states": 1465.4166666666667,
+     "mean_wall_ms": 1890.2171833342436
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.0,
+     "mean_states": 1465.4166666666667,
+     "mean_wall_ms": 1935.6790083341668
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.005032305062528784,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.8458950495203257,
+     "mean_states": 444.25,
+     "mean_wall_ms": 273.64959999977145
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.04074104211688572,
+     "max_regret": 0.1146187604067028,
+     "mean_cert": 1.0,
+     "mean_states": 178.41666666666666,
+     "mean_wall_ms": 69.45729166606422
+    }
+   ],
+   "frontier_cert": [
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 0.616943359375,
+     "mean_states": 97.16666666666667,
+     "mean_wall_ms": 66.14117500006007
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.023216634339462215,
+     "max_regret": 0.075529413327665,
+     "mean_cert": 0.9679226345486112,
+     "mean_states": 79.5,
+     "mean_wall_ms": 45.5476166665297
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.033060563319989134,
+     "max_regret": 0.08848797250859107,
+     "mean_cert": 1.0,
+     "mean_states": 56.75,
+     "mean_wall_ms": 29.26322499994664
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0001446605495919982,
+     "max_regret": 0.001682785985049775,
+     "mean_cert": 0.3153463495262372,
+     "mean_states": 124.83333333333333,
+     "mean_wall_ms": 114.4283999998758
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 5.166448199714222e-06,
+     "max_regret": 3.5427073369468946e-05,
+     "mean_cert": 0.270335937433414,
+     "mean_states": 815.1666666666666,
+     "mean_wall_ms": 779.709574999894
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.000143184421534937,
+     "max_regret": 0.001682785985049775,
+     "mean_cert": 0.2939384619103238,
+     "mean_states": 124.83333333333333,
+     "mean_wall_ms": 120.64474166678944
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.000143184421534937,
+     "max_regret": 0.001682785985049775,
+     "mean_cert": 0.2938542260182359,
+     "mean_states": 124.83333333333333,
+     "mean_wall_ms": 128.77373333261252
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.007861765773904418,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.9385736654076076,
+     "mean_states": 83.41666666666667,
+     "mean_wall_ms": 60.74879166620425
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.24886189359883665,
+     "mean_states": 815,
+     "mean_wall_ms": 799.7340416662458
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.0,
+     "mean_states": 1465.4166666666667,
+     "mean_wall_ms": 1890.2171833342436
+    }
+   ],
+   "frontier_regret": [
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00750518859012057,
+     "max_regret": 0.01031813511885783,
+     "mean_cert": 1.0,
+     "mean_states": 97.16666666666667,
+     "mean_wall_ms": 63.977775000845824
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.023216634339462215,
+     "max_regret": 0.075529413327665,
+     "mean_cert": 0.9679226345486112,
+     "mean_states": 79.5,
+     "mean_wall_ms": 45.5476166665297
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.033060563319989134,
+     "max_regret": 0.08848797250859107,
+     "mean_cert": 1.0,
+     "mean_states": 56.75,
+     "mean_wall_ms": 29.26322499994664
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0001446605495919982,
+     "max_regret": 0.001682785985049775,
+     "mean_cert": 0.3153463495262372,
+     "mean_states": 124.83333333333333,
+     "mean_wall_ms": 114.4283999998758
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 5.166448199714222e-06,
+     "max_regret": 3.5427073369468946e-05,
+     "mean_cert": 0.270335937433414,
+     "mean_states": 815.1666666666666,
+     "mean_wall_ms": 779.709574999894
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.000143184421534937,
+     "max_regret": 0.001682785985049775,
+     "mean_cert": 0.2939384619103238,
+     "mean_states": 124.83333333333333,
+     "mean_wall_ms": 120.64474166678944
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.007861765773904418,
+     "max_regret": 0.03994845360824742,
+     "mean_cert": 0.9385736654076076,
+     "mean_states": 83.41666666666667,
+     "mean_wall_ms": 60.74879166620425
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.24886189359883665,
+     "mean_states": 815,
+     "mean_wall_ms": 799.7340416662458
+    }
+   ],
+   "allocation": {
+    "quotient|100": {
+     "roots": 9,
+     "choices": [
+      [
+       "1",
+       "1"
+      ],
+      [
+       "4",
+       "1"
+      ]
+     ],
+     "mean_cert": 0.6444950810185186,
+     "mean_regret": 0.022453998929315117
+    },
+    "quotient|300": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ]
+     ],
+     "mean_cert": 0.2938542260182359,
+     "mean_regret": 0.000143184421534937
+    },
+    "quotient|1000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ],
+      [
+       "None",
+       "2"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.1286982034586063,
+     "mean_regret": 0.0001402321654208146
+    },
+    "quotient|3000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "2"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.020678715028461327,
+     "mean_regret": 0.0
+    },
+    "expanded|100": {
+     "roots": 7,
+     "choices": [
+      [
+       "1",
+       "1"
+      ]
+     ],
+     "mean_cert": 1.0,
+     "mean_regret": 0.057631782386671326
+    },
+    "expanded|300": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ]
+     ],
+     "mean_cert": 0.2938542260182359,
+     "mean_regret": 0.000143184421534937
+    },
+    "expanded|1000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ],
+      [
+       "None",
+       "2"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.1286982034586063,
+     "mean_regret": 0.0001402321654208146
+    },
+    "expanded|3000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "2"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.020678715028461327,
+     "mean_regret": 0.0
+    }
+   },
+   "negligible_precision": [],
+   "one_bit_changes": [
+    {
+     "seed": 940000,
+     "bits": 4,
+     "regret_before": "2429/451632",
+     "regret_after": "311/451632",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "q",
+      1
+     ]
+    },
+    {
+     "seed": 940001,
+     "bits": 5,
+     "regret_before": "671/451632",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 940002,
+     "bits": 1,
+     "regret_before": "42917/301088",
+     "regret_after": "289/56454",
+     "action_before": [
+      "q",
+      2
+     ],
+     "action_after": [
+      "q",
+      1
+     ]
+    },
+    {
+     "seed": 940002,
+     "bits": 4,
+     "regret_before": "289/56454",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      1
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 940003,
+     "bits": 4,
+     "regret_before": "1165/112908",
+     "regret_after": "93/150544",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "q",
+      1
+     ]
+    },
+    {
+     "seed": 940004,
+     "bits": 1,
+     "regret_before": "91/2328",
+     "regret_after": "5/582",
+     "action_before": [
+      "q",
+      4
+     ],
+     "action_after": [
+      "q",
+      0
+     ]
+    },
+    {
+     "seed": 940004,
+     "bits": 5,
+     "regret_before": "24/9409",
+     "regret_after": "1/1164",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "q",
+      4
+     ]
+    },
+    {
+     "seed": 940006,
+     "bits": 4,
+     "regret_before": "1331/150544",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 940006,
+     "bits": 6,
+     "regret_before": "1/37636",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 940006,
+     "bits": 8,
+     "regret_before": "1/37636",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 940006,
+     "bits": 10,
+     "regret_before": "1/37636",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 940007,
+     "bits": 1,
+     "regret_before": "9223/225816",
+     "regret_after": "487/56454",
+     "action_before": [
+      "g",
+      0
+     ],
+     "action_after": [
+      "q",
+      1
+     ]
+    },
+    {
+     "seed": 940007,
+     "bits": 4,
+     "regret_before": "487/56454",
+     "regret_after": "33/18818",
+     "action_before": [
+      "q",
+      1
+     ],
+     "action_after": [
+      "q",
+      2
+     ]
+    },
+    {
+     "seed": 940007,
+     "bits": 5,
+     "regret_before": "33/18818",
+     "regret_after": "1/28227",
+     "action_before": [
+      "q",
+      2
+     ],
+     "action_after": [
+      "q",
+      1
+     ]
+    },
+    {
+     "seed": 940007,
+     "bits": 6,
+     "regret_before": "1/28227",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      1
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 940007,
+     "bits": 8,
+     "regret_before": "1/28227",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      1
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 940008,
+     "bits": 4,
+     "regret_before": "1/194",
+     "regret_after": "1/1164",
+     "action_before": [
+      "q",
+      2
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 940009,
+     "bits": 1,
+     "regret_before": "12063/150544",
+     "regret_after": "11/1164",
+     "action_before": [
+      "q",
+      1
+     ],
+     "action_after": [
+      "q",
+      2
+     ]
+    },
+    {
+     "seed": 940009,
+     "bits": 4,
+     "regret_before": "11/1164",
+     "regret_after": "91/225816",
+     "action_before": [
+      "q",
+      2
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 940010,
+     "bits": 4,
+     "regret_before": "3/388",
+     "regret_after": "1/582",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "q",
+      1
+     ]
+    }
+   ],
+   "mean_states_quotient": 1020.7777777777778,
+   "mean_states_expanded": 1212.3194444444443
+  },
+  "structured": {
+   "roots": 12,
+   "configs": [
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.015085289538584755,
+     "max_regret": 0.058217198958444044,
+     "mean_cert": 1.0,
+     "mean_states": 103.91666666666667,
+     "mean_wall_ms": 71.96821666760418
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.015085289538584755,
+     "max_regret": 0.058217198958444044,
+     "mean_cert": 1.0,
+     "mean_states": 108.33333333333333,
+     "mean_wall_ms": 83.08257500054121
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.050478133843301375,
+     "max_regret": 0.10905241989053034,
+     "mean_cert": 1.0,
+     "mean_states": 82,
+     "mean_wall_ms": 48.316683333117304
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.12326379970845626,
+     "max_regret": 0.2408790310948484,
+     "mean_cert": 1.0,
+     "mean_states": 58.333333333333336,
+     "mean_wall_ms": 32.45408333289864
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.021778129932660335,
+     "max_regret": 0.058217198958444044,
+     "mean_cert": 1.0,
+     "mean_states": 625.75,
+     "mean_wall_ms": 440.0866583331056
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.021778129932660335,
+     "max_regret": 0.058217198958444044,
+     "mean_cert": 1.0,
+     "mean_states": 664.3333333333334,
+     "mean_wall_ms": 536.1442249998921
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.049449095759689546,
+     "max_regret": 0.10905241989053034,
+     "mean_cert": 1.0,
+     "mean_states": 402,
+     "mean_wall_ms": 168.56630833293215
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11722708176110089,
+     "max_regret": 0.22408585695876287,
+     "mean_cert": 1.0,
+     "mean_states": 250.08333333333334,
+     "mean_wall_ms": 69.51653333392944
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.020413962729052087,
+     "max_regret": 0.058217198958444044,
+     "mean_cert": 1.0,
+     "mean_states": 2126.6666666666665,
+     "mean_wall_ms": 1621.1546750000707
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.020413962729052087,
+     "max_regret": 0.058217198958444044,
+     "mean_cert": 1.0,
+     "mean_states": 2322.75,
+     "mean_wall_ms": 1751.409016666609
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.049449095759689546,
+     "max_regret": 0.10905241989053034,
+     "mean_cert": 1.0,
+     "mean_states": 1165.4166666666667,
+     "mean_wall_ms": 501.23474999994266
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11722708176110089,
+     "max_regret": 0.22408585695876287,
+     "mean_cert": 1.0,
+     "mean_states": 594.9166666666666,
+     "mean_wall_ms": 159.19325833328912
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.020413962729052087,
+     "max_regret": 0.058217198958444044,
+     "mean_cert": 1.0,
+     "mean_states": 1464,
+     "mean_wall_ms": 1231.1853333336937
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.020413962729052087,
+     "max_regret": 0.058217198958444044,
+     "mean_cert": 1.0,
+     "mean_states": 1589.9166666666667,
+     "mean_wall_ms": 1284.6510750002078
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.049449095759689546,
+     "max_regret": 0.10905241989053034,
+     "mean_cert": 1.0,
+     "mean_states": 664.5,
+     "mean_wall_ms": 303.99905833291996
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11722708176110089,
+     "max_regret": 0.22408585695876287,
+     "mean_cert": 1.0,
+     "mean_states": 292.25,
+     "mean_wall_ms": 83.6783583348127
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.024186838039899686,
+     "max_regret": 0.06001217067583047,
+     "mean_cert": 1.0,
+     "mean_states": 114.41666666666667,
+     "mean_wall_ms": 94.5405249998051
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.024186838039899686,
+     "max_regret": 0.06001217067583047,
+     "mean_cert": 1.0,
+     "mean_states": 114.83333333333333,
+     "mean_wall_ms": 124.90894166603539
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.05276740995897439,
+     "max_regret": 0.10174371778350516,
+     "mean_cert": 1.0,
+     "mean_states": 80.08333333333333,
+     "mean_wall_ms": 53.514324999620534
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.12731025425484768,
+     "max_regret": 0.2268614159315549,
+     "mean_cert": 1.0,
+     "mean_states": 59.083333333333336,
+     "mean_wall_ms": 36.71160833346221
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.023489287219051233,
+     "max_regret": 0.06001217067583047,
+     "mean_cert": 1.0,
+     "mean_states": 739,
+     "mean_wall_ms": 608.7836333329809
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.023489287219051233,
+     "max_regret": 0.06001217067583047,
+     "mean_cert": 1.0,
+     "mean_states": 744.1666666666666,
+     "mean_wall_ms": 566.7101416662869
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.054194239292844185,
+     "max_regret": 0.10174371778350516,
+     "mean_cert": 1.0,
+     "mean_states": 427.9166666666667,
+     "mean_wall_ms": 185.73747500007207
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.12731025425484768,
+     "max_regret": 0.2268614159315549,
+     "mean_cert": 1.0,
+     "mean_states": 253.08333333333334,
+     "mean_wall_ms": 71.96454166690576
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.023489287219051233,
+     "max_regret": 0.06001217067583047,
+     "mean_cert": 1.0,
+     "mean_states": 2760.6666666666665,
+     "mean_wall_ms": 2512.0196583332777
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.023489287219051233,
+     "max_regret": 0.06001217067583047,
+     "mean_cert": 1.0,
+     "mean_states": 2789.25,
+     "mean_wall_ms": 2572.50115833358
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.054194239292844185,
+     "max_regret": 0.10174371778350516,
+     "mean_cert": 1.0,
+     "mean_states": 1259.9166666666667,
+     "mean_wall_ms": 630.2782666662097
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.12731025425484768,
+     "max_regret": 0.2268614159315549,
+     "mean_cert": 1.0,
+     "mean_states": 588.6666666666666,
+     "mean_wall_ms": 204.01105833328378
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.023489287219051233,
+     "max_regret": 0.06001217067583047,
+     "mean_cert": 0.9895833333333334,
+     "mean_states": 1944.1666666666667,
+     "mean_wall_ms": 1915.1533083328711
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.023489287219051233,
+     "max_regret": 0.06001217067583047,
+     "mean_cert": 0.9895833333333334,
+     "mean_states": 1959.5,
+     "mean_wall_ms": 1936.4679166665155
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.054194239292844185,
+     "max_regret": 0.10174371778350516,
+     "mean_cert": 1.0,
+     "mean_states": 714.0833333333334,
+     "mean_wall_ms": 401.21352499985124
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.12731025425484768,
+     "max_regret": 0.2268614159315549,
+     "mean_cert": 1.0,
+     "mean_states": 271.3333333333333,
+     "mean_wall_ms": 117.73448333345489
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.002926959299037396,
+     "max_regret": 0.02611549613402062,
+     "mean_cert": 0.6067597295325186,
+     "mean_states": 124.08333333333333,
+     "mean_wall_ms": 114.81288333349464
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.002926959299037396,
+     "max_regret": 0.02611549613402062,
+     "mean_cert": 0.6067597295325186,
+     "mean_states": 125.66666666666667,
+     "mean_wall_ms": 119.68176666656898
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.03733527702971437,
+     "max_regret": 0.10054888437931768,
+     "mean_cert": 1.0,
+     "mean_states": 87,
+     "mean_wall_ms": 74.46381666613888
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.10711707947862743,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 63,
+     "mean_wall_ms": 50.39297500024986
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0001840942562592047,
+     "max_regret": 0.0022091310751104565,
+     "mean_cert": 0.5755749863251847,
+     "mean_states": 835.1666666666666,
+     "mean_wall_ms": 783.1578666661395
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0001840942562592047,
+     "max_regret": 0.0022091310751104565,
+     "mean_cert": 0.5755749863251847,
+     "mean_states": 853.6666666666666,
+     "mean_wall_ms": 774.4772333335277
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04103305080799617,
+     "max_regret": 0.10054888437931768,
+     "mean_cert": 1.0,
+     "mean_states": 451.6666666666667,
+     "mean_wall_ms": 233.80878333318833
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.10711707947862743,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 270.25,
+     "mean_wall_ms": 98.65328333307843
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0001840942562592047,
+     "max_regret": 0.0022091310751104565,
+     "mean_cert": 0.5180784117665183,
+     "mean_states": 3166,
+     "mean_wall_ms": 3343.257266667024
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0001840942562592047,
+     "max_regret": 0.0022091310751104565,
+     "mean_cert": 0.5180784117665183,
+     "mean_states": 3264.8333333333335,
+     "mean_wall_ms": 3569.0422249999756
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04103305080799617,
+     "max_regret": 0.10054888437931768,
+     "mean_cert": 1.0,
+     "mean_states": 1303.8333333333333,
+     "mean_wall_ms": 724.6777666665972
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.10711707947862743,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 632.4166666666666,
+     "mean_wall_ms": 198.8458666670946
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0001840942562592047,
+     "max_regret": 0.0022091310751104565,
+     "mean_cert": 0.3428955078125,
+     "mean_states": 2161.9166666666665,
+     "mean_wall_ms": 2622.187466666825
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0001840942562592047,
+     "max_regret": 0.0022091310751104565,
+     "mean_cert": 0.3428955078125,
+     "mean_states": 2211.1666666666665,
+     "mean_wall_ms": 2739.2435250009535
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04103305080799617,
+     "max_regret": 0.10054888437931768,
+     "mean_cert": 0.9960530598958334,
+     "mean_states": 712.8333333333334,
+     "mean_wall_ms": 431.7859416675371
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.10711707947862743,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 295.1666666666667,
+     "mean_wall_ms": 110.64475833427423
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0010574871527587178,
+     "max_regret": 0.005425917244887114,
+     "mean_cert": 0.28737851270004044,
+     "mean_states": 130.58333333333334,
+     "mean_wall_ms": 124.38900833300674
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0010574871527587178,
+     "max_regret": 0.005425917244887114,
+     "mean_cert": 0.28737851270004044,
+     "mean_states": 130.58333333333334,
+     "mean_wall_ms": 124.84237499999533
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.03582216845272933,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 1.0,
+     "mean_states": 90.75,
+     "mean_wall_ms": 65.70455833267867
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 64.66666666666667,
+     "mean_wall_ms": 41.26767499928974
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.2574037935543077,
+     "mean_states": 853.6666666666666,
+     "mean_wall_ms": 797.6094750001721
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.2574037935543077,
+     "mean_states": 853.6666666666666,
+     "mean_wall_ms": 847.4750250003732
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04066951243929507,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 1.0,
+     "mean_states": 469.8333333333333,
+     "mean_wall_ms": 259.63370833414956
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 273.6666666666667,
+     "mean_wall_ms": 119.00173333227333
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.19901654738464625,
+     "mean_states": 3264.8333333333335,
+     "mean_wall_ms": 3555.540933333456
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.19901654738464625,
+     "mean_states": 3264.8333333333335,
+     "mean_wall_ms": 3604.527033333094
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04066951243929507,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 1.0,
+     "mean_states": 1330.6666666666667,
+     "mean_wall_ms": 746.1374833337686
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 628.4166666666666,
+     "mean_wall_ms": 185.04877500011693
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.022700101137161255,
+     "mean_states": 2211.1666666666665,
+     "mean_wall_ms": 2654.6791083331605
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.022700101137161255,
+     "mean_states": 2211.1666666666665,
+     "mean_wall_ms": 2912.063058333539
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04066951243929507,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 0.9786843619864396,
+     "mean_states": 713.3333333333334,
+     "mean_wall_ms": 450.7984083329575
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 288,
+     "mean_wall_ms": 103.48806666661403
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0010409658733508405,
+     "max_regret": 0.005425917244887114,
+     "mean_cert": 0.2647624114617366,
+     "mean_states": 129.33333333333334,
+     "mean_wall_ms": 133.00189166663282
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0010409658733508405,
+     "max_regret": 0.005425917244887114,
+     "mean_cert": 0.2647624114617366,
+     "mean_states": 129.33333333333334,
+     "mean_wall_ms": 145.61186666681655
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.03582216845272933,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 1.0,
+     "mean_states": 90.75,
+     "mean_wall_ms": 64.68394166707488
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 64.66666666666667,
+     "mean_wall_ms": 43.93946666671885
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.2347464977692502,
+     "mean_states": 853.6666666666666,
+     "mean_wall_ms": 880.9400833333711
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.2347464977692502,
+     "mean_states": 853.6666666666666,
+     "mean_wall_ms": 846.7485916668617
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04066951243929507,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 1.0,
+     "mean_states": 469.8333333333333,
+     "mean_wall_ms": 266.47749166659196
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 273.6666666666667,
+     "mean_wall_ms": 108.03552499965008
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.1763729860399647,
+     "mean_states": 3264.8333333333335,
+     "mean_wall_ms": 3822.2813249994942
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.1763729860399647,
+     "mean_states": 3264.8333333333335,
+     "mean_wall_ms": 3860.1356583324864
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04066951243929507,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 1.0,
+     "mean_states": 1330.6666666666667,
+     "mean_wall_ms": 808.4036500000972
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 628.4166666666666,
+     "mean_wall_ms": 236.93023333362362
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 8.900828349744927e-05,
+     "mean_states": 2211.1666666666665,
+     "mean_wall_ms": 2845.490933333167
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 8.900828349744927e-05,
+     "mean_states": 2211.1666666666665,
+     "mean_wall_ms": 2968.1033666665826
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04066951243929507,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 0.9749294091064746,
+     "mean_states": 713.3333333333334,
+     "mean_wall_ms": 513.097708333286
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 288,
+     "mean_wall_ms": 120.20513333330503
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0010409658733508405,
+     "max_regret": 0.005425917244887114,
+     "mean_cert": 0.2646733399912639,
+     "mean_states": 129.33333333333334,
+     "mean_wall_ms": 145.84440833277768
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0010409658733508405,
+     "max_regret": 0.005425917244887114,
+     "mean_cert": 0.2646733399912639,
+     "mean_states": 129.33333333333334,
+     "mean_wall_ms": 146.24204999957632
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.03582216845272933,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 1.0,
+     "mean_states": 90.75,
+     "mean_wall_ms": 75.1571500004502
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 64.66666666666667,
+     "mean_wall_ms": 45.176716666901484
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.2346572741886367,
+     "mean_states": 853.6666666666666,
+     "mean_wall_ms": 895.5027083332728
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.2346572741886367,
+     "mean_states": 853.6666666666666,
+     "mean_wall_ms": 816.8591583338033
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04066951243929507,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 1.0,
+     "mean_states": 469.8333333333333,
+     "mean_wall_ms": 258.22866666597594
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 273.6666666666667,
+     "mean_wall_ms": 93.55506666603712
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.17628388451488358,
+     "mean_states": 3264.8333333333335,
+     "mean_wall_ms": 3817.02148333261
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.17628388451488358,
+     "mean_states": 3264.8333333333335,
+     "mean_wall_ms": 3897.6878333332934
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04066951243929507,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 1.0,
+     "mean_states": 1330.5,
+     "mean_wall_ms": 814.9878416664554
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 628.4166666666666,
+     "mean_wall_ms": 192.02795833371056
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.0,
+     "mean_states": 2211.1666666666665,
+     "mean_wall_ms": 3000.956166666583
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.0,
+     "mean_states": 2211.1666666666665,
+     "mean_wall_ms": 3120.189999999942
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.04066951243929507,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 0.9749145916386726,
+     "mean_states": 713.25,
+     "mean_wall_ms": 500.34369166617887
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 288,
+     "mean_wall_ms": 139.02070000009795
+    }
+   ],
+   "frontier_cert": [
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.12326379970845626,
+     "max_regret": 0.2408790310948484,
+     "mean_cert": 1.0,
+     "mean_states": 58.333333333333336,
+     "mean_wall_ms": 32.45408333289864
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.002926959299037396,
+     "max_regret": 0.02611549613402062,
+     "mean_cert": 0.6067597295325186,
+     "mean_states": 124.08333333333333,
+     "mean_wall_ms": 114.81288333349464
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0010574871527587178,
+     "max_regret": 0.005425917244887114,
+     "mean_cert": 0.28737851270004044,
+     "mean_states": 130.58333333333334,
+     "mean_wall_ms": 124.38900833300674
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.2574037935543077,
+     "mean_states": 853.6666666666666,
+     "mean_wall_ms": 797.6094750001721
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.022700101137161255,
+     "mean_states": 2211.1666666666665,
+     "mean_wall_ms": 2654.6791083331605
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0010409658733508405,
+     "max_regret": 0.005425917244887114,
+     "mean_cert": 0.2647624114617366,
+     "mean_states": 129.33333333333334,
+     "mean_wall_ms": 133.00189166663282
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.2347464977692502,
+     "mean_states": 853.6666666666666,
+     "mean_wall_ms": 880.9400833333711
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 8.900828349744927e-05,
+     "mean_states": 2211.1666666666665,
+     "mean_wall_ms": 2845.490933333167
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0010409658733508405,
+     "max_regret": 0.005425917244887114,
+     "mean_cert": 0.2646733399912639,
+     "mean_states": 129.33333333333334,
+     "mean_wall_ms": 145.84440833277768
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.2346572741886367,
+     "mean_states": 853.6666666666666,
+     "mean_wall_ms": 895.5027083332728
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.0,
+     "mean_states": 2211.1666666666665,
+     "mean_wall_ms": 3000.956166666583
+    }
+   ],
+   "frontier_regret": [
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.015085289538584755,
+     "max_regret": 0.058217198958444044,
+     "mean_cert": 1.0,
+     "mean_states": 103.91666666666667,
+     "mean_wall_ms": 71.96821666760418
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.050478133843301375,
+     "max_regret": 0.10905241989053034,
+     "mean_cert": 1.0,
+     "mean_states": 82,
+     "mean_wall_ms": 48.316683333117304
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.12326379970845626,
+     "max_regret": 0.2408790310948484,
+     "mean_cert": 1.0,
+     "mean_states": 58.333333333333336,
+     "mean_wall_ms": 32.45408333289864
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.002926959299037396,
+     "max_regret": 0.02611549613402062,
+     "mean_cert": 0.6067597295325186,
+     "mean_states": 124.08333333333333,
+     "mean_wall_ms": 114.81288333349464
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0001840942562592047,
+     "max_regret": 0.0022091310751104565,
+     "mean_cert": 0.5755749863251847,
+     "mean_states": 835.1666666666666,
+     "mean_wall_ms": 783.1578666661395
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0010574871527587178,
+     "max_regret": 0.005425917244887114,
+     "mean_cert": 0.28737851270004044,
+     "mean_states": 130.58333333333334,
+     "mean_wall_ms": 124.38900833300674
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.11764124699593316,
+     "max_regret": 0.16304888437931767,
+     "mean_cert": 1.0,
+     "mean_states": 64.66666666666667,
+     "mean_wall_ms": 41.26767499928974
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.2574037935543077,
+     "mean_states": 853.6666666666666,
+     "mean_wall_ms": 797.6094750001721
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0010409658733508405,
+     "max_regret": 0.005425917244887114,
+     "mean_cert": 0.2647624114617366,
+     "mean_states": 129.33333333333334,
+     "mean_wall_ms": 133.00189166663282
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.03582216845272933,
+     "max_regret": 0.06995581737849779,
+     "mean_cert": 1.0,
+     "mean_states": 90.75,
+     "mean_wall_ms": 64.68394166707488
+    }
+   ],
+   "allocation": {
+    "quotient|100": {
+     "roots": 7,
+     "choices": [
+      [
+       "1",
+       "1"
+      ],
+      [
+       "2",
+       "1"
+      ],
+      [
+       "None",
+       "1"
+      ]
+     ],
+     "mean_cert": 0.6978305293281607,
+     "mean_regret": 0.011129362496025114
+    },
+    "quotient|300": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ]
+     ],
+     "mean_cert": 0.2646733399912639,
+     "mean_regret": 0.0010409658733508405
+    },
+    "quotient|1000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ],
+      [
+       "None",
+       "2"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.19680928861302338,
+     "mean_regret": 0.0003461923922574131
+    },
+    "quotient|3000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "2"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.07763215300824823,
+     "mean_regret": 0.0
+    },
+    "expanded|100": {
+     "roots": 6,
+     "choices": [
+      [
+       "1",
+       "1"
+      ],
+      [
+       "2",
+       "1"
+      ],
+      [
+       "None",
+       "1"
+      ]
+     ],
+     "mean_cert": 0.6474689508828542,
+     "mean_regret": 0.012831002521724172
+    },
+    "expanded|300": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ]
+     ],
+     "mean_cert": 0.2646733399912639,
+     "mean_regret": 0.0010409658733508405
+    },
+    "expanded|1000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ],
+      [
+       "None",
+       "2"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.19680928861302338,
+     "mean_regret": 0.0003461923922574131
+    },
+    "expanded|3000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "2"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.07763215300824823,
+     "mean_regret": 0.0
+    }
+   },
+   "negligible_precision": [
+    {
+     "seed": 941005,
+     "certs": [
+      "1/1",
+      "7/8",
+      "15/32",
+      "31/128",
+      "63/512",
+      "127/2048",
+      "255/8192",
+      "511/32768",
+      "1023/131072",
+      "2047/524288",
+      "4095/2097152",
+      "8191/8388608",
+      "0/1"
+     ]
+    }
+   ],
+   "one_bit_changes": [
+    {
+     "seed": 941001,
+     "bits": 1,
+     "regret_before": "176765/4817408",
+     "regret_after": "2961/99328",
+     "action_before": [
+      "g",
+      11
+     ],
+     "action_after": [
+      "q",
+      2
+     ]
+    },
+    {
+     "seed": 941002,
+     "bits": 1,
+     "regret_before": "35057/602176",
+     "regret_after": "1465/49664",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "q",
+      4
+     ]
+    },
+    {
+     "seed": 941004,
+     "bits": 1,
+     "regret_before": "625/10864",
+     "regret_after": "239/5432",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "q",
+      4
+     ]
+    },
+    {
+     "seed": 941004,
+     "bits": 2,
+     "regret_before": "239/5432",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      4
+     ],
+     "action_after": [
+      "g",
+      0
+     ]
+    },
+    {
+     "seed": 941006,
+     "bits": 2,
+     "regret_before": "3353/55872",
+     "regret_after": "0/1",
+     "action_before": [
+      "g",
+      9
+     ],
+     "action_after": [
+      "q",
+      2
+     ]
+    },
+    {
+     "seed": 941007,
+     "bits": 5,
+     "regret_before": "7793/3311968",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      3
+     ],
+     "action_after": [
+      "g",
+      6
+     ]
+    },
+    {
+     "seed": 941008,
+     "bits": 1,
+     "regret_before": "46203/1204352",
+     "regret_after": "85/2716",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "g",
+      8
+     ]
+    },
+    {
+     "seed": 941008,
+     "bits": 2,
+     "regret_before": "85/2716",
+     "regret_after": "0/1",
+     "action_before": [
+      "g",
+      8
+     ],
+     "action_after": [
+      "q",
+      0
+     ]
+    },
+    {
+     "seed": 941009,
+     "bits": 1,
+     "regret_before": "129/10864",
+     "regret_after": "1/1358",
+     "action_before": [
+      "g",
+      6
+     ],
+     "action_after": [
+      "g",
+      4
+     ]
+    },
+    {
+     "seed": 941009,
+     "bits": 5,
+     "regret_before": "1/679",
+     "regret_after": "1/1358",
+     "action_before": [
+      "g",
+      7
+     ],
+     "action_after": [
+      "g",
+      4
+     ]
+    },
+    {
+     "seed": 941011,
+     "bits": 2,
+     "regret_before": "423/20176",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      2
+     ],
+     "action_after": [
+      "q",
+      0
+     ]
+    }
+   ],
+   "mean_states_quotient": 1481.0,
+   "mean_states_expanded": 1505.2777777777778
+  },
+  "random": {
+   "roots": 12,
+   "configs": [
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.01859730764257188,
+     "max_regret": 0.06688963210702341,
+     "mean_cert": 1.0,
+     "mean_states": 59.833333333333336,
+     "mean_wall_ms": 27.648175000649644
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.01859730764257188,
+     "max_regret": 0.06688963210702341,
+     "mean_cert": 1.0,
+     "mean_states": 61.166666666666664,
+     "mean_wall_ms": 28.226608333473752
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.025026008725108906,
+     "max_regret": 0.08361204013377926,
+     "mean_cert": 1.0,
+     "mean_states": 52.416666666666664,
+     "mean_wall_ms": 23.32623333313677
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.0852461199524309,
+     "max_regret": 0.20127638684339716,
+     "mean_cert": 1.0,
+     "mean_states": 38.416666666666664,
+     "mean_wall_ms": 16.567366667004535
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.01859730764257188,
+     "max_regret": 0.06688963210702341,
+     "mean_cert": 1.0,
+     "mean_states": 266.75,
+     "mean_wall_ms": 124.50485833384543
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.01859730764257188,
+     "max_regret": 0.06688963210702341,
+     "mean_cert": 1.0,
+     "mean_states": 277,
+     "mean_wall_ms": 119.94630833275248
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.025026008725108906,
+     "max_regret": 0.08361204013377926,
+     "mean_cert": 1.0,
+     "mean_states": 215.33333333333334,
+     "mean_wall_ms": 63.97857500026778
+    },
+    {
+     "bits": 1,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.0852461199524309,
+     "max_regret": 0.20127638684339716,
+     "mean_cert": 1.0,
+     "mean_states": 137.91666666666666,
+     "mean_wall_ms": 29.762558333762474
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.01859730764257188,
+     "max_regret": 0.06688963210702341,
+     "mean_cert": 1.0,
+     "mean_states": 567.8333333333334,
+     "mean_wall_ms": 234.4048166663318
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.01859730764257188,
+     "max_regret": 0.06688963210702341,
+     "mean_cert": 1.0,
+     "mean_states": 592.5833333333334,
+     "mean_wall_ms": 245.86578333310172
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.025026008725108906,
+     "max_regret": 0.08361204013377926,
+     "mean_cert": 1.0,
+     "mean_states": 423,
+     "mean_wall_ms": 134.26797499990548
+    },
+    {
+     "bits": 1,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.0852461199524309,
+     "max_regret": 0.20127638684339716,
+     "mean_cert": 1.0,
+     "mean_states": 236.66666666666666,
+     "mean_wall_ms": 48.903583333412826
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.01859730764257188,
+     "max_regret": 0.06688963210702341,
+     "mean_cert": 1.0,
+     "mean_states": 306.75,
+     "mean_wall_ms": 157.07709166720937
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.01859730764257188,
+     "max_regret": 0.06688963210702341,
+     "mean_cert": 1.0,
+     "mean_states": 322.75,
+     "mean_wall_ms": 162.444308333761
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.025026008725108906,
+     "max_regret": 0.08361204013377926,
+     "mean_cert": 1.0,
+     "mean_states": 214.25,
+     "mean_wall_ms": 80.17665833328162
+    },
+    {
+     "bits": 1,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.0852461199524309,
+     "max_regret": 0.20127638684339716,
+     "mean_cert": 1.0,
+     "mean_states": 109.66666666666667,
+     "mean_wall_ms": 30.066183333171164
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00531572591765475,
+     "max_regret": 0.021087160262417994,
+     "mean_cert": 0.9865679824561403,
+     "mean_states": 60.416666666666664,
+     "mean_wall_ms": 32.249208332662725
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00531572591765475,
+     "max_regret": 0.021087160262417994,
+     "mean_cert": 0.9865679824561403,
+     "mean_states": 60.416666666666664,
+     "mean_wall_ms": 32.11674166686862
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.010542377468596154,
+     "max_regret": 0.03643724696356275,
+     "mean_cert": 1.0,
+     "mean_states": 53.5,
+     "mean_wall_ms": 25.522599999931117
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08805188899057653,
+     "max_regret": 0.16194331983805668,
+     "mean_cert": 1.0,
+     "mean_states": 38.916666666666664,
+     "mean_wall_ms": 17.135258333231224
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00531572591765475,
+     "max_regret": 0.021087160262417994,
+     "mean_cert": 0.9772478070175439,
+     "mean_states": 293.4166666666667,
+     "mean_wall_ms": 156.12170000016098
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00531572591765475,
+     "max_regret": 0.021087160262417994,
+     "mean_cert": 0.9772478070175439,
+     "mean_states": 294.1666666666667,
+     "mean_wall_ms": 160.1126416671832
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.010542377468596154,
+     "max_regret": 0.03643724696356275,
+     "mean_cert": 1.0,
+     "mean_states": 230.33333333333334,
+     "mean_wall_ms": 86.86462499948296
+    },
+    {
+     "bits": 2,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08805188899057653,
+     "max_regret": 0.16194331983805668,
+     "mean_cert": 1.0,
+     "mean_states": 141.75,
+     "mean_wall_ms": 38.76792500007772
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00531572591765475,
+     "max_regret": 0.021087160262417994,
+     "mean_cert": 0.9166666666666666,
+     "mean_states": 667.5833333333334,
+     "mean_wall_ms": 356.53121666685666
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00531572591765475,
+     "max_regret": 0.021087160262417994,
+     "mean_cert": 0.9166666666666666,
+     "mean_states": 673.5833333333334,
+     "mean_wall_ms": 337.58925833262765
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.010542377468596154,
+     "max_regret": 0.03643724696356275,
+     "mean_cert": 0.9939431913116124,
+     "mean_states": 484.3333333333333,
+     "mean_wall_ms": 167.46984166669185
+    },
+    {
+     "bits": 2,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08805188899057653,
+     "max_regret": 0.16194331983805668,
+     "mean_cert": 1.0,
+     "mean_states": 243.66666666666666,
+     "mean_wall_ms": 66.66641666621824
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00531572591765475,
+     "max_regret": 0.021087160262417994,
+     "mean_cert": 0.8958333333333334,
+     "mean_states": 370.5,
+     "mean_wall_ms": 223.35155833297904
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00531572591765475,
+     "max_regret": 0.021087160262417994,
+     "mean_cert": 0.8958333333333334,
+     "mean_states": 374.4166666666667,
+     "mean_wall_ms": 225.2765916661398
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.010542377468596154,
+     "max_regret": 0.03643724696356275,
+     "mean_cert": 0.9939431913116124,
+     "mean_states": 252.25,
+     "mean_wall_ms": 112.29732499972063
+    },
+    {
+     "bits": 2,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08805188899057653,
+     "max_regret": 0.16194331983805668,
+     "mean_cert": 1.0,
+     "mean_states": 109.5,
+     "mean_wall_ms": 33.07449166701796
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00019399179691830174,
+     "max_regret": 0.002327901563019621,
+     "mean_cert": 0.5112893835569668,
+     "mean_states": 61.583333333333336,
+     "mean_wall_ms": 36.38574999968114
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00019399179691830174,
+     "max_regret": 0.002327901563019621,
+     "mean_cert": 0.5112893835569668,
+     "mean_states": 61.583333333333336,
+     "mean_wall_ms": 35.72938333369772
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.011438359995920957,
+     "max_regret": 0.05940108001963672,
+     "mean_cert": 0.9198097624355879,
+     "mean_states": 55.583333333333336,
+     "mean_wall_ms": 32.45095833275021
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08720539053118102,
+     "max_regret": 0.15789473684210525,
+     "mean_cert": 1.0,
+     "mean_states": 39.5,
+     "mean_wall_ms": 19.93605833346616
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00019399179691830174,
+     "max_regret": 0.002327901563019621,
+     "mean_cert": 0.475324449452624,
+     "mean_states": 302,
+     "mean_wall_ms": 175.88425000030838
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00019399179691830174,
+     "max_regret": 0.002327901563019621,
+     "mean_cert": 0.475324449452624,
+     "mean_states": 302,
+     "mean_wall_ms": 164.0106666667028
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.011438359995920957,
+     "max_regret": 0.05940108001963672,
+     "mean_cert": 0.9040705445672987,
+     "mean_states": 240.16666666666666,
+     "mean_wall_ms": 106.51454166721426
+    },
+    {
+     "bits": 4,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08720539053118102,
+     "max_regret": 0.15789473684210525,
+     "mean_cert": 1.0,
+     "mean_states": 143.41666666666666,
+     "mean_wall_ms": 41.612716666350025
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00019399179691830174,
+     "max_regret": 0.002327901563019621,
+     "mean_cert": 0.3621217710111112,
+     "mean_states": 707.5,
+     "mean_wall_ms": 431.33981666627125
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00019399179691830174,
+     "max_regret": 0.002327901563019621,
+     "mean_cert": 0.3621217710111112,
+     "mean_states": 707.5,
+     "mean_wall_ms": 474.69258333391434
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.011438359995920957,
+     "max_regret": 0.05940108001963672,
+     "mean_cert": 0.8390443559293179,
+     "mean_states": 513.5,
+     "mean_wall_ms": 228.91864166649611
+    },
+    {
+     "bits": 4,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08720539053118102,
+     "max_regret": 0.15789473684210525,
+     "mean_cert": 1.0,
+     "mean_states": 248.5,
+     "mean_wall_ms": 63.962949999525634
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00019399179691830174,
+     "max_regret": 0.002327901563019621,
+     "mean_cert": 0.2781982421875,
+     "mean_states": 408,
+     "mean_wall_ms": 290.17095000017434
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.00019399179691830174,
+     "max_regret": 0.002327901563019621,
+     "mean_cert": 0.2781982421875,
+     "mean_states": 408,
+     "mean_wall_ms": 310.0430750000669
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.011438359995920957,
+     "max_regret": 0.05940108001963672,
+     "mean_cert": 0.7995645736203262,
+     "mean_states": 275.75,
+     "mean_wall_ms": 187.03335833348925
+    },
+    {
+     "bits": 4,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08720539053118102,
+     "max_regret": 0.15789473684210525,
+     "mean_cert": 1.0,
+     "mean_states": 113.66666666666667,
+     "mean_wall_ms": 54.48455000138589
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.24645898487958495,
+     "mean_states": 62,
+     "mean_wall_ms": 45.62217500036544
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.24645898487958495,
+     "mean_states": 62,
+     "mean_wall_ms": 47.661133333349426
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.7875382068892334,
+     "mean_states": 54,
+     "mean_wall_ms": 37.86785833320513
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.07404749579433892,
+     "max_regret": 0.12955465587044535,
+     "mean_cert": 1.0,
+     "mean_states": 39.5,
+     "mean_wall_ms": 22.717416667243622
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.21152114670827465,
+     "mean_states": 303.6666666666667,
+     "mean_wall_ms": 199.04347499990158
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.21152114670827465,
+     "mean_states": 303.6666666666667,
+     "mean_wall_ms": 190.7834333333085
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.7611763053616544,
+     "mean_states": 239.41666666666666,
+     "mean_wall_ms": 121.4515000007547
+    },
+    {
+     "bits": 8,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.07404749579433892,
+     "max_regret": 0.12955465587044535,
+     "mean_cert": 1.0,
+     "mean_states": 143.5,
+     "mean_wall_ms": 47.59293333366562
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.10006292133853141,
+     "mean_states": 709.6666666666666,
+     "mean_wall_ms": 445.101666666839
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.10006292133853141,
+     "mean_states": 709.6666666666666,
+     "mean_wall_ms": 432.19327499961463
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.6704165607261874,
+     "mean_states": 509.5833333333333,
+     "mean_wall_ms": 235.2961916667482
+    },
+    {
+     "bits": 8,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.07404749579433892,
+     "max_regret": 0.12955465587044535,
+     "mean_cert": 0.9901062329610189,
+     "mean_states": 250.75,
+     "mean_wall_ms": 63.340008333398146
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.01817581057548523,
+     "mean_states": 408.5,
+     "mean_wall_ms": 298.752816667123
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.01817581057548523,
+     "mean_states": 408.5,
+     "mean_wall_ms": 270.1964249993883
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.6239411895086416,
+     "mean_states": 275.3333333333333,
+     "mean_wall_ms": 150.73244999985036
+    },
+    {
+     "bits": 8,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.07404749579433892,
+     "max_regret": 0.12955465587044535,
+     "mean_cert": 0.9901062329610189,
+     "mean_states": 116.16666666666667,
+     "mean_wall_ms": 43.24751666687613
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.22833119829380982,
+     "mean_states": 62,
+     "mean_wall_ms": 39.77710833381328
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.22833119829380982,
+     "mean_states": 62,
+     "mean_wall_ms": 41.675875000388864
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.7795556522337637,
+     "mean_states": 54.25,
+     "mean_wall_ms": 32.58688333274525
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08162325337009649,
+     "max_regret": 0.18181818181818182,
+     "mean_cert": 1.0,
+     "mean_states": 39.5,
+     "mean_wall_ms": 18.796299999242667
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.19341866182210607,
+     "mean_states": 303.6666666666667,
+     "mean_wall_ms": 176.34125833410508
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.19341866182210607,
+     "mean_states": 303.6666666666667,
+     "mean_wall_ms": 172.36415833394858
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.7532002444396703,
+     "mean_states": 241.25,
+     "mean_wall_ms": 105.57675000048523
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08162325337009649,
+     "max_regret": 0.18181818181818182,
+     "mean_cert": 1.0,
+     "mean_states": 143.25,
+     "mean_wall_ms": 42.426791666609155
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.08185122815157032,
+     "mean_states": 709.6666666666666,
+     "mean_wall_ms": 469.9690416658389
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.08185122815157032,
+     "mean_states": 709.6666666666666,
+     "mean_wall_ms": 497.6652250003705
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.6602268742802373,
+     "mean_states": 513.5833333333334,
+     "mean_wall_ms": 267.37055833352014
+    },
+    {
+     "bits": 16,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08162325337009649,
+     "max_regret": 0.18181818181818182,
+     "mean_cert": 0.9892874101518828,
+     "mean_states": 249,
+     "mean_wall_ms": 92.68624166634254
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 7.120686738737447e-05,
+     "mean_states": 408.5,
+     "mean_wall_ms": 315.15784999980195
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 7.120686738737447e-05,
+     "mean_states": 408.5,
+     "mean_wall_ms": 326.57811666679964
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.6138200172410823,
+     "mean_states": 275.3333333333333,
+     "mean_wall_ms": 172.27687499992803
+    },
+    {
+     "bits": 16,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08162325337009649,
+     "max_regret": 0.18181818181818182,
+     "mean_cert": 0.9892874101518828,
+     "mean_states": 115.33333333333333,
+     "mean_wall_ms": 45.93593333326377
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.22826047995601453,
+     "mean_states": 62,
+     "mean_wall_ms": 38.80489999968025
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.22826047995601453,
+     "mean_states": 62,
+     "mean_wall_ms": 41.42870833281146
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.7795198252361387,
+     "mean_states": 54.25,
+     "mean_wall_ms": 34.27494166650528
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.07404749579433892,
+     "max_regret": 0.12955465587044535,
+     "mean_cert": 1.0,
+     "mean_states": 39.5,
+     "mean_wall_ms": 24.465083333173727
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.19334797528569214,
+     "mean_states": 303.6666666666667,
+     "mean_wall_ms": 200.2771416661441
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.19334797528569214,
+     "mean_states": 303.6666666666667,
+     "mean_wall_ms": 204.28561666691772
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.7531644429732287,
+     "mean_states": 241.25,
+     "mean_wall_ms": 120.3209833326279
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.07404749579433892,
+     "max_regret": 0.12955465587044535,
+     "mean_cert": 1.0,
+     "mean_states": 143.5,
+     "mean_wall_ms": 52.77651666650248
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.08178029260343712,
+     "mean_states": 709.6666666666666,
+     "mean_wall_ms": 436.6454250002789
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.08178029260343712,
+     "mean_states": 709.6666666666666,
+     "mean_wall_ms": 407.9862666670427
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.6601822027483323,
+     "mean_states": 513.5833333333334,
+     "mean_wall_ms": 229.08966666697475
+    },
+    {
+     "bits": null,
+     "depth": 3,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.07404749579433892,
+     "max_regret": 0.12955465587044535,
+     "mean_cert": 0.9892833103057357,
+     "mean_states": 250.75,
+     "mean_wall_ms": 64.18213333320939
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.0,
+     "mean_states": 408.5,
+     "mean_wall_ms": 278.11787499952817
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": null,
+     "quotient": false,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.0,
+     "mean_states": 408.5,
+     "mean_wall_ms": 301.7579916665151
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.6137752428802444,
+     "mean_states": 275.3333333333333,
+     "mean_wall_ms": 156.692183333386
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.07404749579433892,
+     "max_regret": 0.12955465587044535,
+     "mean_cert": 0.9892833103057357,
+     "mean_states": 116.16666666666667,
+     "mean_wall_ms": 39.67181666666875
+    }
+   ],
+   "frontier_cert": [
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.0852461199524309,
+     "max_regret": 0.20127638684339716,
+     "mean_cert": 1.0,
+     "mean_states": 38.416666666666664,
+     "mean_wall_ms": 16.567366667004535
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00531572591765475,
+     "max_regret": 0.021087160262417994,
+     "mean_cert": 0.9865679824561403,
+     "mean_states": 60.416666666666664,
+     "mean_wall_ms": 32.249208332662725
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00019399179691830174,
+     "max_regret": 0.002327901563019621,
+     "mean_cert": 0.5112893835569668,
+     "mean_states": 61.583333333333336,
+     "mean_wall_ms": 36.38574999968114
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.011438359995920957,
+     "max_regret": 0.05940108001963672,
+     "mean_cert": 0.9198097624355879,
+     "mean_states": 55.583333333333336,
+     "mean_wall_ms": 32.45095833275021
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.7795556522337637,
+     "mean_states": 54.25,
+     "mean_wall_ms": 32.58688333274525
+    },
+    {
+     "bits": 16,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.19341866182210607,
+     "mean_states": 303.6666666666667,
+     "mean_wall_ms": 176.34125833410508
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.22826047995601453,
+     "mean_states": 62,
+     "mean_wall_ms": 38.80489999968025
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.00915507129398591,
+     "max_regret": 0.035346097201767304,
+     "mean_cert": 0.7795198252361387,
+     "mean_states": 54.25,
+     "mean_wall_ms": 34.27494166650528
+    },
+    {
+     "bits": null,
+     "depth": 2,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.19334797528569214,
+     "mean_states": 303.6666666666667,
+     "mean_wall_ms": 200.2771416661441
+    },
+    {
+     "bits": null,
+     "depth": null,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.0,
+     "mean_states": 408.5,
+     "mean_wall_ms": 278.11787499952817
+    }
+   ],
+   "frontier_regret": [
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.025026008725108906,
+     "max_regret": 0.08361204013377926,
+     "mean_cert": 1.0,
+     "mean_states": 52.416666666666664,
+     "mean_wall_ms": 23.32623333313677
+    },
+    {
+     "bits": 1,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.0852461199524309,
+     "max_regret": 0.20127638684339716,
+     "mean_cert": 1.0,
+     "mean_states": 38.416666666666664,
+     "mean_wall_ms": 16.567366667004535
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00531572591765475,
+     "max_regret": 0.021087160262417994,
+     "mean_cert": 0.9865679824561403,
+     "mean_states": 60.416666666666664,
+     "mean_wall_ms": 32.249208332662725
+    },
+    {
+     "bits": 2,
+     "depth": 1,
+     "cap": 6,
+     "quotient": true,
+     "mean_regret": 0.010542377468596154,
+     "max_regret": 0.03643724696356275,
+     "mean_cert": 1.0,
+     "mean_states": 53.5,
+     "mean_wall_ms": 25.522599999931117
+    },
+    {
+     "bits": 4,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.00019399179691830174,
+     "max_regret": 0.002327901563019621,
+     "mean_cert": 0.5112893835569668,
+     "mean_states": 61.583333333333336,
+     "mean_wall_ms": 36.38574999968114
+    },
+    {
+     "bits": 8,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.07404749579433892,
+     "max_regret": 0.12955465587044535,
+     "mean_cert": 1.0,
+     "mean_states": 39.5,
+     "mean_wall_ms": 22.717416667243622
+    },
+    {
+     "bits": 16,
+     "depth": 1,
+     "cap": 3,
+     "quotient": true,
+     "mean_regret": 0.08162325337009649,
+     "max_regret": 0.18181818181818182,
+     "mean_cert": 1.0,
+     "mean_states": 39.5,
+     "mean_wall_ms": 18.796299999242667
+    },
+    {
+     "bits": null,
+     "depth": 1,
+     "cap": null,
+     "quotient": true,
+     "mean_regret": 0.0,
+     "max_regret": 0.0,
+     "mean_cert": 0.22826047995601453,
+     "mean_states": 62,
+     "mean_wall_ms": 38.80489999968025
+    }
+   ],
+   "allocation": {
+    "quotient|100": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.14898608727593926,
+     "mean_regret": 0.0
+    },
+    "quotient|300": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.09256261899121167,
+     "mean_regret": 0.0
+    },
+    "quotient|1000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "2"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.017863388473051335,
+     "mean_regret": 0.0
+    },
+    "quotient|3000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.0,
+     "mean_regret": 0.0
+    },
+    "expanded|100": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.14898608727593926,
+     "mean_regret": 0.0
+    },
+    "expanded|300": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "1"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.09256261899121167,
+     "mean_regret": 0.0
+    },
+    "expanded|1000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "2"
+      ],
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.017863388473051335,
+     "mean_regret": 0.0
+    },
+    "expanded|3000": {
+     "roots": 12,
+     "choices": [
+      [
+       "None",
+       "None"
+      ]
+     ],
+     "mean_cert": 0.0,
+     "mean_regret": 0.0
+    }
+   },
+   "negligible_precision": [
+    {
+     "seed": 942004,
+     "certs": [
+      "1/1",
+      "7/8",
+      "15/32",
+      "31/128",
+      "63/512",
+      "127/2048",
+      "255/8192",
+      "511/32768",
+      "1023/131072",
+      "2047/524288",
+      "4095/2097152",
+      "8191/8388608",
+      "0/1"
+     ]
+    },
+    {
+     "seed": 942006,
+     "certs": [
+      "1/1",
+      "1/1",
+      "169/256",
+      "721/2048",
+      "2977/16384",
+      "12097/131072",
+      "48769/1048576",
+      "195841/8388608",
+      "784897/67108864",
+      "3142657/536870912",
+      "12576769/4294967296",
+      "50319361/34359738368",
+      "0/1"
+     ]
+    }
+   ],
+   "one_bit_changes": [
+    {
+     "seed": 942000,
+     "bits": 1,
+     "regret_before": "1/247",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      2
+     ],
+     "action_after": [
+      "g",
+      8
+     ]
+    },
+    {
+     "seed": 942001,
+     "bits": 1,
+     "regret_before": "844/13871",
+     "regret_after": "45/2134",
+     "action_before": [
+      "q",
+      1
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 942001,
+     "bits": 2,
+     "regret_before": "45/2134",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      3
+     ],
+     "action_after": [
+      "g",
+      2
+     ]
+    },
+    {
+     "seed": 942002,
+     "bits": 1,
+     "regret_before": "27/1261",
+     "regret_after": "0/1",
+     "action_before": [
+      "g",
+      0
+     ],
+     "action_after": [
+      "g",
+      2
+     ]
+    },
+    {
+     "seed": 942003,
+     "bits": 2,
+     "regret_before": "3/970",
+     "regret_after": "0/1",
+     "action_before": [
+      "g",
+      6
+     ],
+     "action_after": [
+      "q",
+      2
+     ]
+    },
+    {
+     "seed": 942003,
+     "bits": 5,
+     "regret_before": "3/970",
+     "regret_after": "0/1",
+     "action_before": [
+      "g",
+      6
+     ],
+     "action_after": [
+      "q",
+      2
+     ]
+    },
+    {
+     "seed": 942005,
+     "bits": 1,
+     "regret_before": "467/13871",
+     "regret_after": "2/143",
+     "action_before": [
+      "q",
+      2
+     ],
+     "action_after": [
+      "g",
+      4
+     ]
+    },
+    {
+     "seed": 942005,
+     "bits": 2,
+     "regret_before": "2/143",
+     "regret_after": "0/1",
+     "action_before": [
+      "g",
+      4
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 942007,
+     "bits": 1,
+     "regret_before": "3/221",
+     "regret_after": "0/1",
+     "action_before": [
+      "g",
+      1
+     ],
+     "action_after": [
+      "g",
+      6
+     ]
+    },
+    {
+     "seed": 942008,
+     "bits": 3,
+     "regret_before": "49/1843",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      0
+     ],
+     "action_after": [
+      "g",
+      4
+     ]
+    },
+    {
+     "seed": 942009,
+     "bits": 2,
+     "regret_before": "40/2037",
+     "regret_after": "22/2037",
+     "action_before": [
+      "g",
+      1
+     ],
+     "action_after": [
+      "g",
+      6
+     ]
+    },
+    {
+     "seed": 942009,
+     "bits": 3,
+     "regret_before": "22/2037",
+     "regret_after": "0/1",
+     "action_before": [
+      "g",
+      6
+     ],
+     "action_after": [
+      "q",
+      2
+     ]
+    },
+    {
+     "seed": 942009,
+     "bits": 5,
+     "regret_before": "4/2037",
+     "regret_after": "0/1",
+     "action_before": [
+      "g",
+      1
+     ],
+     "action_after": [
+      "q",
+      2
+     ]
+    },
+    {
+     "seed": 942010,
+     "bits": 5,
+     "regret_before": "7/3007",
+     "regret_after": "0/1",
+     "action_before": [
+      "q",
+      1
+     ],
+     "action_after": [
+      "q",
+      3
+     ]
+    },
+    {
+     "seed": 942011,
+     "bits": 1,
+     "regret_before": "20/299",
+     "regret_after": "0/1",
+     "action_before": [
+      "g",
+      0
+     ],
+     "action_after": [
+      "g",
+      6
+     ]
+    }
+   ],
+   "mean_states_quotient": 355.15277777777777,
+   "mean_states_expanded": 357.77777777777777
+  }
+ }
+}
