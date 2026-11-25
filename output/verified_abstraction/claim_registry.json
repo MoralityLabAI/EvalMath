@@ -229,5 +229,12 @@
   "claim": "Decomposition: planning depth 3.96 and probe 8.93 over the myopic filter; law knowledge adds 0.97 to the no-probe planner, 0.003 with probes; probe-then-myopic equals the probe-using optimum exactly (40.18075)",
   "evidence": "output/verified_abstraction/vad_09d_attribution.json; vad_09d_heuristic.json",
   "caveat": "same model limits as VAD09D-1"
+ },
+ {
+  "id": "VAD13C-1",
+  "level": "S",
+  "claim": "Physical batch timings (generation included): calibration-selected vs direct pooled 1.075/1.118 at H=32 (4.19/4.35), 0.430/1.060 at H=8; family dependent (F1, F2, F4 lemma; F5 direct; F3 mixed)",
+  "evidence": "paper/verified_abstraction_calibrated_results.md; output/verified_abstraction/vad_13a.json; CI run 45583084890",
+  "caveat": "added by a parallel session; not re-executed by the paper's author; one test block per family and version; authored library"
  }
 ]
