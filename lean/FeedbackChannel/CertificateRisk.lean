@@ -1,10 +1,11 @@
 import Mathlib
 
 /-! CCF-01D: formal core. Kernel audit pending until CI. -/
+noncomputable section
+
 namespace CertificateContext
 open scoped BigOperators
 
-noncomputable section
 local instance (p : Prop) : Decidable p := Classical.propDecidable p
 
 theorem policy_le_upper {T J : Type} (s : Finset T)
