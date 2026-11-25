@@ -1,6 +1,6 @@
 # CPF-02: pinned circuit conventions and canonical claim obligations
 
-Status: the gate-budget sandwich, the polynomial-bound normalization, VP equality across the three conventions, OpenAI-VNP witness transport, VP ⊆ VNP and canonical-VNP ⊆ Anthropic-VNP are kernel-checked (Lean 4.34.1, Mathlib `d13f23b`, axioms `propext`, `Classical.choice`, `Quot.sound` only). Anthropic-VNP ⊆ canonical-VNP, the Laurent-versus-geometric border question, the permanent/Hamiltonian family match and both upstream proofs remain open. No error rates are inferred from these papers.
+Status: the gate-budget sandwich, the polynomial-bound normalization, VP equality across the three conventions, OpenAI-VNP witness transport, VP ⊆ VNP and VNP equality between the canonical and Anthropic conventions are kernel-checked (Lean 4.34.1, Mathlib `d13f23b`, axioms `propext`, `Classical.choice`, `Quot.sound` only). The Laurent-versus-geometric border question, the permanent/Hamiltonian family match and both upstream proofs remain open. No error rates are inferred from these papers.
 
 ## Circuit-level result
 
@@ -26,12 +26,13 @@ Kernel-checked in `CPF02/Canonical.lean` and `CPF02/Bridges.lean`:
 | OpenAI `IsVNP` (arbitrary finite witness types) iff canonical `VNP` (`Fin (r n)`) | `openai_vnp_iff_canonical` | transport along `Fintype.equivFin`; Boolean sum reindexed; renaming preserves size and does not raise degree |
 | VP subset of VNP | `vp_subset_vnp` | zero witness bits |
 | canonical VNP implies Anthropic VNP | `canonical_vnp_to_anthropic` | `aeval` and `eval₂Hom C` identified |
+| substituting polynomials of total degree ≤ 1 does not raise total degree | `totalDegree_eval₂Hom_le` | any commutative semiring |
+| Anthropic VNP implies canonical VNP, hence VNP equality | `anthropic_vnp_to_canonical`, `vnp_iff_anthropic` | arity and witness length from the verifier's card bound; degree of the summed family from `totalDegree_eval₂Hom_le` |
 
 The finite census remains an independent executable check of the compiler on small tables: zero, one and two original arithmetic gates, all topologically valid operand choices over two variables and constants -1, 0 plus earlier gate references, every legal output, and fields of orders 2, 3, 5, comparing sparse formal coefficient maps rather than truth tables. Its two implementations share polynomial arithmetic, so it tests compiler semantics, not an independent arithmetic oracle. The Lean slot layout reserves four slots per gate where the census compiler inserts leaves on demand, so the census sizes are smaller on small tables; both are within 4s+2.
 
 ## Remaining obligations and evidence boundaries
 
-* **Anthropic VNP into canonical VNP.** Anthropic's VNP puts no separate arity or degree bound on the summed family f. Arity follows from the verifier's card bound; the degree of f needs `totalDegree (sum over e of eval₂Hom C (Sum.elim X (C ∘ e)) g) <= totalDegree g`, a Boolean partial-evaluation lemma absent from the pinned Mathlib. Until it is proved, VNP_OpenAI = VNP_Anthropic is established in one direction only.
 * **Class endpoints.** OpenAI's comparator endpoint is a restricted `Fin n × Bool` statement; Anthropic's is the all-families proper subset `VP F ⊂ VNP F`. The bridges make the classes comparable but prove neither endpoint.
 * **Laurent versus geometric border.** `Approximates` in the canonical and Anthropic statements is the algebraic Laurent-series notion (`q = f + ε·g`, coefficients of g in F[[ε]], gates over F((ε))). Over algebraically closed fields this agrees with Zariski-closure border complexity; over other fields it need not. Nothing here infers geometric closure from a Laurent statement, and the exact-to-constant-Laurent embedding (VP inside VPBar) is not kernel-checked. Allowing arbitrary Laurent-series constants instead of Laurent polynomials does not change the class (truncating constants beyond a valuation bound preserves the output coefficients of order at most 0), but that argument is a paper derivation here.
 * **Families and rates.** Match the Hamiltonian/permanent definitions, orientation, index and characteristic, and compare quantitative bounds only after matching the underlying families, scales and quantifiers. OpenAI's comparator endpoint is exact separation; its documentation gives additional exact lower-bound scope but is not a theorem signature for a quantitative border bound. Anthropic's statement file contains quantitative exact and approximate endpoints. Neither upstream solution is imported or claimed verified in this branch.

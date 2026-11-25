@@ -276,6 +276,9 @@ Every theorem below is listed in `axioms_check.lean` with standard axioms only. 
 | CPF-02 | VP equal under OpenAI, canonical, Anthropic conventions | `FeedbackChannel.CPF02.vp_iff_anthropic` | FeedbackChannel/CPF02/Bridges.lean | full | with `openai_vp_iff` |
 | CPF-02 | OpenAI VNP witness transport to Fin (r n) | `FeedbackChannel.CPF02.openai_vnp_iff_canonical` | FeedbackChannel/CPF02/Bridges.lean | full |  |
 | CPF-02 | VP subset of VNP | `FeedbackChannel.CPF02.vp_subset_vnp` | FeedbackChannel/CPF02/Bridges.lean | full | canonical/OpenAI form |
-| CPF-02 | canonical VNP into Anthropic VNP | `FeedbackChannel.CPF02.canonical_vnp_to_anthropic` | FeedbackChannel/CPF02/Bridges.lean | special case | one direction; the converse needs a partial-evaluation degree lemma |
+| CPF-02 | canonical VNP into Anthropic VNP | `FeedbackChannel.CPF02.canonical_vnp_to_anthropic` | FeedbackChannel/CPF02/Bridges.lean | full |  |
+| CPF-02 | substitution of degree-≤1 polynomials does not raise total degree | `FeedbackChannel.CPF02.totalDegree_eval₂Hom_le` | FeedbackChannel/CPF02/Bridges.lean | full |  |
+| CPF-02 | Anthropic VNP into canonical VNP | `FeedbackChannel.CPF02.anthropic_vnp_to_canonical` | FeedbackChannel/CPF02/Bridges.lean | full |  |
+| CPF-02 | VNP equal under canonical and Anthropic conventions | `FeedbackChannel.CPF02.vnp_iff_anthropic` | FeedbackChannel/CPF02/Bridges.lean | full |  |
 | CPF-03 | approximate-inclusion transfer and its failed converse | `FeedbackChannel.CPF03.no_reverse_bound` | FeedbackChannel/CPF03.lean | full | logical countermodel only |
 | CPF-03 | pointwise vs uniform threshold | `FeedbackChannel.CPF03.no_uniform_threshold` | FeedbackChannel/CPF03.lean | full | with `pointwise_threshold` |

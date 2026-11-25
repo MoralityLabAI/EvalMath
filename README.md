@@ -73,7 +73,7 @@ Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 **New (CPF-01):** [Correlated proof fidelity](paper/correlated_proof_fidelity.md) derives sharp conditional joint-error bounds and an exact adaptive certified-rejection audit oracle, with a preliminary OpenAI/Anthropic VP-VNP source crosswalk. Synthetic evidence; the interval and audit contraction are kernel-checked. Reproduce with `python scripts/check_receipts.py --only cpf`.
 
-**New (CPF-02):** [Canonical VP/VNP circuit bridge](paper/cpf02_canonical_circuit_bridge.md) pins both labs' interfaces, gives a constructive linear gate-budget translation with a finite formal-polynomial census, and kernel-checks the 4s+2 gate sandwich, bound normalization and VP/VNP transports across the OpenAI, canonical and Anthropic conventions. Anthropic-VNP into canonical VNP, geometric border closure and both upstream proofs remain open. Reproduce with `python scripts/check_receipts.py --only cpf02`.
+**New (CPF-02):** [Canonical VP/VNP circuit bridge](paper/cpf02_canonical_circuit_bridge.md) pins both labs' interfaces, gives a constructive linear gate-budget translation with a finite formal-polynomial census, and kernel-checks the 4s+2 gate sandwich, bound normalization and VP and VNP equality across the OpenAI, canonical and Anthropic conventions. Geometric border closure and both upstream proofs remain open. Reproduce with `python scripts/check_receipts.py --only cpf02`.
 
 **New (CPF-03):** [Statement-mutation curriculum](paper/cpf03_semantic_mutations.md) provides 42 proof-fidelity prompts with group-disjoint public splits, separate reproducible gold exports, exact finite checks and candidate Lean logic witnesses. Reproduce with `python scripts/check_receipts.py --only cpf03`.
 

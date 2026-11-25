@@ -373,13 +373,52 @@ theorem aeval_bool_eq {F : Type*} [Field F] {V : Type*} {k : ℕ} (e : Fin k →
   · simp only [Sum.elim_inr]
     split_ifs <;> simp
 
-/-- Canonical VNP implies Anthropic VNP. The converse needs a degree bound for the summed
-family and remains open here. -/
+/-- Canonical VNP implies Anthropic VNP. -/
 theorem canonical_vnp_to_anthropic {F : Type u} [Field F] (f : Statement.Family F)
     (h : VNP f.poly) : f ∈ Statement.VNP F := by
   obtain ⟨_, r, g, _, hgVP, hsum⟩ := h
   refine ⟨r, g, (vp_iff_anthropic ⟨fun n => f.vars n ⊕ Fin (r n), g⟩).mp hgVP, fun n => ?_⟩
   rw [hsum n]
   exact Finset.sum_congr rfl (fun e _ => (aeval_bool_eq e (g n)).symm)
+
+/-- Substituting polynomials of total degree at most one does not raise total degree. -/
+theorem totalDegree_eval₂Hom_le {R σ τ : Type*} [CommSemiring R] (φ : σ → MvPolynomial τ R)
+    (hφ : ∀ i, (φ i).totalDegree ≤ 1) (g : MvPolynomial σ R) :
+    (eval₂Hom C φ g).totalDegree ≤ g.totalDegree := by
+  rw [coe_eval₂Hom, eval₂_eq]
+  refine (totalDegree_finsetSum _ _).trans (Finset.sup_le fun d hd => ?_)
+  refine (totalDegree_mul _ _).trans ?_
+  rw [totalDegree_C, zero_add]
+  refine (totalDegree_finsetProd _ _).trans ?_
+  refine le_trans (Finset.sum_le_sum fun i _ => (totalDegree_pow _ _).trans
+    (by simpa using Nat.mul_le_mul_left (d i) (hφ i))) ?_
+  exact le_totalDegree hd
+
+/-- Anthropic VNP implies canonical VNP: the summed family inherits the variable and degree
+bounds of the VP witness, because Boolean partial evaluation does not raise total degree. -/
+theorem anthropic_vnp_to_canonical {F : Type u} [Field F] (f : Statement.Family F)
+    (h : f ∈ Statement.VNP F) : VNP f.poly := by
+  obtain ⟨r, g, hg, hsum⟩ := h
+  have hgc := (vp_iff_anthropic ⟨fun n => f.vars n ⊕ Fin (r n), g⟩).mpr hg
+  have hsum' : ∀ n, f.poly n = ∑ e : Fin (r n) → Bool,
+      eval₂Hom C (Sum.elim X fun j => C (if e j then 1 else 0)) (g n) := fun n => by
+    rw [hsum n]
+    exact Finset.sum_congr rfl (fun e _ => aeval_bool_eq e (g n))
+  refine ⟨⟨polyBounded_mono (fun n => ?_) hgc.1.1, polyBounded_mono (fun n => ?_) hgc.1.2⟩, r, g,
+    polyBounded_mono (fun n => ?_) hgc.1.1, hgc, hsum'⟩
+  · simp [Fintype.card_sum]
+  · dsimp only
+    rw [hsum' n]
+    refine (totalDegree_finsetSum _ _).trans (Finset.sup_le fun e _ => totalDegree_eval₂Hom_le _ ?_ _)
+    rintro (i | i)
+    · simp [totalDegree_X]
+    · simp only [Sum.elim_inr]
+      split_ifs <;> simp
+  · simp [Fintype.card_sum]
+
+/-- VNP is the same class under the canonical and Anthropic conventions. -/
+theorem vnp_iff_anthropic {F : Type u} [Field F] (f : Statement.Family F) :
+    VNP f.poly ↔ f ∈ Statement.VNP F :=
+  ⟨canonical_vnp_to_anthropic f, anthropic_vnp_to_canonical f⟩
 
 end FeedbackChannel.CPF02
