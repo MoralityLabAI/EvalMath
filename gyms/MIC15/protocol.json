@@ -1,0 +1,33 @@
+{
+  "id": "MIC-15",
+  "status": "public development; no sealed confirmation",
+  "primary_budget": 116,
+  "budgets": [
+    80,
+    116,
+    152
+  ],
+  "families": [
+    "partition",
+    "hub",
+    "overlap",
+    "alternatives"
+  ],
+  "seeds": [
+    12000,
+    12015
+  ],
+  "unit": "generator lineage for transfer; budget variants of same generated problem grouped",
+  "primary": "mean (oracle reward - beam32 reward) / max(1, oracle reward) at budget 116",
+  "headroom_gate": "at least 0.05 mean relative oracle regret against beam32 and the strongest fixed predeclared heuristic, and at least 20 percent of primary roots with >=0.10 relative regret against beam32; all paths verified; otherwise no neural fits",
+  "controls": [
+    "immediate reward/cost",
+    "proof-package density greedy",
+    "two-target lookahead",
+    "beam width 8",
+    "beam width 32"
+  ],
+  "cost": "declared proof-rule verification units only; candidate search work and wall time measured separately; no equal wall time claim",
+  "scope": "synthetic finite proof acquisition; full Markov state disclosed, no original DLMST discovery-history test",
+  "budget_note": "Adjusted from 36/52/68 after four seed-12000 smoke tests showed predominantly single-target acquisition; full development sweep not yet run. Those four roots are included and therefore exploratory."
+}
