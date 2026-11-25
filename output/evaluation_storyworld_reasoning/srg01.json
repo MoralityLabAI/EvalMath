@@ -154,8 +154,8 @@
       "unobservable_gap": "0"
     }
   },
-  "sha256": {
-    "scripts/verify_storyworld_reasoning.py": "795c6ffaffe493071a253d4eac6b525dfe0462c52e1822311e7eeef1cd3f971c",
+  "source_sha256": {
+    "scripts/verify_storyworld_reasoning.py": "3388da684a755500c54a09f1979c5b1ebbf03174a7503ede0fd7911d03d1bddf",
     "src/spiral_ln/evaluation_storyworld_reasoning.py": "1ea08f94003a0bb0ee0564ac5c3f5d64b448d5836987cd186fd5528e5e7bea3f",
     "tests/test_storyworld_reasoning.py": "3e3a857cff4ec8d24e884bc0a03f2a67e16bb5746779b1cf9ac18554a9fda904"
   }
