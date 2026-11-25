@@ -44679,5 +44679,12 @@
   "src/spiral_ln/evaluation_depth_precision.py": "48ff81d4139752ffe1e9540a29765b560f01c36e0c9c086a835374a844b4ea5a",
   "gyms/MathematicalInstrumentTransfer/higher_order.py": "015f30eeb99f45b0503e424651dbd3b9a268bace2ec03e50e8c051992731be90",
   "skills/evalmath-mechinterp-power/scripts/preflight.py": "c2621a7900930f81ed53799ce439ee1c8f2d7006918a04ef57b5381630d15494"
+ },
+ "source_sha256_correction": {
+  "file": "gyms/MathematicalInstrumentTransfer/compact_controller.py",
+  "recorded": "4bf061a72c0ffd51a8c188a130a6282e03eb19c3618b0d3896ad483427ece2b7",
+  "recorded_bytes": "CRLF working copy (Windows)",
+  "committed_lf_sha256": "30373512bd5927e4ac570b88758d5996c55e65bb50b0506a05936aaf7eef30c5",
+  "note": "same source text; the run hashed CRLF line endings, Git stores LF"
  }
 }

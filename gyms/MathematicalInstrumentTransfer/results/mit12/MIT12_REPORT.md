@@ -128,3 +128,5 @@ exit code 2; best learned by dev state regret: scalar
 
 Training CPU seconds (sum over jobs) 3023; wall 788.
 Source sha256 are in mit12_result.json.
+
+Provenance correction: `source_sha256` for `compact_controller.py` was computed on a CRLF working copy (4bf061a72c0f…); the committed LF file hashes to 30373512bd59… (recorded in `source_sha256_correction`). The source text is the same.
