@@ -58,8 +58,7 @@ function evidenceWorld(mode,metaMode="correct"){
    lines.push(enc(read[i],i,i,text),opt(a,"Read the next evidence field."),rx(a,"receipt_"+i,read[i+1],set(dest,src?P(src):C(0))));
  }
  lines.push(enc("decision",4,4,text),
-   opt("positive","Commit positive."),rx("pwin","invalid","win")); // replace temporary sentinel below
- lines.splice(lines.length-1,1,
+   opt("positive","Commit positive."),
    rx("positive","pwin","win","NONE",pred),rx("positive","ploss","loss","NONE","TRUE","C(0)"),
    opt("negative","Commit negative."),rx("negative","nwin","win","NONE",neg),rx("negative","nloss","loss","NONE","TRUE","C(0)"),
    opt("settle","Accept settlement."),rx("settle","swin","settled"),
@@ -182,14 +181,17 @@ function interactionFixture(K){
  const lines=header("interaction_"+K,[...p.map(x=>V(x)),...r.map(x=>V(x)),...wrong.map(x=>V(x)),V(common),V(goal)],"decision",["decision","positive","negative"]);
  lines.push(enc("decision",0,0,"The signed score contrast is a sum of observer-owned pairwise interactions and linear terms."),
    opt("act","Request a ruling."),rx("act","rp","positive",set(goal,C(.25)),"TRUE",plus),rx("act","rn","negative",set(goal,C(-.25)),"TRUE",minus),enc("positive",1,1,"Positive."),enc("negative",1,2,"Negative."));
- return {K,p,r,wrong,common,goal,source:source(lines)};
+ return {K,p,r,wrong,common,goal,contrast,source:source(lines)};
 }
 function interactionRun(api,evaluate,K,seed){
- const f=interactionFixture(K),w=api.compileV2(f.source),r=rng(seed),n=K/2,levels=[-.875,-.625,-.375,-.125,.125,.375,.625,.875];
- const reference=(x,y)=>sum(x,(u)=>.25*u)+sum(x,(u,i)=>0); // separate independent loop below
+ const f=interactionFixture(K),w=api.compileV2(f.source),r=rng(seed),n=K/2;
+ let wrongSource=f.source;for(let i=0;i<n;i++)wrongSource=wrongSource.replaceAll(P(f.r[i]),P(f.wrong[i]));
+ const wrongWorld=api.compileV2(wrongSource),linear=op("ADD",f.p.map(key=>op("MUL",[C(.25),P(key)])));
+ const linearWorld=api.compileV2(f.source.replaceAll(f.contrast,linear));
+ const levels=[-.875,-.625,-.375,-.125,.125,.375,.625,.875];
  function contrast(x,y){let v=0;for(let i=0;i<n;i++)v+=(i%2?-1:1)*x[i]*y[i]+.25*x[i];return v;}
  const classify=d=>d>=0;
- const stats={K,seed,probes:512,exact_runtime:0,common_mode_invariant:0,unrelated_owner_invariant:0,wrong_owner_formula_flips:0,linear_only_flips:0,precision:[]};
+ const stats={K,seed,probes:512,exact_runtime:0,common_mode_invariant:0,unrelated_owner_invariant:0,wrong_owner_formula_flips:0,linear_only_flips:0,coordinate_relevance_witnesses:0,quantized_runtime_checks:0,precision:[]};
  const rows=[];
  for(let j=0;j<stats.probes;j++){
    const x=f.p.map(()=>levels[r()%levels.length]),y=f.r.map(()=>levels[r()%levels.length]),c=levels[r()%levels.length];
@@ -203,9 +205,21 @@ function interactionRun(api,evaluate,K,seed){
    const o2=root(api,w,{...values,...Object.fromEntries(f.wrong.map((key,i)=>[key,y[i]]))});
    if(api.stepV2(w,o2,"act").next.encounter!==want)fail("owner isolation");
    stats.unrelated_owner_invariant++;
-   stats.wrong_owner_formula_flips+=Number(classify(contrast(x,y.map(v=>-v)))!==classify(d));
-   stats.linear_only_flips+=Number(classify(sum(x,v=>.25*v))!==classify(d));
-   rows.push({x,y,d});
+   const wrongWant=classify(contrast(x,y.map(v=>-v)))?"positive":"negative",linearWant=classify(sum(x,v=>.25*v))?"positive":"negative";
+   if(api.stepV2(wrongWorld,root(api,wrongWorld,values),"act").next.encounter!==wrongWant||api.stepV2(linearWorld,root(api,linearWorld,values),"act").next.encounter!==linearWant)fail("mutation runtime mismatch");
+   stats.wrong_owner_formula_flips+=Number(wrongWant!==want);
+   stats.linear_only_flips+=Number(linearWant!==want);
+   rows.push({x,y,d,values});
+ }
+ // One-coordinate witness per semantic dimension, with all other
+ // interactions zero. These are feasible bounded-state interventions.
+ for(let i=0;i<n;i++){
+   const a=api.stepV2(w,root(api,w,{[f.p[i]]:-.5}),"act").next.encounter;
+   const b=api.stepV2(w,root(api,w,{[f.p[i]]:.5}),"act").next.encounter;
+   const c=api.stepV2(w,root(api,w,{[f.p[i]]:.5,[f.r[i]]:-1}),"act").next.encounter;
+   const d=api.stepV2(w,root(api,w,{[f.p[i]]:.5,[f.r[i]]:1}),"act").next.encounter;
+   if(a===b||c===d)fail("missing coordinate influence witness");
+   stats.coordinate_relevance_witnesses+=2;
  }
  for(const bits of [1,2,3,4,5]){
    const bins=2**bits,eps=1/bins;
@@ -215,6 +229,9 @@ function interactionRun(api,evaluate,K,seed){
      const x=row.x.map(quant),y=row.y.map(quant),d=contrast(x,y),error=Math.abs(d-row.d);
      const bound=sum(row.x,(v)=>Math.abs(v)*eps+.25*eps)+sum(row.y,v=>Math.abs(v)*eps)+n*eps*eps;
      const safe=Math.abs(row.d)>bound;
+     const values={...row.values,...Object.fromEntries(f.p.map((key,i)=>[key,x[i]])),...Object.fromEntries(f.r.map((key,i)=>[key,y[i]]))};
+     if(api.stepV2(w,root(api,w,values),"act").next.encounter!==(classify(d)?"positive":"negative"))fail("quantized runtime mismatch");
+     stats.quantized_runtime_checks++;
      const flip=classify(d)!==classify(row.d);
      if(error>bound+1e-12||safe&&flip)violations++;
      flips+=Number(flip);certified+=Number(safe);uncertifiedFlips+=Number(flip&&!safe);maxError=Math.max(maxError,error);
