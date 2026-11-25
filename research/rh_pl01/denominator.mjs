@@ -1,8 +1,8 @@
 // RH-PL-11: normalize exact frozen denominator recurrence and derive uniqueness.
 import {transport} from './transport.mjs';
 import {kernel} from './kernel.mjs';
-function denominator(tr,k,raw,mode='all'){
- const t=tr.prepare(raw),{p,ar,ns,apply,inst,nest,move,symmetric,trans,replace,emptyUnique,succUnique,empty,succ}=t,{imp,neg,gen,intern}=ar,{E,M,A,fv,sub,split,exAt,qAt,hyp,mp,generalize,abs,left,right,conj,ui,exElim}=p.logic;
+export function denominator(tr,k,raw,mode='all',context=null){
+ const t=context??tr.prepare(raw),{p,ar,ns,apply,inst,nest,move,symmetric,trans,replace,emptyUnique,succUnique,empty,succ}=t,{imp,neg,gen,intern}=ar,{E,M,A,fv,sub,split,exAt,qAt,hyp,mp,generalize,abs,left,right,conj,ui,exElim}=p.logic;
  const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
  let f=intern(k.decode(raw.slice(0,-1)));while(ns[f].tag==='a')f=ns[f].y;const D=ns[f].x;
  const clauses=[];let rem=D;for(let j=0;j<21;j++){const [x,y]=split(rem);clauses.push(x);rem=y}clauses.push(rem);
@@ -35,7 +35,7 @@ function denominator(tr,k,raw,mode='all'){
  });
  const updateQ=quantified(update,[G,x,y,u,j]);
  const row=(name,pf,cap=0)=>{const closed=p.close(pf),r=cap?p.replay(closed,cap):p.emit(closed);return {name,root_bytes:ns[closed.f].u,...r.cost,axioms:r.axioms,structural_replay:true,original_full_replay:!!r.original}};
- const rows=[row('exact_denominator_base',baseQ,24000000),row('exact_denominator_successor_normalization',updateQ,16000000)];
+ const rows=mode==='proof'?[]:[row('exact_denominator_base',baseQ,24000000),row('exact_denominator_successor_normalization',updateQ,16000000)];
  const premiseIds=[0,1,2,6,14,19,21],premiseFormulas=[...premiseIds.map(i=>clauses[i]),denTotal(H),denInit(H),denRec(H)];
  if(mode==='local')return {rows,source_clauses:premiseIds,formula_nodes:ns.length-1,actual_rh_proof:false};
  const phi=gen(33,gen(34,imp(A(M(33,1),A(M(34,1),A(p.at(G,0,33),p.at(H,0,34)))),E(33,34))));
@@ -60,6 +60,7 @@ function denominator(tr,k,raw,mode='all'){
    const stepProof=generalize(xx,generalize(yy,abs(stepHyp,oy.end(next))));assert(stepProof.f===STEP,'step');
    const out=apply(ir,omega,bp,stepProof);assert(out.f===goal,'agreement');return out
  });
+ if(mode==='proof')return {result,premiseFormulas,goal};
  rows.push(row('denominator_agreement_from_exact_clauses',result));
  return {rows,source_clauses:premiseIds,comparison_graph_slot:H,source_formula_bytes:premiseIds.map(i=>({index:i,bytes:ns[clauses[i]].u})),base_discharged:true,step_discharged:true,formula_nodes:ns.length-1,actual_rh_proof:false};
 }
