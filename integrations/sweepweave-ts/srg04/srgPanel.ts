@@ -5,7 +5,7 @@ import type { World, State, CounterfactualPacket } from './swmd-runtime.mjs';
 
 let draft = '';
 let active: {world: World; state: State} | null = null;
-let history: CounterfactualPacket[] = [];
+let history: {audit: CounterfactualPacket; chosen_action: string; chosen_reaction: string; actual_next: State}[] = [];
 
 function button(text: string, action: () => void): HTMLButtonElement {
   const b=document.createElement('button'); b.textContent=text; b.type='button';
@@ -35,7 +35,7 @@ export function renderSrgPanel(): HTMLElement {
         try{
           const packet=counterfactuals(active.world,active.state);
           const result=step(active.world,active.state,action.id);
-          history.push(packet);
+          history.push({audit:packet,chosen_action:action.id,chosen_reaction:result.reaction,actual_next:result.next});
           active={world:active.world,state:result.next};
           status.textContent='Action applied.';
           show();
