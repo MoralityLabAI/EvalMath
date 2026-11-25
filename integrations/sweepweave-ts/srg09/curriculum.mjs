@@ -241,6 +241,44 @@ function interactionRun(api,evaluate,K,seed){
  }
  return {stats,source:f.source};
 }
+// Author-facing provenance repair: change only the declared reviewer
+// transfer, not the narrative, utility, evidence weights or other reads.
+function repairEvidence(api,mode,defect){
+ const clean=evidenceWorld(mode,"correct").source,rootRows=tape(mode);
+ const needle=set(k.M,P(k.meta));
+ const wrong=defect==="missing"?C(0):P(defect==="wrong_owner"?k.wrong_owner:k.wrong_depth);
+ const badLine=set(k.M,wrong),bad=clean.replace(needle,badLine);
+ if(clean===bad||clean.split(needle).length!==2)fail("repair target ambiguity");
+ const lines=bad.split("\n"),i=lines.findIndex(x=>x.includes(badLine)),before=lines[i],after=before.replace(badLine,needle);
+ const patch={line:i+1,before,after};
+ const sham={line:i+1,before,after:before.replace(badLine,set(k.M,op("MUL",[wrong,C(1)])))};
+ function score(patch){
+   if(patch.line!==i+1||patch.before!==before||typeof patch.after!=="string"||!patch.after.startsWith(before.slice(0,before.indexOf(badLine)+("SET "+k.M+" = ").length))||
+      !patch.after.endsWith(before.slice(before.indexOf(badLine)+badLine.length))||/[\r\n]/.test(patch.after))fail("repair outside read scope");
+   const start=before.indexOf(badLine)+("SET "+k.M+" = ").length,end=patch.after.length-before.slice(before.indexOf(badLine)+badLine.length).length;
+   if(/[|;]/.test(patch.after.slice(start,end)))fail("repair changes record structure");
+   const w=api.compileV2(api.applyLinePatch(bad,patch)),good=api.compileV2(clean);
+   let pass=0,weighted=0;
+   for(const r of rootRows){
+     const a=reveal(api,w,r),b=reveal(api,good,r);
+     const exact=same(api.observeV2(w,a),api.observeV2(good,b));
+     pass+=Number(exact);weighted+=exact?r.mass:0;
+   }
+   return {pass,total:rootRows.length,weighted,weighted_total:16384};
+ }
+ const badWorld=api.compileV2(bad),goodWorld=api.compileV2(clean);
+ let baseline=0,baselineMass=0;
+ for(const row of rootRows)if(same(api.observeV2(badWorld,reveal(api,badWorld,row)),api.observeV2(goodWorld,reveal(api,goodWorld,row)))){baseline++;baselineMass+=row.mass;}
+ const gold=score(patch),shamScore=score(sham);
+ if(gold.pass!==rootRows.length||gold.weighted!==16384||baseline!==0||shamScore.pass!==0)fail("provenance repair separation");
+ let injected=false;try{score({...patch,after:patch.after.replace(needle,needle+"; SET "+k.A+" = C(0)")});}catch{injected=true;}
+ if(!injected)fail("out of scope repair");
+ const id="repair_"+mode+"_"+defect;
+ return {id,mode,defect,source:bad,clean,patch,sham,score,
+   task:{id,kind:"author_provenance",source:bad,allowed_edit:{line:i+1,before,field:"reviewer transfer expression"},intent:"The public reviewer register analyst.M must read the analyst-owned second-order report analyst.stance[reviewer][bob]. Preserve the evidence model and every other record.",output_contract:"Return one JSON object with line, before, after; edit only the reviewer transfer expression."},
+   stats:{id,mode,defect,baseline,baseline_mass:baselineMass,gold,sham:shamScore,scope_rejected:injected}};
+}
+
 export function runSuite({api=runtime,evaluate=evalExpr,seed=0x53520901}={}){
  const evidence=[],tasks=[],gold=[],sources={},ownership={controls:0,roots:0};
  for(const mode of ["independent","copy"])for(const metaMode of ["correct","wrong_owner","wrong_depth","missing"]){
@@ -254,5 +292,6 @@ export function runSuite({api=runtime,evaluate=evalExpr,seed=0x53520901}={}){
  }
  const interactions=[4,8,16].map(K=>interactionRun(api,evaluate,K,seed^K));
  for(const i of interactions)sources["interaction_"+i.stats.K]=i.source;
- return {receipt:{evidence:"finite exact integer mass belief oracle; binary64 dyadic margin controls; no model calls",seed,evidence_worlds:8,evidence,ownership,interactions:interactions.map(x=>x.stats),task_rows:tasks.length},tasks,gold,sources};
+ const repairs=["independent","copy"].flatMap(mode=>["wrong_owner","wrong_depth","missing"].map(defect=>repairEvidence(api,mode,defect)));
+ return {receipt:{evidence:"finite exact integer mass belief oracle; binary64 dyadic margin controls; no model calls",seed,evidence_worlds:8,evidence,ownership,interactions:interactions.map(x=>x.stats),repairs:repairs.map(r=>r.stats),task_rows:tasks.length},tasks,gold,sources,repairs};
 }
