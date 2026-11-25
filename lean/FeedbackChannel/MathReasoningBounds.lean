@@ -76,7 +76,9 @@ theorem gapTelescopes (tree : AnnotatedPolicy) :
   induction tree with
   | leaf v r => rfl
   | branch p v y n ihy ihn =>
-    simp only [totalGap, potential, closure]
+    change v - (p * potential y + (1-p) * potential n) +
+      p * totalGap y + (1-p) * totalGap n =
+      v - (p * closure y + (1-p) * closure n)
     rw [ihy, ihn]
     ring
 
