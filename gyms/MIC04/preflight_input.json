@@ -1,0 +1,46 @@
+{
+  "alpha": "1/20",
+  "confirm_units_planned": 128,
+  "experiment_id": "MIC-04-public-cpu",
+  "heldout_sealed": false,
+  "independent_unit": "structural generator lineage (independence unverified)",
+  "measurement_resolution": "0",
+  "pilot": [
+    {
+      "paired_effect": "-449/453600",
+      "sham_effects": [
+        "6/125"
+      ],
+      "unit_id": "chords"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "dag"
+    },
+    {
+      "paired_effect": "-1139/403200",
+      "sham_effects": [
+        "3/80"
+      ],
+      "unit_id": "nearcritical"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "ring"
+    }
+  ],
+  "pilot_from_development_only": true,
+  "planned_comparisons": 3,
+  "schema_version": 1,
+  "scientific_min_effect": "1/20",
+  "sham_confidence": "19/20",
+  "sham_quantile": "19/20",
+  "target_effect": "1/10",
+  "units_independent": false
+}
