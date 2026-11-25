@@ -1,0 +1,3039 @@
+{
+  "schema": "srg18.receipt.v1",
+  "seed": 1397889025,
+  "reps": 16,
+  "cells": 48,
+  "bases": 768,
+  "roots": 3584,
+  "tests": {
+    "brute_roots": 1904,
+    "brute_action_values": 4760,
+    "matched_bonus": 384,
+    "matched_targets": 2816,
+    "oracle_complete": 3584
+  },
+  "controls": {
+    "first": {
+      "roots": 3584,
+      "rows": 120128,
+      "informative_rows": 114348,
+      "correct": 62582,
+      "informative_correct": 56802,
+      "valid": 120128,
+      "root_correct": 1389,
+      "strict_roots": 3244,
+      "strict_root_correct": 1109,
+      "earned": 20924,
+      "oracle_points": 57924,
+      "nominal_points": 86016,
+      "completed": 3584,
+      "regret": 37000,
+      "root_regret": 8905,
+      "raw_accuracy": 0.5209609749600426,
+      "informative_accuracy": 0.49674677300871023,
+      "root_accuracy": 0.38755580357142855,
+      "strict_root_accuracy": 0.3418618988902589,
+      "nominal_utility": 0.24325706845238096,
+      "oracle_fraction": 0.36123195911884537
+    },
+    "d1": {
+      "roots": 3584,
+      "rows": 120128,
+      "informative_rows": 114348,
+      "correct": 99652,
+      "informative_correct": 93872,
+      "valid": 120128,
+      "root_correct": 2940,
+      "strict_roots": 3244,
+      "strict_root_correct": 2612,
+      "earned": 45770,
+      "oracle_points": 57924,
+      "nominal_points": 86016,
+      "completed": 3584,
+      "regret": 12154,
+      "root_regret": 2204,
+      "raw_accuracy": 0.8295484816196057,
+      "informative_accuracy": 0.8209325917375031,
+      "root_accuracy": 0.8203125,
+      "strict_root_accuracy": 0.8051787916152897,
+      "nominal_utility": 0.5321103050595238,
+      "oracle_fraction": 0.7901733305710932
+    },
+    "d2": {
+      "roots": 3584,
+      "rows": 120128,
+      "informative_rows": 114348,
+      "correct": 106077,
+      "informative_correct": 100297,
+      "valid": 120128,
+      "root_correct": 3135,
+      "strict_roots": 3244,
+      "strict_root_correct": 2804,
+      "earned": 49524,
+      "oracle_points": 57924,
+      "nominal_points": 86016,
+      "completed": 3584,
+      "regret": 8400,
+      "root_regret": 1332,
+      "raw_accuracy": 0.8830330980287693,
+      "informative_accuracy": 0.8771207192080316,
+      "root_accuracy": 0.8747209821428571,
+      "strict_root_accuracy": 0.8643649815043156,
+      "nominal_utility": 0.5757533482142857,
+      "oracle_fraction": 0.854982390718873
+    },
+    "d4": {
+      "roots": 3584,
+      "rows": 120128,
+      "informative_rows": 114348,
+      "correct": 116278,
+      "informative_correct": 110498,
+      "valid": 120128,
+      "root_correct": 3331,
+      "strict_roots": 3244,
+      "strict_root_correct": 2999,
+      "earned": 55488,
+      "oracle_points": 57924,
+      "nominal_points": 86016,
+      "completed": 3584,
+      "regret": 2436,
+      "root_regret": 544,
+      "raw_accuracy": 0.967950852424081,
+      "informative_accuracy": 0.9663308496869206,
+      "root_accuracy": 0.9294084821428571,
+      "strict_root_accuracy": 0.9244759556103576,
+      "nominal_utility": 0.6450892857142857,
+      "oracle_fraction": 0.9579448933084732
+    },
+    "terminal": {
+      "roots": 3584,
+      "rows": 120128,
+      "informative_rows": 114348,
+      "correct": 79983,
+      "informative_correct": 74203,
+      "valid": 120128,
+      "root_correct": 1720,
+      "strict_roots": 3244,
+      "strict_root_correct": 1434,
+      "earned": 43104,
+      "oracle_points": 57924,
+      "nominal_points": 86016,
+      "completed": 3584,
+      "regret": 14820,
+      "root_regret": 5959,
+      "raw_accuracy": 0.6658147975492807,
+      "informative_accuracy": 0.6489225871899814,
+      "root_accuracy": 0.4799107142857143,
+      "strict_root_accuracy": 0.44204685573366215,
+      "nominal_utility": 0.5011160714285714,
+      "oracle_fraction": 0.7441475036254402
+    },
+    "oracle": {
+      "roots": 3584,
+      "rows": 120128,
+      "informative_rows": 114348,
+      "correct": 120128,
+      "informative_correct": 114348,
+      "valid": 120128,
+      "root_correct": 3584,
+      "strict_roots": 3244,
+      "strict_root_correct": 3244,
+      "earned": 57924,
+      "oracle_points": 57924,
+      "nominal_points": 86016,
+      "completed": 3584,
+      "regret": 0,
+      "root_regret": 0,
+      "raw_accuracy": 1,
+      "informative_accuracy": 1,
+      "root_accuracy": 1,
+      "strict_root_accuracy": 1,
+      "nominal_utility": 0.6734095982142857,
+      "oracle_fraction": 1
+    }
+  },
+  "groups": {
+    "H2_W2": {
+      "first": {
+        "roots": 128,
+        "rows": 448,
+        "informative_rows": 445,
+        "correct": 206,
+        "informative_correct": 203,
+        "valid": 448,
+        "root_correct": 56,
+        "strict_roots": 121,
+        "strict_root_correct": 49,
+        "earned": 600,
+        "oracle_points": 1368,
+        "nominal_points": 1920,
+        "completed": 128,
+        "regret": 768,
+        "root_regret": 386,
+        "raw_accuracy": 0.45982142857142855,
+        "informative_accuracy": 0.45617977528089887,
+        "root_accuracy": 0.4375,
+        "strict_root_accuracy": 0.4049586776859504,
+        "nominal_utility": 0.3125,
+        "oracle_fraction": 0.43859649122807015
+      },
+      "d1": {
+        "roots": 128,
+        "rows": 448,
+        "informative_rows": 445,
+        "correct": 429,
+        "informative_correct": 426,
+        "valid": 448,
+        "root_correct": 109,
+        "strict_roots": 121,
+        "strict_root_correct": 104,
+        "earned": 1284,
+        "oracle_points": 1368,
+        "nominal_points": 1920,
+        "completed": 128,
+        "regret": 84,
+        "root_regret": 84,
+        "raw_accuracy": 0.9575892857142857,
+        "informative_accuracy": 0.9573033707865168,
+        "root_accuracy": 0.8515625,
+        "strict_root_accuracy": 0.859504132231405,
+        "nominal_utility": 0.66875,
+        "oracle_fraction": 0.9385964912280702
+      },
+      "d2": {
+        "roots": 128,
+        "rows": 448,
+        "informative_rows": 445,
+        "correct": 448,
+        "informative_correct": 445,
+        "valid": 448,
+        "root_correct": 128,
+        "strict_roots": 121,
+        "strict_root_correct": 121,
+        "earned": 1368,
+        "oracle_points": 1368,
+        "nominal_points": 1920,
+        "completed": 128,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.7125,
+        "oracle_fraction": 1
+      },
+      "d4": {
+        "roots": 128,
+        "rows": 448,
+        "informative_rows": 445,
+        "correct": 448,
+        "informative_correct": 445,
+        "valid": 448,
+        "root_correct": 128,
+        "strict_roots": 121,
+        "strict_root_correct": 121,
+        "earned": 1368,
+        "oracle_points": 1368,
+        "nominal_points": 1920,
+        "completed": 128,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.7125,
+        "oracle_fraction": 1
+      },
+      "terminal": {
+        "roots": 128,
+        "rows": 448,
+        "informative_rows": 445,
+        "correct": 314,
+        "informative_correct": 311,
+        "valid": 448,
+        "root_correct": 70,
+        "strict_roots": 121,
+        "strict_root_correct": 63,
+        "earned": 1132,
+        "oracle_points": 1368,
+        "nominal_points": 1920,
+        "completed": 128,
+        "regret": 236,
+        "root_regret": 204,
+        "raw_accuracy": 0.7008928571428571,
+        "informative_accuracy": 0.698876404494382,
+        "root_accuracy": 0.546875,
+        "strict_root_accuracy": 0.5206611570247934,
+        "nominal_utility": 0.5895833333333333,
+        "oracle_fraction": 0.827485380116959
+      },
+      "oracle": {
+        "roots": 128,
+        "rows": 448,
+        "informative_rows": 445,
+        "correct": 448,
+        "informative_correct": 445,
+        "valid": 448,
+        "root_correct": 128,
+        "strict_roots": 121,
+        "strict_root_correct": 121,
+        "earned": 1368,
+        "oracle_points": 1368,
+        "nominal_points": 1920,
+        "completed": 128,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.7125,
+        "oracle_fraction": 1
+      }
+    },
+    "H2_W4": {
+      "first": {
+        "roots": 256,
+        "rows": 896,
+        "informative_rows": 889,
+        "correct": 384,
+        "informative_correct": 377,
+        "valid": 896,
+        "root_correct": 94,
+        "strict_roots": 228,
+        "strict_root_correct": 69,
+        "earned": 764,
+        "oracle_points": 2142,
+        "nominal_points": 3840,
+        "completed": 256,
+        "regret": 1378,
+        "root_regret": 830,
+        "raw_accuracy": 0.42857142857142855,
+        "informative_accuracy": 0.42407199100112486,
+        "root_accuracy": 0.3671875,
+        "strict_root_accuracy": 0.3026315789473684,
+        "nominal_utility": 0.19895833333333332,
+        "oracle_fraction": 0.3566760037348273
+      },
+      "d1": {
+        "roots": 256,
+        "rows": 896,
+        "informative_rows": 889,
+        "correct": 827,
+        "informative_correct": 820,
+        "valid": 896,
+        "root_correct": 187,
+        "strict_roots": 228,
+        "strict_root_correct": 162,
+        "earned": 1800,
+        "oracle_points": 2142,
+        "nominal_points": 3840,
+        "completed": 256,
+        "regret": 342,
+        "root_regret": 342,
+        "raw_accuracy": 0.9229910714285714,
+        "informative_accuracy": 0.922384701912261,
+        "root_accuracy": 0.73046875,
+        "strict_root_accuracy": 0.7105263157894737,
+        "nominal_utility": 0.46875,
+        "oracle_fraction": 0.8403361344537815
+      },
+      "d2": {
+        "roots": 256,
+        "rows": 896,
+        "informative_rows": 889,
+        "correct": 896,
+        "informative_correct": 889,
+        "valid": 896,
+        "root_correct": 256,
+        "strict_roots": 228,
+        "strict_root_correct": 228,
+        "earned": 2142,
+        "oracle_points": 2142,
+        "nominal_points": 3840,
+        "completed": 256,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.5578125,
+        "oracle_fraction": 1
+      },
+      "d4": {
+        "roots": 256,
+        "rows": 896,
+        "informative_rows": 889,
+        "correct": 896,
+        "informative_correct": 889,
+        "valid": 896,
+        "root_correct": 256,
+        "strict_roots": 228,
+        "strict_root_correct": 228,
+        "earned": 2142,
+        "oracle_points": 2142,
+        "nominal_points": 3840,
+        "completed": 256,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.5578125,
+        "oracle_fraction": 1
+      },
+      "terminal": {
+        "roots": 256,
+        "rows": 896,
+        "informative_rows": 889,
+        "correct": 564,
+        "informative_correct": 557,
+        "valid": 896,
+        "root_correct": 164,
+        "strict_roots": 228,
+        "strict_root_correct": 136,
+        "earned": 1804,
+        "oracle_points": 2142,
+        "nominal_points": 3840,
+        "completed": 256,
+        "regret": 338,
+        "root_regret": 230,
+        "raw_accuracy": 0.6294642857142857,
+        "informative_accuracy": 0.6265466816647919,
+        "root_accuracy": 0.640625,
+        "strict_root_accuracy": 0.5964912280701754,
+        "nominal_utility": 0.46979166666666666,
+        "oracle_fraction": 0.842203548085901
+      },
+      "oracle": {
+        "roots": 256,
+        "rows": 896,
+        "informative_rows": 889,
+        "correct": 896,
+        "informative_correct": 889,
+        "valid": 896,
+        "root_correct": 256,
+        "strict_roots": 228,
+        "strict_root_correct": 228,
+        "earned": 2142,
+        "oracle_points": 2142,
+        "nominal_points": 3840,
+        "completed": 256,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.5578125,
+        "oracle_fraction": 1
+      }
+    },
+    "H2_W8": {
+      "first": {
+        "roots": 512,
+        "rows": 1792,
+        "informative_rows": 1777,
+        "correct": 748,
+        "informative_correct": 733,
+        "valid": 1792,
+        "root_correct": 188,
+        "strict_roots": 485,
+        "strict_root_correct": 162,
+        "earned": 1164,
+        "oracle_points": 3510,
+        "nominal_points": 7680,
+        "completed": 512,
+        "regret": 2346,
+        "root_regret": 1434,
+        "raw_accuracy": 0.4174107142857143,
+        "informative_accuracy": 0.4124929656724817,
+        "root_accuracy": 0.3671875,
+        "strict_root_accuracy": 0.334020618556701,
+        "nominal_utility": 0.1515625,
+        "oracle_fraction": 0.3316239316239316
+      },
+      "d1": {
+        "roots": 512,
+        "rows": 1792,
+        "informative_rows": 1777,
+        "correct": 1701,
+        "informative_correct": 1686,
+        "valid": 1792,
+        "root_correct": 421,
+        "strict_roots": 485,
+        "strict_root_correct": 396,
+        "earned": 3042,
+        "oracle_points": 3510,
+        "nominal_points": 7680,
+        "completed": 512,
+        "regret": 468,
+        "root_regret": 468,
+        "raw_accuracy": 0.94921875,
+        "informative_accuracy": 0.9487900956668542,
+        "root_accuracy": 0.822265625,
+        "strict_root_accuracy": 0.8164948453608247,
+        "nominal_utility": 0.39609375,
+        "oracle_fraction": 0.8666666666666667
+      },
+      "d2": {
+        "roots": 512,
+        "rows": 1792,
+        "informative_rows": 1777,
+        "correct": 1792,
+        "informative_correct": 1777,
+        "valid": 1792,
+        "root_correct": 512,
+        "strict_roots": 485,
+        "strict_root_correct": 485,
+        "earned": 3510,
+        "oracle_points": 3510,
+        "nominal_points": 7680,
+        "completed": 512,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.45703125,
+        "oracle_fraction": 1
+      },
+      "d4": {
+        "roots": 512,
+        "rows": 1792,
+        "informative_rows": 1777,
+        "correct": 1792,
+        "informative_correct": 1777,
+        "valid": 1792,
+        "root_correct": 512,
+        "strict_roots": 485,
+        "strict_root_correct": 485,
+        "earned": 3510,
+        "oracle_points": 3510,
+        "nominal_points": 7680,
+        "completed": 512,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.45703125,
+        "oracle_fraction": 1
+      },
+      "terminal": {
+        "roots": 512,
+        "rows": 1792,
+        "informative_rows": 1777,
+        "correct": 954,
+        "informative_correct": 939,
+        "valid": 1792,
+        "root_correct": 282,
+        "strict_roots": 485,
+        "strict_root_correct": 255,
+        "earned": 2516,
+        "oracle_points": 3510,
+        "nominal_points": 7680,
+        "completed": 512,
+        "regret": 994,
+        "root_regret": 606,
+        "raw_accuracy": 0.5323660714285714,
+        "informative_accuracy": 0.5284186831738886,
+        "root_accuracy": 0.55078125,
+        "strict_root_accuracy": 0.5257731958762887,
+        "nominal_utility": 0.32760416666666664,
+        "oracle_fraction": 0.7168091168091169
+      },
+      "oracle": {
+        "roots": 512,
+        "rows": 1792,
+        "informative_rows": 1777,
+        "correct": 1792,
+        "informative_correct": 1777,
+        "valid": 1792,
+        "root_correct": 512,
+        "strict_roots": 485,
+        "strict_root_correct": 485,
+        "earned": 3510,
+        "oracle_points": 3510,
+        "nominal_points": 7680,
+        "completed": 512,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.45703125,
+        "oracle_fraction": 1
+      }
+    },
+    "H4_W2": {
+      "first": {
+        "roots": 128,
+        "rows": 1472,
+        "informative_rows": 1420,
+        "correct": 695,
+        "informative_correct": 643,
+        "valid": 1472,
+        "root_correct": 52,
+        "strict_roots": 116,
+        "strict_root_correct": 46,
+        "earned": 812,
+        "oracle_points": 2036,
+        "nominal_points": 2688,
+        "completed": 128,
+        "regret": 1224,
+        "root_regret": 262,
+        "raw_accuracy": 0.47214673913043476,
+        "informative_accuracy": 0.4528169014084507,
+        "root_accuracy": 0.40625,
+        "strict_root_accuracy": 0.39655172413793105,
+        "nominal_utility": 0.3020833333333333,
+        "oracle_fraction": 0.3988212180746562
+      },
+      "d1": {
+        "roots": 128,
+        "rows": 1472,
+        "informative_rows": 1420,
+        "correct": 1235,
+        "informative_correct": 1183,
+        "valid": 1472,
+        "root_correct": 116,
+        "strict_roots": 116,
+        "strict_root_correct": 104,
+        "earned": 1690,
+        "oracle_points": 2036,
+        "nominal_points": 2688,
+        "completed": 128,
+        "regret": 346,
+        "root_regret": 38,
+        "raw_accuracy": 0.8389945652173914,
+        "informative_accuracy": 0.8330985915492958,
+        "root_accuracy": 0.90625,
+        "strict_root_accuracy": 0.896551724137931,
+        "nominal_utility": 0.6287202380952381,
+        "oracle_fraction": 0.8300589390962672
+      },
+      "d2": {
+        "roots": 128,
+        "rows": 1472,
+        "informative_rows": 1420,
+        "correct": 1378,
+        "informative_correct": 1326,
+        "valid": 1472,
+        "root_correct": 118,
+        "strict_roots": 116,
+        "strict_root_correct": 106,
+        "earned": 1916,
+        "oracle_points": 2036,
+        "nominal_points": 2688,
+        "completed": 128,
+        "regret": 120,
+        "root_regret": 34,
+        "raw_accuracy": 0.936141304347826,
+        "informative_accuracy": 0.9338028169014084,
+        "root_accuracy": 0.921875,
+        "strict_root_accuracy": 0.9137931034482759,
+        "nominal_utility": 0.7127976190476191,
+        "oracle_fraction": 0.9410609037328095
+      },
+      "d4": {
+        "roots": 128,
+        "rows": 1472,
+        "informative_rows": 1420,
+        "correct": 1472,
+        "informative_correct": 1420,
+        "valid": 1472,
+        "root_correct": 128,
+        "strict_roots": 116,
+        "strict_root_correct": 116,
+        "earned": 2036,
+        "oracle_points": 2036,
+        "nominal_points": 2688,
+        "completed": 128,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.7574404761904762,
+        "oracle_fraction": 1
+      },
+      "terminal": {
+        "roots": 128,
+        "rows": 1472,
+        "informative_rows": 1420,
+        "correct": 1000,
+        "informative_correct": 948,
+        "valid": 1472,
+        "root_correct": 54,
+        "strict_roots": 116,
+        "strict_root_correct": 48,
+        "earned": 1560,
+        "oracle_points": 2036,
+        "nominal_points": 2688,
+        "completed": 128,
+        "regret": 476,
+        "root_regret": 250,
+        "raw_accuracy": 0.6793478260869565,
+        "informative_accuracy": 0.6676056338028169,
+        "root_accuracy": 0.421875,
+        "strict_root_accuracy": 0.41379310344827586,
+        "nominal_utility": 0.5803571428571429,
+        "oracle_fraction": 0.7662082514734774
+      },
+      "oracle": {
+        "roots": 128,
+        "rows": 1472,
+        "informative_rows": 1420,
+        "correct": 1472,
+        "informative_correct": 1420,
+        "valid": 1472,
+        "root_correct": 128,
+        "strict_roots": 116,
+        "strict_root_correct": 116,
+        "earned": 2036,
+        "oracle_points": 2036,
+        "nominal_points": 2688,
+        "completed": 128,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.7574404761904762,
+        "oracle_fraction": 1
+      }
+    },
+    "H4_W4": {
+      "first": {
+        "roots": 256,
+        "rows": 4016,
+        "informative_rows": 3918,
+        "correct": 1972,
+        "informative_correct": 1874,
+        "valid": 4016,
+        "root_correct": 116,
+        "strict_roots": 216,
+        "strict_root_correct": 84,
+        "earned": 1216,
+        "oracle_points": 3679,
+        "nominal_points": 5376,
+        "completed": 256,
+        "regret": 2463,
+        "root_regret": 611,
+        "raw_accuracy": 0.4910358565737052,
+        "informative_accuracy": 0.478305257784584,
+        "root_accuracy": 0.453125,
+        "strict_root_accuracy": 0.3888888888888889,
+        "nominal_utility": 0.2261904761904762,
+        "oracle_fraction": 0.3305245990758358
+      },
+      "d1": {
+        "roots": 256,
+        "rows": 4016,
+        "informative_rows": 3918,
+        "correct": 3429,
+        "informative_correct": 3331,
+        "valid": 4016,
+        "root_correct": 203,
+        "strict_roots": 216,
+        "strict_root_correct": 164,
+        "earned": 2788,
+        "oracle_points": 3679,
+        "nominal_points": 5376,
+        "completed": 256,
+        "regret": 891,
+        "root_regret": 196,
+        "raw_accuracy": 0.8538346613545816,
+        "informative_accuracy": 0.8501786625829505,
+        "root_accuracy": 0.79296875,
+        "strict_root_accuracy": 0.7592592592592593,
+        "nominal_utility": 0.5186011904761905,
+        "oracle_fraction": 0.7578146235390052
+      },
+      "d2": {
+        "roots": 256,
+        "rows": 4016,
+        "informative_rows": 3918,
+        "correct": 3763,
+        "informative_correct": 3665,
+        "valid": 4016,
+        "root_correct": 207,
+        "strict_roots": 216,
+        "strict_root_correct": 168,
+        "earned": 3036,
+        "oracle_points": 3679,
+        "nominal_points": 5376,
+        "completed": 256,
+        "regret": 643,
+        "root_regret": 224,
+        "raw_accuracy": 0.9370019920318725,
+        "informative_accuracy": 0.9354262378764676,
+        "root_accuracy": 0.80859375,
+        "strict_root_accuracy": 0.7777777777777778,
+        "nominal_utility": 0.5647321428571429,
+        "oracle_fraction": 0.8252242457189454
+      },
+      "d4": {
+        "roots": 256,
+        "rows": 4016,
+        "informative_rows": 3918,
+        "correct": 4016,
+        "informative_correct": 3918,
+        "valid": 4016,
+        "root_correct": 256,
+        "strict_roots": 216,
+        "strict_root_correct": 216,
+        "earned": 3679,
+        "oracle_points": 3679,
+        "nominal_points": 5376,
+        "completed": 256,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.6843377976190477,
+        "oracle_fraction": 1
+      },
+      "terminal": {
+        "roots": 256,
+        "rows": 4016,
+        "informative_rows": 3918,
+        "correct": 2743,
+        "informative_correct": 2645,
+        "valid": 4016,
+        "root_correct": 141,
+        "strict_roots": 216,
+        "strict_root_correct": 109,
+        "earned": 2974,
+        "oracle_points": 3679,
+        "nominal_points": 5376,
+        "completed": 256,
+        "regret": 705,
+        "root_regret": 387,
+        "raw_accuracy": 0.6830179282868526,
+        "informative_accuracy": 0.6750893312914752,
+        "root_accuracy": 0.55078125,
+        "strict_root_accuracy": 0.5046296296296297,
+        "nominal_utility": 0.5531994047619048,
+        "oracle_fraction": 0.8083718401739604
+      },
+      "oracle": {
+        "roots": 256,
+        "rows": 4016,
+        "informative_rows": 3918,
+        "correct": 4016,
+        "informative_correct": 3918,
+        "valid": 4016,
+        "root_correct": 256,
+        "strict_roots": 216,
+        "strict_root_correct": 216,
+        "earned": 3679,
+        "oracle_points": 3679,
+        "nominal_points": 5376,
+        "completed": 256,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.6843377976190477,
+        "oracle_fraction": 1
+      }
+    },
+    "H4_W8": {
+      "first": {
+        "roots": 512,
+        "rows": 9120,
+        "informative_rows": 8908,
+        "correct": 4399,
+        "informative_correct": 4187,
+        "valid": 9120,
+        "root_correct": 175,
+        "strict_roots": 467,
+        "strict_root_correct": 138,
+        "earned": 2104,
+        "oracle_points": 6710,
+        "nominal_points": 10752,
+        "completed": 512,
+        "regret": 4606,
+        "root_regret": 1638,
+        "raw_accuracy": 0.48234649122807016,
+        "informative_accuracy": 0.47002694207453977,
+        "root_accuracy": 0.341796875,
+        "strict_root_accuracy": 0.2955032119914347,
+        "nominal_utility": 0.1956845238095238,
+        "oracle_fraction": 0.3135618479880775
+      },
+      "d1": {
+        "roots": 512,
+        "rows": 9120,
+        "informative_rows": 8908,
+        "correct": 8167,
+        "informative_correct": 7955,
+        "valid": 9120,
+        "root_correct": 381,
+        "strict_roots": 467,
+        "strict_root_correct": 336,
+        "earned": 4998,
+        "oracle_points": 6710,
+        "nominal_points": 10752,
+        "completed": 512,
+        "regret": 1712,
+        "root_regret": 543,
+        "raw_accuracy": 0.8955043859649123,
+        "informative_accuracy": 0.8930175123484508,
+        "root_accuracy": 0.744140625,
+        "strict_root_accuracy": 0.7194860813704497,
+        "nominal_utility": 0.46484375,
+        "oracle_fraction": 0.7448584202682563
+      },
+      "d2": {
+        "roots": 512,
+        "rows": 9120,
+        "informative_rows": 8908,
+        "correct": 8638,
+        "informative_correct": 8426,
+        "valid": 9120,
+        "root_correct": 381,
+        "strict_roots": 467,
+        "strict_root_correct": 336,
+        "earned": 5560,
+        "oracle_points": 6710,
+        "nominal_points": 10752,
+        "completed": 512,
+        "regret": 1150,
+        "root_regret": 543,
+        "raw_accuracy": 0.9471491228070176,
+        "informative_accuracy": 0.9458913336326897,
+        "root_accuracy": 0.744140625,
+        "strict_root_accuracy": 0.7194860813704497,
+        "nominal_utility": 0.5171130952380952,
+        "oracle_fraction": 0.8286140089418778
+      },
+      "d4": {
+        "roots": 512,
+        "rows": 9120,
+        "informative_rows": 8908,
+        "correct": 9120,
+        "informative_correct": 8908,
+        "valid": 9120,
+        "root_correct": 512,
+        "strict_roots": 467,
+        "strict_root_correct": 467,
+        "earned": 6710,
+        "oracle_points": 6710,
+        "nominal_points": 10752,
+        "completed": 512,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.6240699404761905,
+        "oracle_fraction": 1
+      },
+      "terminal": {
+        "roots": 512,
+        "rows": 9120,
+        "informative_rows": 8908,
+        "correct": 5680,
+        "informative_correct": 5468,
+        "valid": 9120,
+        "root_correct": 278,
+        "strict_roots": 467,
+        "strict_root_correct": 239,
+        "earned": 5604,
+        "oracle_points": 6710,
+        "nominal_points": 10752,
+        "completed": 512,
+        "regret": 1106,
+        "root_regret": 703,
+        "raw_accuracy": 0.6228070175438597,
+        "informative_accuracy": 0.6138302649303996,
+        "root_accuracy": 0.54296875,
+        "strict_root_accuracy": 0.5117773019271948,
+        "nominal_utility": 0.5212053571428571,
+        "oracle_fraction": 0.8351713859910581
+      },
+      "oracle": {
+        "roots": 512,
+        "rows": 9120,
+        "informative_rows": 8908,
+        "correct": 9120,
+        "informative_correct": 8908,
+        "valid": 9120,
+        "root_correct": 512,
+        "strict_roots": 467,
+        "strict_root_correct": 467,
+        "earned": 6710,
+        "oracle_points": 6710,
+        "nominal_points": 10752,
+        "completed": 512,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.6240699404761905,
+        "oracle_fraction": 1
+      }
+    },
+    "H6_W2": {
+      "first": {
+        "roots": 128,
+        "rows": 2752,
+        "informative_rows": 2582,
+        "correct": 1388,
+        "informative_correct": 1218,
+        "valid": 2752,
+        "root_correct": 52,
+        "strict_roots": 122,
+        "strict_root_correct": 50,
+        "earned": 1070,
+        "oracle_points": 2621,
+        "nominal_points": 3456,
+        "completed": 128,
+        "regret": 1551,
+        "root_regret": 251,
+        "raw_accuracy": 0.5043604651162791,
+        "informative_accuracy": 0.47172734314484893,
+        "root_accuracy": 0.40625,
+        "strict_root_accuracy": 0.4098360655737705,
+        "nominal_utility": 0.30960648148148145,
+        "oracle_fraction": 0.4082411293399466
+      },
+      "d1": {
+        "roots": 128,
+        "rows": 2752,
+        "informative_rows": 2582,
+        "correct": 2272,
+        "informative_correct": 2102,
+        "valid": 2752,
+        "root_correct": 116,
+        "strict_roots": 122,
+        "strict_root_correct": 110,
+        "earned": 2282,
+        "oracle_points": 2621,
+        "nominal_points": 3456,
+        "completed": 128,
+        "regret": 339,
+        "root_regret": 18,
+        "raw_accuracy": 0.8255813953488372,
+        "informative_accuracy": 0.8140975987606507,
+        "root_accuracy": 0.90625,
+        "strict_root_accuracy": 0.9016393442622951,
+        "nominal_utility": 0.6603009259259259,
+        "oracle_fraction": 0.8706600534147272
+      },
+      "d2": {
+        "roots": 128,
+        "rows": 2752,
+        "informative_rows": 2582,
+        "correct": 2467,
+        "informative_correct": 2297,
+        "valid": 2752,
+        "root_correct": 118,
+        "strict_roots": 122,
+        "strict_root_correct": 112,
+        "earned": 2498,
+        "oracle_points": 2621,
+        "nominal_points": 3456,
+        "completed": 128,
+        "regret": 123,
+        "root_regret": 12,
+        "raw_accuracy": 0.8964389534883721,
+        "informative_accuracy": 0.8896204492641363,
+        "root_accuracy": 0.921875,
+        "strict_root_accuracy": 0.9180327868852459,
+        "nominal_utility": 0.7228009259259259,
+        "oracle_fraction": 0.953071346814193
+      },
+      "d4": {
+        "roots": 128,
+        "rows": 2752,
+        "informative_rows": 2582,
+        "correct": 2702,
+        "informative_correct": 2532,
+        "valid": 2752,
+        "root_correct": 118,
+        "strict_roots": 122,
+        "strict_root_correct": 112,
+        "earned": 2597,
+        "oracle_points": 2621,
+        "nominal_points": 3456,
+        "completed": 128,
+        "regret": 24,
+        "root_regret": 12,
+        "raw_accuracy": 0.9818313953488372,
+        "informative_accuracy": 0.9806351665375678,
+        "root_accuracy": 0.921875,
+        "strict_root_accuracy": 0.9180327868852459,
+        "nominal_utility": 0.7514467592592593,
+        "oracle_fraction": 0.9908431896222816
+      },
+      "terminal": {
+        "roots": 128,
+        "rows": 2752,
+        "informative_rows": 2582,
+        "correct": 1774,
+        "informative_correct": 1604,
+        "valid": 2752,
+        "root_correct": 52,
+        "strict_roots": 122,
+        "strict_root_correct": 50,
+        "earned": 1870,
+        "oracle_points": 2621,
+        "nominal_points": 3456,
+        "completed": 128,
+        "regret": 751,
+        "root_regret": 251,
+        "raw_accuracy": 0.6446220930232558,
+        "informative_accuracy": 0.6212238574748257,
+        "root_accuracy": 0.40625,
+        "strict_root_accuracy": 0.4098360655737705,
+        "nominal_utility": 0.5410879629629629,
+        "oracle_fraction": 0.7134681419305609
+      },
+      "oracle": {
+        "roots": 128,
+        "rows": 2752,
+        "informative_rows": 2582,
+        "correct": 2752,
+        "informative_correct": 2582,
+        "valid": 2752,
+        "root_correct": 128,
+        "strict_roots": 122,
+        "strict_root_correct": 122,
+        "earned": 2621,
+        "oracle_points": 2621,
+        "nominal_points": 3456,
+        "completed": 128,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.7583912037037037,
+        "oracle_fraction": 1
+      }
+    },
+    "H6_W4": {
+      "first": {
+        "roots": 256,
+        "rows": 8976,
+        "informative_rows": 8630,
+        "correct": 4557,
+        "informative_correct": 4211,
+        "valid": 8976,
+        "root_correct": 104,
+        "strict_roots": 228,
+        "strict_root_correct": 80,
+        "earned": 1794,
+        "oracle_points": 5004,
+        "nominal_points": 6912,
+        "completed": 256,
+        "regret": 3210,
+        "root_regret": 502,
+        "raw_accuracy": 0.5076871657754011,
+        "informative_accuracy": 0.4879490150637312,
+        "root_accuracy": 0.40625,
+        "strict_root_accuracy": 0.3508771929824561,
+        "nominal_utility": 0.2595486111111111,
+        "oracle_fraction": 0.35851318944844124
+      },
+      "d1": {
+        "roots": 256,
+        "rows": 8976,
+        "informative_rows": 8630,
+        "correct": 7362,
+        "informative_correct": 7016,
+        "valid": 8976,
+        "root_correct": 206,
+        "strict_roots": 228,
+        "strict_root_correct": 178,
+        "earned": 3892,
+        "oracle_points": 5004,
+        "nominal_points": 6912,
+        "completed": 256,
+        "regret": 1112,
+        "root_regret": 98,
+        "raw_accuracy": 0.8201871657754011,
+        "informative_accuracy": 0.8129779837775203,
+        "root_accuracy": 0.8046875,
+        "strict_root_accuracy": 0.7807017543859649,
+        "nominal_utility": 0.5630787037037037,
+        "oracle_fraction": 0.7777777777777778
+      },
+      "d2": {
+        "roots": 256,
+        "rows": 8976,
+        "informative_rows": 8630,
+        "correct": 7927,
+        "informative_correct": 7581,
+        "valid": 8976,
+        "root_correct": 210,
+        "strict_roots": 228,
+        "strict_root_correct": 184,
+        "earned": 4156,
+        "oracle_points": 5004,
+        "nominal_points": 6912,
+        "completed": 256,
+        "regret": 848,
+        "root_regret": 100,
+        "raw_accuracy": 0.8831327985739751,
+        "informative_accuracy": 0.8784472769409039,
+        "root_accuracy": 0.8203125,
+        "strict_root_accuracy": 0.8070175438596491,
+        "nominal_utility": 0.6012731481481481,
+        "oracle_fraction": 0.8305355715427658
+      },
+      "d4": {
+        "roots": 256,
+        "rows": 8976,
+        "informative_rows": 8630,
+        "correct": 8764,
+        "informative_correct": 8418,
+        "valid": 8976,
+        "root_correct": 202,
+        "strict_roots": 228,
+        "strict_root_correct": 174,
+        "earned": 4699,
+        "oracle_points": 5004,
+        "nominal_points": 6912,
+        "completed": 256,
+        "regret": 305,
+        "root_regret": 133,
+        "raw_accuracy": 0.9763814616755794,
+        "informative_accuracy": 0.9754345307068366,
+        "root_accuracy": 0.7890625,
+        "strict_root_accuracy": 0.7631578947368421,
+        "nominal_utility": 0.6798321759259259,
+        "oracle_fraction": 0.939048760991207
+      },
+      "terminal": {
+        "roots": 256,
+        "rows": 8976,
+        "informative_rows": 8630,
+        "correct": 6120,
+        "informative_correct": 5774,
+        "valid": 8976,
+        "root_correct": 104,
+        "strict_roots": 228,
+        "strict_root_correct": 80,
+        "earned": 3674,
+        "oracle_points": 5004,
+        "nominal_points": 6912,
+        "completed": 256,
+        "regret": 1330,
+        "root_regret": 502,
+        "raw_accuracy": 0.6818181818181818,
+        "informative_accuracy": 0.6690614136732329,
+        "root_accuracy": 0.40625,
+        "strict_root_accuracy": 0.3508771929824561,
+        "nominal_utility": 0.5315393518518519,
+        "oracle_fraction": 0.7342126298960832
+      },
+      "oracle": {
+        "roots": 256,
+        "rows": 8976,
+        "informative_rows": 8630,
+        "correct": 8976,
+        "informative_correct": 8630,
+        "valid": 8976,
+        "root_correct": 256,
+        "strict_roots": 228,
+        "strict_root_correct": 228,
+        "earned": 5004,
+        "oracle_points": 5004,
+        "nominal_points": 6912,
+        "completed": 256,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.7239583333333334,
+        "oracle_fraction": 1
+      }
+    },
+    "H6_W8": {
+      "first": {
+        "roots": 512,
+        "rows": 26096,
+        "informative_rows": 25016,
+        "correct": 13544,
+        "informative_correct": 12464,
+        "valid": 26096,
+        "root_correct": 191,
+        "strict_roots": 459,
+        "strict_root_correct": 142,
+        "earned": 3266,
+        "oracle_points": 9493,
+        "nominal_points": 13824,
+        "completed": 512,
+        "regret": 6227,
+        "root_regret": 1233,
+        "raw_accuracy": 0.5190067443286327,
+        "informative_accuracy": 0.4982411256795651,
+        "root_accuracy": 0.373046875,
+        "strict_root_accuracy": 0.3093681917211329,
+        "nominal_utility": 0.23625578703703703,
+        "oracle_fraction": 0.3440429790371853
+      },
+      "d1": {
+        "roots": 512,
+        "rows": 26096,
+        "informative_rows": 25016,
+        "correct": 22061,
+        "informative_correct": 20981,
+        "valid": 26096,
+        "root_correct": 427,
+        "strict_roots": 459,
+        "strict_root_correct": 376,
+        "earned": 7214,
+        "oracle_points": 9493,
+        "nominal_points": 13824,
+        "completed": 512,
+        "regret": 2279,
+        "root_regret": 221,
+        "raw_accuracy": 0.8453786020846107,
+        "informative_accuracy": 0.838703229932843,
+        "root_accuracy": 0.833984375,
+        "strict_root_accuracy": 0.8191721132897604,
+        "nominal_utility": 0.5218460648148148,
+        "oracle_fraction": 0.7599283682713578
+      },
+      "d2": {
+        "roots": 512,
+        "rows": 26096,
+        "informative_rows": 25016,
+        "correct": 23523,
+        "informative_correct": 22443,
+        "valid": 26096,
+        "root_correct": 427,
+        "strict_roots": 459,
+        "strict_root_correct": 376,
+        "earned": 7536,
+        "oracle_points": 9493,
+        "nominal_points": 13824,
+        "completed": 512,
+        "regret": 1957,
+        "root_regret": 221,
+        "raw_accuracy": 0.9014025137952176,
+        "informative_accuracy": 0.8971458266709306,
+        "root_accuracy": 0.833984375,
+        "strict_root_accuracy": 0.8191721132897604,
+        "nominal_utility": 0.5451388888888888,
+        "oracle_fraction": 0.7938480985989677
+      },
+      "d4": {
+        "roots": 512,
+        "rows": 26096,
+        "informative_rows": 25016,
+        "correct": 25648,
+        "informative_correct": 24568,
+        "valid": 26096,
+        "root_correct": 431,
+        "strict_roots": 459,
+        "strict_root_correct": 382,
+        "earned": 8806,
+        "oracle_points": 9493,
+        "nominal_points": 13824,
+        "completed": 512,
+        "regret": 687,
+        "root_regret": 219,
+        "raw_accuracy": 0.9828326180257511,
+        "informative_accuracy": 0.9820914614646626,
+        "root_accuracy": 0.841796875,
+        "strict_root_accuracy": 0.8322440087145969,
+        "nominal_utility": 0.6370081018518519,
+        "oracle_fraction": 0.927630885915938
+      },
+      "terminal": {
+        "roots": 512,
+        "rows": 26096,
+        "informative_rows": 25016,
+        "correct": 17454,
+        "informative_correct": 16374,
+        "valid": 26096,
+        "root_correct": 214,
+        "strict_roots": 459,
+        "strict_root_correct": 165,
+        "earned": 7164,
+        "oracle_points": 9493,
+        "nominal_points": 13824,
+        "completed": 512,
+        "regret": 2329,
+        "root_regret": 1068,
+        "raw_accuracy": 0.6688381361128142,
+        "informative_accuracy": 0.654541093700032,
+        "root_accuracy": 0.41796875,
+        "strict_root_accuracy": 0.35947712418300654,
+        "nominal_utility": 0.5182291666666666,
+        "oracle_fraction": 0.7546613294006109
+      },
+      "oracle": {
+        "roots": 512,
+        "rows": 26096,
+        "informative_rows": 25016,
+        "correct": 26096,
+        "informative_correct": 25016,
+        "valid": 26096,
+        "root_correct": 512,
+        "strict_roots": 459,
+        "strict_root_correct": 459,
+        "earned": 9493,
+        "oracle_points": 9493,
+        "nominal_points": 13824,
+        "completed": 512,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.6867042824074074,
+        "oracle_fraction": 1
+      }
+    },
+    "H8_W2": {
+      "first": {
+        "roots": 128,
+        "rows": 4032,
+        "informative_rows": 3752,
+        "correct": 2163,
+        "informative_correct": 1883,
+        "valid": 4032,
+        "root_correct": 54,
+        "strict_roots": 118,
+        "strict_root_correct": 50,
+        "earned": 1370,
+        "oracle_points": 3185,
+        "nominal_points": 4224,
+        "completed": 128,
+        "regret": 1815,
+        "root_regret": 241,
+        "raw_accuracy": 0.5364583333333334,
+        "informative_accuracy": 0.5018656716417911,
+        "root_accuracy": 0.421875,
+        "strict_root_accuracy": 0.423728813559322,
+        "nominal_utility": 0.3243371212121212,
+        "oracle_fraction": 0.4301412872841444
+      },
+      "d1": {
+        "roots": 128,
+        "rows": 4032,
+        "informative_rows": 3752,
+        "correct": 3388,
+        "informative_correct": 3108,
+        "valid": 4032,
+        "root_correct": 114,
+        "strict_roots": 118,
+        "strict_root_correct": 104,
+        "earned": 2808,
+        "oracle_points": 3185,
+        "nominal_points": 4224,
+        "completed": 128,
+        "regret": 377,
+        "root_regret": 18,
+        "raw_accuracy": 0.8402777777777778,
+        "informative_accuracy": 0.8283582089552238,
+        "root_accuracy": 0.890625,
+        "strict_root_accuracy": 0.8813559322033898,
+        "nominal_utility": 0.6647727272727273,
+        "oracle_fraction": 0.8816326530612245
+      },
+      "d2": {
+        "roots": 128,
+        "rows": 4032,
+        "informative_rows": 3752,
+        "correct": 3607,
+        "informative_correct": 3327,
+        "valid": 4032,
+        "root_correct": 120,
+        "strict_roots": 118,
+        "strict_root_correct": 110,
+        "earned": 2926,
+        "oracle_points": 3185,
+        "nominal_points": 4224,
+        "completed": 128,
+        "regret": 259,
+        "root_regret": 12,
+        "raw_accuracy": 0.894593253968254,
+        "informative_accuracy": 0.886727078891258,
+        "root_accuracy": 0.9375,
+        "strict_root_accuracy": 0.9322033898305084,
+        "nominal_utility": 0.6927083333333334,
+        "oracle_fraction": 0.9186813186813186
+      },
+      "d4": {
+        "roots": 128,
+        "rows": 4032,
+        "informative_rows": 3752,
+        "correct": 3846,
+        "informative_correct": 3566,
+        "valid": 4032,
+        "root_correct": 120,
+        "strict_roots": 118,
+        "strict_root_correct": 110,
+        "earned": 3090,
+        "oracle_points": 3185,
+        "nominal_points": 4224,
+        "completed": 128,
+        "regret": 95,
+        "root_regret": 12,
+        "raw_accuracy": 0.9538690476190477,
+        "informative_accuracy": 0.9504264392324094,
+        "root_accuracy": 0.9375,
+        "strict_root_accuracy": 0.9322033898305084,
+        "nominal_utility": 0.7315340909090909,
+        "oracle_fraction": 0.9701726844583988
+      },
+      "terminal": {
+        "roots": 128,
+        "rows": 4032,
+        "informative_rows": 3752,
+        "correct": 2559,
+        "informative_correct": 2279,
+        "valid": 4032,
+        "root_correct": 54,
+        "strict_roots": 118,
+        "strict_root_correct": 50,
+        "earned": 2154,
+        "oracle_points": 3185,
+        "nominal_points": 4224,
+        "completed": 128,
+        "regret": 1031,
+        "root_regret": 241,
+        "raw_accuracy": 0.6346726190476191,
+        "informative_accuracy": 0.607409381663113,
+        "root_accuracy": 0.421875,
+        "strict_root_accuracy": 0.423728813559322,
+        "nominal_utility": 0.5099431818181818,
+        "oracle_fraction": 0.6762951334379905
+      },
+      "oracle": {
+        "roots": 128,
+        "rows": 4032,
+        "informative_rows": 3752,
+        "correct": 4032,
+        "informative_correct": 3752,
+        "valid": 4032,
+        "root_correct": 128,
+        "strict_roots": 118,
+        "strict_root_correct": 118,
+        "earned": 3185,
+        "oracle_points": 3185,
+        "nominal_points": 4224,
+        "completed": 128,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.7540246212121212,
+        "oracle_fraction": 1
+      }
+    },
+    "H8_W4": {
+      "first": {
+        "roots": 256,
+        "rows": 14096,
+        "informative_rows": 13335,
+        "correct": 7534,
+        "informative_correct": 6773,
+        "valid": 14096,
+        "root_correct": 106,
+        "strict_roots": 228,
+        "strict_root_correct": 82,
+        "earned": 2410,
+        "oracle_points": 6184,
+        "nominal_points": 8448,
+        "completed": 256,
+        "regret": 3774,
+        "root_regret": 452,
+        "raw_accuracy": 0.534477866061294,
+        "informative_accuracy": 0.5079115110611173,
+        "root_accuracy": 0.4140625,
+        "strict_root_accuracy": 0.35964912280701755,
+        "nominal_utility": 0.2852746212121212,
+        "oracle_fraction": 0.3897153945666235
+      },
+      "d1": {
+        "roots": 256,
+        "rows": 14096,
+        "informative_rows": 13335,
+        "correct": 11305,
+        "informative_correct": 10544,
+        "valid": 14096,
+        "root_correct": 208,
+        "strict_roots": 228,
+        "strict_root_correct": 180,
+        "earned": 4952,
+        "oracle_points": 6184,
+        "nominal_points": 8448,
+        "completed": 256,
+        "regret": 1232,
+        "root_regret": 70,
+        "raw_accuracy": 0.8020005675368899,
+        "informative_accuracy": 0.7907011623547057,
+        "root_accuracy": 0.8125,
+        "strict_root_accuracy": 0.7894736842105263,
+        "nominal_utility": 0.5861742424242424,
+        "oracle_fraction": 0.8007761966364813
+      },
+      "d2": {
+        "roots": 256,
+        "rows": 14096,
+        "informative_rows": 13335,
+        "correct": 12041,
+        "informative_correct": 11280,
+        "valid": 14096,
+        "root_correct": 206,
+        "strict_roots": 228,
+        "strict_root_correct": 180,
+        "earned": 5234,
+        "oracle_points": 6184,
+        "nominal_points": 8448,
+        "completed": 256,
+        "regret": 950,
+        "root_regret": 78,
+        "raw_accuracy": 0.8542139614074915,
+        "informative_accuracy": 0.8458942632170978,
+        "root_accuracy": 0.8046875,
+        "strict_root_accuracy": 0.7894736842105263,
+        "nominal_utility": 0.6195549242424242,
+        "oracle_fraction": 0.8463777490297542
+      },
+      "d4": {
+        "roots": 256,
+        "rows": 14096,
+        "informative_rows": 13335,
+        "correct": 13344,
+        "informative_correct": 12583,
+        "valid": 14096,
+        "root_correct": 212,
+        "strict_roots": 228,
+        "strict_root_correct": 184,
+        "earned": 5917,
+        "oracle_points": 6184,
+        "nominal_points": 8448,
+        "completed": 256,
+        "regret": 267,
+        "root_regret": 78,
+        "raw_accuracy": 0.9466515323496028,
+        "informative_accuracy": 0.9436070491188602,
+        "root_accuracy": 0.828125,
+        "strict_root_accuracy": 0.8070175438596491,
+        "nominal_utility": 0.7004024621212122,
+        "oracle_fraction": 0.9568240620957309
+      },
+      "terminal": {
+        "roots": 256,
+        "rows": 14096,
+        "informative_rows": 13335,
+        "correct": 9382,
+        "informative_correct": 8621,
+        "valid": 14096,
+        "root_correct": 106,
+        "strict_roots": 228,
+        "strict_root_correct": 82,
+        "earned": 4226,
+        "oracle_points": 6184,
+        "nominal_points": 8448,
+        "completed": 256,
+        "regret": 1958,
+        "root_regret": 452,
+        "raw_accuracy": 0.6655788876276958,
+        "informative_accuracy": 0.6464941882264716,
+        "root_accuracy": 0.4140625,
+        "strict_root_accuracy": 0.35964912280701755,
+        "nominal_utility": 0.5002367424242424,
+        "oracle_fraction": 0.6833764553686934
+      },
+      "oracle": {
+        "roots": 256,
+        "rows": 14096,
+        "informative_rows": 13335,
+        "correct": 14096,
+        "informative_correct": 13335,
+        "valid": 14096,
+        "root_correct": 256,
+        "strict_roots": 228,
+        "strict_root_correct": 228,
+        "earned": 6184,
+        "oracle_points": 6184,
+        "nominal_points": 8448,
+        "completed": 256,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.7320075757575758,
+        "oracle_fraction": 1
+      }
+    },
+    "H8_W8": {
+      "first": {
+        "roots": 512,
+        "rows": 46432,
+        "informative_rows": 43676,
+        "correct": 24992,
+        "informative_correct": 22236,
+        "valid": 46432,
+        "root_correct": 201,
+        "strict_roots": 456,
+        "strict_root_correct": 157,
+        "earned": 4354,
+        "oracle_points": 11992,
+        "nominal_points": 16896,
+        "completed": 512,
+        "regret": 7638,
+        "root_regret": 1065,
+        "raw_accuracy": 0.538249483115093,
+        "informative_accuracy": 0.5091125560948805,
+        "root_accuracy": 0.392578125,
+        "strict_root_accuracy": 0.3442982456140351,
+        "nominal_utility": 0.2576941287878788,
+        "oracle_fraction": 0.3630753835890594
+      },
+      "d1": {
+        "roots": 512,
+        "rows": 46432,
+        "informative_rows": 43676,
+        "correct": 37476,
+        "informative_correct": 34720,
+        "valid": 46432,
+        "root_correct": 452,
+        "strict_roots": 456,
+        "strict_root_correct": 398,
+        "earned": 9020,
+        "oracle_points": 11992,
+        "nominal_points": 16896,
+        "completed": 512,
+        "regret": 2972,
+        "root_regret": 108,
+        "raw_accuracy": 0.8071157822191593,
+        "informative_accuracy": 0.794944591995604,
+        "root_accuracy": 0.8828125,
+        "strict_root_accuracy": 0.8728070175438597,
+        "nominal_utility": 0.5338541666666666,
+        "oracle_fraction": 0.7521681120747165
+      },
+      "d2": {
+        "roots": 512,
+        "rows": 46432,
+        "informative_rows": 43676,
+        "correct": 39597,
+        "informative_correct": 36841,
+        "valid": 46432,
+        "root_correct": 452,
+        "strict_roots": 456,
+        "strict_root_correct": 398,
+        "earned": 9642,
+        "oracle_points": 11992,
+        "nominal_points": 16896,
+        "completed": 512,
+        "regret": 2350,
+        "root_regret": 108,
+        "raw_accuracy": 0.8527954858718125,
+        "informative_accuracy": 0.843506731385658,
+        "root_accuracy": 0.8828125,
+        "strict_root_accuracy": 0.8728070175438597,
+        "nominal_utility": 0.5706676136363636,
+        "oracle_fraction": 0.8040360240160107
+      },
+      "d4": {
+        "roots": 512,
+        "rows": 46432,
+        "informative_rows": 43676,
+        "correct": 44230,
+        "informative_correct": 41474,
+        "valid": 46432,
+        "root_correct": 456,
+        "strict_roots": 456,
+        "strict_root_correct": 404,
+        "earned": 10934,
+        "oracle_points": 11992,
+        "nominal_points": 16896,
+        "completed": 512,
+        "regret": 1058,
+        "root_regret": 90,
+        "raw_accuracy": 0.9525758097863543,
+        "informative_accuracy": 0.9495832951735507,
+        "root_accuracy": 0.890625,
+        "strict_root_accuracy": 0.8859649122807017,
+        "nominal_utility": 0.6471354166666666,
+        "oracle_fraction": 0.9117745163442295
+      },
+      "terminal": {
+        "roots": 512,
+        "rows": 46432,
+        "informative_rows": 43676,
+        "correct": 31439,
+        "informative_correct": 28683,
+        "valid": 46432,
+        "root_correct": 201,
+        "strict_roots": 456,
+        "strict_root_correct": 157,
+        "earned": 8426,
+        "oracle_points": 11992,
+        "nominal_points": 16896,
+        "completed": 512,
+        "regret": 3566,
+        "root_regret": 1065,
+        "raw_accuracy": 0.6770976912474156,
+        "informative_accuracy": 0.6567222273101933,
+        "root_accuracy": 0.392578125,
+        "strict_root_accuracy": 0.3442982456140351,
+        "nominal_utility": 0.4986979166666667,
+        "oracle_fraction": 0.70263509006004
+      },
+      "oracle": {
+        "roots": 512,
+        "rows": 46432,
+        "informative_rows": 43676,
+        "correct": 46432,
+        "informative_correct": 43676,
+        "valid": 46432,
+        "root_correct": 512,
+        "strict_roots": 456,
+        "strict_root_correct": 456,
+        "earned": 11992,
+        "oracle_points": 11992,
+        "nominal_points": 16896,
+        "completed": 512,
+        "regret": 0,
+        "root_regret": 0,
+        "raw_accuracy": 1,
+        "informative_accuracy": 1,
+        "root_accuracy": 1,
+        "strict_root_accuracy": 1,
+        "nominal_utility": 0.7097537878787878,
+        "oracle_fraction": 1
+      }
+    }
+  },
+  "pairs": {
+    "H2_W2": {
+      "eligible": 17,
+      "total_pairs": 64,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 13,
+          "same_action": 17,
+          "regret": 254
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 17,
+          "same_action": 17,
+          "regret": 72
+        },
+        "d2": {
+          "both_correct": 17,
+          "individual_correct": 34,
+          "same_action": 0,
+          "regret": 0
+        },
+        "d4": {
+          "both_correct": 17,
+          "individual_correct": 34,
+          "same_action": 0,
+          "regret": 0
+        },
+        "terminal": {
+          "both_correct": 7,
+          "individual_correct": 22,
+          "same_action": 6,
+          "regret": 46
+        },
+        "oracle": {
+          "both_correct": 17,
+          "individual_correct": 34,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    },
+    "H2_W4": {
+      "eligible": 141,
+      "total_pairs": 384,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 103,
+          "same_action": 141,
+          "regret": 1704
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 130,
+          "same_action": 141,
+          "regret": 772
+        },
+        "d2": {
+          "both_correct": 141,
+          "individual_correct": 282,
+          "same_action": 0,
+          "regret": 0
+        },
+        "d4": {
+          "both_correct": 141,
+          "individual_correct": 282,
+          "same_action": 0,
+          "regret": 0
+        },
+        "terminal": {
+          "both_correct": 85,
+          "individual_correct": 226,
+          "same_action": 35,
+          "regret": 188
+        },
+        "oracle": {
+          "both_correct": 141,
+          "individual_correct": 282,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    },
+    "H2_W8": {
+      "eligible": 553,
+      "total_pairs": 1792,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 436,
+          "same_action": 553,
+          "regret": 5775
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 531,
+          "same_action": 553,
+          "regret": 2935
+        },
+        "d2": {
+          "both_correct": 553,
+          "individual_correct": 1106,
+          "same_action": 0,
+          "regret": 0
+        },
+        "d4": {
+          "both_correct": 553,
+          "individual_correct": 1106,
+          "same_action": 0,
+          "regret": 0
+        },
+        "terminal": {
+          "both_correct": 263,
+          "individual_correct": 816,
+          "same_action": 199,
+          "regret": 1182
+        },
+        "oracle": {
+          "both_correct": 553,
+          "individual_correct": 1106,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    },
+    "H4_W2": {
+      "eligible": 10,
+      "total_pairs": 64,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 10,
+          "same_action": 10,
+          "regret": 158
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 10,
+          "same_action": 10,
+          "regret": 72
+        },
+        "d2": {
+          "both_correct": 0,
+          "individual_correct": 10,
+          "same_action": 10,
+          "regret": 50
+        },
+        "d4": {
+          "both_correct": 10,
+          "individual_correct": 20,
+          "same_action": 0,
+          "regret": 0
+        },
+        "terminal": {
+          "both_correct": 2,
+          "individual_correct": 12,
+          "same_action": 8,
+          "regret": 36
+        },
+        "oracle": {
+          "both_correct": 10,
+          "individual_correct": 20,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    },
+    "H4_W4": {
+      "eligible": 103,
+      "total_pairs": 384,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 91,
+          "same_action": 103,
+          "regret": 2024
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 101,
+          "same_action": 103,
+          "regret": 872
+        },
+        "d2": {
+          "both_correct": 0,
+          "individual_correct": 101,
+          "same_action": 103,
+          "regret": 788
+        },
+        "d4": {
+          "both_correct": 103,
+          "individual_correct": 206,
+          "same_action": 0,
+          "regret": 0
+        },
+        "terminal": {
+          "both_correct": 35,
+          "individual_correct": 134,
+          "same_action": 60,
+          "regret": 499
+        },
+        "oracle": {
+          "both_correct": 103,
+          "individual_correct": 206,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    },
+    "H4_W8": {
+      "eligible": 598,
+      "total_pairs": 1792,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 446,
+          "same_action": 598,
+          "regret": 11228
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 575,
+          "same_action": 598,
+          "regret": 5070
+        },
+        "d2": {
+          "both_correct": 0,
+          "individual_correct": 575,
+          "same_action": 598,
+          "regret": 3928
+        },
+        "d4": {
+          "both_correct": 598,
+          "individual_correct": 1196,
+          "same_action": 0,
+          "regret": 0
+        },
+        "terminal": {
+          "both_correct": 204,
+          "individual_correct": 769,
+          "same_action": 266,
+          "regret": 2047
+        },
+        "oracle": {
+          "both_correct": 598,
+          "individual_correct": 1196,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    },
+    "H6_W2": {
+      "eligible": 10,
+      "total_pairs": 64,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 10,
+          "same_action": 10,
+          "regret": 194
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 10,
+          "same_action": 10,
+          "regret": 66
+        },
+        "d2": {
+          "both_correct": 0,
+          "individual_correct": 10,
+          "same_action": 10,
+          "regret": 24
+        },
+        "d4": {
+          "both_correct": 0,
+          "individual_correct": 10,
+          "same_action": 10,
+          "regret": 12
+        },
+        "terminal": {
+          "both_correct": 0,
+          "individual_correct": 10,
+          "same_action": 10,
+          "regret": 60
+        },
+        "oracle": {
+          "both_correct": 10,
+          "individual_correct": 20,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    },
+    "H6_W4": {
+      "eligible": 82,
+      "total_pairs": 384,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 62,
+          "same_action": 82,
+          "regret": 2174
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 82,
+          "same_action": 82,
+          "regret": 674
+        },
+        "d2": {
+          "both_correct": 0,
+          "individual_correct": 82,
+          "same_action": 82,
+          "regret": 534
+        },
+        "d4": {
+          "both_correct": 0,
+          "individual_correct": 74,
+          "same_action": 82,
+          "regret": 265
+        },
+        "terminal": {
+          "both_correct": 0,
+          "individual_correct": 62,
+          "same_action": 82,
+          "regret": 1058
+        },
+        "oracle": {
+          "both_correct": 82,
+          "individual_correct": 164,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    },
+    "H6_W8": {
+      "eligible": 345,
+      "total_pairs": 1792,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 257,
+          "same_action": 345,
+          "regret": 8271
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 335,
+          "same_action": 345,
+          "regret": 3657
+        },
+        "d2": {
+          "both_correct": 0,
+          "individual_correct": 335,
+          "same_action": 345,
+          "regret": 3326
+        },
+        "d4": {
+          "both_correct": 0,
+          "individual_correct": 337,
+          "same_action": 345,
+          "regret": 1500
+        },
+        "terminal": {
+          "both_correct": 66,
+          "individual_correct": 323,
+          "same_action": 279,
+          "regret": 2936
+        },
+        "oracle": {
+          "both_correct": 345,
+          "individual_correct": 690,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    },
+    "H8_W2": {
+      "eligible": 8,
+      "total_pairs": 64,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 6,
+          "same_action": 8,
+          "regret": 240
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 6,
+          "same_action": 8,
+          "regret": 46
+        },
+        "d2": {
+          "both_correct": 0,
+          "individual_correct": 8,
+          "same_action": 8,
+          "regret": 24
+        },
+        "d4": {
+          "both_correct": 0,
+          "individual_correct": 8,
+          "same_action": 8,
+          "regret": 16
+        },
+        "terminal": {
+          "both_correct": 0,
+          "individual_correct": 6,
+          "same_action": 8,
+          "regret": 130
+        },
+        "oracle": {
+          "both_correct": 8,
+          "individual_correct": 16,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    },
+    "H8_W4": {
+      "eligible": 74,
+      "total_pairs": 384,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 66,
+          "same_action": 74,
+          "regret": 2134
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 74,
+          "same_action": 74,
+          "regret": 650
+        },
+        "d2": {
+          "both_correct": 0,
+          "individual_correct": 74,
+          "same_action": 74,
+          "regret": 514
+        },
+        "d4": {
+          "both_correct": 0,
+          "individual_correct": 72,
+          "same_action": 74,
+          "regret": 239
+        },
+        "terminal": {
+          "both_correct": 0,
+          "individual_correct": 66,
+          "same_action": 74,
+          "regret": 1112
+        },
+        "oracle": {
+          "both_correct": 74,
+          "individual_correct": 148,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    },
+    "H8_W8": {
+      "eligible": 243,
+      "total_pairs": 1792,
+      "controls": {
+        "first": {
+          "both_correct": 0,
+          "individual_correct": 187,
+          "same_action": 243,
+          "regret": 7490
+        },
+        "d1": {
+          "both_correct": 0,
+          "individual_correct": 241,
+          "same_action": 243,
+          "regret": 3368
+        },
+        "d2": {
+          "both_correct": 0,
+          "individual_correct": 241,
+          "same_action": 243,
+          "regret": 2929
+        },
+        "d4": {
+          "both_correct": 0,
+          "individual_correct": 241,
+          "same_action": 243,
+          "regret": 1476
+        },
+        "terminal": {
+          "both_correct": 0,
+          "individual_correct": 187,
+          "same_action": 243,
+          "regret": 3316
+        },
+        "oracle": {
+          "both_correct": 243,
+          "individual_correct": 486,
+          "same_action": 0,
+          "regret": 0
+        }
+      }
+    }
+  },
+  "cuts": {
+    "H2_W2": {
+      "probes": 256,
+      "value_changed": 188,
+      "q_changed": 230,
+      "strict_reversal": 84,
+      "all_stage_q_sensitive_roots": 106,
+      "per_stage": {
+        "0": {
+          "probes": 128,
+          "value_changed": 97,
+          "q_changed": 116,
+          "strict_reversal": 32
+        },
+        "1": {
+          "probes": 128,
+          "value_changed": 91,
+          "q_changed": 114,
+          "strict_reversal": 52
+        }
+      }
+    },
+    "H2_W4": {
+      "probes": 512,
+      "value_changed": 385,
+      "q_changed": 426,
+      "strict_reversal": 162,
+      "all_stage_q_sensitive_roots": 178,
+      "per_stage": {
+        "0": {
+          "probes": 256,
+          "value_changed": 219,
+          "q_changed": 238,
+          "strict_reversal": 86
+        },
+        "1": {
+          "probes": 256,
+          "value_changed": 166,
+          "q_changed": 188,
+          "strict_reversal": 76
+        }
+      }
+    },
+    "H2_W8": {
+      "probes": 1024,
+      "value_changed": 637,
+      "q_changed": 718,
+      "strict_reversal": 270,
+      "all_stage_q_sensitive_roots": 250,
+      "per_stage": {
+        "0": {
+          "probes": 512,
+          "value_changed": 372,
+          "q_changed": 450,
+          "strict_reversal": 117
+        },
+        "1": {
+          "probes": 512,
+          "value_changed": 265,
+          "q_changed": 268,
+          "strict_reversal": 153
+        }
+      }
+    },
+    "H4_W2": {
+      "probes": 512,
+      "value_changed": 310,
+      "q_changed": 394,
+      "strict_reversal": 49,
+      "all_stage_q_sensitive_roots": 48,
+      "per_stage": {
+        "0": {
+          "probes": 128,
+          "value_changed": 88,
+          "q_changed": 114,
+          "strict_reversal": 17
+        },
+        "1": {
+          "probes": 128,
+          "value_changed": 84,
+          "q_changed": 106,
+          "strict_reversal": 16
+        },
+        "2": {
+          "probes": 128,
+          "value_changed": 76,
+          "q_changed": 94,
+          "strict_reversal": 6
+        },
+        "3": {
+          "probes": 128,
+          "value_changed": 62,
+          "q_changed": 80,
+          "strict_reversal": 10
+        }
+      }
+    },
+    "H4_W4": {
+      "probes": 1024,
+      "value_changed": 780,
+      "q_changed": 944,
+      "strict_reversal": 233,
+      "all_stage_q_sensitive_roots": 187,
+      "per_stage": {
+        "0": {
+          "probes": 256,
+          "value_changed": 210,
+          "q_changed": 242,
+          "strict_reversal": 55
+        },
+        "1": {
+          "probes": 256,
+          "value_changed": 189,
+          "q_changed": 237,
+          "strict_reversal": 71
+        },
+        "2": {
+          "probes": 256,
+          "value_changed": 206,
+          "q_changed": 249,
+          "strict_reversal": 55
+        },
+        "3": {
+          "probes": 256,
+          "value_changed": 175,
+          "q_changed": 216,
+          "strict_reversal": 52
+        }
+      }
+    },
+    "H4_W8": {
+      "probes": 2048,
+      "value_changed": 1642,
+      "q_changed": 1952,
+      "strict_reversal": 684,
+      "all_stage_q_sensitive_roots": 421,
+      "per_stage": {
+        "0": {
+          "probes": 512,
+          "value_changed": 417,
+          "q_changed": 511,
+          "strict_reversal": 160
+        },
+        "1": {
+          "probes": 512,
+          "value_changed": 429,
+          "q_changed": 507,
+          "strict_reversal": 205
+        },
+        "2": {
+          "probes": 512,
+          "value_changed": 427,
+          "q_changed": 499,
+          "strict_reversal": 180
+        },
+        "3": {
+          "probes": 512,
+          "value_changed": 369,
+          "q_changed": 435,
+          "strict_reversal": 139
+        }
+      }
+    },
+    "H6_W2": {
+      "probes": 768,
+      "value_changed": 400,
+      "q_changed": 498,
+      "strict_reversal": 48,
+      "all_stage_q_sensitive_roots": 8,
+      "per_stage": {
+        "0": {
+          "probes": 128,
+          "value_changed": 84,
+          "q_changed": 110,
+          "strict_reversal": 18
+        },
+        "1": {
+          "probes": 128,
+          "value_changed": 76,
+          "q_changed": 92,
+          "strict_reversal": 16
+        },
+        "2": {
+          "probes": 128,
+          "value_changed": 70,
+          "q_changed": 90,
+          "strict_reversal": 4
+        },
+        "3": {
+          "probes": 128,
+          "value_changed": 52,
+          "q_changed": 66,
+          "strict_reversal": 6
+        },
+        "4": {
+          "probes": 128,
+          "value_changed": 60,
+          "q_changed": 64,
+          "strict_reversal": 2
+        },
+        "5": {
+          "probes": 128,
+          "value_changed": 58,
+          "q_changed": 76,
+          "strict_reversal": 2
+        }
+      }
+    },
+    "H6_W4": {
+      "probes": 1536,
+      "value_changed": 1038,
+      "q_changed": 1369,
+      "strict_reversal": 267,
+      "all_stage_q_sensitive_roots": 141,
+      "per_stage": {
+        "0": {
+          "probes": 256,
+          "value_changed": 197,
+          "q_changed": 245,
+          "strict_reversal": 51
+        },
+        "1": {
+          "probes": 256,
+          "value_changed": 181,
+          "q_changed": 228,
+          "strict_reversal": 56
+        },
+        "2": {
+          "probes": 256,
+          "value_changed": 170,
+          "q_changed": 238,
+          "strict_reversal": 27
+        },
+        "3": {
+          "probes": 256,
+          "value_changed": 154,
+          "q_changed": 213,
+          "strict_reversal": 34
+        },
+        "4": {
+          "probes": 256,
+          "value_changed": 163,
+          "q_changed": 222,
+          "strict_reversal": 52
+        },
+        "5": {
+          "probes": 256,
+          "value_changed": 173,
+          "q_changed": 223,
+          "strict_reversal": 47
+        }
+      }
+    },
+    "H6_W8": {
+      "probes": 3072,
+      "value_changed": 2390,
+      "q_changed": 2971,
+      "strict_reversal": 623,
+      "all_stage_q_sensitive_roots": 418,
+      "per_stage": {
+        "0": {
+          "probes": 512,
+          "value_changed": 412,
+          "q_changed": 508,
+          "strict_reversal": 117
+        },
+        "1": {
+          "probes": 512,
+          "value_changed": 416,
+          "q_changed": 506,
+          "strict_reversal": 107
+        },
+        "2": {
+          "probes": 512,
+          "value_changed": 392,
+          "q_changed": 508,
+          "strict_reversal": 110
+        },
+        "3": {
+          "probes": 512,
+          "value_changed": 386,
+          "q_changed": 498,
+          "strict_reversal": 97
+        },
+        "4": {
+          "probes": 512,
+          "value_changed": 394,
+          "q_changed": 480,
+          "strict_reversal": 103
+        },
+        "5": {
+          "probes": 512,
+          "value_changed": 390,
+          "q_changed": 471,
+          "strict_reversal": 89
+        }
+      }
+    },
+    "H8_W2": {
+      "probes": 1024,
+      "value_changed": 492,
+      "q_changed": 610,
+      "strict_reversal": 64,
+      "all_stage_q_sensitive_roots": 2,
+      "per_stage": {
+        "0": {
+          "probes": 128,
+          "value_changed": 88,
+          "q_changed": 106,
+          "strict_reversal": 16
+        },
+        "1": {
+          "probes": 128,
+          "value_changed": 66,
+          "q_changed": 88,
+          "strict_reversal": 14
+        },
+        "2": {
+          "probes": 128,
+          "value_changed": 62,
+          "q_changed": 86,
+          "strict_reversal": 4
+        },
+        "3": {
+          "probes": 128,
+          "value_changed": 50,
+          "q_changed": 64,
+          "strict_reversal": 6
+        },
+        "4": {
+          "probes": 128,
+          "value_changed": 52,
+          "q_changed": 56,
+          "strict_reversal": 0
+        },
+        "5": {
+          "probes": 128,
+          "value_changed": 56,
+          "q_changed": 64,
+          "strict_reversal": 2
+        },
+        "6": {
+          "probes": 128,
+          "value_changed": 68,
+          "q_changed": 78,
+          "strict_reversal": 10
+        },
+        "7": {
+          "probes": 128,
+          "value_changed": 50,
+          "q_changed": 68,
+          "strict_reversal": 12
+        }
+      }
+    },
+    "H8_W4": {
+      "probes": 2048,
+      "value_changed": 1327,
+      "q_changed": 1754,
+      "strict_reversal": 333,
+      "all_stage_q_sensitive_roots": 77,
+      "per_stage": {
+        "0": {
+          "probes": 256,
+          "value_changed": 186,
+          "q_changed": 240,
+          "strict_reversal": 44
+        },
+        "1": {
+          "probes": 256,
+          "value_changed": 172,
+          "q_changed": 214,
+          "strict_reversal": 44
+        },
+        "2": {
+          "probes": 256,
+          "value_changed": 168,
+          "q_changed": 224,
+          "strict_reversal": 36
+        },
+        "3": {
+          "probes": 256,
+          "value_changed": 150,
+          "q_changed": 208,
+          "strict_reversal": 43
+        },
+        "4": {
+          "probes": 256,
+          "value_changed": 160,
+          "q_changed": 236,
+          "strict_reversal": 46
+        },
+        "5": {
+          "probes": 256,
+          "value_changed": 150,
+          "q_changed": 207,
+          "strict_reversal": 46
+        },
+        "6": {
+          "probes": 256,
+          "value_changed": 163,
+          "q_changed": 205,
+          "strict_reversal": 36
+        },
+        "7": {
+          "probes": 256,
+          "value_changed": 178,
+          "q_changed": 220,
+          "strict_reversal": 38
+        }
+      }
+    },
+    "H8_W8": {
+      "probes": 4096,
+      "value_changed": 3062,
+      "q_changed": 3879,
+      "strict_reversal": 526,
+      "all_stage_q_sensitive_roots": 338,
+      "per_stage": {
+        "0": {
+          "probes": 512,
+          "value_changed": 395,
+          "q_changed": 488,
+          "strict_reversal": 75
+        },
+        "1": {
+          "probes": 512,
+          "value_changed": 380,
+          "q_changed": 502,
+          "strict_reversal": 68
+        },
+        "2": {
+          "probes": 512,
+          "value_changed": 370,
+          "q_changed": 498,
+          "strict_reversal": 92
+        },
+        "3": {
+          "probes": 512,
+          "value_changed": 377,
+          "q_changed": 484,
+          "strict_reversal": 50
+        },
+        "4": {
+          "probes": 512,
+          "value_changed": 370,
+          "q_changed": 471,
+          "strict_reversal": 64
+        },
+        "5": {
+          "probes": 512,
+          "value_changed": 391,
+          "q_changed": 490,
+          "strict_reversal": 60
+        },
+        "6": {
+          "probes": 512,
+          "value_changed": 375,
+          "q_changed": 476,
+          "strict_reversal": 49
+        },
+        "7": {
+          "probes": 512,
+          "value_changed": 404,
+          "q_changed": 470,
+          "strict_reversal": 68
+        }
+      }
+    }
+  },
+  "thresholds": {
+    "H2_W2": {
+      "roots": 128,
+      "strict_roots": 121,
+      "min": {
+        "1": 104,
+        "2": 17
+      },
+      "persistent": {
+        "1": 104,
+        "2": 17
+      },
+      "nonmonotone": 0,
+      "full_only": 17
+    },
+    "H2_W4": {
+      "roots": 256,
+      "strict_roots": 228,
+      "min": {
+        "1": 162,
+        "2": 66
+      },
+      "persistent": {
+        "1": 162,
+        "2": 66
+      },
+      "nonmonotone": 0,
+      "full_only": 66
+    },
+    "H2_W8": {
+      "roots": 512,
+      "strict_roots": 485,
+      "min": {
+        "1": 396,
+        "2": 89
+      },
+      "persistent": {
+        "1": 396,
+        "2": 89
+      },
+      "nonmonotone": 0,
+      "full_only": 89
+    },
+    "H4_W2": {
+      "roots": 128,
+      "strict_roots": 116,
+      "min": {
+        "1": 104,
+        "2": 6,
+        "4": 6
+      },
+      "persistent": {
+        "1": 100,
+        "2": 6,
+        "4": 10
+      },
+      "nonmonotone": 4,
+      "full_only": 6
+    },
+    "H4_W4": {
+      "roots": 256,
+      "strict_roots": 216,
+      "min": {
+        "1": 164,
+        "2": 21,
+        "3": 2,
+        "4": 29
+      },
+      "persistent": {
+        "1": 143,
+        "2": 14,
+        "3": 11,
+        "4": 48
+      },
+      "nonmonotone": 28,
+      "full_only": 29
+    },
+    "H4_W8": {
+      "roots": 512,
+      "strict_roots": 467,
+      "min": {
+        "1": 336,
+        "3": 16,
+        "4": 115
+      },
+      "persistent": {
+        "1": 326,
+        "3": 16,
+        "4": 125
+      },
+      "nonmonotone": 10,
+      "full_only": 115
+    },
+    "H6_W2": {
+      "roots": 128,
+      "strict_roots": 122,
+      "min": {
+        "1": 110,
+        "2": 6,
+        "5": 2,
+        "6": 4
+      },
+      "persistent": {
+        "1": 104,
+        "2": 6,
+        "5": 2,
+        "6": 10
+      },
+      "nonmonotone": 6,
+      "full_only": 4
+    },
+    "H6_W4": {
+      "roots": 256,
+      "strict_roots": 228,
+      "min": {
+        "1": 178,
+        "2": 20,
+        "3": 4,
+        "4": 10,
+        "5": 4,
+        "6": 12
+      },
+      "persistent": {
+        "1": 134,
+        "2": 16,
+        "3": 10,
+        "4": 6,
+        "5": 10,
+        "6": 52
+      },
+      "nonmonotone": 52,
+      "full_only": 12
+    },
+    "H6_W8": {
+      "roots": 512,
+      "strict_roots": 459,
+      "min": {
+        "1": 376,
+        "3": 16,
+        "5": 10,
+        "6": 57
+      },
+      "persistent": {
+        "1": 338,
+        "3": 16,
+        "5": 10,
+        "6": 95
+      },
+      "nonmonotone": 38,
+      "full_only": 57
+    },
+    "H8_W2": {
+      "roots": 128,
+      "strict_roots": 118,
+      "min": {
+        "1": 104,
+        "2": 6,
+        "5": 2,
+        "8": 6
+      },
+      "persistent": {
+        "1": 102,
+        "2": 6,
+        "7": 2,
+        "8": 8
+      },
+      "nonmonotone": 4,
+      "full_only": 6
+    },
+    "H8_W4": {
+      "roots": 256,
+      "strict_roots": 228,
+      "min": {
+        "1": 180,
+        "2": 18,
+        "3": 6,
+        "4": 10,
+        "5": 4,
+        "7": 4,
+        "8": 6
+      },
+      "persistent": {
+        "1": 128,
+        "3": 10,
+        "4": 6,
+        "5": 6,
+        "6": 2,
+        "7": 24,
+        "8": 52
+      },
+      "nonmonotone": 84,
+      "full_only": 6
+    },
+    "H8_W8": {
+      "roots": 512,
+      "strict_roots": 456,
+      "min": {
+        "1": 398,
+        "3": 16,
+        "5": 8,
+        "6": 15,
+        "8": 19
+      },
+      "persistent": {
+        "1": 330,
+        "3": 16,
+        "5": 8,
+        "6": 23,
+        "8": 79
+      },
+      "nonmonotone": 68,
+      "full_only": 19
+    }
+  },
+  "swmd": {
+    "fixtures": 48,
+    "states": 1358,
+    "transitions": 3024,
+    "terminal": 854
+  },
+  "scorer": {
+    "missing": "pass",
+    "malformed": "pass",
+    "submitted_oracle": "pass",
+    "oracle_submissions": 7376
+  }
+}
