@@ -1,0 +1,609 @@
+{
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md": "cb174a3efb031eaa046b01a2acc526ef7d122345",
+    "output/evaluation_storyworld_reasoning/srg06.json": "6cfa2f07351026b63147d95e22a37f7b38b22808"
+  },
+  "evidence": "additional deterministic xorshift32 paired replay; bounded full-state continuation oracle on real source",
+  "policy": "xorshift32 with floor(u*n), 24 draws per campaign",
+  "manifest": {
+    "profile": "SRG06/direct-window/1",
+    "world_id": "SW-BONSAI27-RESERVOIR-DOGS-001",
+    "turn_base": 1,
+    "derivation": "shortest direct-edge path from start, ignoring guard feasibility and wild edges",
+    "wild_policy": "original windows unchanged",
+    "windows": [
+      {
+        "id": "page_cadillac_trunk",
+        "original_earliest": 4,
+        "direct_earliest": 3,
+        "latest": 6
+      },
+      {
+        "id": "page_chair_duct_tape",
+        "original_earliest": 5,
+        "direct_earliest": 4,
+        "latest": 7
+      },
+      {
+        "id": "page_eddie_call_and_alibi",
+        "original_earliest": 6,
+        "direct_earliest": 4,
+        "latest": 8
+      },
+      {
+        "id": "page_k_billy_razor",
+        "original_earliest": 7,
+        "direct_earliest": 5,
+        "latest": 9
+      },
+      {
+        "id": "page_orange_gun_on_the_ramp",
+        "original_earliest": 8,
+        "direct_earliest": 5,
+        "latest": 10
+      },
+      {
+        "id": "page_nash_confession_shockwave",
+        "original_earliest": 9,
+        "direct_earliest": 6,
+        "latest": 11
+      },
+      {
+        "id": "page_eddie_and_blonde_story",
+        "original_earliest": 10,
+        "direct_earliest": 6,
+        "latest": 12
+      },
+      {
+        "id": "page_cabot_verdict",
+        "original_earliest": 11,
+        "direct_earliest": 7,
+        "latest": 13
+      },
+      {
+        "id": "page_mexican_standoff",
+        "original_earliest": 12,
+        "direct_earliest": 7,
+        "latest": 14
+      },
+      {
+        "id": "page_sirens_at_the_rollup_door",
+        "original_earliest": 13,
+        "direct_earliest": 8,
+        "latest": 16
+      }
+    ]
+  },
+  "calibration": {
+    "seed": 1581329095,
+    "n": 64,
+    "original": {
+      "page_end_mexican_standoff_collapse": 24,
+      "page_end_pink_ghosts_with_stones": 7,
+      "page_end_blonde_gasoline_inferno": 12,
+      "page_end_cabot_executes_the_plant": 4,
+      "page_secret_undercover_truce": 8,
+      "page_end_white_mercy_hospital_trap": 9
+    },
+    "strict": {
+      "blocked_destination": 62,
+      "page_end_mexican_standoff_collapse": 2
+    },
+    "global_window": {
+      "page_end_mexican_standoff_collapse": 22,
+      "page_end_pink_ghosts_with_stones": 7,
+      "page_end_blonde_gasoline_inferno": 13,
+      "page_end_cabot_executes_the_plant": 7,
+      "page_secret_undercover_truce": 6,
+      "page_end_white_mercy_hospital_trap": 9
+    },
+    "scoped": {
+      "page_end_mexican_standoff_collapse": 24,
+      "page_end_pink_ghosts_with_stones": 7,
+      "page_end_blonde_gasoline_inferno": 12,
+      "page_end_cabot_executes_the_plant": 4,
+      "page_secret_undercover_truce": 8,
+      "page_end_white_mercy_hospital_trap": 9
+    },
+    "path_changes_global": 13,
+    "path_changes_scoped": 0,
+    "ending_changes_global": 7,
+    "ending_changes_scoped": 0,
+    "scoped_exceptions": 374,
+    "scoped_terminal": 64,
+    "strict_terminal": 2,
+    "original_terminal": 64,
+    "global_terminal": 64,
+    "selected_steps": 776
+  },
+  "validation": {
+    "seed": 2447445413,
+    "n": 64,
+    "original": {
+      "page_end_white_mercy_hospital_trap": 15,
+      "page_end_pink_ghosts_with_stones": 10,
+      "page_end_mexican_standoff_collapse": 23,
+      "page_end_cabot_executes_the_plant": 3,
+      "page_end_blonde_gasoline_inferno": 6,
+      "page_secret_undercover_truce": 7
+    },
+    "strict": {
+      "blocked_destination": 64
+    },
+    "global_window": {
+      "page_end_white_mercy_hospital_trap": 16,
+      "page_end_pink_ghosts_with_stones": 10,
+      "page_end_mexican_standoff_collapse": 24,
+      "page_end_cabot_executes_the_plant": 4,
+      "page_end_blonde_gasoline_inferno": 4,
+      "page_secret_undercover_truce": 6
+    },
+    "scoped": {
+      "page_end_white_mercy_hospital_trap": 15,
+      "page_end_pink_ghosts_with_stones": 10,
+      "page_end_mexican_standoff_collapse": 23,
+      "page_end_cabot_executes_the_plant": 3,
+      "page_end_blonde_gasoline_inferno": 6,
+      "page_secret_undercover_truce": 7
+    },
+    "path_changes_global": 18,
+    "path_changes_scoped": 0,
+    "ending_changes_global": 5,
+    "ending_changes_scoped": 0,
+    "scoped_exceptions": 393,
+    "scoped_terminal": 64,
+    "strict_terminal": 0,
+    "original_terminal": 64,
+    "global_terminal": 64,
+    "selected_steps": 766
+  },
+  "root_counts": [
+    100,
+    99
+  ],
+  "multi_goal": [
+    {
+      "horizon": 1,
+      "validation_root_goal_pairs": 594,
+      "full_information_opportunities": 86,
+      "by_goal": {
+        "page_end_mexican_standoff_collapse": {
+          "roots": 99,
+          "opportunity": 31,
+          "unique_winning_first_action": 4
+        },
+        "page_end_pink_ghosts_with_stones": {
+          "roots": 99,
+          "opportunity": 11,
+          "unique_winning_first_action": 6
+        },
+        "page_end_blonde_gasoline_inferno": {
+          "roots": 99,
+          "opportunity": 8,
+          "unique_winning_first_action": 3
+        },
+        "page_end_cabot_executes_the_plant": {
+          "roots": 99,
+          "opportunity": 9,
+          "unique_winning_first_action": 4
+        },
+        "page_end_white_mercy_hospital_trap": {
+          "roots": 99,
+          "opportunity": 17,
+          "unique_winning_first_action": 1
+        },
+        "page_secret_undercover_truce": {
+          "roots": 99,
+          "opportunity": 10,
+          "unique_winning_first_action": 5
+        }
+      },
+      "curve": [
+        {
+          "k": 0,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 76,
+          "calibration_lookup": 61,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 0,
+          "cal_cells": 48,
+          "val_cells": 42
+        },
+        {
+          "k": 1,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 76,
+          "calibration_lookup": 61,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 0,
+          "cal_cells": 48,
+          "val_cells": 42
+        },
+        {
+          "k": 2,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 82,
+          "calibration_lookup": 63,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 0,
+          "cal_cells": 90,
+          "val_cells": 84
+        },
+        {
+          "k": 4,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 82,
+          "calibration_lookup": 62,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 72,
+          "cal_cells": 210,
+          "val_cells": 234
+        },
+        {
+          "k": 8,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 84,
+          "calibration_lookup": 60,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 366,
+          "cal_cells": 414,
+          "val_cells": 426
+        },
+        {
+          "k": 16,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 86,
+          "calibration_lookup": 61,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 552,
+          "cal_cells": 528,
+          "val_cells": 546
+        },
+        {
+          "k": 32,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 86,
+          "calibration_lookup": 61,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 570,
+          "cal_cells": 582,
+          "val_cells": 564
+        },
+        {
+          "k": 50,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 86,
+          "calibration_lookup": 61,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 576,
+          "cal_cells": 588,
+          "val_cells": 570
+        }
+      ],
+      "public_only": {
+        "k": 24,
+        "bits": 2,
+        "validation_pairs": 594,
+        "full_information_opportunities": 86,
+        "validation_partition_oracle": 86,
+        "calibration_lookup": 61,
+        "random_first_action_expected_successes": 61.666666667,
+        "unseen": 558,
+        "cal_cells": 570,
+        "val_cells": 564
+      }
+    },
+    {
+      "horizon": 2,
+      "validation_root_goal_pairs": 594,
+      "full_information_opportunities": 86,
+      "by_goal": {
+        "page_end_mexican_standoff_collapse": {
+          "roots": 99,
+          "opportunity": 31,
+          "unique_winning_first_action": 4
+        },
+        "page_end_pink_ghosts_with_stones": {
+          "roots": 99,
+          "opportunity": 11,
+          "unique_winning_first_action": 6
+        },
+        "page_end_blonde_gasoline_inferno": {
+          "roots": 99,
+          "opportunity": 8,
+          "unique_winning_first_action": 3
+        },
+        "page_end_cabot_executes_the_plant": {
+          "roots": 99,
+          "opportunity": 9,
+          "unique_winning_first_action": 4
+        },
+        "page_end_white_mercy_hospital_trap": {
+          "roots": 99,
+          "opportunity": 17,
+          "unique_winning_first_action": 1
+        },
+        "page_secret_undercover_truce": {
+          "roots": 99,
+          "opportunity": 10,
+          "unique_winning_first_action": 5
+        }
+      },
+      "curve": [
+        {
+          "k": 0,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 76,
+          "calibration_lookup": 61,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 0,
+          "cal_cells": 48,
+          "val_cells": 42
+        },
+        {
+          "k": 1,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 76,
+          "calibration_lookup": 61,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 0,
+          "cal_cells": 48,
+          "val_cells": 42
+        },
+        {
+          "k": 2,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 82,
+          "calibration_lookup": 63,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 0,
+          "cal_cells": 90,
+          "val_cells": 84
+        },
+        {
+          "k": 4,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 82,
+          "calibration_lookup": 62,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 72,
+          "cal_cells": 210,
+          "val_cells": 234
+        },
+        {
+          "k": 8,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 84,
+          "calibration_lookup": 60,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 366,
+          "cal_cells": 414,
+          "val_cells": 426
+        },
+        {
+          "k": 16,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 86,
+          "calibration_lookup": 61,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 552,
+          "cal_cells": 528,
+          "val_cells": 546
+        },
+        {
+          "k": 32,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 86,
+          "calibration_lookup": 61,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 570,
+          "cal_cells": 582,
+          "val_cells": 564
+        },
+        {
+          "k": 50,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 86,
+          "validation_partition_oracle": 86,
+          "calibration_lookup": 61,
+          "random_first_action_expected_successes": 61.666666667,
+          "unseen": 576,
+          "cal_cells": 588,
+          "val_cells": 570
+        }
+      ],
+      "public_only": {
+        "k": 24,
+        "bits": 2,
+        "validation_pairs": 594,
+        "full_information_opportunities": 86,
+        "validation_partition_oracle": 86,
+        "calibration_lookup": 61,
+        "random_first_action_expected_successes": 61.666666667,
+        "unseen": 558,
+        "cal_cells": 570,
+        "val_cells": 564
+      }
+    },
+    {
+      "horizon": 3,
+      "validation_root_goal_pairs": 594,
+      "full_information_opportunities": 119,
+      "by_goal": {
+        "page_end_mexican_standoff_collapse": {
+          "roots": 99,
+          "opportunity": 42,
+          "unique_winning_first_action": 10
+        },
+        "page_end_pink_ghosts_with_stones": {
+          "roots": 99,
+          "opportunity": 15,
+          "unique_winning_first_action": 7
+        },
+        "page_end_blonde_gasoline_inferno": {
+          "roots": 99,
+          "opportunity": 16,
+          "unique_winning_first_action": 3
+        },
+        "page_end_cabot_executes_the_plant": {
+          "roots": 99,
+          "opportunity": 13,
+          "unique_winning_first_action": 5
+        },
+        "page_end_white_mercy_hospital_trap": {
+          "roots": 99,
+          "opportunity": 17,
+          "unique_winning_first_action": 1
+        },
+        "page_secret_undercover_truce": {
+          "roots": 99,
+          "opportunity": 16,
+          "unique_winning_first_action": 6
+        }
+      },
+      "curve": [
+        {
+          "k": 0,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 119,
+          "validation_partition_oracle": 104,
+          "calibration_lookup": 90,
+          "random_first_action_expected_successes": 88,
+          "unseen": 0,
+          "cal_cells": 48,
+          "val_cells": 42
+        },
+        {
+          "k": 1,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 119,
+          "validation_partition_oracle": 104,
+          "calibration_lookup": 90,
+          "random_first_action_expected_successes": 88,
+          "unseen": 0,
+          "cal_cells": 48,
+          "val_cells": 42
+        },
+        {
+          "k": 2,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 119,
+          "validation_partition_oracle": 111,
+          "calibration_lookup": 95,
+          "random_first_action_expected_successes": 88,
+          "unseen": 0,
+          "cal_cells": 90,
+          "val_cells": 84
+        },
+        {
+          "k": 4,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 119,
+          "validation_partition_oracle": 111,
+          "calibration_lookup": 93,
+          "random_first_action_expected_successes": 88,
+          "unseen": 72,
+          "cal_cells": 210,
+          "val_cells": 234
+        },
+        {
+          "k": 8,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 119,
+          "validation_partition_oracle": 117,
+          "calibration_lookup": 92,
+          "random_first_action_expected_successes": 88,
+          "unseen": 366,
+          "cal_cells": 414,
+          "val_cells": 426
+        },
+        {
+          "k": 16,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 119,
+          "validation_partition_oracle": 119,
+          "calibration_lookup": 90,
+          "random_first_action_expected_successes": 88,
+          "unseen": 552,
+          "cal_cells": 528,
+          "val_cells": 546
+        },
+        {
+          "k": 32,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 119,
+          "validation_partition_oracle": 119,
+          "calibration_lookup": 90,
+          "random_first_action_expected_successes": 88,
+          "unseen": 570,
+          "cal_cells": 582,
+          "val_cells": 564
+        },
+        {
+          "k": 50,
+          "bits": 2,
+          "validation_pairs": 594,
+          "full_information_opportunities": 119,
+          "validation_partition_oracle": 119,
+          "calibration_lookup": 90,
+          "random_first_action_expected_successes": 88,
+          "unseen": 576,
+          "cal_cells": 588,
+          "val_cells": 570
+        }
+      ],
+      "public_only": {
+        "k": 24,
+        "bits": 2,
+        "validation_pairs": 594,
+        "full_information_opportunities": 119,
+        "validation_partition_oracle": 119,
+        "calibration_lookup": 90,
+        "random_first_action_expected_successes": 88,
+        "unseen": 558,
+        "cal_cells": 570,
+        "val_cells": 564
+      }
+    }
+  ]
+}
