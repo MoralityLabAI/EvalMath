@@ -1,0 +1,24 @@
+# NFAS-04: Three-candidate stopping and seed visibility
+Research draft, 2026-11-25. Exact finite game certificates and elementary paper arguments. Extends NFAS-03.
+
+## Strict separation
+Three candidates A,B,C, equally likely latent worlds: clean signal (0,0,0), good identity C; (0,1,1), good A; (1,1,0), good B. Exactly one audit, payoff 1 for selecting the good identity and 0 otherwise. The decision maker observes arriving identity and signal, retains full history, can stop at first or second arrival, and must take the third if still waiting. Scheduler chooses a permutation before any arrival and cannot adapt it later. Private seed: scheduler knows policy, allowed world information, but not private random draw. Public seed: scheduler also observes realized policy seed. This intentionally correlated distribution is a synthetic mechanism witness, not an independent-value prophet instance. An equivalent audit-risk interpretation is detection of the single failing candidate instead of selection of the single valuable candidate, with residual failure 1 minus payoff.
+
+At zero noise and fully informed scheduling, a deterministic policy can guarantee success in at most one world: every pair shares a first-arrival observation where the two worlds disagree whether stopping is required. A fixed identity guarantees one world, so public-seed value is 1/3. Any private policy with per-world worst success t_i satisfies t_i+t_j<=1 from that same first-arrival conflict; sum over pairs gives average<=1/2. The private policy in the receipt guarantees 1/2 in all three worlds. Thus private seeds strictly improve the value at three candidates. NFAS-03's two-candidate coupling lemma cannot be generalized to arbitrary correlated stopping games.
+
+## Exact model
+Flip each clean signal bit independently with epsilon in {0,1/4,1/2}; world prior uniform. Four scheduler filtrations: full = (latent world, noisy vector), latent = world only, signal = noisy vector only, blind = no world information. Each knows the policy and picks the permutation minimizing conditional expected payoff. Blind chooses one worst fixed permutation; this is not uniform random order. Value is E over scheduler observations of conditional worst payoff.
+
+For first history h let x_h be unconditional probability of stopping at first arrival. For second history (h,j) let z_hj be probability of waiting at first and stopping second. Constraints x_h>=0, z_hj>=0, x_h<=1, x_h+z_hj<=1. Every such vector is implementable by conditional stop probability z/(1-x) when x<1, arbitrary when x=1. This includes all private randomized history-dependent policies since only a single stop is made. On a given world/order (i,j,k), success = x_h*1{i=good} + z_hj*1{j=good} + (1-x_h-z_hj)*1{k=good}.
+
+With integer world weights (total 192), introduce one lower bound t per scheduler observation and constrain t by the weighted payoff under each of six permutations. Maximize sum(t)/192. All 12 private LPs have exact primal-dual witnesses. Discovery used a numerical LP solver with rational reconstruction; the checked-in verifier needs only integer arithmetic and verifies primal feasibility, dual feasibility, equality of objective and an independently computed world/permutation payoff. No dependence on a numerical LP solver for reproduction. All integers are safely bounded in the declared census.
+
+For public-seed optimum, conditioning on the realized policy gives the expected worst-order payoff of a deterministic full-history policy; averaging cannot improve the best such policy. The oracle enumerates all first decision masks, branching on every reachable second decision. Pruning uses the sum of groupwise minimum over each order's independently optimistic remaining contribution; the bound dominates all completions, so no better policy is pruned. The private LP also supplies an integer upper bound (payoff has denominator 192), allowing early termination when attained. Stores a deterministic policy and independent direct evaluation for every optimum. At zero noise and full information the proof above also independently certifies the value.
+
+## Calibration implications
+NFAS-03 already evaluates a public independent-sample threshold control under independent, values-and-samples, and full-world schedulers. In this three-world witness, independent public calibration samples cannot increase the known-law minimax optimum when the scheduler observes them: condition on each sample and optimize under the unchanged world law. Informative, dependent, or privately held samples require a different game. We make no distribution-free claim about the general OpenAI algorithm.
+
+## Reproduce
+node scripts/verify_nfas04.mjs --check
+
+The receipt includes exact primal and dual witnesses and deterministic policies for all noise/filtration combinations. This is a finite synthetic counterexample and full-history oracle; not a Lean theorem or an empirical agent result.
