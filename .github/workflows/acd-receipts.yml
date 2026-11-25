@@ -25,6 +25,6 @@ jobs:
       - name: Reproduce all ACD receipts
         run: |
           set -euo pipefail
-          for script in scripts/verify_acd_01a.mjs scripts/verify_acd_01b.mjs scripts/verify_acd_01c.mjs scripts/verify_acd_02.mjs; do
+          for script in scripts/verify_acd_01a.mjs scripts/verify_acd_01b.mjs scripts/verify_acd_01c.mjs scripts/verify_acd_02.mjs scripts/verify_acd_03.mjs; do
             node "$script" --check
           done
