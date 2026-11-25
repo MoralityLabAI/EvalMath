@@ -274,7 +274,7 @@ def main():
               'registered': analyze(gold, by, models),
               'exploratory_strict_parse': {'arms': analyze(gold, by, models, strict=True)['arms']},
               'ledger_health': ledger_health(by, models)}
-    Path(args.out).write_text(json.dumps(report, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+    Path(args.out).write_bytes((json.dumps(report, indent=2, sort_keys=True) + '\n').encode('utf-8'))
     for a, v in report['registered']['arms'].items():
         print(f"{a:22s} cert {v['certified_accuracy']:.3f} label {v['label_accuracy']:.3f} cov {v['coverage']:.3f} "
               f"FA {v.get('false_authorization')} tok {v['completion_tokens']}")

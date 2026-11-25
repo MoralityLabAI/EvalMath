@@ -1,0 +1,246 @@
+{
+  "arms_exploratory": {
+    "bonsai/direct": {
+      "certified_accuracy": 0.6875,
+      "completion_tokens": 20337,
+      "coverage": 0.8958,
+      "false_authorization": 0.0,
+      "label_accuracy": 0.8958,
+      "latency_seconds": 803.1,
+      "prompt_tokens": 8887
+    },
+    "bonsai/independent": {
+      "certified_accuracy": 0.0208,
+      "completion_tokens": 18963,
+      "coverage": 0.0625,
+      "false_authorization": 0.0,
+      "label_accuracy": 0.0625,
+      "latency_seconds": 783.1,
+      "prompt_tokens": 17774
+    },
+    "bonsai/low": {
+      "certified_accuracy": 0.0625,
+      "completion_tokens": 9619,
+      "coverage": 0.75,
+      "false_authorization": 0.0417,
+      "label_accuracy": 0.7292,
+      "latency_seconds": 418.0,
+      "prompt_tokens": 8887
+    },
+    "bonsai/low2": {
+      "certified_accuracy": 0.0625,
+      "completion_tokens": 9344,
+      "coverage": 0.8542,
+      "false_authorization": 0.0417,
+      "label_accuracy": 0.7708,
+      "latency_seconds": 365.1,
+      "prompt_tokens": 8887
+    },
+    "bonsai/refine": {
+      "certified_accuracy": 0.0833,
+      "completion_tokens": 19954,
+      "coverage": 0.6458,
+      "false_authorization": 0.0,
+      "label_accuracy": 0.6458,
+      "latency_seconds": 852.5,
+      "prompt_tokens": 22943
+    },
+    "bonsai/serial_agree": {
+      "certified_accuracy": 0.0625,
+      "completion_tokens": 19954,
+      "coverage": 0.3333,
+      "false_authorization": 0.0,
+      "label_accuracy": 0.3333,
+      "latency_seconds": 852.5,
+      "prompt_tokens": 22943
+    }
+  },
+  "backend": {
+    "bonsai": {
+      "bytes": 5946648928,
+      "cap_violations": 0,
+      "checkpoint": "Ternary-Bonsai-2-27B-PTQ1_0.gguf",
+      "decode_tps_mean_dev48": 29.62,
+      "driver": "577.05",
+      "gpu": "NVIDIA GeForce RTX 5080 Laptop GPU",
+      "gpu_memory_mib": 6290,
+      "launch": "-ngl 99 -c 4096 -np 1 --jinja --reasoning-format deepseek --seed 523 --no-context-shift",
+      "load_seconds": 138,
+      "prefill_tps_mean_dev48": 44.3,
+      "quantization": "PTQ1_0",
+      "reasoning_tokens_counted_in_completion": true,
+      "server": "PrismML llama.cpp build 10743 commit adfffbe41, CUDA",
+      "sha256": "53107f530aa52eb00912263ab1ee29bd199261c87cd7b4ad4ca1318c1fe33ee3",
+      "usage_reported_every_call": true
+    },
+    "inky": {
+      "attempts": [
+        {
+          "decode_tps": 0.65,
+          "flags": "--n-cpu-moe 12, DATAGOBLIN_STREAM_GPU_WEIGHTS=1, --load-mode none",
+          "gpu_memory_mib": 13523,
+          "note": "21,400 pages/s host paging"
+        },
+        {
+          "decode_tps": 2.58,
+          "flags": "--n-cpu-moe 8, mmap",
+          "gpu_memory_mib": 13523,
+          "prefill_tps": 3.0
+        },
+        {
+          "decode_tps": 1.35,
+          "flags": "--n-cpu-moe 4, mmap",
+          "gpu_memory_mib": 15689,
+          "note": "VRAM near full",
+          "prefill_tps": 3.0
+        }
+      ],
+      "bytes": 17627940800,
+      "calls_logged": 0,
+      "checkpoint": "TML-d24-varloop-research-IQ4_NL.gguf",
+      "reasoning_channel": true,
+      "server": "llama.cpp build 12602 commit 418fe97b5, Vulkan (arena build)",
+      "sha256": "e9f70a167e54794bebce2d456b2118730b74fa7c35e23cb1abd4378f66b17bb2"
+    }
+  },
+  "generation_manifest": {
+    "excluded_ids_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "gold_digest": "c35db45966209f9f8ab86f815a2ff33ec1cf2ea61317c7622925aba705563516",
+    "per_family": 48,
+    "prompt_digest": "43addfd36d082a42b41f6cc629782407ab37ea1146671a2be14e4882c124537c",
+    "roots": 48,
+    "schema": "CPF-suite.1",
+    "seed_commitment": "52235673e1c7737b3b2be3d9269d0d72274343b08d9850672bb89d6c53e26ce4",
+    "split": "dev"
+  },
+  "ledger_health": {
+    "bonsai/direct": {
+      "calls": 48,
+      "cap_hits": 5,
+      "completion_tokens": 20337,
+      "empty_content": 0,
+      "finish_length": 5,
+      "mean_latency_s": 16.73,
+      "parse_fail": 5,
+      "prompt_tokens": 8887,
+      "reported_models": [
+        "bonsai-2-27b-ptq1_0"
+      ],
+      "strict_parse_fail": 5
+    },
+    "bonsai/low1": {
+      "calls": 48,
+      "cap_hits": 12,
+      "completion_tokens": 9619,
+      "empty_content": 0,
+      "finish_length": 12,
+      "mean_latency_s": 8.71,
+      "parse_fail": 12,
+      "prompt_tokens": 8887,
+      "reported_models": [
+        "bonsai-2-27b-ptq1_0"
+      ],
+      "strict_parse_fail": 12
+    },
+    "bonsai/low2": {
+      "calls": 48,
+      "cap_hits": 7,
+      "completion_tokens": 9344,
+      "empty_content": 0,
+      "finish_length": 7,
+      "mean_latency_s": 7.61,
+      "parse_fail": 7,
+      "prompt_tokens": 8887,
+      "reported_models": [
+        "bonsai-2-27b-ptq1_0"
+      ],
+      "strict_parse_fail": 7
+    },
+    "bonsai/refine2": {
+      "calls": 48,
+      "cap_hits": 17,
+      "completion_tokens": 10335,
+      "empty_content": 0,
+      "finish_length": 17,
+      "mean_latency_s": 9.05,
+      "parse_fail": 17,
+      "prompt_tokens": 14056,
+      "reported_models": [
+        "bonsai-2-27b-ptq1_0"
+      ],
+      "strict_parse_fail": 17
+    }
+  },
+  "ledger_sha256_bonsai_snapshot": "23a49eaf9ef817a6ab758abd4658504c0c4ec8525a5734f829e08eb9a85f1379",
+  "panel": "dev48 (threshold family, disjoint from test families)",
+  "refinement_transitions": {
+    "bonsai": {
+      "certified_2x2": {
+        "C->C": 3,
+        "I->C": 1,
+        "I->I": 44
+      },
+      "corruption_rate_given_correct": 0.0,
+      "four_state": {
+        "abstain->abstain": 9,
+        "abstain->label_only": 3,
+        "certified->certified": 3,
+        "label_only->abstain": 8,
+        "label_only->certified": 1,
+        "label_only->label_only": 23,
+        "wrong_label->label_only": 1
+      },
+      "refine_identical_to_low1": 25,
+      "repair_rate_given_incorrect": 0.0222
+    }
+  },
+  "resume_check": "collect re-run against the complete ledger issues no new calls (manifest and key checks)",
+  "run_manifest": {
+    "config": {
+      "budget": 512,
+      "models": {
+        "bonsai": {
+          "answer_reserve": 128,
+          "model": "bonsai-2-27b-ptq1_0",
+          "request_extra": {
+            "chat_template_kwargs": {
+              "enable_thinking": true
+            }
+          },
+          "timeout": 900,
+          "url": "http://127.0.0.1:18110/v1"
+        },
+        "inky": {
+          "answer_reserve": 128,
+          "model": "inky-mini-varloop",
+          "request_extra": {
+            "chat_template_kwargs": {
+              "enable_thinking": true
+            }
+          },
+          "timeout": 900,
+          "url": "http://127.0.0.1:18111/v1"
+        }
+      },
+      "sampling_seed": "CPF05-v1",
+      "temperature": 0.3
+    },
+    "prompt_digest": "43addfd36d082a42b41f6cc629782407ab37ea1146671a2be14e4882c124537c",
+    "protocol": "four-shared-stages.1",
+    "schema": "CPF-run.1",
+    "system": "Evaluate the exact mathematical question under its stated assumptions. Return only a JSON object with keys label and certificate. Use entailed if established, counterexample if false in the stated model, or unresolved if the stated evidence does not establish a claim. Return the certificate in the precise JSON format requested. No prose."
+  },
+  "schema": "CPF-preflight.1",
+  "status": "dev preflight, Bonsai half complete; Inky half blocked (host RAM, then GPU held by another job)",
+  "thinking_off_probe": {
+    "completion_tokens": [
+      19,
+      19,
+      19,
+      19,
+      19,
+      19
+    ],
+    "note": "prose certificates; caps never bind"
+  }
+}

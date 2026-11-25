@@ -179,7 +179,7 @@ def write(out_dir, records, sources, split):
     for name in STREAMS:
         rows = records.get(name, [])
         text = ''.join(json.dumps(r, sort_keys=True, ensure_ascii=False) + '\n' for r in rows)
-        (out / f'{name}.jsonl').write_text(text, encoding='utf-8')
+        (out / f'{name}.jsonl').write_bytes(text.encode('utf-8'))
         for r in rows:
             roots_seen[r['split']].add(r['root'])
         streams[name] = {'bytes': len(text.encode()), 'sha256': sha(text), 'unique_examples': len(rows),
@@ -188,7 +188,7 @@ def write(out_dir, records, sources, split):
     custody.update({k: len(v) for k, v in roots_seen.items()})
     manifest = {'schema_version': SCHEMA, 'split': split, 'roots_by_custody': dict(custody), 'sources': sources,
                 'streams': streams, 'quarantine': 'calibration and sealed_eval records carry loss.eligible=false'}
-    (out / 'manifest.json').write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+    (out / 'manifest.json').write_bytes((json.dumps(manifest, indent=2, sort_keys=True) + '\n').encode('utf-8'))
     print(json.dumps({k: v['unique_examples'] for k, v in streams.items()}))
 
 
