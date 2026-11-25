@@ -1,0 +1,172 @@
+{
+  "census": {
+    "moduli": 334,
+    "quotient_insufficient": 165,
+    "quotient_sufficient": 169
+  },
+  "checks": {
+    "all_quotient_classes_occupied": true,
+    "constructive_witnesses_replay": true,
+    "independent_full_oracle_agrees": true,
+    "long_inputs_agree": true,
+    "quotient_invariant": true
+  },
+  "collision_witness_count": 36,
+  "collision_witness_sha256": "42469ada27e5d8b0ce458606215d725ecc8d73e3162eb7b6dc3dc5063aeef5ff",
+  "evidence": "finite verified example",
+  "examples": {
+    "13": {
+      "accuracy": "8/13",
+      "collision_classes": 1,
+      "coprime_accuracy": "7/12",
+      "coprime_classes": 1,
+      "coprime_cycles": 2,
+      "cycles": 3,
+      "fibres": {
+        "1": {
+          "1": 7,
+          "5": 5
+        }
+      },
+      "periods": {
+        "1": 5,
+        "5": 6,
+        "13": 3
+      },
+      "quotient_classes": 2
+    },
+    "265": {
+      "accuracy": "1",
+      "collision_classes": 0,
+      "coprime_accuracy": "1",
+      "coprime_classes": 2,
+      "coprime_cycles": 2,
+      "cycles": 5,
+      "fibres": {},
+      "periods": {
+        "9": 21,
+        "21": 22,
+        "25": 22,
+        "53": 4,
+        "265": 3
+      },
+      "quotient_classes": 5
+    },
+    "577": {
+      "accuracy": "1",
+      "collision_classes": 0,
+      "coprime_accuracy": "1",
+      "coprime_classes": 4,
+      "coprime_cycles": 4,
+      "cycles": 5,
+      "fibres": {},
+      "periods": {
+        "3": 36,
+        "5": 34,
+        "23": 37,
+        "39": 35,
+        "577": 3
+      },
+      "quotient_classes": 5
+    },
+    "601": {
+      "accuracy": "547/601",
+      "collision_classes": 2,
+      "coprime_accuracy": "91/100",
+      "coprime_classes": 8,
+      "coprime_cycles": 10,
+      "cycles": 11,
+      "fibres": {
+        "31": {
+          "41": 27,
+          "79": 48
+        },
+        "5": {
+          "5": 48,
+          "101": 27
+        }
+      },
+      "periods": {
+        "5": 19,
+        "11": 21,
+        "19": 21,
+        "25": 22,
+        "29": 21,
+        "41": 21,
+        "47": 22,
+        "49": 22,
+        "79": 22,
+        "101": 23,
+        "601": 3
+      },
+      "quotient_classes": 9
+    },
+    "7081": {
+      "accuracy": "6805/7081",
+      "collision_classes": 1,
+      "coprime_accuracy": "553/576",
+      "coprime_classes": 4,
+      "coprime_cycles": 5,
+      "cycles": 10,
+      "fibres": {
+        "5": {
+          "569": 1452,
+          "713": 276
+        }
+      },
+      "periods": {
+        "1": 334,
+        "11": 339,
+        "41": 336,
+        "291": 12,
+        "485": 28,
+        "569": 50,
+        "713": 51,
+        "949": 12,
+        "2409": 13,
+        "7081": 3
+      },
+      "quotient_classes": 9
+    },
+    "73": {
+      "accuracy": "1",
+      "collision_classes": 0,
+      "coprime_accuracy": "1",
+      "coprime_classes": 2,
+      "coprime_cycles": 2,
+      "cycles": 3,
+      "fibres": {},
+      "periods": {
+        "3": 12,
+        "5": 28,
+        "73": 3
+      },
+      "quotient_classes": 3
+    },
+    "97": {
+      "accuracy": "1",
+      "collision_classes": 0,
+      "coprime_accuracy": "1",
+      "coprime_classes": 2,
+      "coprime_cycles": 2,
+      "cycles": 3,
+      "fibres": {},
+      "periods": {
+        "13": 12,
+        "33": 13,
+        "97": 3
+      },
+      "quotient_classes": 3
+    }
+  },
+  "experiment": "CLQ-01",
+  "finite_roots_checked": 340747,
+  "long_inputs_checked": 336,
+  "population": "uniform odd representatives 1..2d-1",
+  "source_sha256": {
+    "paper/collatz_quotient_sufficiency.md": "141b977feaa28eebbb87e577adcb494ac7778fa132915f05aca59b3d8776fd7e",
+    "scripts/verify_collatz_quotient.py": "df4abfb9f6720c5a8cf027712baa36f7264f171254c4a2454b07b58a50743146",
+    "src/spiral_ln/evaluation_collatz_quotient.py": "632585fa5b3a253a6aa6c0a967008ec7ff9b7c6ac9944c4cac650b06265b480d",
+    "tests/test_collatz_quotient.py": "4fcd434879712f5aaef83820665d0e415b4fab916a13e1688a34caef9ac4895b"
+  }
+}
