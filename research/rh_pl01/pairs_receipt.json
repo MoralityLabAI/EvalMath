@@ -133,7 +133,7 @@
         "pairing": 1
       },
       "structural_replay": true,
-      "original_full_replay": false,
+      "original_full_replay": true,
       "independent_replay": {
         "lines": 10833,
         "unary": "41620884",
