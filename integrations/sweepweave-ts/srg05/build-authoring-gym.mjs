@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {pathToFileURL} from 'node:url';
 import * as api from './swmd-runtime-v2.mjs';
-function buildGym(api){
+export function buildGym(api){
  const {compileV2,initialV2,observeV2,stepV2,applyLinePatch}=api;
  const families=["reaction_sign","belief_keyring","comparator","dependent_write_order","weak_effect","late_windfall","spool_activation","event_prerequisite","cue_visibility","direct_admission"];
  const q=JSON.stringify;
@@ -123,9 +124,10 @@ function buildGym(api){
    if(body.includes(" | ")||/[\r\n]/.test(body))throw Error("patch breaks record scope");
    return score(applyLinePatch(task.source,patch),task);
  }
- const results=[],publicRows=[],goldRows=[];
+ const results=[],publicRows=[],goldRows=[],taskById=new Map();
  for(const f of families)for(let i=0;i<8;i++){
    const task=fixture(f,i),bad=score(task.source,task),repair=verifyPatch(task,task.patch),sham=verifyPatch(task,task.sham);
+   taskById.set(task.id,task);
    if(repair.passed!==repair.total||bad.passed>=bad.total||sham.passed!==bad.passed)throw Error("fixture separation failed "+task.id+" "+JSON.stringify({bad,repair,sham}));
    let invalidRejected=false;try{verifyPatch(task,{...task.patch,line:task.patch.line+1});}catch{invalidRejected=true;}if(!invalidRejected)throw Error("out-of-scope patch accepted");
    // Public pedagogical task, not a sealed holdout. Family names remain in IDs
@@ -136,11 +138,14 @@ function buildGym(api){
    results.push({id:task.id,family:f,defective:bad.passed,repaired:repair.passed,sham:sham.passed,total:repair.total});
  }
  const by_family={};for(const r of results){const row=by_family[r.family]??={tasks:0,defective:0,repaired:0,sham:0,total:0};row.tasks++;for(const k of ["defective","repaired","sham","total"])row[k]+=r[k];}
- return {publicRows,goldRows,receipt:{evidence:"public deterministic synthetic repair controls, no model inference",tasks:results.length,families:families.length,by_family,
+ return {publicRows,goldRows,scoreSubmission(id,patch){const task=taskById.get(id);if(!task)throw Error('unknown task');return verifyPatch(task,patch);},receipt:{evidence:"public deterministic synthetic repair controls, no model inference",tasks:results.length,families:families.length,by_family,
    all_gold_repairs_pass:results.every(r=>r.repaired===r.total),all_defects_fail_some_probe:results.every(r=>r.defective<r.total),all_shams_preserve_defect:results.every(r=>r.sham===r.defective),
    probes_total:results.reduce((n,r)=>n+r.total,0),defective_passes:results.reduce((n,r)=>n+r.defective,0),repaired_passes:results.reduce((n,r)=>n+r.repaired,0),sham_passes:results.reduce((n,r)=>n+r.sham,0)}};
 }
+if(process.argv[1] && import.meta.url===pathToFileURL(process.argv[1]).href){
 const out=process.argv[2];if(!out)throw Error('Usage: node build-authoring-gym.mjs <output-directory>');
 const r=buildGym(api);fs.mkdirSync(out,{recursive:true});
 for(const [name,rows] of [['author_tasks.jsonl',r.publicRows],['author_gold.jsonl',r.goldRows]])fs.writeFileSync(path.join(out,name),rows.map(x=>JSON.stringify(x)).join('\n')+'\n');
 fs.writeFileSync(path.join(out,'repair_receipt.json'),JSON.stringify(r.receipt,null,2)+'\n');
+
+}
