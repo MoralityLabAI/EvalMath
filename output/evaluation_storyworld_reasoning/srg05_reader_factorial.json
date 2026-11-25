@@ -1,0 +1,67 @@
+{
+  "source_revision": "ee1c6918db77d1e0924877f59eca819bae3f1c8c",
+  "source_blobs": {
+    "storyworlds/bonsai27_reservoir_dogs/reservoir_dogs_bonsai27.json": "f735f6198f2c7c1810d3feef13459632867cf1d9",
+    "storyworld_reader.html": "d43d9ab729206f1594ea7cee98918bc9ec92f267"
+  },
+  "evidence": "finite paired policy-index replay; isolated reader arithmetic mutations; no model inference",
+  "policy_sequences": 64,
+  "results": {
+    "reader": {
+      "page_end_cabot_executes_the_plant": 3,
+      "page_end_white_mercy_hospital_trap": 33,
+      "page_end_mexican_standoff_collapse": 20,
+      "page_end_pink_ghosts_with_stones": 7,
+      "page_secret_undercover_truce": 1
+    },
+    "signed_only": {
+      "page_end_cabot_executes_the_plant": 3,
+      "page_end_white_mercy_hospital_trap": 32,
+      "page_end_mexican_standoff_collapse": 21,
+      "page_end_pink_ghosts_with_stones": 7,
+      "page_secret_undercover_truce": 1
+    },
+    "minmax_only": {
+      "page_end_pink_ghosts_with_stones": 7,
+      "page_secret_undercover_truce": 12,
+      "page_end_white_mercy_hospital_trap": 20,
+      "page_end_mexican_standoff_collapse": 25
+    },
+    "both": {
+      "page_end_pink_ghosts_with_stones": 9,
+      "page_secret_undercover_truce": 13,
+      "page_end_white_mercy_hospital_trap": 19,
+      "page_end_mexican_standoff_collapse": 22,
+      "page_end_blonde_gasoline_inferno": 1
+    },
+    "swmd": {
+      "page_end_pink_ghosts_with_stones": 9,
+      "page_secret_undercover_truce": 13,
+      "page_end_white_mercy_hospital_trap": 19,
+      "page_end_mexican_standoff_collapse": 22,
+      "page_end_blonde_gasoline_inferno": 1
+    }
+  },
+  "pairwise_ending_disagreements": {
+    "reader__signed_only": 1,
+    "reader__minmax_only": 30,
+    "reader__both": 35,
+    "reader__swmd": 35,
+    "signed_only__minmax_only": 31,
+    "signed_only__both": 34,
+    "signed_only__swmd": 34,
+    "minmax_only__both": 8,
+    "minmax_only__swmd": 8,
+    "both__swmd": 0
+  },
+  "reader_both_vs_swmd_prefix_parity": {
+    "trials": 64,
+    "matched_steps": 780,
+    "route_disagreements": 0,
+    "menu_disagreements": 0,
+    "reaction_disagreements": 0,
+    "numeric_disagreements": 0,
+    "max_coordinate_delta": 0,
+    "first_mismatch": null
+  }
+}
