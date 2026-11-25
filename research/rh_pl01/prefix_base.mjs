@@ -2,8 +2,8 @@
 import {pairs} from './pairs.mjs';
 import {kernel} from './kernel.mjs';
 function buildPrefixBase(ps,k){
- function prepare(raw){
- const ctx=ps.prepare(raw),{p,t,ar,ns,pair,single,pairProof,bound,sg,singleExists,cases,pack,witness,allP,all,and,chain,explode,orLeft,orRight,refl}=ctx,{apply,inst,nest,move,symmetric,trans,replace,emptyUnique,empty,succ}=t,{imp,gen,neg,intern}=ar,{E,M,A,F,O,X,sub,split,qAt,exAt,hyp,mp,generalize,abs,left,right,conj,ui,introAt,exIntro,exElim}=p.logic;
+ function prepare(raw,sharedCtx){
+ const ctx=sharedCtx||ps.prepare(raw),{p,t,ar,ns,pair,single,pairProof,bound,sg,singleExists,cases,pack,witness,allP,all,and,chain,explode,orLeft,orRight,refl}=ctx,{apply,inst,nest,move,symmetric,trans,replace,emptyUnique,empty,succ}=t,{imp,gen,neg,intern}=ar,{E,M,A,F,O,X,sub,split,qAt,exAt,hyp,mp,generalize,abs,left,right,conj,ui,introAt,exIntro,exElim}=p.logic;
  const assert=(q,m)=>{if(!q)throw Error(m)};
  let f=intern(k.decode(raw.slice(0,-1)));while(ns[f].tag==='a')f=ns[f].y;let rem=ns[f].x;const clauses=[];for(let j=0;j<21;j++){const [x,y]=split(rem);clauses.push(x);rem=y}clauses.push(rem);
  const W=37,C0=6,MUL=8,S=0,n=40,x=41,y=42,a=43,b=44,P=50,Q=51,K=53,Z=60,pp=61,g=62,nat=x=>M(x,W),at=(s,x,a)=>p.at(s,x,a);
@@ -22,7 +22,7 @@ function buildPrefixBase(ps,k){
  const baseGoal=gen(20,imp(A(empty(20),nat(20)),cover(20)));
  const premises=[nat(Z),empty(Z),nat(C0),powerDef(W,P),powerDef(P,Q),famSpec];
  const pairAll=allP([40,41],pairProof),boundAll=allP([40,41,44,45,46,47],bound),sgAll=allP([40,41,42,43,44,48],sg);
- const result=pack(premises,(mz,ez,mc,pw,pq,family)=>{
+ function derive(finish){return pack(premises,(mz,ez,mc,pw,pq,family)=>{
    return witness(inst(pairAll,Z,C0),pp,hp=>witness(singleExists(pp,g),g,hs=>{
      function rel(i,j){
        const r=inst(sgAll,Z,C0,i,j,pp,g);
@@ -62,15 +62,29 @@ function buildPrefixBase(ps,k){
      const hmem=hyp(M(i,g)),same=mp(hmem,left(ui(hs,i)));
      const bounded=introAt(abs(hmem,replace(inQ,symmetric(same),M(99,Q),99)),i,subset(g,Q));
      const gf=mp(conj(bounded,goodProof),right(ui(family,g)));
-     // Base coverage for any empty member, by empty-set uniqueness.
-     const v=20,h=hyp(A(empty(v),nat(v))),eq=emptyUnique(Z,v,ez,left(h),98),val=replace(zVal,eq,at(g,99,C0),99);
-     const cv=exIntro(cover(v),g,conj(gf,exIntro(X(47,A(nat(47),at(g,v,47))),C0,conj(mc,val))));
-     return generalize(v,abs(h,cv))
+     return finish({mz,ez,mc,zVal,domFor,gf})
    }))
+ })}
+ const result=derive(({ez,mc,zVal,gf})=>{
+   // Base coverage for any empty member, by empty-set uniqueness.
+   const v=20,h=hyp(A(empty(v),nat(v))),eq=emptyUnique(Z,v,ez,left(h),98),val=replace(zVal,eq,at(g,99,C0),99);
+   const cv=exIntro(cover(v),g,conj(gf,exIntro(X(47,A(nat(47),at(g,v,47))),C0,conj(mc,val))));
+   return generalize(v,abs(h,cv))
  });
  assert(ns[result.f].y===baseGoal,'exact base coverage');
  const out=ctx.get('bounded_prefix_family_base_coverage',result);
- return {...out,phi:k.encode(ar.ast(phi)),famSpec:k.encode(ar.ast(famSpec)),receipt:{...out.receipt,good_predicate_bytes:ns[phi].u,premises:premises.map(i=>ns[i].u),base_coverage_discharged:true,actual_rh_proof:false}};
+ const domain=(graph,last)=>gen(x,imp(nat(x),F(dom(graph,x),O(E(x,last),M(x,last)))));
+ const strongGoal=X(46,A(M(46,K),A(domain(46,Z),X(47,A(nat(47),at(46,Z,47))))));
+ const strongResult=derive(({mc,zVal,domFor,gf})=>{
+   return exIntro(strongGoal,g,nest(gf,domFor,exIntro(X(47,A(nat(47),at(g,Z,47))),C0,conj(mc,zVal))))
+ });
+ assert(ns[strongResult.f].y===strongGoal,'exact endpoint base coverage');
+ const strong=()=>{
+   const row=ctx.get('bounded_prefix_family_exact_zero_endpoint',strongResult);
+   return {...row,receipt:{...row.receipt,good_predicate_bytes:ns[phi].u,exact_endpoint_coverage:true,actual_rh_proof:false}}
+ };
+ const original={...out,phi:k.encode(ar.ast(phi)),famSpec:k.encode(ar.ast(famSpec)),receipt:{...out.receipt,good_predicate_bytes:ns[phi].u,premises:premises.map(i=>ns[i].u),base_coverage_discharged:true,actual_rh_proof:false}};
+ return {...original,ctx,result,premises,strongResult,strongGoal,strongPremises:premises,strong,run:()=>[original,strong()],good_predicate:k.encode(ar.ast(phi)),good_instances:[{graph:0,omega:37}]};
  }
  return {prepare};
 }

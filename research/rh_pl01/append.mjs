@@ -2,8 +2,8 @@
 import {pairs} from './pairs.mjs';
 import {kernel} from './kernel.mjs';
 function buildAppend(ps,k){
- function prepare(raw){
- const ctx=ps.prepare(raw),{p,t,ar,ns,pair,single,pairProof,bound,sg,singleExists,doubleExists,cases,pack,witness,allP,all,and,chain,explode,orLeft,orRight,refl}=ctx,{apply,inst,nest,move,symmetric,trans,replace}=t,{imp,gen,neg}=ar,{E,M,A,F,O,X,sub,split,exAt,hyp,ax,mp,generalize,abs,left,right,conj,ui,introAt,exIntro}=p.logic;
+ function prepare(raw,sharedCtx){
+ const ctx=sharedCtx||ps.prepare(raw),{p,t,ar,ns,pair,single,pairProof,bound,sg,singleExists,doubleExists,cases,pack,witness,allP,all,and,chain,explode,orLeft,orRight,refl}=ctx,{apply,inst,nest,move,symmetric,trans,replace}=t,{imp,gen,neg}=ar,{E,M,A,F,O,X,sub,split,exAt,hyp,ax,mp,generalize,abs,left,right,conj,ui,introAt,exIntro}=p.logic;
  const assert=(q,m)=>{if(!q)throw Error(m)};
  const [x,y,G,W,P,Q,pp,s,f,U]=[60,61,62,37,50,51,65,66,67,68],i=70,j=71,l=72,h=73,mark=99;
  const nat=x=>M(x,W),at=(g,x,y)=>p.at(g,x,y),subset=(s,q)=>gen(3,imp(M(3,s),M(3,q))),power=(s,q)=>gen(2,F(M(2,q),subset(2,s)));
@@ -77,7 +77,7 @@ function buildAppend(ps,k){
    return exIntro(goal,U,nest(rel,bounded,fn))
  }));
  assert(ns[boundedFunctional.f].y===goal,'append theorem');
- return {run:()=>[ctx.get('append_graph_application_equivalence',basic),ctx.get('bounded_fresh_append_preserves_functionality',boundedFunctional)]};
+ return {ctx,basic,boundedFunctional,relation,func,absent,premises,goal,derive,run:()=>[ctx.get('append_graph_application_equivalence',basic),ctx.get('bounded_fresh_append_preserves_functionality',boundedFunctional)]};
  }
  return {prepare}
 }

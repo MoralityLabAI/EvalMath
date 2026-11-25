@@ -2,8 +2,8 @@
 import {gluing} from './gluing.mjs';
 import {kernel} from './kernel.mjs';
 function buildRecursiveExistence(gl,k){
- function prepare(raw){
- const ctx=gl.prepare(raw),{t,p,ar,ns,cover,total,functional,compat,memberFamily,base,step,unionRel}=ctx,{apply,inst,nest,replace,empty,succ}=t,{imp,gen,intern}=ar,{E,M,A,X,sub,split,qAt,exAt,hyp,mp,generalize,abs,left,right,conj,ui,exIntro,exElim}=p.logic;
+ function prepare(raw,sharedCtx=null){
+ const ctx=gl.prepare(raw,sharedCtx),{t,p,ar,ns,cover,total,functional,compat,memberFamily,base,step,unionRel}=ctx,{apply,inst,nest,replace,empty,succ}=t,{imp,gen,intern}=ar,{E,M,A,X,sub,split,qAt,exAt,hyp,mp,generalize,abs,left,right,conj,ui,exIntro,exElim}=p.logic;
  const assert=(ok,msg)=>{if(!ok)throw Error(msg)},all=(xs,f)=>xs.reduceRight((r,x)=>gen(x,r),f),allP=(xs,pf)=>xs.reduceRight((r,x)=>generalize(x,r),pf),chain=(fs,f)=>fs.reduceRight((r,s)=>imp(s,r),f),and=fs=>fs.reduceRight((r,s)=>A(s,r)),nat=n=>M(n,1),inFam=s=>M(s,4),at=(s,n,v)=>p.at(s,n,v);
  function unpack(h,count){const out=[];for(let i=0;i<count-1;i++){out.push(left(h));h=right(h)}out.push(h);return out}
  function witness(q,v,fn){const h=hyp(exAt(q.f,v));return exElim(q,v,h,fn(h))}
@@ -59,7 +59,7 @@ function buildRecursiveExistence(gl,k){
    })
  });
  const root=p.close(result),r=p.emit(root);
- return {raw:{nodes:ar.nodes,ids:r.ids,root:root.f,target:k.encode(ar.ast(root.f)),cost:r.cost},receipt:{name:'denominator_recursion_existence_from_compatible_family',target_bytes:ns[root.f].u,...r.cost,axioms:r.axioms,premise_formula_bytes:premises.map(i=>ns[i].u),structural_replay:true,original_full_replay:false,coverage_step_derived:true,normalized_base_and_recurrence_derived:true,actual_rh_proof:false}};
+ return {ctx,result,premises,goal,bLocal,ext,localWitness,baseOut,updateOut,raw:{nodes:ar.nodes,ids:r.ids,root:root.f,target:k.encode(ar.ast(root.f)),cost:r.cost},receipt:{name:'denominator_recursion_existence_from_compatible_family',target_bytes:ns[root.f].u,...r.cost,axioms:r.axioms,premise_formula_bytes:premises.map(i=>ns[i].u),structural_replay:true,original_full_replay:false,coverage_step_derived:true,normalized_base_and_recurrence_derived:true,actual_rh_proof:false}};
  }
  return {prepare};
 }

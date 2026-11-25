@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "evidence_level": "checked derivation in the frozen candidate Hilbert calculus",
+  "group": "ordinals",
+  "frozen_blobs": {
+    "kernel.mjs": "35da89e237ecbd1a807ade3fffb39ffd57890ace",
+    "rh_target.txt": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+    "rh_target_compact.txt": "98fb1ce81784556af2f6dff8d0d6b31d9c69d7e5"
+  },
+  "source_sha256": {
+    "research/rh_pl01/assembler.mjs": "b4a485c74b3c786ff9ce02f789becf10256acc2eb7f85c38b49663c100db9257",
+    "research/rh_pl01/bounds.mjs": "c8b2f57715380363b562cac7c17fb47c3e3d391fca24855254ef79e63a9bc1e6",
+    "research/rh_pl01/compression.mjs": "bd0ffc65de672b768967c677d517fa11924923370edeb1b7e6987064116bd4fe",
+    "research/rh_pl01/denominator.mjs": "62472f49f7d8eb9356935a81cecb186730b3c2bc86176220a762e6fb0aba03f0",
+    "research/rh_pl01/gluing.mjs": "8441ebc9eeaf93c5f2acc1dc9114bb1727cfa2b502c73ae1f2f9d05d8dc687e9",
+    "research/rh_pl01/induction.mjs": "396cf9cc5008b5c705085cc1e880c5de875c1fb94a112e86b8e8978eaca60bed",
+    "research/rh_pl01/interfaces.mjs": "f3e3a25c55f8c85f51a4e3c0c6e9848b23706eac514adac3123a296360d8ce47",
+    "research/rh_pl01/joint_audit.mjs": "0d867db461cbdd0af131122bcec327d7ae95ffc248bce68b7ce81a639dc2a3ed",
+    "research/rh_pl01/kernel.mjs": "8e69d415b5f756bdc97d82e0366fd601100bb8a67ea00e0f06f1a94d765c939b",
+    "research/rh_pl01/numerator.mjs": "63de8208bfed7f5d32c7e094955979c3b249769f0d8232dc1661a0cd2b7a5351",
+    "research/rh_pl01/ordinal_audit.mjs": "927a88139e2a31bce0702324e176f21a9f3b993b174c2eaf92be7d4d20a15cac",
+    "research/rh_pl01/ordinals.mjs": "722b5d09f5d6cfe6b43831309f80e5efde9002c4ffd3e2d72b2a4fc4860320a6",
+    "research/rh_pl01/pairs.mjs": "e323c6944b232926ad5a68c83be04954ffb570267289424747ce4fc311ebd1d4",
+    "research/rh_pl01/prefix_family.mjs": "1387b32c2b4079b9ed99b534836c2ec36df647394d87831ab2940be292c3c075",
+    "research/rh_pl01/recursion_existence.mjs": "4cf4fca0cc1baf327b5bc06939da9f4ed1b556c72836a72c2d8d2e71692a0ceb",
+    "research/rh_pl01/rh_target.txt": "45f4182cf6a41b47f73b62e10c7b3b8542d81b49265346bf363dc1caa8a75826",
+    "research/rh_pl01/rh_target_compact.txt": "29f0fbdec5a162ac2b77473af1a84e9e5ae31f5ff0e5c6b5143b43a67981f97a",
+    "research/rh_pl01/spine.mjs": "fc50657dd171768ff013a726b9863d86c0934cdf42a544740377c4e679ce61d9",
+    "research/rh_pl01/transport.mjs": "fde690db2cd74fb1dbfb9ce8703ab62480fdaa79241fc10b2fc12d2a5f1dd03d"
+  },
+  "checks": {
+    "frozen_files_match": true,
+    "independent_certificate_replay": true,
+    "byte_counts_recomputed": true,
+    "mutation_controls_rejected": true,
+    "predicate_fidelity": true
+  },
+  "predicate_fidelity": null,
+  "rows": [
+    {
+      "name": "omega_transitive",
+      "target_bytes": 1117,
+      "lines": 4351,
+      "unary": 12431552,
+      "compact": 1299425,
+      "axioms": {
+        "equality-reflexivity": 2,
+        "propositional": 2111,
+        "forall-elimination": 22,
+        "equality-substitution": 2,
+        "forall-distribution": 27,
+        "separation": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "independent_replay": {
+        "lines": 4351,
+        "unary": "12431552",
+        "compact": "1299425",
+        "nodes": 5517,
+        "target_bytes": "1117",
+        "rules": {
+          "K": 998,
+          "S": 901,
+          "classical": 212,
+          "mp": 2168,
+          "gen": 18
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 2,
+          "forall-elimination": 22,
+          "equality-substitution": 2,
+          "forall-distribution": 27,
+          "separation": 1
+        }
+      },
+      "certificate_json_bytes": 105180,
+      "target_sha256": "b3f57611f203d51e13fa5198492babe3d0754136dd1e4cb8811e1a80e07729f2",
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 1",
+          "costs_recomputed": true
+        }
+      }
+    },
+    {
+      "name": "natural_members_transitive",
+      "target_bytes": 1425,
+      "lines": 4549,
+      "unary": 19037766,
+      "compact": 1639799,
+      "axioms": {
+        "equality-reflexivity": 1,
+        "propositional": 2207,
+        "forall-elimination": 24,
+        "equality-substitution": 1,
+        "forall-distribution": 29,
+        "separation": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "independent_replay": {
+        "lines": 4549,
+        "unary": "19037766",
+        "compact": "1639799",
+        "nodes": 5783,
+        "target_bytes": "1425",
+        "rules": {
+          "K": 1045,
+          "S": 947,
+          "classical": 215,
+          "mp": 2266,
+          "gen": 20
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 1,
+          "forall-elimination": 24,
+          "equality-substitution": 1,
+          "forall-distribution": 29,
+          "separation": 1
+        }
+      },
+      "certificate_json_bytes": 111336,
+      "target_sha256": "bafd9189b47b596a56c8f039339da8f6f9d3437408e614cdcef7728fffad58f5",
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 1",
+          "costs_recomputed": true
+        }
+      }
+    },
+    {
+      "name": "natural_members_irreflexive",
+      "target_bytes": 865,
+      "lines": 7812,
+      "unary": 24978008,
+      "compact": 2502100,
+      "axioms": {
+        "propositional": 3764,
+        "equality-reflexivity": 2,
+        "forall-elimination": 38,
+        "equality-substitution": 2,
+        "forall-distribution": 46,
+        "separation": 2
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "independent_replay": {
+        "lines": 7812,
+        "unary": "24978008",
+        "compact": "2502100",
+        "nodes": 9753,
+        "target_bytes": "865",
+        "rules": {
+          "K": 1787,
+          "S": 1643,
+          "classical": 334,
+          "mp": 3929,
+          "gen": 29
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 2,
+          "forall-elimination": 38,
+          "equality-substitution": 2,
+          "forall-distribution": 46,
+          "separation": 2
+        }
+      },
+      "certificate_json_bytes": 189037,
+      "target_sha256": "61f2f6a708d8bc8546bfa5a3e16aa8131231bda53c26051228bafe19db107361",
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 3",
+          "costs_recomputed": true
+        }
+      }
+    },
+    {
+      "name": "natural_zero_or_successor",
+      "target_bytes": 1694,
+      "lines": 4176,
+      "unary": 23640812,
+      "compact": 2263040,
+      "axioms": {
+        "propositional": 2030,
+        "forall-elimination": 20,
+        "separation": 1,
+        "forall-distribution": 25
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "independent_replay": {
+        "lines": 4176,
+        "unary": "23640812",
+        "compact": "2263040",
+        "nodes": 5406,
+        "target_bytes": "1694",
+        "rules": {
+          "K": 955,
+          "S": 860,
+          "classical": 215,
+          "mp": 2084,
+          "gen": 16
+        },
+        "nonpropositional_axioms": {
+          "forall-elimination": 20,
+          "separation": 1,
+          "forall-distribution": 25
+        }
+      },
+      "certificate_json_bytes": 103522,
+      "target_sha256": "75cb727b6c973ea3472747d90ef3c6e558fe98be87b65080310e6f1c3d88a59e",
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 3",
+          "costs_recomputed": true
+        }
+      }
+    },
+    {
+      "name": "natural_successor_injective",
+      "target_bytes": 2596,
+      "lines": 8712,
+      "unary": 28532823,
+      "compact": 2881024,
+      "axioms": {
+        "equality-reflexivity": 4,
+        "propositional": 4194,
+        "forall-elimination": 48,
+        "equality-substitution": 3,
+        "forall-distribution": 46,
+        "separation": 2
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "independent_replay": {
+        "lines": 8712,
+        "unary": "28532823",
+        "compact": "2881024",
+        "nodes": 10915,
+        "target_bytes": "2596",
+        "rules": {
+          "K": 1988,
+          "S": 1820,
+          "classical": 386,
+          "mp": 4382,
+          "gen": 33
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 4,
+          "forall-elimination": 48,
+          "equality-substitution": 3,
+          "forall-distribution": 46,
+          "separation": 2
+        }
+      },
+      "certificate_json_bytes": 215580,
+      "target_sha256": "1de9578e95d5b404abcd006df793041b0a71567d044ce7cfd2c5e0f8e5bcdba3",
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 1",
+          "costs_recomputed": true
+        }
+      }
+    },
+    {
+      "name": "successor_outside_previous_initial_segment",
+      "target_bytes": 1976,
+      "lines": 8344,
+      "unary": 26515089,
+      "compact": 2685359,
+      "axioms": {
+        "propositional": 4018,
+        "equality-reflexivity": 3,
+        "forall-elimination": 45,
+        "equality-substitution": 3,
+        "forall-distribution": 46,
+        "separation": 2
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "independent_replay": {
+        "lines": 8344,
+        "unary": "26515089",
+        "compact": "2685359",
+        "nodes": 10448,
+        "target_bytes": "1976",
+        "rules": {
+          "K": 1907,
+          "S": 1750,
+          "classical": 361,
+          "mp": 4195,
+          "gen": 32
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 3,
+          "forall-elimination": 45,
+          "equality-substitution": 3,
+          "forall-distribution": 46,
+          "separation": 2
+        }
+      },
+      "certificate_json_bytes": 204624,
+      "target_sha256": "1ee113afef2d91664a783ebd46dfcf543af0a3a3c40aad4a8e3eda178af5b61b",
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 3",
+          "costs_recomputed": true
+        }
+      }
+    },
+    {
+      "name": "successor_predecessor_in_initial_segment",
+      "target_bytes": 2188,
+      "lines": 5023,
+      "unary": 20687519,
+      "compact": 1825188,
+      "axioms": {
+        "equality-reflexivity": 2,
+        "propositional": 2434,
+        "forall-elimination": 29,
+        "equality-substitution": 2,
+        "forall-distribution": 29,
+        "separation": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "independent_replay": {
+        "lines": 5023,
+        "unary": "20687519",
+        "compact": "1825188",
+        "nodes": 6408,
+        "target_bytes": "2188",
+        "rules": {
+          "K": 1151,
+          "S": 1038,
+          "classical": 245,
+          "mp": 2502,
+          "gen": 24
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 2,
+          "forall-elimination": 29,
+          "equality-substitution": 2,
+          "forall-distribution": 29,
+          "separation": 1
+        }
+      },
+      "certificate_json_bytes": 124101,
+      "target_sha256": "f3254a0a71ac19ed02768e53acf4e7eff7bdaf0e15850cb7be00aba6fc07612d",
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 1",
+          "costs_recomputed": true
+        }
+      }
+    }
+  ],
+  "shared_nonpropositional_axiom_recognizer": true,
+  "actual_rh_proof": false,
+  "finite_rh_upper_bound": false
+}

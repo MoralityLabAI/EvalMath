@@ -2,8 +2,8 @@
 import {transport} from './transport.mjs';
 import {kernel} from './kernel.mjs';
 function buildGluing(tr,k){
- function prepare(raw){
- const t=tr.prepare(raw),{p,ar,ns,apply,inst,nest,move,empty,succ}=t,{imp,gen,neg}=ar,{E,M,A,F,X,fv,sub,split,qAt,exAt,hyp,ax,mp,generalize,abs,left,right,conj,ui,exIntro,exElim}=p.logic;
+ function prepare(raw,sharedCtx=null){
+ const t=sharedCtx?.t||tr.prepare(raw),{p,ar,ns,apply,inst,nest,move,empty,succ}=t,{imp,gen,neg}=ar,{E,M,A,F,X,fv,sub,split,qAt,exAt,hyp,ax,mp,generalize,abs,left,right,conj,ui,exIntro,exElim}=p.logic;
  const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
  const all=(xs,f)=>xs.reduceRight((r,x)=>gen(x,r),f);
  const allProof=(xs,pf)=>xs.reduceRight((r,x)=>generalize(x,r),pf);

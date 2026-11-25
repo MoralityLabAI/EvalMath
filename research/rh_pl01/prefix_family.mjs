@@ -2,8 +2,8 @@
 import {transport} from './transport.mjs';
 import {kernel} from './kernel.mjs';
 function buildPrefixFamily(tr,k){
- function prepare(raw){
- const t=tr.prepare(raw),{p,ar,ns,apply,inst,nest,empty,succ}=t,{imp,gen,intern}=ar,{E,M,A,F,O,X,sub,split,qAt,exAt,hyp,ax,mp,generalize,abs,left,right,conj,ui,exIntro,exElim}=p.logic;
+ function prepare(raw,sharedCtx=null){
+ const t=sharedCtx?.t||tr.prepare(raw),{p,ar,ns,apply,inst,nest,empty,succ}=t,{imp,gen,intern}=ar,{E,M,A,F,O,X,sub,split,qAt,exAt,hyp,ax,mp,generalize,abs,left,right,conj,ui,exIntro,exElim}=p.logic;
  const assert=(ok,msg)=>{if(!ok)throw Error(msg)},all=(xs,f)=>xs.reduceRight((r,x)=>gen(x,r),f),chain=(fs,f)=>fs.reduceRight((r,s)=>imp(s,r),f),and=fs=>fs.reduceRight((r,s)=>A(s,r));
  function witness(q,v,fn){const h=hyp(exAt(q.f,v));return exElim(q,v,h,fn(h))}
  let f=intern(k.decode(raw.slice(0,-1)));while(ns[f].tag==='a')f=ns[f].y;let rem=ns[f].x;const clauses=[];for(let j=0;j<21;j++){const [x,y]=split(rem);clauses.push(x);rem=y}clauses.push(rem);
@@ -47,7 +47,7 @@ function buildPrefixFamily(tr,k){
  // derivation, before eliminating that witness.
  assert(pr.f===goal,'family existence target');
  const root=p.close(pr),r=p.emit(root);
- return {raw:{nodes:ar.nodes,ids:r.ids,root:root.f,target:k.encode(ar.ast(root.f)),cost:r.cost},receipt:{name:'bounded_prefix_candidate_family_exists',target_bytes:ns[root.f].u,predicate_bytes:ns[phi].u,...r.cost,axioms:r.axioms,structural_replay:true,original_full_replay:false,actual_rh_proof:false}};
+ return {t,p,ar,ns,result:pr,goal,raw:{nodes:ar.nodes,ids:r.ids,root:root.f,target:k.encode(ar.ast(root.f)),cost:r.cost},receipt:{name:'bounded_prefix_candidate_family_exists',target_bytes:ns[root.f].u,predicate_bytes:ns[phi].u,...r.cost,axioms:r.axioms,structural_replay:true,original_full_replay:false,actual_rh_proof:false}};
  }
  return {prepare}
 }

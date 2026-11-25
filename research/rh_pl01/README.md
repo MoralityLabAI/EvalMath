@@ -1,7 +1,19 @@
 # RH-PL-01: Proof-length frontier, obstruction packing
 
-Status: exploratory registration and exact finite synthetic control, 2026-11-25.
-No numerical RH/ZFC lower bound, ZFC derivation, or Lean kernel theorem is claimed.
+Status: exploratory proof-length program through RH-PL-15, 2026-11-25.
+
+The latest stage, [RH-PL-15](RH_PL_15.md), derives natural ordinal facts from
+the frozen least-inductive Omega predicate and constructs the normalized
+recurrence from Omega, a natural initial value, and the supplied total functional
+multiplication graph. Its proof constructs the bounded Good-prefix family and
+discharges the coverage, overlap, and extension conditions used in RH-PL-13.
+Source-hashed receipts and the `ordinal_audit.mjs` CLI document the checks.
+
+The frozen candidate arithmetic target has lower floors of 570,269 unary bytes
+and 69,411 compact bytes from [RH-PL-07](RH_PL_07.md). A finite upper bound for
+that target remains unknown. Standard-ZFC certification and analytic-RH
+equivalence remain open. The sections below preserve the original RH-PL-01
+registration and its synthetic controls.
 
 ## Target contract
 
