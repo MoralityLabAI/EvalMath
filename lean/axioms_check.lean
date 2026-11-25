@@ -260,6 +260,13 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.CPF02.totalDegree_eval₂Hom_le
 #print axioms FeedbackChannel.CPF02.anthropic_vnp_to_canonical
 #print axioms FeedbackChannel.CPF02.vnp_iff_anthropic
+#print axioms FeedbackChannel.CPF02.computes_map
+#print axioms FeedbackChannel.CPF02.statement_computes_map
+#print axioms FeedbackChannel.CPF02.laurent_const_coeff
+#print axioms FeedbackChannel.CPF02.computes_approximates
+#print axioms FeedbackChannel.CPF02.statement_computes_approximates
+#print axioms FeedbackChannel.CPF02.vp_subset_vpbar
+#print axioms FeedbackChannel.CPF02.statement_vp_subset_vpbar
 
 -- CPF-03: semantic mutation witnesses
 #print axioms FeedbackChannel.CPF03.approximate_bound_transfer

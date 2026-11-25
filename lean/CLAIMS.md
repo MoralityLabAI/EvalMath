@@ -280,5 +280,8 @@ Every theorem below is listed in `axioms_check.lean` with standard axioms only. 
 | CPF-02 | substitution of degree-≤1 polynomials does not raise total degree | `FeedbackChannel.CPF02.totalDegree_eval₂Hom_le` | FeedbackChannel/CPF02/Bridges.lean | full |  |
 | CPF-02 | Anthropic VNP into canonical VNP | `FeedbackChannel.CPF02.anthropic_vnp_to_canonical` | FeedbackChannel/CPF02/Bridges.lean | full |  |
 | CPF-02 | VNP equal under canonical and Anthropic conventions | `FeedbackChannel.CPF02.vnp_iff_anthropic` | FeedbackChannel/CPF02/Bridges.lean | full |  |
+| CPF-02 | coefficient ring homomorphisms preserve circuit size (canonical and charged) | `FeedbackChannel.CPF02.computes_map`, `FeedbackChannel.CPF02.statement_computes_map` | FeedbackChannel/CPF02/Bridges.lean | full |  |
+| CPF-02 | exact circuit is a constant-Laurent approximation of the same size | `FeedbackChannel.CPF02.computes_approximates`, `FeedbackChannel.CPF02.statement_computes_approximates` | FeedbackChannel/CPF02/Bridges.lean | full | Laurent notion only |
+| CPF-02 | VP subset of VPBar | `FeedbackChannel.CPF02.vp_subset_vpbar`, `FeedbackChannel.CPF02.statement_vp_subset_vpbar` | FeedbackChannel/CPF02/Bridges.lean | full | Laurent notion only; no geometric-closure claim |
 | CPF-03 | approximate-inclusion transfer and its failed converse | `FeedbackChannel.CPF03.no_reverse_bound` | FeedbackChannel/CPF03.lean | full | logical countermodel only |
 | CPF-03 | pointwise vs uniform threshold | `FeedbackChannel.CPF03.no_uniform_threshold` | FeedbackChannel/CPF03.lean | full | with `pointwise_threshold` |

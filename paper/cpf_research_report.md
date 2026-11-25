@@ -19,12 +19,13 @@ Evidence levels used throughout: **kernel** (Lean 4.34.1, Mathlib `d13f23b`, `#p
 | OpenAI VNP with arbitrary finite witness types equals canonical VNP over Fin (r n) | kernel | `openai_vnp_iff_canonical` |
 | VP ⊆ VNP; VNP is the same class under the OpenAI, canonical and Anthropic conventions | kernel | `vp_subset_vnp`, `vnp_iff_anthropic` (with `totalDegree_eval₂Hom_le`) |
 | Laurent approximation transfers from charged to canonical circuits | kernel | `anthropic_approx_to_canonical` |
+| VP ⊆ VPBar (Laurent closure), canonical and Anthropic conventions | kernel | `vp_subset_vpbar`, `statement_vp_subset_vpbar` |
 | Small-table compiler census (0 to 2 gates, fields of order 2, 3, 5, formal coefficient maps) | finite | `cpf_02.json` |
 | Approximate-inclusion transfer, failed converse; pointwise vs uniform thresholds | kernel | `CPF03.*` |
 
 ### Remaining obligations
 
-1. **Laurent versus geometric border.** All approximation statements here are the algebraic Laurent notion. Agreement with Zariski-closure border complexity holds over algebraically closed fields and is not claimed elsewhere. VP ⊆ VPBar (the constant-Laurent embedding) is not kernel-checked.
+1. **Laurent versus geometric border.** All approximation statements here are the algebraic Laurent notion. Agreement with Zariski-closure border complexity holds over algebraically closed fields and is not claimed elsewhere. VP ⊆ VPBar is kernel-checked for the Laurent notion only.
 2. **Endpoints and families.** Neither lab's separation endpoint is proved here; the permanent/Hamiltonian definitions and the quantitative rates m^(c(log m)^(1/3)) and exp(Ω((log n)^(5/4))) are not yet placed on a common size parameter.
 3. **Adaptive audit theorem.** Paper induction plus finite oracle; no Lean proof.
 4. **Trusted environment.** Only definition bodies of the upstream statements are imported; the OpenAI comparator's admitted challenge endpoint stays in an archive outside the build.

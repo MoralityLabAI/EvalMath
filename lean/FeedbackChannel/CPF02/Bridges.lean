@@ -421,4 +421,61 @@ theorem vnp_iff_anthropic {F : Type u} [Field F] (f : Statement.Family F) :
     VNP f.poly ↔ f ∈ Statement.VNP F :=
   ⟨canonical_vnp_to_anthropic f, anthropic_vnp_to_canonical f⟩
 
+/-! ## Exact circuits as constant Laurent approximations -/
+
+/-- A ring homomorphism of coefficients carries a canonical circuit to one of the same size. -/
+theorem computes_map {F K V : Type*} [Field F] [Field K] (φ : F →+* K) {p : MvPolynomial V F} {s : ℕ}
+    (h : Computes p s) : Computes (map φ p) s := by
+  obtain ⟨l, hout, hg⟩ := h
+  have hav : ∀ k x, Available l k x → Available (fun i => map φ (l i)) k (map φ x) := by
+    rintro k x (⟨j, rfl⟩ | ⟨a, rfl⟩ | ⟨j, hj, rfl⟩)
+    · exact Or.inl ⟨j, (map_X φ j).symm⟩
+    · exact Or.inr (Or.inl ⟨φ a, (map_C φ a).symm⟩)
+    · exact Or.inr (Or.inr ⟨j, hj, rfl⟩)
+  refine ⟨fun i => map φ (l i), hav _ _ hout, fun i hi => ?_⟩
+  obtain ⟨a, b, ha, hb, hop⟩ := hg i hi
+  refine ⟨map φ a, map φ b, hav _ _ ha, hav _ _ hb, ?_⟩
+  rcases hop with h | h | h
+  · exact Or.inl (by simp only [h, map_add])
+  · exact Or.inr (Or.inl (by simp only [h, map_sub]))
+  · exact Or.inr (Or.inr (by simp only [h, map_mul]))
+
+/-- The same for Anthropic's charged circuits. -/
+theorem statement_computes_map {R S : Type u} {V : Type} [CommSemiring R] [CommSemiring S]
+    (φ : R →+* S) {p : MvPolynomial V R} {s : ℕ} (h : Statement.Computes p s) :
+    Statement.Computes (map φ p) s := by
+  obtain ⟨l, hl, k, hk, rfl⟩ := h
+  refine ⟨fun i => map φ (l i), fun m hm => ?_, k, hk, rfl⟩
+  rcases hl m hm with ⟨v, h⟩ | ⟨a, h⟩ | ⟨i, hi, j, hj, h⟩ | ⟨i, hi, j, hj, h⟩
+  · exact Or.inl ⟨v, by simp only [h, map_X]⟩
+  · exact Or.inr (Or.inl ⟨φ a, by simp only [h, map_C]⟩)
+  · exact Or.inr (Or.inr (Or.inl ⟨i, hi, j, hj, by simp only [h, map_add]⟩))
+  · exact Or.inr (Or.inr (Or.inr ⟨i, hi, j, hj, by simp only [h, map_mul]⟩))
+
+theorem laurent_const_coeff {F : Type u} {V : Type} [Field F] (p : MvPolynomial V F) (d : V →₀ ℕ) (i : ℤ) :
+    ((map (HahnSeries.C : F →+* LaurentSeries F) p).coeff d).coeff i = if i = 0 then p.coeff d else 0 := by
+  rw [coeff_map, HahnSeries.C_apply, HahnSeries.coeff_single]
+  split_ifs <;> rfl
+
+/-- An exact canonical circuit is a Laurent approximation of the same size (constant series). -/
+theorem computes_approximates {F : Type u} {V : Type} [Field F] {p : MvPolynomial V F} {s : ℕ}
+    (h : Computes p s) : Approximates p s :=
+  ⟨_, computes_map _ h, fun d i _ => laurent_const_coeff p d i⟩
+
+/-- The same for Anthropic's charged circuits and `Statement.Approximates`. -/
+theorem statement_computes_approximates {F : Type u} {V : Type} [Field F] {p : MvPolynomial V F} {s : ℕ}
+    (h : Statement.Computes p s) : Statement.Approximates p s :=
+  ⟨_, statement_computes_map _ h, fun d i _ => laurent_const_coeff p d i⟩
+
+/-- VP ⊆ VPBar (Laurent notion), canonical convention. -/
+theorem vp_subset_vpbar {F : Type u} [Field F] {V : ℕ → Type} [∀ n, Fintype (V n)]
+    (f : Family F V) (h : VP f) : VPBar f := by
+  obtain ⟨hP, s, hs, hc⟩ := h
+  exact ⟨hP, s, hs, fun n => computes_approximates (hc n)⟩
+
+/-- VP ⊆ VPBar (Laurent notion), Anthropic convention. -/
+theorem statement_vp_subset_vpbar (F : Type u) [Field F] : Statement.VP F ⊆ Statement.VPBar F := by
+  rintro f ⟨a, h⟩
+  exact ⟨a, fun n => ⟨(h n).1, (h n).2.1, statement_computes_approximates (h n).2.2⟩⟩
+
 end FeedbackChannel.CPF02
