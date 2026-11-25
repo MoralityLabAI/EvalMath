@@ -43,7 +43,7 @@ def decks(used):
                         else:G=nx.random_geometric_graph(n,.48,seed=seed)
                     labels=list(range(n));rng.shuffle(labels);g=graph_tuple(nx.relabel_nodes(G,dict(enumerate(labels))));key=graph_key(g)
                     if key not in used:used.add(key);cards.append(g);break
-                else:raise RuntimeError('graph generator exhausted')
+                else:raise RuntimeError('generator exhausted')
             yield split,i,tuple(cards),depths
 
 class Online:
