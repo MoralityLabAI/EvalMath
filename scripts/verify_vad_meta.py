@@ -152,7 +152,7 @@ def myopic_value(horizon,p,data,hazard):
 
 def toy():
     # Two static latent modes. Safe: reward 1 regardless of mode, no information.
-    # Bet0/Bet1: reward +3 or -3 and reveal mode through their outcome. Probe: -1 and reveal.
+    # Bet0/Bet1: reward +6 or -12 and reveal mode through their outcome. Probe: -1 and reveal.
     # Use a higher-loss bet to make a strictly costly probe optimal at the initial belief.
     d={'safe':(F(1),F(1),((F(1),F(1)),)), 'probe':(F(-1),F(-1),((F(1),F(0)),(F(0),F(1)))),
        'bet0':(F(6),F(-12),((F(1),F(0)),(F(0),F(1)))), 'bet1':(F(-12),F(6),((F(1),F(0)),(F(0),F(1))))}
