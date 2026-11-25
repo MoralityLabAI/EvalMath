@@ -74,21 +74,21 @@ function buildTransport(ind,k){
  const ext=ax(gen(0,gen(1,imp(gen(2,F(M(2,0),M(2,1))),E(0,1)))));
  assert(ext.detail==='extensionality','extensionality axiom');
  const empty=x=>gen(23,neg(M(23,x))),succ=(x,y)=>gen(23,F(M(23,y),O(M(23,x),E(23,x))));
- function eqFromExt(s,t,point){
-   const e=inst(ext,s,t),target=ns[e.f].x,z=fresh(target,E(s,t)),pointProof=point(z);
+ function eqFromExt(s,t,point,witness){
+   const e=inst(ext,s,t),target=ns[e.f].x,z=witness??fresh(target,E(s,t)),pointProof=point(z);
    return mp(introAt(pointProof,z,target),e)
  }
- function emptyUnique(x,y,ex,ey){
+ function emptyUnique(x,y,ex,ey,witness){
    ex=move(ex,empty(x));ey=move(ey,empty(y));
    return eqFromExt(x,y,z=>{
      const a=ui(ex,z),b=ui(ey,z),u=M(z,x),v=M(z,y);
      function explosion(p,q,n){const c=mp(n,ax(imp(n.f,imp(neg(q),n.f))));return mp(c,ax(imp(c.f,imp(p,q))))}
      return conj(explosion(u,v,a),explosion(v,u,b))
-   })
+   },witness)
  }
- function succUnique(x,y,z,s,t){
+ function succUnique(x,y,z,s,t,witness){
    s=move(s,succ(x,y));t=move(t,succ(x,z));
-   return eqFromExt(y,z,u=>{const a=ui(s,u),b=ui(t,u);return conj(comp(left(a),right(b)),comp(left(b),right(a)))})
+   return eqFromExt(y,z,u=>{const a=ui(s,u),b=ui(t,u);return conj(comp(left(a),right(b)),comp(left(b),right(a)))},witness)
  }
  function controls(){
    const cases=[
