@@ -1,0 +1,39 @@
+{
+  "evidence": "executed pure scorer controls, no model or HTTP calls",
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg09/curriculum.mjs": "c08f502a0ce072133bc17c3e7d011972565315ba",
+    "integrations/sweepweave-ts/srg09/local.mjs": "8534314f1c3429d0b8677c49f1cfe4836d0f6697"
+  },
+  "gold": {
+    "correct": 168,
+    "rows": 168,
+    "mass": 262144,
+    "utility_numerator": 1713408,
+    "regret_numerator": 0
+  },
+  "majority": {
+    "correct": 94,
+    "rows": 168,
+    "utility_numerator": 1105920,
+    "regret_numerator": 607488
+  },
+  "author": {
+    "passed": 288,
+    "total": 288,
+    "weighted": 98304,
+    "weighted_total": 98304
+  },
+  "sham": {
+    "passed": 0,
+    "total": 288
+  },
+  "malformed": {
+    "rejected": 1,
+    "duplicate": 1,
+    "missing": 166
+  },
+  "unknown": 1,
+  "author_scope_rejected": 1
+}
