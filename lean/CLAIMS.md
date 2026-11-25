@@ -296,3 +296,6 @@ Every theorem below is listed in `axioms_check.lean` with standard axioms only. 
 |---|---|---|---|---|---|
 | Bulk shifts compose | L(k,b)(L(k,a)t)=L(k,a+b)t | `FeedbackChannel.CertificateLift.lift_add` | FeedbackChannel/CertificateLift.lean | full | unbounded annotated syntax, nonnegative natural distances |
 | Raw lookup with bulk shift | recursive lookup equals raw lookup mapped by L(0,i+1) | `FeedbackChannel.CertificateLift.lookup_bulk` | FeedbackChannel/CertificateLift.lean | full | includes missing binders; no cryptographic implementation claim |
+
+| Lookup after dropping context entries | rawLookup (drop d Γ) i = rawLookup Γ (d+i) | `FeedbackChannel.CertificateLift.rawLookup_drop` | FeedbackChannel/CertificateLift.lean | full | unbounded context lists; missing binders included |
+| Binary jumps | specialize d to 2^e | `FeedbackChannel.CertificateLift.rawLookup_jump` | FeedbackChannel/CertificateLift.lean | full | semantic abbreviation; public metadata admission and R1CS separately audited |

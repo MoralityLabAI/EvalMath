@@ -62,4 +62,22 @@ theorem lookup_bulk (Γ : List Expr) (i : Nat) :
       | some t =>
         simp [lift_add, Nat.succ_eq_add_one]
 
+/-- Dropping d context entries before a raw lookup advances its index by d. -/
+theorem rawLookup_drop (Γ : List Expr) (d i : Nat) :
+    rawLookup (Γ.drop d) i = rawLookup Γ (d + i) := by
+  induction d generalizing Γ with
+  | zero => simp
+  | succ d ih =>
+    cases Γ with
+    | nil => simp [rawLookup]
+    | cons A Γ =>
+      change rawLookup (Γ.drop d) i = rawLookup (A :: Γ) (Nat.succ d + i)
+      rw [Nat.succ_add]
+      exact ih Γ
+
+/-- Binary jumps are derived raw lookup steps, including the missing-binder case. -/
+theorem rawLookup_jump (Γ : List Expr) (e i : Nat) :
+    rawLookup (Γ.drop (2 ^ e)) i = rawLookup Γ (2 ^ e + i) :=
+  rawLookup_drop Γ (2 ^ e) i
+
 end FeedbackChannel.CertificateLift
