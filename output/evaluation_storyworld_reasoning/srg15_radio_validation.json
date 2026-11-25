@@ -1,0 +1,258 @@
+{
+  "evidence": "executed frozen repair validation, no retuning",
+  "params": {
+    "retention": 0,
+    "restraint": 0.04
+  },
+  "development_feasible": 0,
+  "validation": [
+    {
+      "cohort": {
+        "seed": 1397888273,
+        "n": 128
+      },
+      "baseline": {
+        "prefixes": 123,
+        "edited": 0,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 123
+        },
+        "contrast": {
+          "h1": -1,
+          "h3": -6.5,
+          "unique_truce": 13.5,
+          "random_goal": -10.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 22,
+          "h3": 22,
+          "unique_truce": 17,
+          "random_goal": 11,
+          "complete": 123,
+          "reached": 123
+        },
+        "off": {
+          "h1": 23,
+          "h3": 28.5,
+          "unique_truce": 3.5,
+          "random_goal": 21.5,
+          "complete": 123,
+          "reached": 123
+        },
+        "max_delta": 0,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 0,
+        "unchanged_non_target": 246,
+        "zero_warrant_checks": 94,
+        "route_changes": 0,
+        "off_replay_checks": 0,
+        "mean_delta": {
+          "h1": -0.008130081300813009,
+          "h3": -0.052845528455284556,
+          "unique_truce": 0.10975609756097561,
+          "random_goal": -0.08536585365853659,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      },
+      "selected": {
+        "prefixes": 123,
+        "edited": 29,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 123
+        },
+        "contrast": {
+          "h1": 1,
+          "h3": -4.5,
+          "unique_truce": 14.5,
+          "random_goal": -5.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 24,
+          "h3": 24,
+          "unique_truce": 18,
+          "random_goal": 16,
+          "complete": 123,
+          "reached": 123
+        },
+        "off": {
+          "h1": 23,
+          "h3": 28.5,
+          "unique_truce": 3.5,
+          "random_goal": 21.5,
+          "complete": 123,
+          "reached": 123
+        },
+        "max_delta": 0.039999999999999994,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 2.7755575615628914e-17,
+        "dependent_p2_changes": 29,
+        "unchanged_non_target": 246,
+        "zero_warrant_checks": 94,
+        "route_changes": 0,
+        "off_replay_checks": 340,
+        "mean_delta": {
+          "h1": 0.008130081300813009,
+          "h3": -0.036585365853658534,
+          "unique_truce": 0.11788617886178862,
+          "random_goal": -0.044715447154471545,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "cohort": {
+        "seed": 1397888274,
+        "n": 128
+      },
+      "baseline": {
+        "prefixes": 123,
+        "edited": 0,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 123
+        },
+        "contrast": {
+          "h1": 8.5,
+          "h3": -1.5,
+          "unique_truce": 20.5,
+          "random_goal": -3.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 30,
+          "h3": 30,
+          "unique_truce": 25,
+          "random_goal": 20,
+          "complete": 123,
+          "reached": 123
+        },
+        "off": {
+          "h1": 21.5,
+          "h3": 31.5,
+          "unique_truce": 4.5,
+          "random_goal": 23.5,
+          "complete": 123,
+          "reached": 123
+        },
+        "max_delta": 0,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 0,
+        "unchanged_non_target": 246,
+        "zero_warrant_checks": 95,
+        "route_changes": 0,
+        "off_replay_checks": 0,
+        "mean_delta": {
+          "h1": 0.06910569105691057,
+          "h3": -0.012195121951219513,
+          "unique_truce": 0.16666666666666666,
+          "random_goal": -0.028455284552845527,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      },
+      "selected": {
+        "prefixes": 123,
+        "edited": 28,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 123
+        },
+        "contrast": {
+          "h1": 9.5,
+          "h3": -0.5,
+          "unique_truce": 22.5,
+          "random_goal": -4.5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 31,
+          "h3": 31,
+          "unique_truce": 27,
+          "random_goal": 19,
+          "complete": 123,
+          "reached": 123
+        },
+        "off": {
+          "h1": 21.5,
+          "h3": 31.5,
+          "unique_truce": 4.5,
+          "random_goal": 23.5,
+          "complete": 123,
+          "reached": 123
+        },
+        "max_delta": 0.039999999999999994,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 2.7755575615628914e-17,
+        "dependent_p2_changes": 28,
+        "unchanged_non_target": 246,
+        "zero_warrant_checks": 95,
+        "route_changes": 0,
+        "off_replay_checks": 341,
+        "mean_delta": {
+          "h1": 0.07723577235772358,
+          "h3": -0.0040650406504065045,
+          "unique_truce": 0.18292682926829268,
+          "random_goal": -0.036585365853658534,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    }
+  ],
+  "outcome": "FAIL",
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg13/fixtures/reservoir-dogs-evidence-chain-candidate.swmd.md": "64d40ef2d0953a6034a92c4250c006f59f533fb2",
+    "integrations/sweepweave-ts/srg15/radio-repair.mjs": "eb649bf294f309b529e80d9d5f2792363bf1cb99",
+    "output/evaluation_storyworld_reasoning/srg15_radio_development.json": "8f25bfb0e28c3643c311cc3c1895cd2e77a79eae"
+  }
+}
