@@ -1,0 +1,46 @@
+{
+  "alpha": "1/20",
+  "confirm_units_planned": 128,
+  "experiment_id": "MIC-03-public-cpu",
+  "heldout_sealed": false,
+  "independent_unit": "structural generator lineage (independence unverified)",
+  "measurement_resolution": "0",
+  "pilot": [
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "7/162"
+      ],
+      "unit_id": "dag"
+    },
+    {
+      "paired_effect": "973/2332800",
+      "sham_effects": [
+        "1/36"
+      ],
+      "unit_id": "cyclic"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "cover_sparse"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "1/25"
+      ],
+      "unit_id": "cover_dense"
+    }
+  ],
+  "pilot_from_development_only": true,
+  "planned_comparisons": 3,
+  "schema_version": 1,
+  "scientific_min_effect": "1/20",
+  "sham_confidence": "19/20",
+  "sham_quantile": "19/20",
+  "target_effect": "1/10",
+  "units_independent": false
+}
