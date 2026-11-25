@@ -206,8 +206,7 @@ def summarize(rows):
         for m in sorted({x['method'] for x in rows}):
             rr=[x for x in rows if x['regime']==r and x['method']==m]
             if not rr: continue
-            base=sum(x['base'] for x in rr); total=sum(x['total'] for x in rr)
-            mac=sum(x['macs'] for x in rr)
+            base=sum(x['base'] for x in rr); total=sum(x['total'] for x in rr); mac=sum(x['macs'] for x in rr)
             out.append(dict(regime=r,method=m,n=len(rr),base=base,total=total,gain=base/total,gain_with_mac=base/(total+mac),macs=mac,recovered=sum(x['recovered'] for x in rr),profitable=sum(x['total']<x['base'] for x in rr),pair_evals=sum(x['pair_evals'] for x in rr),work=sum(x['work'] for x in rr)))
     return out
 
