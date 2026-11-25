@@ -1,0 +1,2401 @@
+{
+  "frozen": {
+    "action": null,
+    "feature": null,
+    "c": 0
+  },
+  "counts": {
+    "prefix_steps": 10247,
+    "suffix_steps": 21621,
+    "nodes": 22677,
+    "scope_actions": 576,
+    "ordered_writes": 0,
+    "invalid": 0
+  },
+  "training": {
+    "menu": 72,
+    "weak": 83,
+    "ledger": 83,
+    "goal4": 83,
+    "public": 83
+  },
+  "cohorts": [
+    {
+      "cohort": {
+        "seed": 1397892369,
+        "n": 96
+      },
+      "baseline": {
+        "roots": 96,
+        "valid": 96,
+        "full": 90,
+        "info": 62,
+        "oracles": {
+          "menu": {
+            "value": 80,
+            "full": 90,
+            "cells": 77,
+            "informative_cells": 14,
+            "gap": 10
+          },
+          "weak": {
+            "value": 90,
+            "full": 90,
+            "cells": 80,
+            "informative_cells": 17,
+            "gap": 0
+          },
+          "ledger": {
+            "value": 90,
+            "full": 90,
+            "cells": 80,
+            "informative_cells": 17,
+            "gap": 0
+          },
+          "goal4": {
+            "value": 90,
+            "full": 90,
+            "cells": 112,
+            "informative_cells": 24,
+            "gap": 0
+          },
+          "public": {
+            "value": 90,
+            "full": 90,
+            "cells": 365,
+            "informative_cells": 79,
+            "gap": 0
+          }
+        },
+        "gap": 0,
+        "strict": {
+          "pairs": 0,
+          "cells": 0,
+          "examples": []
+        },
+        "script": {
+          "value": 80,
+          "rule": [
+            1,
+            0,
+            1
+          ]
+        },
+        "scope": {
+          "actions": 0,
+          "ordered_writes": 0,
+          "invalid": 0,
+          "unchanged": 0,
+          "warrant_zero": 0,
+          "max_adjust": 0,
+          "max_ratio": 1,
+          "max_share_increase": 0
+        },
+        "errors": []
+      },
+      "candidate": {
+        "roots": 96,
+        "valid": 96,
+        "full": 90,
+        "info": 62,
+        "oracles": {
+          "menu": {
+            "value": 80,
+            "full": 90,
+            "cells": 77,
+            "informative_cells": 14,
+            "gap": 10
+          },
+          "weak": {
+            "value": 90,
+            "full": 90,
+            "cells": 80,
+            "informative_cells": 17,
+            "gap": 0
+          },
+          "ledger": {
+            "value": 90,
+            "full": 90,
+            "cells": 80,
+            "informative_cells": 17,
+            "gap": 0
+          },
+          "goal4": {
+            "value": 90,
+            "full": 90,
+            "cells": 112,
+            "informative_cells": 24,
+            "gap": 0
+          },
+          "public": {
+            "value": 90,
+            "full": 90,
+            "cells": 365,
+            "informative_cells": 79,
+            "gap": 0
+          }
+        },
+        "gap": 0,
+        "strict": {
+          "pairs": 0,
+          "cells": 0,
+          "examples": []
+        },
+        "script": {
+          "value": 80,
+          "rule": [
+            1,
+            0,
+            1
+          ]
+        },
+        "scope": {
+          "actions": 288,
+          "ordered_writes": 0,
+          "invalid": 0,
+          "unchanged": 288,
+          "warrant_zero": 0,
+          "max_adjust": 0,
+          "max_ratio": 1,
+          "max_share_increase": 0
+        },
+        "errors": [],
+        "lost": 0,
+        "gain": 0,
+        "checks": {
+          "valid": true,
+          "scope": true,
+          "adjust": true,
+          "energy": true,
+          "concentration": true,
+          "full": true,
+          "paired_loss": true,
+          "goal4": true,
+          "info": true
+        },
+        "pass": true,
+        "hardens": false
+      },
+      "mixed": {
+        "roots": 288,
+        "valid": 288,
+        "full": 160,
+        "info": 113,
+        "oracles": {
+          "menu": {
+            "value": 140,
+            "full": 160,
+            "cells": 184,
+            "informative_cells": 39,
+            "gap": 20
+          },
+          "weak": {
+            "value": 149,
+            "full": 160,
+            "cells": 243,
+            "informative_cells": 43,
+            "gap": 11
+          },
+          "ledger": {
+            "value": 159,
+            "full": 160,
+            "cells": 573,
+            "informative_cells": 73,
+            "gap": 1
+          },
+          "goal4": {
+            "value": 160,
+            "full": 160,
+            "cells": 884,
+            "informative_cells": 106,
+            "gap": 0
+          },
+          "public": {
+            "value": 160,
+            "full": 160,
+            "cells": 1406,
+            "informative_cells": 221,
+            "gap": 0
+          }
+        },
+        "gap": 11,
+        "strict": {
+          "pairs": 81,
+          "cells": 5,
+          "examples": [
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                12,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 1
+                }
+              ],
+              "left": {
+                "rep": 1,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_2",
+                    "reaction": "rxn_page_blonde_arrives_2_0"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_1",
+                    "reaction": "rxn_page_chair_duct_tape_1_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_0",
+                    "reaction": "rxn_page_nash_confession_shockwave_0_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_1",
+                    "reaction": "rxn_page_eddie_and_blonde_story_1_1"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_2",
+                    "reaction": "rxn_page_cabot_verdict_2_2"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_0",
+                    "reaction": "rxn_page_mexican_standoff_0_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0.0625,
+                  "char_pink.Rat_Suspicion": 0.17537526744304435,
+                  "char_blonde.Sadistic_Escalation": 0.0686967071326208,
+                  "char_white.Crew_Loyalty": 0.3065559537851914
+                }
+              },
+              "right": {
+                "rep": 2,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_0",
+                    "reaction": "rxn_page_color_aliases_and_stash_0_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_0",
+                    "reaction": "rxn_page_cadillac_trunk_0_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_2",
+                    "reaction": "rxn_page_chair_duct_tape_2_2"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_0",
+                    "reaction": "rxn_page_eddie_call_and_alibi_0_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_0",
+                    "reaction": "rxn_page_nash_confession_shockwave_0_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_1",
+                    "reaction": "rxn_page_eddie_and_blonde_story_1_1"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_0",
+                    "reaction": "rxn_page_cabot_verdict_0_0"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_1",
+                    "reaction": "rxn_page_mexican_standoff_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0.0625,
+                  "char_pink.Rat_Suspicion": 0.129717890816,
+                  "char_blonde.Sadistic_Escalation": -0.012914086399999997,
+                  "char_white.Crew_Loyalty": 0.30370352978432
+                }
+              }
+            },
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                12,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 1
+                }
+              ],
+              "left": {
+                "rep": 1,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_2",
+                    "reaction": "rxn_page_blonde_arrives_2_0"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_1",
+                    "reaction": "rxn_page_chair_duct_tape_1_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_0",
+                    "reaction": "rxn_page_nash_confession_shockwave_0_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_1",
+                    "reaction": "rxn_page_eddie_and_blonde_story_1_1"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_2",
+                    "reaction": "rxn_page_cabot_verdict_2_2"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_0",
+                    "reaction": "rxn_page_mexican_standoff_0_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0.0625,
+                  "char_pink.Rat_Suspicion": 0.17537526744304435,
+                  "char_blonde.Sadistic_Escalation": 0.0686967071326208,
+                  "char_white.Crew_Loyalty": 0.3065559537851914
+                }
+              },
+              "right": {
+                "rep": 12,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_2",
+                    "reaction": "rxn_page_start_2_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_1",
+                    "reaction": "rxn_page_blonde_arrives_1_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_1",
+                    "reaction": "rxn_page_cadillac_trunk_1_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_2",
+                    "reaction": "rxn_page_eddie_call_and_alibi_2_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_0",
+                    "reaction": "rxn_page_k_billy_razor_0_1"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_0",
+                    "reaction": "rxn_page_nash_confession_shockwave_0_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_2",
+                    "reaction": "rxn_page_eddie_and_blonde_story_2_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_0",
+                    "reaction": "rxn_page_cabot_verdict_0_0"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_1",
+                    "reaction": "rxn_page_mexican_standoff_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0.09375,
+                  "char_pink.Rat_Suspicion": 0.12282653754762446,
+                  "char_blonde.Sadistic_Escalation": -0.12402905659310079,
+                  "char_white.Crew_Loyalty": 0.3145184143697644
+                }
+              }
+            },
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                12,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 1
+                }
+              ],
+              "left": {
+                "rep": 2,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_0",
+                    "reaction": "rxn_page_color_aliases_and_stash_0_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_0",
+                    "reaction": "rxn_page_cadillac_trunk_0_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_2",
+                    "reaction": "rxn_page_chair_duct_tape_2_2"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_0",
+                    "reaction": "rxn_page_eddie_call_and_alibi_0_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_0",
+                    "reaction": "rxn_page_nash_confession_shockwave_0_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_1",
+                    "reaction": "rxn_page_eddie_and_blonde_story_1_1"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_0",
+                    "reaction": "rxn_page_cabot_verdict_0_0"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_1",
+                    "reaction": "rxn_page_mexican_standoff_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0.0625,
+                  "char_pink.Rat_Suspicion": 0.129717890816,
+                  "char_blonde.Sadistic_Escalation": -0.012914086399999997,
+                  "char_white.Crew_Loyalty": 0.30370352978432
+                }
+              },
+              "right": {
+                "rep": 1,
+                "upstream": [
+                  "r",
+                  0,
+                  2,
+                  2
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_0",
+                    "reaction": "rxn_page_pink_ambush_theory_0_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_2",
+                    "reaction": "rxn_page_blonde_arrives_2_0"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_1",
+                    "reaction": "rxn_page_chair_duct_tape_1_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_0",
+                    "reaction": "rxn_page_nash_confession_shockwave_0_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_2",
+                    "reaction": "rxn_page_eddie_and_blonde_story_2_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_2",
+                    "reaction": "rxn_page_cabot_verdict_2_0"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_0",
+                    "reaction": "rxn_page_mexican_standoff_0_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0.125,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0.09375,
+                  "char_pink.Rat_Suspicion": 0.1157292017083392,
+                  "char_blonde.Sadistic_Escalation": 0.07138019258368,
+                  "char_white.Crew_Loyalty": 0.3090770476178084
+                }
+              }
+            },
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                12,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 1
+                }
+              ],
+              "left": {
+                "rep": 12,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_2",
+                    "reaction": "rxn_page_start_2_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_1",
+                    "reaction": "rxn_page_blonde_arrives_1_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_1",
+                    "reaction": "rxn_page_cadillac_trunk_1_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_2",
+                    "reaction": "rxn_page_eddie_call_and_alibi_2_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_0",
+                    "reaction": "rxn_page_k_billy_razor_0_1"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_0",
+                    "reaction": "rxn_page_nash_confession_shockwave_0_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_2",
+                    "reaction": "rxn_page_eddie_and_blonde_story_2_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_0",
+                    "reaction": "rxn_page_cabot_verdict_0_0"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_1",
+                    "reaction": "rxn_page_mexican_standoff_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0.09375,
+                  "char_pink.Rat_Suspicion": 0.12282653754762446,
+                  "char_blonde.Sadistic_Escalation": -0.12402905659310079,
+                  "char_white.Crew_Loyalty": 0.3145184143697644
+                }
+              },
+              "right": {
+                "rep": 1,
+                "upstream": [
+                  "r",
+                  0,
+                  2,
+                  2
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_0",
+                    "reaction": "rxn_page_pink_ambush_theory_0_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_2",
+                    "reaction": "rxn_page_blonde_arrives_2_0"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_1",
+                    "reaction": "rxn_page_chair_duct_tape_1_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_0",
+                    "reaction": "rxn_page_nash_confession_shockwave_0_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_2",
+                    "reaction": "rxn_page_eddie_and_blonde_story_2_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_2",
+                    "reaction": "rxn_page_cabot_verdict_2_0"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_0",
+                    "reaction": "rxn_page_mexican_standoff_0_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0.125,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0.09375,
+                  "char_pink.Rat_Suspicion": 0.1157292017083392,
+                  "char_blonde.Sadistic_Escalation": 0.07138019258368,
+                  "char_white.Crew_Loyalty": 0.3090770476178084
+                }
+              }
+            },
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                12,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 1
+                }
+              ],
+              "left": {
+                "rep": 2,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_0",
+                    "reaction": "rxn_page_color_aliases_and_stash_0_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_0",
+                    "reaction": "rxn_page_cadillac_trunk_0_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_2",
+                    "reaction": "rxn_page_chair_duct_tape_2_2"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_0",
+                    "reaction": "rxn_page_eddie_call_and_alibi_0_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_0",
+                    "reaction": "rxn_page_nash_confession_shockwave_0_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_1",
+                    "reaction": "rxn_page_eddie_and_blonde_story_1_1"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_0",
+                    "reaction": "rxn_page_cabot_verdict_0_0"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_1",
+                    "reaction": "rxn_page_mexican_standoff_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0.0625,
+                  "char_pink.Rat_Suspicion": 0.129717890816,
+                  "char_blonde.Sadistic_Escalation": -0.012914086399999997,
+                  "char_white.Crew_Loyalty": 0.30370352978432
+                }
+              },
+              "right": {
+                "rep": 3,
+                "upstream": [
+                  "r",
+                  0,
+                  2,
+                  2
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_2",
+                    "reaction": "rxn_page_start_2_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_0",
+                    "reaction": "rxn_page_pink_ambush_theory_0_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_0",
+                    "reaction": "rxn_page_blonde_arrives_0_0"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_2",
+                    "reaction": "rxn_page_chair_duct_tape_2_2"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_2",
+                    "reaction": "rxn_page_eddie_call_and_alibi_2_1"
+                  },
+                  {
+                    "action": "opt_page_orange_gun_on_the_ramp_1",
+                    "reaction": "rxn_page_orange_gun_on_the_ramp_1_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_2",
+                    "reaction": "rxn_page_eddie_and_blonde_story_2_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_2",
+                    "reaction": "rxn_page_cabot_verdict_2_2"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_1",
+                    "reaction": "rxn_page_mexican_standoff_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0.125,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0.09375,
+                  "char_pink.Rat_Suspicion": 0.1157292017083392,
+                  "char_blonde.Sadistic_Escalation": 0.2927736503390208,
+                  "char_white.Crew_Loyalty": 0.3021772269403648
+                }
+              }
+            },
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                12,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 1
+                }
+              ],
+              "left": {
+                "rep": 12,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_2",
+                    "reaction": "rxn_page_start_2_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_1",
+                    "reaction": "rxn_page_blonde_arrives_1_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_1",
+                    "reaction": "rxn_page_cadillac_trunk_1_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_2",
+                    "reaction": "rxn_page_eddie_call_and_alibi_2_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_0",
+                    "reaction": "rxn_page_k_billy_razor_0_1"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_0",
+                    "reaction": "rxn_page_nash_confession_shockwave_0_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_2",
+                    "reaction": "rxn_page_eddie_and_blonde_story_2_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_0",
+                    "reaction": "rxn_page_cabot_verdict_0_0"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_1",
+                    "reaction": "rxn_page_mexican_standoff_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0.09375,
+                  "char_pink.Rat_Suspicion": 0.12282653754762446,
+                  "char_blonde.Sadistic_Escalation": -0.12402905659310079,
+                  "char_white.Crew_Loyalty": 0.3145184143697644
+                }
+              },
+              "right": {
+                "rep": 3,
+                "upstream": [
+                  "r",
+                  0,
+                  2,
+                  2
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_2",
+                    "reaction": "rxn_page_start_2_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_0",
+                    "reaction": "rxn_page_pink_ambush_theory_0_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_0",
+                    "reaction": "rxn_page_blonde_arrives_0_0"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_2",
+                    "reaction": "rxn_page_chair_duct_tape_2_2"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_2",
+                    "reaction": "rxn_page_eddie_call_and_alibi_2_1"
+                  },
+                  {
+                    "action": "opt_page_orange_gun_on_the_ramp_1",
+                    "reaction": "rxn_page_orange_gun_on_the_ramp_1_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_and_blonde_story_2",
+                    "reaction": "rxn_page_eddie_and_blonde_story_2_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_2",
+                    "reaction": "rxn_page_cabot_verdict_2_2"
+                  },
+                  {
+                    "action": "opt_page_mexican_standoff_1",
+                    "reaction": "rxn_page_mexican_standoff_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0.125,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0.09375,
+                  "char_pink.Rat_Suspicion": 0.1157292017083392,
+                  "char_blonde.Sadistic_Escalation": 0.2927736503390208,
+                  "char_white.Crew_Loyalty": 0.3021772269403648
+                }
+              }
+            }
+          ]
+        },
+        "script": {
+          "value": 139,
+          "rule": [
+            2,
+            1,
+            0
+          ]
+        },
+        "scope": {
+          "actions": 0,
+          "ordered_writes": 0,
+          "invalid": 0,
+          "unchanged": 0,
+          "warrant_zero": 0,
+          "max_adjust": 0,
+          "max_ratio": 1,
+          "max_share_increase": 0
+        },
+        "errors": []
+      },
+      "transfer": {
+        "menu": {
+          "successes": 78,
+          "hits": 132,
+          "menuHits": 0,
+          "firstHits": 0,
+          "steps": 132
+        },
+        "weak": {
+          "successes": 90,
+          "hits": 108,
+          "menuHits": 0,
+          "firstHits": 0,
+          "steps": 108
+        },
+        "ledger": {
+          "successes": 90,
+          "hits": 108,
+          "menuHits": 0,
+          "firstHits": 0,
+          "steps": 108
+        },
+        "goal4": {
+          "successes": 90,
+          "hits": 150,
+          "menuHits": 0,
+          "firstHits": 0,
+          "steps": 150
+        },
+        "public": {
+          "successes": 83,
+          "hits": 89,
+          "menuHits": 61,
+          "firstHits": 0,
+          "steps": 150
+        }
+      },
+      "pass": false
+    },
+    {
+      "cohort": {
+        "seed": 1397892370,
+        "n": 96
+      },
+      "baseline": {
+        "roots": 96,
+        "valid": 96,
+        "full": 90,
+        "info": 60,
+        "oracles": {
+          "menu": {
+            "value": 83,
+            "full": 90,
+            "cells": 73,
+            "informative_cells": 15,
+            "gap": 7
+          },
+          "weak": {
+            "value": 90,
+            "full": 90,
+            "cells": 82,
+            "informative_cells": 18,
+            "gap": 0
+          },
+          "ledger": {
+            "value": 90,
+            "full": 90,
+            "cells": 82,
+            "informative_cells": 18,
+            "gap": 0
+          },
+          "goal4": {
+            "value": 90,
+            "full": 90,
+            "cells": 121,
+            "informative_cells": 26,
+            "gap": 0
+          },
+          "public": {
+            "value": 90,
+            "full": 90,
+            "cells": 378,
+            "informative_cells": 75,
+            "gap": 0
+          }
+        },
+        "gap": 0,
+        "strict": {
+          "pairs": 0,
+          "cells": 0,
+          "examples": []
+        },
+        "script": {
+          "value": 83,
+          "rule": [
+            1,
+            0,
+            1
+          ]
+        },
+        "scope": {
+          "actions": 0,
+          "ordered_writes": 0,
+          "invalid": 0,
+          "unchanged": 0,
+          "warrant_zero": 0,
+          "max_adjust": 0,
+          "max_ratio": 1,
+          "max_share_increase": 0
+        },
+        "errors": []
+      },
+      "candidate": {
+        "roots": 96,
+        "valid": 96,
+        "full": 90,
+        "info": 60,
+        "oracles": {
+          "menu": {
+            "value": 83,
+            "full": 90,
+            "cells": 73,
+            "informative_cells": 15,
+            "gap": 7
+          },
+          "weak": {
+            "value": 90,
+            "full": 90,
+            "cells": 82,
+            "informative_cells": 18,
+            "gap": 0
+          },
+          "ledger": {
+            "value": 90,
+            "full": 90,
+            "cells": 82,
+            "informative_cells": 18,
+            "gap": 0
+          },
+          "goal4": {
+            "value": 90,
+            "full": 90,
+            "cells": 121,
+            "informative_cells": 26,
+            "gap": 0
+          },
+          "public": {
+            "value": 90,
+            "full": 90,
+            "cells": 378,
+            "informative_cells": 75,
+            "gap": 0
+          }
+        },
+        "gap": 0,
+        "strict": {
+          "pairs": 0,
+          "cells": 0,
+          "examples": []
+        },
+        "script": {
+          "value": 83,
+          "rule": [
+            1,
+            0,
+            1
+          ]
+        },
+        "scope": {
+          "actions": 288,
+          "ordered_writes": 0,
+          "invalid": 0,
+          "unchanged": 288,
+          "warrant_zero": 0,
+          "max_adjust": 0,
+          "max_ratio": 1,
+          "max_share_increase": 0
+        },
+        "errors": [],
+        "lost": 0,
+        "gain": 0,
+        "checks": {
+          "valid": true,
+          "scope": true,
+          "adjust": true,
+          "energy": true,
+          "concentration": true,
+          "full": true,
+          "paired_loss": true,
+          "goal4": true,
+          "info": true
+        },
+        "pass": true,
+        "hardens": false
+      },
+      "mixed": {
+        "roots": 288,
+        "valid": 288,
+        "full": 160,
+        "info": 101,
+        "oracles": {
+          "menu": {
+            "value": 140,
+            "full": 160,
+            "cells": 162,
+            "informative_cells": 32,
+            "gap": 20
+          },
+          "weak": {
+            "value": 152,
+            "full": 160,
+            "cells": 221,
+            "informative_cells": 44,
+            "gap": 8
+          },
+          "ledger": {
+            "value": 160,
+            "full": 160,
+            "cells": 529,
+            "informative_cells": 86,
+            "gap": 0
+          },
+          "goal4": {
+            "value": 160,
+            "full": 160,
+            "cells": 859,
+            "informative_cells": 119,
+            "gap": 0
+          },
+          "public": {
+            "value": 160,
+            "full": 160,
+            "cells": 1439,
+            "informative_cells": 231,
+            "gap": 0
+          }
+        },
+        "gap": 8,
+        "strict": {
+          "pairs": 51,
+          "cells": 2,
+          "examples": [
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                10,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 0
+                }
+              ],
+              "left": {
+                "rep": 55,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_0",
+                    "reaction": "rxn_page_pink_ambush_theory_0_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_0",
+                    "reaction": "rxn_page_color_aliases_and_stash_0_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_1",
+                    "reaction": "rxn_page_chair_duct_tape_1_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_1"
+                  },
+                  {
+                    "action": "opt_page_orange_gun_on_the_ramp_2",
+                    "reaction": "rxn_page_orange_gun_on_the_ramp_2_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_3",
+                    "reaction": "rxn_page_cabot_verdict_3_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0.125,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.10731999999999998,
+                  "char_blonde.Sadistic_Escalation": 0.12973137253833855,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              },
+              "right": {
+                "rep": 80,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_1",
+                    "reaction": "rxn_page_blonde_arrives_1_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_1",
+                    "reaction": "rxn_page_cadillac_trunk_1_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_0",
+                    "reaction": "rxn_page_eddie_call_and_alibi_0_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_1",
+                    "reaction": "rxn_page_cabot_verdict_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.199500272384,
+                  "char_blonde.Sadistic_Escalation": -0.12402905659310079,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              }
+            },
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                10,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 0
+                }
+              ],
+              "left": {
+                "rep": 66,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_0",
+                    "reaction": "rxn_page_pink_ambush_theory_0_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_1",
+                    "reaction": "rxn_page_color_aliases_and_stash_1_0"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_2",
+                    "reaction": "rxn_page_chair_duct_tape_2_2"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_2",
+                    "reaction": "rxn_page_eddie_call_and_alibi_2_1"
+                  },
+                  {
+                    "action": "opt_page_orange_gun_on_the_ramp_0",
+                    "reaction": "rxn_page_orange_gun_on_the_ramp_0_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_1",
+                    "reaction": "rxn_page_cabot_verdict_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0.125,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.10731999999999998,
+                  "char_blonde.Sadistic_Escalation": 0.04359032096,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              },
+              "right": {
+                "rep": 80,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_1",
+                    "reaction": "rxn_page_blonde_arrives_1_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_1",
+                    "reaction": "rxn_page_cadillac_trunk_1_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_0",
+                    "reaction": "rxn_page_eddie_call_and_alibi_0_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_1",
+                    "reaction": "rxn_page_cabot_verdict_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.199500272384,
+                  "char_blonde.Sadistic_Escalation": -0.12402905659310079,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              }
+            },
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                10,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 0
+                }
+              ],
+              "left": {
+                "rep": 80,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_1",
+                    "reaction": "rxn_page_blonde_arrives_1_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_1",
+                    "reaction": "rxn_page_cadillac_trunk_1_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_0",
+                    "reaction": "rxn_page_eddie_call_and_alibi_0_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_1",
+                    "reaction": "rxn_page_cabot_verdict_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.199500272384,
+                  "char_blonde.Sadistic_Escalation": -0.12402905659310079,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              },
+              "right": {
+                "rep": 35,
+                "upstream": [
+                  "r",
+                  0,
+                  2,
+                  2
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_2",
+                    "reaction": "rxn_page_start_2_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_0",
+                    "reaction": "rxn_page_pink_ambush_theory_0_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_0",
+                    "reaction": "rxn_page_color_aliases_and_stash_0_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_0",
+                    "reaction": "rxn_page_chair_duct_tape_0_1"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_1"
+                  },
+                  {
+                    "action": "opt_page_orange_gun_on_the_ramp_0",
+                    "reaction": "rxn_page_orange_gun_on_the_ramp_0_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_1",
+                    "reaction": "rxn_page_cabot_verdict_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0.125,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.10731999999999998,
+                  "char_blonde.Sadistic_Escalation": 0.12973137253833855,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              }
+            },
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                10,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 0
+                }
+              ],
+              "left": {
+                "rep": 80,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_1",
+                    "reaction": "rxn_page_blonde_arrives_1_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_1",
+                    "reaction": "rxn_page_cadillac_trunk_1_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_0",
+                    "reaction": "rxn_page_eddie_call_and_alibi_0_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_1",
+                    "reaction": "rxn_page_cabot_verdict_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.199500272384,
+                  "char_blonde.Sadistic_Escalation": -0.12402905659310079,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              },
+              "right": {
+                "rep": 55,
+                "upstream": [
+                  "r",
+                  0,
+                  2,
+                  2
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_0",
+                    "reaction": "rxn_page_pink_ambush_theory_0_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_0",
+                    "reaction": "rxn_page_color_aliases_and_stash_0_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_1",
+                    "reaction": "rxn_page_chair_duct_tape_1_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_1"
+                  },
+                  {
+                    "action": "opt_page_orange_gun_on_the_ramp_2",
+                    "reaction": "rxn_page_orange_gun_on_the_ramp_2_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_3",
+                    "reaction": "rxn_page_cabot_verdict_3_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0.125,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.10731999999999998,
+                  "char_blonde.Sadistic_Escalation": 0.12973137253833855,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              }
+            },
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                10,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 0
+                }
+              ],
+              "left": {
+                "rep": 80,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_2",
+                    "reaction": "rxn_page_pink_ambush_theory_2_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_2",
+                    "reaction": "rxn_page_color_aliases_and_stash_2_0"
+                  },
+                  {
+                    "action": "opt_page_blonde_arrives_1",
+                    "reaction": "rxn_page_blonde_arrives_1_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_1",
+                    "reaction": "rxn_page_cadillac_trunk_1_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_0",
+                    "reaction": "rxn_page_eddie_call_and_alibi_0_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_1",
+                    "reaction": "rxn_page_cabot_verdict_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.199500272384,
+                  "char_blonde.Sadistic_Escalation": -0.12402905659310079,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              },
+              "right": {
+                "rep": 66,
+                "upstream": [
+                  "r",
+                  0,
+                  2,
+                  2
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_0",
+                    "reaction": "rxn_page_pink_ambush_theory_0_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_1",
+                    "reaction": "rxn_page_color_aliases_and_stash_1_0"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_2",
+                    "reaction": "rxn_page_chair_duct_tape_2_2"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_2",
+                    "reaction": "rxn_page_eddie_call_and_alibi_2_1"
+                  },
+                  {
+                    "action": "opt_page_orange_gun_on_the_ramp_0",
+                    "reaction": "rxn_page_orange_gun_on_the_ramp_0_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_1",
+                    "reaction": "rxn_page_cabot_verdict_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0.125,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.10731999999999998,
+                  "char_blonde.Sadistic_Escalation": 0.04359032096,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              }
+            },
+            {
+              "projection": [
+                "page_sirens_at_the_rollup_door",
+                10,
+                "decision",
+                [
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_0",
+                    "text": "Hold Orange's head, whispering his final truth in the blood"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_1",
+                    "text": "Grab the satchel, Pink, and bolt through the side alley"
+                  },
+                  {
+                    "id": "opt_page_sirens_at_the_rollup_door_2",
+                    "text": "Cut a cold professional truce before SWAT rams the door"
+                  }
+                ],
+                {
+                  "char_pink.Review_Request": 0
+                }
+              ],
+              "left": {
+                "rep": 55,
+                "upstream": [
+                  "r",
+                  "r",
+                  "r",
+                  "r"
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_0",
+                    "reaction": "rxn_page_pink_ambush_theory_0_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_0",
+                    "reaction": "rxn_page_color_aliases_and_stash_0_1"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_2",
+                    "reaction": "rxn_page_cadillac_trunk_2_0"
+                  },
+                  {
+                    "action": "opt_page_chair_duct_tape_1",
+                    "reaction": "rxn_page_chair_duct_tape_1_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_1",
+                    "reaction": "rxn_page_k_billy_razor_1_1"
+                  },
+                  {
+                    "action": "opt_page_orange_gun_on_the_ramp_2",
+                    "reaction": "rxn_page_orange_gun_on_the_ramp_2_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_3",
+                    "reaction": "rxn_page_cabot_verdict_3_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 0,
+                  "opt_page_sirens_at_the_rollup_door_2": 1
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_2",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0.125,
+                  "char_pink.Radio_Record": 0.125,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.10731999999999998,
+                  "char_blonde.Sadistic_Escalation": 0.12973137253833855,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              },
+              "right": {
+                "rep": 13,
+                "upstream": [
+                  0,
+                  0,
+                  1,
+                  2
+                ],
+                "history": [
+                  {
+                    "action": "opt_page_start_0",
+                    "reaction": "rxn_page_start_0_0"
+                  },
+                  {
+                    "action": "opt_page_pink_ambush_theory_0",
+                    "reaction": "rxn_page_pink_ambush_theory_0_0"
+                  },
+                  {
+                    "action": "opt_page_color_aliases_and_stash_1",
+                    "reaction": "rxn_page_color_aliases_and_stash_1_0"
+                  },
+                  {
+                    "action": "opt_page_cadillac_trunk_1",
+                    "reaction": "rxn_page_cadillac_trunk_1_0"
+                  },
+                  {
+                    "action": "opt_page_eddie_call_and_alibi_0",
+                    "reaction": "rxn_page_eddie_call_and_alibi_0_0"
+                  },
+                  {
+                    "action": "opt_page_k_billy_razor_0",
+                    "reaction": "rxn_page_k_billy_razor_0_0"
+                  },
+                  {
+                    "action": "opt_page_orange_gun_on_the_ramp_2",
+                    "reaction": "rxn_page_orange_gun_on_the_ramp_2_0"
+                  },
+                  {
+                    "action": "opt_page_nash_confession_shockwave_1",
+                    "reaction": "rxn_page_nash_confession_shockwave_1_0"
+                  },
+                  {
+                    "action": "opt_page_cabot_verdict_1",
+                    "reaction": "rxn_page_cabot_verdict_1_0"
+                  }
+                ],
+                "q": {
+                  "opt_page_sirens_at_the_rollup_door_0": 0,
+                  "opt_page_sirens_at_the_rollup_door_1": 1,
+                  "opt_page_sirens_at_the_rollup_door_2": 0
+                },
+                "unique": "opt_page_sirens_at_the_rollup_door_1",
+                "public_context": {
+                  "char_pink.Timeline_Record": 0.125,
+                  "char_pink.Radio_Record": 0,
+                  "char_pink.Review_Request": 0,
+                  "char_pink.Rat_Suspicion": 0.23412,
+                  "char_blonde.Sadistic_Escalation": -0.053404924007476776,
+                  "char_white.Crew_Loyalty": -0.021868
+                }
+              }
+            }
+          ]
+        },
+        "script": {
+          "value": 140,
+          "rule": [
+            2,
+            1,
+            1
+          ]
+        },
+        "scope": {
+          "actions": 0,
+          "ordered_writes": 0,
+          "invalid": 0,
+          "unchanged": 0,
+          "warrant_zero": 0,
+          "max_adjust": 0,
+          "max_ratio": 1,
+          "max_share_increase": 0
+        },
+        "errors": []
+      },
+      "transfer": {
+        "menu": {
+          "successes": 74,
+          "hits": 140,
+          "menuHits": 0,
+          "firstHits": 0,
+          "steps": 140
+        },
+        "weak": {
+          "successes": 90,
+          "hits": 115,
+          "menuHits": 1,
+          "firstHits": 0,
+          "steps": 116
+        },
+        "ledger": {
+          "successes": 90,
+          "hits": 115,
+          "menuHits": 1,
+          "firstHits": 0,
+          "steps": 116
+        },
+        "goal4": {
+          "successes": 90,
+          "hits": 157,
+          "menuHits": 1,
+          "firstHits": 0,
+          "steps": 158
+        },
+        "public": {
+          "successes": 78,
+          "hits": 85,
+          "menuHits": 75,
+          "firstHits": 0,
+          "steps": 160
+        }
+      },
+      "pass": false
+    }
+  ],
+  "pass": false
+}

@@ -203,3 +203,47 @@ export function validation(src,selection,api=runtime,evalExpr=evaluate){
  }
  return {frozen:g,counts:ct,training:Object.fromEntries(modes.map(m=>[m,fits[m].value])),cohorts:out,pass:selection.improved&&out.every(x=>x.pass)};
 }
+
+// Post-hoc diagnostic: deduplicate actual legal histories before pairing.
+// Pair within each weak cell by two largest remaining unique-optimum labels.
+// No model-facing corpus or privately held-out selection is implied.
+export function pairAudit(src,api=runtime){
+ const w=api.compileV2(src),ct=counts(),cohorts=[];
+ for(const co of [...DESIGN.dev,...DESIGN.val]){
+  const rs=Object.values(upstream).flatMap(p=>roots(api,w,co,p,ct)),raw=rs.map(r=>({...r,n:tree(api,w,r.s,3,ct)}));
+  const histories=new Map();
+  for(const x of raw){
+   const k=JSON.stringify(x.history),old=histories.get(k);
+   if(old){ck(eq(x.s,old.s)&&eq(q(x.n),q(old.n)),"duplicate history mismatch");continue;}
+   histories.set(k,x);
+  }
+  const unique=[...histories.values()],groups=new Map();
+  for(const x of unique){
+   const a=strict(x.n);if(!a)continue;
+   const k=project(x.n,"weak"),g=groups.get(k)??new Map(),b=g.get(a)??[];b.push(x);g.set(a,b);groups.set(k,g);
+  }
+  const pairs=[],used=new Set();let capacity=0;
+  for(const [k,g] of groups){
+   const sizes=[...g.values()].map(x=>x.length),total=sum(sizes,x=>x),cap=Math.min(Math.floor(total/2),total-Math.max(...sizes));capacity+=cap;
+   const before=pairs.length;
+   for(;;){
+    const buckets=[...g.entries()].filter(([,xs])=>xs.length).sort((a,b)=>b[1].length-a[1].length||(a[0]<b[0]?-1:1));
+    if(buckets.length<2)break;
+    const a=buckets[0][1].shift(),b=buckets[1][1].shift(),keyA=JSON.stringify(a.history),keyB=JSON.stringify(b.history);
+    ck(!used.has(keyA)&&!used.has(keyB)&&strict(a.n)!==strict(b.n)&&project(a.n,"weak")===project(b.n,"weak"),"pair invariant");
+    used.add(keyA);used.add(keyB);pairs.push({a,b});
+   }
+   ck(pairs.length-before===cap,"max disjoint pair count");
+  }
+  const ns=pairs.flatMap(p=>[p.a.n,p.b.n]);
+  const weak=fit(ns,"weak"),led=fit(ns,"ledger"),goal4=fit(ns,"goal4"),pub=fit(ns,"public");
+  ck(weak.value===pairs.length&&weak.full===2*pairs.length,"balanced pair ceiling");
+  for(const [mode,f] of [["weak",weak],["ledger",led],["goal4",goal4],["public",pub]])ck(deploy(ns,f.policy,mode).successes===f.value,"pair replay");
+  const describe=x=>({rep:x.rep,upstream:x.upstream,history:x.history,action:strict(x.n),q:q(x.n),context:Object.fromEntries([...ledger,...goals].map(k=>[k,x.n.o.values[k]]))});
+  const examples=pairs.slice(0,6).map(({a,b})=>({projection:JSON.parse(project(a.n,"weak")),a:describe(a),b:describe(b),ledger_equal:project(a.n,"ledger")===project(b.n,"ledger")}));
+  const ledgerSeparates=sum(pairs,p=>Number(project(p.a.n,"ledger")!==project(p.b.n,"ledger")));
+  const goal4Separates=sum(pairs,p=>Number(project(p.a.n,"goal4")!==project(p.b.n,"goal4")));
+  cohorts.push({cohort:co,raw_roots:raw.length,distinct_histories:unique.length,strict_histories:sum(unique,x=>Number(!!strict(x.n))),capacity,pairs:pairs.length,roots:ns.length,ledgerSeparates,goal4Separates,ceiling:{weak:weak.value,ledger:led.value,goal4:goal4.value,public:pub.value,full:weak.full},examples});
+ }
+ return {scope:"post-hoc balanced witness extraction on registered mixed-policy tapes, deduplicated within cohort; conditional diagnostic only",counts:ct,cohorts};
+}
