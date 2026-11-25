@@ -36,8 +36,13 @@ verdict is **`REDESIGN_OR_PILOT_ONLY`**.
 The recorded local suite passed all thirty-six theorem axiom audits, all twenty
 full teacher proofs, twenty-four candidate checks, and twelve local-state
 replays. Its three rejection controls also passed. The local compiler was Lean
-**4.35.0**. The repository pins **4.34.1**; the pinned CI build remains a separate
-check. The receipt records the version mismatch explicitly.
+**4.35.0**. The committed receipt records that compiler.
+
+The [pinned Lean 4.34.1 CI run](https://github.com/MoralityLabAI/EvalMath/actions/runs/45652582316)
+passed the complete native suite and all **54 gym tests** at implementation commit
+`1ac0cad25bd2b087a5d465a0b7e407c7b0d6403d`. It also regenerated the structural
+receipt identically. The full local fast-receipt command reproduced **32 of 32**
+registered receipts.
 
 ## Full-proof revision service
 

@@ -1,0 +1,2114 @@
+{
+  "checks": {
+    "abstain_regret_equals_oracle_eu": true,
+    "always_abstain_eu_zero_exact": true,
+    "hard_negative_count_matches_manifest": true,
+    "heldout_digest_matches_manifest": true,
+    "heldout_includes_six_heldout_only_families": true,
+    "ids_unique": true,
+    "oracle_selection_has_full_algorithm_accuracy": true,
+    "pair_counts_partition_records": true,
+    "record_count_matches_manifest": true,
+    "regret_nonnegative_all_predictors": true,
+    "stored_operator_action_is_bayes_action": true,
+    "stored_operator_regret_reproduced": true,
+    "stored_oracle_regret_reproduced": true,
+    "symbolic_beats_always_abstain_on_eu": true,
+    "symbolic_beats_unary_shortcut_on_eu": true,
+    "symbolic_wins_exceed_losses_vs_unary": true,
+    "symbolic_within_budget": true
+  },
+  "data": {
+    "bytes": 273658,
+    "families": [
+      "chain",
+      "dense",
+      "grid",
+      "hyper",
+      "ktree",
+      "sparse",
+      "star",
+      "weak_dense",
+      "xor_noiseless"
+    ],
+    "file": "dcf16_decision_curriculum/data/heldout.jsonl.gz",
+    "hard_negative_records": 117,
+    "manifest_sha256_uncompressed": "ff709266e6402aa3f7ae8acd9e34e99c9902b30e052fcb49738f7ec5bf838cd8",
+    "records": 200,
+    "selected_operator_counts": {
+      "abstain": 102,
+      "bp": 3,
+      "cutset": 3,
+      "gf2": 29,
+      "mbe": 16,
+      "particle": 1,
+      "ve_min_fill": 46
+    },
+    "sha256": "c128ee6896a5cb38b19cb4714d3c2dfde80c30afb12b29bdf24c7fa5933b84ac",
+    "sha256_uncompressed": "ff709266e6402aa3f7ae8acd9e34e99c9902b30e052fcb49738f7ec5bf838cd8"
+  },
+  "evidence_level": "finite verified example: exact rational scoring of stored verifier-grounded records",
+  "experiment": "DCF16-EVAL",
+  "numbers": {
+    "paired_symbolic_vs_always_abstain": {
+      "alg_match": {
+        "losses": 88,
+        "mean_diff": {
+          "approx": -0.005,
+          "exact": "-1/200"
+        },
+        "n": 200,
+        "per_family_mean_diff": {
+          "chain": {
+            "approx": -0.125,
+            "exact": "-1/8"
+          },
+          "dense": {
+            "approx": 0.375,
+            "exact": "3/8"
+          },
+          "grid": {
+            "approx": -0.3125,
+            "exact": "-5/16"
+          },
+          "hyper": {
+            "approx": -0.75,
+            "exact": "-3/4"
+          },
+          "ktree": {
+            "approx": 0.0625,
+            "exact": "1/16"
+          },
+          "sparse": {
+            "approx": -0.25,
+            "exact": "-1/4"
+          },
+          "star": {
+            "approx": 0.15625,
+            "exact": "5/32"
+          },
+          "weak_dense": {
+            "approx": -0.6875,
+            "exact": "-11/16"
+          },
+          "xor_noiseless": {
+            "approx": 0.8125,
+            "exact": "13/16"
+          }
+        },
+        "sign_test_p": {
+          "approx": 1.0,
+          "exact": "1"
+        },
+        "ties": 25,
+        "wins": 87
+      },
+      "eu": {
+        "losses": 8,
+        "mean_diff": {
+          "approx": 0.352384223676,
+          "exact": "42600638642682163099900711/120892581961462917470617600"
+        },
+        "n": 200,
+        "per_family_mean_diff": {
+          "chain": {
+            "approx": 0.176510371977,
+            "exact": "3256041658211436593/18446744073709551616"
+          },
+          "dense": {
+            "approx": 0.511745727336,
+            "exact": "37760169851943439799/73786976294838206464"
+          },
+          "grid": {
+            "approx": 0.375365643375,
+            "exact": "221576766636633371699/590295810358705651712"
+          },
+          "hyper": {
+            "approx": 0.100300580513,
+            "exact": "10841127768508813/108086391056891904"
+          },
+          "ktree": {
+            "approx": 0.275860698267,
+            "exact": "1302715315436676739177/4722366482869645213696"
+          },
+          "sparse": {
+            "approx": 0.227298261096,
+            "exact": "4192912850832533363/18446744073709551616"
+          },
+          "star": {
+            "approx": 0.338716748593,
+            "exact": "6551734766556161180388135/19342813113834066795298816"
+          },
+          "weak_dense": {
+            "approx": -0.078222972321,
+            "exact": "-22546236735817447/288230376151711744"
+          },
+          "xor_noiseless": {
+            "approx": 0.90625,
+            "exact": "29/32"
+          }
+        },
+        "sign_test_p": {
+          "approx": 0.0,
+          "exact": "353944548433/81129638414606681695789005144064"
+        },
+        "ties": 93,
+        "wins": 99
+      },
+      "realized": {
+        "losses": 5,
+        "mean_diff": {
+          "approx": 0.36,
+          "exact": "9/25"
+        },
+        "n": 200,
+        "per_family_mean_diff": {
+          "chain": {
+            "approx": -0.125,
+            "exact": "-1/8"
+          },
+          "dense": {
+            "approx": 0.6875,
+            "exact": "11/16"
+          },
+          "grid": {
+            "approx": 0.4375,
+            "exact": "7/16"
+          },
+          "hyper": {
+            "approx": 0.125,
+            "exact": "1/8"
+          },
+          "ktree": {
+            "approx": 0.125,
+            "exact": "1/8"
+          },
+          "sparse": {
+            "approx": 0.5,
+            "exact": "1/2"
+          },
+          "star": {
+            "approx": 0.46875,
+            "exact": "15/32"
+          },
+          "weak_dense": {
+            "approx": -0.1875,
+            "exact": "-3/16"
+          },
+          "xor_noiseless": {
+            "approx": 0.90625,
+            "exact": "29/32"
+          }
+        },
+        "sign_test_p": {
+          "approx": 0.0,
+          "exact": "3489795/2535301200456458802993406410752"
+        },
+        "ties": 93,
+        "wins": 102
+      }
+    },
+    "paired_symbolic_vs_unary": {
+      "alg_match": {
+        "losses": 0,
+        "mean_diff": {
+          "approx": 0.505,
+          "exact": "101/200"
+        },
+        "n": 200,
+        "per_family_mean_diff": {
+          "chain": {
+            "approx": 0.4375,
+            "exact": "7/16"
+          },
+          "dense": {
+            "approx": 0.75,
+            "exact": "3/4"
+          },
+          "grid": {
+            "approx": 0.25,
+            "exact": "1/4"
+          },
+          "hyper": {
+            "approx": 0.125,
+            "exact": "1/8"
+          },
+          "ktree": {
+            "approx": 0.5625,
+            "exact": "9/16"
+          },
+          "sparse": {
+            "approx": 0.375,
+            "exact": "3/8"
+          },
+          "star": {
+            "approx": 0.5625,
+            "exact": "9/16"
+          },
+          "weak_dense": {
+            "approx": 0.25,
+            "exact": "1/4"
+          },
+          "xor_noiseless": {
+            "approx": 0.90625,
+            "exact": "29/32"
+          }
+        },
+        "sign_test_p": {
+          "approx": 0.0,
+          "exact": "1/1267650600228229401496703205376"
+        },
+        "ties": 99,
+        "wins": 101
+      },
+      "eu": {
+        "losses": 10,
+        "mean_diff": {
+          "approx": 0.342710764635,
+          "exact": "5560800083119664800691165670709113/16225927682921336339157801028812800"
+        },
+        "n": 200,
+        "per_family_mean_diff": {
+          "chain": {
+            "approx": 0.298348847324,
+            "exact": "5503564831275178737/18446744073709551616"
+          },
+          "dense": {
+            "approx": 0.636746211468,
+            "exact": "826543838372643270163397657270137/1298074214633706907132624082305024"
+          },
+          "grid": {
+            "approx": 0.312870038625,
+            "exact": "184685872986913309747/590295810358705651712"
+          },
+          "hyper": {
+            "approx": 0.041346050743,
+            "exact": "8937890818630547/216172782113783808"
+          },
+          "ktree": {
+            "approx": 0.265006936296,
+            "exact": "1251459873694253373745/4722366482869645213696"
+          },
+          "sparse": {
+            "approx": 0.227298261096,
+            "exact": "4192912850832533363/18446744073709551616"
+          },
+          "star": {
+            "approx": 0.248064682669,
+            "exact": "2287992857456605823/9223372036854775808"
+          },
+          "weak_dense": {
+            "approx": -0.092041114626,
+            "exact": "-6632261272488519/72057594037927936"
+          },
+          "xor_noiseless": {
+            "approx": 0.90625,
+            "exact": "29/32"
+          }
+        },
+        "sign_test_p": {
+          "approx": 0.0,
+          "exact": "2978809051703/316912650057057350374175801344"
+        },
+        "ties": 98,
+        "wins": 92
+      },
+      "realized": {
+        "losses": 7,
+        "mean_diff": {
+          "approx": 0.36,
+          "exact": "9/25"
+        },
+        "n": 200,
+        "per_family_mean_diff": {
+          "chain": {
+            "approx": 0.125,
+            "exact": "1/8"
+          },
+          "dense": {
+            "approx": 0.8125,
+            "exact": "13/16"
+          },
+          "grid": {
+            "approx": 0.375,
+            "exact": "3/8"
+          },
+          "hyper": {
+            "approx": 0.041666666667,
+            "exact": "1/24"
+          },
+          "ktree": {
+            "approx": 0.15625,
+            "exact": "5/32"
+          },
+          "sparse": {
+            "approx": 0.5,
+            "exact": "1/2"
+          },
+          "star": {
+            "approx": 0.375,
+            "exact": "3/8"
+          },
+          "weak_dense": {
+            "approx": -0.25,
+            "exact": "-1/4"
+          },
+          "xor_noiseless": {
+            "approx": 0.90625,
+            "exact": "29/32"
+          }
+        },
+        "sign_test_p": {
+          "approx": 0.0,
+          "exact": "1243826249/158456325028528675187087900672"
+        },
+        "ties": 98,
+        "wins": 95
+      }
+    },
+    "predictors": {
+      "always_abstain": {
+        "easy": {
+          "algorithm_accuracy": {
+            "approx": 0.903614457831,
+            "exact": "75/83"
+          },
+          "brier": null,
+          "budget_compliance": {
+            "approx": 1.0,
+            "exact": "1"
+          },
+          "claimed_ops_given": 83,
+          "claimed_ops_match": 83,
+          "coverage": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "ece": null,
+          "eu": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "eu_budget_enforced": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "n": 83,
+          "n_p": 0,
+          "oracle_eu": {
+            "approx": 0.097835045027,
+            "exact": "4908425447840719935294247/50170421514007110750306304"
+          },
+          "realized": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "regret": {
+            "approx": 0.097835045027,
+            "exact": "4908425447840719935294247/50170421514007110750306304"
+          },
+          "selective_risk": null,
+          "unknown_algorithm": 0
+        },
+        "hard_negative": {
+          "algorithm_accuracy": {
+            "approx": 0.230769230769,
+            "exact": "3/13"
+          },
+          "brier": null,
+          "budget_compliance": {
+            "approx": 1.0,
+            "exact": "1"
+          },
+          "claimed_ops_given": 117,
+          "claimed_ops_match": 117,
+          "coverage": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "ece": null,
+          "eu": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "eu_budget_enforced": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "n": 117,
+          "n_p": 0,
+          "oracle_eu": {
+            "approx": 0.692058608117,
+            "exact": "2189712120891544122216851907442733/3164055898169660586135771200618496"
+          },
+          "realized": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "regret": {
+            "approx": 0.692058608117,
+            "exact": "2189712120891544122216851907442733/3164055898169660586135771200618496"
+          },
+          "selective_risk": null,
+          "unknown_algorithm": 0
+        },
+        "overall": {
+          "algorithm_accuracy": {
+            "approx": 0.51,
+            "exact": "51/100"
+          },
+          "brier": null,
+          "budget_compliance": {
+            "approx": 1.0,
+            "exact": "1"
+          },
+          "claimed_ops_given": 200,
+          "claimed_ops_match": 200,
+          "coverage": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "ece": null,
+          "eu": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "eu_budget_enforced": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "n": 200,
+          "n_p": 0,
+          "oracle_eu": {
+            "approx": 0.445455829435,
+            "exact": "1445586814868239260450011313227803/3245185536584267267831560205762560"
+          },
+          "realized": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "regret": {
+            "approx": 0.445455829435,
+            "exact": "1445586814868239260450011313227803/3245185536584267267831560205762560"
+          },
+          "selective_risk": null,
+          "unknown_algorithm": 0
+        },
+        "per_family": {
+          "chain": {
+            "algorithm_accuracy": {
+              "approx": 0.5625,
+              "exact": "9/16"
+            },
+            "brier": null,
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "ece": null,
+            "eu": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "n": 16,
+            "n_p": 0,
+            "oracle_eu": {
+              "approx": 0.286236253997,
+              "exact": "5280126922098444337/18446744073709551616"
+            },
+            "realized": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "regret": {
+              "approx": 0.286236253997,
+              "exact": "5280126922098444337/18446744073709551616"
+            },
+            "selective_risk": null,
+            "unknown_algorithm": 0
+          },
+          "dense": {
+            "algorithm_accuracy": {
+              "approx": 0.375,
+              "exact": "3/8"
+            },
+            "brier": null,
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "ece": null,
+            "eu": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "n": 16,
+            "n_p": 0,
+            "oracle_eu": {
+              "approx": 0.754852007202,
+              "exact": "979853926413373923941268425500807/1298074214633706907132624082305024"
+            },
+            "realized": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "regret": {
+              "approx": 0.754852007202,
+              "exact": "979853926413373923941268425500807/1298074214633706907132624082305024"
+            },
+            "selective_risk": null,
+            "unknown_algorithm": 0
+          },
+          "grid": {
+            "algorithm_accuracy": {
+              "approx": 0.5625,
+              "exact": "9/16"
+            },
+            "brier": null,
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "ece": null,
+            "eu": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "n": 16,
+            "n_p": 0,
+            "oracle_eu": {
+              "approx": 0.429894282197,
+              "exact": "253764793678172435251/590295810358705651712"
+            },
+            "realized": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "regret": {
+              "approx": 0.429894282197,
+              "exact": "253764793678172435251/590295810358705651712"
+            },
+            "selective_risk": null,
+            "unknown_algorithm": 0
+          },
+          "hyper": {
+            "algorithm_accuracy": {
+              "approx": 0.875,
+              "exact": "7/8"
+            },
+            "brier": null,
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 24,
+            "claimed_ops_match": 24,
+            "coverage": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "ece": null,
+            "eu": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "n": 24,
+            "n_p": 0,
+            "oracle_eu": {
+              "approx": 0.100300580513,
+              "exact": "10841127768508813/108086391056891904"
+            },
+            "realized": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "regret": {
+              "approx": 0.100300580513,
+              "exact": "10841127768508813/108086391056891904"
+            },
+            "selective_risk": null,
+            "unknown_algorithm": 0
+          },
+          "ktree": {
+            "algorithm_accuracy": {
+              "approx": 0.5,
+              "exact": "1/2"
+            },
+            "brier": null,
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 32,
+            "claimed_ops_match": 32,
+            "coverage": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "ece": null,
+            "eu": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "n": 32,
+            "n_p": 0,
+            "oracle_eu": {
+              "approx": 0.493280060167,
+              "exact": "2329449222799027084685/4722366482869645213696"
+            },
+            "realized": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "regret": {
+              "approx": 0.493280060167,
+              "exact": "2329449222799027084685/4722366482869645213696"
+            },
+            "selective_risk": null,
+            "unknown_algorithm": 0
+          },
+          "sparse": {
+            "algorithm_accuracy": {
+              "approx": 0.625,
+              "exact": "5/8"
+            },
+            "brier": null,
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "ece": null,
+            "eu": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "n": 16,
+            "n_p": 0,
+            "oracle_eu": {
+              "approx": 0.379564000745,
+              "exact": "7001719981339605019/18446744073709551616"
+            },
+            "realized": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "regret": {
+              "approx": 0.379564000745,
+              "exact": "7001719981339605019/18446744073709551616"
+            },
+            "selective_risk": null,
+            "unknown_algorithm": 0
+          },
+          "star": {
+            "algorithm_accuracy": {
+              "approx": 0.40625,
+              "exact": "13/32"
+            },
+            "brier": null,
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 32,
+            "claimed_ops_match": 32,
+            "coverage": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "ece": null,
+            "eu": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "n": 32,
+            "n_p": 0,
+            "oracle_eu": {
+              "approx": 0.373176035455,
+              "exact": "7218274312365044746373927/19342813113834066795298816"
+            },
+            "realized": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "regret": {
+              "approx": 0.373176035455,
+              "exact": "7218274312365044746373927/19342813113834066795298816"
+            },
+            "selective_risk": null,
+            "unknown_algorithm": 0
+          },
+          "weak_dense": {
+            "algorithm_accuracy": {
+              "approx": 0.9375,
+              "exact": "15/16"
+            },
+            "brier": null,
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "ece": null,
+            "eu": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "n": 16,
+            "n_p": 0,
+            "oracle_eu": {
+              "approx": 0.021788261779,
+              "exact": "785004861034991/36028797018963968"
+            },
+            "realized": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "regret": {
+              "approx": 0.021788261779,
+              "exact": "785004861034991/36028797018963968"
+            },
+            "selective_risk": null,
+            "unknown_algorithm": 0
+          },
+          "xor_noiseless": {
+            "algorithm_accuracy": {
+              "approx": 0.09375,
+              "exact": "3/32"
+            },
+            "brier": null,
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 32,
+            "claimed_ops_match": 32,
+            "coverage": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "ece": null,
+            "eu": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "n": 32,
+            "n_p": 0,
+            "oracle_eu": {
+              "approx": 0.90625,
+              "exact": "29/32"
+            },
+            "realized": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "regret": {
+              "approx": 0.90625,
+              "exact": "29/32"
+            },
+            "selective_risk": null,
+            "unknown_algorithm": 0
+          }
+        }
+      },
+      "symbolic": {
+        "easy": {
+          "algorithm_accuracy": {
+            "approx": 0.192771084337,
+            "exact": "16/83"
+          },
+          "brier": {
+            "approx": 0.199158216687,
+            "exact": "1364390905198527733764399556083083897088187591609/6850788924988607429079772653357576654637183795200"
+          },
+          "budget_compliance": {
+            "approx": 1.0,
+            "exact": "1"
+          },
+          "claimed_ops_given": 83,
+          "claimed_ops_match": 83,
+          "coverage": {
+            "approx": 0.096385542169,
+            "exact": "8/83"
+          },
+          "ece": {
+            "approx": 0.103071592016,
+            "exact": "2336360791070226337046251/22667359117774297025740800"
+          },
+          "eu": {
+            "approx": 0.085786852256,
+            "exact": "4303962538052253207939879/50170421514007110750306304"
+          },
+          "eu_budget_enforced": {
+            "approx": 0.085786852256,
+            "exact": "4303962538052253207939879/50170421514007110750306304"
+          },
+          "n": 83,
+          "n_p": 75,
+          "oracle_eu": {
+            "approx": 0.097835045027,
+            "exact": "4908425447840719935294247/50170421514007110750306304"
+          },
+          "realized": {
+            "approx": 0.096385542169,
+            "exact": "8/83"
+          },
+          "regret": {
+            "approx": 0.012048192771,
+            "exact": "9007199254460137/747597538143502336"
+          },
+          "selective_risk": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "unknown_algorithm": 0
+        },
+        "hard_negative": {
+          "algorithm_accuracy": {
+            "approx": 0.726495726496,
+            "exact": "85/117"
+          },
+          "brier": {
+            "approx": 0.060833726005,
+            "exact": "2352918030704527215301733471394510571505417/38677854953701549511101011379124501986934784"
+          },
+          "budget_compliance": {
+            "approx": 1.0,
+            "exact": "1"
+          },
+          "claimed_ops_given": 117,
+          "claimed_ops_match": 117,
+          "coverage": {
+            "approx": 0.846153846154,
+            "exact": "11/13"
+          },
+          "ece": {
+            "approx": 0.044011399,
+            "exact": "2883751632615685761565/65522834949816327340032"
+          },
+          "eu": {
+            "approx": 0.541508854683,
+            "exact": "9349774439606911594717/17266152452992140312576"
+          },
+          "eu_budget_enforced": {
+            "approx": 0.541508854683,
+            "exact": "9349774439606911594717/17266152452992140312576"
+          },
+          "n": 117,
+          "n_p": 111,
+          "oracle_eu": {
+            "approx": 0.692058608117,
+            "exact": "2189712120891544122216851907442733/3164055898169660586135771200618496"
+          },
+          "realized": {
+            "approx": 0.547008547009,
+            "exact": "64/117"
+          },
+          "regret": {
+            "approx": 0.150549753434,
+            "exact": "1429043505959315580106847386298503/9492167694508981758407313601855488"
+          },
+          "selective_risk": {
+            "approx": 0.050505050505,
+            "exact": "5/99"
+          },
+          "unknown_algorithm": 0
+        },
+        "overall": {
+          "algorithm_accuracy": {
+            "approx": 0.505,
+            "exact": "101/200"
+          },
+          "brier": {
+            "approx": 0.116609730312,
+            "exact": "660398083146511772030819058402775492114967875219/5663318844657248808039278726775596701166738604032"
+          },
+          "budget_compliance": {
+            "approx": 1.0,
+            "exact": "1"
+          },
+          "claimed_ops_given": 200,
+          "claimed_ops_match": 200,
+          "coverage": {
+            "approx": 0.535,
+            "exact": "107/200"
+          },
+          "ece": {
+            "approx": 0.055780764543,
+            "exact": "1045239500646089324038407/18738350204026752207945728"
+          },
+          "eu": {
+            "approx": 0.352384223676,
+            "exact": "42600638642682163099900711/120892581961462917470617600"
+          },
+          "eu_budget_enforced": {
+            "approx": 0.352384223676,
+            "exact": "42600638642682163099900711/120892581961462917470617600"
+          },
+          "n": 200,
+          "n_p": 186,
+          "oracle_eu": {
+            "approx": 0.445455829435,
+            "exact": "1445586814868239260450011313227803/3245185536584267267831560205762560"
+          },
+          "realized": {
+            "approx": 0.36,
+            "exact": "9/25"
+          },
+          "regret": {
+            "approx": 0.093071605759,
+            "exact": "1510173144371392544855946110134407/16225927682921336339157801028812800"
+          },
+          "selective_risk": {
+            "approx": 0.046728971963,
+            "exact": "5/107"
+          },
+          "unknown_algorithm": 0
+        },
+        "per_family": {
+          "chain": {
+            "algorithm_accuracy": {
+              "approx": 0.4375,
+              "exact": "7/16"
+            },
+            "brier": {
+              "approx": 0.15183771319,
+              "exact": "3229231027000645412610126841532688009/21267647932558653966460912964485513216"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.5,
+              "exact": "1/2"
+            },
+            "ece": {
+              "approx": 0.157133443764,
+              "exact": "2898600422526770883/18446744073709551616"
+            },
+            "eu": {
+              "approx": 0.176510371977,
+              "exact": "3256041658211436593/18446744073709551616"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.176510371977,
+              "exact": "3256041658211436593/18446744073709551616"
+            },
+            "n": 16,
+            "n_p": 16,
+            "oracle_eu": {
+              "approx": 0.286236253997,
+              "exact": "5280126922098444337/18446744073709551616"
+            },
+            "realized": {
+              "approx": -0.125,
+              "exact": "-1/8"
+            },
+            "regret": {
+              "approx": 0.10972588202,
+              "exact": "61770180172333/562949953421312"
+            },
+            "selective_risk": {
+              "approx": 0.125,
+              "exact": "1/8"
+            },
+            "unknown_algorithm": 0
+          },
+          "dense": {
+            "algorithm_accuracy": {
+              "approx": 0.75,
+              "exact": "3/4"
+            },
+            "brier": {
+              "approx": 0.03970295142,
+              "exact": "43908196419280621699897642373352304417/1105917692493050006255967474153246687232"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.6875,
+              "exact": "11/16"
+            },
+            "ece": {
+              "approx": 0.018819884834,
+              "exact": "2256576393661050823/119903836479112085504"
+            },
+            "eu": {
+              "approx": 0.511745727336,
+              "exact": "37760169851943439799/73786976294838206464"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.511745727336,
+              "exact": "37760169851943439799/73786976294838206464"
+            },
+            "n": 16,
+            "n_p": 13,
+            "oracle_eu": {
+              "approx": 0.754852007202,
+              "exact": "979853926413373923941268425500807/1298074214633706907132624082305024"
+            },
+            "realized": {
+              "approx": 0.6875,
+              "exact": "11/16"
+            },
+            "regret": {
+              "approx": 0.243106279866,
+              "exact": "315569993309236765373537989388423/1298074214633706907132624082305024"
+            },
+            "selective_risk": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "unknown_algorithm": 0
+          },
+          "grid": {
+            "algorithm_accuracy": {
+              "approx": 0.25,
+              "exact": "1/4"
+            },
+            "brier": {
+              "approx": 0.10940206422,
+              "exact": "145420286557717788098309064798688073/1329227995784915872903807060280344576"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.4375,
+              "exact": "7/16"
+            },
+            "ece": {
+              "approx": 0.138978385027,
+              "exact": "640924675094426787/4611686018427387904"
+            },
+            "eu": {
+              "approx": 0.375365643375,
+              "exact": "221576766636633371699/590295810358705651712"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.375365643375,
+              "exact": "221576766636633371699/590295810358705651712"
+            },
+            "n": 16,
+            "n_p": 16,
+            "oracle_eu": {
+              "approx": 0.429894282197,
+              "exact": "253764793678172435251/590295810358705651712"
+            },
+            "realized": {
+              "approx": 0.4375,
+              "exact": "7/16"
+            },
+            "regret": {
+              "approx": 0.054528638823,
+              "exact": "125734480631011967/2305843009213693952"
+            },
+            "selective_risk": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "unknown_algorithm": 0
+          },
+          "hyper": {
+            "algorithm_accuracy": {
+              "approx": 0.125,
+              "exact": "1/8"
+            },
+            "brier": {
+              "approx": 0.222121252896,
+              "exact": "1585814289986314267734553800039683/7139408180485387989229432452677632"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 24,
+            "claimed_ops_match": 24,
+            "coverage": {
+              "approx": 0.125,
+              "exact": "1/8"
+            },
+            "ece": {
+              "approx": 0.134863690674,
+              "exact": "53448741901565145/396316767208603648"
+            },
+            "eu": {
+              "approx": 0.100300580513,
+              "exact": "10841127768508813/108086391056891904"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.100300580513,
+              "exact": "10841127768508813/108086391056891904"
+            },
+            "n": 24,
+            "n_p": 22,
+            "oracle_eu": {
+              "approx": 0.100300580513,
+              "exact": "10841127768508813/108086391056891904"
+            },
+            "realized": {
+              "approx": 0.125,
+              "exact": "1/8"
+            },
+            "regret": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "selective_risk": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "unknown_algorithm": 0
+          },
+          "ktree": {
+            "algorithm_accuracy": {
+              "approx": 0.5625,
+              "exact": "9/16"
+            },
+            "brier": {
+              "approx": 0.13117370445,
+              "exact": "91414729990214610610031899102893334027245/696898287454081973172991196020261297061888"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 32,
+            "claimed_ops_match": 32,
+            "coverage": {
+              "approx": 0.59375,
+              "exact": "19/32"
+            },
+            "ece": {
+              "approx": 0.126758826757,
+              "exact": "1945455313382817522045/15347691069326346944512"
+            },
+            "eu": {
+              "approx": 0.275860698267,
+              "exact": "1302715315436676739177/4722366482869645213696"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.275860698267,
+              "exact": "1302715315436676739177/4722366482869645213696"
+            },
+            "n": 32,
+            "n_p": 26,
+            "oracle_eu": {
+              "approx": 0.493280060167,
+              "exact": "2329449222799027084685/4722366482869645213696"
+            },
+            "realized": {
+              "approx": 0.125,
+              "exact": "1/8"
+            },
+            "regret": {
+              "approx": 0.2174193619,
+              "exact": "256683476840587586377/1180591620717411303424"
+            },
+            "selective_risk": {
+              "approx": 0.105263157895,
+              "exact": "2/19"
+            },
+            "unknown_algorithm": 0
+          },
+          "sparse": {
+            "algorithm_accuracy": {
+              "approx": 0.375,
+              "exact": "3/8"
+            },
+            "brier": {
+              "approx": 0.085455166086,
+              "exact": "116315544725257457364626713769392457705/1361129467683753853853498429727072845824"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.5,
+              "exact": "1/2"
+            },
+            "ece": {
+              "approx": 0.157228271773,
+              "exact": "23202797524366556019/147573952589676412928"
+            },
+            "eu": {
+              "approx": 0.227298261096,
+              "exact": "4192912850832533363/18446744073709551616"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.227298261096,
+              "exact": "4192912850832533363/18446744073709551616"
+            },
+            "n": 16,
+            "n_p": 16,
+            "oracle_eu": {
+              "approx": 0.379564000745,
+              "exact": "7001719981339605019/18446744073709551616"
+            },
+            "realized": {
+              "approx": 0.5,
+              "exact": "1/2"
+            },
+            "regret": {
+              "approx": 0.152265739649,
+              "exact": "351100891313383957/2305843009213693952"
+            },
+            "selective_risk": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "unknown_algorithm": 0
+          },
+          "star": {
+            "algorithm_accuracy": {
+              "approx": 0.5625,
+              "exact": "9/16"
+            },
+            "brier": {
+              "approx": 0.092022351019,
+              "exact": "268981633371904061798503648262988331295667940281/2923003274661805836407369665432566039311865085952"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 32,
+            "claimed_ops_match": 32,
+            "coverage": {
+              "approx": 0.625,
+              "exact": "5/8"
+            },
+            "ece": {
+              "approx": 0.076333638808,
+              "exact": "738253654881156247248619/9671406556917033397649408"
+            },
+            "eu": {
+              "approx": 0.338716748593,
+              "exact": "6551734766556161180388135/19342813113834066795298816"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.338716748593,
+              "exact": "6551734766556161180388135/19342813113834066795298816"
+            },
+            "n": 32,
+            "n_p": 32,
+            "oracle_eu": {
+              "approx": 0.373176035455,
+              "exact": "7218274312365044746373927/19342813113834066795298816"
+            },
+            "realized": {
+              "approx": 0.46875,
+              "exact": "15/32"
+            },
+            "regret": {
+              "approx": 0.034459286862,
+              "exact": "4966106607086089/144115188075855872"
+            },
+            "selective_risk": {
+              "approx": 0.05,
+              "exact": "1/20"
+            },
+            "unknown_algorithm": 0
+          },
+          "weak_dense": {
+            "algorithm_accuracy": {
+              "approx": 0.25,
+              "exact": "1/4"
+            },
+            "brier": {
+              "approx": 0.279557943201,
+              "exact": "75480487173695151728252891901399509/269999436643811036683585809119444992"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.125,
+              "exact": "1/8"
+            },
+            "ece": {
+              "approx": 0.225435386443,
+              "exact": "422352620509745967/1873497444986126336"
+            },
+            "eu": {
+              "approx": -0.078222972321,
+              "exact": "-22546236735817447/288230376151711744"
+            },
+            "eu_budget_enforced": {
+              "approx": -0.078222972321,
+              "exact": "-22546236735817447/288230376151711744"
+            },
+            "n": 16,
+            "n_p": 13,
+            "oracle_eu": {
+              "approx": 0.021788261779,
+              "exact": "785004861034991/36028797018963968"
+            },
+            "realized": {
+              "approx": -0.1875,
+              "exact": "-3/16"
+            },
+            "regret": {
+              "approx": 0.1000112341,
+              "exact": "28826275624097375/288230376151711744"
+            },
+            "selective_risk": {
+              "approx": 0.5,
+              "exact": "1/2"
+            },
+            "unknown_algorithm": 0
+          },
+          "xor_noiseless": {
+            "algorithm_accuracy": {
+              "approx": 0.90625,
+              "exact": "29/32"
+            },
+            "brier": {
+              "approx": 0.0234375,
+              "exact": "3/128"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 32,
+            "claimed_ops_match": 32,
+            "coverage": {
+              "approx": 0.90625,
+              "exact": "29/32"
+            },
+            "ece": {
+              "approx": 0.015625,
+              "exact": "1/64"
+            },
+            "eu": {
+              "approx": 0.90625,
+              "exact": "29/32"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.90625,
+              "exact": "29/32"
+            },
+            "n": 32,
+            "n_p": 32,
+            "oracle_eu": {
+              "approx": 0.90625,
+              "exact": "29/32"
+            },
+            "realized": {
+              "approx": 0.90625,
+              "exact": "29/32"
+            },
+            "regret": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "selective_risk": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "unknown_algorithm": 0
+          }
+        }
+      },
+      "unary_shortcut": {
+        "easy": {
+          "algorithm_accuracy": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "brier": {
+            "approx": 0.227693066265,
+            "exact": "3066460918509171113293768869363659/13467519976824709161500974853914624"
+          },
+          "budget_compliance": {
+            "approx": 1.0,
+            "exact": "1"
+          },
+          "claimed_ops_given": 83,
+          "claimed_ops_match": 83,
+          "coverage": {
+            "approx": 0.10843373494,
+            "exact": "9/83"
+          },
+          "ece": {
+            "approx": 0.122493975904,
+            "exact": "91576194822951667/747597538143502336"
+          },
+          "eu": {
+            "approx": 0.097835045027,
+            "exact": "4908425447840719935294247/50170421514007110750306304"
+          },
+          "eu_budget_enforced": {
+            "approx": 0.097835045027,
+            "exact": "4908425447840719935294247/50170421514007110750306304"
+          },
+          "n": 83,
+          "n_p": 83,
+          "oracle_eu": {
+            "approx": 0.097835045027,
+            "exact": "4908425447840719935294247/50170421514007110750306304"
+          },
+          "realized": {
+            "approx": 0.10843373494,
+            "exact": "9/83"
+          },
+          "regret": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "selective_risk": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "unknown_algorithm": 0
+        },
+        "hard_negative": {
+          "algorithm_accuracy": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "brier": {
+            "approx": 0.23033749359,
+            "exact": "1093201057743366899069931334604035/4746083847254490879203656800927744"
+          },
+          "budget_compliance": {
+            "approx": 1.0,
+            "exact": "1"
+          },
+          "claimed_ops_given": 117,
+          "claimed_ops_match": 117,
+          "coverage": {
+            "approx": 0.051282051282,
+            "exact": "2/39"
+          },
+          "ece": {
+            "approx": 0.104884615385,
+            "exact": "1417074944289155/13510798882111488"
+          },
+          "eu": {
+            "approx": -0.05286852076,
+            "exact": "-12867611918369871253757847654239/243388915243820045087367015432192"
+          },
+          "eu_budget_enforced": {
+            "approx": -0.05286852076,
+            "exact": "-12867611918369871253757847654239/243388915243820045087367015432192"
+          },
+          "n": 117,
+          "n_p": 117,
+          "oracle_eu": {
+            "approx": 0.692058608117,
+            "exact": "2189712120891544122216851907442733/3164055898169660586135771200618496"
+          },
+          "realized": {
+            "approx": -0.076923076923,
+            "exact": "-1/13"
+          },
+          "regret": {
+            "approx": 0.744927128877,
+            "exact": "2195118997088030398372285/2946756685310658613346304"
+          },
+          "selective_risk": {
+            "approx": 0.5,
+            "exact": "1/2"
+          },
+          "unknown_algorithm": 0
+        },
+        "overall": {
+          "algorithm_accuracy": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "brier": {
+            "approx": 0.22924005625,
+            "exact": "7439265149482638709573494207779799/32451855365842672678315602057625600"
+          },
+          "budget_compliance": {
+            "approx": 1.0,
+            "exact": "1"
+          },
+          "claimed_ops_given": 200,
+          "claimed_ops_match": 200,
+          "coverage": {
+            "approx": 0.075,
+            "exact": "3/40"
+          },
+          "ece": {
+            "approx": 0.0425925,
+            "exact": "76727826851511157/1801439850948198400"
+          },
+          "eu": {
+            "approx": 0.009673459041,
+            "exact": "31392169370027791340588957059099/3245185536584267267831560205762560"
+          },
+          "eu_budget_enforced": {
+            "approx": 0.009673459041,
+            "exact": "31392169370027791340588957059099/3245185536584267267831560205762560"
+          },
+          "n": 200,
+          "n_p": 200,
+          "oracle_eu": {
+            "approx": 0.445455829435,
+            "exact": "1445586814868239260450011313227803/3245185536584267267831560205762560"
+          },
+          "realized": {
+            "approx": 0.0,
+            "exact": "0"
+          },
+          "regret": {
+            "approx": 0.435782370393,
+            "exact": "1317071398252818239023371/3022314549036572936765440"
+          },
+          "selective_risk": {
+            "approx": 0.2,
+            "exact": "1/5"
+          },
+          "unknown_algorithm": 0
+        },
+        "per_family": {
+          "chain": {
+            "algorithm_accuracy": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "brier": {
+              "approx": 0.2612546875,
+              "exact": "169563986647968516846140572804161/649037107316853453566312041152512"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.0625,
+              "exact": "1/16"
+            },
+            "ece": {
+              "approx": 0.1840625,
+              "exact": "13263100902606111/72057594037927936"
+            },
+            "eu": {
+              "approx": -0.121838475347,
+              "exact": "-35117549579120971/288230376151711744"
+            },
+            "eu_budget_enforced": {
+              "approx": -0.121838475347,
+              "exact": "-35117549579120971/288230376151711744"
+            },
+            "n": 16,
+            "n_p": 16,
+            "oracle_eu": {
+              "approx": 0.286236253997,
+              "exact": "5280126922098444337/18446744073709551616"
+            },
+            "realized": {
+              "approx": -0.25,
+              "exact": "-1/4"
+            },
+            "regret": {
+              "approx": 0.408074729344,
+              "exact": "7527650095162186481/18446744073709551616"
+            },
+            "selective_risk": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "unknown_algorithm": 0
+          },
+          "dense": {
+            "algorithm_accuracy": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "brier": {
+              "approx": 0.204872640625,
+              "exact": "1063759568316922225066715098095941/5192296858534827628530496329220096"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.1875,
+              "exact": "3/16"
+            },
+            "ece": {
+              "approx": 0.33365625,
+              "exact": "96169866442869569/288230376151711744"
+            },
+            "eu": {
+              "approx": -0.125000484132,
+              "exact": "-162259905268506111595667221157753/1298074214633706907132624082305024"
+            },
+            "eu_budget_enforced": {
+              "approx": -0.125000484132,
+              "exact": "-162259905268506111595667221157753/1298074214633706907132624082305024"
+            },
+            "n": 16,
+            "n_p": 16,
+            "oracle_eu": {
+              "approx": 0.754852007202,
+              "exact": "979853926413373923941268425500807/1298074214633706907132624082305024"
+            },
+            "realized": {
+              "approx": -0.125,
+              "exact": "-1/8"
+            },
+            "regret": {
+              "approx": 0.879852491334,
+              "exact": "1063676394225917789653815/1208925819614629174706176"
+            },
+            "selective_risk": {
+              "approx": 0.333333333333,
+              "exact": "1/3"
+            },
+            "unknown_algorithm": 0
+          },
+          "grid": {
+            "algorithm_accuracy": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "brier": {
+              "approx": 0.233310140625,
+              "exact": "605707755115753204054459818862641/2596148429267413814265248164610048"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.0625,
+              "exact": "1/16"
+            },
+            "ece": {
+              "approx": 0.18990625,
+              "exact": "3421046866941313/18014398509481984"
+            },
+            "eu": {
+              "approx": 0.06249560475,
+              "exact": "9006565832451187/144115188075855872"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.06249560475,
+              "exact": "9006565832451187/144115188075855872"
+            },
+            "n": 16,
+            "n_p": 16,
+            "oracle_eu": {
+              "approx": 0.429894282197,
+              "exact": "253764793678172435251/590295810358705651712"
+            },
+            "realized": {
+              "approx": 0.0625,
+              "exact": "1/16"
+            },
+            "regret": {
+              "approx": 0.367398677447,
+              "exact": "216873900028452373299/590295810358705651712"
+            },
+            "selective_risk": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "unknown_algorithm": 0
+          },
+          "hyper": {
+            "algorithm_accuracy": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "brier": {
+              "approx": 0.2215625,
+              "exact": "143802284089890343846217966902313/649037107316853453566312041152512"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 24,
+            "claimed_ops_match": 24,
+            "coverage": {
+              "approx": 0.083333333333,
+              "exact": "1/12"
+            },
+            "ece": {
+              "approx": 0.122916666667,
+              "exact": "26571237801485927/216172782113783808"
+            },
+            "eu": {
+              "approx": 0.058954529769,
+              "exact": "4248121572795693/72057594037927936"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.058954529769,
+              "exact": "4248121572795693/72057594037927936"
+            },
+            "n": 24,
+            "n_p": 24,
+            "oracle_eu": {
+              "approx": 0.100300580513,
+              "exact": "10841127768508813/108086391056891904"
+            },
+            "realized": {
+              "approx": 0.083333333333,
+              "exact": "1/12"
+            },
+            "regret": {
+              "approx": 0.041346050743,
+              "exact": "8937890818630547/216172782113783808"
+            },
+            "selective_risk": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "unknown_algorithm": 0
+          },
+          "ktree": {
+            "algorithm_accuracy": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "brier": {
+              "approx": 0.277765226562,
+              "exact": "721119756645341676152220587723975/2596148429267413814265248164610048"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 32,
+            "claimed_ops_match": 32,
+            "coverage": {
+              "approx": 0.125,
+              "exact": "1/8"
+            },
+            "ece": {
+              "approx": 0.186140625,
+              "exact": "13412845590216179/72057594037927936"
+            },
+            "eu": {
+              "approx": 0.01085376197,
+              "exact": "6406930217802920679/590295810358705651712"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.01085376197,
+              "exact": "6406930217802920679/590295810358705651712"
+            },
+            "n": 32,
+            "n_p": 32,
+            "oracle_eu": {
+              "approx": 0.493280060167,
+              "exact": "2329449222799027084685/4722366482869645213696"
+            },
+            "realized": {
+              "approx": -0.03125,
+              "exact": "-1/32"
+            },
+            "regret": {
+              "approx": 0.482426298196,
+              "exact": "2278193781056603719253/4722366482869645213696"
+            },
+            "selective_risk": {
+              "approx": 0.25,
+              "exact": "1/4"
+            },
+            "unknown_algorithm": 0
+          },
+          "sparse": {
+            "algorithm_accuracy": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "brier": {
+              "approx": 0.243284375,
+              "exact": "9868786687836789425948855183501/40564819207303340847894502572032"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "ece": {
+              "approx": 0.13375,
+              "exact": "4818851601286431/36028797018963968"
+            },
+            "eu": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "n": 16,
+            "n_p": 16,
+            "oracle_eu": {
+              "approx": 0.379564000745,
+              "exact": "7001719981339605019/18446744073709551616"
+            },
+            "realized": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "regret": {
+              "approx": 0.379564000745,
+              "exact": "7001719981339605019/18446744073709551616"
+            },
+            "selective_risk": null,
+            "unknown_algorithm": 0
+          },
+          "star": {
+            "algorithm_accuracy": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "brier": {
+              "approx": 0.174001164063,
+              "exact": "1806931395086243859384200112071429/10384593717069655257060992658440192"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 32,
+            "claimed_ops_match": 32,
+            "coverage": {
+              "approx": 0.09375,
+              "exact": "3/32"
+            },
+            "ece": {
+              "approx": 0.109484375,
+              "exact": "63113445177970139/576460752303423488"
+            },
+            "eu": {
+              "approx": 0.090652065924,
+              "exact": "1753465969555325365472039/19342813113834066795298816"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.090652065924,
+              "exact": "1753465969555325365472039/19342813113834066795298816"
+            },
+            "n": 32,
+            "n_p": 32,
+            "oracle_eu": {
+              "approx": 0.373176035455,
+              "exact": "7218274312365044746373927/19342813113834066795298816"
+            },
+            "realized": {
+              "approx": 0.09375,
+              "exact": "3/32"
+            },
+            "regret": {
+              "approx": 0.282523969531,
+              "exact": "2605823680310115519/9223372036854775808"
+            },
+            "selective_risk": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "unknown_algorithm": 0
+          },
+          "weak_dense": {
+            "algorithm_accuracy": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "brier": {
+              "approx": 0.186902328125,
+              "exact": "485226185588141550133914701705913/2596148429267413814265248164610048"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 16,
+            "claimed_ops_match": 16,
+            "coverage": {
+              "approx": 0.0625,
+              "exact": "1/16"
+            },
+            "ece": {
+              "approx": 0.15834375,
+              "exact": "22819739311886305/144115188075855872"
+            },
+            "eu": {
+              "approx": 0.013818142304,
+              "exact": "3982808354136629/288230376151711744"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.013818142304,
+              "exact": "3982808354136629/288230376151711744"
+            },
+            "n": 16,
+            "n_p": 16,
+            "oracle_eu": {
+              "approx": 0.021788261779,
+              "exact": "785004861034991/36028797018963968"
+            },
+            "realized": {
+              "approx": 0.0625,
+              "exact": "1/16"
+            },
+            "regret": {
+              "approx": 0.007970119475,
+              "exact": "2297230534143299/288230376151711744"
+            },
+            "selective_risk": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "unknown_algorithm": 0
+          },
+          "xor_noiseless": {
+            "algorithm_accuracy": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "brier": {
+              "approx": 0.25,
+              "exact": "1/4"
+            },
+            "budget_compliance": {
+              "approx": 1.0,
+              "exact": "1"
+            },
+            "claimed_ops_given": 32,
+            "claimed_ops_match": 32,
+            "coverage": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "ece": {
+              "approx": 0.03125,
+              "exact": "1/32"
+            },
+            "eu": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "eu_budget_enforced": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "n": 32,
+            "n_p": 32,
+            "oracle_eu": {
+              "approx": 0.90625,
+              "exact": "29/32"
+            },
+            "realized": {
+              "approx": 0.0,
+              "exact": "0"
+            },
+            "regret": {
+              "approx": 0.90625,
+              "exact": "29/32"
+            },
+            "selective_risk": null,
+            "unknown_algorithm": 0
+          }
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "fixtures/dcf16_heldout_sample.jsonl": "7e8d14bc0eda321c8b74470cb00e7dce30afa8e5b22a493d0df88db647a130d2",
+    "paper/dcf16_decision_eval.md": "879703b80b7e805ffdb757d41abb3be9f1202a6da7dcc1e90521c36286a7eeba",
+    "scripts/score_dcf16_decision.py": "0fbffcffed8ceb213795ae4d979e557f312d7062a423ed8fafcdc23e91bbd564",
+    "scripts/verify_evaluation_dcf16_decision.py": "cd7486de00a8d8416be21364e18b95e17b4ecb0a39aa7906189506cc8954d987",
+    "src/spiral_ln/evaluation_dcf16_decision.py": "2aacdf84b1bfe07285a0431622fe820a372475df1c42b1137d4b9c8cb53907de",
+    "tests/test_evaluation_dcf16_decision.py": "f080f49163be5818849a7b0dc8ded87cbad268a0b9d7136fe446d10c602b0c15"
+  }
+}

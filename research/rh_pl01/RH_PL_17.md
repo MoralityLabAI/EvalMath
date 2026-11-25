@@ -101,7 +101,7 @@ cmp /tmp/numerator_bridge_audit_receipt.json \
 
 The audit regenerated [numerator_bridge_audit_receipt.json](numerator_bridge_audit_receipt.json) identically in a separate run. Individual certificates can be emitted with `numerator_audit.mjs --emit INDEX` for indices 0 through 4 and checked with `joint_audit.mjs --verify FILE`.
 
-The focused proof-replay workflow adds a numerator job that regenerates its receipt under `/tmp` and compares it with the committed receipt. Its result must be reported from the actual GitHub Actions run after publication.
+The focused proof-replay workflow adds a numerator job that regenerates its receipt under `/tmp` and compares it with the committed receipt. [Run 45652582194](https://github.com/MoralityLabAI/EvalMath/actions/runs/45652582194) passed the numerator job and all four denominator groups at implementation commit `1ac0cad25bd2b087a5d465a0b7e407c7b0d6403d`.
 
 ## Proof curriculum
 
@@ -130,7 +130,7 @@ The pinned PPT trainer completed 32 CPU optimizer updates on this pack using 25,
 
 ### Verification and evidence scope
 
-Local execution used Lean 4.35.0. Fresh replay passed all 36 module theorem axiom audits, all 20 teacher exercises, all 24 candidate checks, and all 12 local-context checks. The candidate labels matched their native results. The module's axiom union is `propext` and `Quot.sound`. Three negative controls rejected an invalid equality, an admission, and a self-reference. The module is registered in the repository's normal Lean build and axiom list; the focused CI workflow runs the native suite with the pinned Lean 4.34.1 toolchain.
+Local execution used Lean 4.35.0. Fresh replay passed all 36 module theorem axiom audits, all 20 teacher exercises, all 24 candidate checks, and all 12 local-context checks. The candidate labels matched their native results. The module's axiom union is `propext` and `Quot.sound`. Three negative controls rejected an invalid equality, an admission, and a self-reference. The module is registered in the repository's normal Lean build and axiom list. [The focused Lean 4.34.1 CI run](https://github.com/MoralityLabAI/EvalMath/actions/runs/45652582316) passed the complete native suite and all 54 gym tests at implementation commit `1ac0cad25bd2b087a5d465a0b7e407c7b0d6403d`. The full local fast-receipt command reproduced all 32 registered receipts.
 
 The current curriculum is one public training family. Earlier solutions are available in later exercises, and all teacher material is public. The preflight therefore records `REDESIGN_OR_PILOT_ONLY`. Its four repeated pair certificates are instrument checks within the shared construction family. They supply no estimate of a neural loop effect. Fresh independent families, a causal sham calibration and a sealed readout remain prerequisites for a transfer study.
 

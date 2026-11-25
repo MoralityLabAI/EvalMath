@@ -27,6 +27,8 @@ ROOT = Path(__file__).resolve().parents[1]
 RECEIPTS = {
     "rh_compactification": ("scripts/verify_rh_compactification.py",
                             "output/rh_compactification/gym_v1.json", [], False),
+    "collatz_basin": ("scripts/verify_collatz_basin.py",
+                      "output/collatz_basin/col_eval_01.json", [], False),
     "cpf_suite": ("scripts/verify_evaluation_cpf_suite.py",
                   "output/evaluation_cpf/cpf_suite.json", [], False),
     "cpf03": ("scripts/verify_evaluation_cpf03.py",
@@ -39,6 +41,8 @@ RECEIPTS = {
                         "output/evaluation_frozen_evidence/fre01_v1.json", [], False),
     "finite_sample": ("scripts/verify_evaluation_finite_sample.py",
                       "output/evaluation_finite_sample/fsi01_v0_1.json", [], False),
+    "dcf16_decision": ("scripts/verify_evaluation_dcf16_decision.py",
+                       "output/evaluation_dcf16_decision/dcf16_eval_v0_1.json", [], False),
     "bpd": ("scripts/verify_evaluation_bpd.py",
             "output/evaluation_bpd/bpd_01.json", [], False),
     "irc02": ("scripts/verify_interface_relative_compactification.py",
