@@ -1,6 +1,6 @@
 {
   "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
-  "top_level_definition_clauses": 21,
+  "top_level_definition_clauses": 22,
   "clause_sizes": [
     {
       "index": 0,
@@ -104,8 +104,13 @@
     },
     {
       "index": 20,
-      "unary": 12098,
-      "compact": 1637
+      "unary": 7704,
+      "compact": 1013
+    },
+    {
+      "index": 21,
+      "unary": 4391,
+      "compact": 621
     }
   ],
   "templates": [
