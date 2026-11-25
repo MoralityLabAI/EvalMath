@@ -131,10 +131,12 @@ node research/rh_pl01/joint_audit.mjs --verify /tmp/rh-pl16-denominator.json
 
 The new `RH proof-length replay` GitHub Actions workflow runs the four audit groups on this research branch with Node 24. It writes regenerated receipts to `/tmp` and compares them with the committed copies. The matrix allows two concurrent jobs and sets a 20-minute limit per job.
 
+[GitHub Actions run 45633076598](https://github.com/MoralityLabAI/EvalMath/actions/runs/45633076598) passed all four jobs at proof commit `b4ed6e589f1a73feb13e58d457b801b65e775842`. Each job independently regenerated its receipt and matched the committed JSON byte-for-byte.
+
 The preceding general `verify` run at commit `280f430` passed 1,909 Python tests plus 13 subtests, and its Lean job passed. Its merge-ref receipt step stopped at a DCF16 check added on `main`, which expected a held-out data file in a sibling Compactification-Theory checkout. That external-data dependency remains outside these proof changes.
 
 ## Next construction
 
-The denominator block is now available as an exact definitional extension of the displayed primitive setup. The next recurrence construction can address the joint numerator/denominator update, including clauses 13, 18, and 20. The lcm and delta definitions, the frozen inequality, and the DMR-to-RH equivalence still require their own proofs.
+The displayed primitive setup now proves existence of the entire exact denominator block. The next recurrence construction can address the joint numerator/denominator update, including clauses 13, 18, and 20. The lcm and delta definitions, the frozen inequality, and the DMR-to-RH equivalence still require their own proofs.
 
 Full expanded replay of the six larger RH-PL-16 proofs remains open. Standard-ZFC certification of the candidate calculus and ordinary-ZFC reconstruction also remain open. The frozen arithmetic target retains the RH-PL-07 lower floors of 570,269 unary bytes and 69,411 compact bytes.
