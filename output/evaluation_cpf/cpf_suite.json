@@ -27,10 +27,10 @@
   "scope": "bounded procedural fixture; no model inference",
   "source_sha256": {
     "configs/cpf_suite_models.example.json": "a57b0063e60ce67c8f363254ae374197b1d335bbe7bea78a433ca68463d0d1f6",
-    "paper/cpf04_06_prospective_critique_suite.md": "c3b795b736fa8d928915efe24442a46e178cff0947178e15ccd794704ea5b5ef",
-    "scripts/run_cpf_suite.py": "dd308488d06d41563e996f41f80f31197b3c373b5f18a6e2a9a146f348cee4d6",
+    "paper/cpf04_06_prospective_critique_suite.md": "3125f467d6d955829ce5499196e65f4985bdaa8b336206d03718a0e86c6dcf33",
+    "scripts/run_cpf_suite.py": "e1a616c7842f52dcb4d043be6a659d5f7e2146935c0c07d12b289b33ae44f7a3",
     "scripts/verify_evaluation_cpf_suite.py": "84b2a6d1b7114d781945b1d0f1c48a013d49a92096f35cdd9ac3ac4c0f2cd8fd",
-    "src/spiral_ln/evaluation_cpf_suite.py": "568bcb0f35549e972881f447b0562c718480c47f0efb595475807cc0f8841ea7",
+    "src/spiral_ln/evaluation_cpf_suite.py": "2d0b1028bb8772733143d5cc25f00e723cf98a76c713ca6b27299d426e8f08e7",
     "tests/test_cpf_suite_runner.py": "5253bc7d55cbf284040faf26a2cb9cf390e8620d2222a1e7b5b9647f98deff84",
     "tests/test_evaluation_cpf_suite.py": "cc007e352361cb431d126fcd2c8c35a8b1ef6d2006bd3a3adcfebde4b98d8549"
   },

@@ -46,6 +46,11 @@ def call(model, prompt, cap, seed, temperature, previous=None):
         messages.extend([{'role':'assistant','content':previous}, {'role':'user','content':
             'Independently check the reasoning, especially the assumptions and certificate. Revise if needed. Return the same JSON format.'}])
     req={'model':model['model'],'messages':messages,'max_tokens':cap,'temperature':temperature,'seed':seed}
+    # Per-model server options (e.g. chat_template_kwargs). With answer_reserve set, thinking is
+    # capped per request at cap - answer_reserve so the answer fits inside the same completion cap.
+    req.update(model.get('request_extra',{}))
+    if model.get('answer_reserve') is not None:
+        req['reasoning_budget_tokens']=max(0,cap-int(model['answer_reserve']))
     headers={'Content-Type':'application/json'}
     if model.get('key_env'):
         key=os.environ.get(model['key_env']);
@@ -59,9 +64,10 @@ def call(model, prompt, cap, seed, temperature, previous=None):
     if type(c) is not int or type(p) is not int or not 0<=c<=cap or p<0:
         raise ValueError('server omitted measured token usage or exceeded completion cap')
     choice=raw['choices'][0]; text=choice['message'].get('content') or ''
-    return {'text':text,'completion':c,'prompt':p,'seconds':secs,'cap':cap,'seed':seed,
-            'request_id':raw.get('id'),'finish_reason':choice.get('finish_reason'),
-            'reported_model':raw.get('model'),'completion_tokens_details':usage.get('completion_tokens_details')}
+    return {'text':text,'reasoning':choice['message'].get('reasoning_content'),'completion':c,'prompt':p,
+            'seconds':secs,'cap':cap,'seed':seed,'request_id':raw.get('id'),'finish_reason':choice.get('finish_reason'),
+            'reported_model':raw.get('model'),'completion_tokens_details':usage.get('completion_tokens_details'),
+            'timings':raw.get('timings'),'request_options':{k:v for k,v in req.items() if k not in ('messages',)}}
 
 
 def collect(args):

@@ -185,9 +185,22 @@ def export(rows):
             [{k:r[k] for k in ('id','family','split','label','certificate','parameters')} for r in rows])
 
 
-def parse(text):
+def strip_fence(text):
+    """Remove surrounding whitespace and at most one Markdown code fence around the whole reply."""
+    t=(text or '').strip()
+    if t.startswith('```') and t.endswith('```') and len(t)>=6:
+        body=t[3:-3]
+        first,_,rest=body.partition('\n')
+        t=(rest if first.strip().lower() in ('','json') else body).strip()
+    return t
+
+
+def parse(text, strict=False):
+    """Registered parse (amended before the dev preflight): the whole reply, optionally inside one
+    code fence, must be a JSON object with exactly label and certificate. strict=True disallows the
+    fence; both are reported."""
     try:
-        r=json.loads(text)
+        r=json.loads(text if strict else strip_fence(text))
         if not isinstance(r,dict) or set(r)!= {'label','certificate'} or r['label'] not in LABELS: return None
         return r
     except (ValueError,TypeError): return None
