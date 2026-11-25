@@ -3,7 +3,8 @@
     "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
     "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
     "integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md": "cb174a3efb031eaa046b01a2acc526ef7d122345",
-    "output/evaluation_storyworld_reasoning/srg06.json": "6cfa2f07351026b63147d95e22a37f7b38b22808"
+    "output/evaluation_storyworld_reasoning/srg06.json": "6cfa2f07351026b63147d95e22a37f7b38b22808",
+    "integrations/sweepweave-ts/srg06/scoped-admission.mjs": "bf07eb3ade9b1deecd86aff45297f39e8459400c"
   },
   "evidence": "additional deterministic xorshift32 paired replay; bounded full-state continuation oracle on real source",
   "policy": "xorshift32 with floor(u*n), 24 draws per campaign",
