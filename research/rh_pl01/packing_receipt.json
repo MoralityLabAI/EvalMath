@@ -1,0 +1,99 @@
+{
+  "target_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "all_formulas_through_22": 753086,
+  "admissible_separation_through_22": 498654,
+  "counts": {
+    "5": 2,
+    "6": 6,
+    "7": 8,
+    "8": 14,
+    "9": 30,
+    "10": 54,
+    "11": 98,
+    "12": 198,
+    "13": 402,
+    "14": 792,
+    "15": 1590,
+    "16": 3256,
+    "17": 6654,
+    "18": 13652,
+    "19": 28348,
+    "20": 59212,
+    "21": 123926,
+    "22": 260412
+  },
+  "p_admissible_through_19": 55104,
+  "p_classes": {
+    "atom": 54,
+    "boolean": 30104,
+    "constant": 21086,
+    "vacuous": 2712,
+    "local-quantifier": 1100,
+    "factor-quantifier": 48
+  },
+  "p_unclassified_at_20": 64,
+  "c_admissible_through_22": 498654,
+  "c_classes": {
+    "reduced-rank-one": 319248,
+    "constant": 179406
+  },
+  "p_witness": "av10imv10v1110mv0v10",
+  "power_trace_checks": 18434,
+  "cut_surrogate_checks": 90,
+  "bounds": [
+    {
+      "encoding": "unary",
+      "power_cost": 86,
+      "union_cost": 94,
+      "p_witness_separation_cost": 88,
+      "individual_axiom_cost_floors": {
+        "C": 86,
+        "P": 88
+      },
+      "shared_false_axiom_cost_floor": 94,
+      "certificate": {
+        "C": 86,
+        "P": 8,
+        "total": 94
+      },
+      "integer_dual_pairs": 4503,
+      "optimal_integer_pairs": 81,
+      "previous": 570175,
+      "semantic_lower": 570269,
+      "cases": {
+        "axiom_at_1": 570269,
+        "axiom_at_2": 570278,
+        "axiom_at_3": 570296,
+        "at_least_4": 570314,
+        "generalization": 684183
+      }
+    },
+    {
+      "encoding": "compact",
+      "power_cost": 38,
+      "union_cost": 46,
+      "p_witness_separation_cost": 48,
+      "individual_axiom_cost_floors": {
+        "C": 38,
+        "P": 46
+      },
+      "shared_false_axiom_cost_floor": 46,
+      "certificate": {
+        "C": 38,
+        "P": 8,
+        "total": 46
+      },
+      "integer_dual_pairs": 1092,
+      "optimal_integer_pairs": 39,
+      "previous": 69365,
+      "semantic_lower": 69411,
+      "cases": {
+        "axiom_at_1": 69411,
+        "axiom_at_2": 69417,
+        "axiom_at_3": 69429,
+        "at_least_4": 69441,
+        "generalization": 83220
+      }
+    }
+  ]
+}
