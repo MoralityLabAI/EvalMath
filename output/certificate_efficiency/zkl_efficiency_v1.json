@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "contains_exact_optimum": true,
+    "failure_in_denominator": true
+  },
+  "interval_cases": 17710,
+  "schema": "zkl-certificate-efficiency/v1",
+  "scope": "exact finite arithmetic checks",
+  "source_sha256": {
+    "scripts/verify_certificate_efficiency.py": "aa074024b28d5ea2acc39fc891059c55194ff14858f56de74ae3400797ca105d",
+    "src/spiral_ln/certificate_efficiency.py": "b0c992fafac8e2b941358cc515dd5b7806643f9780822fadd5687a0acf0f9485",
+    "tests/test_certificate_efficiency.py": "469ca2ffeb8509edc22d5f22e95b52668294da4e69366f0b882c2ecf773addc5"
+  }
+}
