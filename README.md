@@ -14,6 +14,12 @@ New: [capacity-sensitive leakage](paper/leak_capacity.md) certifies when a posit
 feedback fibre produces an actual binary-record collision at declared cell capacities,
 and computes exact collision probabilities with two independent finite algorithms.
 
+New: [Collatz basin readout ceilings](paper/collatz_basin_readout.md) supplies an
+exact finite reasoning benchmark with parameter-disjoint public exports,
+separate evaluator gold, arithmetic collision witnesses and source-hashed
+receipts. The quotient, gcd and constant readouts have exact accuracy ceilings;
+future learned comparisons require fresh confirmation roots.
+
 New: [adaptive disclosure](paper/adaptive_disclosure.md) derives exact pathwise
 feedback fibres, conditional collision reductions and an optimal-query recurrence.
 For a uniform one-hot item on a line, k adaptive interval queries identify up to
