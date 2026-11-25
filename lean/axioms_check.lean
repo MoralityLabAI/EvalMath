@@ -232,7 +232,7 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms InstrumentTransfer.paid_gain_iff
 
 -- MIT-09/10 supporting lemmas
-#print axioms CertifiedPrecision.lrr_entry_error
+#print axioms CertifiedPrecision.lrr_entry_close
 #print axioms CertifiedPrecision.tv_box_bound
 #print axioms CertifiedPrecision.ratio_box_mono
 #print axioms CertifiedPrecision.robust_dominance

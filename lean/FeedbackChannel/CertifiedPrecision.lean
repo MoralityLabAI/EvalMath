@@ -5,7 +5,7 @@ import Mathlib
 
 Supporting lemmas for `paper/certified_instrument_transfer.md`.
 
-* `lrr_entry_error`: a largest-remainder rounded entry differs from the scaled value by
+* `lrr_entry_close`: a largest-remainder rounded entry differs from the scaled value by
   less than one grid unit (raised entries have positive fractional part).
 * `tv_box_bound`: a zero-sum perturbation bounded by `u` entrywise has positive part at most
   `card * u / 2` (the total variation envelope).
@@ -20,7 +20,7 @@ namespace CertifiedPrecision
 open Finset
 
 /-- Largest-remainder rounding raises only entries with a positive fractional part. -/
-theorem lrr_entry_error (x : ℚ) (q : ℤ)
+theorem lrr_entry_close (x : ℚ) (q : ℤ)
     (hq : q = ⌊x⌋ ∨ (q = ⌊x⌋ + 1 ∧ (⌊x⌋ : ℚ) < x)) :
     |x - q| < 1 := by
   have h1 := Int.floor_le x

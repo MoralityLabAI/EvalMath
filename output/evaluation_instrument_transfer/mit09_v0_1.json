@@ -321,7 +321,7 @@
     "gyms/MathematicalInstrumentTransfer/certified_precision.py": "52c0c0954e0775135811bb8c07b6b1d323fb34def125a28d75521e5bf2c5fc96",
     "gyms/MathematicalInstrumentTransfer/decision_certificates.py": "7c82cba53ee5a16422fb1991b8aafe9333664a32c0f88ff391a43b471aa55886",
     "gyms/MathematicalInstrumentTransfer/depth_precision.py": "b0c58485a4a17d225c44922b983d1fd0e3bbecd9a51819dd9ea0d7b385af69fd",
-    "lean/FeedbackChannel/CertifiedPrecision.lean": "f7f3bb655d5f1b8b827d22199c26f34d8a57590b4878e617fb129610eb926434",
+    "lean/FeedbackChannel/CertifiedPrecision.lean": "61fe70594db7326249f7e1507c04e1ef261e5430ad3ca005c1bf9810428e1abc",
     "scripts/verify_certified_precision.py": "7b61f92f1598c3ddd9b7ac59f73289c36e40609a98a54451e26b34c1dcf84822",
     "src/spiral_ln/evaluation_adaptive_precision.py": "951fe0a3ed57d0d6735c5e4506f64863001d858b8064ff4ca3a51c55819198f5",
     "src/spiral_ln/evaluation_decision_certificate.py": "a870b4377d8569d7bc8a5d741bd2f699393c9283f4807c81663003317e23b9b6",

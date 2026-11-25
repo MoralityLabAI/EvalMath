@@ -268,7 +268,7 @@ Built natively with Lean 4.34.1 (WSL direct build, 2026-11-25); `#print axioms` 
 | Setting | Claim | Lean theorem | Fidelity |
 |---|---|---|---|
 | MIT-01 paid shortlist, 0 < n, 0 < k, 0 < B - c | B/N < (B-c)q/K iff q > BK/(N(B-c)) | `InstrumentTransfer.paid_gain_iff` | Supporting lemma: the algebraic equivalence; optimality of the shortlist-first allocation (H = B - c) is proved in the note, not in Lean |
-| Largest-remainder rounding at grid 1/U | A raised entry has positive fractional part, so every entry is within one grid unit: `|xU - q| < 1` | `CertifiedPrecision.lrr_entry_error` | Full for one entry (scaled); the normalization `sum q = U` is checked in Python |
+| Largest-remainder rounding at grid 1/U | A raised entry has positive fractional part, so every entry is within one grid unit: `|xU - q| < 1` | `CertifiedPrecision.lrr_entry_close` | Full for one entry (scaled); the normalization `sum q = U` is checked in Python |
 | Zero-sum perturbation bounded entrywise by u | `2 * sum max(d, 0) <= card * u`, i.e. TV <= m u / 2 | `CertifiedPrecision.tv_box_bound` | Supporting lemma: the note's envelope uses the sharper floor(m/2) u and the mass bounds, verified in Python |
 | Box bound for posterior TV | `a/(a+b) <= A/(A+B)` for `a <= A`, `B <= b` | `CertifiedPrecision.ratio_box_mono` | Supporting lemma for the subset formula; the formula's equality with the vertex maximum is tested exhaustively in Python |
 | Robust action dominance | Interval radii and the certified-gap inequality imply `Q a - g <= Q a*` for every action | `CertifiedPrecision.robust_dominance` | Full for one decision; that MIT-08 coupling gives valid radii is the note's argument |
