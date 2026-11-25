@@ -1,0 +1,80 @@
+{
+  "evidence": "pure scoring functions executed against generated public/smoke suites; no model inference or local filesystem CLI execution",
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg07/curriculum.mjs": "037bf16dbfcb6f789a09cf2227387ede2f6c22e0",
+    "integrations/sweepweave-ts/srg07/local.mjs": "734f31cdd0c70c775400016138defbbaba44c5ea"
+  },
+  "cohorts": [
+    {
+      "split": "train_public",
+      "role": "train_public",
+      "author_tasks": 18,
+      "author_gold_probes": 440,
+      "author_total_probes": 440,
+      "sham_probes": 0,
+      "player_tasks": 864,
+      "player_gold_scored": 864,
+      "planning_tasks": 48,
+      "planning_gold_scored": 48,
+      "malformed": {
+        "rejected": 1,
+        "duplicate": 1,
+        "missing": 862
+      },
+      "unknown": 1,
+      "author_bad_patch": {
+        "rejected": 1,
+        "duplicate": 1,
+        "missing": 16
+      }
+    },
+    {
+      "split": "calibration_public",
+      "role": "calibration_public",
+      "author_tasks": 18,
+      "author_gold_probes": 499,
+      "author_total_probes": 499,
+      "sham_probes": 0,
+      "player_tasks": 864,
+      "player_gold_scored": 864,
+      "planning_tasks": 48,
+      "planning_gold_scored": 48,
+      "malformed": {
+        "rejected": 1,
+        "duplicate": 1,
+        "missing": 862
+      },
+      "unknown": 1,
+      "author_bad_patch": {
+        "rejected": 1,
+        "duplicate": 1,
+        "missing": 16
+      }
+    },
+    {
+      "split": "evaluation_private",
+      "role": "public_smoke_only",
+      "author_tasks": 18,
+      "author_gold_probes": 453,
+      "author_total_probes": 453,
+      "sham_probes": 0,
+      "player_tasks": 864,
+      "player_gold_scored": 864,
+      "planning_tasks": 48,
+      "planning_gold_scored": 48,
+      "malformed": {
+        "rejected": 1,
+        "duplicate": 1,
+        "missing": 862
+      },
+      "unknown": 1,
+      "author_bad_patch": {
+        "rejected": 1,
+        "duplicate": 1,
+        "missing": 16
+      }
+    }
+  ]
+}
