@@ -16,7 +16,7 @@
         "equality-substitution": 5
       },
       "structural_replay": true,
-      "original_full_replay": false
+      "original_full_replay": true
     },
     {
       "name": "exact_denominator_successor_normalization",
