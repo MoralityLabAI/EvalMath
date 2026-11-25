@@ -74,7 +74,7 @@ function buildInterfaces(k,sp,a){
    // The compiler's and() is right-associated. The exact number of
    // top-level conjuncts is fixed by the pinned compiler, since a final
    // conjunct can itself have conjunction syntax.
-   for(let i=0;i<20;i++){const [p,q]=split(remainder);clauses.push(p);remainder=q}
+   for(let i=0;i<21;i++){const [p,q]=split(remainder);clauses.push(p);remainder=q}
    clauses.push(remainder);
    // Rebuild the declared top-level conjunction exactly.
    assert(eq(clauses.reduceRight((p,q)=>A(q,p)),D),'definition reconstruction');
