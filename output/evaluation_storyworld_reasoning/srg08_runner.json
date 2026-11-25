@@ -1,0 +1,111 @@
+{
+  "evidence": "executed pure scorer functions and mock deterministic reference callbacks through the actual streaming protocol; no LLM or HTTP calls",
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg08/curriculum.mjs": "901abb5f06dd1328c7f163dd325948c024d43628",
+    "integrations/sweepweave-ts/srg08/local.mjs": "75a1617ebc7102da7b0bb661864ef7f4cf221772",
+    "integrations/sweepweave-ts/srg08/run-local.mjs": "bb0e451d6579774655c3cf1a0133659801d9f131"
+  },
+  "cohorts": [
+    {
+      "split": "train_public",
+      "role": "train_public",
+      "author": {
+        "correct": 3,
+        "total": 3,
+        "binary": 65808,
+        "binary_total": 65808,
+        "grid": 210,
+        "grid_total": 210
+      },
+      "player": {
+        "correct": 192,
+        "total": 192
+      },
+      "planning": {
+        "correct": 24,
+        "total": 24
+      },
+      "stream_reference": {
+        "correct": 96,
+        "total": 96
+      },
+      "malformed": {
+        "rejected": 1,
+        "duplicate": 1,
+        "missing": 190
+      },
+      "unknown": 1,
+      "invalid_memory_rejected": true,
+      "zero_memory_single_call": true,
+      "invalid_formula_response_rejected": true
+    },
+    {
+      "split": "calibration_public",
+      "role": "calibration_public",
+      "author": {
+        "correct": 3,
+        "total": 3,
+        "binary": 65808,
+        "binary_total": 65808,
+        "grid": 208,
+        "grid_total": 208
+      },
+      "player": {
+        "correct": 192,
+        "total": 192
+      },
+      "planning": {
+        "correct": 24,
+        "total": 24
+      },
+      "stream_reference": {
+        "correct": 96,
+        "total": 96
+      },
+      "malformed": {
+        "rejected": 1,
+        "duplicate": 1,
+        "missing": 190
+      },
+      "unknown": 1,
+      "invalid_memory_rejected": true,
+      "zero_memory_single_call": true,
+      "invalid_formula_response_rejected": true
+    },
+    {
+      "split": "evaluation_private",
+      "role": "public_smoke_only",
+      "author": {
+        "correct": 3,
+        "total": 3,
+        "binary": 65808,
+        "binary_total": 65808,
+        "grid": 208,
+        "grid_total": 208
+      },
+      "player": {
+        "correct": 192,
+        "total": 192
+      },
+      "planning": {
+        "correct": 24,
+        "total": 24
+      },
+      "stream_reference": {
+        "correct": 96,
+        "total": 96
+      },
+      "malformed": {
+        "rejected": 1,
+        "duplicate": 1,
+        "missing": 190
+      },
+      "unknown": 1,
+      "invalid_memory_rejected": true,
+      "zero_memory_single_call": true,
+      "invalid_formula_response_rejected": true
+    }
+  ]
+}
