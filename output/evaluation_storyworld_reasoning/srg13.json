@@ -11493,6 +11493,12 @@
     "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
     "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
     "integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md": "cb174a3efb031eaa046b01a2acc526ef7d122345",
-    "integrations/sweepweave-ts/srg13/optimizer.mjs": "3edc7e46ae44c56a95836f9cb9daa014f9fd2ec5"
+    "integrations/sweepweave-ts/srg13/optimizer.mjs": "c2056090ca5b5393b615f2aebac438e1b386ceaf"
+  },
+  "replay_note": {
+    "initial_executed_optimizer_blob": "3edc7e46ae44c56a95836f9cb9daa014f9fd2ec5",
+    "split_validation_refactor_blob": "c2056090ca5b5393b615f2aebac438e1b386ceaf",
+    "split_validation_reproduced_exactly": true,
+    "development_selection_reexecuted": true
   }
 }
