@@ -261,16 +261,21 @@ export function runSuite({source,api=runtime,validate=true}){
    const r=caches.get([selected.upstream,selected.pair_scale].join(","))[i];
    return {cohort:d.c,original:aliasOriginal(api,old,d.seq),selected:selected.metrics[i],runtime:auditCompiled(api,w,r.cache,params)};
  });
- const validation=[];
- if(validate)for(const c of CONTRACT.validation){
-   const seq=words(c),zeroWorld=api.compileV2(patch(source,{...params,priority:0,offset:0}).source),z=collect(api,zeroWorld,old,seq,selected.upstream),cache=capture(api,zeroWorld,z.roots,old,params.pair_scale);
-   const actual=capture(api,w,z.roots,old,params.pair_scale),metrics=profile(actual,params,z.scope,{ranked:true});
-   const expected=profile(cache,params,z.scope);
-   if(!same(metrics,expected))fail("compiled metric drift");
-   validation.push({cohort:c,original:aliasOriginal(api,old,seq),selected:metrics,runtime:auditCompiled(api,w,cache,params),
-     ablations:ablations(api,w,cache,params),baseline_campaign:replay(api,old,seq),candidate_campaign:replay(api,w,seq)});
- }
+
+ const validation=validate?CONTRACT.validation.map(c=>validateOne({source,params,cohort:c,api})):[];
  const outcome=feasible>0&&validate&&validation.every(v=>v.selected.pass&&v.candidate_campaign.completed===v.cohort.n)?"PASS_FINITE":"FAIL";
  return {receipt:{evidence:"public reused development and fresh-seed finite validation; candidate authoring hypothesis; no model calls",contract:CONTRACT,provenance:CREDIT,grid_size:grid.length,feasible_count:feasible,selected:{...params,full:selected.full,checks:selected.checks,edit_cost:selected.edit_cost},grid,development,validation,outcome},
    candidate:p.source,patch_manifest:{changes:p.changes,added_variables:p.added_variables}};
+}
+
+export function validateOne({source,params,cohort:c,api=runtime}){
+ const old=api.compileV2(source),w=api.compileV2(patch(source,params).source);
+ scopeCheck(old,w);
+ const seq=words(c),zeroWorld=api.compileV2(patch(source,{...params,priority:0,offset:0}).source);
+ const z=collect(api,zeroWorld,old,seq,params.upstream),cache=capture(api,zeroWorld,z.roots,old,params.pair_scale);
+ const actual=capture(api,w,z.roots,old,params.pair_scale),metrics=profile(actual,params,z.scope,{ranked:true});
+ const expected=profile(cache,params,z.scope);
+ if(!same(metrics,expected))fail("compiled metric drift");
+ return {cohort:c,original:aliasOriginal(api,old,seq),selected:metrics,runtime:auditCompiled(api,w,cache,params),
+   ablations:ablations(api,w,cache,params),baseline_campaign:replay(api,old,seq),candidate_campaign:replay(api,w,seq)};
 }
