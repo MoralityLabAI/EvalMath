@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "cogentic_ledger": ("scripts/verify_cogentic_ledger.py",
+                        "output/cogentic_ledger/cog08_v1.json", [], False),
     "collatz_basin": ("scripts/verify_collatz_basin.py",
                       "output/collatz_basin/col_eval_01.json", [], False),
     "cpf_suite": ("scripts/verify_evaluation_cpf_suite.py",

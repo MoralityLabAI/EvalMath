@@ -1,0 +1,6 @@
+negative_sentinel.lean:2:48: error: Type mismatch
+  h
+has type
+  P
+but is expected to have type
+  Q

@@ -1,0 +1,68 @@
+{
+  "dataset_scope": "Synthetic propositional Horn worlds. Zero proof traces from the motivating papers.",
+  "date": "2026-11-26",
+  "input_files": {
+    "attempts.jsonl.gz": {
+      "sha256": "9b3a0412bdc683b95bc6bcf6a843801f947c288f23e9f32dfa354accd8c0f461"
+    },
+    "ranking.jsonl": {
+      "sha256": "4df7ae5b17d7a37fae306168d95b05de687a0ee67fa7c3a2832581069efdad6c"
+    },
+    "tasks.jsonl": {
+      "sha256": "aef151e3f7de099e9b5d7b51c92ad94aa3bab20a85b4f73b8f4fb5ac8ce7905a"
+    },
+    "traces.jsonl": {
+      "sha256": "b250a58f31d37709242c7da1eb1d68aa01e75b2cc190ae54d9da05822cf331af"
+    }
+  },
+  "local_receipts_sha256": {
+    "output/cogentic_ledger/cog03_independent_replay.json": "38d9b8a2026c40f6246509dd0ce78498af997b2fab4b09d6323a9a284a4bd712",
+    "output/cogentic_ledger/cog08_v1.json": "7a4fd140a3049717300ef23f0ed8db4170654ddccfbc4fa4f7b777f6a4e4e942",
+    "output/cogentic_ledger/model_lean/receipt.json": "aef600a6889b699c69efd1f81c5da91db545803a1b99a1ef2bebe2ce751d1bff",
+    "research/cogentic_suite/protocol.json": "e0ca9e3ce4c8b3ad16eaa5dc893882ff91901e041034b59cf6d02f75547a8c3d"
+  },
+  "motivating_source": "https://github.com/google-research/google-research/tree/4a7bc8ab0bc7/cogentic_research_papers",
+  "published_producers": [
+    {
+      "commit": "ae0dbecffc1d246778ee47d8f3d8ec59b5948f2b",
+      "experiment_path": "training/cogentic",
+      "id": "COG-02",
+      "pull_request": "https://github.com/MoralityLabAI/DataGoblin/pull/77",
+      "repository": "MoralityLabAI/DataGoblin",
+      "source_module": "src/datagoblin/training_gym/rlt_gym/cogentic_ledger.py",
+      "source_module_sha256": "eb6bf1605a293c6b8871e0f14c7eb6fd4af99609d97516ef29d21b712eb001dc",
+      "tree": "d9bdf20d5fb5e8c7318067da8a86dc466b83b21b"
+    },
+    {
+      "commit": "c1c903b3f0664ee19838fcba45bd67e24f779aab",
+      "experiment_path": "research/cog03_ledger_router",
+      "id": "COG-03",
+      "pull_request": "https://github.com/MoralityLabAI/LoopedTransformers/pull/394",
+      "repository": "MoralityLabAI/LoopedTransformers",
+      "tree": "6ab92a50b3c4c527d4be2d84e3de23a4cc6b7f0f"
+    },
+    {
+      "commit": "9fb63f59d6abcdd35d6dbc6af6478f12f32229d8",
+      "experiment_path": "mechinterp/bpd/experiments/cog04_ledger_communication",
+      "id": "COG-04",
+      "pull_request": "https://github.com/MoralityLabAI/BPD/pull/152",
+      "repository": "MoralityLabAI/BPD",
+      "tree": "36a70e2825d52a94b31d3a5e092b1100b141534f"
+    },
+    {
+      "commit": "ee8a60867040545d956903a5e0038a3ed768a892",
+      "experiment_path": "research/cog07_trace_compression",
+      "id": "COG-07",
+      "pull_request": "https://github.com/MoralityLabAI/Compactification-Theory/pull/302",
+      "repository": "MoralityLabAI/Compactification-Theory",
+      "tree": "aa5a8d4c7962941d4de4127120baa3ecae9800de"
+    }
+  ],
+  "schema": "CogenticSuite/source-index/v1",
+  "this_repository": {
+    "base_commit": "958b3fc797cdc8fda927eff153d056b5e65be861",
+    "branch": "research/cog08-ledger-evaluation-20261126",
+    "id": "COG-08",
+    "repository": "MoralityLabAI/EvalMath"
+  }
+}
