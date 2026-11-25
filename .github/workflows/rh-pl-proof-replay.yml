@@ -1,0 +1,42 @@
+name: RH proof-length replay
+
+on:
+  push:
+    branches:
+      - "research/rh-pl01-obstruction-packing-20261125"
+    paths:
+      - "research/rh_pl01/**"
+      - ".github/workflows/rh-pl-proof-replay.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    name: Replay ${{ matrix.group }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        group: [bridge, normalize, equivalence, existence]
+    steps:
+      - name: Check out the proof sources
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Regenerate the proof audit
+        run: >-
+          node research/rh_pl01/denominator_audit.mjs ${{ matrix.group }}
+          --output /tmp/denominator_${{ matrix.group }}_audit_receipt.json
+
+      - name: Compare the committed receipt
+        run: >-
+          cmp /tmp/denominator_${{ matrix.group }}_audit_receipt.json
+          research/rh_pl01/denominator_${{ matrix.group }}_audit_receipt.json

@@ -1,13 +1,18 @@
 # RH-PL-01: Proof-length frontier, obstruction packing
 
-Status: exploratory proof-length program through RH-PL-15, 2026-11-25.
+Status: exploratory proof-length program through RH-PL-16, 2026-11-25.
 
-The latest stage, [RH-PL-15](RH_PL_15.md), derives natural ordinal facts from
-the frozen least-inductive Omega predicate and constructs the normalized
-recurrence from Omega, a natural initial value, and the supplied total functional
-multiplication graph. Its proof constructs the bounded Good-prefix family and
-discharges the coverage, overlap, and extension conditions used in RH-PL-13.
-Source-hashed receipts and the `ordinal_audit.mjs` CLI document the checks.
+The latest stage, [RH-PL-16](RH_PL_16.md), constructs a denominator graph
+satisfying the exact frozen clauses 14, 19, and 21 from source clauses
+0, 1, 2, 3, 4, and 6. It proves both directions between those exact clauses
+and the normalized recurrence. The `denominator_audit.mjs` CLI checks the
+complete theorem statements and independently replays their certificates.
+A dedicated GitHub workflow regenerates and compares the four audit receipts.
+
+[RH-PL-15](RH_PL_15.md) supplies the natural ordinal facts and constructs the
+normalized recurrence through bounded Good prefixes, discharging coverage,
+overlap, and extension conditions. Its checks remain recorded in the six
+earlier audit receipts and `ordinal_audit.mjs`.
 
 The frozen candidate arithmetic target has lower floors of 570,269 unary bytes
 and 69,411 compact bytes from [RH-PL-07](RH_PL_07.md). A finite upper bound for
