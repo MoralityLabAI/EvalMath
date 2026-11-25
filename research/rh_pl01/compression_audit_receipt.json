@@ -1,0 +1,16 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "census": 38232,
+  "census_propositional_positive": 16,
+  "generated": 1280,
+  "generated_positive": 648,
+  "generated_negative": 632,
+  "depth_five_interface": {
+    "index": 4,
+    "lines": 190,
+    "unary": 50766576,
+    "compact": 7444799,
+    "compact_kernel_replay": true
+  },
+  "actual_rh_proof": false
+}
