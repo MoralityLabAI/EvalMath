@@ -1,6 +1,6 @@
 # CPF-01: correlated proof fidelity and certified-rejection audits
 
-Status: research draft, algebraic identities and synthetic finite evidence. The four-atom interval, its witness, the atom total and the audit contraction are kernel-checked (standard axioms only); the adaptive audit theorem has the paper induction and a finite oracle, not a Lean proof. No empirical error rates, upstream rebuilds, or referee verdicts are claimed.
+Status: research draft, algebraic identities and synthetic finite evidence. The four-atom interval, its witness, the atom total, the audit contraction and the adaptive audit theorem (Bellman lower bound, attainment, fixed-schedule residual, adaptive ≤ fixed, and the four-world witness) are kernel-checked (standard axioms only). No empirical error rates, upstream rebuilds, or referee verdicts are claimed.
 
 ## 1. Conditional null law
 
@@ -29,4 +29,4 @@ CPF-02 gate: separately authored canonical definitions and machine-checked bridg
 
 ## 4. Reproduction
 
-Run `PYTHONPATH=src pytest -q tests/test_evaluation_cpf.py` and `PYTHONPATH=src python scripts/verify_evaluation_cpf.py --output output/evaluation_cpf/cpf_01.json`. Receipt hashes cover the module, tests, verifier, note and candidate Lean file. Candidate lemmas cover the four-atom interval and product contraction only; the adaptive theorem has the paper induction and finite oracle, not a Lean proof. From `lean/` run `lake env lean FeedbackChannel/CorrelatedProofFidelity.lean`.
+Run `PYTHONPATH=src pytest -q tests/test_evaluation_cpf.py` and `PYTHONPATH=src python scripts/verify_evaluation_cpf.py --output output/evaluation_cpf/cpf_01.json`. Receipt hashes cover the module, tests, verifier, note and candidate Lean file. `CorrelatedProofFidelity.lean` covers the four-atom interval and product contraction; `CPFAudit.lean` covers the adaptive audit: `value_le_residual` (the recurrence bounds every valid policy), `exists_optimal` (some valid policy attains it), `residual_fixed` and `value_le_fixed` (adaptive ≤ fixed), and the witness by `decide` in units of 1/100. The Lean model fixes the declared world, query and outcome types and masses in a linearly ordered additive monoid; true-claim coverage and cost heterogeneity remain outside it. From `lean/` run `lake env lean FeedbackChannel/CorrelatedProofFidelity.lean` and `lake env lean FeedbackChannel/CPFAudit.lean`.

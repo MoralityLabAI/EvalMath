@@ -233,6 +233,16 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.CPF.witness
 #print axioms FeedbackChannel.CPF.atom_total
 #print axioms FeedbackChannel.CPF.conditional_audit
+-- CPF-01 §2: adaptive certified-rejection audit (CPFAudit.lean)
+#print axioms FeedbackChannel.CPFAudit.Model.value_le_mass
+#print axioms FeedbackChannel.CPFAudit.Model.value_le_residual
+#print axioms FeedbackChannel.CPFAudit.Model.exists_optimal
+#print axioms FeedbackChannel.CPFAudit.Model.residual_fixed
+#print axioms FeedbackChannel.CPFAudit.Model.valid_fixed
+#print axioms FeedbackChannel.CPFAudit.Model.value_le_fixed
+#print axioms FeedbackChannel.CPFAudit.witness_adaptive
+#print axioms FeedbackChannel.CPFAudit.witness_fixed
+#print axioms FeedbackChannel.CPFAudit.witness_lower
 
 -- CPF-02: statement-level circuit bridges (CPF02/Canonical.lean)
 #print axioms FeedbackChannel.CPF02.openai_exact_iff

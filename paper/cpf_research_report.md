@@ -10,7 +10,7 @@ Evidence levels used throughout: **kernel** (Lean 4.34.1, Mathlib `d13f23b`, `#p
 |---|---|---|
 | Conditional joint false acceptance r = P(A∩B \| H0) lies in [max(0, a+b−1), min(a, b)], and every point is attained | kernel | `CPF.frechet`, `CPF.witness`, `CPF.atom_total` |
 | Residual false authorization after a conditionally calibrated audit is rc ≤ r | kernel (calibration is an assumption) | `CPF.conditional_audit` |
-| Adaptive certified-rejection audit: exact Bellman recurrence, adaptive ≤ fixed; synthetic witness where adaptivity removes a third of the fixed residual | paper + finite | CPF-01 §2, `cpf_01.json` |
+| Adaptive certified-rejection audit: the Bellman recurrence bounds every valid policy and is attained; adaptive ≤ fixed; witness where adaptivity removes a third of the fixed residual | kernel + finite | `CPFAudit.value_le_residual`, `exists_optimal`, `value_le_fixed`, `witness_*`; `cpf_01.json` |
 | OpenAI exact circuits = canonical circuits | kernel | `CPF02.openai_exact_iff` |
 | Gate-budget sandwich C_O ≤ C_A ≤ 4·C_O + 2 over every field and characteristic | kernel | `CPF02.charged_free_sandwich`, `canonical_to_anthropic` |
 | Lower bounds transfer in both directions | kernel | `lower_transfer`, `lower_transfer_reverse` |
@@ -27,8 +27,7 @@ Evidence levels used throughout: **kernel** (Lean 4.34.1, Mathlib `d13f23b`, `#p
 
 1. **Laurent versus geometric border.** All approximation statements here are the algebraic Laurent notion. Agreement with Zariski-closure border complexity holds over algebraically closed fields and is not claimed elsewhere. VP ⊆ VPBar is kernel-checked for the Laurent notion only.
 2. **Endpoints and families.** Neither lab's separation endpoint is proved here; the permanent/Hamiltonian definitions and the quantitative rates m^(c(log m)^(1/3)) and exp(Ω((log n)^(5/4))) are not yet placed on a common size parameter.
-3. **Adaptive audit theorem.** Paper induction plus finite oracle; no Lean proof.
-4. **Trusted environment.** Only definition bodies of the upstream statements are imported; the OpenAI comparator's admitted challenge endpoint stays in an archive outside the build.
+3. **Trusted environment.** Only definition bodies of the upstream statements are imported; the OpenAI comparator's admitted challenge endpoint stays in an archive outside the build.
 
 ## 2. Empirical protocol (CPF-04 to CPF-06)
 

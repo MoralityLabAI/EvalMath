@@ -270,6 +270,10 @@ Every theorem below is listed in `axioms_check.lean` with standard axioms only. 
 | CPF-01 §1 | four-atom interval max(0,a+b-1) <= r <= min(a,b) | `FeedbackChannel.CPF.frechet` | FeedbackChannel/CorrelatedProofFidelity.lean | full | rational masses |
 | CPF-01 §1 | every interval point is attained | `FeedbackChannel.CPF.witness` | FeedbackChannel/CorrelatedProofFidelity.lean | full | with `atom_total` |
 | CPF-01 §1 | audit contraction 0 <= rc <= r | `FeedbackChannel.CPF.conditional_audit` | FeedbackChannel/CorrelatedProofFidelity.lean | full | conditional calibration is an assumption, not proved |
+| CPF-01 §2 | Bellman value is a lower bound for every valid adaptive policy | `FeedbackChannel.CPFAudit.Model.value_le_residual` | FeedbackChannel/CPFAudit.lean | full | masses in any linearly ordered additive monoid |
+| CPF-01 §2 | some valid policy attains the Bellman value (exact optimum) | `FeedbackChannel.CPFAudit.Model.exists_optimal` | FeedbackChannel/CPFAudit.lean | full |  |
+| CPF-01 §2 | fixed schedule residual is the never-rejected mass; adaptive ≤ fixed | `FeedbackChannel.CPFAudit.Model.residual_fixed`, `FeedbackChannel.CPFAudit.Model.value_le_fixed` | FeedbackChannel/CPFAudit.lean | full |  |
+| CPF-01 §2 | four-world witness: adaptive 2/100 at budget two, every fixed schedule ≥ 3/100, invisible class bounds every policy | `FeedbackChannel.CPFAudit.witness_adaptive`, `FeedbackChannel.CPFAudit.witness_fixed`, `FeedbackChannel.CPFAudit.witness_lower` | FeedbackChannel/CPFAudit.lean | full | `decide`; masses in units of 1/100 |
 | CPF-02 | OpenAI exact circuits = canonical circuits | `FeedbackChannel.CPF02.openai_exact_iff` | FeedbackChannel/CPF02/Canonical.lean | full | against the verbatim comparator definition |
 | CPF-02 | C_O <= C_A <= 4 C_O + 2 | `FeedbackChannel.CPF02.charged_free_sandwich` | FeedbackChannel/CPF02/Bridges.lean | full | every field and characteristic |
 | CPF-02 | eventual and all-index polynomial bounds coincide | `FeedbackChannel.CPF02.polyBounded_iff_allIndex` | FeedbackChannel/CPF02/Bridges.lean | full |  |

@@ -17,9 +17,10 @@
   "schema": "CPF-01.0",
   "scope": "synthetic conditional null laws; no upstream proof validation",
   "source_sha256": {
+    "lean/FeedbackChannel/CPFAudit.lean": "c874a6b0ebf119353d8cac5de31c5fa745b04b3079d9f594a1d7c6ed89746c73",
     "lean/FeedbackChannel/CorrelatedProofFidelity.lean": "cc1ef2587deb14ec3f32846f02445325508bba8046c54dd903138dfef773b775",
-    "paper/correlated_proof_fidelity.md": "50e3632574065e409562c4ef06747b02eca8f4bcdf36c8eeed832c65b9450f8a",
-    "scripts/verify_evaluation_cpf.py": "5e9eae8febc18135132fa2a38519709fe05a0d684ad2615169aec29581118c08",
+    "paper/correlated_proof_fidelity.md": "9c2e2e76ef6b06bc99fbd02de5cbfda9ac221b8dc59754e9f10d3f003a1879d1",
+    "scripts/verify_evaluation_cpf.py": "41f2cbbef6879e62370fd0990ec4fb281833e5447ed157def9c5c9286ec31784",
     "src/spiral_ln/evaluation_cpf.py": "95f98351babdc1ab43f827c78dd542c37d3f059447bbe85cc1491702a84456e3",
     "tests/test_evaluation_cpf.py": "fc2875e9c627f2730a22d0ba76969be1fb3c787eace883dac2d8767ea7533e40"
   }

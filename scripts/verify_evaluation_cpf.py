@@ -11,7 +11,7 @@ from spiral_ln.evaluation_cpf import bounds, coupling, optimal, fixed, example, 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = ("src/spiral_ln/evaluation_cpf.py", "tests/test_evaluation_cpf.py",
            "scripts/verify_evaluation_cpf.py", "paper/correlated_proof_fidelity.md",
-           "lean/FeedbackChannel/CorrelatedProofFidelity.lean")
+           "lean/FeedbackChannel/CorrelatedProofFidelity.lean", "lean/FeedbackChannel/CPFAudit.lean")
 
 
 def report():
