@@ -1,0 +1,1229 @@
+{
+  "evidence": [
+    {
+      "mode": "independent",
+      "meta_mode": "correct",
+      "budget": 1,
+      "numerator": 109568,
+      "denominator": 16384,
+      "cells": 16,
+      "nodes": 112,
+      "policy_mass": {
+        "positive": 8192,
+        "negative": 8192
+      },
+      "naive_majority_numerator": 72704,
+      "independence_assumption_numerator": 109568,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": 35840,
+      "conflict_mass": 9984,
+      "conflict_cells": 12,
+      "conflict_optimum_numerator": 65536,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 81920
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 109568
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 109568
+        },
+        {
+          "bits": 3,
+          "cells": 5,
+          "numerator": 109568
+        },
+        {
+          "bits": 4,
+          "cells": 6,
+          "numerator": 109568
+        },
+        {
+          "bits": 5,
+          "cells": 6,
+          "numerator": 109568
+        },
+        {
+          "bits": 6,
+          "cells": 6,
+          "numerator": 109568
+        }
+      ]
+    },
+    {
+      "mode": "independent",
+      "meta_mode": "correct",
+      "budget": 2,
+      "numerator": 112128,
+      "denominator": 16384,
+      "cells": 16,
+      "nodes": 176,
+      "policy_mass": {
+        "audit": 4096,
+        "negative": 4352,
+        "negative+audit": 1792,
+        "positive": 4352,
+        "positive+audit": 1792
+      },
+      "naive_majority_numerator": 72704,
+      "independence_assumption_numerator": 112128,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": 84480,
+      "conflict_mass": 9984,
+      "conflict_cells": 12,
+      "conflict_optimum_numerator": 66816,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 98304
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 109568
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 3,
+          "cells": 5,
+          "numerator": 112128
+        },
+        {
+          "bits": 4,
+          "cells": 6,
+          "numerator": 112128
+        },
+        {
+          "bits": 5,
+          "cells": 6,
+          "numerator": 112128
+        },
+        {
+          "bits": 6,
+          "cells": 6,
+          "numerator": 112128
+        }
+      ]
+    },
+    {
+      "mode": "independent",
+      "meta_mode": "wrong_owner",
+      "budget": 1,
+      "numerator": 109568,
+      "denominator": 16384,
+      "cells": 16,
+      "nodes": 112,
+      "policy_mass": {
+        "positive": 8192,
+        "negative": 8192
+      },
+      "naive_majority_numerator": 72704,
+      "independence_assumption_numerator": 109568,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 9984,
+      "conflict_cells": 12,
+      "conflict_optimum_numerator": 65536,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 81920
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 109568
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 109568
+        },
+        {
+          "bits": 3,
+          "cells": 5,
+          "numerator": 109568
+        },
+        {
+          "bits": 4,
+          "cells": 6,
+          "numerator": 109568
+        },
+        {
+          "bits": 5,
+          "cells": 6,
+          "numerator": 109568
+        },
+        {
+          "bits": 6,
+          "cells": 6,
+          "numerator": 109568
+        }
+      ]
+    },
+    {
+      "mode": "independent",
+      "meta_mode": "wrong_owner",
+      "budget": 2,
+      "numerator": 112128,
+      "denominator": 16384,
+      "cells": 16,
+      "nodes": 176,
+      "policy_mass": {
+        "audit": 4096,
+        "negative": 4352,
+        "negative+audit": 1792,
+        "positive": 4352,
+        "positive+audit": 1792
+      },
+      "naive_majority_numerator": 72704,
+      "independence_assumption_numerator": 112128,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 9984,
+      "conflict_cells": 12,
+      "conflict_optimum_numerator": 66816,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 98304
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 109568
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 3,
+          "cells": 5,
+          "numerator": 112128
+        },
+        {
+          "bits": 4,
+          "cells": 6,
+          "numerator": 112128
+        },
+        {
+          "bits": 5,
+          "cells": 6,
+          "numerator": 112128
+        },
+        {
+          "bits": 6,
+          "cells": 6,
+          "numerator": 112128
+        }
+      ]
+    },
+    {
+      "mode": "independent",
+      "meta_mode": "wrong_depth",
+      "budget": 1,
+      "numerator": 109568,
+      "denominator": 16384,
+      "cells": 16,
+      "nodes": 112,
+      "policy_mass": {
+        "positive": 8192,
+        "negative": 8192
+      },
+      "naive_majority_numerator": 72704,
+      "independence_assumption_numerator": 109568,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 9984,
+      "conflict_cells": 12,
+      "conflict_optimum_numerator": 65536,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 81920
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 109568
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 109568
+        },
+        {
+          "bits": 3,
+          "cells": 5,
+          "numerator": 109568
+        },
+        {
+          "bits": 4,
+          "cells": 6,
+          "numerator": 109568
+        },
+        {
+          "bits": 5,
+          "cells": 6,
+          "numerator": 109568
+        },
+        {
+          "bits": 6,
+          "cells": 6,
+          "numerator": 109568
+        }
+      ]
+    },
+    {
+      "mode": "independent",
+      "meta_mode": "wrong_depth",
+      "budget": 2,
+      "numerator": 112128,
+      "denominator": 16384,
+      "cells": 16,
+      "nodes": 176,
+      "policy_mass": {
+        "audit": 4096,
+        "negative": 4352,
+        "negative+audit": 1792,
+        "positive": 4352,
+        "positive+audit": 1792
+      },
+      "naive_majority_numerator": 72704,
+      "independence_assumption_numerator": 112128,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 9984,
+      "conflict_cells": 12,
+      "conflict_optimum_numerator": 66816,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 98304
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 109568
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 3,
+          "cells": 5,
+          "numerator": 112128
+        },
+        {
+          "bits": 4,
+          "cells": 6,
+          "numerator": 112128
+        },
+        {
+          "bits": 5,
+          "cells": 6,
+          "numerator": 112128
+        },
+        {
+          "bits": 6,
+          "cells": 6,
+          "numerator": 112128
+        }
+      ]
+    },
+    {
+      "mode": "independent",
+      "meta_mode": "missing",
+      "budget": 1,
+      "numerator": 98304,
+      "denominator": 16384,
+      "cells": 8,
+      "nodes": 56,
+      "policy_mass": {
+        "negative": 8192,
+        "positive": 8192
+      },
+      "naive_majority_numerator": 72704,
+      "independence_assumption_numerator": 98304,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 9984,
+      "conflict_cells": 6,
+      "conflict_optimum_numerator": 59904,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 81920
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 2,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 3,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 4,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 5,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 6,
+          "cells": 2,
+          "numerator": 98304
+        }
+      ]
+    },
+    {
+      "mode": "independent",
+      "meta_mode": "missing",
+      "budget": 2,
+      "numerator": 98304,
+      "denominator": 16384,
+      "cells": 8,
+      "nodes": 88,
+      "policy_mass": {
+        "negative+audit": 8192,
+        "positive+audit": 8192
+      },
+      "naive_majority_numerator": 72704,
+      "independence_assumption_numerator": 98304,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 9984,
+      "conflict_cells": 6,
+      "conflict_optimum_numerator": 59904,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 98304
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 2,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 3,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 4,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 5,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 6,
+          "cells": 2,
+          "numerator": 98304
+        }
+      ]
+    },
+    {
+      "mode": "copy",
+      "meta_mode": "correct",
+      "budget": 1,
+      "numerator": 106240,
+      "denominator": 16384,
+      "cells": 8,
+      "nodes": 56,
+      "policy_mass": {
+        "settle": 5888,
+        "negative": 5248,
+        "positive": 5248
+      },
+      "naive_majority_numerator": 65536,
+      "independence_assumption_numerator": 102400,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": 73984,
+      "conflict_mass": 8192,
+      "conflict_cells": 4,
+      "conflict_optimum_numerator": 53120,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 81920
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 102400
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 3,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 4,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 5,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 6,
+          "cells": 4,
+          "numerator": 106240
+        }
+      ]
+    },
+    {
+      "mode": "copy",
+      "meta_mode": "correct",
+      "budget": 2,
+      "numerator": 112128,
+      "denominator": 16384,
+      "cells": 8,
+      "nodes": 88,
+      "policy_mass": {
+        "audit": 5888,
+        "negative": 5248,
+        "positive": 5248
+      },
+      "naive_majority_numerator": 65536,
+      "independence_assumption_numerator": 112128,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": 84480,
+      "conflict_mass": 8192,
+      "conflict_cells": 4,
+      "conflict_optimum_numerator": 56064,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 98304
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 102400
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 3,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 4,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 5,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 6,
+          "cells": 4,
+          "numerator": 112128
+        }
+      ]
+    },
+    {
+      "mode": "copy",
+      "meta_mode": "wrong_owner",
+      "budget": 1,
+      "numerator": 106240,
+      "denominator": 16384,
+      "cells": 8,
+      "nodes": 56,
+      "policy_mass": {
+        "settle": 5888,
+        "negative": 5248,
+        "positive": 5248
+      },
+      "naive_majority_numerator": 65536,
+      "independence_assumption_numerator": 102400,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 8192,
+      "conflict_cells": 4,
+      "conflict_optimum_numerator": 53120,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 81920
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 102400
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 3,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 4,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 5,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 6,
+          "cells": 4,
+          "numerator": 106240
+        }
+      ]
+    },
+    {
+      "mode": "copy",
+      "meta_mode": "wrong_owner",
+      "budget": 2,
+      "numerator": 112128,
+      "denominator": 16384,
+      "cells": 8,
+      "nodes": 88,
+      "policy_mass": {
+        "audit": 5888,
+        "negative": 5248,
+        "positive": 5248
+      },
+      "naive_majority_numerator": 65536,
+      "independence_assumption_numerator": 112128,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 8192,
+      "conflict_cells": 4,
+      "conflict_optimum_numerator": 56064,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 98304
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 102400
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 3,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 4,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 5,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 6,
+          "cells": 4,
+          "numerator": 112128
+        }
+      ]
+    },
+    {
+      "mode": "copy",
+      "meta_mode": "wrong_depth",
+      "budget": 1,
+      "numerator": 106240,
+      "denominator": 16384,
+      "cells": 8,
+      "nodes": 56,
+      "policy_mass": {
+        "settle": 5888,
+        "negative": 5248,
+        "positive": 5248
+      },
+      "naive_majority_numerator": 65536,
+      "independence_assumption_numerator": 102400,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 8192,
+      "conflict_cells": 4,
+      "conflict_optimum_numerator": 53120,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 81920
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 102400
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 3,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 4,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 5,
+          "cells": 4,
+          "numerator": 106240
+        },
+        {
+          "bits": 6,
+          "cells": 4,
+          "numerator": 106240
+        }
+      ]
+    },
+    {
+      "mode": "copy",
+      "meta_mode": "wrong_depth",
+      "budget": 2,
+      "numerator": 112128,
+      "denominator": 16384,
+      "cells": 8,
+      "nodes": 88,
+      "policy_mass": {
+        "audit": 5888,
+        "negative": 5248,
+        "positive": 5248
+      },
+      "naive_majority_numerator": 65536,
+      "independence_assumption_numerator": 112128,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 8192,
+      "conflict_cells": 4,
+      "conflict_optimum_numerator": 56064,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 98304
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 102400
+        },
+        {
+          "bits": 2,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 3,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 4,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 5,
+          "cells": 4,
+          "numerator": 112128
+        },
+        {
+          "bits": 6,
+          "cells": 4,
+          "numerator": 112128
+        }
+      ]
+    },
+    {
+      "mode": "copy",
+      "meta_mode": "missing",
+      "budget": 1,
+      "numerator": 98304,
+      "denominator": 16384,
+      "cells": 4,
+      "nodes": 28,
+      "policy_mass": {
+        "negative": 8192,
+        "positive": 8192
+      },
+      "naive_majority_numerator": 65536,
+      "independence_assumption_numerator": 98304,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 8192,
+      "conflict_cells": 2,
+      "conflict_optimum_numerator": 49152,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 81920
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 2,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 3,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 4,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 5,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 6,
+          "cells": 2,
+          "numerator": 98304
+        }
+      ]
+    },
+    {
+      "mode": "copy",
+      "meta_mode": "missing",
+      "budget": 2,
+      "numerator": 98304,
+      "denominator": 16384,
+      "cells": 4,
+      "nodes": 44,
+      "policy_mass": {
+        "negative+audit": 8192,
+        "positive+audit": 8192
+      },
+      "naive_majority_numerator": 65536,
+      "independence_assumption_numerator": 98304,
+      "ignore_meta_numerator": 98304,
+      "wrong_owner_as_if_correct_numerator": null,
+      "conflict_mass": 8192,
+      "conflict_cells": 2,
+      "conflict_optimum_numerator": 49152,
+      "posterior_precision": [
+        {
+          "bits": 0,
+          "cells": 1,
+          "numerator": 98304
+        },
+        {
+          "bits": 1,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 2,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 3,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 4,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 5,
+          "cells": 2,
+          "numerator": 98304
+        },
+        {
+          "bits": 6,
+          "cells": 2,
+          "numerator": 98304
+        }
+      ]
+    }
+  ],
+  "seed": 1397885185,
+  "evidence_worlds": 8,
+  "ownership": {
+    "controls": 192,
+    "roots": 384
+  },
+  "interactions": [
+    {
+      "K": 4,
+      "seed": 1397885189,
+      "probes": 512,
+      "exact_runtime": 512,
+      "common_mode_invariant": 512,
+      "unrelated_owner_invariant": 512,
+      "wrong_owner_formula_flips": 373,
+      "linear_only_flips": 197,
+      "coordinate_relevance_witnesses": 4,
+      "quantized_runtime_checks": 2560,
+      "precision": [
+        {
+          "bits": 1,
+          "flips": 96,
+          "certified": 0,
+          "violations": 0,
+          "uncertified_flips": 96,
+          "max_error": 0.9375
+        },
+        {
+          "bits": 2,
+          "flips": 56,
+          "certified": 48,
+          "violations": 0,
+          "uncertified_flips": 56,
+          "max_error": 0.4375
+        },
+        {
+          "bits": 3,
+          "flips": 0,
+          "certified": 230,
+          "violations": 0,
+          "uncertified_flips": 0,
+          "max_error": 0
+        },
+        {
+          "bits": 4,
+          "flips": 19,
+          "certified": 370,
+          "violations": 0,
+          "uncertified_flips": 19,
+          "max_error": 0.21875
+        },
+        {
+          "bits": 5,
+          "flips": 6,
+          "certified": 442,
+          "violations": 0,
+          "uncertified_flips": 6,
+          "max_error": 0.109375
+        }
+      ]
+    },
+    {
+      "K": 8,
+      "seed": 1397885193,
+      "probes": 512,
+      "exact_runtime": 512,
+      "common_mode_invariant": 512,
+      "unrelated_owner_invariant": 512,
+      "wrong_owner_formula_flips": 387,
+      "linear_only_flips": 211,
+      "coordinate_relevance_witnesses": 8,
+      "quantized_runtime_checks": 2560,
+      "precision": [
+        {
+          "bits": 1,
+          "flips": 128,
+          "certified": 0,
+          "violations": 0,
+          "uncertified_flips": 128,
+          "max_error": 1.46875
+        },
+        {
+          "bits": 2,
+          "flips": 55,
+          "certified": 7,
+          "violations": 0,
+          "uncertified_flips": 55,
+          "max_error": 0.71875
+        },
+        {
+          "bits": 3,
+          "flips": 0,
+          "certified": 155,
+          "violations": 0,
+          "uncertified_flips": 0,
+          "max_error": 0
+        },
+        {
+          "bits": 4,
+          "flips": 36,
+          "certified": 309,
+          "violations": 0,
+          "uncertified_flips": 36,
+          "max_error": 0.375
+        },
+        {
+          "bits": 5,
+          "flips": 17,
+          "certified": 406,
+          "violations": 0,
+          "uncertified_flips": 17,
+          "max_error": 0.1875
+        }
+      ]
+    },
+    {
+      "K": 16,
+      "seed": 1397885201,
+      "probes": 512,
+      "exact_runtime": 512,
+      "common_mode_invariant": 512,
+      "unrelated_owner_invariant": 512,
+      "wrong_owner_formula_flips": 386,
+      "linear_only_flips": 194,
+      "coordinate_relevance_witnesses": 16,
+      "quantized_runtime_checks": 2560,
+      "precision": [
+        {
+          "bits": 1,
+          "flips": 114,
+          "certified": 0,
+          "violations": 0,
+          "uncertified_flips": 114,
+          "max_error": 1.875
+        },
+        {
+          "bits": 2,
+          "flips": 54,
+          "certified": 0,
+          "violations": 0,
+          "uncertified_flips": 54,
+          "max_error": 0.78125
+        },
+        {
+          "bits": 3,
+          "flips": 0,
+          "certified": 82,
+          "violations": 0,
+          "uncertified_flips": 0,
+          "max_error": 0
+        },
+        {
+          "bits": 4,
+          "flips": 29,
+          "certified": 250,
+          "violations": 0,
+          "uncertified_flips": 29,
+          "max_error": 0.53125
+        },
+        {
+          "bits": 5,
+          "flips": 13,
+          "certified": 382,
+          "violations": 0,
+          "uncertified_flips": 13,
+          "max_error": 0.265625
+        }
+      ]
+    }
+  ],
+  "repairs": [
+    {
+      "id": "repair_independent_wrong_owner",
+      "mode": "independent",
+      "defect": "wrong_owner",
+      "baseline": 0,
+      "baseline_mass": 0,
+      "gold": {
+        "pass": 64,
+        "total": 64,
+        "weighted": 16384,
+        "weighted_total": 16384
+      },
+      "sham": {
+        "pass": 0,
+        "total": 64,
+        "weighted": 0,
+        "weighted_total": 16384
+      },
+      "scope_rejected": true
+    },
+    {
+      "id": "repair_independent_wrong_depth",
+      "mode": "independent",
+      "defect": "wrong_depth",
+      "baseline": 0,
+      "baseline_mass": 0,
+      "gold": {
+        "pass": 64,
+        "total": 64,
+        "weighted": 16384,
+        "weighted_total": 16384
+      },
+      "sham": {
+        "pass": 0,
+        "total": 64,
+        "weighted": 0,
+        "weighted_total": 16384
+      },
+      "scope_rejected": true
+    },
+    {
+      "id": "repair_independent_missing",
+      "mode": "independent",
+      "defect": "missing",
+      "baseline": 0,
+      "baseline_mass": 0,
+      "gold": {
+        "pass": 64,
+        "total": 64,
+        "weighted": 16384,
+        "weighted_total": 16384
+      },
+      "sham": {
+        "pass": 0,
+        "total": 64,
+        "weighted": 0,
+        "weighted_total": 16384
+      },
+      "scope_rejected": true
+    },
+    {
+      "id": "repair_copy_wrong_owner",
+      "mode": "copy",
+      "defect": "wrong_owner",
+      "baseline": 0,
+      "baseline_mass": 0,
+      "gold": {
+        "pass": 32,
+        "total": 32,
+        "weighted": 16384,
+        "weighted_total": 16384
+      },
+      "sham": {
+        "pass": 0,
+        "total": 32,
+        "weighted": 0,
+        "weighted_total": 16384
+      },
+      "scope_rejected": true
+    },
+    {
+      "id": "repair_copy_wrong_depth",
+      "mode": "copy",
+      "defect": "wrong_depth",
+      "baseline": 0,
+      "baseline_mass": 0,
+      "gold": {
+        "pass": 32,
+        "total": 32,
+        "weighted": 16384,
+        "weighted_total": 16384
+      },
+      "sham": {
+        "pass": 0,
+        "total": 32,
+        "weighted": 0,
+        "weighted_total": 16384
+      },
+      "scope_rejected": true
+    },
+    {
+      "id": "repair_copy_missing",
+      "mode": "copy",
+      "defect": "missing",
+      "baseline": 0,
+      "baseline_mass": 0,
+      "gold": {
+        "pass": 32,
+        "total": 32,
+        "weighted": 16384,
+        "weighted_total": 16384
+      },
+      "sham": {
+        "pass": 0,
+        "total": 32,
+        "weighted": 0,
+        "weighted_total": 16384
+      },
+      "scope_rejected": true
+    }
+  ],
+  "task_rows": 168,
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg09/curriculum.mjs": "c08f502a0ce072133bc17c3e7d011972565315ba"
+  }
+}
