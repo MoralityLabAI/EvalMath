@@ -6,7 +6,7 @@ import pytest
 
 from spiral_ln.evaluation_collatz_basin import (
     enumerate_core, odd_step, parameter_split, parameter_summary,
-    partition_ceiling, quotient_labels, summarize, validate_parameter,
+    partition_ceiling, quotient_labels, score_predictions, summarize, validate_parameter,
 )
 
 
@@ -130,3 +130,35 @@ def test_export_separates_gold_and_preserves_root_custody(tmp_path):
     assert result["holdout_exported"] is False
     with pytest.raises(ValueError):
         module.export(257, tmp_path, ("holdout",))
+
+
+def test_candidate_score_uses_parameter_and_state_denominators():
+    gold = [{"id": f"COL:{d}:{n}", "cycle_minimum": core.basin[n]}
+            for d in (5, 13) for core in [enumerate_core(d)] for n in core.states]
+    full = score_predictions(gold, gold)
+    assert full["parameter_macro_accuracy"] == full["state_micro_accuracy"] == "1"
+    partial = score_predictions(gold, gold[:3])
+    assert partial["parameter_macro_accuracy"] == "1/2"
+    assert partial["state_micro_accuracy"] == "3/10"
+    assert partial["coverage"] == "3/10"
+    assert partial["selective_accuracy"] == "1"
+    empty = score_predictions(gold, [])
+    assert empty["state_micro_accuracy"] == "0"
+    assert empty["selective_accuracy"] is None
+    assert empty["n_abstained"] == 10
+
+
+def test_candidate_score_rejects_duplicate_unknown_and_ill_typed_predictions():
+    gold = [{"id": "COL:5:1", "cycle_minimum": 1}]
+    for bad in [gold * 2, [{"id": "COL:13:1", "cycle_minimum": 1}],
+                [{"id": "COL:5:1", "cycle_minimum": True}],
+                [{"id": "COL:5:1", "cycle_minimum": 2}],
+                [{"id": "COL:5:1", "cycle_minimum": 1, "extra": 0}]]:
+        with pytest.raises(ValueError):
+            score_predictions(gold, bad)
+    for bad_gold in [[], gold * 2, [{"id": "COL:5:2", "cycle_minimum": 1}],
+                     [{"id": "COL:5:1", "cycle_minimum": True}]]:
+        with pytest.raises(ValueError):
+            score_predictions(bad_gold, [])
+    abstention = score_predictions(gold, [{"id": "COL:5:1", "cycle_minimum": None}])
+    assert abstention["coverage"] == "0"

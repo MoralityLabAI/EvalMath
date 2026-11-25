@@ -116,10 +116,17 @@ python skills/evalmath-mechinterp-power/scripts/preflight.py \
 PYTHONPATH=src python scripts/verify_collatz_basin.py
 python scripts/check_receipts.py --only collatz_basin
 PYTHONPATH=src python scripts/export_collatz_basin.py --output /tmp/col-eval
+PYTHONPATH=src python scripts/score_collatz_basin.py \
+  --gold /tmp/col-eval/dev.gold.jsonl --predictions /tmp/candidate.jsonl
 ```
 
 The strict preflight exits with status 2 for its documented pilot-only decision.
 The other commands must succeed. The exporter refuses the holdout partition.
+Each candidate line has exactly `id` and `cycle_minimum`; null or a missing
+record means abstention. The scorer reports coverage, selective accuracy,
+parameter-macro accuracy and state-micro accuracy, and rejects unknown IDs,
+duplicate predictions or boolean values in place of integers. Gold stays with
+the evaluator throughout this path.
 
 The source manifest pins the independent MathCan fixture by SHA-256. The
 cross-repository research lives in `patrickdugan/MathCan/research/collatz_resonance`.

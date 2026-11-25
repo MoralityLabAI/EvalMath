@@ -58,7 +58,7 @@ def main() -> int:
         "cross_reference_checks_40": len(reference_checks) == 40,
     }
     sources = ["src/spiral_ln/evaluation_collatz_basin.py", "scripts/verify_collatz_basin.py",
-               "scripts/export_collatz_basin.py",
+               "scripts/export_collatz_basin.py", "scripts/score_collatz_basin.py",
                "tests/test_evaluation_collatz_basin.py", "fixtures/collatz_basin/small_reference.json",
                "paper/collatz_basin_readout.md", "configs/collatz_basin_pilot.json",
                "output/collatz_basin/preflight.json"]

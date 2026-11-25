@@ -199,3 +199,68 @@ def summarize(rows: list[dict]) -> dict:
             "micro": str(sum((Fraction(row[name]) * row["n_cases"] for row in rows), Fraction()) / n_cases),
         } for name in ("constant_ceiling", "gcd_ceiling", "quotient_ceiling", "basin_oracle")},
     }
+
+
+def score_predictions(gold: list[dict], predictions: list[dict]) -> dict:
+    """Score a candidate once, keeping state and parameter denominators apart.
+
+    Candidate rows contain exactly id and cycle_minimum. A missing row or a
+    null cycle_minimum is an abstention. Unknown and duplicate IDs are errors.
+    Gold is evaluator-owned output from export_collatz_basin.py.
+    """
+    if not gold:
+        raise ValueError("gold must contain at least one case")
+    expected: dict[str, tuple[int, int]] = {}
+    for row in gold:
+        if type(row) is not dict or type(row.get("id")) is not str:
+            raise ValueError("gold row requires a string id")
+        case_id = row["id"]
+        parts = case_id.split(":")
+        if len(parts) != 3 or parts[0] != "COL":
+            raise ValueError("invalid gold case id")
+        try:
+            d, n = int(parts[1]), int(parts[2])
+        except ValueError as exc:
+            raise ValueError("invalid gold case id") from exc
+        validate_parameter(d)
+        target = row.get("cycle_minimum")
+        if (case_id != f"COL:{d}:{n}" or n < 1 or n > d or n % 2 != 1
+                or type(target) is not int or target < 1 or target > d or target % 2 != 1):
+            raise ValueError("gold id or target is outside the odd-core contract")
+        if case_id in expected:
+            raise ValueError("duplicate gold case id")
+        expected[case_id] = (d, target)
+    submitted = {}
+    for row in predictions:
+        if type(row) is not dict or set(row) != {"id", "cycle_minimum"}:
+            raise ValueError("prediction requires exactly id and cycle_minimum")
+        case_id, target = row["id"], row["cycle_minimum"]
+        if type(case_id) is not str or case_id not in expected:
+            raise ValueError("prediction contains an unknown case id")
+        if case_id in submitted:
+            raise ValueError("duplicate prediction case id")
+        if target is not None and (type(target) is not int or target < 1 or target % 2 != 1):
+            raise ValueError("prediction must be a positive odd integer or null")
+        submitted[case_id] = target
+    roots: dict[int, Counter] = defaultdict(Counter)
+    for case_id, (d, target) in expected.items():
+        prediction = submitted.get(case_id)
+        roots[d]["cases"] += 1
+        roots[d]["answered"] += prediction is not None
+        roots[d]["correct"] += prediction == target
+    counts = Counter()
+    for row in roots.values():
+        counts.update(row)
+    return {
+        "schema": "COL-EVAL-01/candidate-score/v1", "n_parameter_roots": len(roots),
+        "n_cases": counts["cases"], "n_answered": counts["answered"],
+        "n_correct": counts["correct"], "n_abstained": counts["cases"] - counts["answered"],
+        "parameter_macro_accuracy": str(sum((Fraction(r["correct"], r["cases"])
+                                                for r in roots.values()), Fraction()) / len(roots)),
+        "state_micro_accuracy": str(Fraction(counts["correct"], counts["cases"])),
+        "coverage": str(Fraction(counts["answered"], counts["cases"])),
+        "selective_accuracy": (str(Fraction(counts["correct"], counts["answered"]))
+                               if counts["answered"] else None),
+        "roots": [{"d": d, **dict(row), "accuracy": str(Fraction(row["correct"], row["cases"]))}
+                  for d, row in sorted(roots.items())],
+    }

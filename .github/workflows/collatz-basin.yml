@@ -6,6 +6,7 @@ on:
       - tests/test_evaluation_collatz_basin.py
       - scripts/verify_collatz_basin.py
       - scripts/export_collatz_basin.py
+      - scripts/score_collatz_basin.py
       - fixtures/collatz_basin/**
       - output/collatz_basin/**
       - paper/collatz_basin_readout.md
