@@ -1,0 +1,30 @@
+name: ACD exact receipts
+
+on:
+  push:
+    paths:
+      - 'scripts/verify_acd_*.mjs'
+      - 'output/evaluation_acd/**'
+      - '.github/workflows/acd-receipts.yml'
+  pull_request:
+    paths:
+      - 'scripts/verify_acd_*.mjs'
+      - 'output/evaluation_acd/**'
+      - '.github/workflows/acd-receipts.yml'
+  workflow_dispatch:
+
+jobs:
+  acd:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Reproduce all ACD receipts
+        run: |
+          set -euo pipefail
+          for script in scripts/verify_acd_01a.mjs scripts/verify_acd_01b.mjs scripts/verify_acd_01c.mjs scripts/verify_acd_02.mjs; do
+            node "$script" --check
+          done
