@@ -258,25 +258,38 @@ function repairEvidence(api,mode,defect){
    const start=before.indexOf(badLine)+("SET "+k.M+" = ").length,end=patch.after.length-before.slice(before.indexOf(badLine)+badLine.length).length;
    if(/[|;]/.test(patch.after.slice(start,end)))fail("repair changes record structure");
    const w=api.compileV2(api.applyLinePatch(bad,patch)),good=api.compileV2(clean);
-   let pass=0,weighted=0;
+   let pass=0,weighted=0,intervention_pass=0,intervention_total=0;
+   const readSet=new Set();function reads(node){if(node.op==="pointer")readSet.add(node.key);for(const a of node.args??[])reads(a);}
+   const effect=w.pages.read_c.options.read_3.reactions[0].effects[0];reads(effect.value);
+   const provenance_exact=readSet.size===1&&readSet.has(k.meta);
    for(const r of rootRows){
      const a=reveal(api,w,r),b=reveal(api,good,r);
      const exact=same(api.observeV2(w,a),api.observeV2(good,b));
      pass+=Number(exact);weighted+=exact?r.mass:0;
+     // Break the observational anticorrelation independently. Every root
+     // receives the full three-sign provenance intervention cube.
+     for(const m of SIGNS)for(const owner of SIGNS)for(const depth of SIGNS){
+       const v={...r,values:{...r.values,[k.meta]:m,[k.wrong_owner]:owner,[k.wrong_depth]:depth}};
+       const x=api.observeV2(w,reveal(api,w,v)),y=api.observeV2(good,reveal(api,good,v));
+       intervention_pass+=Number(same(x,y));intervention_total++;
+     }
    }
-   return {pass,total:rootRows.length,weighted,weighted_total:16384};
+   return {pass,total:rootRows.length,weighted,weighted_total:16384,intervention_pass,intervention_total,provenance_exact,
+     contract_pass:pass===rootRows.length&&intervention_pass===intervention_total&&provenance_exact};
  }
  const badWorld=api.compileV2(bad),goodWorld=api.compileV2(clean);
  let baseline=0,baselineMass=0;
  for(const row of rootRows)if(same(api.observeV2(badWorld,reveal(api,badWorld,row)),api.observeV2(goodWorld,reveal(api,goodWorld,row)))){baseline++;baselineMass+=row.mass;}
  const gold=score(patch),shamScore=score(sham);
- if(gold.pass!==rootRows.length||gold.weighted!==16384||baseline!==0||shamScore.pass!==0)fail("provenance repair separation");
+ const alias=defect==="missing"?null:score({line:i+1,before,after:before.replace(badLine,set(k.M,op("MUL",[C(-1),wrong])))});
+ if(!gold.contract_pass||gold.weighted!==16384||baseline!==0||shamScore.pass!==0||shamScore.contract_pass)fail("provenance repair separation");
+ if(alias&&(alias.pass!==rootRows.length||alias.contract_pass||alias.intervention_pass===alias.intervention_total||alias.provenance_exact))fail("alias loophole control");
  let injected=false;try{score({...patch,after:patch.after.replace(needle,needle+"; SET "+k.A+" = C(0)")});}catch{injected=true;}
  if(!injected)fail("out of scope repair");
  const id="repair_"+mode+"_"+defect;
  return {id,mode,defect,source:bad,clean,patch,sham,score,
    task:{id,kind:"author_provenance",source:bad,allowed_edit:{line:i+1,before,field:"reviewer transfer expression"},intent:"The public reviewer register analyst.M must read the analyst-owned second-order report analyst.stance[reviewer][bob]. Preserve the evidence model and every other record.",output_contract:"Return one JSON object with line, before, after; edit only the reviewer transfer expression."},
-   stats:{id,mode,defect,baseline,baseline_mass:baselineMass,gold,sham:shamScore,scope_rejected:injected}};
+   stats:{id,mode,defect,baseline,baseline_mass:baselineMass,gold,sham:shamScore,alias_control:alias,scope_rejected:injected}};
 }
 
 export function runSuite({api=runtime,evaluate=evalExpr,seed=0x53520901}={}){
