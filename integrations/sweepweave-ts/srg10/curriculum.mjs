@@ -111,13 +111,13 @@ function runtimeOracle(api,w,c,roots,h,fixed=null){
  }
  const cells=group(roots,r=>q(observe(api,w,r.s))).map(rs=>{
    const s=rs[0].s,o=observe(api,w,s),sc=scores(rs,h,fixed),b=best(sc);
-   return {observation:o,mass:sum(rs,r=>r.m),positive_mass:sum(rs,r=>r.s.values[key.t]===1?r.m:0),scores:sc,...b};
+   return {observation:o,mass:sum(rs,r=>r.m),positive_mass:sum(rs,r=>r.s.values[key.t]===1?r.m:0),context_positive_mass:sum(rs,r=>r.s.values[key.z]===1?r.m:0),agreement_mass:sum(rs,r=>r.s.values[key.t]===r.s.values[key.z]?r.m:0),scores:sc,...b};
  });
  return {numerator:sum(cells,c=>c.value),denominator:sum(cells,c=>c.mass),nodes,cells};
 }
 // Independent reference: no compiler, state transitions, AST, or runtime
 // observations. Condition only on the selected tape fields.
-function directReference(c,view,t,h,order=null){
+function directReference(c,view,t,h,order=null,used=[]){
  function recurse(rs,used,budget,seq){
    const n=sum(rs,x=>x.m),p=sum(rs,x=>x.t===1?x.m:0),cost=used.length*c.cost;
    const scores={positive:16*p-cost*n,negative:16*(n-p)-cost*n,settle:(c.settle-cost)*n};
@@ -126,13 +126,46 @@ function directReference(c,view,t,h,order=null){
    }
    return {scores,...best(scores)};
  }
- return group(t,x=>view==="analyst"?x.a:view==="reviewer"?x.b:view==="joint"?x.a+","+x.b:"blind").map(rs=>{
-   const v=recurse(rs,[],h,order);return {key:[view==="analyst"||view==="joint"?rs[0].a:null,view==="reviewer"||view==="joint"?rs[0].b:null],mass:sum(rs,x=>x.m),...v};
+ return group(t,x=>q([view==="analyst"||view==="joint"?x.a:null,view==="reviewer"||view==="joint"?x.b:null,...used.map(k=>x[k])])).map(rs=>{
+   const v=recurse(rs,used,h,order);return {key:[view==="analyst"||view==="joint"?rs[0].a:null,view==="reviewer"||view==="joint"?rs[0].b:null,...used.map(k=>rs[0][k])],mass:sum(rs,x=>x.m),...v};
  });
 }
+
+// Finite observation compression at a fixed history/query stage. Optimal
+// action values within a cell include full-information optimal continuation.
+// This is a first-action ceiling, not a complete compressed-policy oracle.
+function posteriorProfile(cells){
+ function frac(n,d){function gcd(a,b){return b?gcd(b,a%b):a;}const g=gcd(n,d);return [n/g,d/g];}
+ const masses=c=>[c.positive_mass,c.context_positive_mass,c.agreement_mass];
+ const rows=[];
+ for(const dims of [0,1,2,3])for(const bits of [0,1,2,3,4,8,"exact"]){
+   const cells2=group(cells,c=>{
+     const keys=Object.keys(c.scores); // all available actions
+     const obs=masses(c).slice(0,dims).map(n=>bits==="exact"?frac(n,c.mass):Math.min(2**bits-1,Math.floor(2**bits*n/c.mass)));
+     return q([keys,obs]);
+   });
+   let value=0;for(const g of cells2){
+     const scores=Object.fromEntries(Object.keys(g[0].scores).map(k=>[k,sum(g,c=>c.scores[k])]));
+     value+=best(scores).value;
+   }
+   rows.push({dims,bits,cells:cells2.length,numerator:value});
+ }
+ const ceiling=sum(cells,c=>c.value);
+ for(const dims of [0,1,2,3]){
+   const a=rows.filter(r=>r.dims===dims);
+   for(let i=1;i<a.length;i++)if(a[i].numerator<a[i-1].numerator)fail("nested posterior partition");
+ }
+ if(rows.some(r=>r.numerator>ceiling))fail("partition ceiling");
+ const gaps=cells.map(c=>{const a=Object.values(c.scores).sort((x,y)=>y-x);return {margin:(a[0]-a[1])/c.mass,mass:c.mass};});
+ const margins={tie_mass:sum(gaps,g=>g.margin===0?g.mass:0),minimum:Math.min(...gaps.map(g=>g.margin)),maximum:Math.max(...gaps.map(g=>g.margin)),
+   // independent bounded error on every Q estimate: margin > 2 epsilon.
+   stable:[.125,.25,.5,1].map(epsilon=>({epsilon,certified_mass:sum(gaps,g=>g.margin>2*epsilon?g.mass:0)}))};
+ return {ceiling,denominator:sum(cells,c=>c.mass),rows,margins};
+}
+
 const ORDERS=QS.flatMap(a=>QS.filter(b=>b!==a).map(b=>[a,b]));
 export function evaluateConfig(api,c,tag){
- const tapeset=tapes(c),out=[],tasks=[],gold=[],sources={},checks={root_cells:0,fixed_policy_cells:0,observer_leak_checks:0,copy_zero_information_checks:0};
+ const tapeset=tapes(c),out=[],continuations=[],tasks=[],gold=[],sources={},checks={root_cells:0,fixed_policy_cells:0,continuation_cells:0,observer_leak_checks:0,copy_zero_information_checks:0,copy_no_value_checks:0};
  for(const view of VIEWS){
    const id="sw_"+tag+"_"+view,src=compileSource(c,view,id),w=api.compileV2(src);
    sources[view]=src;const roots=tapeset.map(t=>({m:t.m,s:initial(api,w,t)}));
@@ -166,7 +199,7 @@ export function evaluateConfig(api,c,tag){
      }
      if(r.numerator<fixed)fail("adaptive below fixed");
      out.push({family:c.family,tag,view,h,numerator:r.numerator,denominator:r.denominator,fixed_numerator:fixed,fixed_order:fixedOrder,adaptive_gain_numerator:r.numerator-fixed,nodes:r.nodes,
-       cells:r.cells.map(cell=>({initial:[cell.observation.values[pub.a]??null,cell.observation.values[pub.b]??null],mass:cell.mass,positive_mass:cell.positive_mass,scores:cell.scores,winners:cell.winners}))});
+       posterior_profile:posteriorProfile(r.cells),cells:r.cells.map(cell=>({initial:[cell.observation.values[pub.a]??null,cell.observation.values[pub.b]??null],mass:cell.mass,positive_mass:cell.positive_mass,scores:cell.scores,winners:cell.winners}))});
      r.cells.forEach((cell,i)=>{
        const id=w.id+"_h"+h+"_c"+i;
        // Runtime observes a wider menu at shortened horizons. Query with
@@ -174,11 +207,41 @@ export function evaluateConfig(api,c,tag){
        const scores={...cell.scores};
        for(const a of cell.observation.actions)if(!own(scores,a.id))scores[a.id]=-cell.mass*c.cost;
        tasks.push({id,world_id:w.id,kind:"adaptive_evidence",action_budget:h,observation:cell.observation,output_contract:"Return one legal action ID maximizing expected utility within the budget."});
-       gold.push({id,family:c.family,view,h,mass:cell.mass,actions:cell.winners,scores});
+       gold.push({id,family:c.family,view,h,stage:"root",mass:cell.mass,actions:cell.winners,scores});
      });
    }
+
+   // Observe all possible reports after each first query, even off-policy.
+   // Check every remaining action independently, and stage those decisions.
+   for(const first of QS){
+     const next=roots.map(r=>({m:r.m,s:api.stepV2(w,r.s,first+"_0").next}));
+     for(const h of [1,2]){
+       const r=runtimeOracle(api,w,c,next,h),ref=directReference(c,view,tapeset,h,null,[first]);
+       for(const cell of r.cells){
+         const v=cell.observation.values,match=ref.find(x=>same(x.key,[v[pub.a]??null,v[pub.b]??null,v[pub[first]]]));
+         const scores=Object.fromEntries(Object.entries(cell.scores).map(([id,n])=>[semantic(id),n]));
+         if(!match||match.mass!==cell.mass||!same(scores,match.scores)||match.value!==cell.value)fail("continuation oracle mismatch");
+         checks.continuation_cells++;
+         if(c.family==="common_cause"&&h===2&&["x","y"].includes(first)){
+           const duplicate=(first==="x"?"y":"x")+"_1";
+           const direct=Math.max(cell.scores.positive_1,cell.scores.negative_1,cell.scores.settle_1);
+           if(cell.scores[duplicate]!==direct-c.cost*cell.mass)fail("copy value mismatch");
+           checks.copy_no_value_checks++;
+         }
+       }
+       if(r.cells.length!==ref.length)fail("continuation cells");
+       const profile=posteriorProfile(r.cells);
+       continuations.push({family:c.family,tag,view,first,h,numerator:r.numerator,denominator:r.denominator,posterior_profile:profile,cells:r.cells.map(cell=>({initial:[cell.observation.values[pub.a]??null,cell.observation.values[pub.b]??null],report:cell.observation.values[pub[first]],mass:cell.mass,scores:cell.scores,winners:cell.winners}))});
+       r.cells.forEach((cell,i)=>{
+         const id=w.id+"_after_"+first+"_h"+h+"_c"+i,scores={...cell.scores};
+         for(const a of cell.observation.actions)if(!own(scores,a.id))scores[a.id]=-2*cell.mass*c.cost;
+         tasks.push({id,world_id:w.id,kind:"adaptive_evidence",action_budget:h,observation:cell.observation,output_contract:"Return one legal action ID maximizing expected utility within the remaining budget."});
+         gold.push({id,family:c.family,view,h,stage:"after_"+first,mass:cell.mass,actions:cell.winners,scores});
+       });
+     }
+   }
  }
- return {out,tasks,gold,sources,checks};
+ return {out,continuations,tasks,gold,sources,checks};
 }
 function rng(seed){if(!Number.isSafeInteger(seed)||seed<1||seed>0xffffffff)fail("seed");let x=seed;return()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return x>>>0;};}
 export function configsFor(split,seed,replicates){
@@ -192,10 +255,10 @@ export function configsFor(split,seed,replicates){
  return out;
 }
 export function runSuite({split="calibration_public",seed=0x53521001,replicates=1,api=runtime}={}){
- const configs=configsFor(split,seed,replicates),results=[],tasks=[],gold=[],sources={},checks={root_cells:0,fixed_policy_cells:0,observer_leak_checks:0,copy_zero_information_checks:0};
+ const configs=configsFor(split,seed,replicates),results=[],continuations=[],tasks=[],gold=[],sources={},checks={root_cells:0,fixed_policy_cells:0,continuation_cells:0,observer_leak_checks:0,copy_zero_information_checks:0,copy_no_value_checks:0};
  for(const {c,tag} of configs){
    const r=evaluateConfig(api,c,tag);
-   results.push(...r.out);tasks.push(...r.tasks);gold.push(...r.gold);sources[tag]=r.sources;
+   results.push(...r.out);continuations.push(...r.continuations);tasks.push(...r.tasks);gold.push(...r.gold);sources[tag]=r.sources;
    for(const k of Object.keys(checks))checks[k]+=r.checks[k];
  }
  // Adding initial observations or budget cannot reduce optimal value.
@@ -204,5 +267,5 @@ export function runSuite({split="calibration_public",seed=0x53521001,replicates=
    if(find("joint").numerator<Math.max(find("analyst").numerator,find("reviewer").numerator)||Math.min(find("analyst").numerator,find("reviewer").numerator)<find("blind").numerator)fail("access monotonicity");
    if(h>1)for(const v of VIEWS)if(find(v).numerator<find(v,h-1).numerator)fail("budget monotonicity");
  }
- return {receipt:{evidence:"exact weighted finite SWMD/reference adaptive and fixed-order oracle; no model inference",split,seed,replicates,configs,checks,results,task_rows:tasks.length},tasks,gold,sources};
+ return {receipt:{evidence:"exact weighted finite SWMD/reference adaptive and fixed-order oracle; no model inference",split,seed,replicates,configs,checks,results,continuations,task_rows:tasks.length},tasks,gold,sources};
 }
