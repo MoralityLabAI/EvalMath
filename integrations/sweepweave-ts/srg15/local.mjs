@@ -18,7 +18,7 @@ export function informativeScore(exported,submissions,scorePolicy){
  const metrics={all_tie_rows:0,zero_optimum_rows:0,informative_rows:0,informative_correct:0,informative_mass:0,informative_correct_mass:0,positive_rows:0,positive_correct:0,positive_optimum_mass:0,credited_positive_mass:0};
  for(const g of exported.gold){
    const vals=Object.values(g.scores),hi=Math.max(...vals),lo=Math.min(...vals),r=entries.get(g.id);
-   const valid=r&&!duplicate.has(g.id)&&Object.keys(r).sort().join(",")==="action,id"&&typeof r.action==="string"&&Object.hasOwn(g.scores,r.action);
+   const valid=Boolean(r&&!duplicate.has(g.id)&&Object.keys(r).sort().join(",")==="action,id"&&typeof r.action==="string"&&Object.hasOwn(g.scores,r.action));
    const correct=valid&&g.winners.includes(r.action);
    metrics.all_tie_rows+=Number(hi===lo);
    metrics.zero_optimum_rows+=Number(hi===0);
