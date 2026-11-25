@@ -1,0 +1,84 @@
+{
+  "evidence": "public deterministic synthetic repair controls, no model inference",
+  "tasks": 80,
+  "families": 10,
+  "by_family": {
+    "reaction_sign": {
+      "tasks": 8,
+      "defective": 0,
+      "repaired": 16,
+      "sham": 0,
+      "total": 16
+    },
+    "belief_keyring": {
+      "tasks": 8,
+      "defective": 0,
+      "repaired": 16,
+      "sham": 0,
+      "total": 16
+    },
+    "comparator": {
+      "tasks": 8,
+      "defective": 8,
+      "repaired": 24,
+      "sham": 8,
+      "total": 24
+    },
+    "dependent_write_order": {
+      "tasks": 8,
+      "defective": 0,
+      "repaired": 24,
+      "sham": 0,
+      "total": 24
+    },
+    "weak_effect": {
+      "tasks": 8,
+      "defective": 0,
+      "repaired": 8,
+      "sham": 0,
+      "total": 8
+    },
+    "late_windfall": {
+      "tasks": 8,
+      "defective": 0,
+      "repaired": 8,
+      "sham": 0,
+      "total": 8
+    },
+    "spool_activation": {
+      "tasks": 8,
+      "defective": 0,
+      "repaired": 8,
+      "sham": 0,
+      "total": 8
+    },
+    "event_prerequisite": {
+      "tasks": 8,
+      "defective": 0,
+      "repaired": 16,
+      "sham": 0,
+      "total": 16
+    },
+    "cue_visibility": {
+      "tasks": 8,
+      "defective": 8,
+      "repaired": 16,
+      "sham": 8,
+      "total": 16
+    },
+    "direct_admission": {
+      "tasks": 8,
+      "defective": 0,
+      "repaired": 8,
+      "sham": 0,
+      "total": 8
+    }
+  },
+  "all_gold_repairs_pass": true,
+  "all_defects_fail_some_probe": true,
+  "all_shams_preserve_defect": true,
+  "probes_total": 144,
+  "defective_passes": 16,
+  "repaired_passes": 144,
+  "sham_passes": 16
+}
