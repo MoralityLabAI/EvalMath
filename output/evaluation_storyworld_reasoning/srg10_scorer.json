@@ -1,0 +1,49 @@
+{
+  "evidence": "executed pure weighted scorer on committed public corpus; no model inference",
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg10/public/planning_tasks.jsonl": "c42f8aed2d77d9e8129e65eee8cc54b270bcf21d",
+    "integrations/sweepweave-ts/srg10/public/planning_gold.jsonl": "4237c51735e40bb0c52ef72cd6bd00ff47ff04d4",
+    "integrations/sweepweave-ts/srg10/local.mjs": "a6adfdd5dcfcaaa8ec9846009ca17ab03e822432"
+  },
+  "oracle": {
+    "rows": 798,
+    "correct": 798,
+    "mass": 28311552,
+    "correct_mass": 28311552,
+    "utility_numerator": 307310592,
+    "optimal_numerator": 307310592,
+    "regret_numerator": 0,
+    "expected_utility": 10.854600694444445,
+    "expected_regret": 0
+  },
+  "always_settle": {
+    "rows": 798,
+    "correct": 131,
+    "mass": 28311552,
+    "correct_mass": 6241280,
+    "utility_numerator": 242221056,
+    "optimal_numerator": 307310592,
+    "regret_numerator": 65089536,
+    "expected_utility": 8.555555555555555,
+    "expected_regret": 2.299045138888889
+  },
+  "first_legal_action": {
+    "rows": 798,
+    "correct": 234,
+    "mass": 28311552,
+    "correct_mass": 7009792,
+    "utility_numerator": 204472320,
+    "optimal_numerator": 307310592,
+    "regret_numerator": 102838272,
+    "expected_utility": 7.222222222222222,
+    "expected_regret": 3.6323784722222223
+  },
+  "malformed": {
+    "rejected": 1,
+    "duplicate": 1,
+    "missing": 796
+  },
+  "unknown": [
+    "unknown"
+  ]
+}
