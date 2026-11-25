@@ -1,0 +1,85 @@
+{
+  "schema": "srg11.economic_contract.v1",
+  "authority": "explicit external evaluator sidecar, not inferred from SWMD prose",
+  "baseline": {
+    "cost": 2,
+    "settle": 12
+  },
+  "selected": {
+    "cost": 1,
+    "settle": 10
+  },
+  "contract": {
+    "minimum_query_cost": 1,
+    "blind_h1_unique_settle": true,
+    "blind_h3_unique_q": true,
+    "analyst_h2_context_choice": true,
+    "minimum_adaptive_gain": 1,
+    "minimum_analyst_margin": 2
+  },
+  "cases": [
+    {
+      "config": {
+        "family": "specialist",
+        "a": 7,
+        "b": 6,
+        "strong": 7,
+        "weak": 4,
+        "aux": 7,
+        "cost": 1,
+        "settle": 10
+      },
+      "view": "blind",
+      "payoff_contract": {
+        "correct": 16,
+        "incorrect": 0,
+        "settled": 10,
+        "query_cost": 1,
+        "unfinished": "negative incurred query cost"
+      },
+      "file": "specialist-cal-0.swmd.md"
+    },
+    {
+      "config": {
+        "family": "specialist",
+        "a": 6,
+        "b": 6,
+        "strong": 8,
+        "weak": 4,
+        "aux": 7,
+        "cost": 1,
+        "settle": 10
+      },
+      "view": "blind",
+      "payoff_contract": {
+        "correct": 16,
+        "incorrect": 0,
+        "settled": 10,
+        "query_cost": 1,
+        "unfinished": "negative incurred query cost"
+      },
+      "file": "specialist-cal-1.swmd.md"
+    },
+    {
+      "config": {
+        "family": "specialist",
+        "a": 7,
+        "b": 5,
+        "strong": 7,
+        "weak": 5,
+        "aux": 8,
+        "cost": 1,
+        "settle": 10
+      },
+      "view": "blind",
+      "payoff_contract": {
+        "correct": 16,
+        "incorrect": 0,
+        "settled": 10,
+        "query_cost": 1,
+        "unfinished": "negative incurred query cost"
+      },
+      "file": "specialist-cal-2.swmd.md"
+    }
+  ]
+}
