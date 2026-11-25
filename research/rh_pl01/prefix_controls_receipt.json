@@ -1,0 +1,15 @@
+{
+  "max": 128,
+  "controls": {
+    "factorial": 129,
+    "numerator": 129,
+    "positive": 129,
+    "reduced_harmonic": 129,
+    "extensions": 128,
+    "compatible_overlap_values": 366145,
+    "union_values": 129,
+    "mutations_rejected": 258
+  },
+  "total": 367176,
+  "scope": "finite exact standard-natural arithmetic only"
+}
