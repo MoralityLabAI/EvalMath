@@ -37,6 +37,8 @@ RECEIPTS = {
                         "output/evaluation_frozen_evidence/fre01_v1.json", [], False),
     "finite_sample": ("scripts/verify_evaluation_finite_sample.py",
                       "output/evaluation_finite_sample/fsi01_v0_1.json", [], False),
+    "dcf16_decision": ("scripts/verify_evaluation_dcf16_decision.py",
+                       "output/evaluation_dcf16_decision/dcf16_eval_v0_1.json", [], False),
     "bpd": ("scripts/verify_evaluation_bpd.py",
             "output/evaluation_bpd/bpd_01.json", [], False),
     "irc02": ("scripts/verify_interface_relative_compactification.py",
