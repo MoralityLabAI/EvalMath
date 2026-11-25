@@ -120,7 +120,6 @@ function conflictAudit(ns,ct,weak=false){
  }
  const masks=[],nonzero=[],collisions=[];
  for(let m=0;m<64;m++){
-  const predicted=sum(hist,(n,d)=>0); // independent calculation below
   let miss=0;for(let d=0;d<64;d++)if(!(m&d))miss+=hist[d];
   let actual=0;
   for(const g of groups(stricts,n=>project(n,m,weak)).values()){
