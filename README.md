@@ -89,6 +89,8 @@ statement is separately audited in [draft PR #13](https://github.com/MoralityLab
 
 **New (PDI-03):** [Risk-constrained proof discovery](paper/proof_dependency_frontier.md) computes exact deterministic and randomized audit frontiers. At expected false-weight budget 3/40 the synthetic randomized optimum achieves 18/35 true weight versus 9/20 deterministic; 64 exhaustive frontier comparisons and 256 scalar checks pass. A versioned evidence projection and action-selection leakage counterexample mark the revocation limits. Reproduce with `python scripts/check_receipts.py --only pdi_frontier`.
 
+**New (PDI-04--06):** [Robust audits, full-filtration risk and proof reuse](paper/proof_dependency_robust.md) extends the finite suite to common-policy ambiguity sets, exact rational risk-constrained mixtures with executable trees, actor-conditioned hazards, versioned posterior recomputation and a synthetic transfer workload. The receipt checks 32 robust frontiers, 56 replayed vectors, 96 single-scenario reductions and 512 false-count distributions. The public downstream protocol is prospective; no sealed model run or new Lean verification. Reproduce with `python scripts/check_receipts.py --only pdi_robust`.
+
 ## Layout
 
 | Path | Contents |
