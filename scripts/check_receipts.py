@@ -29,6 +29,7 @@ RECEIPTS = {
     "nfas02": ("scripts/verify_nfas02.mjs", "output/nfas02.json", [], False),
     "nfas03": ("scripts/verify_nfas03.mjs", "output/nfas03.json", [], False),
     "nfas04": ("scripts/verify_nfas04.mjs", "output/nfas04.json", [], False),
+    "nfas06": ("scripts/verify_nfas06.mjs", "output/nfas06.json", [], False),
     "frozen_evidence": ("scripts/verify_evaluation_frozen_evidence.py",
                         "output/evaluation_frozen_evidence/fre01_v1.json", [], False),
     "finite_sample": ("scripts/verify_evaluation_finite_sample.py",

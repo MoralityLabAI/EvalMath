@@ -16,3 +16,6 @@ Next review: inspect GitHub Actions for the final integrated commit; resolve any
 
 ## NFAS-05 follow-up
 284 exploratory independent-candidate three-item games: exact no-gap certificates in all 284. 124 observable binary, 60 observable ternary, 100 hidden imperfect-audit models. Solver-assisted discovery followed by exact rational dual verification and direct deterministic evaluation. See paper/independent_value_audits.md. Local checks passed; optional SciPy replay workflow not yet run. Next: isolate product structure versus scheduler filtration and scalar objective, and test correlated-to-product interpolation.
+
+## NFAS-06 follow-up
+The prospective NFAS-05 independence conjecture is false for independent hidden-payoff candidates with three local types. Exact common endpoint policies and dual certificates establish V_private(alpha)=(20+7 alpha)/54 and V_public(alpha)=1/3 across the fixed-marginal interpolation. Positive gap 1/27 at alpha=0. All exact oracle checks passed. Prior NFAS-01–05 verify and exploratory replay PR jobs were green at 4e357c7. Next: isolate observable payoff versus hidden payoff, certify a generic bound or sufficient no-gap condition for fully observed independent values; test partially informed schedulers, and formalize the finite stopping certificates. Do not claim a general prophet theorem.
