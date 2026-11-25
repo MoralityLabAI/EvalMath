@@ -1,0 +1,17 @@
+{
+  "target_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "bytes": 114032,
+  "free_variables": 0,
+  "previous": 267144,
+  "new_lower": 342120,
+  "last_rule_cases": {
+    "axiom_mp": 456134,
+    "derived_mp": 342120,
+    "generalization": 456143
+  },
+  "controls": {
+    "substitutions": 4474,
+    "closed": 384,
+    "open": 4090
+  }
+}
