@@ -1,0 +1,40 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "name": "bounded_prefix_candidate_family_exists",
+  "target_bytes": 37981,
+  "predicate_bytes": 18472,
+  "lines": 2372,
+  "unary": 353892869,
+  "compact": 33873144,
+  "axioms": {
+    "power": 1,
+    "forall-elimination": 13,
+    "propositional": 1142,
+    "separation": 1,
+    "forall-distribution": 16
+  },
+  "structural_replay": true,
+  "original_full_replay": false,
+  "actual_rh_proof": false,
+  "independent_replay": {
+    "lines": 2372,
+    "unary": "353892869",
+    "compact": "33873144",
+    "nodes": 3183,
+    "target_bytes": "37981",
+    "rules": {
+      "K": 539,
+      "S": 483,
+      "classical": 120,
+      "mp": 1186,
+      "gen": 13
+    },
+    "nonpropositional_axioms": {
+      "power": 1,
+      "forall-elimination": 13,
+      "separation": 1,
+      "forall-distribution": 16
+    }
+  },
+  "certificate_json_bytes": 96175
+}
