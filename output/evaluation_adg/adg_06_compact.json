@@ -1,0 +1,110 @@
+{
+  "checks": {
+    "action_order_utility_invariant": true,
+    "calibrated_risk_bound": true,
+    "full_dominance": true,
+    "known_graph_recovery": true,
+    "known_graph_upper_bound": true,
+    "mass_and_budget": true,
+    "no_lineage_ablation": true
+  },
+  "evidence": "exact finite synthetic development; second grid designed after first result",
+  "families": {
+    "ordinary": {
+      "n_cells": 48,
+      "overall": {
+        "full": {
+          "utility": "2153312370933402623/6981194151351360288"
+        },
+        "independent": {
+          "utility": "267926404381635923/872649268918920036"
+        },
+        "known": {
+          "utility": "119800372223704073/387844119519520016"
+        },
+        "macro": {
+          "utility": "2054342947775259083/6981194151351360288"
+        },
+        "map": {
+          "utility": "66907708472939197/218162317229730009"
+        },
+        "no_lineage": {
+          "utility": "2153312370933402623/6981194151351360288"
+        },
+        "one": {
+          "utility": "511110452973735961/1745298537837840072"
+        },
+        "stop": {
+          "utility": "91238739789/625132562864"
+        },
+        "two": {
+          "utility": "2153312370933402623/6981194151351360288"
+        }
+      },
+      "overall_sha256": "16c8fcbe6882628ab98c8090417e6b7594ce07624a8ed4bb6de25571753380f3",
+      "preflight": {
+        "decision": "REDESIGN_OR_PILOT_ONLY"
+      },
+      "rows_sha256": "f54f22109245adb8c9aed839e49510e476be4fb85d58ffb7c6c7e831669a7256"
+    },
+    "posthoc_boundary": {
+      "n_cells": 24,
+      "overall": {
+        "full": {
+          "utility": "131029309412299/249642355717440"
+        },
+        "independent": {
+          "utility": "23736610843/49532213436"
+        },
+        "known": {
+          "utility": "310307200059/577875823420"
+        },
+        "macro": {
+          "utility": "227129172874/433406867565"
+        },
+        "map": {
+          "utility": "231800708255/520088241078"
+        },
+        "no_lineage": {
+          "utility": "220170231724/433406867565"
+        },
+        "one": {
+          "utility": "127170191533849/249642355717440"
+        },
+        "stop": {
+          "utility": "25108957047/57787582342"
+        },
+        "two": {
+          "utility": "131029309412299/249642355717440"
+        }
+      },
+      "overall_sha256": "44a5a5c988fc99f8997aac7393c9aac3a02bd396e38972fe7915c7d9800e6a64",
+      "preflight": {
+        "decision": "REDESIGN_OR_PILOT_ONLY"
+      },
+      "rows_sha256": "dd42b4d931d7767ab57d288bce33aa0a4fd27cda00d8b5a1c7babc9fe37c2f4d"
+    }
+  },
+  "revocation_witness": {
+    "copy_before": "5/6",
+    "copy_revoked": "1/2",
+    "independent_before": "25/26",
+    "independent_revoked": "5/6",
+    "mixture_before": "55/62",
+    "mixture_revoked": "11/18"
+  },
+  "schema": "ADG-06/compact/v1",
+  "source_sha256": {
+    "scripts/verify_archival_lineage.py": "741029f43cec795b70779df9b6dc8c3f8f15ad79e1b7ee6461fc403c0f0ea8c4",
+    "skills/evalmath-mechinterp-power/scripts/preflight.py": "c2621a7900930f81ed53799ce439ee1c8f2d7006918a04ef57b5381630d15494",
+    "src/spiral_ln/evaluation_archival_lineage.py": "9ef2cd1f3306e795126aac69c61753b3cfb45402f60625da180f862df1b6ba02",
+    "tests/test_archival_lineage.py": "6fdd1578d0c37c9a24270f18074cc9c2742fad0efa8dfb63abeae3747623a3bc"
+  },
+  "threshold_witness": {
+    "independent_probability": "5/13",
+    "lineage_gain": "2/13",
+    "lineage_utility": "5/26",
+    "posterior": "21/26",
+    "stop_utility": "1/26"
+  }
+}

@@ -25,6 +25,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "adg06": ("scripts/verify_archival_lineage.py",
+              "output/evaluation_adg/adg_06_compact.json", ["--compact"], False),
+    "adg05": ("scripts/verify_archival_provenance.py",
+              "output/evaluation_adg/adg_05_compact.json", ["--compact"], False),
     "cpf_suite": ("scripts/verify_evaluation_cpf_suite.py",
                   "output/evaluation_cpf/cpf_suite.json", [], False),
     "cpf03": ("scripts/verify_evaluation_cpf03.py",
