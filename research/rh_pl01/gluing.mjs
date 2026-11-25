@@ -56,7 +56,8 @@ function buildGluing(tr,k){
  const total=s=>gen(x,imp(nat(x),X(47,A(nat(47),at(s,x,47)))));
  const functional=s=>all([x,aa,bb],chain([nat(x),nat(aa),nat(bb),at(s,x,aa),at(s,x,bb)],E(aa,bb)));
  const goal=X(U,A(total(U),functional(U)));
- function glue(){
+ function glue(withRelation=false){
+   const goal=X(U,withRelation?A(unionRel(U),A(total(U),functional(U))):A(total(U),functional(U)));
    const premises=[p.omegaW,base,step,compat],H=hyp(and(premises)),[omega,b,st,coh]=unpack(H,4);
    const covered=apply(ind.result,omega,b,st);
    assert(covered.f===ind.goal,'cover induction');
@@ -78,19 +79,19 @@ function buildGluing(tr,k){
      const eq=witness(ag,51,ha=>witness(bg,52,hb=>apply(inst(coh,51,52,x,aa,bb),left(ha),left(hb),mx,ma,mb,right(ha),right(hb))));
      const ff=allProof([x,aa,bb],hs.reduceRight((r,h)=>abs(h,r),eq));
      assert(ff.f===functional(U),'functional');
-     return exIntro(goal,U,conj(tf,ff))
+     return exIntro(goal,U,withRelation?conj(rel,conj(tf,ff)):conj(tf,ff))
    });
    assert(r.f===goal,'gluing goal');return abs(H,r)
  }
  const glued=glue();
  function row(name,pr,cap=0){const root=p.close(pr),r=cap?p.replay(root,cap):p.emit(root);return {name,target:k.encode(ar.ast(root.f)),target_bytes:ns[root.f].u,...r.cost,axioms:r.axioms,structural_replay:true,original_full_replay:!!r.original}}
  function run(){
-   const rows=[row('union_graph_application_equivalence',unionProof,24000000),row('recursive_graph_gluing_existence',glued)];
+   const rows=[row('union_graph_application_equivalence',unionProof,32000000),row('recursive_graph_gluing_existence',glued)];
    const result=rows.map(({target,...r})=>r);
    return {rows:result,premise_formula_bytes:[p.omegaW,base,step,compat].map(i=>ns[i].u),formula_nodes:ns.length-1,actual_rh_proof:false}
  }
  function cert(which='glue'){const root=p.close(which==='union'?unionProof:glued),r=p.emit(root);return {nodes:ar.nodes,ids:r.ids,root:root.f,target:k.encode(ar.ast(root.f)),cost:r.cost}}
- return {run,cert,unionProof,glued,t,p,ar,ns,cover,total,functional,compat,memberFamily,base,step};
+ return {run,cert,unionProof,glued,glue,t,p,ar,ns,cover,total,functional,compat,memberFamily,unionRel,base,step};
  }
  return {prepare};
 }
