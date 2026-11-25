@@ -1,0 +1,10 @@
+{
+  "excluded_ids_digest": "e72c37841a58c540f617fd9354ba572220c6d7c6e77b96a676abffb9965cc07b",
+  "gold_digest": "799eb8feab31fa1a2dfafe54dd2e69ec385bf9a59b68e780920ace752d1ccdda",
+  "per_family": 40,
+  "prompt_digest": "0d997e853d8900bd2dfde126b291479c9ce8efd2a683a7066cadb6e713eb726f",
+  "roots": 240,
+  "schema": "CPF-suite.1",
+  "seed_commitment": "1527a8c82757ad9c7c5787d3f6a2aa0af8954f44e8baf81f7c87c2a3fdceb714",
+  "split": "test"
+}
