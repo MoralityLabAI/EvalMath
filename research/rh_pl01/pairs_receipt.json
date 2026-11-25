@@ -1,0 +1,162 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "rows": [
+    {
+      "name": "ordered_pair_exists",
+      "target_bytes": 1979,
+      "lines": 4854,
+      "unary": 17698557,
+      "compact": 1435387,
+      "axioms": {
+        "pairing": 1,
+        "forall-elimination": 35,
+        "propositional": 2335,
+        "forall-distribution": 36,
+        "equality-reflexivity": 4,
+        "extensionality": 1,
+        "equality-substitution": 8
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "independent_replay": {
+        "lines": 4854,
+        "unary": "17698557",
+        "compact": "1435387",
+        "nodes": 6058,
+        "target_bytes": "1979",
+        "rules": {
+          "K": 1123,
+          "S": 1001,
+          "classical": 211,
+          "mp": 2405,
+          "gen": 29
+        },
+        "nonpropositional_axioms": {
+          "pairing": 1,
+          "forall-elimination": 35,
+          "forall-distribution": 36,
+          "equality-reflexivity": 4,
+          "extensionality": 1,
+          "equality-substitution": 8
+        }
+      },
+      "certificate_json_bytes": 117945
+    },
+    {
+      "name": "ordered_pair_injectivity",
+      "target_bytes": 4118,
+      "lines": 3853,
+      "unary": 13115516,
+      "compact": 1231520,
+      "axioms": {
+        "equality-reflexivity": 5,
+        "propositional": 1850,
+        "pairing": 1,
+        "forall-elimination": 34,
+        "forall-distribution": 22,
+        "equality-substitution": 6
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "independent_replay": {
+        "lines": 3853,
+        "unary": "13115516",
+        "compact": "1231520",
+        "nodes": 4916,
+        "target_bytes": "4118",
+        "rules": {
+          "K": 873,
+          "S": 759,
+          "classical": 218,
+          "mp": 1911,
+          "gen": 24
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 5,
+          "pairing": 1,
+          "forall-elimination": 34,
+          "forall-distribution": 22,
+          "equality-substitution": 6
+        }
+      },
+      "certificate_json_bytes": 96940
+    },
+    {
+      "name": "ordered_pair_double_power_bound",
+      "target_bytes": 3566,
+      "lines": 1247,
+      "unary": 6759148,
+      "compact": 542921,
+      "axioms": {
+        "equality-reflexivity": 2,
+        "propositional": 599,
+        "forall-elimination": 7,
+        "equality-substitution": 4,
+        "forall-distribution": 7
+      },
+      "structural_replay": true,
+      "original_full_replay": true,
+      "independent_replay": {
+        "lines": 1247,
+        "unary": "6759148",
+        "compact": "542921",
+        "nodes": 1592,
+        "target_bytes": "3566",
+        "rules": {
+          "K": 286,
+          "S": 250,
+          "classical": 63,
+          "mp": 617,
+          "gen": 11
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 2,
+          "forall-elimination": 7,
+          "equality-substitution": 4,
+          "forall-distribution": 7
+        }
+      },
+      "certificate_json_bytes": 31513
+    },
+    {
+      "name": "singleton_graph_application",
+      "target_bytes": 6778,
+      "lines": 10833,
+      "unary": 41620884,
+      "compact": 3680418,
+      "axioms": {
+        "equality-reflexivity": 7,
+        "propositional": 5259,
+        "forall-elimination": 51,
+        "equality-substitution": 15,
+        "forall-distribution": 43,
+        "pairing": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": false,
+      "independent_replay": {
+        "lines": 10833,
+        "unary": "41620884",
+        "compact": "3680418",
+        "nodes": 13010,
+        "target_bytes": "6778",
+        "rules": {
+          "K": 2532,
+          "S": 2308,
+          "classical": 419,
+          "mp": 5416,
+          "gen": 41
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 7,
+          "forall-elimination": 51,
+          "equality-substitution": 15,
+          "forall-distribution": 43,
+          "pairing": 1
+        }
+      },
+      "certificate_json_bytes": 269428
+    }
+  ],
+  "actual_rh_proof": false
+}
