@@ -1,0 +1,32 @@
+{
+  "alpha": "1/20",
+  "confirm_units_planned": 128,
+  "experiment_id": "MIC-14-public-replay",
+  "heldout_sealed": false,
+  "independent_unit": "generator lineage (independence unverified)",
+  "measurement_resolution": "0",
+  "pilot": [
+    {
+      "paired_effect": "-121776307/19533571200",
+      "sham_effects": [
+        "1"
+      ],
+      "unit_id": "implication"
+    },
+    {
+      "paired_effect": "-13261/3129840",
+      "sham_effects": [
+        "1"
+      ],
+      "unit_id": "disjunction"
+    }
+  ],
+  "pilot_from_development_only": true,
+  "planned_comparisons": 1,
+  "schema_version": 1,
+  "scientific_min_effect": "1/20",
+  "sham_confidence": "19/20",
+  "sham_quantile": "19/20",
+  "target_effect": "1/10",
+  "units_independent": false
+}
