@@ -57,14 +57,14 @@ function audit(api,w,s,h){
 }
 function dist(v){return (v[L]-Math.max(-.53,Math.min(.77,v[L])))**2+Math.max(0,.08-v[S])**2+Math.max(0,v[B]-.35)**2;}
 function arm(api,w,r,a){
- let b=step(api,w,r.s,a),s=b.next,first=b,root=null;
+ let b=step(api,w,r.s,a),s=b.next,first=b,root=null,affected=b.id===REACTION&&r.s.values[T]>0;
  for(let j=r.j+1;j<r.words.length;j++){
    if(s.encounter===SIRENS&&!root)root=s;
    if(terminal(w,s))break;
-   s=step(api,w,s,choose(api,w,s,r.words[j])).next;
+   const b=step(api,w,s,choose(api,w,s,r.words[j]));affected=affected||b.id===REACTION&&s.values[T]>0;s=b.next;
  }
  const h1=audit(api,w,root,1),h3=audit(api,w,root,3);
- return {h1:h1.attainable,h3:h3.attainable,unique_truce:h1.unique_truce,random_goal:bit(s.encounter===GOAL),complete:bit(terminal(w,s)),reached:bit(root),gate_distance:root?dist(root.values):null,first,root};
+ return {h1:h1.attainable,h3:h3.attainable,unique_truce:h1.unique_truce,random_goal:bit(s.encounter===GOAL),complete:bit(terminal(w,s)),reached:bit(root),gate_distance:root?dist(root.values):null,first,root,affected};
 }
 function cache(api,w,c){
  const roots=seqs(c).map(words=>firstRadio(api,w,words)).filter(Boolean);
@@ -81,7 +81,15 @@ function score(api,base,w,rows,p){
  for(const {r,arms} of rows){
    // Other options cannot trigger the changed reaction at this first site.
    // They may revisit the site later; therefore replay *all* arms in candidate.
-   const next=menu(api,w,r.s).map((id,i)=>p.retention||p.restraint?arm(api,w,r,id):arms[i]);
+   const next=menu(api,w,r.s).map((id,i)=>{
+     if(!p.retention&&!p.restraint)return arms[i];
+     if(arms[i].affected)return arm(api,w,r,id);
+     // Until the first edited reaction with positive warrant, the two
+     // deterministic executions agree. A baseline tape with no such step
+     // has identical selected transitions. Recompute both horizon audits.
+     const a=arms[i],h1=audit(api,w,a.root,1),h3=audit(api,w,a.root,3);o.off_replay_checks++;
+     return {...a,h1:h1.attainable,h3:h3.attainable,unique_truce:h1.unique_truce};
+   });
    for(let i=0;i<3;i++){
      const x=arms[i].first,y=next[i].first;
      if(x.id!==y.id||x.next.encounter!==y.next.encounter)fail("initial reaction or route changed");
@@ -115,16 +123,26 @@ function score(api,base,w,rows,p){
  o.pass=Object.values(o.checks).every(Boolean);
  return o;
 }
-export function selectRepair({api=runtime,source}){
- const base=api.compileV2(source),dev=CONTRACT.development.map(c=>({cohort:c,rows:cache(api,base,c)})),grid=[];
+export function evaluateGridCohort({api=runtime,source,cohort}){
+ const base=api.compileV2(source),rows=cache(api,base,cohort),grid=[];
  for(const retention of CONTRACT.grid.retention)for(const restraint of CONTRACT.grid.restraint){
    const params={retention,restraint},p=patchRadio(source,params),w=api.compileV2(p.source);
-   const metrics=dev.map(d=>score(api,base,w,d.rows,params));
-   grid.push({params,metrics,full:sum(metrics,m=>bit(m.pass)),checks:sum(metrics,m=>Object.values(m.checks).filter(Boolean).length),cost:Math.round(retention/.04)+Math.round(restraint/.04)});
+   grid.push({params,metrics:score(api,base,w,rows,params)});
  }
+ return {cohort,grid};
+}
+export function selectFromCohorts(source,cohorts){
+ if(cohorts.length!==CONTRACT.development.length||!cohorts.every((c,i)=>same(c.cohort,CONTRACT.development[i])))fail("development cohort contract");
+ const grid=cohorts[0].grid.map((g,i)=>{
+   const params=g.params,metrics=cohorts.map(c=>{if(!same(c.grid[i].params,params))fail("grid alignment");return c.grid[i].metrics;});
+   return {params,metrics,full:sum(metrics,m=>bit(m.pass)),checks:sum(metrics,m=>Object.values(m.checks).filter(Boolean).length),cost:Math.round(params.retention/.04)+Math.round(params.restraint/.04)};
+ });
  const ranked=[...grid].sort((a,b)=>b.full-a.full||b.checks-a.checks||a.cost-b.cost||a.params.retention-b.params.retention||a.params.restraint-b.params.restraint);
  const selected=ranked[0],p=patchRadio(source,selected.params);
- return {receipt:{contract:CONTRACT,grid,selected,feasible_count:grid.filter(r=>r.full===dev.length).length},candidate:p.source,patch:p.patch};
+ return {receipt:{contract:CONTRACT,grid,selected,feasible_count:grid.filter(r=>r.full===cohorts.length).length},candidate:p.source,patch:p.patch};
+}
+export function selectRepair({api=runtime,source}){
+ return selectFromCohorts(source,CONTRACT.development.map(cohort=>evaluateGridCohort({api,source,cohort})));
 }
 export function validateRepair({api=runtime,source,params,cohort}){
  const base=api.compileV2(source),rows=cache(api,base,cohort),p=patchRadio(source,params),w=api.compileV2(p.source);
