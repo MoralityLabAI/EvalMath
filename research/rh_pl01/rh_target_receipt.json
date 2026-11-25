@@ -1,0 +1,56 @@
+{
+  "formula_bytes": 114031,
+  "line_bytes": 114032,
+  "min_shape_bytes": 19536,
+  "variable_index_bytes": 94495,
+  "max_var": 35,
+  "ast_depth": 235,
+  "nodes": {
+    "e": 1240,
+    "m": 1227,
+    "n": 2539,
+    "i": 2466,
+    "a": 732
+  },
+  "baseline": 228076,
+  "strengthened": 267144,
+  "pair_checks": 256,
+  "integer_controls": [
+    {
+      "n": 1,
+      "delta": 1,
+      "factorial_digits": 1,
+      "inequality": true
+    },
+    {
+      "n": 2,
+      "delta": 1,
+      "factorial_digits": 1,
+      "inequality": true
+    },
+    {
+      "n": 3,
+      "delta": 2,
+      "factorial_digits": 1,
+      "inequality": true
+    },
+    {
+      "n": 4,
+      "delta": 12,
+      "factorial_digits": 9,
+      "inequality": true
+    },
+    {
+      "n": 5,
+      "delta": 144,
+      "factorial_digits": 250,
+      "inequality": true
+    },
+    {
+      "n": 6,
+      "delta": 8640,
+      "factorial_digits": 30262,
+      "inequality": true
+    }
+  ]
+}
