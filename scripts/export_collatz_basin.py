@@ -1,4 +1,4 @@
-"""Export public COL-EVAL-01 prompts separately from evaluator-owned gold."""
+"""Export public unit-seed COL-EVAL-01 prompts separately from evaluator gold."""
 from __future__ import annotations
 
 import argparse
@@ -26,6 +26,8 @@ def export(max_d: int, out: Path, splits: tuple[str, ...]) -> dict:
             roots.append(d)
             core, quotient = enumerate_core(d), quotient_labels(d)
             for n in core.states:
+                if gcd(n, d) != 1:
+                    continue
                 case_id = f"COL:{d}:{n}"
                 prompts.append({"id": case_id, "root_id": f"d:{d}", "split": split,
                                 "task": "eventual_basin", "input": {"d": d, "n": n},
@@ -36,8 +38,10 @@ def export(max_d: int, out: Path, splits: tuple[str, ...]) -> dict:
         for name, values in (("prompts", prompts), ("gold", gold)):
             (out / f"{split}.{name}.jsonl").write_text("".join(json.dumps(v, sort_keys=True) + "\n" for v in values))
         root_counts[split], case_counts[split] = len(roots), len(prompts)
-    report = {"schema": "COL-EVAL-01/export/v1", "max_parameter": max_d,
+    report = {"schema": "COL-EVAL-01/export/v2", "max_parameter": max_d,
               "parameter_roots": root_counts, "cases": case_counts,
+              "unit_seeds_only": True,
+              "input_distribution": "odd core seeds with gcd(n,d)=1",
               "gold_is_evaluator_owned": True, "holdout_exported": False,
               "files": {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                         for p in sorted(out.glob("*.jsonl"))}}

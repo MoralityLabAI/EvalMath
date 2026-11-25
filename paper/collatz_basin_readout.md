@@ -70,6 +70,29 @@ holdout. All seeds and descendants of that parameter inherit the assignment.
 The verifier scores train and dev for admissible `d <= 4093`. It records the
 holdout parameter count and manifest hash without scoring that partition.
 
+Candidate prompt/gold exports use only unit seeds, `gcd(n,d)=1`. The structural
+census above retains every odd-core state, so its denominators and ceilings
+remain those of the complete core. Export manifest schema `COL-EVAL-01/export/v2`
+records the unit-seed restriction and the resulting case counts explicitly.
+
+This restriction closes a concrete scale leak in raw parameter splits. If odd
+`g = 1 (mod 4)`, then `T_(gd)(gn) = g T_d(n)`, since branch choice and halving
+valuation are preserved. In particular, `COL:1:1` is assigned to train while
+`COL:5:5` is assigned to dev; their normalized trajectories and targets coincide.
+The unit-seed export includes `COL:1:1` and excludes `COL:5:5`. Normalizing a unit
+seed by `gcd(n,d)` leaves its parameter unchanged, so these scaled copies cannot
+span the exported parameter partitions. Tests independently replay normalized
+trajectories and check disjointness across train/dev.
+
+| Unit-seed export | Train roots | Train cases | Dev roots | Dev cases |
+| --- | ---: | ---: | ---: | ---: |
+| Smoke, `d <= 257` | 23 | 1,407 | 9 | 429 |
+| CLI default, `d <= 1021` | 99 | 23,847 | 28 | 5,836 |
+
+The scorer's CLI oracle round trips pass on the 429-case smoke development
+export and the 5,836-case default development export. These exported populations
+have their own denominators; the complete-core census table above is unchanged.
+
 This is a public, reproducible split. Source tests, MathCan and other finite
 audits can expose the same parameters. A future neural confirmation requires
 fresh externally stewarded roots and an exposure ledger. Hash partitioning

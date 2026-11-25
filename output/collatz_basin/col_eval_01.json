@@ -42809,12 +42809,12 @@
     "configs/collatz_basin_pilot.json": "be2b65c03f4436bc62f8b5704cb09e3bc908bb925ce17907c655856824af5817",
     "fixtures/collatz_basin/small_reference.json": "28cf88317c9026c1e33bb1518dd189f6428bd0cf8047e50b84de6e90d16f719b",
     "output/collatz_basin/preflight.json": "fc88248e5f4b4738ca5bcc1350c4804e4a409b7f5fdcb66a612dcb1d6f6fe010",
-    "paper/collatz_basin_readout.md": "f14d4ff509edd757386cc1e29622db95069be665a18466bd31b3544e1bd22bbe",
-    "scripts/export_collatz_basin.py": "b2fb25ba63fe87d343b19c56806dc79cff25f2d94d9323b5f4fd1229aa0b7e73",
+    "paper/collatz_basin_readout.md": "64f6720a1b89d3f13deda501e19d118488ebe38cdc0648848ed12a609838c55b",
+    "scripts/export_collatz_basin.py": "858641ea4dac1cda2a4e49147ba77eabdd59d1c683fe9c624c60ed758f1a8a0c",
     "scripts/score_collatz_basin.py": "3b0c3e281dc1203a0ee3bede12ceaac4bc544da68b3ba44b8896f92f80a72916",
     "scripts/verify_collatz_basin.py": "4eacaf746008208f0d1c1d5fcb0384336fa5a6bfd439eccf69989edea168a823",
     "src/spiral_ln/evaluation_collatz_basin.py": "cccc9a78eaadd96328c0247dfad440ede01336ab3b1ee268a32ca52645159ad1",
-    "tests/test_evaluation_collatz_basin.py": "1697ed8c9c030f93fbbf165cdeb30d975a8df38667c33e56488de059bb37f31f"
+    "tests/test_evaluation_collatz_basin.py": "ac08f3bffe615fa273694dfaf7d72f196770fe3a2315af7eecc286fd26b7ff1e"
   },
   "summaries": {
     "dev": {
