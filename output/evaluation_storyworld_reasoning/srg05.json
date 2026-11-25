@@ -1,0 +1,87 @@
+{
+  "source_revision": "ee1c6918db77d1e0924877f59eca819bae3f1c8c",
+  "source_blobs": {
+    "storyworlds/bonsai27_reservoir_dogs/reservoir_dogs_bonsai27.json": "f735f6198f2c7c1810d3feef13459632867cf1d9",
+    "storyworld_reader.html": "d43d9ab729206f1594ea7cee98918bc9ec92f267"
+  },
+  "checks": {
+    "wild_filters_and_ties": true,
+    "spool_activation_and_order": true,
+    "event_prerequisites": true,
+    "no_wild_destination_flagged": true,
+    "no_state_mutation": true,
+    "public_observation_omits_hidden_and_history": true,
+    "narrative_roundtrip": true,
+    "step_audit_equivalence": true,
+    "unknown_event_rejected": true,
+    "unknown_spool_rejected": true,
+    "strict_direct_checks_guard": true,
+    "explicit_direct_bypass_logged": true,
+    "patch_stale_guard": true,
+    "source_counts": true,
+    "all_reaction_text_preserved": true,
+    "all_effect_orders_preserved": true,
+    "all_encounter_text_preserved": true,
+    "paired_accounting": true
+  },
+  "migration": {
+    "encounters": 20,
+    "options": 46,
+    "reactions": 138,
+    "writes": 690,
+    "wild": 9,
+    "coordinates_by_depth": [
+      24,
+      12,
+      14
+    ],
+    "spools": 4
+  },
+  "metrics": {
+    "sampled_policy_sequences": 64,
+    "same_state_audit_sequences": 16,
+    "signed_endings": {
+      "page_end_pink_ghosts_with_stones": 9,
+      "page_secret_undercover_truce": 13,
+      "page_end_white_mercy_hospital_trap": 19,
+      "page_end_mexican_standoff_collapse": 22,
+      "page_end_blonde_gasoline_inferno": 1
+    },
+    "reader_endings": {
+      "page_end_cabot_executes_the_plant": 3,
+      "page_end_white_mercy_hospital_trap": 33,
+      "page_end_mexican_standoff_collapse": 20,
+      "page_end_pink_ghosts_with_stones": 7,
+      "page_secret_undercover_truce": 1
+    },
+    "strict_endings": {
+      "blocked_destination": 57,
+      "page_secret_undercover_truce": 1,
+      "page_end_mexican_standoff_collapse": 6
+    },
+    "signed_terminations": 64,
+    "reader_terminations": 64,
+    "strict_terminations": 7,
+    "paired_ending_disagreements": 35,
+    "matched_state_actions": 629,
+    "matched_reaction_disagreements": 21,
+    "matched_route_disagreements": 23,
+    "matched_numeric_disagreements": 629,
+    "menu_disagreements": 0,
+    "explicit_guard_bypasses": 312,
+    "forced_eligible_branches": 1887,
+    "blocked_forced_branches": 0,
+    "wild_selected_steps": 93,
+    "wild_candidate_total": 449,
+    "max_coordinate_difference": 0.3677524152427951,
+    "first_difference": {
+      "trial": 0,
+      "turn": 1,
+      "encounter": "page_start",
+      "action": "opt_page_start_0",
+      "reaction": "rxn_page_start_0_0",
+      "reader_reaction": "rxn_page_start_0_0",
+      "max_delta": 0.0834
+    }
+  }
+}
