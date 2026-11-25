@@ -1,0 +1,162 @@
+{
+  "adaptive_vs_fixed": {
+    "adaptive": "1",
+    "fixed": "3/4"
+  },
+  "checks": {
+    "adaptive_advantage": true,
+    "effect_apportionment": true,
+    "hidden_gate": true,
+    "independent_fixed_policy_census": true,
+    "nuisance_invariant": true,
+    "parity_curve": true,
+    "semantic_support": true
+  },
+  "evidence": "exact synthetic finite audit",
+  "formula": {
+    "feasible_pairs": [
+      4,
+      4,
+      4
+    ],
+    "margins": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "relative_score_changes": [
+      4,
+      0,
+      0
+    ],
+    "unidentified": [],
+    "winner_set_changes": [
+      4,
+      0,
+      0
+    ]
+  },
+  "gradual": {
+    "energy": [
+      "1/16",
+      "1/16",
+      "1/16",
+      "1/16"
+    ],
+    "max_energy_share": "1/4",
+    "max_positive_progress_share": "7/16",
+    "net_progress": "1",
+    "progress": [
+      "7/16",
+      "5/16",
+      "3/16",
+      "1/16"
+    ]
+  },
+  "hidden": {
+    "adaptive_curve": [
+      "1/2",
+      "1/2",
+      "1/2"
+    ],
+    "available": "1/2",
+    "full": "1",
+    "min_budget_full": null,
+    "public": "1/2",
+    "unobservable_gap": "1/2"
+  },
+  "jump": {
+    "energy": [
+      "0",
+      "0",
+      "0",
+      "1"
+    ],
+    "max_energy_share": "1",
+    "max_positive_progress_share": "1",
+    "net_progress": "1",
+    "progress": [
+      "0",
+      "0",
+      "0",
+      "1"
+    ]
+  },
+  "padded": {
+    "adaptive_curve": [
+      "1/2",
+      "1/2",
+      "1/2",
+      "1",
+      "1",
+      "1"
+    ],
+    "available": "1",
+    "full": "1",
+    "min_budget_full": 3,
+    "public": "1/2",
+    "unobservable_gap": "0"
+  },
+  "parity": {
+    "1": {
+      "adaptive_curve": [
+        "1/2",
+        "1"
+      ],
+      "available": "1",
+      "full": "1",
+      "min_budget_full": 1,
+      "public": "1/2",
+      "unobservable_gap": "0"
+    },
+    "2": {
+      "adaptive_curve": [
+        "1/2",
+        "1/2",
+        "1"
+      ],
+      "available": "1",
+      "full": "1",
+      "min_budget_full": 2,
+      "public": "1/2",
+      "unobservable_gap": "0"
+    },
+    "3": {
+      "adaptive_curve": [
+        "1/2",
+        "1/2",
+        "1/2",
+        "1"
+      ],
+      "available": "1",
+      "full": "1",
+      "min_budget_full": 3,
+      "public": "1/2",
+      "unobservable_gap": "0"
+    },
+    "4": {
+      "adaptive_curve": [
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1"
+      ],
+      "available": "1",
+      "full": "1",
+      "min_budget_full": 4,
+      "public": "1/2",
+      "unobservable_gap": "0"
+    }
+  },
+  "sha256": {
+    "scripts/verify_storyworld_reasoning.py": "795c6ffaffe493071a253d4eac6b525dfe0462c52e1822311e7eeef1cd3f971c",
+    "src/spiral_ln/evaluation_storyworld_reasoning.py": "1ea08f94003a0bb0ee0564ac5c3f5d64b448d5836987cd186fd5528e5e7bea3f",
+    "tests/test_storyworld_reasoning.py": "3e3a857cff4ec8d24e884bc0a03f2a67e16bb5746779b1cf9ac18554a9fda904"
+  }
+}
