@@ -1,0 +1,22 @@
+name: NFAS-05 exploratory replay
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - scripts/verify_nfas05.py
+      - output/nfas05.json
+      - .github/workflows/nfas05.yml
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install scipy==1.17.0
+      - run: python scripts/verify_nfas05.py --output /tmp/nfas05.json
+      - run: diff -u output/nfas05.json /tmp/nfas05.json

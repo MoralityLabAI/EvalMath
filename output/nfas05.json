@@ -1,0 +1,29 @@
+{
+  "schema": "nfas-05-v1",
+  "source_sha256": {
+    "scripts/verify_nfas05.py": "953cee78ff40d878e9f12e605d9c9c4d4f994fc828b8634eae067c6e3e51674b"
+  },
+  "checks": {
+    "all_exact_no_gap_certificates": true
+  },
+  "summary": {
+    "observed_binary": {
+      "cases": 124,
+      "exact_no_gap_certificates": 124,
+      "minimum_effective_payoff_ratio": "113/154",
+      "values_sha256": "84d1b2d4a05852cc20a86de61ad11030625459a1d9a58980aea8f9bea0145895"
+    },
+    "observed_ternary": {
+      "cases": 60,
+      "exact_no_gap_certificates": 60,
+      "minimum_effective_payoff_ratio": "1690/2137",
+      "values_sha256": "77d848ad2ae0f811d283d8c19cc4be52dc20cb764c5bc25aa5475b3c4393814a"
+    },
+    "hidden_imperfect_audit": {
+      "cases": 100,
+      "exact_no_gap_certificates": 100,
+      "minimum_effective_payoff_ratio": "74/109",
+      "values_sha256": "92fd93a643c4483dc1a685402031cc7852459c88dce12f2e42ca7c0aa8ef4153"
+    }
+  }
+}

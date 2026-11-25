@@ -1,0 +1,2115 @@
+{
+  "source_git_blob_sha": "33f57d6ce97592c2bc45445a0f5f8573029aa702",
+  "schema": "nfas-03-v1",
+  "lp_certificates": 48,
+  "deterministic_comparisons": 12288,
+  "coupling_checks": 1536,
+  "instances": [
+    {
+      "weights": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "epsilon": "0/1",
+      "objectives": [
+        {
+          "lambda": 1,
+          "scalar": {
+            "dual_weights": [
+              "0/1",
+              "0/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1"
+            ],
+            "value": "7/8",
+            "deterministic_value": "7/8",
+            "deterministic_mask": 221,
+            "gain": "0/1",
+            "utility_floor": "11/8",
+            "risk_ceiling": "3/4",
+            "by_kernel": [
+              {
+                "utility": "13/8",
+                "risk": "3/4"
+              },
+              {
+                "utility": "11/8",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 6
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/2",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "3/4",
+            "deterministic_value": "3/4",
+            "deterministic_mask": 93,
+            "gain": "0/1",
+            "utility_floor": "11/8",
+            "risk_ceiling": "5/8",
+            "by_kernel": [
+              {
+                "utility": "11/8",
+                "risk": "5/8"
+              },
+              {
+                "utility": "11/8",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 32
+          },
+          "fully_informed": {
+            "best_value": "7/8",
+            "best_mask": 221,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "9/16",
+            "values_and_samples_aware": "3/8",
+            "full_world_aware": "1/4"
+          },
+          "fixed_identity": {
+            "independent": "1/2",
+            "values_and_samples_aware": "1/2",
+            "full_world_aware": "1/2"
+          }
+        },
+        {
+          "lambda": 2,
+          "scalar": {
+            "dual_weights": [
+              "1/1",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "1/8",
+            "deterministic_value": "1/8",
+            "deterministic_mask": 17,
+            "gain": "0/1",
+            "utility_floor": "5/8",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "5/8",
+                "risk": "1/4"
+              },
+              {
+                "utility": "11/8",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 2
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/1",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "1/8",
+            "deterministic_value": "1/8",
+            "deterministic_mask": 29,
+            "gain": "0/1",
+            "utility_floor": "9/8",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "9/8",
+                "risk": "1/2"
+              },
+              {
+                "utility": "11/8",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 28
+          },
+          "fully_informed": {
+            "best_value": "1/8",
+            "best_mask": 17,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "1/16",
+            "values_and_samples_aware": "-1/8",
+            "full_world_aware": "-1/4"
+          },
+          "fixed_identity": {
+            "independent": "0/1",
+            "values_and_samples_aware": "0/1",
+            "full_world_aware": "0/1"
+          }
+        },
+        {
+          "lambda": 4,
+          "scalar": {
+            "dual_weights": [
+              "0/1",
+              "0/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-1/2",
+            "deterministic_value": "-1/2",
+            "deterministic_mask": 51,
+            "gain": "0/1",
+            "utility_floor": "1/2",
+            "risk_ceiling": "1/4",
+            "by_kernel": [
+              {
+                "utility": "1/2",
+                "risk": "1/4"
+              },
+              {
+                "utility": "1/2",
+                "risk": "1/4"
+              }
+            ],
+            "dual_vertices": 8
+          },
+          "rectangular": {
+            "dual_weights": [
+              "0/1",
+              "1/8"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-1/2",
+            "deterministic_value": "-1/2",
+            "deterministic_mask": 51,
+            "gain": "0/1",
+            "utility_floor": "1/2",
+            "risk_ceiling": "1/4",
+            "by_kernel": [
+              {
+                "utility": "1/2",
+                "risk": "1/4"
+              },
+              {
+                "utility": "1/2",
+                "risk": "1/4"
+              }
+            ],
+            "dual_vertices": 24
+          },
+          "fully_informed": {
+            "best_value": "-5/8",
+            "best_mask": 17,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-15/16",
+            "values_and_samples_aware": "-9/8",
+            "full_world_aware": "-47/32"
+          },
+          "fixed_identity": {
+            "independent": "-1/1",
+            "values_and_samples_aware": "-1/1",
+            "full_world_aware": "-1/1"
+          }
+        },
+        {
+          "lambda": 8,
+          "scalar": {
+            "dual_weights": [
+              "0/1",
+              "0/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-3/2",
+            "deterministic_value": "-3/2",
+            "deterministic_mask": 51,
+            "gain": "0/1",
+            "utility_floor": "1/2",
+            "risk_ceiling": "1/4",
+            "by_kernel": [
+              {
+                "utility": "1/2",
+                "risk": "1/4"
+              },
+              {
+                "utility": "1/2",
+                "risk": "1/4"
+              }
+            ],
+            "dual_vertices": 8
+          },
+          "rectangular": {
+            "dual_weights": [
+              "0/1",
+              "9/16"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-3/2",
+            "deterministic_value": "-3/2",
+            "deterministic_mask": 51,
+            "gain": "0/1",
+            "utility_floor": "1/2",
+            "risk_ceiling": "1/4",
+            "by_kernel": [
+              {
+                "utility": "1/2",
+                "risk": "1/4"
+              },
+              {
+                "utility": "1/2",
+                "risk": "1/4"
+              }
+            ],
+            "dual_vertices": 24
+          },
+          "fully_informed": {
+            "best_value": "-13/8",
+            "best_mask": 51,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-47/16",
+            "values_and_samples_aware": "-25/8",
+            "full_world_aware": "-139/32"
+          },
+          "fixed_identity": {
+            "independent": "-3/1",
+            "values_and_samples_aware": "-3/1",
+            "full_world_aware": "-3/1"
+          }
+        }
+      ]
+    },
+    {
+      "weights": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "epsilon": "1/4",
+      "objectives": [
+        {
+          "lambda": 1,
+          "scalar": {
+            "dual_weights": [
+              "1/2",
+              "1/2"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "3/5"
+            ],
+            "value": "3/4",
+            "deterministic_value": "23/32",
+            "deterministic_mask": 221,
+            "gain": "1/32",
+            "utility_floor": "6/5",
+            "risk_ceiling": "13/20",
+            "by_kernel": [
+              {
+                "utility": "7/5",
+                "risk": "13/20"
+              },
+              {
+                "utility": "6/5",
+                "risk": "9/20"
+              }
+            ],
+            "dual_vertices": 4
+          },
+          "rectangular": {
+            "dual_weights": [
+              "13/18",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "8/9",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "25/36",
+            "deterministic_value": "43/64",
+            "deterministic_mask": 93,
+            "gain": "13/576",
+            "utility_floor": "23/18",
+            "risk_ceiling": "7/12",
+            "by_kernel": [
+              {
+                "utility": "23/18",
+                "risk": "7/12"
+              },
+              {
+                "utility": "23/18",
+                "risk": "17/36"
+              }
+            ],
+            "dual_vertices": 24
+          },
+          "fully_informed": {
+            "best_value": "21/32",
+            "best_mask": 93,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "9/16",
+            "values_and_samples_aware": "3/8",
+            "full_world_aware": "1/4"
+          },
+          "fixed_identity": {
+            "independent": "1/2",
+            "values_and_samples_aware": "1/2",
+            "full_world_aware": "1/2"
+          }
+        },
+        {
+          "lambda": 2,
+          "scalar": {
+            "dual_weights": [
+              "1/1",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "1/8",
+            "deterministic_value": "1/8",
+            "deterministic_mask": 85,
+            "gain": "0/1",
+            "utility_floor": "9/8",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "9/8",
+                "risk": "1/2"
+              },
+              {
+                "utility": "11/8",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 2
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/1",
+              "15/16"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "1/8",
+            "deterministic_value": "1/8",
+            "deterministic_mask": 85,
+            "gain": "0/1",
+            "utility_floor": "9/8",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "9/8",
+                "risk": "1/2"
+              },
+              {
+                "utility": "11/8",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 20
+          },
+          "fully_informed": {
+            "best_value": "1/8",
+            "best_mask": 85,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "1/16",
+            "values_and_samples_aware": "-1/8",
+            "full_world_aware": "-1/4"
+          },
+          "fixed_identity": {
+            "independent": "0/1",
+            "values_and_samples_aware": "0/1",
+            "full_world_aware": "0/1"
+          }
+        },
+        {
+          "lambda": 4,
+          "scalar": {
+            "dual_weights": [
+              "7/18",
+              "7/18"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/9",
+              "0/1"
+            ],
+            "value": "-13/18",
+            "deterministic_value": "-47/64",
+            "deterministic_mask": 21,
+            "gain": "7/576",
+            "utility_floor": "17/18",
+            "risk_ceiling": "19/36",
+            "by_kernel": [
+              {
+                "utility": "17/18",
+                "risk": "5/12"
+              },
+              {
+                "utility": "25/18",
+                "risk": "19/36"
+              }
+            ],
+            "dual_vertices": 10
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/2",
+              "7/16"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-3/4",
+            "deterministic_value": "-3/4",
+            "deterministic_mask": 51,
+            "gain": "0/1",
+            "utility_floor": "3/4",
+            "risk_ceiling": "3/8",
+            "by_kernel": [
+              {
+                "utility": "3/4",
+                "risk": "3/8"
+              },
+              {
+                "utility": "3/4",
+                "risk": "3/8"
+              }
+            ],
+            "dual_vertices": 24
+          },
+          "fully_informed": {
+            "best_value": "-15/16",
+            "best_mask": 21,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-15/16",
+            "values_and_samples_aware": "-9/8",
+            "full_world_aware": "-47/32"
+          },
+          "fixed_identity": {
+            "independent": "-1/1",
+            "values_and_samples_aware": "-1/1",
+            "full_world_aware": "-1/1"
+          }
+        },
+        {
+          "lambda": 8,
+          "scalar": {
+            "dual_weights": [
+              "9/14",
+              "9/14"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-9/4",
+            "deterministic_value": "-9/4",
+            "deterministic_mask": 51,
+            "gain": "0/1",
+            "utility_floor": "3/4",
+            "risk_ceiling": "3/8",
+            "by_kernel": [
+              {
+                "utility": "3/4",
+                "risk": "3/8"
+              },
+              {
+                "utility": "3/4",
+                "risk": "3/8"
+              }
+            ],
+            "dual_vertices": 10
+          },
+          "rectangular": {
+            "dual_weights": [
+              "0/1",
+              "27/64"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-9/4",
+            "deterministic_value": "-9/4",
+            "deterministic_mask": 51,
+            "gain": "0/1",
+            "utility_floor": "3/4",
+            "risk_ceiling": "3/8",
+            "by_kernel": [
+              {
+                "utility": "3/4",
+                "risk": "3/8"
+              },
+              {
+                "utility": "3/4",
+                "risk": "3/8"
+              }
+            ],
+            "dual_vertices": 20
+          },
+          "fully_informed": {
+            "best_value": "-185/64",
+            "best_mask": 51,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-47/16",
+            "values_and_samples_aware": "-25/8",
+            "full_world_aware": "-139/32"
+          },
+          "fixed_identity": {
+            "independent": "-3/1",
+            "values_and_samples_aware": "-3/1",
+            "full_world_aware": "-3/1"
+          }
+        }
+      ]
+    },
+    {
+      "weights": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "epsilon": "1/2",
+      "objectives": [
+        {
+          "lambda": 1,
+          "scalar": {
+            "dual_weights": [
+              "5/6",
+              "5/6"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "1/1",
+              "1/3",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "2/3",
+            "deterministic_value": "21/32",
+            "deterministic_mask": 87,
+            "gain": "1/96",
+            "utility_floor": "13/12",
+            "risk_ceiling": "7/12",
+            "by_kernel": [
+              {
+                "utility": "5/4",
+                "risk": "7/12"
+              },
+              {
+                "utility": "13/12",
+                "risk": "5/12"
+              }
+            ],
+            "dual_vertices": 6
+          },
+          "rectangular": {
+            "dual_weights": [
+              "9/10",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "4/5",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "13/20",
+            "deterministic_value": "5/8",
+            "deterministic_mask": 85,
+            "gain": "1/40",
+            "utility_floor": "6/5",
+            "risk_ceiling": "11/20",
+            "by_kernel": [
+              {
+                "utility": "6/5",
+                "risk": "11/20"
+              },
+              {
+                "utility": "6/5",
+                "risk": "9/20"
+              }
+            ],
+            "dual_vertices": 20
+          },
+          "fully_informed": {
+            "best_value": "5/8",
+            "best_mask": 85,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "9/16",
+            "values_and_samples_aware": "3/8",
+            "full_world_aware": "1/4"
+          },
+          "fixed_identity": {
+            "independent": "1/2",
+            "values_and_samples_aware": "1/2",
+            "full_world_aware": "1/2"
+          }
+        },
+        {
+          "lambda": 2,
+          "scalar": {
+            "dual_weights": [
+              "1/1",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "1/8",
+            "deterministic_value": "1/8",
+            "deterministic_mask": 85,
+            "gain": "0/1",
+            "utility_floor": "9/8",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "9/8",
+                "risk": "1/2"
+              },
+              {
+                "utility": "11/8",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 2
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/1",
+              "7/8"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "1/8",
+            "deterministic_value": "1/8",
+            "deterministic_mask": 85,
+            "gain": "0/1",
+            "utility_floor": "9/8",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "9/8",
+                "risk": "1/2"
+              },
+              {
+                "utility": "11/8",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 20
+          },
+          "fully_informed": {
+            "best_value": "1/8",
+            "best_mask": 85,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "1/16",
+            "values_and_samples_aware": "-1/8",
+            "full_world_aware": "-1/4"
+          },
+          "fixed_identity": {
+            "independent": "0/1",
+            "values_and_samples_aware": "0/1",
+            "full_world_aware": "0/1"
+          }
+        },
+        {
+          "lambda": 4,
+          "scalar": {
+            "dual_weights": [
+              "7/10",
+              "7/10"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/5",
+              "0/1"
+            ],
+            "value": "-4/5",
+            "deterministic_value": "-27/32",
+            "deterministic_mask": 21,
+            "gain": "7/160",
+            "utility_floor": "1/1",
+            "risk_ceiling": "11/20",
+            "by_kernel": [
+              {
+                "utility": "1/1",
+                "risk": "9/20"
+              },
+              {
+                "utility": "7/5",
+                "risk": "11/20"
+              }
+            ],
+            "dual_vertices": 10
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/1",
+              "13/16"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "-7/8",
+            "deterministic_value": "-7/8",
+            "deterministic_mask": 85,
+            "gain": "0/1",
+            "utility_floor": "9/8",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "9/8",
+                "risk": "1/2"
+              },
+              {
+                "utility": "11/8",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 20
+          },
+          "fully_informed": {
+            "best_value": "-1/1",
+            "best_mask": 15,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-15/16",
+            "values_and_samples_aware": "-9/8",
+            "full_world_aware": "-47/32"
+          },
+          "fixed_identity": {
+            "independent": "-1/1",
+            "values_and_samples_aware": "-1/1",
+            "full_world_aware": "-1/1"
+          }
+        },
+        {
+          "lambda": 8,
+          "scalar": {
+            "dual_weights": [
+              "15/26",
+              "15/26"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "9/13",
+              "0/1"
+            ],
+            "value": "-36/13",
+            "deterministic_value": "-23/8",
+            "deterministic_mask": 85,
+            "gain": "11/104",
+            "utility_floor": "14/13",
+            "risk_ceiling": "27/52",
+            "by_kernel": [
+              {
+                "utility": "14/13",
+                "risk": "25/52"
+              },
+              {
+                "utility": "18/13",
+                "risk": "27/52"
+              }
+            ],
+            "dual_vertices": 10
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/1",
+              "21/32"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "-23/8",
+            "deterministic_value": "-23/8",
+            "deterministic_mask": 85,
+            "gain": "0/1",
+            "utility_floor": "9/8",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "9/8",
+                "risk": "1/2"
+              },
+              {
+                "utility": "11/8",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 20
+          },
+          "fully_informed": {
+            "best_value": "-3/1",
+            "best_mask": 15,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-47/16",
+            "values_and_samples_aware": "-25/8",
+            "full_world_aware": "-139/32"
+          },
+          "fixed_identity": {
+            "independent": "-3/1",
+            "values_and_samples_aware": "-3/1",
+            "full_world_aware": "-3/1"
+          }
+        }
+      ]
+    },
+    {
+      "weights": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "epsilon": "0/1",
+      "objectives": [
+        {
+          "lambda": 1,
+          "scalar": {
+            "dual_weights": [
+              "0/1",
+              "0/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "1/1"
+            ],
+            "value": "33/16",
+            "deterministic_value": "33/16",
+            "deterministic_mask": 205,
+            "gain": "0/1",
+            "utility_floor": "43/16",
+            "risk_ceiling": "3/4",
+            "by_kernel": [
+              {
+                "utility": "45/16",
+                "risk": "3/4"
+              },
+              {
+                "utility": "43/16",
+                "risk": "5/8"
+              }
+            ],
+            "dual_vertices": 7
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/3",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "2/3"
+            ],
+            "value": "95/48",
+            "deterministic_value": "31/16",
+            "deterministic_mask": 205,
+            "gain": "1/24",
+            "utility_floor": "43/16",
+            "risk_ceiling": "17/24",
+            "by_kernel": [
+              {
+                "utility": "43/16",
+                "risk": "17/24"
+              },
+              {
+                "utility": "43/16",
+                "risk": "5/8"
+              }
+            ],
+            "dual_vertices": 24
+          },
+          "fully_informed": {
+            "best_value": "31/16",
+            "best_mask": 205,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "47/32",
+            "values_and_samples_aware": "17/16",
+            "full_world_aware": "53/64"
+          },
+          "fixed_identity": {
+            "independent": "1/1",
+            "values_and_samples_aware": "1/1",
+            "full_world_aware": "1/1"
+          }
+        },
+        {
+          "lambda": 2,
+          "scalar": {
+            "dual_weights": [
+              "1/1",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1"
+            ],
+            "value": "11/8",
+            "deterministic_value": "11/8",
+            "deterministic_mask": 221,
+            "gain": "0/1",
+            "utility_floor": "5/2",
+            "risk_ceiling": "3/4",
+            "by_kernel": [
+              {
+                "utility": "23/8",
+                "risk": "3/4"
+              },
+              {
+                "utility": "5/2",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 6
+          },
+          "rectangular": {
+            "dual_weights": [
+              "2/3",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "2/3"
+            ],
+            "value": "61/48",
+            "deterministic_value": "5/4",
+            "deterministic_mask": 93,
+            "gain": "1/48",
+            "utility_floor": "43/16",
+            "risk_ceiling": "17/24",
+            "by_kernel": [
+              {
+                "utility": "43/16",
+                "risk": "17/24"
+              },
+              {
+                "utility": "43/16",
+                "risk": "5/8"
+              }
+            ],
+            "dual_vertices": 30
+          },
+          "fully_informed": {
+            "best_value": "21/16",
+            "best_mask": 221,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "31/32",
+            "values_and_samples_aware": "9/16",
+            "full_world_aware": "27/64"
+          },
+          "fixed_identity": {
+            "independent": "1/2",
+            "values_and_samples_aware": "1/2",
+            "full_world_aware": "1/2"
+          }
+        },
+        {
+          "lambda": 4,
+          "scalar": {
+            "dual_weights": [
+              "1/1",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "1/8",
+            "deterministic_value": "1/8",
+            "deterministic_mask": 17,
+            "gain": "0/1",
+            "utility_floor": "9/8",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "9/8",
+                "risk": "1/4"
+              },
+              {
+                "utility": "5/2",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 4
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/1",
+              "7/8"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "1/8",
+            "deterministic_value": "1/8",
+            "deterministic_mask": 29,
+            "gain": "0/1",
+            "utility_floor": "17/8",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "17/8",
+                "risk": "1/2"
+              },
+              {
+                "utility": "5/2",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 30
+          },
+          "fully_informed": {
+            "best_value": "1/16",
+            "best_mask": 17,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-1/32",
+            "values_and_samples_aware": "-7/16",
+            "full_world_aware": "-39/64"
+          },
+          "fixed_identity": {
+            "independent": "-1/2",
+            "values_and_samples_aware": "-1/2",
+            "full_world_aware": "-1/2"
+          }
+        },
+        {
+          "lambda": 8,
+          "scalar": {
+            "dual_weights": [
+              "0/1",
+              "0/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-9/8",
+            "deterministic_value": "-9/8",
+            "deterministic_mask": 51,
+            "gain": "0/1",
+            "utility_floor": "7/8",
+            "risk_ceiling": "1/4",
+            "by_kernel": [
+              {
+                "utility": "7/8",
+                "risk": "1/4"
+              },
+              {
+                "utility": "7/8",
+                "risk": "1/4"
+              }
+            ],
+            "dual_vertices": 8
+          },
+          "rectangular": {
+            "dual_weights": [
+              "0/1",
+              "0/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-9/8",
+            "deterministic_value": "-9/8",
+            "deterministic_mask": 51,
+            "gain": "0/1",
+            "utility_floor": "7/8",
+            "risk_ceiling": "1/4",
+            "by_kernel": [
+              {
+                "utility": "7/8",
+                "risk": "1/4"
+              },
+              {
+                "utility": "7/8",
+                "risk": "1/4"
+              }
+            ],
+            "dual_vertices": 26
+          },
+          "fully_informed": {
+            "best_value": "-21/16",
+            "best_mask": 19,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-65/32",
+            "values_and_samples_aware": "-39/16",
+            "full_world_aware": "-199/64"
+          },
+          "fixed_identity": {
+            "independent": "-5/2",
+            "values_and_samples_aware": "-5/2",
+            "full_world_aware": "-5/2"
+          }
+        }
+      ]
+    },
+    {
+      "weights": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "epsilon": "1/4",
+      "objectives": [
+        {
+          "lambda": 1,
+          "scalar": {
+            "dual_weights": [
+              "13/22",
+              "13/22"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "3/11"
+            ],
+            "value": "635/352",
+            "deterministic_value": "113/64",
+            "deterministic_mask": 93,
+            "gain": "27/704",
+            "utility_floor": "797/352",
+            "risk_ceiling": "109/176",
+            "by_kernel": [
+              {
+                "utility": "853/352",
+                "risk": "109/176"
+              },
+              {
+                "utility": "797/352",
+                "risk": "81/176"
+              }
+            ],
+            "dual_vertices": 7
+          },
+          "rectangular": {
+            "dual_weights": [
+              "11/18",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "8/9",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "505/288",
+            "deterministic_value": "111/64",
+            "deterministic_mask": 93,
+            "gain": "11/576",
+            "utility_floor": "75/32",
+            "risk_ceiling": "85/144",
+            "by_kernel": [
+              {
+                "utility": "75/32",
+                "risk": "85/144"
+              },
+              {
+                "utility": "75/32",
+                "risk": "23/48"
+              }
+            ],
+            "dual_vertices": 19
+          },
+          "fully_informed": {
+            "best_value": "97/64",
+            "best_mask": 93,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "47/32",
+            "values_and_samples_aware": "17/16",
+            "full_world_aware": "53/64"
+          },
+          "fixed_identity": {
+            "independent": "1/1",
+            "values_and_samples_aware": "1/1",
+            "full_world_aware": "1/1"
+          }
+        },
+        {
+          "lambda": 2,
+          "scalar": {
+            "dual_weights": [
+              "21/22",
+              "21/22"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1"
+            ],
+            "value": "39/32",
+            "deterministic_value": "39/32",
+            "deterministic_mask": 221,
+            "gain": "0/1",
+            "utility_floor": "67/32",
+            "risk_ceiling": "11/16",
+            "by_kernel": [
+              {
+                "utility": "83/32",
+                "risk": "11/16"
+              },
+              {
+                "utility": "67/32",
+                "risk": "7/16"
+              }
+            ],
+            "dual_vertices": 5
+          },
+          "rectangular": {
+            "dual_weights": [
+              "13/18",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "8/9",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "335/288",
+            "deterministic_value": "73/64",
+            "deterministic_mask": 93,
+            "gain": "13/576",
+            "utility_floor": "75/32",
+            "risk_ceiling": "85/144",
+            "by_kernel": [
+              {
+                "utility": "75/32",
+                "risk": "85/144"
+              },
+              {
+                "utility": "75/32",
+                "risk": "23/48"
+              }
+            ],
+            "dual_vertices": 23
+          },
+          "fully_informed": {
+            "best_value": "67/64",
+            "best_mask": 93,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "31/32",
+            "values_and_samples_aware": "9/16",
+            "full_world_aware": "27/64"
+          },
+          "fixed_identity": {
+            "independent": "1/2",
+            "values_and_samples_aware": "1/2",
+            "full_world_aware": "1/2"
+          }
+        },
+        {
+          "lambda": 4,
+          "scalar": {
+            "dual_weights": [
+              "1/1",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "5/64",
+            "deterministic_value": "5/64",
+            "deterministic_mask": 21,
+            "gain": "0/1",
+            "utility_floor": "109/64",
+            "risk_ceiling": "17/32",
+            "by_kernel": [
+              {
+                "utility": "109/64",
+                "risk": "13/32"
+              },
+              {
+                "utility": "163/64",
+                "risk": "17/32"
+              }
+            ],
+            "dual_vertices": 3
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/1",
+              "29/32"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "1/16",
+            "deterministic_value": "1/16",
+            "deterministic_mask": 29,
+            "gain": "0/1",
+            "utility_floor": "33/16",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "33/16",
+                "risk": "1/2"
+              },
+              {
+                "utility": "19/8",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 24
+          },
+          "fully_informed": {
+            "best_value": "0/1",
+            "best_mask": 15,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-1/32",
+            "values_and_samples_aware": "-7/16",
+            "full_world_aware": "-39/64"
+          },
+          "fixed_identity": {
+            "independent": "-1/2",
+            "values_and_samples_aware": "-1/2",
+            "full_world_aware": "-1/2"
+          }
+        },
+        {
+          "lambda": 8,
+          "scalar": {
+            "dual_weights": [
+              "17/38",
+              "17/38"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "11/19",
+              "0/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-961/608",
+            "deterministic_value": "-27/16",
+            "deterministic_mask": 51,
+            "gain": "65/608",
+            "utility_floor": "975/608",
+            "risk_ceiling": "137/304",
+            "by_kernel": [
+              {
+                "utility": "975/608",
+                "risk": "121/304"
+              },
+              {
+                "utility": "1231/608",
+                "risk": "137/304"
+              }
+            ],
+            "dual_vertices": 9
+          },
+          "rectangular": {
+            "dual_weights": [
+              "7/8",
+              "159/256"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-27/16",
+            "deterministic_value": "-27/16",
+            "deterministic_mask": 51,
+            "gain": "0/1",
+            "utility_floor": "21/16",
+            "risk_ceiling": "3/8",
+            "by_kernel": [
+              {
+                "utility": "21/16",
+                "risk": "3/8"
+              },
+              {
+                "utility": "21/16",
+                "risk": "3/8"
+              }
+            ],
+            "dual_vertices": 25
+          },
+          "fully_informed": {
+            "best_value": "-2/1",
+            "best_mask": 15,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-65/32",
+            "values_and_samples_aware": "-39/16",
+            "full_world_aware": "-199/64"
+          },
+          "fixed_identity": {
+            "independent": "-5/2",
+            "values_and_samples_aware": "-5/2",
+            "full_world_aware": "-5/2"
+          }
+        }
+      ]
+    },
+    {
+      "weights": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "epsilon": "1/2",
+      "objectives": [
+        {
+          "lambda": 1,
+          "scalar": {
+            "dual_weights": [
+              "9/14",
+              "9/14"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "1/1",
+              "1/7",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "47/28",
+            "deterministic_value": "53/32",
+            "deterministic_mask": 87,
+            "gain": "5/224",
+            "utility_floor": "59/28",
+            "risk_ceiling": "4/7",
+            "by_kernel": [
+              {
+                "utility": "9/4",
+                "risk": "4/7"
+              },
+              {
+                "utility": "59/28",
+                "risk": "3/7"
+              }
+            ],
+            "dual_vertices": 8
+          },
+          "rectangular": {
+            "dual_weights": [
+              "13/18",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "8/9",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "59/36",
+            "deterministic_value": "51/32",
+            "deterministic_mask": 87,
+            "gain": "13/288",
+            "utility_floor": "79/36",
+            "risk_ceiling": "5/9",
+            "by_kernel": [
+              {
+                "utility": "79/36",
+                "risk": "5/9"
+              },
+              {
+                "utility": "79/36",
+                "risk": "4/9"
+              }
+            ],
+            "dual_vertices": 20
+          },
+          "fully_informed": {
+            "best_value": "3/2",
+            "best_mask": 15,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "47/32",
+            "values_and_samples_aware": "17/16",
+            "full_world_aware": "53/64"
+          },
+          "fixed_identity": {
+            "independent": "1/1",
+            "values_and_samples_aware": "1/1",
+            "full_world_aware": "1/1"
+          }
+        },
+        {
+          "lambda": 2,
+          "scalar": {
+            "dual_weights": [
+              "7/10",
+              "7/10"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "1/1",
+              "3/5",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "23/20",
+            "deterministic_value": "35/32",
+            "deterministic_mask": 87,
+            "gain": "9/160",
+            "utility_floor": "39/20",
+            "risk_ceiling": "3/5",
+            "by_kernel": [
+              {
+                "utility": "47/20",
+                "risk": "3/5"
+              },
+              {
+                "utility": "39/20",
+                "risk": "2/5"
+              }
+            ],
+            "dual_vertices": 4
+          },
+          "rectangular": {
+            "dual_weights": [
+              "5/6",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "8/9",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1"
+            ],
+            "value": "13/12",
+            "deterministic_value": "33/32",
+            "deterministic_mask": 87,
+            "gain": "5/96",
+            "utility_floor": "79/36",
+            "risk_ceiling": "5/9",
+            "by_kernel": [
+              {
+                "utility": "79/36",
+                "risk": "5/9"
+              },
+              {
+                "utility": "79/36",
+                "risk": "4/9"
+              }
+            ],
+            "dual_vertices": 20
+          },
+          "fully_informed": {
+            "best_value": "1/1",
+            "best_mask": 15,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "31/32",
+            "values_and_samples_aware": "9/16",
+            "full_world_aware": "27/64"
+          },
+          "fixed_identity": {
+            "independent": "1/2",
+            "values_and_samples_aware": "1/2",
+            "full_world_aware": "1/2"
+          }
+        },
+        {
+          "lambda": 4,
+          "scalar": {
+            "dual_weights": [
+              "1/1",
+              "1/1"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "1/16",
+            "deterministic_value": "1/16",
+            "deterministic_mask": 5,
+            "gain": "0/1",
+            "utility_floor": "25/16",
+            "risk_ceiling": "5/8",
+            "by_kernel": [
+              {
+                "utility": "25/16",
+                "risk": "3/8"
+              },
+              {
+                "utility": "43/16",
+                "risk": "5/8"
+              }
+            ],
+            "dual_vertices": 4
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/1",
+              "15/16"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "0/1",
+            "deterministic_value": "0/1",
+            "deterministic_mask": 15,
+            "gain": "0/1",
+            "utility_floor": "2/1",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "2/1",
+                "risk": "1/2"
+              },
+              {
+                "utility": "2/1",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 24
+          },
+          "fully_informed": {
+            "best_value": "0/1",
+            "best_mask": 15,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-1/32",
+            "values_and_samples_aware": "-7/16",
+            "full_world_aware": "-39/64"
+          },
+          "fixed_identity": {
+            "independent": "-1/2",
+            "values_and_samples_aware": "-1/2",
+            "full_world_aware": "-1/2"
+          }
+        },
+        {
+          "lambda": 8,
+          "scalar": {
+            "dual_weights": [
+              "13/22",
+              "13/22"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "1/1",
+              "0/1",
+              "3/11",
+              "0/1"
+            ],
+            "value": "-79/44",
+            "deterministic_value": "-61/32",
+            "deterministic_mask": 21,
+            "gain": "39/352",
+            "utility_floor": "81/44",
+            "risk_ceiling": "6/11",
+            "by_kernel": [
+              {
+                "utility": "81/44",
+                "risk": "5/11"
+              },
+              {
+                "utility": "113/44",
+                "risk": "6/11"
+              }
+            ],
+            "dual_vertices": 10
+          },
+          "rectangular": {
+            "dual_weights": [
+              "1/1",
+              "23/32"
+            ],
+            "action1_probabilities": [
+              "1/1",
+              "1/1",
+              "1/1",
+              "1/1",
+              "0/1",
+              "0/1",
+              "0/1",
+              "0/1"
+            ],
+            "value": "-2/1",
+            "deterministic_value": "-2/1",
+            "deterministic_mask": 15,
+            "gain": "0/1",
+            "utility_floor": "2/1",
+            "risk_ceiling": "1/2",
+            "by_kernel": [
+              {
+                "utility": "2/1",
+                "risk": "1/2"
+              },
+              {
+                "utility": "2/1",
+                "risk": "1/2"
+              }
+            ],
+            "dual_vertices": 24
+          },
+          "fully_informed": {
+            "best_value": "-2/1",
+            "best_mask": 15,
+            "coupling_checks": 64
+          },
+          "sample_threshold": {
+            "independent": "-65/32",
+            "values_and_samples_aware": "-39/16",
+            "full_world_aware": "-199/64"
+          },
+          "fixed_identity": {
+            "independent": "-5/2",
+            "values_and_samples_aware": "-5/2",
+            "full_world_aware": "-5/2"
+          }
+        }
+      ]
+    }
+  ]
+}

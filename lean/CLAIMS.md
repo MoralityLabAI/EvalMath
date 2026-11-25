@@ -260,3 +260,13 @@ using the existing FeedbackChannel.Signal.Strategy type.
 | Positive observation budget | The function `m + r²/m` is at least `2r` for `m > 0` | `FeedbackChannel.RSISpectralThreshold.budget_balance` | Full for the normalized objective; the sqrt-scaling hypothesis requires empirical fitting |
 
 Both are compiled in the ordinary Lean build and appear in `axioms_check.lean`. They assume no new axioms. The spectral threshold does not establish a superintelligence transition: empirical transfer, external validation, and resource costs are outside the theorem.
+
+## NFAS noise-constrained selection (supporting arithmetic)
+
+| Paper claim | Lean theorem | Fidelity |
+|---|---|---|
+| NFAS-03 common-threshold equality | FeedbackChannel.NFAS.two_action_threshold | Exact scalar two-action rational identity; the scheduler and policy embedding is a paper argument |
+| NFAS-04 randomized ceiling | FeedbackChannel.NFAS.three_conflict_ceiling | Supporting arithmetic under pairwise constraints |
+| NFAS-04 deterministic ceiling | FeedbackChannel.NFAS.three_binary_ceiling | Supporting arithmetic under binary success and pairwise constraints |
+
+These are proposed Lean formalizations pending kernel/CI confirmation. They do not formalize the stopping game, prove the upstream OpenAI manuscripts, or establish an empirical claim.
