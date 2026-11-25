@@ -183,3 +183,5 @@ remains open for review.
 ## License
 
 Apache License 2.0; see [`LICENSE`](LICENSE).
+
+**HG-06 (2026-11-17):** [compositional goal reconstruction](Hypergames/HG06_COMPOSITION_THEOREMS.md) establishes a GF(2) fragment-support floor, exact missing-component entropy, and a finite-label collision bound. The prospective 24-seed CPU experiment is in GPTStoryworld; the source-hashed EvalMath verifier checks 1,020 independent collision cases and 144 goal fibres. These are synthetic/parity results, with no neural-model or Lean proof claim.
