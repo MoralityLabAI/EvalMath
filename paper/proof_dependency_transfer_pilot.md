@@ -1,0 +1,32 @@
+# PDI-07/08: formal risk targets and proof-transfer pilot receipt contract
+
+**Evidence status:** PDI-07 adds Lean theorem targets, pending kernel and axiom CI. PDI-08 is an exact structural scorer exercised on synthetic public fixtures; no model inference, real proof checking, independent dataset seal or prospective statistical result is claimed.
+
+## PDI-07 formal targets
+
+`lean/FeedbackChannel/ProofDependencyRisk.lean` is separate from the source-hashed PDI-01 file. `conditional_hazard_floor` and `conditional_hazard_cap` derive the product survival bound from an assumed sequence of rational conditional survival inequalities. `spending_cap` proves the corresponding additive telescoping bound. `charge_bound` gives the finite witness charging argument when every false claim has at least one bad incident obligation. `exposure_cap` turns a pathwise sum bound and pointwise exposure inequalities into a weighted risk bound. These two are supporting lemmas: the graph semantics, selection model, expectations and conditional probability premises must be connected separately. `robust_two_upper` and `robust_two_attained` certify the rational robust two-verifier witness, not the general LP support theorem. All seven targets enter the axiom audit.
+
+## PDI-08 pilot contract (public specification; private seal pending)
+
+Register 32 independently chosen held-out construction families, four target statements each. A custodian outside the model-training process must confirm normalized dependency-family separation from all train/calibration artifacts, seal the statement/environment/witness hashes, and publish only permitted inputs. Distinct hashes do not establish semantic independence. The model and runner are pinned by SHA-256; the fixed pilot seed is chosen before unsealing. Every arm starts in a pre-declaration environment excluding the target theorem, its aliases and any equivalent proof that would trivialize the task. All permitted library differences and root artifacts must be recorded. Reuse construction and validation work is charged as overhead once per family, even if every attempt fails.
+
+The five arms are `no_reuse`, `verified_reuse`, `matched_retrieval` (equal-budget access to permitted library search without an injected construction), `sham_reuse` (matched-size irrelevant artifact), and `revoked_version` (same original verified artifact, then a version change or withdrawal; require fresh evidence or abstention). All arms use identical family-level ceilings for total prompt plus generated tokens, kernel calls and elapsed milliseconds. Charge failed attempts, retrieval, validation, root generation and amortization overhead. Pin the exact budget, model identity, runner and seed in the manifest before runs; report actual costs, not just caps. Run arms in a balanced randomized order and record it in the underlying trace. Do not pass held-out answers into prompts. The pilot's primary descriptive contrast is verified reuse minus no reuse in true authorized target count per family. Other arms are diagnostic. The pilot estimates variance; there is no inferential PASS threshold. A fresh independent confirmatory family set, power calculation and registered effect margin are required for efficacy claims.
+
+### JSON manifest
+
+Top-level keys: `schema`=`PDI-transfer-pilot-v1`, `arms` in the order above, `family_count`=32, integer `seed`, `model_sha256`, `runner_sha256`, `families` (array). Each family has unique `family_id`, `construction_sha256`, `environment_sha256`, `split`=`heldout`, `budget` (nonnegative integer `tokens`, `kernel_calls`, `elapsed_ms`) and four `targets` with unique `target_id`, globally unique `statement_sha256`. SHA values are lowercase 64-character hex strings. Canonical manifest digest uses sorted keys, compact separators, ASCII-escaped UTF-8 JSON and disallows NaN.
+
+### Run receipts
+
+JSON array with exactly one run per family and arm (160 total). Each row has `family_id`, `arm`, `manifest_sha256`, `environment_sha256`, `trace_sha256`, `model_sha256`, `runner_sha256`, `seed`, `overhead` (cost counters as above), and all four `targets`. Each target has `target_id`, `statement_sha256`, `kernel` and `dependency` (`pass`, `fail`, `unverified`), Boolean `authorized`, and an array `attempts` of `{artifact_sha256,cost}`. Keep even abandoned targets with explicit status and zero attempts if never attempted. Every authorization and closure requires a logged attempt. Dependency PASS means independently checked current-version obligations, axiom policy, pre-declaration environment, and proof replay; the scorer trusts the supplied verdict, not the mere presence of a hash. The trace must retain actual artifacts, custody and ordered attempt events for external audit. Family environment hash commits the common pre-declaration baseline; arm-specific allowed root extensions and revocation chronology belong in traces. The validator checks hash form and equality, not artifact contents or the claimed chronology.
+
+True authorized target = authorization plus both PASS verdicts; false = authorization with at least one FAIL; unknown = other authorized target. Conservative risk counts false plus unknown. Actual resource counters are summed over overhead and all logged attempts and checked against the same ceiling. The scorer rejects incomplete pairs, duplicate targets, wrong manifest/model/runner/environment/seed, and over-budget runs. The output gives exact paired family-level mean, sample variance, win/loss/tie counts, conservative risk change and two-sided sign-test probability (descriptive only; valid inferential interpretation requires independent families and the sign null). Family pairing prevents treating 128 downstream claims as independent observations. No claims of calibration or reliable revocation from structure alone.
+
+## Reproduce
+
+    PYTHONPATH=src pytest -q tests/test_evaluation_pdi_transfer.py
+    PYTHONPATH=src python scripts/verify_evaluation_pdi_transfer.py
+    python scripts/check_receipts.py --only pdi_transfer
+    PYTHONPATH=src python scripts/verify_evaluation_pdi_transfer.py --manifest private_manifest.json --runs run_receipts.json --output pilot_score.json
+
+The synthetic fixture fabricates 160 receipts and a deliberate one-target-per-family reuse advantage. It is solely a plumbing positive control. No data from the fixture may be used as model evidence. A separate custodian must prepare the actual split and attest the seal. Run inference in the downstream Lean gym, not in EvalMath.

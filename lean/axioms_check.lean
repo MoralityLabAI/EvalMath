@@ -233,3 +233,12 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.ProofDependency.shared_two_gap
 #print axioms FeedbackChannel.ProofDependency.shared_two_dominates
 #print axioms FeedbackChannel.ProofDependency.two_event_bounds
+
+-- PDI-07 risk targets (pending CI)
+#print axioms FeedbackChannel.ProofDependencyRisk.conditional_hazard_floor
+#print axioms FeedbackChannel.ProofDependencyRisk.conditional_hazard_cap
+#print axioms FeedbackChannel.ProofDependencyRisk.spending_cap
+#print axioms FeedbackChannel.ProofDependencyRisk.exposure_cap
+#print axioms FeedbackChannel.ProofDependencyRisk.charge_bound
+#print axioms FeedbackChannel.ProofDependencyRisk.robust_two_upper
+#print axioms FeedbackChannel.ProofDependencyRisk.robust_two_attained

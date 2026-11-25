@@ -1,0 +1,60 @@
+{
+  "checks": {
+    "complete_fixture": true,
+    "null_controls": true,
+    "paired_reuse": true,
+    "risk_fixture": true,
+    "sign_fixture": true
+  },
+  "contrasts": {
+    "matched_retrieval": {
+      "conservative_risk_delta": "0",
+      "families": 32,
+      "losses": 0,
+      "sample_variance": "0",
+      "ties": 32,
+      "true_delta": "0",
+      "two_sided_sign_p": "1",
+      "wins": 0
+    },
+    "revoked_version": {
+      "conservative_risk_delta": "0",
+      "families": 32,
+      "losses": 0,
+      "sample_variance": "0",
+      "ties": 32,
+      "true_delta": "0",
+      "two_sided_sign_p": "1",
+      "wins": 0
+    },
+    "sham_reuse": {
+      "conservative_risk_delta": "0",
+      "families": 32,
+      "losses": 0,
+      "sample_variance": "0",
+      "ties": 32,
+      "true_delta": "0",
+      "two_sided_sign_p": "1",
+      "wins": 0
+    },
+    "verified_reuse": {
+      "conservative_risk_delta": "0",
+      "families": 32,
+      "losses": 0,
+      "sample_variance": "0",
+      "ties": 0,
+      "true_delta": "1",
+      "two_sided_sign_p": "1/2147483648",
+      "wins": 32
+    }
+  },
+  "evidence": "synthetic public fixture; no actual model or Lean proof receipt",
+  "run_count": 160,
+  "schema": "PDI-08-v1",
+  "source_sha256": {
+    "paper/proof_dependency_transfer_pilot.md": "6a58bf327f47e5b8d18f3a1165f9b05fa0f97a52f1d993da2ea87d6c87fe7a60",
+    "scripts/verify_evaluation_pdi_transfer.py": "40015bff39f4b4867fb3b4090b332900cb5a1ad851db3916813d936bdb0b04f4",
+    "src/spiral_ln/evaluation_pdi_transfer.py": "77007a6747e782d1ed05bc607070f1d96acc4f5e88c2cae620f6d2b34f8ce930",
+    "tests/test_evaluation_pdi_transfer.py": "6c896c001a496c0c5831b12571154bf30106e377f8d3a2159970ebfa21191bc6"
+  }
+}

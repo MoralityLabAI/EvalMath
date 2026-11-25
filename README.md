@@ -91,6 +91,8 @@ statement is separately audited in [draft PR #13](https://github.com/MoralityLab
 
 **New (PDI-04--06):** [Robust audits, full-filtration risk and proof reuse](paper/proof_dependency_robust.md) extends the finite suite to common-policy ambiguity sets, exact rational risk-constrained mixtures with executable trees, actor-conditioned hazards, versioned posterior recomputation and a synthetic transfer workload. The receipt checks 32 robust frontiers, 56 replayed vectors, 96 single-scenario reductions and 512 false-count distributions. The public downstream protocol is prospective; no sealed model run or new Lean verification. Reproduce with `python scripts/check_receipts.py --only pdi_robust`.
 
+**New (PDI-07/08):** [Formal risk targets and proof-transfer pilot](paper/proof_dependency_transfer_pilot.md) adds seven Lean risk targets (pending CI) and an exact scorer for 160 paired family-arm receipts. The synthetic fixture verifies the plumbing only; an independently sealed pilot and model runs remain pending. Reproduce with `python scripts/check_receipts.py --only pdi_transfer`.
+
 ## Layout
 
 | Path | Contents |

@@ -260,3 +260,19 @@ using the existing FeedbackChannel.Signal.Strategy type.
 | Positive observation budget | The function `m + r²/m` is at least `2r` for `m > 0` | `FeedbackChannel.RSISpectralThreshold.budget_balance` | Full for the normalized objective; the sqrt-scaling hypothesis requires empirical fitting |
 
 Both are compiled in the ordinary Lean build and appear in `axioms_check.lean`. They assume no new axioms. The spectral threshold does not establish a superintelligence transition: empirical transfer, external validation, and resource costs are outside the theorem.
+
+## PDI-01 and PDI-07 (risk targets)
+
+PDI-01: `FeedbackChannel.ProofDependency.shared_floor`, `shared_two_gap`, `shared_two_dominates`, `two_event_bounds` are algebraic supporting lemmas under declared assumptions. See `paper/proof_dependency_information.md`.
+
+PDI-07 targets in `FeedbackChannel/ProofDependencyRisk.lean`, **pending kernel/axiom CI**:
+
+- `FeedbackChannel.ProofDependencyRisk.conditional_hazard_floor` (supporting lemma or explicit rational witness; see `paper/proof_dependency_transfer_pilot.md`).
+- `FeedbackChannel.ProofDependencyRisk.conditional_hazard_cap` (supporting lemma or explicit rational witness; see `paper/proof_dependency_transfer_pilot.md`).
+- `FeedbackChannel.ProofDependencyRisk.spending_cap` (supporting lemma or explicit rational witness; see `paper/proof_dependency_transfer_pilot.md`).
+- `FeedbackChannel.ProofDependencyRisk.exposure_cap` (supporting lemma or explicit rational witness; see `paper/proof_dependency_transfer_pilot.md`).
+- `FeedbackChannel.ProofDependencyRisk.charge_bound` (supporting lemma or explicit rational witness; see `paper/proof_dependency_transfer_pilot.md`).
+- `FeedbackChannel.ProofDependencyRisk.robust_two_upper` (supporting lemma or explicit rational witness; see `paper/proof_dependency_transfer_pilot.md`).
+- `FeedbackChannel.ProofDependencyRisk.robust_two_attained` (supporting lemma or explicit rational witness; see `paper/proof_dependency_transfer_pilot.md`).
+
+No formalized probability-space or general robust LP optimality claim is made.
