@@ -19,7 +19,7 @@ export const CONTRACT=Object.freeze({
   readiness:"char_white.Truce_Coordination",
   prior:"uniform over each fixed cohort's xorshift32 streams; descriptive finite policy interventions, not a human-play distribution",
   objective:"binary terminal utility: secret ending=1, other endings=0; no inferred moral preference",
-  intervention:"first visit to each of three upstream encounters on the factual trajectory; enumerate every legal action, then use common random words at the same absolute decision index",
+  intervention:"first visit to each of three upstream encounters before first sirens on the factual trajectory; enumerate every legal action, then use common random words at the same absolute decision index",
   horizon:"exact full-state existential reachability, h actions from first sirens; no observation-restricted policy or model performance claimed",
   deletion:"set only the three ledger coordinates to zero at the first sirens state, retain all other numeric state/history; controlled readout, not natural indirect effect"
 });
@@ -51,7 +51,7 @@ function roll(api,w,initial,words,start=0,forced=null,collect=false){
    if(term(w,s))return {end:s.encounter,complete:true,firstSirens,firstSirensIndex,trace,prefixes};
    if(s.encounter===F&&firstSirens===null){firstSirens=s;firstSirensIndex=j;}
    const site=CONTRACT.sites.find(p=>p.page===s.encounter);
-   if(collect&&site&&!own(prefixes,site.label))prefixes[site.label]={s,j};
+   if(collect&&site&&firstSirens===null&&!own(prefixes,site.label))prefixes[site.label]={s,j};
    const a=j===start&&forced!==null?forced:selected(api,w,s,words[j]);
    if(!legal(api,w,s).includes(a))fail("forced action illegal");
    const b=route(api,w,s,a);trace.push(stepRecord(s,a,b));s=b.next;
@@ -82,10 +82,10 @@ function snapshot(api,w,s,stats){
  const h1=goalAudit(api,w,s,1,stats),h3=goalAudit(api,w,s,3,stats);
  if(h1.attainable&&!h3.attainable||h1.truce&&!h3.truce)fail("horizon monotonicity");
  const noLedgerH1=goalAudit(api,w,deleted(s),1,stats);
- const b=route(api,w,s,T),rank=b.routing.candidates,goal=rank.find(x=>x.id===G);
+ const b=legal(api,w,s).includes(T)?route(api,w,s,T):null,rank=b?.routing.candidates??[],goal=rank.find(x=>x.id===G);
  const others=rank.filter(x=>x.id!==G);
  const margin=goal&&others.length?goal.score-others[0].score:null;
- return {reached:true,h1,h3,noLedgerH1,ledger:K.map(k=>coord(s.values,k)),gateDistance:dist(s.values),suspicion:s.values[S],readiness:coord(b.next.values,R),targetMargin:margin};
+ return {reached:true,h1,h3,noLedgerH1,ledger:K.map(k=>coord(s.values,k)),gateDistance:dist(s.values),suspicion:s.values[S],readiness:b?coord(b.next.values,R):0,targetMargin:margin};
 }
 function outcome(api,w,r,stats){
  const x=snapshot(api,w,r.firstSirens,stats);
