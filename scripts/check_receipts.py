@@ -25,6 +25,16 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "math_loss_envelope": ("scripts/verify_math_loss_envelope.py",
+                           "output/evaluation_math_loss_envelope/em_mpt_07_v0_1.json", [], False),
+    "math_memory": ("scripts/verify_math_memory.py",
+                    "output/evaluation_math_memory/em_mpt_04_06_v0_1.json", [], False),
+    "math_controller": ("scripts/verify_math_controller.py",
+                        "output/evaluation_math_controller/em_mpt_03_v0_1.json", [], False),
+    "math_persistence_cost": ("scripts/verify_math_persistence_cost.py",
+                              "output/evaluation_math_persistence_cost/em_mpt_02_v0_1.json", [], False),
+    "math_persistence": ("scripts/verify_math_persistence.py",
+                         "output/evaluation_math_persistence/em_mpt_01_v0_1.json", [], False),
     "frozen_evidence": ("scripts/verify_evaluation_frozen_evidence.py",
                         "output/evaluation_frozen_evidence/fre01_v1.json", [], False),
     "finite_sample": ("scripts/verify_evaluation_finite_sample.py",

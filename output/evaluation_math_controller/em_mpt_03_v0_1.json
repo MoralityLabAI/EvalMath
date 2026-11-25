@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "alpha_oracle_agrees": true,
+    "history_collision_witness": true,
+    "known_type_equality": true,
+    "optimal_blind_dominated": true,
+    "retrieval_cost_witness": true
+  },
+  "evidence": "exact finite synthetic mechanism",
+  "grid_cases": 225,
+  "schema": "em-mpt-03-v0.1",
+  "source_sha256": {
+    "scripts/verify_math_controller.py": "b7a3f524a916f6776a34781ba964ec3a05d0a904afe95493775987275eb87c00",
+    "src/spiral_ln/evaluation_math_controller.py": "06a656333f3edfbb9a261dd630907deffa5bbe6f6b9853a735a5004922af6927",
+    "tests/test_evaluation_math_controller.py": "e89fed30fb6ace9bee6f3151f4cd74179714f2c0ac6ebae3e73cf44135864549"
+  },
+  "values": {
+    "bayes": "205/256",
+    "blind": "199/256",
+    "cheap_retrieval": "219/256",
+    "gap": "3/128"
+  }
+}

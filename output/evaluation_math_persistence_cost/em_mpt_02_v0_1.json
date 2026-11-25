@@ -1,0 +1,36 @@
+{
+  "checks": {
+    "balanced_vs_all_quotas": true,
+    "binomial_vs_binary": true,
+    "charge_monotonicity": true,
+    "moment_vertices_vs_integer_laws": true
+  },
+  "counts": {
+    "binary": 180,
+    "moment": 180,
+    "static": 180
+  },
+  "evidence": "exact finite synthetic mechanism",
+  "oracle_laws": 38,
+  "schema": "em-mpt-02-v0.1",
+  "source_sha256": {
+    "scripts/verify_math_persistence_cost.py": "d462f5cbe9de055e9ad5d39c718bc941d477f63692328c13b14ce2a327145243",
+    "src/spiral_ln/evaluation_math_persistence_cost.py": "5fd57c7946d6910e0b6d28d5ed7185cda7cc57957f53f7fa28b6fdc9c830b759",
+    "tests/test_evaluation_math_persistence_cost.py": "c53a85f63dc385ab5fae7e485df66f7c2602d1a21aedcd06575591956fe33537"
+  },
+  "values": {
+    "iid_d4_b4": "1/16",
+    "iid_d4_b8": "163/256",
+    "mixture_d4_b4": "41/256",
+    "mixture_d4_b8": "35603/65536",
+    "robust_gaps_d4_b8": [
+      "4545/32768",
+      "6255/65536",
+      "7/256",
+      "-33/256",
+      "-65/256"
+    ],
+    "strict_charge_d4_b12": 4,
+    "strict_charge_d4_b8": 2
+  }
+}

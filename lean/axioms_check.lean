@@ -227,3 +227,11 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.RSISpectralThreshold.dominant_gt_one_iff
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance_attained
+
+-- EM-MPT supporting lemmas (candidate until CI passes)
+#print axioms FeedbackChannel.MathReasoningBounds.oneSlackExchange
+#print axioms FeedbackChannel.MathReasoningBounds.oneSlackMonotone
+#print axioms FeedbackChannel.MathReasoningBounds.pairDenomDelta
+#print axioms FeedbackChannel.MathReasoningBounds.equalLossWitness
+#print axioms FeedbackChannel.MathReasoningBounds.affineEndpoints
+#print axioms FeedbackChannel.MathReasoningBounds.gapTelescopes

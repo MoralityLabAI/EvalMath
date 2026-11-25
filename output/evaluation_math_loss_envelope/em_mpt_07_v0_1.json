@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "dp_oracle": true,
+    "larger_cases": true,
+    "lower_attainment": true,
+    "pair_identity": true,
+    "upper_when_rational": true
+  },
+  "counts": {
+    "dp": 8390,
+    "exchange": 4375,
+    "lower": 8390,
+    "stress": 4,
+    "upper": 2294
+  },
+  "evidence": "algebraic theorem with exact finite checks",
+  "schema": "em-mpt-07-v0.1",
+  "source_sha256": {
+    "scripts/verify_math_loss_envelope.py": "9142f15aca51bc61ccc1f5c1a83b06a2cd76d76d9601a00713db89855382030e",
+    "src/spiral_ln/evaluation_math_loss_envelope.py": "977e78645e4addf0a36cdf80c727f1d57b1e7550eecee758fa59068cea017d1b",
+    "src/spiral_ln/evaluation_math_persistence.py": "ce58552da9d76e8b61d1e5f1128a6f4dc7a5683a8992eedf373cad11bf9596a2",
+    "tests/test_evaluation_math_loss_envelope.py": "e2bdd02207ff4d2309d1ac10ee1e254c15c6ace46847cd0409a3f1fe88bcfec9"
+  },
+  "values": {
+    "budget": 8,
+    "lower": "289201/1048576",
+    "product": "1/16",
+    "upper": "163/256"
+  }
+}
