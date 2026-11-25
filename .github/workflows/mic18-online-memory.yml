@@ -1,0 +1,55 @@
+name: MIC18 online memory
+
+on:
+  pull_request:
+    paths:
+      - 'gyms/MIC18/**'
+      - 'skills/evalmath-mechinterp-power/scripts/preflight.py'
+      - '.github/workflows/mic18-online-memory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-finite-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test boundary and corruption cases
+        run: python -m unittest discover -s gyms/MIC18 -p test_mic18.py -v
+      - name: Regenerate development pilot and preserve empirical gate
+        run: |
+          python gyms/MIC18/run18.py --pilot --out "$RUNNER_TEMP/mic18-pilot.json"
+          python - <<'PY'
+          import os
+          import subprocess
+          import sys
+          from pathlib import Path
+          temp = Path(os.environ['RUNNER_TEMP'])
+          result = subprocess.run([
+              sys.executable, 'skills/evalmath-mechinterp-power/scripts/preflight.py',
+              '--pilot', str(temp / 'mic18-pilot.json'),
+              '--out', str(temp / 'mic18-preflight.json'), '--strict',
+          ], check=False)
+          assert result.returncode == 2, result.returncode
+          assert (temp / 'mic18-pilot.json').read_bytes() == Path('gyms/MIC18/pilot.json').read_bytes()
+          assert (temp / 'mic18-preflight.json').read_bytes() == Path('gyms/MIC18/preflight.json').read_bytes()
+          PY
+      - name: Reproduce every finite case and independent audit
+        run: |
+          python gyms/MIC18/run18.py --out "$RUNNER_TEMP/mic18-results.json"
+          python gyms/MIC18/audit18.py --input "$RUNNER_TEMP/mic18-results.json" --out "$RUNNER_TEMP/mic18-audit.json"
+          cmp gyms/MIC18/audit_results.json "$RUNNER_TEMP/mic18-audit.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mic18-exact-finite-evidence
+          path: |
+            ${{ runner.temp }}/mic18-results.json
+            ${{ runner.temp }}/mic18-audit.json
+            ${{ runner.temp }}/mic18-pilot.json
+            ${{ runner.temp }}/mic18-preflight.json
