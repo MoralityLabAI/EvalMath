@@ -1,0 +1,310 @@
+{
+  "source_repository": "MoralityLabAI/GPTStoryworld",
+  "source_revision": "ee1c6918db77d1e0924877f59eca819bae3f1c8c",
+  "source_git_blobs": {
+    "storyworlds/tsun01b_last_train_home/tsun01b.swmd.min.md": "80cabc0245d194c92372f139965a42f0ef12921c",
+    "storyworlds/tsun01b_last_train_home/tsun01b.sweepweave.json": "9067b02e536c9407cd90c466fed0f4ea2c3edc2e",
+    "storyworlds/bonsai27_reservoir_dogs/reservoir_dogs_bonsai27.swmd.min.md": "1c36aeda9bed766c8f993119d43bc8affdb77d66",
+    "codex-skills/storyworld-building/scripts/json_to_swmd.py": "04c601b3ea4fd2611e7bff9299a622de54e453bd",
+    "codex-skills/storyworld-building/scripts/swmd_patch_json.py": "6afc7ca7f7e0a9ffdce588acdb7a5894dbfa12cf"
+  },
+  "evidence": "source-pinned SWMD static audit; exact integer finite synthetic sequential oracle",
+  "tsun": {
+    "encounters": 13,
+    "options": 21,
+    "reactions": 42,
+    "terminal_encounters": 6,
+    "unique_formula_keys_by_belief_depth": [
+      3,
+      0,
+      0,
+      0
+    ],
+    "unique_effect_targets_by_belief_depth": [
+      10,
+      0,
+      0,
+      0
+    ],
+    "formula_reference_occurrences_by_belief_depth": [
+      126,
+      0,
+      0,
+      0
+    ],
+    "effect_dependency_reactions": 0,
+    "effect_dependency_pairs": 0,
+    "duplicate_write_reactions": 0,
+    "structurally_identical_mechanics_menus": 21,
+    "unknown_destinations": [],
+    "frontmatter_ambiguous_comparators": 6,
+    "frontmatter_ending_labels": {
+      "page_end_failure_delay": "failure",
+      "page_end_failure_privacy_unverified": "failure",
+      "page_end_failure_silence": "failure",
+      "page_end_failure_unverified": "success",
+      "page_end_privacy_cost": "terminal",
+      "page_end_success_protected": "success"
+    },
+    "gold": {
+      "reaction_order_changes": 0,
+      "effect_order_changed_reactions": 42,
+      "changed_order_dependency_pairs": 0,
+      "route_mismatches": 0,
+      "ending_label_protection_conflicts": [
+        "page_end_failure_unverified"
+      ],
+      "initial_numeric_coordinates": 11,
+      "nontrivial_visibility_or_performability_options": 0
+    }
+  },
+  "reservoir_dogs": {
+    "encounters": 20,
+    "options": 46,
+    "reactions": 138,
+    "terminal_encounters": 6,
+    "unique_formula_keys_by_belief_depth": [
+      19,
+      12,
+      14,
+      0
+    ],
+    "unique_effect_targets_by_belief_depth": [
+      15,
+      12,
+      14,
+      0
+    ],
+    "formula_reference_occurrences_by_belief_depth": [
+      184,
+      138,
+      138,
+      0
+    ],
+    "effect_dependency_reactions": 138,
+    "effect_dependency_pairs": 564,
+    "duplicate_write_reactions": 0,
+    "structurally_identical_mechanics_menus": 0,
+    "unknown_destinations": [
+      "wild"
+    ],
+    "frontmatter_ambiguous_comparators": 13,
+    "frontmatter_ending_labels": {
+      "page_end_blonde_gasoline_inferno": "terminal",
+      "page_end_cabot_executes_the_plant": "terminal",
+      "page_end_mexican_standoff_collapse": "failure",
+      "page_end_pink_ghosts_with_stones": "terminal",
+      "page_end_white_mercy_hospital_trap": "terminal",
+      "page_secret_undercover_truce": "terminal"
+    }
+  },
+  "sequential": {
+    "parity": [
+      {
+        "k": 1,
+        "full_history": {
+          "numerator": 2,
+          "denominator": 2,
+          "nodes": 7
+        },
+        "memoryless_numerator": 2,
+        "one_bit_memory_numerator": 2
+      },
+      {
+        "k": 2,
+        "full_history": {
+          "numerator": 4,
+          "denominator": 4,
+          "nodes": 15
+        },
+        "memoryless_numerator": 2,
+        "one_bit_memory_numerator": 4
+      },
+      {
+        "k": 4,
+        "full_history": {
+          "numerator": 16,
+          "denominator": 16,
+          "nodes": 63
+        },
+        "memoryless_numerator": 8,
+        "one_bit_memory_numerator": 16
+      },
+      {
+        "k": 8,
+        "full_history": {
+          "numerator": 256,
+          "denominator": 256,
+          "nodes": 1023
+        },
+        "memoryless_numerator": 128,
+        "one_bit_memory_numerator": 256
+      }
+    ],
+    "hidden": [
+      {
+        "k": 1,
+        "oracle": {
+          "numerator": 1,
+          "denominator": 2,
+          "nodes": 4
+        },
+        "repair": {
+          "numerator": 2,
+          "denominator": 2,
+          "nodes": 7
+        }
+      },
+      {
+        "k": 2,
+        "oracle": {
+          "numerator": 2,
+          "denominator": 4,
+          "nodes": 9
+        },
+        "repair": {
+          "numerator": 4,
+          "denominator": 4,
+          "nodes": 15
+        }
+      },
+      {
+        "k": 4,
+        "oracle": {
+          "numerator": 8,
+          "denominator": 16,
+          "nodes": 39
+        },
+        "repair": {
+          "numerator": 16,
+          "denominator": 16,
+          "nodes": 63
+        }
+      },
+      {
+        "k": 8,
+        "oracle": {
+          "numerator": 128,
+          "denominator": 256,
+          "nodes": 639
+        },
+        "repair": {
+          "numerator": 256,
+          "denominator": 256,
+          "nodes": 1023
+        }
+      }
+    ],
+    "precision": [
+      {
+        "digits": 0,
+        "numerator": 1,
+        "denominator": 2,
+        "nodes": 3
+      },
+      {
+        "digits": 1,
+        "numerator": 1,
+        "denominator": 2,
+        "nodes": 3
+      },
+      {
+        "digits": 2,
+        "numerator": 1,
+        "denominator": 2,
+        "nodes": 3
+      },
+      {
+        "digits": 3,
+        "numerator": 2,
+        "denominator": 2,
+        "nodes": 6
+      }
+    ],
+    "rounding_counterexample": [
+      {
+        "digits": 0,
+        "numerator": 1,
+        "denominator": 2,
+        "nodes": 3
+      },
+      {
+        "digits": 1,
+        "numerator": 2,
+        "denominator": 2,
+        "nodes": 6
+      },
+      {
+        "digits": 2,
+        "numerator": 1,
+        "denominator": 2,
+        "nodes": 3
+      },
+      {
+        "digits": 3,
+        "numerator": 2,
+        "denominator": 2,
+        "nodes": 6
+      }
+    ],
+    "planning": {
+      "h1": {
+        "numerator": 1,
+        "denominator": 1,
+        "nodes": 3
+      },
+      "h2": {
+        "numerator": 2,
+        "denominator": 1,
+        "nodes": 4
+      }
+    },
+    "repair": {
+      "clean": {
+        "final": 100,
+        "eligible": true,
+        "max_energy_share": [
+          625,
+          2500
+        ]
+      },
+      "weak": {
+        "final": 40,
+        "eligible": false,
+        "max_energy_share": [
+          100,
+          400
+        ]
+      },
+      "windfall": {
+        "final": 100,
+        "eligible": true,
+        "max_energy_share": [
+          10000,
+          10000
+        ]
+      },
+      "wrong_sign": {
+        "final": 100,
+        "eligible": false,
+        "max_energy_share": [
+          625,
+          2500
+        ]
+      },
+      "repaired": {
+        "final": 100,
+        "eligible": true,
+        "max_energy_share": [
+          625,
+          2500
+        ]
+      }
+    },
+    "padded_k4_ambient8": {
+      "numerator": 256,
+      "denominator": 256,
+      "nodes": 63
+    }
+  }
+}
