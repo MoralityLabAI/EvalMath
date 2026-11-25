@@ -1,0 +1,138 @@
+{
+  "evidence": "exhaustive compiled reaction-gate truth tables, one amplitude and one renamed case per family/K; public smoke",
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg07/curriculum.mjs": "037bf16dbfcb6f789a09cf2227387ede2f6c22e0"
+  },
+  "checks": [
+    {
+      "family": "parity",
+      "k": 4,
+      "amplitude": 0.75,
+      "rows": 16,
+      "matched": 16
+    },
+    {
+      "family": "parity",
+      "k": 8,
+      "amplitude": 0.25,
+      "rows": 256,
+      "matched": 256
+    },
+    {
+      "family": "parity",
+      "k": 16,
+      "amplitude": 0.25,
+      "rows": 65536,
+      "matched": 65536
+    },
+    {
+      "family": "majority",
+      "k": 4,
+      "amplitude": 0.125,
+      "rows": 16,
+      "matched": 16
+    },
+    {
+      "family": "majority",
+      "k": 8,
+      "amplitude": 0.75,
+      "rows": 256,
+      "matched": 256
+    },
+    {
+      "family": "majority",
+      "k": 16,
+      "amplitude": 0.25,
+      "rows": 65536,
+      "matched": 65536
+    },
+    {
+      "family": "anchored_quorum",
+      "k": 4,
+      "amplitude": 0.125,
+      "rows": 16,
+      "matched": 16
+    },
+    {
+      "family": "anchored_quorum",
+      "k": 8,
+      "amplitude": 0.75,
+      "rows": 256,
+      "matched": 256
+    },
+    {
+      "family": "anchored_quorum",
+      "k": 16,
+      "amplitude": 0.25,
+      "rows": 65536,
+      "matched": 65536
+    },
+    {
+      "family": "adjacent_conjunction",
+      "k": 4,
+      "amplitude": 0.25,
+      "rows": 16,
+      "matched": 16
+    },
+    {
+      "family": "adjacent_conjunction",
+      "k": 8,
+      "amplitude": 0.125,
+      "rows": 256,
+      "matched": 256
+    },
+    {
+      "family": "adjacent_conjunction",
+      "k": 16,
+      "amplitude": 0.25,
+      "rows": 65536,
+      "matched": 65536
+    },
+    {
+      "family": "selector",
+      "k": 4,
+      "amplitude": 0.25,
+      "rows": 16,
+      "matched": 16
+    },
+    {
+      "family": "selector",
+      "k": 8,
+      "amplitude": 0.25,
+      "rows": 256,
+      "matched": 256
+    },
+    {
+      "family": "selector",
+      "k": 16,
+      "amplitude": 0.5,
+      "rows": 65536,
+      "matched": 65536
+    },
+    {
+      "family": "leading_run",
+      "k": 4,
+      "amplitude": 0.75,
+      "rows": 16,
+      "matched": 16
+    },
+    {
+      "family": "leading_run",
+      "k": 8,
+      "amplitude": 0.125,
+      "rows": 256,
+      "matched": 256
+    },
+    {
+      "family": "leading_run",
+      "k": 16,
+      "amplitude": 0.5,
+      "rows": 65536,
+      "matched": 65536
+    }
+  ],
+  "total": 394848,
+  "matched": 394848
+}
