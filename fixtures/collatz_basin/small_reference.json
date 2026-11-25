@@ -1,0 +1,557 @@
+[
+  {
+    "d": 1,
+    "cycles": [
+      {
+        "minimum": 1,
+        "odd_steps": 1,
+        "halvings": 2,
+        "triple_branches": 1,
+        "period": 3,
+        "gcd_with_d": 1,
+        "basin_size": 1
+      }
+    ],
+    "quotient_count": 1,
+    "quotient_ceiling": [
+      1,
+      1
+    ],
+    "alias": []
+  },
+  {
+    "d": 5,
+    "cycles": [
+      {
+        "minimum": 1,
+        "odd_steps": 1,
+        "halvings": 3,
+        "triple_branches": 1,
+        "period": 4,
+        "gcd_with_d": 1,
+        "basin_size": 2
+      },
+      {
+        "minimum": 5,
+        "odd_steps": 1,
+        "halvings": 2,
+        "triple_branches": 1,
+        "period": 3,
+        "gcd_with_d": 5,
+        "basin_size": 1
+      }
+    ],
+    "quotient_count": 2,
+    "quotient_ceiling": [
+      3,
+      3
+    ],
+    "alias": []
+  },
+  {
+    "d": 13,
+    "cycles": [
+      {
+        "minimum": 1,
+        "odd_steps": 1,
+        "halvings": 4,
+        "triple_branches": 1,
+        "period": 5,
+        "gcd_with_d": 1,
+        "basin_size": 3
+      },
+      {
+        "minimum": 5,
+        "odd_steps": 2,
+        "halvings": 4,
+        "triple_branches": 1,
+        "period": 6,
+        "gcd_with_d": 1,
+        "basin_size": 3
+      },
+      {
+        "minimum": 13,
+        "odd_steps": 1,
+        "halvings": 2,
+        "triple_branches": 1,
+        "period": 3,
+        "gcd_with_d": 13,
+        "basin_size": 1
+      }
+    ],
+    "quotient_count": 2,
+    "quotient_ceiling": [
+      4,
+      7
+    ],
+    "alias": [
+      [
+        1,
+        5,
+        1,
+        5,
+        1
+      ]
+    ]
+  },
+  {
+    "d": 29,
+    "cycles": [
+      {
+        "minimum": 1,
+        "odd_steps": 1,
+        "halvings": 5,
+        "triple_branches": 1,
+        "period": 6,
+        "gcd_with_d": 1,
+        "basin_size": 3
+      },
+      {
+        "minimum": 5,
+        "odd_steps": 2,
+        "halvings": 5,
+        "triple_branches": 1,
+        "period": 7,
+        "gcd_with_d": 1,
+        "basin_size": 8
+      },
+      {
+        "minimum": 7,
+        "odd_steps": 2,
+        "halvings": 5,
+        "triple_branches": 1,
+        "period": 7,
+        "gcd_with_d": 1,
+        "basin_size": 3
+      },
+      {
+        "minimum": 29,
+        "odd_steps": 1,
+        "halvings": 2,
+        "triple_branches": 1,
+        "period": 3,
+        "gcd_with_d": 29,
+        "basin_size": 1
+      }
+    ],
+    "quotient_count": 2,
+    "quotient_ceiling": [
+      9,
+      15
+    ],
+    "alias": [
+      [
+        1,
+        5,
+        1,
+        5,
+        1
+      ]
+    ]
+  },
+  {
+    "d": 73,
+    "cycles": [
+      {
+        "minimum": 3,
+        "odd_steps": 3,
+        "halvings": 9,
+        "triple_branches": 0,
+        "period": 12,
+        "gcd_with_d": 1,
+        "basin_size": 18
+      },
+      {
+        "minimum": 5,
+        "odd_steps": 7,
+        "halvings": 21,
+        "triple_branches": 4,
+        "period": 28,
+        "gcd_with_d": 1,
+        "basin_size": 18
+      },
+      {
+        "minimum": 73,
+        "odd_steps": 1,
+        "halvings": 2,
+        "triple_branches": 1,
+        "period": 3,
+        "gcd_with_d": 73,
+        "basin_size": 1
+      }
+    ],
+    "quotient_count": 3,
+    "quotient_ceiling": [
+      37,
+      37
+    ],
+    "alias": []
+  },
+  {
+    "d": 97,
+    "cycles": [
+      {
+        "minimum": 13,
+        "odd_steps": 3,
+        "halvings": 9,
+        "triple_branches": 3,
+        "period": 12,
+        "gcd_with_d": 1,
+        "basin_size": 24
+      },
+      {
+        "minimum": 33,
+        "odd_steps": 4,
+        "halvings": 9,
+        "triple_branches": 3,
+        "period": 13,
+        "gcd_with_d": 1,
+        "basin_size": 24
+      },
+      {
+        "minimum": 97,
+        "odd_steps": 1,
+        "halvings": 2,
+        "triple_branches": 1,
+        "period": 3,
+        "gcd_with_d": 97,
+        "basin_size": 1
+      }
+    ],
+    "quotient_count": 3,
+    "quotient_ceiling": [
+      49,
+      49
+    ],
+    "alias": []
+  },
+  {
+    "d": 217,
+    "cycles": [
+      {
+        "minimum": 7,
+        "odd_steps": 1,
+        "halvings": 5,
+        "triple_branches": 0,
+        "period": 6,
+        "gcd_with_d": 7,
+        "basin_size": 11
+      },
+      {
+        "minimum": 9,
+        "odd_steps": 8,
+        "halvings": 24,
+        "triple_branches": 6,
+        "period": 32,
+        "gcd_with_d": 1,
+        "basin_size": 45
+      },
+      {
+        "minimum": 31,
+        "odd_steps": 1,
+        "halvings": 3,
+        "triple_branches": 0,
+        "period": 4,
+        "gcd_with_d": 31,
+        "basin_size": 3
+      },
+      {
+        "minimum": 33,
+        "odd_steps": 9,
+        "halvings": 24,
+        "triple_branches": 6,
+        "period": 33,
+        "gcd_with_d": 1,
+        "basin_size": 45
+      },
+      {
+        "minimum": 35,
+        "odd_steps": 2,
+        "halvings": 5,
+        "triple_branches": 0,
+        "period": 7,
+        "gcd_with_d": 7,
+        "basin_size": 4
+      },
+      {
+        "minimum": 217,
+        "odd_steps": 1,
+        "halvings": 2,
+        "triple_branches": 1,
+        "period": 3,
+        "gcd_with_d": 217,
+        "basin_size": 1
+      }
+    ],
+    "quotient_count": 5,
+    "quotient_ceiling": [
+      105,
+      109
+    ],
+    "alias": [
+      [
+        7,
+        21,
+        7,
+        35,
+        7
+      ]
+    ]
+  },
+  {
+    "d": 313,
+    "cycles": [
+      {
+        "minimum": 5,
+        "odd_steps": 3,
+        "halvings": 12,
+        "triple_branches": 3,
+        "period": 15,
+        "gcd_with_d": 1,
+        "basin_size": 26
+      },
+      {
+        "minimum": 17,
+        "odd_steps": 4,
+        "halvings": 12,
+        "triple_branches": 3,
+        "period": 16,
+        "gcd_with_d": 1,
+        "basin_size": 20
+      },
+      {
+        "minimum": 25,
+        "odd_steps": 4,
+        "halvings": 12,
+        "triple_branches": 3,
+        "period": 16,
+        "gcd_with_d": 1,
+        "basin_size": 25
+      },
+      {
+        "minimum": 37,
+        "odd_steps": 4,
+        "halvings": 12,
+        "triple_branches": 3,
+        "period": 16,
+        "gcd_with_d": 1,
+        "basin_size": 11
+      },
+      {
+        "minimum": 43,
+        "odd_steps": 5,
+        "halvings": 12,
+        "triple_branches": 3,
+        "period": 17,
+        "gcd_with_d": 1,
+        "basin_size": 21
+      },
+      {
+        "minimum": 49,
+        "odd_steps": 5,
+        "halvings": 12,
+        "triple_branches": 3,
+        "period": 17,
+        "gcd_with_d": 1,
+        "basin_size": 53
+      },
+      {
+        "minimum": 313,
+        "odd_steps": 1,
+        "halvings": 2,
+        "triple_branches": 1,
+        "period": 3,
+        "gcd_with_d": 313,
+        "basin_size": 1
+      }
+    ],
+    "quotient_count": 3,
+    "quotient_ceiling": [
+      80,
+      157
+    ],
+    "alias": [
+      [
+        1,
+        25,
+        49,
+        25,
+        1
+      ]
+    ]
+  },
+  {
+    "d": 577,
+    "cycles": [
+      {
+        "minimum": 3,
+        "odd_steps": 9,
+        "halvings": 27,
+        "triple_branches": 3,
+        "period": 36,
+        "gcd_with_d": 1,
+        "basin_size": 72
+      },
+      {
+        "minimum": 5,
+        "odd_steps": 7,
+        "halvings": 27,
+        "triple_branches": 3,
+        "period": 34,
+        "gcd_with_d": 1,
+        "basin_size": 72
+      },
+      {
+        "minimum": 23,
+        "odd_steps": 10,
+        "halvings": 27,
+        "triple_branches": 3,
+        "period": 37,
+        "gcd_with_d": 1,
+        "basin_size": 72
+      },
+      {
+        "minimum": 39,
+        "odd_steps": 8,
+        "halvings": 27,
+        "triple_branches": 3,
+        "period": 35,
+        "gcd_with_d": 1,
+        "basin_size": 72
+      },
+      {
+        "minimum": 577,
+        "odd_steps": 1,
+        "halvings": 2,
+        "triple_branches": 1,
+        "period": 3,
+        "gcd_with_d": 577,
+        "basin_size": 1
+      }
+    ],
+    "quotient_count": 5,
+    "quotient_ceiling": [
+      289,
+      289
+    ],
+    "alias": []
+  },
+  {
+    "d": 1001,
+    "cycles": [
+      {
+        "minimum": 1,
+        "odd_steps": 14,
+        "halvings": 48,
+        "triple_branches": 6,
+        "period": 62,
+        "gcd_with_d": 1,
+        "basin_size": 180
+      },
+      {
+        "minimum": 11,
+        "odd_steps": 11,
+        "halvings": 36,
+        "triple_branches": 6,
+        "period": 47,
+        "gcd_with_d": 11,
+        "basin_size": 36
+      },
+      {
+        "minimum": 17,
+        "odd_steps": 13,
+        "halvings": 48,
+        "triple_branches": 6,
+        "period": 61,
+        "gcd_with_d": 1,
+        "basin_size": 180
+      },
+      {
+        "minimum": 21,
+        "odd_steps": 8,
+        "halvings": 24,
+        "triple_branches": 3,
+        "period": 32,
+        "gcd_with_d": 7,
+        "basin_size": 25
+      },
+      {
+        "minimum": 35,
+        "odd_steps": 9,
+        "halvings": 24,
+        "triple_branches": 3,
+        "period": 33,
+        "gcd_with_d": 7,
+        "basin_size": 35
+      },
+      {
+        "minimum": 39,
+        "odd_steps": 5,
+        "halvings": 16,
+        "triple_branches": 2,
+        "period": 21,
+        "gcd_with_d": 13,
+        "basin_size": 30
+      },
+      {
+        "minimum": 77,
+        "odd_steps": 1,
+        "halvings": 4,
+        "triple_branches": 1,
+        "period": 5,
+        "gcd_with_d": 77,
+        "basin_size": 3
+      },
+      {
+        "minimum": 91,
+        "odd_steps": 3,
+        "halvings": 8,
+        "triple_branches": 1,
+        "period": 11,
+        "gcd_with_d": 91,
+        "basin_size": 5
+      },
+      {
+        "minimum": 143,
+        "odd_steps": 1,
+        "halvings": 3,
+        "triple_branches": 0,
+        "period": 4,
+        "gcd_with_d": 143,
+        "basin_size": 3
+      },
+      {
+        "minimum": 385,
+        "odd_steps": 2,
+        "halvings": 4,
+        "triple_branches": 1,
+        "period": 6,
+        "gcd_with_d": 77,
+        "basin_size": 3
+      },
+      {
+        "minimum": 1001,
+        "odd_steps": 1,
+        "halvings": 2,
+        "triple_branches": 1,
+        "period": 3,
+        "gcd_with_d": 1001,
+        "basin_size": 1
+      }
+    ],
+    "quotient_count": 10,
+    "quotient_ceiling": [
+      498,
+      501
+    ],
+    "alias": [
+      [
+        77,
+        385,
+        77,
+        385,
+        77
+      ]
+    ]
+  }
+]
