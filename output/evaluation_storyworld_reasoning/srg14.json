@@ -1,0 +1,739 @@
+{
+  "evidence": "aggregate of executed finite source-level matched-choice and factorial diagnostics, no model inference or promotion",
+  "receipt_blobs": {
+    "output/evaluation_storyworld_reasoning/srg14_original_a.json": "8dc4309932db7b603fc731dc44c9e54596509851",
+    "output/evaluation_storyworld_reasoning/srg14_original_b.json": "73eb16770c49355a937d18cdd885724dc2fbb22e",
+    "output/evaluation_storyworld_reasoning/srg14_candidate_a.json": "9d2ee8e31914a5fae52cadf7f0bfa21e68be9e61",
+    "output/evaluation_storyworld_reasoning/srg14_candidate_b.json": "4e3968a43fd8d8f9d1037389f114880f248891dd",
+    "output/evaluation_storyworld_reasoning/srg14_factorial.json": "0deb6bc8b07897be722fcd4fe1d9155159946d23"
+  },
+  "worlds": [
+    {
+      "world": "original_srg05",
+      "factual": {
+        "campaigns": 256,
+        "completed": 256,
+        "secret": 26,
+        "sirens": 256,
+        "h1": 15,
+        "h3": 26,
+        "unique_truce": 0,
+        "unique_truce_without_ledger": 0
+      },
+      "counts": {
+        "decision_prefixes": 565,
+        "arms": 1695,
+        "invariantChecks": 565,
+        "reachability_nodes": 56337
+      },
+      "sites": {
+        "timeline": {
+          "prefixes": 132,
+          "arms": 396,
+          "complete_arms": 396,
+          "reached_arms": 396,
+          "contrast_pairs": 264,
+          "mean_delta": {
+            "reached": 0,
+            "complete": 0,
+            "random_goal": 0.12121212121212122,
+            "h1_attainable": 0.07954545454545454,
+            "h1_truce": 0.007575757575757576,
+            "h1_unique_truce": 0,
+            "h3_attainable": 0.125,
+            "h3_truce": 0.07196969696969698,
+            "noLedgerH1_unique_truce": 0
+          },
+          "paired_truce_gains": 0,
+          "paired_truce_losses": 0,
+          "paired_h3_gains": 33,
+          "paired_h3_losses": 0,
+          "deleted_truce_gains": 0,
+          "deleted_truce_losses": 0,
+          "mean_gate_distance_delta": -0.026662714696913753,
+          "swaps": {
+            "swaps": 264,
+            "first_reaction_changes": 264,
+            "first_destination_changes": 182,
+            "ending_changes": 118,
+            "goal_gains": 27,
+            "goal_losses": 20,
+            "h1_gains": 18,
+            "h1_losses": 12,
+            "h3_gains": 28,
+            "h3_losses": 19,
+            "unique_truce_gains": 0,
+            "unique_truce_losses": 0
+          }
+        },
+        "radio": {
+          "prefixes": 240,
+          "arms": 720,
+          "complete_arms": 720,
+          "reached_arms": 720,
+          "contrast_pairs": 480,
+          "mean_delta": {
+            "reached": 0,
+            "complete": 0,
+            "random_goal": -0.11666666666666667,
+            "h1_attainable": -0.09375,
+            "h1_truce": -0.01875,
+            "h1_unique_truce": 0,
+            "h3_attainable": -0.1375,
+            "h3_truce": -0.06041666666666667,
+            "noLedgerH1_unique_truce": 0
+          },
+          "paired_truce_gains": 0,
+          "paired_truce_losses": 0,
+          "paired_h3_gains": 1,
+          "paired_h3_losses": 67,
+          "deleted_truce_gains": 0,
+          "deleted_truce_losses": 0,
+          "mean_gate_distance_delta": 0.01619453555864912,
+          "swaps": {
+            "swaps": 480,
+            "first_reaction_changes": 480,
+            "first_destination_changes": 310,
+            "ending_changes": 233,
+            "goal_gains": 40,
+            "goal_losses": 38,
+            "h1_gains": 40,
+            "h1_losses": 22,
+            "h3_gains": 53,
+            "h3_losses": 32,
+            "unique_truce_gains": 0,
+            "unique_truce_losses": 0
+          }
+        },
+        "review": {
+          "prefixes": 193,
+          "arms": 579,
+          "complete_arms": 579,
+          "reached_arms": 579,
+          "contrast_pairs": 386,
+          "mean_delta": {
+            "reached": 0,
+            "complete": 0,
+            "random_goal": 0.08031088082901554,
+            "h1_attainable": 0.031088082901554404,
+            "h1_truce": 0.007772020725388601,
+            "h1_unique_truce": 0,
+            "h3_attainable": 0.11658031088082901,
+            "h3_truce": 0.07253886010362694,
+            "noLedgerH1_unique_truce": 0
+          },
+          "paired_truce_gains": 0,
+          "paired_truce_losses": 0,
+          "paired_h3_gains": 45,
+          "paired_h3_losses": 0,
+          "deleted_truce_gains": 0,
+          "deleted_truce_losses": 0,
+          "mean_gate_distance_delta": -0.019901992175705253,
+          "swaps": {
+            "swaps": 386,
+            "first_reaction_changes": 386,
+            "first_destination_changes": 68,
+            "ending_changes": 94,
+            "goal_gains": 22,
+            "goal_losses": 21,
+            "h1_gains": 9,
+            "h1_losses": 12,
+            "h3_gains": 31,
+            "h3_losses": 28,
+            "unique_truce_gains": 0,
+            "unique_truce_losses": 0
+          }
+        }
+      }
+    },
+    {
+      "world": "srg13_candidate",
+      "factual": {
+        "campaigns": 256,
+        "completed": 256,
+        "secret": 41,
+        "sirens": 256,
+        "h1": 36,
+        "h3": 44,
+        "unique_truce": 11,
+        "unique_truce_without_ledger": 0
+      },
+      "counts": {
+        "decision_prefixes": 565,
+        "arms": 1695,
+        "invariantChecks": 565,
+        "reachability_nodes": 54038
+      },
+      "sites": {
+        "timeline": {
+          "prefixes": 132,
+          "arms": 396,
+          "complete_arms": 396,
+          "reached_arms": 396,
+          "contrast_pairs": 264,
+          "mean_delta": {
+            "reached": 0,
+            "complete": 0,
+            "random_goal": 0.29545454545454547,
+            "h1_attainable": 0.4356060606060606,
+            "h1_truce": 0.4053030303030303,
+            "h1_unique_truce": 0.23863636363636365,
+            "h3_attainable": 0.3977272727272727,
+            "h3_truce": 0.3484848484848485,
+            "noLedgerH1_unique_truce": 0
+          },
+          "paired_truce_gains": 64,
+          "paired_truce_losses": 1,
+          "paired_h3_gains": 105,
+          "paired_h3_losses": 0,
+          "deleted_truce_gains": 0,
+          "deleted_truce_losses": 0,
+          "mean_gate_distance_delta": -0.026750369569478176,
+          "swaps": {
+            "swaps": 264,
+            "first_reaction_changes": 264,
+            "first_destination_changes": 182,
+            "ending_changes": 145,
+            "goal_gains": 40,
+            "goal_losses": 49,
+            "h1_gains": 50,
+            "h1_losses": 48,
+            "h3_gains": 51,
+            "h3_losses": 51,
+            "unique_truce_gains": 27,
+            "unique_truce_losses": 18
+          }
+        },
+        "radio": {
+          "prefixes": 240,
+          "arms": 720,
+          "complete_arms": 720,
+          "reached_arms": 720,
+          "contrast_pairs": 480,
+          "mean_delta": {
+            "reached": 0,
+            "complete": 0,
+            "random_goal": -0.04791666666666667,
+            "h1_attainable": 0.010416666666666666,
+            "h1_truce": 0.1,
+            "h1_unique_truce": 0.10208333333333333,
+            "h3_attainable": -0.035416666666666666,
+            "h3_truce": 0.06666666666666667,
+            "noLedgerH1_unique_truce": 0
+          },
+          "paired_truce_gains": 52,
+          "paired_truce_losses": 3,
+          "paired_h3_gains": 30,
+          "paired_h3_losses": 47,
+          "deleted_truce_gains": 0,
+          "deleted_truce_losses": 0,
+          "mean_gate_distance_delta": -0.002329257412763523,
+          "swaps": {
+            "swaps": 480,
+            "first_reaction_changes": 480,
+            "first_destination_changes": 310,
+            "ending_changes": 242,
+            "goal_gains": 42,
+            "goal_losses": 49,
+            "h1_gains": 47,
+            "h1_losses": 34,
+            "h3_gains": 54,
+            "h3_losses": 43,
+            "unique_truce_gains": 25,
+            "unique_truce_losses": 20
+          }
+        },
+        "review": {
+          "prefixes": 193,
+          "arms": 579,
+          "complete_arms": 579,
+          "reached_arms": 579,
+          "contrast_pairs": 386,
+          "mean_delta": {
+            "reached": 0,
+            "complete": 0,
+            "random_goal": 0.14507772020725387,
+            "h1_attainable": 0.13730569948186527,
+            "h1_truce": 0.14507772020725387,
+            "h1_unique_truce": 0.08549222797927461,
+            "h3_attainable": 0.17357512953367876,
+            "h3_truce": 0.15544041450777202,
+            "noLedgerH1_unique_truce": 0
+          },
+          "paired_truce_gains": 33,
+          "paired_truce_losses": 0,
+          "paired_h3_gains": 67,
+          "paired_h3_losses": 0,
+          "deleted_truce_gains": 0,
+          "deleted_truce_losses": 0,
+          "mean_gate_distance_delta": -0.021104054257255204,
+          "swaps": {
+            "swaps": 386,
+            "first_reaction_changes": 386,
+            "first_destination_changes": 68,
+            "ending_changes": 111,
+            "goal_gains": 30,
+            "goal_losses": 28,
+            "h1_gains": 24,
+            "h1_losses": 25,
+            "h3_gains": 32,
+            "h3_losses": 37,
+            "unique_truce_gains": 21,
+            "unique_truce_losses": 9
+          }
+        }
+      }
+    }
+  ],
+  "totals": {
+    "factual_campaigns": 512,
+    "matched_prefixes": 1130,
+    "alternative_arms": 3390,
+    "factual_replay_checks": 1130,
+    "reachability_nodes": 110375,
+    "factorial_rollouts": 1024,
+    "factorial_nodes": 27681
+  },
+  "factorial": [
+    {
+      "world": "original_srg05",
+      "off": {
+        "mask": 0,
+        "arms": 64,
+        "complete": 64,
+        "reached": 64,
+        "unavailable": 0,
+        "applied_counts": [
+          29,
+          64,
+          47
+        ],
+        "h1": 12,
+        "h3": 15,
+        "unique_truce": 0,
+        "unique_truce_deleted": 0,
+        "random_goal": 13
+      },
+      "on": {
+        "mask": 7,
+        "arms": 64,
+        "complete": 64,
+        "reached": 64,
+        "unavailable": 0,
+        "applied_counts": [
+          29,
+          64,
+          51
+        ],
+        "h1": 0,
+        "h3": 0,
+        "unique_truce": 0,
+        "unique_truce_deleted": 0,
+        "random_goal": 1
+      },
+      "best_h3": 15,
+      "effects": {
+        "h1": {
+          "dividends": [
+            12,
+            0,
+            -12,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            -72,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            -0.1875,
+            0
+          ],
+          "total_change": -0.1875,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        },
+        "h3": {
+          "dividends": [
+            15,
+            0,
+            -15,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            -90,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            -0.234375,
+            0
+          ],
+          "total_change": -0.234375,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        },
+        "unique_truce": {
+          "dividends": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            0,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            0,
+            0
+          ],
+          "total_change": 0,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        },
+        "unique_truce_deleted": {
+          "dividends": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            0,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            0,
+            0
+          ],
+          "total_change": 0,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        },
+        "random_goal": {
+          "dividends": [
+            13,
+            0,
+            -12,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            -72,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            -0.1875,
+            0
+          ],
+          "total_change": -0.1875,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "world": "srg13_candidate",
+      "off": {
+        "mask": 0,
+        "arms": 64,
+        "complete": 64,
+        "reached": 64,
+        "unavailable": 0,
+        "applied_counts": [
+          29,
+          64,
+          47
+        ],
+        "h1": 12,
+        "h3": 15,
+        "unique_truce": 0,
+        "unique_truce_deleted": 0,
+        "random_goal": 13
+      },
+      "on": {
+        "mask": 7,
+        "arms": 64,
+        "complete": 64,
+        "reached": 64,
+        "unavailable": 0,
+        "applied_counts": [
+          29,
+          64,
+          51
+        ],
+        "h1": 28,
+        "h3": 28,
+        "unique_truce": 23,
+        "unique_truce_deleted": 0,
+        "random_goal": 20
+      },
+      "best_h3": 29,
+      "effects": {
+        "h1": {
+          "dividends": [
+            12,
+            3,
+            -12,
+            3,
+            0,
+            14,
+            0,
+            8
+          ],
+          "shapley6": [
+            85,
+            -47,
+            58
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 25,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0.22135416666666666,
+            -0.12239583333333333,
+            0.15104166666666666
+          ],
+          "total_change": 0.25,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0.046875,
+            null,
+            0.21875,
+            0,
+            0.125
+          ]
+        },
+        "h3": {
+          "dividends": [
+            15,
+            3,
+            -15,
+            3,
+            0,
+            11,
+            0,
+            11
+          ],
+          "shapley6": [
+            82,
+            -59,
+            55
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 25,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0.21354166666666666,
+            -0.15364583333333334,
+            0.14322916666666666
+          ],
+          "total_change": 0.203125,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0.046875,
+            null,
+            0.171875,
+            0,
+            0.171875
+          ]
+        },
+        "unique_truce": {
+          "dividends": [
+            0,
+            0,
+            0,
+            6,
+            0,
+            7,
+            0,
+            10
+          ],
+          "shapley6": [
+            59,
+            38,
+            41
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 23,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0.15364583333333334,
+            0.09895833333333333,
+            0.10677083333333333
+          ],
+          "total_change": 0.359375,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0.09375,
+            null,
+            0.109375,
+            0,
+            0.15625
+          ]
+        },
+        "unique_truce_deleted": {
+          "dividends": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "shapley6": [
+            0,
+            0,
+            0
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 0,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0,
+            0,
+            0
+          ],
+          "total_change": 0,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0,
+            null,
+            0,
+            0,
+            0
+          ]
+        },
+        "random_goal": {
+          "dividends": [
+            13,
+            2,
+            -11,
+            1,
+            0,
+            9,
+            0,
+            6
+          ],
+          "shapley6": [
+            54,
+            -51,
+            39
+          ],
+          "efficiency_checks": 64,
+          "positive_interaction_campaigns": 16,
+          "negative_interaction_campaigns": 0,
+          "shapley": [
+            0.140625,
+            -0.1328125,
+            0.1015625
+          ],
+          "total_change": 0.109375,
+          "interaction_dividends": [
+            null,
+            null,
+            null,
+            0.015625,
+            null,
+            0.140625,
+            0,
+            0.09375
+          ]
+        }
+      }
+    }
+  ]
+}
