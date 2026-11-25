@@ -1,0 +1,44 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "rows": [
+    {
+      "name": "union_graph_application_equivalence",
+      "target_bytes": 7981,
+      "lines": 2292,
+      "unary": 25598945,
+      "compact": 2267409,
+      "axioms": {
+        "union": 1,
+        "forall-elimination": 12,
+        "propositional": 1098,
+        "forall-distribution": 17
+      },
+      "structural_replay": true,
+      "original_full_replay": false
+    },
+    {
+      "name": "recursive_graph_gluing_existence",
+      "target_bytes": 18150,
+      "lines": 9854,
+      "unary": 167267210,
+      "compact": 15088339,
+      "axioms": {
+        "union": 1,
+        "forall-elimination": 48,
+        "propositional": 4759,
+        "forall-distribution": 74,
+        "separation": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": false
+    }
+  ],
+  "premise_formula_bytes": [
+    736,
+    2143,
+    4499,
+    4453
+  ],
+  "formula_nodes": 16446,
+  "actual_rh_proof": false
+}
