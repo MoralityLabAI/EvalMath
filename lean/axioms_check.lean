@@ -227,3 +227,12 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.RSISpectralThreshold.dominant_gt_one_iff
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance_attained
+
+-- CLQ draft arithmetic gates (verification pending)
+#print axioms FeedbackChannel.CollatzQuotient.oddNumerator_four
+#print axioms FeedbackChannel.CollatzQuotient.odd_bound
+#print axioms FeedbackChannel.CollatzQuotient.strict_descent
+#print axioms FeedbackChannel.CollatzQuotient.closed_region
+#print axioms FeedbackChannel.CollatzQuotient.finite_entry
+#print axioms FeedbackChannel.CollatzQuotient.gate_range
+#print axioms FeedbackChannel.CollatzQuotient.gate_unique
