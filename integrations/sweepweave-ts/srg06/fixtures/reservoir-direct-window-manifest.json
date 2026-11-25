@@ -1,0 +1,70 @@
+{
+  "source_blob": "cb174a3efb031eaa046b01a2acc526ef7d122345",
+  "profile": "SRG06/direct-window/1",
+  "world_id": "SW-BONSAI27-RESERVOIR-DOGS-001",
+  "turn_base": 1,
+  "derivation": "shortest direct-edge path from start, ignoring guard feasibility and wild edges",
+  "wild_policy": "original windows unchanged",
+  "windows": [
+    {
+      "id": "page_cadillac_trunk",
+      "original_earliest": 4,
+      "direct_earliest": 3,
+      "latest": 6
+    },
+    {
+      "id": "page_chair_duct_tape",
+      "original_earliest": 5,
+      "direct_earliest": 4,
+      "latest": 7
+    },
+    {
+      "id": "page_eddie_call_and_alibi",
+      "original_earliest": 6,
+      "direct_earliest": 4,
+      "latest": 8
+    },
+    {
+      "id": "page_k_billy_razor",
+      "original_earliest": 7,
+      "direct_earliest": 5,
+      "latest": 9
+    },
+    {
+      "id": "page_orange_gun_on_the_ramp",
+      "original_earliest": 8,
+      "direct_earliest": 5,
+      "latest": 10
+    },
+    {
+      "id": "page_nash_confession_shockwave",
+      "original_earliest": 9,
+      "direct_earliest": 6,
+      "latest": 11
+    },
+    {
+      "id": "page_eddie_and_blonde_story",
+      "original_earliest": 10,
+      "direct_earliest": 6,
+      "latest": 12
+    },
+    {
+      "id": "page_cabot_verdict",
+      "original_earliest": 11,
+      "direct_earliest": 7,
+      "latest": 13
+    },
+    {
+      "id": "page_mexican_standoff",
+      "original_earliest": 12,
+      "direct_earliest": 7,
+      "latest": 14
+    },
+    {
+      "id": "page_sirens_at_the_rollup_door",
+      "original_earliest": 13,
+      "direct_earliest": 8,
+      "latest": 16
+    }
+  ]
+}
