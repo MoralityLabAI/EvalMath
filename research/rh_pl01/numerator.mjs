@@ -2,7 +2,7 @@
 import {transport} from './transport.mjs';
 import {kernel} from './kernel.mjs';
 import {denominator} from './denominator.mjs';
-function numerator(tr,k,den,raw,mode='all'){
+export function numerator(tr,k,den,raw,mode='all'){
  const t=tr.prepare(raw),{p,ar,ns,apply,inst,nest,move,symmetric,trans,replace,emptyUnique,succUnique,empty,succ}=t,{imp,gen,intern}=ar,{E,M,A,X,fv,sub,split,exAt,qAt,hyp,mp,generalize,abs,left,right,conj,ui,exIntro,exElim}=p.logic;
  const assert=(ok,msg)=>{if(!ok)throw Error(msg)};
  let f=intern(k.decode(raw.slice(0,-1)));while(ns[f].tag==='a')f=ns[f].y;const D=ns[f].x;
@@ -42,7 +42,7 @@ function numerator(tr,k,den,raw,mode='all'){
  });
  const updateQ=quantified(update,[G,B,x,y,u,j,b]);
  const row=(name,pf,cap=0)=>{const closed=p.close(pf),r=cap?p.replay(closed,cap):p.emit(closed);return {name,root_bytes:ns[closed.f].u,...r.cost,axioms:r.axioms,structural_replay:true,original_full_replay:!!r.original}};
- const rows=[row('exact_numerator_base',baseQ,24000000),row('exact_numerator_successor_normalization',updateQ)];
+ const rows=mode==='certificate'?[]:[row('exact_numerator_base',baseQ,24000000),row('exact_numerator_successor_normalization',updateQ)];
  if(mode==='local')return {rows,formula_nodes:ns.length-1,actual_rh_proof:false};
  // Instantiate the prior exact denominator theorem in the same proof
  // arena, without assuming the resulting agreement.
@@ -81,7 +81,7 @@ function numerator(tr,k,den,raw,mode='all'){
    const stepProof=generalize(xx,generalize(yy,abs(stepHyp,oy.end(next))));assert(stepProof.f===STEP,'step');
    const out=apply(ir,omega,bp,stepProof);assert(out.f===goal,'agreement');return out
  });
- rows.push(row('numerator_agreement_given_denominator_agreement',numeratorProof));
+ if(mode!=='certificate')rows.push(row('numerator_agreement_given_denominator_agreement',numeratorProof));
  // Discharge the denominator agreement premise using the already derived
  // denominator theorem. All premise lookup uses literal formula IDs.
  const combined=pack(premises,(...ps)=>{
@@ -93,6 +93,7 @@ function numerator(tr,k,den,raw,mode='all'){
    assert(num.f===goal,'numerator conclusion');
    return conj(denom,num)
  });
+ if(mode==='certificate'){const root=p.close(combined),r=p.emit(root);return {nodes:ar.nodes,ids:r.ids,root:root.f,target:k.encode(ar.ast(root.f)),cost:r.cost};}
  rows.push(row('joint_harmonic_graph_agreement_from_exact_clauses',combined));
  return {rows,source_clauses:sourceIds,comparison_graph_slots:{numerator:H,denominator:C},source_formula_bytes:sourceIds.map(i=>({index:i,bytes:ns[clauses[i]].u})),base_discharged:true,step_discharged:true,denominator_premise_discharged:true,formula_nodes:ns.length-1,actual_rh_proof:false};
 }
