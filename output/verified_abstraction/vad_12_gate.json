@@ -1,0 +1,378 @@
+{
+  "ablations": {
+    "memory_used": "shuffled-memory regret equals trm regret within seed noise on every family; memoryless matches trm",
+    "trm_vs_memoryless_in_distribution": [
+      0.11394369501587301,
+      0.07608967044444445
+    ]
+  },
+  "data_manifest": {
+    "calib": {
+      "decision_steps": 4563,
+      "seeds": [
+        91000,
+        91249
+      ],
+      "sequences": 1500,
+      "sha256": "6bae45dfed7597f59e7814ea083e2d610d780b7bc6e59dd384898e7f0d83e159"
+    },
+    "evalmath_sources": {
+      "vad_agenda.py": "10ae61afeb2e1f958e9cebe22e373bc0d9d0b35d160d07f65e31c7e7ffac8e2c",
+      "vad_agenda_families.py": "3a5b10b36f0d63f484389f08a342b33be9775fc2019662e1806961c53248eb17"
+    },
+    "train": {
+      "decision_steps": 18532,
+      "seeds": [
+        90000,
+        90999
+      ],
+      "sequences": 6000,
+      "sha256": "0dd984befa000b7825a5691a27d266e70ea480e35247f2d65832f720349fa0d3"
+    }
+  },
+  "datagoblin_schema_validation": [
+    "data_recipe",
+    "experiment_record"
+  ],
+  "epochs": 25,
+  "evidence": "small CPU neural controllers trained on exact-oracle labels; exact forward evaluation on fresh families",
+  "gate": {
+    "matches_greedy2_on_fresh": {
+      "ff": {
+        "fresh_chain": false,
+        "fresh_complementary": false,
+        "fresh_wide": false
+      },
+      "fixed_depth": {
+        "fresh_chain": false,
+        "fresh_complementary": false,
+        "fresh_wide": false
+      },
+      "memoryless": {
+        "fresh_chain": false,
+        "fresh_complementary": false,
+        "fresh_wide": false
+      },
+      "shuffled_memory": {
+        "fresh_chain": false,
+        "fresh_complementary": false,
+        "fresh_wide": false
+      },
+      "trm": {
+        "fresh_chain": false,
+        "fresh_complementary": false,
+        "fresh_wide": false
+      },
+      "trm_oracle_features": {
+        "fresh_chain": false,
+        "fresh_complementary": false,
+        "fresh_wide": false
+      }
+    },
+    "rule": "neural mean regret <= greedy-2 regret + 0.01 on every fresh family, at lower measured cost; no scaling to GPU otherwise",
+    "tolerance": 0.01,
+    "verdict": "FAIL"
+  },
+  "instances": {
+    "fresh_chain": 60,
+    "fresh_complementary": 60,
+    "fresh_wide": 60,
+    "in_distribution": 100
+  },
+  "mean_seconds_per_decision": {
+    "ff": 0.002000226422990455,
+    "fixed_depth": 0.0032625772065996645,
+    "memoryless": 0.0032721949573281508,
+    "shuffled_memory": 0.003787074331048975,
+    "trm": 0.003935262738519144,
+    "trm_oracle_features": 0.005089181502976332
+  },
+  "models": {
+    "ff": {
+      "decision_flops": 24274,
+      "mean_calibration_action_accuracy": 0.8679328560829163,
+      "mean_train_flops": 65539800000.0,
+      "mean_train_seconds": 16.52234519999911,
+      "params": 12265
+    },
+    "fixed_depth": {
+      "decision_flops": 115968,
+      "mean_calibration_action_accuracy": 0.8218860328197479,
+      "mean_train_flops": 313113600000.0,
+      "mean_train_seconds": 82.42502539999987,
+      "params": 12194
+    },
+    "memoryless": {
+      "decision_flops": 1007424,
+      "mean_calibration_action_accuracy": 0.8174690902233124,
+      "mean_train_flops": 2720044800000.0,
+      "mean_train_seconds": 444.3725123000004,
+      "params": 12245
+    },
+    "trm": {
+      "decision_flops": 386304,
+      "mean_calibration_action_accuracy": 0.8233215510845184,
+      "mean_train_flops": 1043020800000.0,
+      "mean_train_seconds": 234.0036389500001,
+      "params": 12194
+    },
+    "trm_oracle_features": {
+      "decision_flops": 386304,
+      "mean_calibration_action_accuracy": 0.82762810587883,
+      "mean_train_flops": 1043020800000.0,
+      "mean_train_seconds": 206.15756560000045,
+      "params": 12194
+    }
+  },
+  "optimal_fraction": {
+    "fresh_chain": {
+      "direct": 0.4166666666666667,
+      "ff": 0.5166666666666666,
+      "fixed_depth": 0.6833333333333333,
+      "greedy0": 0.6166666666666667,
+      "greedy1": 0.65,
+      "greedy2": 1.0,
+      "memoryless": 0.6916666666666667,
+      "random": 0.016666666666666666,
+      "shuffled_memory": 0.6583333333333333,
+      "trm": 0.675,
+      "trm_oracle_features": 0.675
+    },
+    "fresh_complementary": {
+      "direct": 0.1,
+      "ff": 0.2583333333333333,
+      "fixed_depth": 0.29166666666666663,
+      "greedy0": 0.7333333333333333,
+      "greedy1": 0.9333333333333333,
+      "greedy2": 1.0,
+      "memoryless": 0.31666666666666665,
+      "random": 0.0,
+      "shuffled_memory": 0.29166666666666663,
+      "trm": 0.275,
+      "trm_oracle_features": 0.43333333333333335
+    },
+    "fresh_wide": {
+      "direct": 0.6,
+      "ff": 0.6333333333333333,
+      "fixed_depth": 0.7916666666666667,
+      "greedy0": 0.9,
+      "greedy1": 0.9833333333333333,
+      "greedy2": 1.0,
+      "memoryless": 0.7916666666666667,
+      "random": 0.1,
+      "shuffled_memory": 0.7916666666666667,
+      "trm": 0.8166666666666667,
+      "trm_oracle_features": 0.8166666666666667
+    },
+    "in_distribution": {
+      "direct": 0.59,
+      "ff": 0.655,
+      "fixed_depth": 0.79,
+      "greedy0": 0.87,
+      "greedy1": 0.98,
+      "greedy2": 1.0,
+      "memoryless": 0.8200000000000001,
+      "random": 0.24,
+      "shuffled_memory": 0.79,
+      "trm": 0.78,
+      "trm_oracle_features": 0.82
+    }
+  },
+  "paired_regret_minus_greedy1": {
+    "fresh_chain": {
+      "ff": [
+        -1.063457607142857,
+        -2.017610388095238,
+        -0.18971931259920669
+      ],
+      "fixed_depth": [
+        -2.1063604841269843,
+        -3.1532698049603174,
+        -1.18298047420635
+      ],
+      "memoryless": [
+        -1.989949373015873,
+        -2.984227660714286,
+        -1.063979159722223
+      ],
+      "shuffled_memory": [
+        -2.0095685793650793,
+        -2.956997790873016,
+        -1.1045091361111117
+      ],
+      "trm": [
+        -2.062064214285714,
+        -3.0267786075396828,
+        -1.151929690277778
+      ],
+      "trm_oracle_features": [
+        -1.99720476984127,
+        -2.9911583087301583,
+        -1.0777371623015881
+      ]
+    },
+    "fresh_complementary": {
+      "ff": [
+        1.866836818181818,
+        1.3017463564213563,
+        2.467205416486291
+      ],
+      "fixed_depth": [
+        0.8392661408730159,
+        0.5801526934523809,
+        1.1315240337301584
+      ],
+      "memoryless": [
+        0.7774439682539682,
+        0.5447202549603175,
+        1.0320972837301585
+      ],
+      "shuffled_memory": [
+        0.9428066576479076,
+        0.6644646488095237,
+        1.2628002098665225
+      ],
+      "trm": [
+        0.8550928995310245,
+        0.5974705647997837,
+        1.142596372407107
+      ],
+      "trm_oracle_features": [
+        0.4672922113997114,
+        0.2892448313492063,
+        0.6697842731331165
+      ]
+    },
+    "fresh_wide": {
+      "ff": [
+        0.6305034076238576,
+        0.33219037968554593,
+        0.9976428017496392
+      ],
+      "fixed_depth": [
+        0.19793132786176787,
+        0.0592179583986199,
+        0.3975137575286749
+      ],
+      "memoryless": [
+        0.1361723064898065,
+        0.04063818819005068,
+        0.2612905717857142
+      ],
+      "shuffled_memory": [
+        0.1141577960868761,
+        0.05522575490608003,
+        0.1831256737353757
+      ],
+      "trm": [
+        0.11263844366263366,
+        0.0527902292339466,
+        0.1843746729329512
+      ],
+      "trm_oracle_features": [
+        0.14469190985310984,
+        0.045552918768453764,
+        0.26618029781625757
+      ]
+    },
+    "in_distribution": {
+      "ff": [
+        0.2820793886395826,
+        0.18940126356885895,
+        0.38841334775398484
+      ],
+      "fixed_depth": [
+        0.09000692014430016,
+        0.04615836516075036,
+        0.1384056838321789
+      ],
+      "memoryless": [
+        0.07562254923232324,
+        0.03730333914350649,
+        0.11719545918961038
+      ],
+      "shuffled_memory": [
+        0.08198523109090909,
+        0.04286644616515151,
+        0.12747249515930736
+      ],
+      "trm": [
+        0.11347657380375178,
+        0.05479413917770564,
+        0.1822616167538239
+      ],
+      "trm_oracle_features": [
+        0.06322415756565655,
+        0.030772951765259734,
+        0.10085858351352812
+      ]
+    }
+  },
+  "protocol": "VAD-12",
+  "regret": {
+    "fresh_chain": {
+      "direct": 0.16917388888888885,
+      "ff": 1.3505170039682541,
+      "fixed_depth": 0.307614126984127,
+      "greedy0": 2.2503079444444447,
+      "greedy1": 2.413974611111111,
+      "greedy2": 0.0,
+      "memoryless": 0.4240252380952381,
+      "random": 3.5349128190035275,
+      "shuffled_memory": 0.40440603174603174,
+      "stop": 5.570255227513226,
+      "trm": 0.3519103968253968,
+      "trm_oracle_features": 0.4167698412698413
+    },
+    "fresh_complementary": {
+      "direct": 4.293687124819625,
+      "ff": 1.9005186435786436,
+      "fixed_depth": 0.8729479662698412,
+      "greedy0": 0.18879182539682537,
+      "greedy1": 0.03368182539682539,
+      "greedy2": 0.0,
+      "memoryless": 0.8111257936507936,
+      "random": 2.367244871242184,
+      "shuffled_memory": 0.9764884830447331,
+      "stop": 8.181164092111592,
+      "trm": 0.8887747249278499,
+      "trm_oracle_features": 0.5009740367965367
+    },
+    "fresh_wide": {
+      "direct": 0.4651544366592667,
+      "ff": 0.6315814076238575,
+      "fixed_depth": 0.19900932786176787,
+      "greedy0": 0.11818253362193362,
+      "greedy1": 0.001078,
+      "greedy2": 0.0,
+      "memoryless": 0.1372503064898065,
+      "random": 1.4820935145685072,
+      "shuffled_memory": 0.11523579608687609,
+      "stop": 6.122742347770749,
+      "trm": 0.11371644366263367,
+      "trm_oracle_features": 0.14576990985310986
+    },
+    "in_distribution": {
+      "direct": 0.4037730454925075,
+      "ff": 0.2825465098517038,
+      "fixed_depth": 0.09047404135642136,
+      "greedy0": 0.11942679567499168,
+      "greedy1": 0.00046712121212121217,
+      "greedy2": 0.0,
+      "memoryless": 0.07608967044444445,
+      "random": 1.0524327196338616,
+      "shuffled_memory": 0.0824523523030303,
+      "stop": 5.530019170756353,
+      "trm": 0.11394369501587301,
+      "trm_oracle_features": 0.06369127877777778
+    }
+  },
+  "seeds": 2,
+  "source_sha256": {
+    "export_vad_datagoblin.py": "9a21d996d15d5d81c81caac6c4fa9e4334d84c93d4bf83ce24e42247e2e44be4"
+  },
+  "symbolic_seconds_per_instance_mean": {
+    "greedy1_seconds_per_instance": 0.04408212774988594,
+    "greedy2_seconds_per_instance": 0.06751642791688331
+  }
+}

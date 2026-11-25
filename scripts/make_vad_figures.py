@@ -87,7 +87,7 @@ def fig_neural(out):
         return
     d = json.loads(p.read_text())
     fams = list(d["regret"])
-    arms = list(next(iter(d["regret"].values())))
+    arms = ["direct", "greedy0", "greedy1", "greedy2", "trm", "memoryless", "fixed_depth", "ff", "trm_oracle_features"]
     fig, ax = plt.subplots(figsize=(7.5, 3.6))
     w = 0.8 / len(arms)
     for i, a in enumerate(arms):
