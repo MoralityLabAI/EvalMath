@@ -1,0 +1,509 @@
+{
+  "world": "original_srg05",
+  "cohort": {
+    "seed": 1397888018,
+    "campaigns": 128
+  },
+  "factual": {
+    "campaigns": 128,
+    "completed": 128,
+    "secret": 15,
+    "sirens": 128,
+    "h1": 8,
+    "h3": 11,
+    "unique_truce": 0,
+    "unique_truce_without_ledger": 0
+  },
+  "sites": {
+    "timeline": {
+      "prefixes": 65,
+      "paired_prefixes": 65,
+      "arms": 195,
+      "complete_arms": 195,
+      "reached_arms": 195,
+      "factual_replay_checks": 65,
+      "intervention_vs_factual": {
+        "swaps": 130,
+        "first_reaction_changes": 130,
+        "first_destination_changes": 90,
+        "ending_changes": 59,
+        "goal_gains": 16,
+        "goal_losses": 12,
+        "h1_gains": 12,
+        "h1_losses": 7,
+        "h3_gains": 20,
+        "h3_losses": 8,
+        "unique_truce_gains": 0,
+        "unique_truce_losses": 0
+      },
+      "exact_choice_pair": {
+        "pairs": 195,
+        "h1_disagreement": 26,
+        "h3_disagreement": 36,
+        "unique_truce_disagreement": 0,
+        "random_goal_disagreement": 40
+      },
+      "contrast": {
+        "prefixes": 65,
+        "investigation_arms": 65,
+        "other_arms": 130,
+        "totals": {
+          "reached": 0,
+          "complete": 0,
+          "random_goal": 10,
+          "h1_attainable": 6.5,
+          "h1_truce": 1,
+          "h1_unique_truce": 0,
+          "h3_attainable": 9,
+          "h3_truce": 4.5,
+          "noLedgerH1_unique_truce": 0
+        },
+        "same_history_at_sirens": 0,
+        "ledger_delta": [
+          0,
+          0,
+          0
+        ],
+        "readiness_delta": 0,
+        "goal_distance_delta": -3.604146098283587,
+        "goal_distance_pairs": 130,
+        "paired_truce_gains": 0,
+        "paired_truce_losses": 0,
+        "paired_h3_gains": 18,
+        "paired_h3_losses": 0,
+        "all_ledger_deleted_gain_pairs": 0,
+        "all_ledger_deleted_loss_pairs": 0,
+        "pairs": 130,
+        "mean_delta": {
+          "reached": 0,
+          "complete": 0,
+          "random_goal": 0.15384615384615385,
+          "h1_attainable": 0.1,
+          "h1_truce": 0.015384615384615385,
+          "h1_unique_truce": 0,
+          "h3_attainable": 0.13846153846153847,
+          "h3_truce": 0.06923076923076923,
+          "noLedgerH1_unique_truce": 0
+        },
+        "mean_ledger_delta": [
+          0,
+          0,
+          0
+        ],
+        "mean_readiness_delta": 0,
+        "mean_goal_distance_delta_over_reached_pairs": -0.027724200756027592
+      },
+      "action_distribution": {
+        "opt_page_pink_ambush_theory_0": 65,
+        "opt_page_pink_ambush_theory_1": 65,
+        "opt_page_pink_ambush_theory_2": 65
+      },
+      "upstream_effect": {
+        "trials": 65,
+        "mean_goal_distance_range": 0.036099999999999986,
+        "max_goal_distance_range": 0.0361,
+        "nonzero_goal_distance_range": 65,
+        "max_energy_ratio": 1
+      },
+      "by_action": {
+        "opt_page_pink_ambush_theory_0": {
+          "arms": 65,
+          "reached": 65,
+          "complete": 65,
+          "random_goal": 20,
+          "h1_attainable": 13,
+          "h1_truce": 2,
+          "h1_unique_truce": 0,
+          "h3_attainable": 18,
+          "h3_truce": 9,
+          "ledger_sum": [
+            0,
+            0,
+            0
+          ]
+        },
+        "opt_page_pink_ambush_theory_1": {
+          "arms": 65,
+          "reached": 65,
+          "complete": 65,
+          "random_goal": 0,
+          "h1_attainable": 0,
+          "h1_truce": 0,
+          "h1_unique_truce": 0,
+          "h3_attainable": 0,
+          "h3_truce": 0,
+          "ledger_sum": [
+            0,
+            0,
+            0
+          ]
+        },
+        "opt_page_pink_ambush_theory_2": {
+          "arms": 65,
+          "reached": 65,
+          "complete": 65,
+          "random_goal": 20,
+          "h1_attainable": 13,
+          "h1_truce": 2,
+          "h1_unique_truce": 0,
+          "h3_attainable": 18,
+          "h3_truce": 9,
+          "ledger_sum": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "radio": {
+      "prefixes": 118,
+      "paired_prefixes": 118,
+      "arms": 354,
+      "complete_arms": 354,
+      "reached_arms": 354,
+      "factual_replay_checks": 118,
+      "intervention_vs_factual": {
+        "swaps": 236,
+        "first_reaction_changes": 236,
+        "first_destination_changes": 153,
+        "ending_changes": 118,
+        "goal_gains": 20,
+        "goal_losses": 21,
+        "h1_gains": 19,
+        "h1_losses": 12,
+        "h3_gains": 28,
+        "h3_losses": 16,
+        "unique_truce_gains": 0,
+        "unique_truce_losses": 0
+      },
+      "exact_choice_pair": {
+        "pairs": 354,
+        "h1_disagreement": 48,
+        "h3_disagreement": 70,
+        "unique_truce_disagreement": 0,
+        "random_goal_disagreement": 62
+      },
+      "contrast": {
+        "prefixes": 118,
+        "investigation_arms": 118,
+        "other_arms": 236,
+        "totals": {
+          "reached": 0,
+          "complete": 0,
+          "random_goal": -14.5,
+          "h1_attainable": -11,
+          "h1_truce": -1.5,
+          "h1_unique_truce": 0,
+          "h3_attainable": -16.5,
+          "h3_truce": -6,
+          "noLedgerH1_unique_truce": 0
+        },
+        "same_history_at_sirens": 0,
+        "ledger_delta": [
+          0,
+          0,
+          0
+        ],
+        "readiness_delta": 0,
+        "goal_distance_delta": 3.955673233842657,
+        "goal_distance_pairs": 236,
+        "paired_truce_gains": 0,
+        "paired_truce_losses": 0,
+        "paired_h3_gains": 1,
+        "paired_h3_losses": 34,
+        "all_ledger_deleted_gain_pairs": 0,
+        "all_ledger_deleted_loss_pairs": 0,
+        "pairs": 236,
+        "mean_delta": {
+          "reached": 0,
+          "complete": 0,
+          "random_goal": -0.1228813559322034,
+          "h1_attainable": -0.09322033898305085,
+          "h1_truce": -0.012711864406779662,
+          "h1_unique_truce": 0,
+          "h3_attainable": -0.13983050847457626,
+          "h3_truce": -0.05084745762711865,
+          "noLedgerH1_unique_truce": 0
+        },
+        "mean_ledger_delta": [
+          0,
+          0,
+          0
+        ],
+        "mean_readiness_delta": 0,
+        "mean_goal_distance_delta_over_reached_pairs": 0.016761327262045156
+      },
+      "action_distribution": {
+        "opt_page_cadillac_trunk_0": 118,
+        "opt_page_cadillac_trunk_1": 118,
+        "opt_page_cadillac_trunk_2": 118
+      },
+      "upstream_effect": {
+        "trials": 118,
+        "mean_goal_distance_range": 0.022668885066658012,
+        "max_goal_distance_range": 0.06143630475776528,
+        "nonzero_goal_distance_range": 118,
+        "max_energy_ratio": 1.4417808144407205
+      },
+      "by_action": {
+        "opt_page_cadillac_trunk_0": {
+          "arms": 118,
+          "reached": 118,
+          "complete": 118,
+          "random_goal": 5,
+          "h1_attainable": 3,
+          "h1_truce": 0,
+          "h1_unique_truce": 0,
+          "h3_attainable": 4,
+          "h3_truce": 1,
+          "ledger_sum": [
+            0,
+            0,
+            0
+          ]
+        },
+        "opt_page_cadillac_trunk_1": {
+          "arms": 118,
+          "reached": 118,
+          "complete": 118,
+          "random_goal": 34,
+          "h1_attainable": 25,
+          "h1_truce": 3,
+          "h1_unique_truce": 0,
+          "h3_attainable": 37,
+          "h3_truce": 13,
+          "ledger_sum": [
+            0,
+            0,
+            0
+          ]
+        },
+        "opt_page_cadillac_trunk_2": {
+          "arms": 118,
+          "reached": 118,
+          "complete": 118,
+          "random_goal": 5,
+          "h1_attainable": 3,
+          "h1_truce": 0,
+          "h1_unique_truce": 0,
+          "h3_attainable": 4,
+          "h3_truce": 1,
+          "ledger_sum": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    "review": {
+      "prefixes": 100,
+      "paired_prefixes": 100,
+      "arms": 300,
+      "complete_arms": 300,
+      "reached_arms": 300,
+      "factual_replay_checks": 100,
+      "intervention_vs_factual": {
+        "swaps": 200,
+        "first_reaction_changes": 200,
+        "first_destination_changes": 36,
+        "ending_changes": 47,
+        "goal_gains": 9,
+        "goal_losses": 9,
+        "h1_gains": 5,
+        "h1_losses": 5,
+        "h3_gains": 15,
+        "h3_losses": 8,
+        "unique_truce_gains": 0,
+        "unique_truce_losses": 0
+      },
+      "exact_choice_pair": {
+        "pairs": 300,
+        "h1_disagreement": 16,
+        "h3_disagreement": 38,
+        "unique_truce_disagreement": 0,
+        "random_goal_disagreement": 28
+      },
+      "contrast": {
+        "prefixes": 100,
+        "investigation_arms": 200,
+        "other_arms": 100,
+        "totals": {
+          "reached": 0,
+          "complete": 0,
+          "random_goal": 6,
+          "h1_attainable": 3,
+          "h1_truce": 1,
+          "h1_unique_truce": 0,
+          "h3_attainable": 9.5,
+          "h3_truce": 6,
+          "noLedgerH1_unique_truce": 0
+        },
+        "same_history_at_sirens": 0,
+        "ledger_delta": [
+          0,
+          0,
+          0
+        ],
+        "readiness_delta": 0,
+        "goal_distance_delta": -3.9759746279395323,
+        "goal_distance_pairs": 200,
+        "paired_truce_gains": 0,
+        "paired_truce_losses": 0,
+        "paired_h3_gains": 19,
+        "paired_h3_losses": 0,
+        "all_ledger_deleted_gain_pairs": 0,
+        "all_ledger_deleted_loss_pairs": 0,
+        "pairs": 200,
+        "mean_delta": {
+          "reached": 0,
+          "complete": 0,
+          "random_goal": 0.06,
+          "h1_attainable": 0.03,
+          "h1_truce": 0.01,
+          "h1_unique_truce": 0,
+          "h3_attainable": 0.095,
+          "h3_truce": 0.06,
+          "noLedgerH1_unique_truce": 0
+        },
+        "mean_ledger_delta": [
+          0,
+          0,
+          0
+        ],
+        "mean_readiness_delta": 0,
+        "mean_goal_distance_delta_over_reached_pairs": -0.019879873139697662
+      },
+      "action_distribution": {
+        "opt_page_eddie_and_blonde_story_0": 100,
+        "opt_page_eddie_and_blonde_story_1": 100,
+        "opt_page_eddie_and_blonde_story_2": 100
+      },
+      "upstream_effect": {
+        "trials": 100,
+        "mean_goal_distance_range": 0.039759746279395325,
+        "max_goal_distance_range": 0.09214692978819758,
+        "nonzero_goal_distance_range": 94,
+        "max_energy_ratio": 1.4406076598291448
+      },
+      "by_action": {
+        "opt_page_eddie_and_blonde_story_0": {
+          "arms": 100,
+          "reached": 100,
+          "complete": 100,
+          "random_goal": 2,
+          "h1_attainable": 2,
+          "h1_truce": 0,
+          "h1_unique_truce": 0,
+          "h3_attainable": 3,
+          "h3_truce": 1,
+          "ledger_sum": [
+            0,
+            0,
+            0
+          ]
+        },
+        "opt_page_eddie_and_blonde_story_1": {
+          "arms": 100,
+          "reached": 100,
+          "complete": 100,
+          "random_goal": 14,
+          "h1_attainable": 8,
+          "h1_truce": 2,
+          "h1_unique_truce": 0,
+          "h3_attainable": 22,
+          "h3_truce": 13,
+          "ledger_sum": [
+            0,
+            0,
+            0
+          ]
+        },
+        "opt_page_eddie_and_blonde_story_2": {
+          "arms": 100,
+          "reached": 100,
+          "complete": 100,
+          "random_goal": 2,
+          "h1_attainable": 2,
+          "h1_truce": 0,
+          "h1_unique_truce": 0,
+          "h3_attainable": 3,
+          "h3_truce": 1,
+          "ledger_sum": [
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    }
+  },
+  "counts": {
+    "decision_prefixes": 283,
+    "arms": 849,
+    "invariantChecks": 283,
+    "reachability_nodes": 27650
+  },
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md": "cb174a3efb031eaa046b01a2acc526ef7d122345",
+    "integrations/sweepweave-ts/srg14/counterfactual.mjs": "2f744247935ca25a9fa4a8c8a699fc409c3f8de5"
+  },
+  "contract": {
+    "cohorts": [
+      {
+        "seed": 1397888017,
+        "campaigns": 128
+      },
+      {
+        "seed": 1397888018,
+        "campaigns": 128
+      }
+    ],
+    "maxActions": 24,
+    "horizons": [
+      1,
+      3
+    ],
+    "sites": [
+      {
+        "page": "page_pink_ambush_theory",
+        "investigation": [
+          0
+        ],
+        "label": "timeline"
+      },
+      {
+        "page": "page_cadillac_trunk",
+        "investigation": [
+          2
+        ],
+        "label": "radio"
+      },
+      {
+        "page": "page_eddie_and_blonde_story",
+        "investigation": [
+          1,
+          2
+        ],
+        "label": "review"
+      }
+    ],
+    "goal": "page_secret_undercover_truce",
+    "sirens": "page_sirens_at_the_rollup_door",
+    "truce": "opt_page_sirens_at_the_rollup_door_2",
+    "ledger": [
+      "char_pink.Timeline_Record",
+      "char_pink.Radio_Record",
+      "char_pink.Review_Request"
+    ],
+    "readiness": "char_white.Truce_Coordination",
+    "prior": "uniform over each fixed cohort's xorshift32 streams; descriptive finite policy interventions, not a human-play distribution",
+    "objective": "binary terminal utility: secret ending=1, other endings=0; no inferred moral preference",
+    "intervention": "first visit to each of three upstream encounters before first sirens on the factual trajectory; enumerate every legal action, then use common random words at the same absolute decision index",
+    "horizon": "exact full-state existential reachability, h actions from first sirens; no observation-restricted policy or model performance claimed",
+    "deletion": "set only the three ledger coordinates to zero at the first sirens state, retain all other numeric state/history; controlled readout, not natural indirect effect"
+  }
+}
