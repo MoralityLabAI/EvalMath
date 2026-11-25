@@ -1,0 +1,41 @@
+{
+  "protocols": [
+    "VAD-06B",
+    "VAD-06C"
+  ],
+  "evidence": "exact synthetic Horn reference model; no new Lean replay",
+  "parent_sha256": "0aa32bf2fe6661119c081f7365534070bbe7ddf907c988f14f22ad42e60be2e6",
+  "transfer": {
+    "source_sha256": "0defe68ef4321be3ca795507ca87e1532008a803033fdcad05d42b8966855393",
+    "receipt_sha256": "017266f0e3f903df258868a727d5fd8abf419b69c6b731fb0c6e4ada387c4e82",
+    "records_sha256": "c2bf1c32281a533c90c9f9e9267463a668c4deddfd829e3fc9efd813c8d47e27",
+    "calibration_families": 96,
+    "test_families": 192,
+    "checks": 1718892,
+    "records": 4608,
+    "chosen": "fixed_4_0",
+    "baseline": 571019,
+    "support_total": 564723,
+    "validation_total": 607791,
+    "exact_total": 697414,
+    "gate": "FAIL"
+  },
+  "online": {
+    "source_sha256": "5564ccdfafed7c06b6f16dfdf8a05b8d441c64b77473897bb11265546eac072f",
+    "receipt_sha256": "c221dfc10dd51c4f948d081bc906194e17d4bb43042593b1123949a988d853bb",
+    "records_sha256": "482639253cd4f186210b783da7492813bd07a9b37555d2167a8382dc0734f698",
+    "calibration_families": 96,
+    "test_families": 192,
+    "checks": 1449578,
+    "records": 3072,
+    "chosen": "online_support_4",
+    "baseline": 567120,
+    "support_total": 562566,
+    "marginal_total": 589469,
+    "full_total": 606460,
+    "online_total": 421276,
+    "profitable": 141,
+    "late_shift_profitable": 24,
+    "dominated_zero_savings_selected": 24
+  }
+}
