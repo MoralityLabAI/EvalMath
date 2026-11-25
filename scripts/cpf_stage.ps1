@@ -25,6 +25,10 @@ if ($Probe) {
         --prompts "$Private\dev48\prompts.jsonl" --n 3 --sha256 $sha[$Model] --out "$Private\probe_$Model.json"
     if ($LASTEXITCODE) { throw "probe failed for $Model" }
 }
-python "$repo\scripts\run_cpf_suite.py" collect --prompts "$Private\$Panel\prompts.jsonl" --config "$Private\models.json" `
-    --calls "$Private\$Panel\calls.jsonl" --only-model $Model
-if ($LASTEXITCODE) { throw "collect failed for $Model on $Panel (rerun this command to resume)" }
+# Start-Process keeps the collector's stderr out of PowerShell's error stream and logs it for diagnosis.
+$log = "$Private\servers\$Model.$Panel.collect"
+$c = Start-Process python -NoNewWindow -Wait -PassThru -RedirectStandardOutput "$log.out.log" -RedirectStandardError "$log.err.log" `
+    -ArgumentList @("`"$repo\scripts\run_cpf_suite.py`"", 'collect', '--prompts', "`"$Private\$Panel\prompts.jsonl`"",
+                    '--config', "`"$Private\models.json`"", '--calls', "`"$Private\$Panel\calls.jsonl`"", '--only-model', $Model)
+Get-Content "$log.out.log"
+if ($c.ExitCode) { throw "collect failed for $Model on $Panel, see $log.err.log (rerun this command to resume)" }
