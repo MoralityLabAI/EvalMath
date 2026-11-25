@@ -49,3 +49,17 @@ The verifier's `--output` option creates a new file and requires a path that doe
 ## Key limitations
 
 `infer_goals` identifies only among a declared finite candidate set. The halfspace certificate exposes continuous directions that remain unidentified. An observed storyworld trace lacks counterfactual next states for the unchosen legal actions; supplying these states without a pinned simulator, intervention, or replay oracle would be leakage or fabrication. `hidden_state_reveal`, realized outcome, and future belief deltas are grading-only fields. The Clifford geometry is a mathematically defined representation of classical narrative states; no claim of quantum dynamics or physically instantiated spinors is involved.
+
+## HG-02: single-player reasoning and alignment
+
+The [single-player high-dimensional gym](single_player/README.md) adds sealed-state
+parity, verification and authorization tasks, exact Bellman controls, proxy
+failure cases and a reproducible source-hashed receipt. See
+[`paper/hypergames_single_player_reasoning_alignment.md`](../paper/hypergames_single_player_reasoning_alignment.md).
+
+## HG-03: frozen Qwen3.5-0.8B trial
+
+The [registered local Qwen single-player study](single_player/QWEN_PROTOCOL.md) adds
+an isolated 140-dimensional core, a 512-dimensional padding control and a native
+512-dimensional wide-predicate test. It freezes the model checksum and private-seed
+commitment before evaluation. The source-hashed fast preflight contains **no model runs**.
