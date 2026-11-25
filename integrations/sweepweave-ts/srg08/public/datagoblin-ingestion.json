@@ -1,0 +1,44 @@
+{
+  "schema": "srg08.ingestion.v1",
+  "dataset_id": "evalmath-swmd-srg08-public-train",
+  "source_repository": "MoralityLabAI/EvalMath",
+  "source_branch": "research/srg-01-storyworld-reasoning-geometry",
+  "source_commit": "a8af22473caf878a0eaf18bc4cac395590e66b19",
+  "artifact": {
+    "path": "integrations/sweepweave-ts/srg08/public/srg08_train.jsonl",
+    "git_blob_sha": "aee43dae6f3b39bca5156ed6f5d6112578a21182",
+    "count": 123,
+    "counts": {
+      "swmd_author": 3,
+      "swmd_player": 96,
+      "swmd_planning": 24
+    }
+  },
+  "source_git_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg08/curriculum.mjs": "901abb5f06dd1328c7f163dd325948c024d43628",
+    "integrations/sweepweave-ts/srg08/run-local.mjs": "bb0e451d6579774655c3cf1a0133659801d9f131",
+    "integrations/sweepweave-ts/srg08/export-dg.mjs": "215a980ae1830043fbcb7a420d0da788bf3055b9"
+  },
+  "split": "train_public",
+  "seed": 1397884929,
+  "replicates": 1,
+  "evidence_class": "deterministic_reference_control",
+  "architecture_promotion_eligible": false,
+  "model_inference_executed": false,
+  "controls": {
+    "calibration_refused": true,
+    "history_only_player": true,
+    "artifact_refetch_exact": true
+  },
+  "exclusions": [
+    "calibration_public",
+    "evaluation_private",
+    "public_smoke",
+    "current-only memory labels",
+    "unverified model attempts"
+  ],
+  "group_by": "source_world",
+  "policy": "Public reference supervision only. No independent test claims. Keep source-world siblings together. Use local export-dg.mjs to derive SHA256-bound corpus manifest."
+}
