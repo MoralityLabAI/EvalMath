@@ -58,7 +58,6 @@ def least(d):
 
 
 def terminal(d):
-    # Greatest fixed point <= initial, by simultaneous monotone descent.
     p=initial(d)
     while True:
         q=tuple(h(d,p,i) for i in range(len(p)))
