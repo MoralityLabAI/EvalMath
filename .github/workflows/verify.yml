@@ -76,3 +76,15 @@ jobs:
             /tmp/vad05_kernel/kernel.json
             /tmp/vad05_kernel/manifest.json
           if-no-files-found: warn
+      - name: VAD-06 Horn kernel replay
+        run: lake env python3 ../scripts/verify_vad_horn.py --out /tmp/vad06_kernel --lean lean
+      - name: Upload VAD-06 kernel receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vad06-kernel-receipt
+          path: |
+            /tmp/vad06_kernel/receipt.json
+            /tmp/vad06_kernel/kernel.json
+            /tmp/vad06_kernel/manifest.json
+          if-no-files-found: warn
