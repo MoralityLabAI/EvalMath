@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 import * as api from '../srg05/swmd-runtime-v2.mjs';
 import {evaluate} from '../srg04/swmd-runtime.mjs';
 function research(api,evaluate,source){
@@ -163,7 +164,7 @@ function research(api,evaluate,source){
  if(mismatches)throw Error("support intervention mismatch");
  return {evidence:"source-pinned finite sampled authoring audit and snapshot oracle; binary64",edits,calibration:cal.stats,validation:val.stats,geometry:{calibration:cal.geometry,validation:val.geometry},difficulty,checks:{srg05_reproduced:true,all_calibration_bypasses_early:cal.stats.violation_reasons.early===cal.stats.violations,scoped_calibration_preserves_paths:cal.stats.scoped_path_changes===0,scoped_validation_preserves_paths:val.stats.scoped_path_changes===0,absent_interventions_preserve_signature:mismatches===0},patched};
 }
-const root=path.resolve(new URL('../../../',import.meta.url).pathname);
+const root=fileURLToPath(new URL('../../../',import.meta.url));
 const blobs={"integrations/sweepweave-ts/srg04/swmd-runtime.mjs":"ba4401a824f8cfdb4ae25525973a989c0047168e","integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs":"a687ad75e3c88683936b4b3d24324ced3f4cf874","integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md":"cb174a3efb031eaa046b01a2acc526ef7d122345"};
 for(const [p,sha] of Object.entries(blobs)){const b=fs.readFileSync(path.join(root,p));if(crypto.createHash('sha1').update('blob '+b.length+'\0').update(b).digest('hex')!==sha)throw Error('source blob mismatch '+p);}
 const source=fs.readFileSync(path.join(root,"integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md"),'utf8');
