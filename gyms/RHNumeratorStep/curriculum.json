@@ -1,0 +1,51 @@
+{
+  "confirmation": {
+    "scored": false,
+    "status": "unallocated"
+  },
+  "episode": {
+    "budget_unit": "submitted candidate attempt",
+    "default_attempts": 4,
+    "reward": "unchanged verified-best complete-source-byte potential"
+  },
+  "expected_lean": "4.34.1",
+  "family": "rh-recurrence-construction-v1",
+  "independent_families": 1,
+  "language": "Lean 4",
+  "schema": "EvalMath/rh-numerator-curriculum/v1",
+  "scientific_eligible": false,
+  "scope": "Public RH-PL-18 Nat/function analogue, additive to the existing recurrence family",
+  "sources_sha256": {
+    "lean/FeedbackChannel/RHCompactification.lean": "e7c8c6282aed3fa1392bf18b2caff43958c5839919529e6863cf5fcc57799f79",
+    "lean/FeedbackChannel/RHNumeratorStep.lean": "9c3efa5c82409e7bc3ec337eb676be9345d1fd2e6ce7b26e4a38d3d2f8db1678",
+    "src/spiral_ln/rh_compactification_gym.py": "f97269f0a49f5b57926a63b279a6c9813c52b326aa13b51205936b1aa1491d62",
+    "src/spiral_ln/rh_numerator_gym.py": "186bd6f466f21bfd2182464b8f395d34f1f606a593c4fd13b9e37c4f2dbe5afd"
+  },
+  "splits": {
+    "train": [
+      "RHCG-021",
+      "RHCG-022",
+      "RHCG-023",
+      "RHCG-024",
+      "RHCG-025",
+      "RHCG-026",
+      "RHCG-027",
+      "RHCG-028"
+    ]
+  },
+  "task_file": "tasks.jsonl",
+  "task_ids": [
+    "RHCG-021",
+    "RHCG-022",
+    "RHCG-023",
+    "RHCG-024",
+    "RHCG-025",
+    "RHCG-026",
+    "RHCG-027",
+    "RHCG-028"
+  ],
+  "tasks": 8,
+  "tasks_sha256": "9990ac18da1336b99d04f76173174dc8e9a78a68e96247f537f9b3dcb722b530",
+  "teacher_file": "teachers.jsonl",
+  "teachers_sha256": "e9532675f381b92a764a31687bdeb22a1ce7ae90b647422622f743bed8ce72dc"
+}

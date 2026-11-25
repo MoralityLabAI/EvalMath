@@ -334,3 +334,22 @@ The domain is Lean `Nat`, with functions and graph predicates. These theorems su
 | `FeedbackChannel.RHCompactification.joint_components_unique` | Supporting theorem in the native Nat/function recurrence curriculum |
 | `FeedbackChannel.RHCompactification.witness_denominator_six` | Supporting finite numerical witness, checked by kernel reduction |
 | `FeedbackChannel.RHCompactification.witness_joint_six` | Supporting finite numerical witness, checked by kernel reduction |
+
+## RH-PL-18: relational numerator construction
+
+Source: `FeedbackChannel/RHNumeratorStep.lean`; report: `research/rh_pl01/RH_PL_18.md`.
+
+The operation parameters range over arbitrary total functions on `Nat`. The affine relation returns its input at index zero and evaluates `add (mul (x + 1) a) (den x)` at a successor. These results extend the same public training family. Their evidence concerns the native Lean recurrence model; the corresponding set-coded Hilbert proofs have their own certificates.
+
+| Lean theorem | Scope |
+|---|---|
+| `FeedbackChannel.RHNumeratorStep.affine_step_zero_iff` | Characterizes the relation at zero |
+| `FeedbackChannel.RHNumeratorStep.affine_step_succ_iff` | Eliminates predecessor and intermediate value witnesses at a successor |
+| `FeedbackChannel.RHNumeratorStep.affine_step_iff_graph` | Identifies the relation with its total function |
+| `FeedbackChannel.RHNumeratorStep.affine_step_total` | Supplies an output for every natural index and input |
+| `FeedbackChannel.RHNumeratorStep.affine_step_functional` | Equates outputs for the same index and input |
+| `FeedbackChannel.RHNumeratorStep.affine_recurrence_iff` | Translates the relational recurrence into the existing recursion interface |
+| `FeedbackChannel.RHNumeratorStep.affine_recurrence_exists_unique` | Constructs a unique recurrence for any supplied denominator function and seed |
+| `FeedbackChannel.RHNumeratorStep.affine_recurrence_eq_joint_numerator` | Identifies the recurrence with the earlier joint numerator when supplied the constructed denominator |
+
+The module uses `RHCompactification` and its `Init` dependencies. Every theorem appears in `axioms_check.lean` and the additive gym's native replay.

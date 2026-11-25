@@ -1,9 +1,15 @@
 # RH-PL-01: Proof-length frontier, obstruction packing
 
-Status: exploratory proof-length program through RH-PL-17, 2026-11-25.
+Status: exploratory proof-length program through RH-PL-18, 2026-11-26.
 
-The latest stage, [RH-PL-17](RH_PL_17.md), proves the conditional numerator
-bridge and prepares the [native Lean recurrence gym](../../gyms/RHCompactification/README.md).
+The latest stage, [RH-PL-18](RH_PL_18.md), constructs a total affine step
+graph and applies the finite-prefix recursor to construct the numerator.
+It combines that graph with the denominator construction and proves the
+existence of exact frozen clauses 13, 14, 18, 19, 20 and 21 from clauses
+0 through 6. Its arithmetic operation graphs remain explicit premises.
+
+[RH-PL-17](RH_PL_17.md) proves the conditional numerator bridge and prepares
+the [native Lean recurrence gym](../../gyms/RHCompactification/README.md).
 Its five Hilbert certificates and the separate Lean curriculum retain their
 respective verifier identities. The training pack has completed the pinned
 PPT loader and a bounded CPU optimizer run.
@@ -151,6 +157,6 @@ circuit lower bound transfers without a resource-preserving reduction.
 
 ## RH-PL-17 and the native Lean curriculum
 
-[RH_PL_17.md](RH_PL_17.md) derives exact numerator clauses 13, 18 and 20 from the normalized numerator contract, with five independently replayed certificates. Its original-slot bridge costs 471,370,349 unary bytes or 48,389,788 compact bytes. Constructing the normalized numerator graph remains open in the Hilbert calculus.
+[RH_PL_17.md](RH_PL_17.md) derives exact numerator clauses 13, 18 and 20 from the normalized numerator contract, with five independently replayed certificates. Its original-slot bridge costs 471,370,349 unary bytes or 48,389,788 compact bytes. [RH-PL-18](RH_PL_18.md) constructs that normalized graph from the displayed natural-set and arithmetic premises and combines it with the denominator construction.
 
 The [RH recurrence gym](../../gyms/RHCompactification/README.md) adds 36 Lean theorems, 20 source-prefix proof exercises, and 12 bounded local repair tasks in the checked-candidate format accepted by the pinned DataGoblin and PPT loaders. The native Nat/function construction and the Hilbert proofs retain separate verifier identities. A 32-update CPU run checks the existing PPT training path. All current tasks belong to one public training/development family.

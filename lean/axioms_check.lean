@@ -321,3 +321,13 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.RHCompactification.joint_components_unique
 #print axioms FeedbackChannel.RHCompactification.witness_denominator_six
 #print axioms FeedbackChannel.RHCompactification.witness_joint_six
+
+-- RH-PL-18: relational affine numerator step
+#print axioms FeedbackChannel.RHNumeratorStep.affine_step_zero_iff
+#print axioms FeedbackChannel.RHNumeratorStep.affine_step_succ_iff
+#print axioms FeedbackChannel.RHNumeratorStep.affine_step_iff_graph
+#print axioms FeedbackChannel.RHNumeratorStep.affine_step_total
+#print axioms FeedbackChannel.RHNumeratorStep.affine_step_functional
+#print axioms FeedbackChannel.RHNumeratorStep.affine_recurrence_iff
+#print axioms FeedbackChannel.RHNumeratorStep.affine_recurrence_exists_unique
+#print axioms FeedbackChannel.RHNumeratorStep.affine_recurrence_eq_joint_numerator

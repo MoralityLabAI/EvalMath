@@ -63,3 +63,35 @@ jobs:
         run: >-
           cmp /tmp/numerator_bridge_audit_receipt.json
           research/rh_pl01/numerator_bridge_audit_receipt.json
+
+  affine:
+    name: Replay affine graph construction
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Regenerate the affine graph audit
+        run: node research/rh_pl01/affine_audit.mjs --output /tmp/affine_audit_receipt.json
+      - name: Compare the committed affine graph receipt
+        run: cmp /tmp/affine_audit_receipt.json research/rh_pl01/affine_audit_receipt.json
+
+  joint:
+    name: Replay numerator and joint existence
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Regenerate the joint existence audit
+        run: >-
+          node research/rh_pl01/numerator_existence_audit.mjs
+          --output /tmp/numerator_existence_audit_receipt.json
+      - name: Compare the committed joint existence receipt
+        run: >-
+          cmp /tmp/numerator_existence_audit_receipt.json
+          research/rh_pl01/numerator_existence_audit_receipt.json

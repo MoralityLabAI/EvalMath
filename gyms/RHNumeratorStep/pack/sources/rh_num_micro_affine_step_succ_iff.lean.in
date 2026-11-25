@@ -1,0 +1,469 @@
+import Init
+
+/-!
+# RH compactification curriculum: recurrences and compatible finite prefixes
+
+This module supplies a Lean-native mathematical analogue of the finite-prefix,
+overlap, gluing, and recurrence constructions in `research/rh_pl01/`. Its domain
+is Lean's `Nat`, and its graphs are predicates or functions. It does not translate
+the custom Hilbert calculus, its set-theoretic encoding, or its frozen RH target.
+
+The operation arguments `mul` and `add` are arbitrary total natural functions.
+The general theorems impose no arithmetic laws on them. The final numerical
+witnesses specialize both operations to Lean's natural multiplication and addition.
+
+The marker comments delimit declarations for the proof-repair gym. A challenge
+receives the declarations preceding its target and the target's statement.
+-/
+
+set_option autoImplicit false
+
+namespace FeedbackChannel.RHCompactification
+
+universe u
+variable {α : Type u}
+
+-- RHGYM-BEGIN orbit
+/-- Primitive recursion with a step indexed by its predecessor. -/
+def orbit (step : Nat → α → α) (seed : α) : Nat → α
+  | 0 => seed
+  | n + 1 => step n (orbit step seed n)
+-- RHGYM-END orbit
+
+-- RHGYM-BEGIN IsPrefix
+/-- A recurrence contract through `bound`; values after `bound` are unrestricted. -/
+def IsPrefix (step : Nat → α → α) (seed : α) (bound : Nat) (f : Nat → α) : Prop :=
+  f 0 = seed ∧ ∀ i, i < bound → f (i + 1) = step i (f i)
+-- RHGYM-END IsPrefix
+
+-- RHGYM-BEGIN extend
+/-- Replace the next point while retaining every earlier value. -/
+def extend (f : Nat → α) (bound : Nat) (value : α) : Nat → α :=
+  fun i => if i = bound + 1 then value else f i
+-- RHGYM-END extend
+
+-- RHGYM-BEGIN extend_at_new
+theorem extend_at_new (f : Nat → α) (bound : Nat) (value : α) :
+    extend f bound value (bound + 1) = value := by
+  simp [extend]
+-- RHGYM-END extend_at_new
+
+-- RHGYM-BEGIN extend_before
+theorem extend_before (f : Nat → α) (bound i : Nat) (value : α)
+    (hi : i ≤ bound) : extend f bound value i = f i := by
+  have hne : i ≠ bound + 1 := Nat.ne_of_lt (Nat.lt_succ_of_le hi)
+  simp [extend, hne]
+-- RHGYM-END extend_before
+
+-- RHGYM-BEGIN prefix_zero
+theorem prefix_zero (step : Nat → α → α) (seed : α) :
+    IsPrefix step seed 0 (fun _ => seed) := by
+  refine ⟨rfl, ?_⟩
+  intro i hi
+  exact False.elim (Nat.not_lt_zero i hi)
+-- RHGYM-END prefix_zero
+
+-- RHGYM-BEGIN prefix_restrict
+theorem prefix_restrict {step : Nat → α → α} {seed : α} {m n : Nat} {f : Nat → α}
+    (hf : IsPrefix step seed n f) (hmn : m ≤ n) : IsPrefix step seed m f := by
+  refine ⟨hf.1, ?_⟩
+  intro i hi
+  exact hf.2 i (Nat.lt_of_lt_of_le hi hmn)
+-- RHGYM-END prefix_restrict
+
+-- RHGYM-BEGIN prefix_extend
+theorem prefix_extend {step : Nat → α → α} {seed : α} {n : Nat} {f : Nat → α}
+    (hf : IsPrefix step seed n f) :
+    IsPrefix step seed (n + 1) (extend f n (step n (f n))) := by
+  refine ⟨?_, ?_⟩
+  · rw [extend_before f n 0 (step n (f n)) (Nat.zero_le n)]
+    exact hf.1
+  · intro i hi
+    rcases Nat.lt_or_eq_of_le (Nat.le_of_lt_succ hi) with hlt | heq
+    · rw [extend_before f n (i + 1) (step n (f n)) (Nat.succ_le_of_lt hlt)]
+      rw [extend_before f n i (step n (f n)) (Nat.le_of_lt hlt)]
+      exact hf.2 i hlt
+    · subst i
+      rw [extend_at_new, extend_before f n n (step n (f n)) (Nat.le_refl n)]
+-- RHGYM-END prefix_extend
+
+-- RHGYM-BEGIN prefix_agreement
+/-- Independently chosen prefixes agree at every index in both domains. -/
+theorem prefix_agreement {step : Nat → α → α} {seed : α} {n m : Nat}
+    {f g : Nat → α} (hf : IsPrefix step seed n f) (hg : IsPrefix step seed m g)
+    (i : Nat) (hin : i ≤ n) (him : i ≤ m) : f i = g i := by
+  induction i with
+  | zero => exact hf.1.trans hg.1.symm
+  | succ i ih =>
+      rw [hf.2 i (Nat.lt_of_succ_le hin), hg.2 i (Nat.lt_of_succ_le him)]
+      exact congrArg (step i)
+        (ih (Nat.le_trans (Nat.le_succ i) hin) (Nat.le_trans (Nat.le_succ i) him))
+-- RHGYM-END prefix_agreement
+
+-- RHGYM-BEGIN orbit_isPrefix
+theorem orbit_isPrefix (step : Nat → α → α) (seed : α) (n : Nat) :
+    IsPrefix step seed n (orbit step seed) := by
+  exact ⟨rfl, fun _ _ => rfl⟩
+-- RHGYM-END orbit_isPrefix
+
+-- RHGYM-BEGIN prefix_eq_orbit
+theorem prefix_eq_orbit {step : Nat → α → α} {seed : α} {n : Nat} {f : Nat → α}
+    (hf : IsPrefix step seed n f) (i : Nat) (hi : i ≤ n) : f i = orbit step seed i := by
+  exact prefix_agreement hf (orbit_isPrefix step seed n) i hi hi
+-- RHGYM-END prefix_eq_orbit
+
+-- RHGYM-BEGIN prefix_exists
+/-- Finite existence follows by repeated checked extension. -/
+theorem prefix_exists (step : Nat → α → α) (seed : α) (n : Nat) :
+    ∃ f : Nat → α, IsPrefix step seed n f := by
+  induction n with
+  | zero => exact ⟨fun _ => seed, prefix_zero step seed⟩
+  | succ n ih =>
+      obtain ⟨f, hf⟩ := ih
+      exact ⟨extend f n (step n (f n)), prefix_extend hf⟩
+-- RHGYM-END prefix_exists
+
+-- RHGYM-BEGIN PrefixGraph
+/-- A graph predicate whose domain is exactly the finite initial segment. -/
+def PrefixGraph (bound : Nat) (f : Nat → α) (i : Nat) (value : α) : Prop :=
+  i ≤ bound ∧ value = f i
+-- RHGYM-END PrefixGraph
+
+-- RHGYM-BEGIN prefix_graph_domain
+theorem prefix_graph_domain (bound i : Nat) (f : Nat → α) :
+    (∃ value, PrefixGraph bound f i value) ↔ i ≤ bound := by
+  constructor
+  · intro h
+    obtain ⟨value, hv⟩ := h
+    exact hv.1
+  · intro hi
+    exact ⟨f i, hi, rfl⟩
+-- RHGYM-END prefix_graph_domain
+
+-- RHGYM-BEGIN prefix_graph_functional
+theorem prefix_graph_functional {bound i : Nat} {f : Nat → α} {a b : α}
+    (ha : PrefixGraph bound f i a) (hb : PrefixGraph bound f i b) : a = b := by
+  exact ha.2.trans hb.2.symm
+-- RHGYM-END prefix_graph_functional
+
+-- RHGYM-BEGIN prefix_graph_overlap
+theorem prefix_graph_overlap {step : Nat → α → α} {seed : α} {n m i : Nat}
+    {f g : Nat → α} {a b : α}
+    (hf : IsPrefix step seed n f) (hg : IsPrefix step seed m g)
+    (ha : PrefixGraph n f i a) (hb : PrefixGraph m g i b) : a = b := by
+  exact ha.2.trans ((prefix_agreement hf hg i ha.1 hb.1).trans hb.2.symm)
+-- RHGYM-END prefix_graph_overlap
+
+-- RHGYM-BEGIN PrefixFamily
+/-- The family supplies an explicit prefix at every endpoint. -/
+def PrefixFamily (step : Nat → α → α) (seed : α) :=
+  (n : Nat) → {f : Nat → α // IsPrefix step seed n f}
+-- RHGYM-END PrefixFamily
+
+-- RHGYM-BEGIN canonicalFamily
+def canonicalFamily (step : Nat → α → α) (seed : α) : PrefixFamily step seed :=
+  fun n => ⟨orbit step seed, orbit_isPrefix step seed n⟩
+-- RHGYM-END canonicalFamily
+
+-- RHGYM-BEGIN glue
+/-- The diagonal chooses the endpoint value of the corresponding prefix. -/
+def glue {step : Nat → α → α} {seed : α} (family : PrefixFamily step seed) : Nat → α :=
+  fun i => (family i).val i
+-- RHGYM-END glue
+
+-- RHGYM-BEGIN glue_agrees
+theorem glue_agrees {step : Nat → α → α} {seed : α}
+    (family : PrefixFamily step seed) (n i : Nat) (hi : i ≤ n) :
+    glue family i = (family n).val i := by
+  exact prefix_agreement (family i).property (family n).property i (Nat.le_refl i) hi
+-- RHGYM-END glue_agrees
+
+-- RHGYM-BEGIN GluedGraph
+/-- Union of the bounded graph predicates supplied by a prefix family. -/
+def GluedGraph {step : Nat → α → α} {seed : α}
+    (family : PrefixFamily step seed) (i : Nat) (value : α) : Prop :=
+  ∃ n, PrefixGraph n (family n).val i value
+-- RHGYM-END GluedGraph
+
+-- RHGYM-BEGIN glued_graph_iff
+theorem glued_graph_iff {step : Nat → α → α} {seed : α}
+    (family : PrefixFamily step seed) (i : Nat) (value : α) :
+    GluedGraph family i value ↔ value = glue family i := by
+  constructor
+  · intro h
+    obtain ⟨n, hn⟩ := h
+    exact hn.2.trans (glue_agrees family n i hn.1).symm
+  · intro h
+    exact ⟨i, Nat.le_refl i, h⟩
+-- RHGYM-END glued_graph_iff
+
+-- RHGYM-BEGIN glue_zero
+theorem glue_zero {step : Nat → α → α} {seed : α}
+    (family : PrefixFamily step seed) : glue family 0 = seed := by
+  exact (family 0).property.1
+-- RHGYM-END glue_zero
+
+-- RHGYM-BEGIN glue_succ
+theorem glue_succ {step : Nat → α → α} {seed : α}
+    (family : PrefixFamily step seed) (n : Nat) :
+    glue family (n + 1) = step n (glue family n) := by
+  calc
+    glue family (n + 1) = step n ((family (n + 1)).val n) :=
+      (family (n + 1)).property.2 n (Nat.lt_succ_self n)
+    _ = step n (glue family n) :=
+      congrArg (step n) (glue_agrees family (n + 1) n (Nat.le_succ n)).symm
+-- RHGYM-END glue_succ
+
+-- RHGYM-BEGIN Recurrence
+/-- The unrestricted recurrence contract. -/
+def Recurrence (step : Nat → α → α) (seed : α) (f : Nat → α) : Prop :=
+  f 0 = seed ∧ ∀ n, f (n + 1) = step n (f n)
+-- RHGYM-END Recurrence
+
+-- RHGYM-BEGIN orbit_recurrence
+theorem orbit_recurrence (step : Nat → α → α) (seed : α) :
+    Recurrence step seed (orbit step seed) := by
+  exact ⟨rfl, fun _ => rfl⟩
+-- RHGYM-END orbit_recurrence
+
+-- RHGYM-BEGIN recurrence_unique
+theorem recurrence_unique {step : Nat → α → α} {seed : α} {f g : Nat → α}
+    (hf : Recurrence step seed f) (hg : Recurrence step seed g) : f = g := by
+  funext n
+  induction n with
+  | zero => exact hf.1.trans hg.1.symm
+  | succ n ih =>
+      rw [hf.2 n, hg.2 n, ih]
+-- RHGYM-END recurrence_unique
+
+-- RHGYM-BEGIN recurrence_exists_unique
+theorem recurrence_exists_unique (step : Nat → α → α) (seed : α) :
+    ∃ f : Nat → α, Recurrence step seed f ∧
+      ∀ g : Nat → α, Recurrence step seed g → g = f := by
+  exact ⟨orbit step seed, orbit_recurrence step seed,
+    fun _ hg => recurrence_unique hg (orbit_recurrence step seed)⟩
+-- RHGYM-END recurrence_exists_unique
+
+-- RHGYM-BEGIN glue_eq_orbit
+theorem glue_eq_orbit {step : Nat → α → α} {seed : α}
+    (family : PrefixFamily step seed) : glue family = orbit step seed := by
+  exact recurrence_unique ⟨glue_zero family, glue_succ family⟩ (orbit_recurrence step seed)
+-- RHGYM-END glue_eq_orbit
+
+-- RHGYM-BEGIN denominator
+def denominator (mul : Nat → Nat → Nat) (seed : Nat) : Nat → Nat :=
+  orbit (fun n value => mul (n + 1) value) seed
+-- RHGYM-END denominator
+
+-- RHGYM-BEGIN denominator_zero
+theorem denominator_zero (mul : Nat → Nat → Nat) (seed : Nat) :
+    denominator mul seed 0 = seed := by
+  rfl
+-- RHGYM-END denominator_zero
+
+-- RHGYM-BEGIN denominator_succ
+theorem denominator_succ (mul : Nat → Nat → Nat) (seed n : Nat) :
+    denominator mul seed (n + 1) = mul (n + 1) (denominator mul seed n) := by
+  rfl
+-- RHGYM-END denominator_succ
+
+-- RHGYM-BEGIN denominator_unique
+theorem denominator_unique {mul : Nat → Nat → Nat} {seed : Nat} {f : Nat → Nat}
+    (h0 : f 0 = seed) (hs : ∀ n, f (n + 1) = mul (n + 1) (f n)) :
+    f = denominator mul seed := by
+  exact recurrence_unique ⟨h0, hs⟩ (orbit_recurrence (fun n value => mul (n + 1) value) seed)
+-- RHGYM-END denominator_unique
+
+-- RHGYM-BEGIN ExactDenominatorStep
+/-- Existential evaluation order analogous to frozen clause 21. -/
+def ExactDenominatorStep (mul : Nat → Nat → Nat) (f : Nat → Nat) : Prop :=
+  ∀ n, ∃ k a l b c : Nat,
+    k = n + 1 ∧ a = f k ∧ l = n + 1 ∧ b = f n ∧ c = mul l b ∧ a = c
+-- RHGYM-END ExactDenominatorStep
+
+-- RHGYM-BEGIN denominator_step_to_exact
+theorem denominator_step_to_exact {mul : Nat → Nat → Nat} {f : Nat → Nat}
+    (hs : ∀ n, f (n + 1) = mul (n + 1) (f n)) : ExactDenominatorStep mul f := by
+  intro n
+  exact ⟨n + 1, f (n + 1), n + 1, f n, f (n + 1), rfl, rfl, rfl, rfl, hs n, rfl⟩
+-- RHGYM-END denominator_step_to_exact
+
+-- RHGYM-BEGIN denominator_exact_to_step
+theorem denominator_exact_to_step {mul : Nat → Nat → Nat} {f : Nat → Nat}
+    (h : ExactDenominatorStep mul f) : ∀ n, f (n + 1) = mul (n + 1) (f n) := by
+  intro n
+  obtain ⟨k, a, l, b, c, hk, ha, hl, hb, hc, hac⟩ := h n
+  calc
+    f (n + 1) = f k := congrArg f hk.symm
+    _ = a := ha.symm
+    _ = c := hac
+    _ = mul l b := hc
+    _ = mul (n + 1) (f n) := by rw [hl, hb]
+-- RHGYM-END denominator_exact_to_step
+
+-- RHGYM-BEGIN denominator_step_equiv
+theorem denominator_step_equiv (mul : Nat → Nat → Nat) (f : Nat → Nat) :
+    (∀ n, f (n + 1) = mul (n + 1) (f n)) ↔ ExactDenominatorStep mul f := by
+  exact ⟨denominator_step_to_exact, denominator_exact_to_step⟩
+-- RHGYM-END denominator_step_equiv
+
+-- RHGYM-BEGIN denominator_exact
+theorem denominator_exact (mul : Nat → Nat → Nat) (seed : Nat) :
+    ExactDenominatorStep mul (denominator mul seed) := by
+  exact denominator_step_to_exact (denominator_succ mul seed)
+-- RHGYM-END denominator_exact
+
+-- RHGYM-BEGIN denominator_exact_unique
+theorem denominator_exact_unique {mul : Nat → Nat → Nat} {seed : Nat} {f : Nat → Nat}
+    (h0 : f 0 = seed) (hs : ExactDenominatorStep mul f) : f = denominator mul seed := by
+  exact denominator_unique h0 (denominator_exact_to_step hs)
+-- RHGYM-END denominator_exact_unique
+
+-- RHGYM-BEGIN jointStep
+def jointStep (mul add : Nat → Nat → Nat) (n : Nat) (state : Nat × Nat) : Nat × Nat :=
+  (add (mul (n + 1) state.1) state.2, mul (n + 1) state.2)
+-- RHGYM-END jointStep
+
+-- RHGYM-BEGIN joint
+/-- Joint numerator and denominator recurrence with independent initial values. -/
+def joint (mul add : Nat → Nat → Nat) (numSeed denSeed : Nat) : Nat → Nat × Nat :=
+  orbit (jointStep mul add) (numSeed, denSeed)
+-- RHGYM-END joint
+
+-- RHGYM-BEGIN numerator
+def numerator (mul add : Nat → Nat → Nat) (numSeed denSeed n : Nat) : Nat :=
+  (joint mul add numSeed denSeed n).1
+-- RHGYM-END numerator
+
+-- RHGYM-BEGIN joint_zero
+theorem joint_zero (mul add : Nat → Nat → Nat) (numSeed denSeed : Nat) :
+    joint mul add numSeed denSeed 0 = (numSeed, denSeed) := by
+  rfl
+-- RHGYM-END joint_zero
+
+-- RHGYM-BEGIN joint_succ
+theorem joint_succ (mul add : Nat → Nat → Nat) (numSeed denSeed n : Nat) :
+    joint mul add numSeed denSeed (n + 1) =
+      jointStep mul add n (joint mul add numSeed denSeed n) := by
+  rfl
+-- RHGYM-END joint_succ
+
+-- RHGYM-BEGIN joint_denominator
+theorem joint_denominator (mul add : Nat → Nat → Nat) (numSeed denSeed n : Nat) :
+    (joint mul add numSeed denSeed n).2 = denominator mul denSeed n := by
+  have h : (fun i => (joint mul add numSeed denSeed i).2) = denominator mul denSeed :=
+    denominator_unique rfl (fun _ => rfl)
+  exact congrFun h n
+-- RHGYM-END joint_denominator
+
+-- RHGYM-BEGIN numerator_succ
+theorem numerator_succ (mul add : Nat → Nat → Nat) (numSeed denSeed n : Nat) :
+    numerator mul add numSeed denSeed (n + 1) =
+      add (mul (n + 1) (numerator mul add numSeed denSeed n)) (denominator mul denSeed n) := by
+  change add (mul (n + 1) (joint mul add numSeed denSeed n).1)
+    (joint mul add numSeed denSeed n).2 = _
+  rw [joint_denominator]
+  rfl
+-- RHGYM-END numerator_succ
+
+-- RHGYM-BEGIN joint_unique
+theorem joint_unique {mul add : Nat → Nat → Nat} {numSeed denSeed : Nat}
+    {f : Nat → Nat × Nat} (h0 : f 0 = (numSeed, denSeed))
+    (hs : ∀ n, f (n + 1) = jointStep mul add n (f n)) :
+    f = joint mul add numSeed denSeed := by
+  exact recurrence_unique ⟨h0, hs⟩ (orbit_recurrence (jointStep mul add) (numSeed, denSeed))
+-- RHGYM-END joint_unique
+
+-- RHGYM-BEGIN joint_components_unique
+theorem joint_components_unique {mul add : Nat → Nat → Nat} {numSeed denSeed : Nat}
+    {a b : Nat → Nat} (ha0 : a 0 = numSeed) (hb0 : b 0 = denSeed)
+    (ha : ∀ n, a (n + 1) = add (mul (n + 1) (a n)) (b n))
+    (hb : ∀ n, b (n + 1) = mul (n + 1) (b n)) :
+    ∀ n, a n = numerator mul add numSeed denSeed n ∧ b n = denominator mul denSeed n := by
+  have hpair : (fun n => (a n, b n)) = joint mul add numSeed denSeed := by
+    apply joint_unique
+    · exact Prod.ext ha0 hb0
+    · intro n
+      exact Prod.ext (ha n) (hb n)
+  intro n
+  have atN := congrFun hpair n
+  refine ⟨congrArg Prod.fst atN, ?_⟩
+  exact (congrArg Prod.snd atN).trans (joint_denominator mul add numSeed denSeed n)
+-- RHGYM-END joint_components_unique
+
+-- RHGYM-BEGIN witness_denominator_six
+/-- A concrete finite witness, checked by kernel reduction. -/
+theorem witness_denominator_six : denominator Nat.mul 1 6 = 720 := by
+  rfl
+-- RHGYM-END witness_denominator_six
+
+-- RHGYM-BEGIN witness_joint_six
+/-- The integer numerator/denominator recurrence at index six. -/
+theorem witness_joint_six : joint Nat.mul Nat.add 0 1 6 = (1764, 720) := by
+  rfl
+-- RHGYM-END witness_joint_six
+
+end FeedbackChannel.RHCompactification
+
+
+/-!
+# RH numerator step: a relational affine update and its recurrence
+
+This module extends the recurrence curriculum using only the existing
+`RHCompactification` module and its `Init` dependencies. The operation arguments
+`mul`, `add`, and `den` are arbitrary total functions on Lean's `Nat`. No
+arithmetic laws or recurrence equation for `den` are assumed by the step graph
+or recurrence existence theorems.
+
+The relation follows the RH-PL-18 construction: index zero returns the old value;
+at a successor index it evaluates the predecessor's denominator, multiplies the
+old value by the successor index, and adds that denominator. The final theorem
+specializes `den` to the previously constructed denominator and identifies the
+result with the joint numerator.
+
+These are Lean Nat/function analogues. The custom Hilbert graph encoding and its
+set-theoretic proof certificates retain their separate verifier and provenance.
+Every obligation belongs to the existing public recurrence training family.
+-/
+
+set_option autoImplicit false
+
+namespace FeedbackChannel.RHNumeratorStep
+
+open FeedbackChannel.RHCompactification
+
+-- RHGYM-BEGIN AffineStep
+/-- Relational evaluation, including the identity branch at index zero. -/
+def AffineStep (mul add : Nat → Nat → Nat) (den : Nat → Nat)
+    (y a b : Nat) : Prop :=
+  (y = 0 ∧ b = a) ∨
+    ∃ x d u : Nat, y = x + 1 ∧ d = den x ∧ u = mul y a ∧ b = add u d
+-- RHGYM-END AffineStep
+
+-- RHGYM-BEGIN affineValue
+/-- The total function represented by `AffineStep`. -/
+def affineValue (mul add : Nat → Nat → Nat) (den : Nat → Nat) : Nat → Nat → Nat
+  | 0, a => a
+  | x + 1, a => add (mul (x + 1) a) (den x)
+-- RHGYM-END affineValue
+
+-- RHGYM-BEGIN affine_step_zero_iff
+theorem affine_step_zero_iff (mul add : Nat → Nat → Nat) (den : Nat → Nat)
+    (a b : Nat) : AffineStep mul add den 0 a b ↔ b = a := by
+  constructor
+  · intro h
+    rcases h with h | ⟨x, d, u, hy, hd, hu, hb⟩
+    · exact h.2
+    · cases hy
+  · intro h
+    exact Or.inl ⟨rfl, h⟩
+-- RHGYM-END affine_step_zero_iff
+
+theorem affine_step_succ_iff (mul add : Nat → Nat → Nat) (den : Nat → Nat)
+    (x a b : Nat) :
+    AffineStep mul add den (x + 1) a b ↔ b = add (mul (x + 1) a) (den x) := by
+  __RHGYM_FRAGMENT__
+
+end FeedbackChannel.RHNumeratorStep
+
+#print axioms FeedbackChannel.RHNumeratorStep.affine_step_succ_iff

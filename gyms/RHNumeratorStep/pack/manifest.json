@@ -1,0 +1,52 @@
+{
+  "candidate_cap_utf8_bytes": 384,
+  "confirmation": {
+    "scored": false,
+    "status": "unallocated"
+  },
+  "environment": {
+    "backend": "lean4_direct_compile_with_axiom_audit",
+    "checker_sha256": "f97269f0a49f5b57926a63b279a6c9813c52b326aa13b51205936b1aa1491d62",
+    "curriculum": "RHNumeratorStep-v1",
+    "expected_version": "4.34.1",
+    "lean_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+    "max_heartbeats": 400000,
+    "memory_limit_mib": 768,
+    "renderer_sha256": "186bd6f466f21bfd2182464b8f395d34f1f606a593c4fd13b9e37c4f2dbe5afd",
+    "timeout_s": 20,
+    "toolchain_matches": true
+  },
+  "independent_families": 1,
+  "input_cap_utf8_bytes": 384,
+  "native_processes_for_export": 18,
+  "schema": "datagoblin.checked-candidate-pack.v1",
+  "scientific_eligible": false,
+  "scope": "Public training extension in the existing recurrence family",
+  "source_evidence_sha256": "617029c69e219b4df8a8b605ea64a55a2a3025d2e8582a583367d940726a0024",
+  "source_files_sha256": {
+    "sources/rh_num_micro_affine_recurrence_iff.lean.in": "bbf65ef382717610e388209f8f0a1aac70096d4eaf07cce5af4f855e61cd9495",
+    "sources/rh_num_micro_affine_step_functional.lean.in": "49a5c3e849c8a56c96ec0bc892b72f8720f1fce46a1c0000040dc05a64cbaa42",
+    "sources/rh_num_micro_affine_step_iff_graph.lean.in": "f5c6f82b64ebd02e957f7194c4e1e0db8097dcdbe2d83f6cbfe04cc23c71bd9c",
+    "sources/rh_num_micro_affine_step_succ_iff.lean.in": "5b8863885fb6fade2084dfb4d2005c170a9b42b3759d31e32f8009f53fded6ea",
+    "sources/rh_num_micro_affine_step_total.lean.in": "91fe2b4dc95d0fd1fe511fc4a4074a63cff0f1e9ccc61033ecac61f4a1f829cc",
+    "sources/rh_num_micro_affine_step_zero_iff.lean.in": "b9f8f9fc14462785f8adc163d08c89ba01c51b7d1b8a01cf1c693f872b146ca6"
+  },
+  "sources_sha256": {
+    "lean/FeedbackChannel/RHCompactification.lean": "e7c8c6282aed3fa1392bf18b2caff43958c5839919529e6863cf5fcc57799f79",
+    "lean/FeedbackChannel/RHNumeratorStep.lean": "9c3efa5c82409e7bc3ec337eb676be9345d1fd2e6ce7b26e4a38d3d2f8db1678",
+    "src/spiral_ln/rh_compactification_gym.py": "f97269f0a49f5b57926a63b279a6c9813c52b326aa13b51205936b1aa1491d62",
+    "src/spiral_ln/rh_numerator_gym.py": "186bd6f466f21bfd2182464b8f395d34f1f606a593c4fd13b9e37c4f2dbe5afd"
+  },
+  "splits": {
+    "train": {
+      "goals": 6,
+      "lineages": 1,
+      "public": "train.jsonl",
+      "public_sha256": "0da863500602867c62d2db1c0b83638fd7caeaca124c429c347191fd144c33b4",
+      "receipts": "train.receipts.jsonl",
+      "receipts_sha256": "5299570d4774360097cf22798f1244bec1374e29d3e8ffc5614d7015032a0e43"
+    }
+  },
+  "training_eligible": true
+}
