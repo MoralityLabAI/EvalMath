@@ -36,7 +36,8 @@ theorem spending_cap (a r : ℕ → ℚ) (h0 : r 0 = 0)
   induction n with
   | zero => simpa [spending, h0]
   | succ n ih =>
-    exact le_trans (hs n) (add_le_add_right ih (a n))
+    change r (n + 1) ≤ spending a n + a n
+    linarith [hs n]
 
 /-- From a nonnegative pathwise charge bound to an exposure-weighted bound. -/
 theorem exposure_cap {ι : Type*} (I : Finset ι) (D v X : ι → ℚ) (C F : ℚ)
