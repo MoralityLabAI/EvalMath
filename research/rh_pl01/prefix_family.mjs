@@ -43,9 +43,8 @@ function buildPrefixFamily(tr,k){
    });
    return exIntro(goal,P,eq);
  });
- // The preceding proof returns exists Q exists K ..., with P free
- // inside the witness derivation, so introduce P before eliminating it.
- // (The wrapper below is the exact nesting expected by the checker.)
+ // Existential introduction occurs within the corresponding witness
+ // derivation, before eliminating that witness.
  assert(pr.f===goal,'family existence target');
  const root=p.close(pr),r=p.emit(root);
  return {raw:{nodes:ar.nodes,ids:r.ids,root:root.f,target:k.encode(ar.ast(root.f)),cost:r.cost},receipt:{name:'bounded_prefix_candidate_family_exists',target_bytes:ns[root.f].u,predicate_bytes:ns[phi].u,...r.cost,axioms:r.axioms,structural_replay:true,original_full_replay:false,actual_rh_proof:false}};
