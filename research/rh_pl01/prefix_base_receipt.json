@@ -1,0 +1,54 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "name": "bounded_prefix_family_base_coverage",
+  "target_bytes": 40577,
+  "lines": 28005,
+  "unary": 349458394,
+  "compact": 31303394,
+  "axioms": {
+    "pairing": 1,
+    "forall-elimination": 174,
+    "propositional": 13513,
+    "forall-distribution": 171,
+    "equality-reflexivity": 15,
+    "extensionality": 1,
+    "equality-substitution": 37
+  },
+  "structural_replay": true,
+  "original_full_replay": false,
+  "good_predicate_bytes": 18472,
+  "premises": [
+    102,
+    115,
+    48,
+    248,
+    276,
+    37222
+  ],
+  "base_coverage_discharged": true,
+  "actual_rh_proof": false,
+  "exact_family_spec_crosscheck": true,
+  "independent_replay": {
+    "lines": 28005,
+    "unary": "349458394",
+    "compact": "31303394",
+    "nodes": 35178,
+    "target_bytes": "40577",
+    "rules": {
+      "K": 6521,
+      "S": 5895,
+      "classical": 1097,
+      "mp": 13951,
+      "gen": 142
+    },
+    "nonpropositional_axioms": {
+      "pairing": 1,
+      "forall-elimination": 174,
+      "forall-distribution": 171,
+      "equality-reflexivity": 15,
+      "extensionality": 1,
+      "equality-substitution": 37
+    }
+  },
+  "certificate_json_bytes": 793316
+}
