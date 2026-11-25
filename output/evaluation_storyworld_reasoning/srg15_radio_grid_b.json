@@ -1,0 +1,770 @@
+{
+  "cohort": {
+    "seed": 1397888018,
+    "n": 96
+  },
+  "grid": [
+    {
+      "params": {
+        "retention": 0,
+        "restraint": 0
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 0,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": -2,
+          "h3": -6.5,
+          "unique_truce": 7.5,
+          "random_goal": -5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 12,
+          "h3": 12,
+          "unique_truce": 8,
+          "random_goal": 12,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 0,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 0,
+        "mean_delta": {
+          "h1": -0.022727272727272728,
+          "h3": -0.07386363636363637,
+          "unique_truce": 0.08522727272727272,
+          "random_goal": -0.056818181818181816,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0,
+        "restraint": 0.04
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 14,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": 0,
+          "h3": -4.5,
+          "unique_truce": 9.5,
+          "random_goal": -5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 14,
+          "h3": 14,
+          "unique_truce": 10,
+          "random_goal": 12,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0.039999999999999994,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 2.7755575615628914e-17,
+        "dependent_p2_changes": 14,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 250,
+        "mean_delta": {
+          "h1": 0,
+          "h3": -0.05113636363636364,
+          "unique_truce": 0.10795454545454546,
+          "random_goal": -0.056818181818181816,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0,
+        "restraint": 0.08
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 14,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": -1,
+          "h3": -5.5,
+          "unique_truce": 9.5,
+          "random_goal": -7,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 13,
+          "h3": 13,
+          "unique_truce": 10,
+          "random_goal": 10,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0.08,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 14,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 250,
+        "mean_delta": {
+          "h1": -0.011363636363636364,
+          "h3": -0.0625,
+          "unique_truce": 0.10795454545454546,
+          "random_goal": -0.07954545454545454,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.04,
+        "restraint": 0
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 14,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": -2,
+          "h3": -6.5,
+          "unique_truce": 5.5,
+          "random_goal": -6,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 12,
+          "h3": 12,
+          "unique_truce": 6,
+          "random_goal": 11,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0.039999999999999994,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 0,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 250,
+        "mean_delta": {
+          "h1": -0.022727272727272728,
+          "h3": -0.07386363636363637,
+          "unique_truce": 0.0625,
+          "random_goal": -0.06818181818181818,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.04,
+        "restraint": 0.04
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 14,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": 0,
+          "h3": -4.5,
+          "unique_truce": 7.5,
+          "random_goal": -5,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 14,
+          "h3": 14,
+          "unique_truce": 8,
+          "random_goal": 12,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0.039999999999999994,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 2.7755575615628914e-17,
+        "dependent_p2_changes": 14,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 250,
+        "mean_delta": {
+          "h1": 0,
+          "h3": -0.05113636363636364,
+          "unique_truce": 0.08522727272727272,
+          "random_goal": -0.056818181818181816,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.04,
+        "restraint": 0.08
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 14,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": -1,
+          "h3": -5.5,
+          "unique_truce": 6.5,
+          "random_goal": -6,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 13,
+          "h3": 13,
+          "unique_truce": 7,
+          "random_goal": 11,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0.08,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 14,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 250,
+        "mean_delta": {
+          "h1": -0.011363636363636364,
+          "h3": -0.0625,
+          "unique_truce": 0.07386363636363637,
+          "random_goal": -0.06818181818181818,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.08,
+        "restraint": 0
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 14,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": 1,
+          "h3": -3.5,
+          "unique_truce": 8.5,
+          "random_goal": -3,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 15,
+          "h3": 15,
+          "unique_truce": 9,
+          "random_goal": 14,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0.08,
+        "max_energy_ratio": 1.0103481212494876,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 0,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 250,
+        "mean_delta": {
+          "h1": 0.011363636363636364,
+          "h3": -0.03977272727272727,
+          "unique_truce": 0.09659090909090909,
+          "random_goal": -0.03409090909090909,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.08,
+        "restraint": 0.04
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 14,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": 3,
+          "h3": -1.5,
+          "unique_truce": 8.5,
+          "random_goal": -2,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 17,
+          "h3": 17,
+          "unique_truce": 9,
+          "random_goal": 15,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0.077848448,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 2.7755575615628914e-17,
+        "dependent_p2_changes": 14,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 250,
+        "mean_delta": {
+          "h1": 0.03409090909090909,
+          "h3": -0.017045454545454544,
+          "unique_truce": 0.09659090909090909,
+          "random_goal": -0.022727272727272728,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.08,
+        "restraint": 0.08
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 14,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": 3,
+          "h3": -1.5,
+          "unique_truce": 9.5,
+          "random_goal": -3,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 17,
+          "h3": 17,
+          "unique_truce": 10,
+          "random_goal": 14,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0.08,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 14,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 250,
+        "mean_delta": {
+          "h1": 0.03409090909090909,
+          "h3": -0.017045454545454544,
+          "unique_truce": 0.10795454545454546,
+          "random_goal": -0.03409090909090909,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.12,
+        "restraint": 0
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 14,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": 1,
+          "h3": -3.5,
+          "unique_truce": 7.5,
+          "random_goal": -2,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 15,
+          "h3": 15,
+          "unique_truce": 8,
+          "random_goal": 15,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0.11999999999999998,
+        "max_energy_ratio": 1.1274569465949817,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 0,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 250,
+        "mean_delta": {
+          "h1": 0.011363636363636364,
+          "h3": -0.03977272727272727,
+          "unique_truce": 0.08522727272727272,
+          "random_goal": -0.022727272727272728,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.12,
+        "restraint": 0.04
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 14,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": 3,
+          "h3": -1.5,
+          "unique_truce": 9.5,
+          "random_goal": -2,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 17,
+          "h3": 17,
+          "unique_truce": 10,
+          "random_goal": 15,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0.11784844799999998,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 2.7755575615628914e-17,
+        "dependent_p2_changes": 14,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 250,
+        "mean_delta": {
+          "h1": 0.03409090909090909,
+          "h3": -0.017045454545454544,
+          "unique_truce": 0.10795454545454546,
+          "random_goal": -0.022727272727272728,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    },
+    {
+      "params": {
+        "retention": 0.12,
+        "restraint": 0.08
+      },
+      "metrics": {
+        "prefixes": 88,
+        "edited": 14,
+        "selected_radio_reaction": {
+          "rxn_page_cadillac_trunk_2_0": 88
+        },
+        "contrast": {
+          "h1": 3,
+          "h3": -1.5,
+          "unique_truce": 9.5,
+          "random_goal": -2,
+          "complete": 0,
+          "reached": 0
+        },
+        "on": {
+          "h1": 17,
+          "h3": 17,
+          "unique_truce": 10,
+          "random_goal": 15,
+          "complete": 88,
+          "reached": 88
+        },
+        "off": {
+          "h1": 14,
+          "h3": 18.5,
+          "unique_truce": 0.5,
+          "random_goal": 17,
+          "complete": 88,
+          "reached": 88
+        },
+        "max_delta": 0.11569689599999998,
+        "max_energy_ratio": 1,
+        "max_step_effect_error": 0,
+        "dependent_p2_changes": 14,
+        "unchanged_non_target": 176,
+        "zero_warrant_checks": 74,
+        "route_changes": 0,
+        "off_replay_checks": 250,
+        "mean_delta": {
+          "h1": 0.03409090909090909,
+          "h3": -0.017045454545454544,
+          "unique_truce": 0.10795454545454546,
+          "random_goal": -0.022727272727272728,
+          "complete": 0,
+          "reached": 0
+        },
+        "checks": {
+          "h3": false,
+          "unique_truce": true,
+          "random_goal": false,
+          "displacement": true,
+          "energy": true,
+          "complete": true,
+          "reached": true
+        },
+        "pass": false
+      }
+    }
+  ],
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg13/fixtures/reservoir-dogs-evidence-chain-candidate.swmd.md": "64d40ef2d0953a6034a92c4250c006f59f533fb2",
+    "integrations/sweepweave-ts/srg15/radio-repair.mjs": "eb649bf294f309b529e80d9d5f2792363bf1cb99"
+  }
+}
