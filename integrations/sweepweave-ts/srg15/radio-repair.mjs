@@ -3,7 +3,7 @@
 import * as runtime from '../srg05/swmd-runtime-v2.mjs';
 const RADIO="page_cadillac_trunk",GOAL="page_secret_undercover_truce",SIRENS="page_sirens_at_the_rollup_door",TRUCE="opt_page_sirens_at_the_rollup_door_2";
 const S="char_pink.Rat_Suspicion",B="char_blonde.Sadistic_Escalation",L="char_white.Crew_Loyalty",T="char_pink.Timeline_Record";
-const REACTION="rxn_page_cadillac_trunk_2_0";
+const REACTION="rxn_page_cadillac_trunk_2_0",P2="char_pink.Rat_Suspicion[char_blonde][char_orange]";
 const fail=m=>{throw Error("SRG15A: "+m);},same=(a,b)=>JSON.stringify(a)===JSON.stringify(b),bit=x=>Number(Boolean(x)),sum=(a,f)=>a.reduce((n,x)=>n+f(x),0);
 const C=x=>"C("+Number(x.toFixed(8))+")",P=x=>"P("+x+")";
 export const CONTRACT=Object.freeze({
@@ -77,7 +77,7 @@ function cache(api,w,c){
 const METRICS=["h1","h3","unique_truce","random_goal","complete","reached"];
 function score(api,base,w,rows,p){
  const o={prefixes:rows.length,edited:0,selected_radio_reaction:{},contrast:Object.fromEntries(METRICS.map(k=>[k,0])),on:Object.fromEntries(METRICS.map(k=>[k,0])),off:Object.fromEntries(METRICS.map(k=>[k,0])),
- max_delta:0,max_energy_ratio:1,max_step_effect_error:0,unchanged_non_target:0,zero_warrant_checks:0,route_changes:0,off_replay_checks:0};
+ max_delta:0,max_energy_ratio:1,max_step_effect_error:0,dependent_p2_changes:0,unchanged_non_target:0,zero_warrant_checks:0,route_changes:0,off_replay_checks:0};
  for(const {r,arms} of rows){
    // Other options cannot trigger the changed reaction at this first site.
    // They may revisit the site later; therefore replay *all* arms in candidate.
@@ -90,13 +90,14 @@ function score(api,base,w,rows,p){
        if(!same(x.next.values,y.next.values)||x.squared_step_energy!==y.squared_step_energy)fail("out-of-scope numeric change");
        o.unchanged_non_target++;
      }else{
-       o.edited+=bit(!same(x.next.values,y.next.values));
-       for(const k of keys)if(k!==S&&k!==B&&x.next.values[k]!==y.next.values[k])fail("unexpected write");
+       o.edited+=bit(!same(x.next.values,y.next.values));o.dependent_p2_changes+=bit(x.next.values[P2]!==y.next.values[P2]);
+       for(const k of keys)if(k!==S&&k!==B&&k!==P2&&x.next.values[k]!==y.next.values[k])fail("unexpected write");
        const warrant=Math.min(1,8*r.s.values[T]);
        const nudge=(x,a)=>Math.max(-1,Math.min(1,x*(1-Math.abs(a))+a));
        const predB=nudge(r.s.values[B],.11+.08*r.s.values[S]-p.restraint*warrant);
        const predS=Math.max(-.95,Math.min(.95,r.s.values[S]-.05+p.retention*warrant+.06*predB));
-       const err=Math.max(Math.abs(predB-y.next.values[B]),Math.abs(predS-y.next.values[S]));
+       const predP2=nudge(r.s.values[P2],-.07+.05*predB);
+       const err=Math.max(Math.abs(predB-y.next.values[B]),Math.abs(predS-y.next.values[S]),Math.abs(predP2-y.next.values[P2]));
        o.max_step_effect_error=Math.max(o.max_step_effect_error,err);
        if(err>1e-12)fail("independent effect disagreement");
        if(!warrant){if(!same(x.next.values,y.next.values))fail("zero warrant changed");o.zero_warrant_checks++;}
