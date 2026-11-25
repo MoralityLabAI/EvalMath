@@ -1,10 +1,10 @@
 {
-  "evidence": "executed pure scorer controls, no model or HTTP calls",
+  "evidence": "executed pure scorer controls; no model or HTTP calls",
   "source_blobs": {
     "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
     "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
-    "integrations/sweepweave-ts/srg09/curriculum.mjs": "c08f502a0ce072133bc17c3e7d011972565315ba",
-    "integrations/sweepweave-ts/srg09/local.mjs": "8534314f1c3429d0b8677c49f1cfe4836d0f6697"
+    "integrations/sweepweave-ts/srg09/curriculum.mjs": "0773df94e52a241756131f518aa47228dbec5050",
+    "integrations/sweepweave-ts/srg09/local.mjs": "ad575b75920ae9b79c92b40d9df9c51417637452"
   },
   "gold": {
     "correct": 168,
@@ -23,12 +23,64 @@
     "passed": 288,
     "total": 288,
     "weighted": 98304,
-    "weighted_total": 98304
+    "weighted_total": 98304,
+    "intervention_passed": 2304,
+    "intervention_total": 2304,
+    "contract_passes": 6
   },
   "sham": {
     "passed": 0,
-    "total": 288
+    "total": 288,
+    "intervention_passed": 768,
+    "intervention_total": 2304,
+    "contract_passes": 0
   },
+  "alias_controls": [
+    {
+      "id": "repair_independent_wrong_owner",
+      "pass": 64,
+      "total": 64,
+      "weighted": 16384,
+      "weighted_total": 16384,
+      "intervention_pass": 256,
+      "intervention_total": 512,
+      "provenance_exact": false,
+      "contract_pass": false
+    },
+    {
+      "id": "repair_independent_wrong_depth",
+      "pass": 64,
+      "total": 64,
+      "weighted": 16384,
+      "weighted_total": 16384,
+      "intervention_pass": 256,
+      "intervention_total": 512,
+      "provenance_exact": false,
+      "contract_pass": false
+    },
+    {
+      "id": "repair_copy_wrong_owner",
+      "pass": 32,
+      "total": 32,
+      "weighted": 16384,
+      "weighted_total": 16384,
+      "intervention_pass": 128,
+      "intervention_total": 256,
+      "provenance_exact": false,
+      "contract_pass": false
+    },
+    {
+      "id": "repair_copy_wrong_depth",
+      "pass": 32,
+      "total": 32,
+      "weighted": 16384,
+      "weighted_total": 16384,
+      "intervention_pass": 128,
+      "intervention_total": 256,
+      "provenance_exact": false,
+      "contract_pass": false
+    }
+  ],
   "malformed": {
     "rejected": 1,
     "duplicate": 1,
