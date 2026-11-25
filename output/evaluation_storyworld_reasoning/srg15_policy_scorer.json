@@ -1,0 +1,100 @@
+{
+  "evidence": "executed informative-cell scoring, full policy rollouts, exact oracle replay; no model calls",
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg13/fixtures/reservoir-dogs-evidence-chain-candidate.swmd.md": "64d40ef2d0953a6034a92c4250c006f59f533fb2",
+    "integrations/sweepweave-ts/srg15/belief-policy.mjs": "12f354b9cf6645b835f5df9612f73fc9b6a54c4d",
+    "integrations/sweepweave-ts/srg15/local.mjs": "88fa022b2db9dbc535ef6b6458ffb66a369e95e1",
+    "output/evaluation_storyworld_reasoning/srg15_belief_policy.json": "dbedf365b0a989c2b65412231adb5c880931d561"
+  },
+  "results": {
+    "oracle": {
+      "rows": 940,
+      "counts": {
+        "pass": 940
+      },
+      "correct": 940,
+      "first_action_regret_mass": 0,
+      "policy_rows": 940,
+      "actual_rollout": {
+        "successes": 19,
+        "roots": 128,
+        "decisions": 252,
+        "stopped": 0
+      },
+      "unknown_ids": [],
+      "decision_quality": {
+        "all_tie_rows": 887,
+        "zero_optimum_rows": 838,
+        "informative_rows": 53,
+        "informative_correct": 53,
+        "informative_mass": 54,
+        "informative_correct_mass": 54,
+        "positive_rows": 102,
+        "positive_correct": 102,
+        "positive_optimum_mass": 103,
+        "credited_positive_mass": 103
+      }
+    },
+    "first_legal": {
+      "rows": 940,
+      "counts": {
+        "pass": 887,
+        "fail": 53
+      },
+      "correct": 887,
+      "first_action_regret_mass": 54,
+      "policy_rows": 940,
+      "actual_rollout": {
+        "successes": 1,
+        "roots": 128,
+        "decisions": 262,
+        "stopped": 0
+      },
+      "unknown_ids": [],
+      "decision_quality": {
+        "all_tie_rows": 887,
+        "zero_optimum_rows": 838,
+        "informative_rows": 53,
+        "informative_correct": 0,
+        "informative_mass": 54,
+        "informative_correct_mass": 0,
+        "positive_rows": 102,
+        "positive_correct": 49,
+        "positive_optimum_mass": 103,
+        "credited_positive_mass": 49
+      }
+    },
+    "malformed": {
+      "rows": 940,
+      "counts": {
+        "rejected": 1,
+        "duplicate": 1,
+        "missing": 938
+      },
+      "correct": 0,
+      "first_action_regret_mass": 103,
+      "policy_rows": 0,
+      "actual_rollout": {
+        "successes": 0,
+        "roots": 128,
+        "decisions": 128,
+        "stopped": 128
+      },
+      "unknown_ids": [],
+      "decision_quality": {
+        "all_tie_rows": 887,
+        "zero_optimum_rows": 838,
+        "informative_rows": 53,
+        "informative_correct": null,
+        "informative_mass": 54,
+        "informative_correct_mass": 0,
+        "positive_rows": 102,
+        "positive_correct": null,
+        "positive_optimum_mass": 103,
+        "credited_positive_mass": 0
+      }
+    }
+  }
+}
