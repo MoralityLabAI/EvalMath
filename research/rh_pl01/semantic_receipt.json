@@ -1,0 +1,94 @@
+{
+  "target_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "finite": {
+    "structures": 66066,
+    "candidates": 263714,
+    "inductiveSets": 0,
+    "bySize": [
+      {
+        "domain": 1,
+        "structures": 2,
+        "inductive_candidates": 2,
+        "inductive_sets": 0
+      },
+      {
+        "domain": 2,
+        "structures": 16,
+        "inductive_candidates": 32,
+        "inductive_sets": 0
+      },
+      {
+        "domain": 3,
+        "structures": 512,
+        "inductive_candidates": 1536,
+        "inductive_sets": 0
+      },
+      {
+        "domain": 4,
+        "structures": 65536,
+        "inductive_candidates": 262144,
+        "inductive_sets": 0
+      }
+    ]
+  },
+  "arithmetic_controls": 143,
+  "lcm_controls": 68,
+  "pair_controls": 225,
+  "graph_membership_controls": 252,
+  "graph_distinction_witnesses": 15,
+  "false_at_r": {
+    "n": "r",
+    "d": "r",
+    "a": 0,
+    "b": 0,
+    "lhs": 0,
+    "rhs": 0,
+    "holds": false
+  },
+  "bounds": [
+    {
+      "encoding": "unary",
+      "formula_bytes": 114031,
+      "minimum_false_axiom_line": 58,
+      "possibly_false_family_cost_floors": {
+        "foundation": 58,
+        "separation": 58,
+        "replacement": 125,
+        "union": 94,
+        "power": 86,
+        "choice": 199
+      },
+      "previous": 570175,
+      "semantic_lower": 570233,
+      "cases": {
+        "axiom_at_1": 570233,
+        "axiom_at_2": 570242,
+        "axiom_at_3": 570260,
+        "at_least_4": 570278,
+        "generalization": 684183
+      }
+    },
+    {
+      "encoding": "compact",
+      "formula_bytes": 13870,
+      "minimum_false_axiom_line": 35,
+      "possibly_false_family_cost_floors": {
+        "foundation": 35,
+        "separation": 36,
+        "replacement": 70,
+        "union": 46,
+        "power": 38,
+        "choice": 96
+      },
+      "previous": 69365,
+      "semantic_lower": 69400,
+      "cases": {
+        "axiom_at_1": 69400,
+        "axiom_at_2": 69406,
+        "axiom_at_3": 69418,
+        "at_least_4": 69430,
+        "generalization": 83220
+      }
+    }
+  ]
+}

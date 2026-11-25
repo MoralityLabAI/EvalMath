@@ -1,0 +1,137 @@
+{
+  "target_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "all_formulas_through_18": 38232,
+  "admissible_short_separation_predicates": 26756,
+  "recognized": 26756,
+  "high_rank": 7064,
+  "max_rank": 4,
+  "by_formula_bytes": {
+    "5": 2,
+    "6": 6,
+    "7": 8,
+    "8": 14,
+    "9": 30,
+    "10": 54,
+    "11": 98,
+    "12": 198,
+    "13": 402,
+    "14": 792,
+    "15": 1590,
+    "16": 3256,
+    "17": 6654,
+    "18": 13652
+  },
+  "trace_classes": {
+    "rank-one": 14908,
+    "parameter-only": 10500,
+    "single-atom": 1244,
+    "boolean": 96,
+    "vacuous": 8
+  },
+  "rank_counts": {
+    "0": 8620,
+    "1": 11072,
+    "2": 5776,
+    "3": 1264,
+    "4": 24
+  },
+  "detector": {
+    "predicate_unary": "nav111110nnimv111110v1110nnav1111110nnimv1111110v111110nnimv0v1111110nmv11110v1111110",
+    "rank": 2,
+    "separation_line_unary": 218,
+    "separation_line_compact": 88,
+    "finite_surrogate_checks": 56,
+    "panels": [
+      {
+        "cut": 3,
+        "nmax": 9,
+        "selected": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "cut": 5,
+        "nmax": 11,
+        "selected": [
+          0,
+          1,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      {
+        "cut": 8,
+        "nmax": 14,
+        "selected": [
+          0,
+          1,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      {
+        "cut": 12,
+        "nmax": 18,
+        "selected": [
+          0,
+          1,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ]
+      }
+    ]
+  },
+  "bounds": [
+    {
+      "encoding": "unary",
+      "fragment_maximum_cost": 85,
+      "minimum_false_axiom_line": 86,
+      "previous": 570175,
+      "semantic_lower": 570261,
+      "cases": {
+        "axiom_at_1": 570261,
+        "axiom_at_2": 570270,
+        "axiom_at_3": 570288,
+        "at_least_4": 570306,
+        "generalization": 684183
+      }
+    },
+    {
+      "encoding": "compact",
+      "fragment_maximum_cost": 37,
+      "minimum_false_axiom_line": 38,
+      "previous": 69365,
+      "semantic_lower": 69403,
+      "cases": {
+        "axiom_at_1": 69403,
+        "axiom_at_2": 69409,
+        "axiom_at_3": 69421,
+        "at_least_4": 69433,
+        "generalization": 83220
+      }
+    }
+  ]
+}

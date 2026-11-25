@@ -1,0 +1,612 @@
+{
+  "schema": "rh_compactification_microsteps_v1",
+  "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "module_source": "lean/FeedbackChannel/RHCompactification.lean",
+  "module_source_sha256": "e7c8c6282aed3fa1392bf18b2caff43958c5839919529e6863cf5fcc57799f79",
+  "generator_source": "gyms/RHCompactification/microsteps.py",
+  "generator_source_sha256": "fe5cc0a127c848d97987ac3e8d49701e4852f76f61a16f184336cda7f7a555ed",
+  "unit": "shared recurrence development",
+  "n_independent_roots": 1,
+  "n_cases": 12,
+  "split": "train_only",
+  "model_trained_or_evaluated": false,
+  "statement_context_format": "<STATEMENT> {statement}\n<GOALS> {context}",
+  "input_cap_bytes_utf8": 384,
+  "candidate_cap_bytes_utf8": 384,
+  "gold_full_closure_passed": 12,
+  "wrong_full_closure_rejected": 12,
+  "rows": [
+    {
+      "id": "rh_micro_extend_before",
+      "task_id": "rh_micro_extend_before",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "prefix",
+      "target_theorem": "FeedbackChannel.RHCompactification.extend_before",
+      "statement": "Prove this goal.",
+      "context": "α : Type u\nf : Nat → α\nbound i : Nat\nvalue : α\nhne : i ≠ bound + 1\n⊢ extend f bound value i = f i",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 143,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_extend_before.lean.in",
+      "source_template_sha256": "c3591b33e8c62fc0c1f2336096b13aa43ba5996cd8532297db6444276bd959ab",
+      "trace_source_sha256": "c3a664d05d2f9be4d41e38e4860205e0cc729eb1098bd3f40fc72452bc9eb24e",
+      "candidates": [
+        {
+          "id": "rh_micro_extend_before_gold",
+          "action": "lean_tactic",
+          "text": "simp [extend, hne]",
+          "bytes_utf8": 18,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "0e0d4cb17e6e105b27781766293d4fe57beab68b180dc8c49b3428b01507f6e1"
+        },
+        {
+          "id": "rh_micro_extend_before_wrong",
+          "action": "lean_tactic",
+          "text": "rfl",
+          "bytes_utf8": 3,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "60fd87b26c4be4907116672b356a4a74df905d1831fc4de0da0f1b1e2208f0e7"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.extend"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_extend_before_gold",
+          "rh_micro_extend_before_wrong"
+        ]
+      }
+    },
+    {
+      "id": "rh_micro_prefix_restrict",
+      "task_id": "rh_micro_prefix_restrict",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "prefix",
+      "target_theorem": "FeedbackChannel.RHCompactification.prefix_restrict",
+      "statement": "Prove this goal.",
+      "context": "α : Type u\nstep : Nat → α → α\nseed : α\nm n : Nat\nf : Nat → α\nhf : IsPrefix step seed n f\nhmn : m ≤ n\ni : Nat\nhi : i < m\n⊢ f (i + 1) = step i (f i)",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 198,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_prefix_restrict.lean.in",
+      "source_template_sha256": "3704dc45f47cf226fcc57c864123e1851758395ffc7105175b0c5f5d0c3efe98",
+      "trace_source_sha256": "516d34b1ffffcc30fd48616c1f772c11da134f4837a41261fe3408a4a4ad1ed9",
+      "candidates": [
+        {
+          "id": "rh_micro_prefix_restrict_gold",
+          "action": "lean_tactic",
+          "text": "exact hf.2 i (Nat.lt_of_lt_of_le hi hmn)",
+          "bytes_utf8": 40,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "6575e70527e5bc19ce4267db87753b0900eda26e6f4a7fd4e4351cdf7d292884"
+        },
+        {
+          "id": "rh_micro_prefix_restrict_wrong",
+          "action": "lean_tactic",
+          "text": "exact hf.2 i hi",
+          "bytes_utf8": 15,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "e0296d526baedb4210dc8debbf291c53a01118c73fb9523395dd4daaa6bf5fbf"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.IsPrefix"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_prefix_restrict_gold",
+          "rh_micro_prefix_restrict_wrong"
+        ]
+      }
+    },
+    {
+      "id": "rh_micro_prefix_extend",
+      "task_id": "rh_micro_prefix_extend",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "prefix",
+      "target_theorem": "FeedbackChannel.RHCompactification.prefix_extend",
+      "statement": "Prove this goal.",
+      "context": "case refine_2.inr\nα : Type u\nstep : Nat → α → α\nn : Nat\nf : Nat → α\nhi : n < n + 1\n⊢ extend f n (step n (f n)) (n + 1) = step n (extend f n (step n (f n)) n)",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 206,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_prefix_extend.lean.in",
+      "source_template_sha256": "bd05712ca96c67ba2b966ae232911207e5a4c61aa975b7dbb1419c9839a0e9fb",
+      "trace_source_sha256": "a545d3d36437663d6a53cc18ff5aef9524518ca220bb64c1edc26a4a5860abc8",
+      "candidates": [
+        {
+          "id": "rh_micro_prefix_extend_gold",
+          "action": "lean_tactic",
+          "text": "rw [extend_at_new, extend_before f n n (step n (f n)) (Nat.le_refl n)]",
+          "bytes_utf8": 70,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "568285478c8ea532638a5257069d84f7da1286fc338182c17468456ce990bfbb"
+        },
+        {
+          "id": "rh_micro_prefix_extend_wrong",
+          "action": "lean_tactic",
+          "text": "rw [extend_at_new]",
+          "bytes_utf8": 18,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "d3679df14e355c1735ba0adaaa01b71190dc766f3bbe9ef550d03ac7ec75c6a8"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.extend_at_new",
+          "FeedbackChannel.RHCompactification.extend_before"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_prefix_extend_gold",
+          "rh_micro_prefix_extend_wrong"
+        ]
+      }
+    },
+    {
+      "id": "rh_micro_prefix_graph_overlap",
+      "task_id": "rh_micro_prefix_graph_overlap",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "overlap",
+      "target_theorem": "FeedbackChannel.RHCompactification.prefix_graph_overlap",
+      "statement": "Prove this goal.",
+      "context": "α : Type u\ni : Nat\nf g : Nat → α\na b : α\nhab : f i = g i\nha' : a = f i\nhb' : b = g i\n⊢ a = b",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 136,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_prefix_graph_overlap.lean.in",
+      "source_template_sha256": "1a9050526e68772db95d37d7a4032c6b58ea0efaf650660cd6541ee852d61a11",
+      "trace_source_sha256": "16c75733d1b0a09b8273c31f04351484197230937d56d6acd1a5e004ba518a92",
+      "candidates": [
+        {
+          "id": "rh_micro_prefix_graph_overlap_gold",
+          "action": "lean_tactic",
+          "text": "exact ha'.trans (hab.trans hb'.symm)",
+          "bytes_utf8": 36,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "5d9be3e737fb7245ffa5d1fc2ba7e42ed617b3349133ae586fd6ac1b22646cd1"
+        },
+        {
+          "id": "rh_micro_prefix_graph_overlap_wrong",
+          "action": "lean_tactic",
+          "text": "exact ha'.trans (hab.trans hb')",
+          "bytes_utf8": 31,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "a46cc4963d138137b971fcf25937ea931fa0461b777219ea3ea04dc91d41aeba"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.prefix_agreement"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_prefix_graph_overlap_gold",
+          "rh_micro_prefix_graph_overlap_wrong"
+        ]
+      }
+    },
+    {
+      "id": "rh_micro_glue_agrees",
+      "task_id": "rh_micro_glue_agrees",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "glue",
+      "target_theorem": "FeedbackChannel.RHCompactification.glue_agrees",
+      "statement": "Prove this goal.",
+      "context": "α : Type u\nstep : Nat → α → α\nseed : α\nfamily : PrefixFamily step seed\nn i : Nat\nhi : i ≤ n\n⊢ glue family i = (family n).val i",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 175,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_glue_agrees.lean.in",
+      "source_template_sha256": "8dcf318f11ca46d51da10e051467a84a5cf72262893f27386644f078d210c265",
+      "trace_source_sha256": "d3358abe978e3f01b549819355eabfd54eafd024b77a708b37828cb1d864ee84",
+      "candidates": [
+        {
+          "id": "rh_micro_glue_agrees_gold",
+          "action": "lean_tactic",
+          "text": "exact prefix_agreement (family i).property (family n).property i (Nat.le_refl i) hi",
+          "bytes_utf8": 83,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "25305e34eb90bee0538b0da7318bbbc27abf6e9e2d4a6ace95a66bd010e1ab10"
+        },
+        {
+          "id": "rh_micro_glue_agrees_wrong",
+          "action": "lean_tactic",
+          "text": "exact (family n).property.1",
+          "bytes_utf8": 27,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "3778ce7b3a9485b8118a684e88a9d10b4bc9f292d16239be99e36acd6e5ca3ec"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.prefix_agreement"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_glue_agrees_gold",
+          "rh_micro_glue_agrees_wrong"
+        ]
+      }
+    },
+    {
+      "id": "rh_micro_glued_graph_iff",
+      "task_id": "rh_micro_glued_graph_iff",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "glue",
+      "target_theorem": "FeedbackChannel.RHCompactification.glued_graph_iff",
+      "statement": "Prove this goal.",
+      "context": "case mp\nα : Type u\nstep : Nat → α → α\nseed : α\nfamily : PrefixFamily step seed\ni : Nat\nvalue : α\nn : Nat\nhn : PrefixGraph n (family n).val i value\n⊢ value = glue family i",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 218,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_glued_graph_iff.lean.in",
+      "source_template_sha256": "4d7464bb61ced0578383d1b1b78f2265579eea6c47f76340d3c8ab828d6dc611",
+      "trace_source_sha256": "2cd17ee2a022555a888d5672c67478b26e4f36bce091e1fe54e547d07a8c4f12",
+      "candidates": [
+        {
+          "id": "rh_micro_glued_graph_iff_gold",
+          "action": "lean_tactic",
+          "text": "exact hn.2.trans (glue_agrees family n i hn.1).symm",
+          "bytes_utf8": 51,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "99019218f34e2bbdc614df3e341a8b8263215e63df4e0991c52c41eeb50e6971"
+        },
+        {
+          "id": "rh_micro_glued_graph_iff_wrong",
+          "action": "lean_tactic",
+          "text": "exact hn.2",
+          "bytes_utf8": 10,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "c0f5afbef7bc978fd377d8af24e1ababa8867e43347e76f239bd20ee4426f152"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.glue_agrees"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_glued_graph_iff_gold",
+          "rh_micro_glued_graph_iff_wrong"
+        ]
+      }
+    },
+    {
+      "id": "rh_micro_glue_succ",
+      "task_id": "rh_micro_glue_succ",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "glue",
+      "target_theorem": "FeedbackChannel.RHCompactification.glue_succ",
+      "statement": "Prove this goal.",
+      "context": "α : Type u\nstep : Nat → α → α\nseed : α\nfamily : PrefixFamily step seed\nn : Nat\n⊢ step n ((family (n + 1)).val n) = step n (glue family n)",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 184,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_glue_succ.lean.in",
+      "source_template_sha256": "1f90e1e0085453be325a84a604fba1d5089bd8cca3597104b3bae4360a681168",
+      "trace_source_sha256": "1b0e8d39e0b8cd2bbcfdb4217475b9282efef3a1ee209455b7f66927cc6819e6",
+      "candidates": [
+        {
+          "id": "rh_micro_glue_succ_gold",
+          "action": "lean_tactic",
+          "text": "exact congrArg (step n) (glue_agrees family (n + 1) n (Nat.le_succ n)).symm",
+          "bytes_utf8": 75,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "59d4a2efc668df4d5461cd458b1796785d71f1ef12ba96c5459e787eecd95246"
+        },
+        {
+          "id": "rh_micro_glue_succ_wrong",
+          "action": "lean_tactic",
+          "text": "exact congrArg (step n) (glue_agrees family (n + 1) n (Nat.le_succ n))",
+          "bytes_utf8": 70,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "5414237baaac53de136e20bd6f84de2858a933bf44bc93a9ac44555549fbe7e5"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.glue_agrees"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_glue_succ_gold",
+          "rh_micro_glue_succ_wrong"
+        ]
+      }
+    },
+    {
+      "id": "rh_micro_denominator_unique",
+      "task_id": "rh_micro_denominator_unique",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "denominator",
+      "target_theorem": "FeedbackChannel.RHCompactification.denominator_unique",
+      "statement": "Prove this goal.",
+      "context": "mul : Nat → Nat → Nat\nseed : Nat\nf : Nat → Nat\nh0 : f 0 = seed\nhs : ∀ (n : Nat), f (n + 1) = mul (n + 1) (f n)\n⊢ f = denominator mul seed",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 184,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_denominator_unique.lean.in",
+      "source_template_sha256": "2dc989bcbff0085d6b805a034c752910ec4343c884249635db600cfb2ee5530c",
+      "trace_source_sha256": "b8c6e58407e4d45a7d03b1416f903d84abb6a007885cd14ae4573b2bfe256f0b",
+      "candidates": [
+        {
+          "id": "rh_micro_denominator_unique_gold",
+          "action": "lean_tactic",
+          "text": "exact recurrence_unique ⟨h0, hs⟩ (orbit_recurrence (fun n value => mul (n + 1) value) seed)",
+          "bytes_utf8": 95,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "05e0d41976293caf6f4620395192f014fed9a4029d1832e611995b6fcc48d5ba"
+        },
+        {
+          "id": "rh_micro_denominator_unique_wrong",
+          "action": "lean_tactic",
+          "text": "exact recurrence_unique (orbit_recurrence (fun n value => mul (n + 1) value) seed) ⟨h0, hs⟩",
+          "bytes_utf8": 95,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "87d79d0e9b9eeed4e60827518ef65c1a15b40cbeb2f1794de8294f6241666d82"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.recurrence_unique",
+          "FeedbackChannel.RHCompactification.orbit_recurrence"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_denominator_unique_gold",
+          "rh_micro_denominator_unique_wrong"
+        ]
+      }
+    },
+    {
+      "id": "rh_micro_denominator_step_to_exact",
+      "task_id": "rh_micro_denominator_step_to_exact",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "denominator",
+      "target_theorem": "FeedbackChannel.RHCompactification.denominator_step_to_exact",
+      "statement": "Prove this goal.",
+      "context": "mul : Nat → Nat → Nat\nf : Nat → Nat\nhs : ∀ (n : Nat), f (n + 1) = mul (n + 1) (f n)\nn : Nat\n⊢ f (n + 1) = mul (n + 1) (f n)",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 170,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_denominator_step_to_exact.lean.in",
+      "source_template_sha256": "226880227b6c3b8136f774adc29ff116b282907a878a3b40418329caf0af0af8",
+      "trace_source_sha256": "81b9f5100317ddbfec60c6e00361c80a5159a45e5f463a7b16d2624267553969",
+      "candidates": [
+        {
+          "id": "rh_micro_denominator_step_to_exact_gold",
+          "action": "lean_tactic",
+          "text": "exact hs n",
+          "bytes_utf8": 10,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "3a1c7e708337f6ac261f01c97410bebf852efd96c7d284e1bfc36761b6efb2ee"
+        },
+        {
+          "id": "rh_micro_denominator_step_to_exact_wrong",
+          "action": "lean_tactic",
+          "text": "exact (hs n).symm",
+          "bytes_utf8": 17,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "7b377d71f11ddd22e4c7a6fcb9aabe36731809e287bbf8b98da4c0ec4f23e15a"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.ExactDenominatorStep"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_denominator_step_to_exact_gold",
+          "rh_micro_denominator_step_to_exact_wrong"
+        ]
+      }
+    },
+    {
+      "id": "rh_micro_denominator_exact_to_step",
+      "task_id": "rh_micro_denominator_exact_to_step",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "denominator",
+      "target_theorem": "FeedbackChannel.RHCompactification.denominator_exact_to_step",
+      "statement": "Prove this goal.",
+      "context": "mul : Nat → Nat → Nat\nf : Nat → Nat\nn l b : Nat\nhl : l = n + 1\nhb : b = f n\n⊢ mul l b = mul (n + 1) (f n)",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 150,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_denominator_exact_to_step.lean.in",
+      "source_template_sha256": "9424795a1e3c7c9baafe059ac0a0d32e6dd86c3e1db75138358c4888b3b5059a",
+      "trace_source_sha256": "a81c05d06c3a2107b01c932f056a169e9259048d854da99c9618324a92f2f1e8",
+      "candidates": [
+        {
+          "id": "rh_micro_denominator_exact_to_step_gold",
+          "action": "lean_tactic",
+          "text": "rw [hl, hb]",
+          "bytes_utf8": 11,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "7025540d80dda8581fee4aeac4c5abdb719138a78ec301f314506f5e0173c674"
+        },
+        {
+          "id": "rh_micro_denominator_exact_to_step_wrong",
+          "action": "lean_tactic",
+          "text": "rw [hl]",
+          "bytes_utf8": 7,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "ffa2b3bcc9378a7bd16e8051980e370c6d30400995782bb7aaac3aa162f9c124"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.ExactDenominatorStep"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_denominator_exact_to_step_gold",
+          "rh_micro_denominator_exact_to_step_wrong"
+        ]
+      }
+    },
+    {
+      "id": "rh_micro_denominator_exact_unique",
+      "task_id": "rh_micro_denominator_exact_unique",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "denominator",
+      "target_theorem": "FeedbackChannel.RHCompactification.denominator_exact_unique",
+      "statement": "Prove this goal.",
+      "context": "mul : Nat → Nat → Nat\nseed : Nat\nf : Nat → Nat\nh0 : f 0 = seed\nhs : ExactDenominatorStep mul f\n⊢ f = denominator mul seed",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 166,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_denominator_exact_unique.lean.in",
+      "source_template_sha256": "8612ae02a9c585959e1325fee40bae5fe888ff86ebae86dde593716915102420",
+      "trace_source_sha256": "442a1eb3d507a515d2fd3b7410c4fc1fc134a4444b566459ff8fece30a0fe96e",
+      "candidates": [
+        {
+          "id": "rh_micro_denominator_exact_unique_gold",
+          "action": "lean_tactic",
+          "text": "exact denominator_unique h0 (denominator_exact_to_step hs)",
+          "bytes_utf8": 58,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "5f0802f84ce8d67371d10d95ce7b94a6bb08cea163ff857f89878697c51a59ad"
+        },
+        {
+          "id": "rh_micro_denominator_exact_unique_wrong",
+          "action": "lean_tactic",
+          "text": "exact denominator_unique h0 hs",
+          "bytes_utf8": 30,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "44d06e1c499ec1fa065a7049d9a7f9794cce1a7a44e991a04c5e852886f122a2"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.denominator_unique",
+          "FeedbackChannel.RHCompactification.denominator_exact_to_step"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_denominator_exact_unique_gold",
+          "rh_micro_denominator_exact_unique_wrong"
+        ]
+      }
+    },
+    {
+      "id": "rh_micro_joint_unique",
+      "task_id": "rh_micro_joint_unique",
+      "task_type": "lean_candidate_proof",
+      "root_id": "rh_compactification_recurrence_v1",
+      "split": "train",
+      "stage": "joint",
+      "target_theorem": "FeedbackChannel.RHCompactification.joint_unique",
+      "statement": "Prove this goal.",
+      "context": "mul add : Nat → Nat → Nat\nnumSeed denSeed : Nat\nf : Nat → Nat × Nat\nh0 : f 0 = (numSeed, denSeed)\nhs : ∀ (n : Nat), f (n + 1) = jointStep mul add n (f n)\n⊢ f = joint mul add numSeed denSeed",
+      "context_origin": "Lean trace_state from successful full theorem harness",
+      "ranker_input_bytes_utf8": 237,
+      "ranker_input_cap_bytes": 384,
+      "fragment_placeholder": "__RHGYM_FRAGMENT__",
+      "source_template_path": "gyms/RHCompactification/microstep_sources/rh_micro_joint_unique.lean.in",
+      "source_template_sha256": "aaa95fba9f53e94349bc07cb1ec2bd1a2d95e252bb53d79737f7af5a7f7db0af",
+      "trace_source_sha256": "bc3855205b9df97fe20a666ecee55fc2fe794d4885fe32b35c33d7627b073d94",
+      "candidates": [
+        {
+          "id": "rh_micro_joint_unique_gold",
+          "action": "lean_tactic",
+          "text": "exact recurrence_unique ⟨h0, hs⟩ (orbit_recurrence (jointStep mul add) (numSeed, denSeed))",
+          "bytes_utf8": 94,
+          "expected_accept": true,
+          "lean_returncode": 0,
+          "full_source_sha256": "ec70005a702adb9c0042d833ff82cce4522616bfc2f737af7a8aa44e3eb851d7"
+        },
+        {
+          "id": "rh_micro_joint_unique_wrong",
+          "action": "lean_tactic",
+          "text": "exact recurrence_unique (orbit_recurrence (jointStep mul add) (numSeed, denSeed)) ⟨h0, hs⟩",
+          "bytes_utf8": 94,
+          "expected_accept": false,
+          "lean_returncode": 1,
+          "full_source_sha256": "a3f4ef19bafaf7d42318f332a843ead0bd4b8f8a906dc0e14ad8102032d5b7f8"
+        }
+      ],
+      "retrieved": {
+        "compose": [
+          "FeedbackChannel.RHCompactification.recurrence_unique",
+          "FeedbackChannel.RHCompactification.orbit_recurrence"
+        ]
+      },
+      "orders": {
+        "compose": [
+          "rh_micro_joint_unique_gold",
+          "rh_micro_joint_unique_wrong"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "target_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "fixed_axioms": [
+    {
+      "name": "extensionality",
+      "unary": 54,
+      "compact": 27
+    },
+    {
+      "name": "empty",
+      "unary": 16,
+      "compact": 10
+    },
+    {
+      "name": "pairing",
+      "unary": 83,
+      "compact": 37
+    },
+    {
+      "name": "union",
+      "unary": 93,
+      "compact": 45
+    },
+    {
+      "name": "power",
+      "unary": 85,
+      "compact": 37
+    },
+    {
+      "name": "infinity",
+      "unary": 136,
+      "compact": 68
+    },
+    {
+      "name": "foundation",
+      "unary": 57,
+      "compact": 34
+    },
+    {
+      "name": "choice",
+      "unary": 198,
+      "compact": 95
+    }
+  ],
+  "target_closed": true,
+  "encodings": [
+    {
+      "encoding": "unary",
+      "formula_bytes": 114031,
+      "min_shape": 19536,
+      "previous": 342120,
+      "spine": 570175,
+      "cases": {
+        "axiom_at_1": 570175,
+        "axiom_at_2": 570190,
+        "axiom_at_3": 570208,
+        "at_least_4": 570226,
+        "generalization": 684183
+      }
+    },
+    {
+      "encoding": "compact",
+      "formula_bytes": 13870,
+      "min_shape": 13870,
+      "previous": 41629,
+      "spine": 69365,
+      "cases": {
+        "axiom_at_1": 69365,
+        "axiom_at_2": 69375,
+        "axiom_at_3": 69387,
+        "at_least_4": 69399,
+        "generalization": 83220
+      }
+    }
+  ],
+  "formula_roundtrips": 286,
+  "proof_prefix_encoding_checks": 24696,
+  "substitution_encoding_checks": 20400,
+  "terminal_axiom_encoding_checks": 36096,
+  "compact_parse_negatives": 8
+}

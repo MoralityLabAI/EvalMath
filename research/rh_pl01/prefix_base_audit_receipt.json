@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "evidence_level": "checked derivation in the frozen candidate Hilbert calculus",
+  "group": "base",
+  "frozen_blobs": {
+    "kernel.mjs": "35da89e237ecbd1a807ade3fffb39ffd57890ace",
+    "rh_target.txt": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+    "rh_target_compact.txt": "98fb1ce81784556af2f6dff8d0d6b31d9c69d7e5"
+  },
+  "source_sha256": {
+    "research/rh_pl01/assembler.mjs": "b4a485c74b3c786ff9ce02f789becf10256acc2eb7f85c38b49663c100db9257",
+    "research/rh_pl01/bounds.mjs": "c8b2f57715380363b562cac7c17fb47c3e3d391fca24855254ef79e63a9bc1e6",
+    "research/rh_pl01/compression.mjs": "bd0ffc65de672b768967c677d517fa11924923370edeb1b7e6987064116bd4fe",
+    "research/rh_pl01/denominator.mjs": "62472f49f7d8eb9356935a81cecb186730b3c2bc86176220a762e6fb0aba03f0",
+    "research/rh_pl01/gluing.mjs": "8441ebc9eeaf93c5f2acc1dc9114bb1727cfa2b502c73ae1f2f9d05d8dc687e9",
+    "research/rh_pl01/induction.mjs": "396cf9cc5008b5c705085cc1e880c5de875c1fb94a112e86b8e8978eaca60bed",
+    "research/rh_pl01/interfaces.mjs": "f3e3a25c55f8c85f51a4e3c0c6e9848b23706eac514adac3123a296360d8ce47",
+    "research/rh_pl01/joint_audit.mjs": "0d867db461cbdd0af131122bcec327d7ae95ffc248bce68b7ce81a639dc2a3ed",
+    "research/rh_pl01/kernel.mjs": "8e69d415b5f756bdc97d82e0366fd601100bb8a67ea00e0f06f1a94d765c939b",
+    "research/rh_pl01/numerator.mjs": "63de8208bfed7f5d32c7e094955979c3b249769f0d8232dc1661a0cd2b7a5351",
+    "research/rh_pl01/ordinal_audit.mjs": "927a88139e2a31bce0702324e176f21a9f3b993b174c2eaf92be7d4d20a15cac",
+    "research/rh_pl01/pairs.mjs": "e323c6944b232926ad5a68c83be04954ffb570267289424747ce4fc311ebd1d4",
+    "research/rh_pl01/prefix_base.mjs": "6afd119536fff2497a856274c0e14800c1a15918890947903eda9f27018d8bd5",
+    "research/rh_pl01/prefix_family.mjs": "1387b32c2b4079b9ed99b534836c2ec36df647394d87831ab2940be292c3c075",
+    "research/rh_pl01/recursion_existence.mjs": "4cf4fca0cc1baf327b5bc06939da9f4ed1b556c72836a72c2d8d2e71692a0ceb",
+    "research/rh_pl01/rh_target.txt": "45f4182cf6a41b47f73b62e10c7b3b8542d81b49265346bf363dc1caa8a75826",
+    "research/rh_pl01/rh_target_compact.txt": "29f0fbdec5a162ac2b77473af1a84e9e5ae31f5ff0e5c6b5143b43a67981f97a",
+    "research/rh_pl01/spine.mjs": "fc50657dd171768ff013a726b9863d86c0934cdf42a544740377c4e679ce61d9",
+    "research/rh_pl01/transport.mjs": "fde690db2cd74fb1dbfb9ce8703ab62480fdaa79241fc10b2fc12d2a5f1dd03d"
+  },
+  "checks": {
+    "frozen_files_match": true,
+    "independent_certificate_replay": true,
+    "byte_counts_recomputed": true,
+    "mutation_controls_rejected": true,
+    "predicate_fidelity": true
+  },
+  "predicate_fidelity": {
+    "good_predicate_bytes": 18472,
+    "good_source_sha256": "7dcb6e2626551cbc015c2eefdd0f0b0cb4d3997d213d9b371fab7692a5635cd9",
+    "matches_rh_pl13_exactly": true,
+    "actual_target_instances": [
+      {
+        "name": "bounded_prefix_family_exact_zero_endpoint",
+        "instances": [
+          {
+            "graph": 0,
+            "omega": 37
+          }
+        ]
+      }
+    ],
+    "family_specification_matches": true
+  },
+  "rows": [
+    {
+      "name": "bounded_prefix_family_exact_zero_endpoint",
+      "target_bytes": 45493,
+      "lines": 24022,
+      "unary": 350494097,
+      "compact": 31474512,
+      "axioms": {
+        "pairing": 1,
+        "forall-elimination": 163,
+        "propositional": 11564,
+        "forall-distribution": 153,
+        "equality-reflexivity": 14,
+        "extensionality": 1,
+        "equality-substitution": 33
+      },
+      "structural_replay": true,
+      "original_full_replay": false,
+      "good_predicate_bytes": 18472,
+      "exact_endpoint_coverage": true,
+      "actual_rh_proof": false,
+      "independent_replay": {
+        "lines": 24022,
+        "unary": "350494097",
+        "compact": "31474512",
+        "nodes": 30542,
+        "target_bytes": "45493",
+        "rules": {
+          "K": 5563,
+          "S": 5011,
+          "classical": 990,
+          "mp": 11960,
+          "gen": 133
+        },
+        "nonpropositional_axioms": {
+          "pairing": 1,
+          "forall-elimination": 163,
+          "forall-distribution": 153,
+          "equality-reflexivity": 14,
+          "extensionality": 1,
+          "equality-substitution": 33
+        }
+      },
+      "certificate_json_bytes": 691670,
+      "target_sha256": "ca973c32451b4b59132c3da129de6d9aeab4aede49b77a2f3aa601dedce86bd2",
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 1",
+          "costs_recomputed": true
+        }
+      }
+    }
+  ],
+  "shared_nonpropositional_axiom_recognizer": true,
+  "actual_rh_proof": false,
+  "finite_rh_upper_bound": false
+}

@@ -1,0 +1,64 @@
+name: RH Lean curriculum gym
+
+on:
+  push:
+    branches:
+      - "research/rh-pl01-obstruction-packing-20261125"
+    paths:
+      - "gyms/RHCompactification/**"
+      - "gyms/RHNumeratorStep/**"
+      - "lean/FeedbackChannel/RHCompactification.lean"
+      - "lean/FeedbackChannel/RHNumeratorStep.lean"
+      - "src/spiral_ln/rh_compactification_*.py"
+      - "src/spiral_ln/rh_numerator_*.py"
+      - "scripts/*rh_compactification*.py"
+      - "scripts/*rh_numerator*.py"
+      - "tests/test_rh_compactification_*.py"
+      - "tests/test_rh_numerator_*.py"
+      - ".github/workflows/rh-compactification-gym.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  native:
+    name: Replay the curriculum with Lean 4.34.1
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python test dependencies
+        run: python -m pip install -e ".[test]"
+      - name: Install the pinned Lean toolchain
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh
+          bash /tmp/elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install "$(cat lean/lean-toolchain)"
+      - name: Check source-derived artifacts
+        run: |
+          python -m spiral_ln.rh_compactification_gym check
+          python -m spiral_ln.rh_compactification_pack check
+          python -m spiral_ln.rh_numerator_gym check
+      - name: Replay every theorem, teacher, context and candidate
+        run: >-
+          python scripts/verify_rh_compactification_native.py
+          --lean-cmd lean --output /tmp/rh_compactification_native.json
+      - name: Replay the affine numerator extension
+        run: >-
+          python scripts/verify_rh_numerator_native.py
+          --lean-cmd lean --output /tmp/rh_numerator_native.json
+      - name: Exercise task integrity, reward budgets and native rejection
+        env:
+          RHCG_LEAN: lean
+          RHNUM_LEAN: lean
+        run: >-
+          pytest -q tests/test_rh_compactification_gym.py
+          tests/test_rh_compactification_pack.py
+          tests/test_rh_numerator_gym.py
+      - name: Check the structural receipt
+        run: python scripts/check_receipts.py --only rh_compactification rh_numerator

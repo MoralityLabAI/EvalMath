@@ -1,0 +1,29 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "target_bytes": 21358,
+  "lines": 6928,
+  "unary": 175465041,
+  "compact": 14246041,
+  "axioms": {
+    "propositional": 3343,
+    "forall-elimination": 35,
+    "forall-distribution": 47,
+    "equality-reflexivity": 1,
+    "equality-substitution": 2,
+    "separation": 1
+  },
+  "structural_replay": true,
+  "original_full_replay": false,
+  "base_derived": true,
+  "step_derived": true,
+  "agreement_derived": true,
+  "premises": [
+    736,
+    2002,
+    1999,
+    2135,
+    2132,
+    8489
+  ],
+  "actual_rh_proof": false
+}

@@ -1,0 +1,52 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "name": "denominator_recursion_existence_from_compatible_family",
+  "target_bytes": 34969,
+  "lines": 25019,
+  "unary": 707251710,
+  "compact": 67350649,
+  "axioms": {
+    "propositional": 12145,
+    "forall-elimination": 88,
+    "forall-distribution": 156,
+    "union": 1,
+    "separation": 1,
+    "equality-reflexivity": 4,
+    "equality-substitution": 8
+  },
+  "premise_formula_bytes": [
+    736,
+    2143,
+    4453,
+    2371,
+    9583
+  ],
+  "structural_replay": true,
+  "original_full_replay": false,
+  "coverage_step_derived": true,
+  "normalized_base_and_recurrence_derived": true,
+  "actual_rh_proof": false,
+  "independent_replay": {
+    "lines": 25019,
+    "unary": "707251710",
+    "compact": "67350649",
+    "nodes": 31413,
+    "target_bytes": "34969",
+    "rules": {
+      "K": 5826,
+      "S": 5389,
+      "classical": 930,
+      "mp": 12541,
+      "gen": 75
+    },
+    "nonpropositional_axioms": {
+      "forall-elimination": 88,
+      "forall-distribution": 156,
+      "union": 1,
+      "separation": 1,
+      "equality-reflexivity": 4,
+      "equality-substitution": 8
+    }
+  },
+  "certificate_json_bytes": 705933
+}

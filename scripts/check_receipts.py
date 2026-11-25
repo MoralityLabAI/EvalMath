@@ -25,6 +25,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "rh_compactification": ("scripts/verify_rh_compactification.py",
+                            "output/rh_compactification/gym_v1.json", [], False),
+    "rh_numerator": ("scripts/verify_rh_numerator.py",
+                     "output/rh_numerator/gym_v1.json", [], False),
     "collatz_basin": ("scripts/verify_collatz_basin.py",
                       "output/collatz_basin/col_eval_01.json", [], False),
     "cpf_suite": ("scripts/verify_evaluation_cpf_suite.py",

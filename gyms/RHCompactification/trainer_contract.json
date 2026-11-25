@@ -1,0 +1,133 @@
+{
+  "schema": "evalmath.rh_compactification.trainer_contract.v1",
+  "pack_schema": "datagoblin.checked-candidate-pack.v1",
+  "mode": "training_only_offline_checked_candidate_ranking",
+  "evidence_scope": "The adapter replays upstream data loaders over existing receipts. Fresh Lean proof execution belongs to the gym checker.",
+  "allowed_splits": [
+    "train"
+  ],
+  "sources": {
+    "datagoblin": {
+      "repository": "MoralityLabAI/DataGoblin",
+      "commit": "48c99a7d9c2d37c82fe127369dfa0124b88bc8ab",
+      "entrypoint": "datagoblin.training_gym.rlt_pretrain_data.lean_rows",
+      "files": {
+        "src/datagoblin/__init__.py": "b98ebe35876f9398a04ee245f9ec8c2efbdc0906",
+        "src/datagoblin/config.py": "8b1a9f5cbf37c322ea0d2a6aa4c92b60eac1615d",
+        "src/datagoblin/constitution/__init__.py": "89e96e1e15754683484bc8e54737f09f7436a067",
+        "src/datagoblin/constitution/charter.py": "009495a946c526548fb895bcfc748c1abf409f93",
+        "src/datagoblin/constitution/rules.py": "7e012aecc56675cfaccb3b2cdd3782f08ef66357",
+        "src/datagoblin/constitution/validator.py": "483aa9e011aea8d4614b1ab76bfc3d188cc635a9",
+        "src/datagoblin/datasets/__init__.py": "d9c0c56c1231f30470931ec4e26ade4866bdcc59",
+        "src/datagoblin/datasets/corruptions.py": "2376084554de073212d4e05d2766be80f756c1b8",
+        "src/datagoblin/datasets/exports.py": "6cb6580fb20b642bb100196e55554a4cdc175503",
+        "src/datagoblin/domain/__init__.py": "4f460d8d19743d3b2159c1ce6c6df613af911718",
+        "src/datagoblin/domain/builders.py": "0db62e9fdb2d009b3e8e17b1cbe194c772840089",
+        "src/datagoblin/domain/capabilities.py": "d0d110460e6f06f1f577d5c990172efd7be96725",
+        "src/datagoblin/domain/evidence.py": "0d4d367630b6e98b31ada5df220c3e0d3665db01",
+        "src/datagoblin/domain/experiments.py": "d1279b4d27f0e12acdce0933647c834854219e4d",
+        "src/datagoblin/domain/hypotheses.py": "6fa4febe33bd059d304a659558f21267abb82653",
+        "src/datagoblin/domain/learner.py": "e6d3580756cf0a22f140f95ce64616b4e29fb691",
+        "src/datagoblin/domain/recipes.py": "0d1bd608e4c8f85b6190222fe804569628b50554",
+        "src/datagoblin/domain/research_episode.py": "db6caea6e1e4de90ff49dae9f523e7e3069d09f2",
+        "src/datagoblin/experiments/__init__.py": "b41cdaabdfb27c4d308fcff636104d5706544ed4",
+        "src/datagoblin/experiments/recipe_verdict_dataset.py": "0e790c5a40d8e25530d5c2ff27c6288702eea42e",
+        "src/datagoblin/hashing.py": "3675888629eeb54b7a5e189391c6631753c41d79",
+        "src/datagoblin/serialization.py": "a227447fbd959a13d7cbaf12a3184b88738ebe78",
+        "src/datagoblin/training_gym/__init__.py": "ad6f94e0592f07ff0421a0a15eea8e94fc827a39",
+        "src/datagoblin/training_gym/candidate.py": "74c96736d4354075451e714a8fb878a9e246b2be",
+        "src/datagoblin/training_gym/comparison.py": "8470c984bebca19221d7b80262d3525787c52417",
+        "src/datagoblin/training_gym/contract.py": "7a87b754fa01dc97f49f93231b3e5b7c58d6afae",
+        "src/datagoblin/training_gym/demo.py": "a8a2fab4a4f5300e05227f536fa996631fc1a8d7",
+        "src/datagoblin/training_gym/evaluation.py": "1cc35a90ea01c7ce1a34c4ed0c13c12849d39fc9",
+        "src/datagoblin/training_gym/rlt_lean_grounded.py": "a927d7516b751c8a6acb3b89576b45ab0f90acab",
+        "src/datagoblin/training_gym/rlt_lean_labels.py": "d1234815dc64198c8fc6b73fbc761578e156512b",
+        "src/datagoblin/training_gym/rlt_lean_ldt.py": "9e3f7c902fdd68bca8c3c2211caba340329f269f",
+        "src/datagoblin/training_gym/rlt_lean_pool_export.py": "5f1e66fdb183c541813aa496360c178f559e297e",
+        "src/datagoblin/training_gym/rlt_lean_rank.py": "418b2439aaf70a79e01858a5c399ee86ff444cd6",
+        "src/datagoblin/training_gym/rlt_pretrain_data.py": "6c071905b711cb2276cc050fdf0d04778780ef58",
+        "src/datagoblin/training_gym/rlt_revision.py": "2dfe2cdb69be28fb8a06990d319368d7ee350e10"
+      }
+    },
+    "looped_transformers": {
+      "repository": "MoralityLabAI/LoopedTransformers",
+      "commit": "8931f9d9cf0b064cea5cb3ad0760fe2dcd5197fa",
+      "entrypoint": "ppt_gym.data.load_checked_pack",
+      "files": {
+        "research/lean_cgrt_hrm400/ppt_gym/data.py": "066d85cacb916abce5d8961938180123dbd142c2",
+        "research/lean_cgrt_hrm400/ppt_gym/__init__.py": "06110146a17beffea8b480271216d0a5f27839ae",
+        "research/lean_cgrt_hrm400/ppt_gym/__main__.py": "2509ec00d722a08dff0261ac18118ea16d37a172",
+        "research/lean_cgrt_hrm400/ppt_gym/cli.py": "bae2b72b710d8c1277304f99fe479f9dd5ffa275",
+        "research/lean_cgrt_hrm400/ppt_gym/core.py": "b7022cc5056403871909b4338d3cc8deb549be07"
+      }
+    }
+  },
+  "model": {
+    "kind": "PPT candidate ranker",
+    "config_source": {
+      "path": "research/lean_cgrt_hrm400/ppt_gym/core.py",
+      "git_blob_sha1": "b7022cc5056403871909b4338d3cc8deb549be07"
+    },
+    "cli_source": {
+      "path": "research/lean_cgrt_hrm400/ppt_gym/cli.py",
+      "git_blob_sha1": "bae2b72b710d8c1277304f99fe479f9dd5ffa275"
+    },
+    "goal_format": "<STATEMENT> {statement}\n<GOALS> {context}",
+    "max_bytes": 384,
+    "byte_policy": "Each goal and candidate must fit completely. The upstream suffix truncation is rejected by this adapter.",
+    "encoding": "UTF-8 bytes, local convolution and mean pooling, then attention over eight workspace slots",
+    "suggested_cpu_command": "python -m ppt_gym train --pack PACK --plan a --out OUT --width 32 --heads 4 --max-bytes 384 --depths 1 2 --steps 32 --threads 1 --max-seconds 60",
+    "command_working_directory": "LoopedTransformers/research/lean_cgrt_hrm400",
+    "command_status": "32-step CPU engineering smoke completed",
+    "smoke_pack_manifest_sha256": "3b024e31bff01bd1e2ec376d354ae9c7444fa4a6694c5a7bc80c67f0107a768d",
+    "smoke_checkpoint_sha256": "c871897c4be5af74a029e2856c14306aa65037b01494e3699d00f7e9ebcec6f7",
+    "smoke_scope": "32 offline candidate-ranking updates on 12 public train cases in one lineage; no held-out scoring or model-effect claim"
+  },
+  "public_row": {
+    "task": "lean_candidate_proof",
+    "identity_fields": [
+      "id",
+      "lineage",
+      "family",
+      "epoch"
+    ],
+    "string_fields": [
+      "statement",
+      "context"
+    ],
+    "candidates": "list of {id: string, action: 'lean_tactic', tactic: string}",
+    "orders_compose": "nonempty list of distinct candidate IDs present in candidates",
+    "retrieved_compose": "list of string lemma names",
+    "source_context": "Any full compiler prefix is stored separately from the bounded model input."
+  },
+  "receipt": {
+    "identity": "id and epoch match the public row; outcomes keys equal the candidate IDs",
+    "label": "0 for a definitive rejected candidate, 1 for verified closure, null for unknown",
+    "positive_condition": "closed=true, kernel_ok=true, kernel_calls is the integer 1, axioms is a list contained in allowed_axioms",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "trust_boundary": "The upstream loader checks declared receipts and file hashes. It does not rerun Lean."
+  },
+  "compatibility": {
+    "supported": [
+      "training-only checked-candidate pack",
+      "PPT offline candidate ranking after bounded native candidate verification"
+    ],
+    "mixed_pretrain_ready": false,
+    "mixed_pretrain_requirements": [
+      "independent train and held_structures lineages",
+      "text fixture and held text files",
+      "revision lane",
+      "datagoblin.mixed-pretrain-pilot.v1 dataset.json",
+      "appropriate ranker features for the new Lean vocabulary"
+    ],
+    "sft_status": "Teacher proof text can support a separately specified SFT adapter; the pinned PPT and mixed pilot train candidate rankers.",
+    "online_olr01b_status": "The pinned native public-JSON graph parser is restricted to propositional Horn rules and P-number atoms.",
+    "native_toolchain_status": "OLR01B expects Lean 4.19.0; an offline pack records the gym's actual compiler version independently.",
+    "correction_budget_status": "Recurrent model passes are offline ranking compute. A full-proof correction visit consumes a separate native verifier call and uses the gym's own episode budget.",
+    "scientific_status": "One public training family supports curriculum and implementation checks. No held-out model result is produced by this adapter."
+  }
+}

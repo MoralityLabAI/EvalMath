@@ -1,0 +1,85 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "target_blob": 114032,
+  "outer_binders": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "body": {
+    "unary": 113968,
+    "compact": 13852
+  },
+  "definitions": {
+    "unary": 61099,
+    "compact": 8993
+  },
+  "claim": {
+    "unary": 52868,
+    "compact": 4858
+  },
+  "wrapper_overhead": {
+    "lines": 9,
+    "unary": 1026096,
+    "compact": 124767
+  },
+  "full_payload_control": {
+    "lines": 14,
+    "unary": 2505475,
+    "compact": 368844
+  },
+  "frozen_target_identity": {
+    "lines": 5,
+    "unary": 2622736,
+    "compact": 319033
+  },
+  "modular_control": {
+    "order": [
+      "base",
+      "a",
+      "bridge",
+      "other",
+      "root"
+    ],
+    "naive_lines": 12,
+    "naive_unary": 141,
+    "naive_compact": 92,
+    "assembled": {
+      "lines": 7,
+      "unary": 108,
+      "compact": 70
+    }
+  },
+  "small_controls": {
+    "identity": {
+      "lines": 5,
+      "unary": 138,
+      "compact": 92
+    },
+    "mp": {
+      "lines": 8,
+      "unary": 174,
+      "compact": 116
+    },
+    "mp2": {
+      "lines": 5,
+      "unary": 138,
+      "compact": 92
+    },
+    "gen": {
+      "lines": 8,
+      "unary": 202,
+      "compact": 132
+    }
+  },
+  "parametric_checked": 184,
+  "parametric_unary_bytes": 66871,
+  "negative_rejected": 9,
+  "actual_rh_proof": false
+}

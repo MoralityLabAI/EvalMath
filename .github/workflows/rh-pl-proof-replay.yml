@@ -1,0 +1,97 @@
+name: RH proof-length replay
+
+on:
+  push:
+    branches:
+      - "research/rh-pl01-obstruction-packing-20261125"
+    paths:
+      - "research/rh_pl01/**"
+      - ".github/workflows/rh-pl-proof-replay.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    name: Replay ${{ matrix.group }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        group: [bridge, normalize, equivalence, existence]
+    steps:
+      - name: Check out the proof sources
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Regenerate the proof audit
+        run: >-
+          node research/rh_pl01/denominator_audit.mjs ${{ matrix.group }}
+          --output /tmp/denominator_${{ matrix.group }}_audit_receipt.json
+
+      - name: Compare the committed receipt
+        run: >-
+          cmp /tmp/denominator_${{ matrix.group }}_audit_receipt.json
+          research/rh_pl01/denominator_${{ matrix.group }}_audit_receipt.json
+
+  numerator:
+    name: Replay numerator bridge
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out the proof sources
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Regenerate the numerator audit
+        run: >-
+          node research/rh_pl01/numerator_audit.mjs
+          --output /tmp/numerator_bridge_audit_receipt.json
+
+      - name: Compare the committed numerator receipt
+        run: >-
+          cmp /tmp/numerator_bridge_audit_receipt.json
+          research/rh_pl01/numerator_bridge_audit_receipt.json
+
+  affine:
+    name: Replay affine graph construction
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Regenerate the affine graph audit
+        run: node research/rh_pl01/affine_audit.mjs --output /tmp/affine_audit_receipt.json
+      - name: Compare the committed affine graph receipt
+        run: cmp /tmp/affine_audit_receipt.json research/rh_pl01/affine_audit_receipt.json
+
+  joint:
+    name: Replay numerator and joint existence
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Regenerate the joint existence audit
+        run: >-
+          node research/rh_pl01/numerator_existence_audit.mjs
+          --output /tmp/numerator_existence_audit_receipt.json
+      - name: Compare the committed joint existence receipt
+        run: >-
+          cmp /tmp/numerator_existence_audit_receipt.json
+          research/rh_pl01/numerator_existence_audit_receipt.json

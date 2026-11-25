@@ -1,0 +1,71 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "rows": [
+    {
+      "name": "atomic_double",
+      "lines": 53,
+      "unary": 5425,
+      "compact": 1474,
+      "original": true
+    },
+    {
+      "name": "unchanged_occurrence",
+      "lines": 33,
+      "unary": 3245,
+      "compact": 854,
+      "original": true
+    },
+    {
+      "name": "negative",
+      "lines": 165,
+      "unary": 17052,
+      "compact": 5089,
+      "original": true
+    },
+    {
+      "name": "implication",
+      "lines": 142,
+      "unary": 18742,
+      "compact": 4882,
+      "original": true
+    },
+    {
+      "name": "quantifier",
+      "lines": 190,
+      "unary": 28166,
+      "compact": 7106,
+      "original": true
+    },
+    {
+      "name": "graph",
+      "lines": 3807,
+      "unary": 12354558,
+      "compact": 992159,
+      "original": true
+    },
+    {
+      "name": "alpha_nested",
+      "lines": 169,
+      "unary": 23385,
+      "compact": 7300,
+      "original": true
+    },
+    {
+      "name": "empty_unique",
+      "lines": 230,
+      "unary": 186924,
+      "compact": 24045,
+      "original": true
+    },
+    {
+      "name": "successor_unique",
+      "lines": 399,
+      "unary": 680790,
+      "compact": 78690,
+      "original": true
+    }
+  ],
+  "negative_rejected": 3,
+  "alpha_cache": 6,
+  "transport_cache": 61
+}

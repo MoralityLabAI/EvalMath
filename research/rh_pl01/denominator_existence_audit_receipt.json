@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "group": "existence",
+  "evidence_level": "checked derivation in the frozen candidate Hilbert calculus",
+  "frozen_blobs": {
+    "kernel.mjs": "35da89e237ecbd1a807ade3fffb39ffd57890ace",
+    "rh_target.txt": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+    "rh_target_compact.txt": "98fb1ce81784556af2f6dff8d0d6b31d9c69d7e5"
+  },
+  "source_sha256": {
+    "research/rh_pl01/append.mjs": "e046932246840fedce42bff4db6ebecce780ffdc446a8cf3c17342f7d16f5039",
+    "research/rh_pl01/assembler.mjs": "b4a485c74b3c786ff9ce02f789becf10256acc2eb7f85c38b49663c100db9257",
+    "research/rh_pl01/bounds.mjs": "c8b2f57715380363b562cac7c17fb47c3e3d391fca24855254ef79e63a9bc1e6",
+    "research/rh_pl01/compression.mjs": "bd0ffc65de672b768967c677d517fa11924923370edeb1b7e6987064116bd4fe",
+    "research/rh_pl01/denominator.mjs": "62472f49f7d8eb9356935a81cecb186730b3c2bc86176220a762e6fb0aba03f0",
+    "research/rh_pl01/denominator_audit.mjs": "50d24885debb48edf59aba0d03625b779b59246c545f2f38fff1c0ac8eba6afa",
+    "research/rh_pl01/denominator_bridge.mjs": "001523c608992d5a4990c365a3917bd1854d2e13516280b1e6266effb845d437",
+    "research/rh_pl01/denominator_existence.mjs": "a7cb1aa26945f01bb1e57daa18fc4f0795ac3dc90648778a1f13d79314722a41",
+    "research/rh_pl01/denominator_predicates.mjs": "91e6240ee974e63b19ea0e1ca14d3a341430f0c82ca6729b19d825bcc3558bb1",
+    "research/rh_pl01/gluing.mjs": "8441ebc9eeaf93c5f2acc1dc9114bb1727cfa2b502c73ae1f2f9d05d8dc687e9",
+    "research/rh_pl01/induction.mjs": "396cf9cc5008b5c705085cc1e880c5de875c1fb94a112e86b8e8978eaca60bed",
+    "research/rh_pl01/interfaces.mjs": "f3e3a25c55f8c85f51a4e3c0c6e9848b23706eac514adac3123a296360d8ce47",
+    "research/rh_pl01/joint_audit.mjs": "0d867db461cbdd0af131122bcec327d7ae95ffc248bce68b7ce81a639dc2a3ed",
+    "research/rh_pl01/kernel.mjs": "8e69d415b5f756bdc97d82e0366fd601100bb8a67ea00e0f06f1a94d765c939b",
+    "research/rh_pl01/numerator.mjs": "63de8208bfed7f5d32c7e094955979c3b249769f0d8232dc1661a0cd2b7a5351",
+    "research/rh_pl01/ordinal_audit.mjs": "927a88139e2a31bce0702324e176f21a9f3b993b174c2eaf92be7d4d20a15cac",
+    "research/rh_pl01/ordinals.mjs": "722b5d09f5d6cfe6b43831309f80e5efde9002c4ffd3e2d72b2a4fc4860320a6",
+    "research/rh_pl01/pairs.mjs": "e323c6944b232926ad5a68c83be04954ffb570267289424747ce4fc311ebd1d4",
+    "research/rh_pl01/prefix_base.mjs": "6afd119536fff2497a856274c0e14800c1a15918890947903eda9f27018d8bd5",
+    "research/rh_pl01/prefix_extension.mjs": "ffc6c9daad3f81a15c7bfab12516aaee08b491bd85305347c6f571c13f7af7dc",
+    "research/rh_pl01/prefix_family.mjs": "1387b32c2b4079b9ed99b534836c2ec36df647394d87831ab2940be292c3c075",
+    "research/rh_pl01/prefix_overlap.mjs": "aaa487651720466ffe5b929b50138826f1d21eaf603cfb5735e65eaaafda8284",
+    "research/rh_pl01/prefix_predicates.mjs": "6574416d69b7849458300b3d42d3f24665cec2fb1e41699f71a7bd20964911fb",
+    "research/rh_pl01/prefix_recursion.mjs": "2f2a6734c408fbfcb682b3f175cdf84badd72b205f29a8d37c727ed9aa699341",
+    "research/rh_pl01/prefix_total.mjs": "8e5e5285507ab1b76cb7421cdebb8533ebc00e791fc25f4a6136150330ae8b36",
+    "research/rh_pl01/recursion_existence.mjs": "4cf4fca0cc1baf327b5bc06939da9f4ed1b556c72836a72c2d8d2e71692a0ceb",
+    "research/rh_pl01/rh_target.txt": "45f4182cf6a41b47f73b62e10c7b3b8542d81b49265346bf363dc1caa8a75826",
+    "research/rh_pl01/rh_target_compact.txt": "29f0fbdec5a162ac2b77473af1a84e9e5ae31f5ff0e5c6b5143b43a67981f97a",
+    "research/rh_pl01/spine.mjs": "fc50657dd171768ff013a726b9863d86c0934cdf42a544740377c4e679ce61d9",
+    "research/rh_pl01/transport.mjs": "fde690db2cd74fb1dbfb9ce8703ab62480fdaa79241fc10b2fc12d2a5f1dd03d"
+  },
+  "substitution_controls": {
+    "overlapping_source_destination": true,
+    "simultaneous_swap": true,
+    "capture_avoided": true,
+    "bound_source_unchanged": true,
+    "literal_slots_unchanged": true
+  },
+  "checks": {
+    "frozen_files_match": true,
+    "exact_antecedents_checked": true,
+    "exact_consequents_checked": true,
+    "independent_certificate_replay": true,
+    "byte_counts_recomputed": true,
+    "mutation_controls_rejected": true
+  },
+  "rows": [
+    {
+      "name": "exact_denominator_exists_from_omega_and_multiplication",
+      "target_bytes": 16149,
+      "lines": 154140,
+      "unary": 4981306872,
+      "compact": 459246371,
+      "axioms": {
+        "propositional": 74595,
+        "power": 1,
+        "forall-elimination": 726,
+        "separation": 6,
+        "forall-distribution": 862,
+        "equality-reflexivity": 26,
+        "equality-substitution": 84,
+        "pairing": 1,
+        "extensionality": 1,
+        "union": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": false,
+      "frozen_denominator_clauses": [
+        14,
+        19,
+        21
+      ],
+      "construction_from_pl15": true,
+      "exact_clause_21_bridge": true,
+      "source_premise_indices": [
+        0,
+        1,
+        2,
+        3,
+        6
+      ],
+      "normalized_graph_witness_eliminated": true,
+      "actual_rh_proof": false,
+      "independent_replay": {
+        "lines": 154140,
+        "unary": "4981306872",
+        "compact": "459246371",
+        "nodes": 193291,
+        "target_bytes": "16149",
+        "rules": {
+          "K": 35832,
+          "S": 32938,
+          "classical": 5825,
+          "mp": 77256,
+          "gen": 581
+        },
+        "nonpropositional_axioms": {
+          "power": 1,
+          "forall-elimination": 726,
+          "separation": 6,
+          "forall-distribution": 862,
+          "equality-reflexivity": 26,
+          "equality-substitution": 84,
+          "pairing": 1,
+          "extensionality": 1,
+          "union": 1
+        }
+      },
+      "certificate_json_bytes": 4556621,
+      "target_sha256": "d92df9ff491e7b98f1f4d130afd20cb7a6518ee1781be2a26fcdd5af3984f733",
+      "target_fidelity": {
+        "source_slots": {
+          "0": 37,
+          "1": 60,
+          "2": 6,
+          "4": 8,
+          "8": 61
+        },
+        "source_clauses": [
+          14,
+          19,
+          21
+        ],
+        "clause_bytes": {
+          "14": 2959,
+          "19": 1292,
+          "21": 4723
+        },
+        "exact_antecedent_checked": true,
+        "exact_consequent_checked": true,
+        "antecedent_sha256": "c0001bdf67d21a683f7683d73a8256180e46f63375c1b688831e3109adea80c7",
+        "consequent_sha256": "d4ea2bea27cc226b7846ed5930d3984accfa56bc006943db37e18b36a83557b1",
+        "statement_negative_controls": {
+          "wrong_conclusion": "actual theorem consequent differs from the audited statement",
+          "dropped_first_premise": "actual theorem antecedent differs from the audited statement"
+        }
+      },
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 3",
+          "costs_recomputed": true
+        }
+      }
+    },
+    {
+      "name": "frozen_denominator_clauses_exist",
+      "target_bytes": 14251,
+      "lines": 155014,
+      "unary": 5007619039,
+      "compact": 463124911,
+      "axioms": {
+        "propositional": 75018,
+        "power": 1,
+        "forall-elimination": 732,
+        "separation": 6,
+        "forall-distribution": 864,
+        "equality-reflexivity": 26,
+        "equality-substitution": 84,
+        "pairing": 1,
+        "extensionality": 1,
+        "union": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": false,
+      "frozen_denominator_clauses": [
+        14,
+        19,
+        21
+      ],
+      "construction_from_pl15": true,
+      "exact_clause_21_bridge": true,
+      "source_premise_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "normalized_graph_witness_eliminated": true,
+      "actual_rh_proof": false,
+      "independent_replay": {
+        "lines": 155014,
+        "unary": "5007619039",
+        "compact": "463124911",
+        "nodes": 194918,
+        "target_bytes": "14251",
+        "rules": {
+          "K": 36026,
+          "S": 33100,
+          "classical": 5892,
+          "mp": 77693,
+          "gen": 587
+        },
+        "nonpropositional_axioms": {
+          "power": 1,
+          "forall-elimination": 732,
+          "separation": 6,
+          "forall-distribution": 864,
+          "equality-reflexivity": 26,
+          "equality-substitution": 84,
+          "pairing": 1,
+          "extensionality": 1,
+          "union": 1
+        }
+      },
+      "certificate_json_bytes": 4591215,
+      "target_sha256": "1096c5207e78eaf0fcfa38b99234a1fb593eed02c7f9e01586e4ad92de806a6d",
+      "target_fidelity": {
+        "source_slots": {
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "4": 4,
+          "8": 8
+        },
+        "source_clauses": [
+          14,
+          19,
+          21
+        ],
+        "clause_bytes": {
+          "14": 2615,
+          "19": 726,
+          "21": 4391
+        },
+        "exact_antecedent_checked": true,
+        "exact_consequent_checked": true,
+        "antecedent_sha256": "9b5300e7a6f3052b408f8d2c6793085358ce5d72998636549dc0b2f49584a338",
+        "consequent_sha256": "cc944aeb72032292a89ce4bdb7b88fb84e163de579eb6a40491f9abd18f6d3a8",
+        "statement_negative_controls": {
+          "wrong_conclusion": "actual theorem consequent differs from the audited statement",
+          "dropped_first_premise": "actual theorem antecedent differs from the audited statement"
+        }
+      },
+      "negative_controls": {
+        "incorrect_byte_count": "cost mismatch",
+        "different_target": "target mismatch",
+        "cyclic_formula": "negation child",
+        "duplicate_syntax": "noncanonical duplicate node",
+        "duplicate_proof_line": "invalid or duplicate line",
+        "missing_essential_premise": {
+          "removed_line": 0,
+          "error": "unjustified line 3",
+          "costs_recomputed": true
+        }
+      }
+    }
+  ],
+  "shared_nonpropositional_axiom_recognizer": true,
+  "actual_rh_proof": false,
+  "finite_rh_upper_bound": false
+}

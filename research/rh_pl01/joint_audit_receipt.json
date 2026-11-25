@@ -1,0 +1,32 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "lines": 94425,
+  "unary": "2405544949",
+  "compact": "294631981",
+  "nodes": 117353,
+  "target_bytes": "57831",
+  "rules": {
+    "K": 21984,
+    "S": 19977,
+    "classical": 3748,
+    "mp": 47343,
+    "gen": 375
+  },
+  "nonpropositional_axioms": {
+    "forall-elimination": 399,
+    "forall-distribution": 526,
+    "extensionality": 1,
+    "equality-reflexivity": 20,
+    "equality-substitution": 50,
+    "separation": 2
+  },
+  "certificate_json_bytes": 2697601,
+  "negative_controls": {
+    "incorrect_cost": "Error: cost mismatch",
+    "incorrect_root": "Error: root",
+    "cyclic_formula": "Error: negation child",
+    "missing_separation": "Error: unjustified line 44012"
+  },
+  "original_full_expanded_replay": false,
+  "actual_rh_proof": false
+}

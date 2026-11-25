@@ -1,0 +1,92 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "rows": [
+    {
+      "name": "append_graph_application_equivalence",
+      "target_bytes": 10223,
+      "lines": 21672,
+      "unary": 152635108,
+      "compact": 11960185,
+      "axioms": {
+        "pairing": 1,
+        "forall-elimination": 112,
+        "propositional": 10483,
+        "forall-distribution": 116,
+        "equality-reflexivity": 11,
+        "extensionality": 1,
+        "equality-substitution": 25,
+        "union": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": false,
+      "independent_replay": {
+        "lines": 21672,
+        "unary": "152635108",
+        "compact": "11960185",
+        "nodes": 26453,
+        "target_bytes": "10223",
+        "rules": {
+          "K": 5035,
+          "S": 4588,
+          "classical": 860,
+          "mp": 10833,
+          "gen": 89
+        },
+        "nonpropositional_axioms": {
+          "pairing": 1,
+          "forall-elimination": 112,
+          "forall-distribution": 116,
+          "equality-reflexivity": 11,
+          "extensionality": 1,
+          "equality-substitution": 25,
+          "union": 1
+        }
+      },
+      "certificate_json_bytes": 573967
+    },
+    {
+      "name": "bounded_fresh_append_preserves_functionality",
+      "target_bytes": 24509,
+      "lines": 37855,
+      "unary": 401597797,
+      "compact": 30585822,
+      "axioms": {
+        "pairing": 1,
+        "forall-elimination": 162,
+        "propositional": 18402,
+        "forall-distribution": 183,
+        "equality-reflexivity": 15,
+        "extensionality": 1,
+        "equality-substitution": 39,
+        "union": 1
+      },
+      "structural_replay": true,
+      "original_full_replay": false,
+      "independent_replay": {
+        "lines": 37855,
+        "unary": "401597797",
+        "compact": "30585822",
+        "nodes": 46006,
+        "target_bytes": "24509",
+        "rules": {
+          "K": 8892,
+          "S": 8218,
+          "classical": 1292,
+          "mp": 18919,
+          "gen": 132
+        },
+        "nonpropositional_axioms": {
+          "pairing": 1,
+          "forall-elimination": 162,
+          "forall-distribution": 183,
+          "equality-reflexivity": 15,
+          "extensionality": 1,
+          "equality-substitution": 39,
+          "union": 1
+        }
+      },
+      "certificate_json_bytes": 1033477
+    }
+  ],
+  "actual_rh_proof": false
+}

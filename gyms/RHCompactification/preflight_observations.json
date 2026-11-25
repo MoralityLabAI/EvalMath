@@ -1,0 +1,246 @@
+{
+  "schema": "EvalMath/rh-compactification-instrument-calibration/v1",
+  "evidence_level": "deterministic verifier instrument calibration only",
+  "unit_id": "rh-prefix-recurrence-family",
+  "construction_families": 1,
+  "units_independent": false,
+  "observation_count": 4,
+  "certificate_replay_calls": 8,
+  "observation_units": {
+    "ordered_pair_exists": "rh-prefix-recurrence-family",
+    "ordered_pair_injectivity": "rh-prefix-recurrence-family",
+    "ordered_pair_double_power_bound": "rh-prefix-recurrence-family",
+    "singleton_graph_application": "rh-prefix-recurrence-family"
+  },
+  "observations": [
+    {
+      "theorem": "ordered_pair_exists",
+      "first": {
+        "lines": 4854,
+        "unary": "17698557",
+        "compact": "1435387",
+        "nodes": 6058,
+        "target_bytes": "1979",
+        "rules": {
+          "K": 1123,
+          "S": 1001,
+          "classical": 211,
+          "mp": 2405,
+          "gen": 29
+        },
+        "nonpropositional_axioms": {
+          "pairing": 1,
+          "forall-elimination": 35,
+          "forall-distribution": 36,
+          "equality-reflexivity": 4,
+          "extensionality": 1,
+          "equality-substitution": 8
+        }
+      },
+      "repeat": {
+        "lines": 4854,
+        "unary": "17698557",
+        "compact": "1435387",
+        "nodes": 6058,
+        "target_bytes": "1979",
+        "rules": {
+          "K": 1123,
+          "S": 1001,
+          "classical": 211,
+          "mp": 2405,
+          "gen": 29
+        },
+        "nonpropositional_axioms": {
+          "pairing": 1,
+          "forall-elimination": 35,
+          "forall-distribution": 36,
+          "equality-reflexivity": 4,
+          "extensionality": 1,
+          "equality-substitution": 8
+        }
+      },
+      "certificate_sha256": "cbbf27a5c3f6e3182a4e61614731c84f958b1c43dce5b88908d0790baa159e49"
+    },
+    {
+      "theorem": "ordered_pair_injectivity",
+      "first": {
+        "lines": 3853,
+        "unary": "13115516",
+        "compact": "1231520",
+        "nodes": 4916,
+        "target_bytes": "4118",
+        "rules": {
+          "K": 873,
+          "S": 759,
+          "classical": 218,
+          "mp": 1911,
+          "gen": 24
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 5,
+          "pairing": 1,
+          "forall-elimination": 34,
+          "forall-distribution": 22,
+          "equality-substitution": 6
+        }
+      },
+      "repeat": {
+        "lines": 3853,
+        "unary": "13115516",
+        "compact": "1231520",
+        "nodes": 4916,
+        "target_bytes": "4118",
+        "rules": {
+          "K": 873,
+          "S": 759,
+          "classical": 218,
+          "mp": 1911,
+          "gen": 24
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 5,
+          "pairing": 1,
+          "forall-elimination": 34,
+          "forall-distribution": 22,
+          "equality-substitution": 6
+        }
+      },
+      "certificate_sha256": "fbbb1db4b95e07dfac5beef4710f0ddb1ec8faf1bee75c0c1e27521ba3feae72"
+    },
+    {
+      "theorem": "ordered_pair_double_power_bound",
+      "first": {
+        "lines": 1247,
+        "unary": "6759148",
+        "compact": "542921",
+        "nodes": 1592,
+        "target_bytes": "3566",
+        "rules": {
+          "K": 286,
+          "S": 250,
+          "classical": 63,
+          "mp": 617,
+          "gen": 11
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 2,
+          "forall-elimination": 7,
+          "equality-substitution": 4,
+          "forall-distribution": 7
+        }
+      },
+      "repeat": {
+        "lines": 1247,
+        "unary": "6759148",
+        "compact": "542921",
+        "nodes": 1592,
+        "target_bytes": "3566",
+        "rules": {
+          "K": 286,
+          "S": 250,
+          "classical": 63,
+          "mp": 617,
+          "gen": 11
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 2,
+          "forall-elimination": 7,
+          "equality-substitution": 4,
+          "forall-distribution": 7
+        }
+      },
+      "certificate_sha256": "f5e81c2462e232e3f1567e85ac5c3d208fe596ade57e6f4c7d69eeb8d3a76890"
+    },
+    {
+      "theorem": "singleton_graph_application",
+      "first": {
+        "lines": 10833,
+        "unary": "41620884",
+        "compact": "3680418",
+        "nodes": 13010,
+        "target_bytes": "6778",
+        "rules": {
+          "K": 2532,
+          "S": 2308,
+          "classical": 419,
+          "mp": 5416,
+          "gen": 41
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 7,
+          "forall-elimination": 51,
+          "equality-substitution": 15,
+          "forall-distribution": 43,
+          "pairing": 1
+        }
+      },
+      "repeat": {
+        "lines": 10833,
+        "unary": "41620884",
+        "compact": "3680418",
+        "nodes": 13010,
+        "target_bytes": "6778",
+        "rules": {
+          "K": 2532,
+          "S": 2308,
+          "classical": 419,
+          "mp": 5416,
+          "gen": 41
+        },
+        "nonpropositional_axioms": {
+          "equality-reflexivity": 7,
+          "forall-elimination": 51,
+          "equality-substitution": 15,
+          "forall-distribution": 43,
+          "pairing": 1
+        }
+      },
+      "certificate_sha256": "99983f15ad4120c79d46a7e06ae6268eadd16daf4bfeb0a04c37a24d4433aef6"
+    }
+  ],
+  "instrument_paired_completion_delta": "0",
+  "neural_model_run": false,
+  "neural_effect_estimate": null,
+  "causal_sham_calibrated": false,
+  "heldout_sealed": false,
+  "confirmation_allocated": false,
+  "confirmation_data_opened": false,
+  "scope": "Four prerequisite certificates are repeated observations within one shared RH construction family. Identity replay calibrates the verifier instrument only; it does not estimate a neural loop effect or calibrate a causal sham distribution.",
+  "checks": {
+    "genuine_certificates_regenerated": true,
+    "original_pair_checker_replays": true,
+    "each_certificate_replayed_twice": true,
+    "certificate_serializations_identical": true,
+    "replay_results_identical": true,
+    "initial_measurements_preserved": true,
+    "producer_counts_match": true,
+    "prior_receipt_matches": true,
+    "frozen_files_match": true
+  },
+  "frozen_blobs": {
+    "kernel.mjs": "35da89e237ecbd1a807ade3fffb39ffd57890ace",
+    "rh_target.txt": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+    "rh_target_compact.txt": "98fb1ce81784556af2f6dff8d0d6b31d9c69d7e5"
+  },
+  "source_sha256": {
+    "research/rh_pl01/assembler.mjs": "b4a485c74b3c786ff9ce02f789becf10256acc2eb7f85c38b49663c100db9257",
+    "research/rh_pl01/bounds.mjs": "c8b2f57715380363b562cac7c17fb47c3e3d391fca24855254ef79e63a9bc1e6",
+    "research/rh_pl01/compression.mjs": "bd0ffc65de672b768967c677d517fa11924923370edeb1b7e6987064116bd4fe",
+    "research/rh_pl01/denominator.mjs": "62472f49f7d8eb9356935a81cecb186730b3c2bc86176220a762e6fb0aba03f0",
+    "research/rh_pl01/gym_preflight.mjs": "fbe10e1c8fdc9b5021d7adc2ab0714bc61c5df5097b95eb1226ac176249d7087",
+    "research/rh_pl01/induction.mjs": "396cf9cc5008b5c705085cc1e880c5de875c1fb94a112e86b8e8978eaca60bed",
+    "research/rh_pl01/interfaces.mjs": "f3e3a25c55f8c85f51a4e3c0c6e9848b23706eac514adac3123a296360d8ce47",
+    "research/rh_pl01/joint_audit.mjs": "0d867db461cbdd0af131122bcec327d7ae95ffc248bce68b7ce81a639dc2a3ed",
+    "research/rh_pl01/kernel.mjs": "8e69d415b5f756bdc97d82e0366fd601100bb8a67ea00e0f06f1a94d765c939b",
+    "research/rh_pl01/numerator.mjs": "63de8208bfed7f5d32c7e094955979c3b249769f0d8232dc1661a0cd2b7a5351",
+    "research/rh_pl01/pairs.mjs": "e323c6944b232926ad5a68c83be04954ffb570267289424747ce4fc311ebd1d4",
+    "research/rh_pl01/pairs_receipt.json": "d4776ce4d994c731eaedfb2f77390e70b0f436c6777070336c0bfd97b0210a99",
+    "research/rh_pl01/rh_target.txt": "45f4182cf6a41b47f73b62e10c7b3b8542d81b49265346bf363dc1caa8a75826",
+    "research/rh_pl01/rh_target_compact.txt": "29f0fbdec5a162ac2b77473af1a84e9e5ae31f5ff0e5c6b5143b43a67981f97a",
+    "research/rh_pl01/spine.mjs": "fc50657dd171768ff013a726b9863d86c0934cdf42a544740377c4e679ce61d9",
+    "research/rh_pl01/transport.mjs": "fde690db2cd74fb1dbfb9ce8703ab62480fdaa79241fc10b2fc12d2a5f1dd03d",
+    "scripts/prepare_rh_compactification_preflight.py": "b3fa13857fad239deaa4da4c122c8731f874e0405252dc3ff6a1349f4ff228f9",
+    "skills/evalmath-mechinterp-power/SKILL.md": "1f387f4fe532c83567cc03806028cf612643b6d28adc08a858e1183a1fc7a5ec",
+    "skills/evalmath-mechinterp-power/scripts/preflight.py": "c2621a7900930f81ed53799ce439ee1c8f2d7006918a04ef57b5381630d15494"
+  }
+}

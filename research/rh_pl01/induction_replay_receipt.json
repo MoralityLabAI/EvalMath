@@ -1,0 +1,21 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "rows": [
+    {
+      "name": "no_zero_denominator",
+      "lines": 3733,
+      "unary": 35842233,
+      "compact": 3297478,
+      "original_kernel_replay": true,
+      "root_bytes": 7825
+    },
+    {
+      "name": "graph_agreement",
+      "lines": 3733,
+      "unary": 75328355,
+      "compact": 6150498,
+      "original_kernel_replay": true,
+      "root_bytes": 16114
+    }
+  ]
+}

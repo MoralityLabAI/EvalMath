@@ -1,0 +1,68 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "omega_exact_source_bytes": 732,
+  "instances": [
+    {
+      "name": "membership",
+      "predicate_bytes": 9,
+      "separation_cost": 66,
+      "separation_compact": 36,
+      "conclusion_bytes": 1504,
+      "lines": 3732,
+      "unary": 5958446,
+      "compact": 916447,
+      "axioms": {
+        "separation": 1,
+        "propositional": 1808,
+        "forall-elimination": 20,
+        "forall-distribution": 25
+      },
+      "original_kernel_replay": true
+    },
+    {
+      "name": "no_zero_denominator",
+      "predicate_bytes": 1429,
+      "separation_cost": 2906,
+      "separation_compact": 278,
+      "conclusion_bytes": 7825,
+      "lines": 3733,
+      "unary": 35842233,
+      "compact": 3297478,
+      "axioms": {
+        "separation": 1,
+        "propositional": 1808,
+        "forall-elimination": 20,
+        "forall-distribution": 25
+      },
+      "original_kernel_replay": false
+    },
+    {
+      "name": "graph_agreement",
+      "predicate_bytes": 3323,
+      "separation_cost": 6694,
+      "separation_compact": 568,
+      "conclusion_bytes": 16114,
+      "lines": 3733,
+      "unary": 75328355,
+      "compact": 6150498,
+      "axioms": {
+        "separation": 1,
+        "propositional": 1808,
+        "forall-elimination": 20,
+        "forall-distribution": 25
+      },
+      "original_kernel_replay": false
+    }
+  ],
+  "definition_bridge": {
+    "lines": 3781,
+    "unary": 16374308,
+    "compact": 2450401,
+    "original_kernel_replay": true
+  },
+  "original_kernel_replays": 2,
+  "negative_rejected": 4,
+  "formula_nodes": 14913,
+  "proof_nodes": 11534,
+  "actual_rh_proof": false
+}

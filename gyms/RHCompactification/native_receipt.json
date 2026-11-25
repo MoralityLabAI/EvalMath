@@ -1,0 +1,737 @@
+{
+  "candidate_pack": {
+    "candidate_checks": 24,
+    "environment": {
+      "backend": "lean4_direct_compile_with_axiom_audit",
+      "checker_sha256": "f97269f0a49f5b57926a63b279a6c9813c52b326aa13b51205936b1aa1491d62",
+      "expected_version": "4.34.1",
+      "lean_sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+      "max_heartbeats": 400000,
+      "memory_limit_mib": 768,
+      "timeout_s": 20,
+      "toolchain_matches": false
+    },
+    "goals": 12,
+    "matches": true,
+    "negative": 12,
+    "positive": 12,
+    "rows": [
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_3cbf602f70a5f9eff583",
+        "id": "rh_micro_extend_before",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "candidate": "c_4e67654651c213dfd605",
+        "id": "rh_micro_extend_before",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_4d682636bea22183ce75",
+        "id": "rh_micro_prefix_restrict",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_b4838000c998e7bceeff",
+        "id": "rh_micro_prefix_restrict",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "propext",
+          "sorryAx"
+        ],
+        "candidate": "c_054afd0d0d057009edc6",
+        "id": "rh_micro_prefix_extend",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "candidate": "c_f3945775b1685cd91d5f",
+        "id": "rh_micro_prefix_extend",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_33e88c080d1b28d46bc2",
+        "id": "rh_micro_prefix_graph_overlap",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_87d24d433bc8b01410f1",
+        "id": "rh_micro_prefix_graph_overlap",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_1aa09f8c2ac6866e3630",
+        "id": "rh_micro_glue_agrees",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_6f833cfefca93f4764fa",
+        "id": "rh_micro_glue_agrees",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_2fbffc7b0a59af20bec0",
+        "id": "rh_micro_glued_graph_iff",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_ede6f15db4e700105df7",
+        "id": "rh_micro_glued_graph_iff",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_16723813987e2c81e8ac",
+        "id": "rh_micro_glue_succ",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_20728fe9fca0cf596a49",
+        "id": "rh_micro_glue_succ",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "candidate": "c_75a05ffa96924d7cb33a",
+        "id": "rh_micro_denominator_unique",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_f091fa100d609ce21135",
+        "id": "rh_micro_denominator_unique",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_3d387c69be877e991dcf",
+        "id": "rh_micro_denominator_step_to_exact",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_4ef5af122204e369c4ce",
+        "id": "rh_micro_denominator_step_to_exact",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_15c655c39a7b7704f506",
+        "id": "rh_micro_denominator_exact_to_step",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_ab444d9daba79c3b2f65",
+        "id": "rh_micro_denominator_exact_to_step",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "candidate": "c_1430cbcf7c49f5032f4d",
+        "id": "rh_micro_denominator_exact_unique",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "Quot.sound",
+          "sorryAx"
+        ],
+        "candidate": "c_d600790638a9c747a51c",
+        "id": "rh_micro_denominator_exact_unique",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_2363c3dfcca971909455",
+        "id": "rh_micro_joint_unique",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "candidate": "c_6529241a38b8cfb4a102",
+        "id": "rh_micro_joint_unique",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      }
+    ],
+    "schema": "EvalMath/rh-compactification-pack-replay/v1",
+    "trace_checks": 12,
+    "unknown": 0
+  },
+  "environment": {
+    "backend": "lean4_direct_compile_with_axiom_audit",
+    "checker_sha256": "f97269f0a49f5b57926a63b279a6c9813c52b326aa13b51205936b1aa1491d62",
+    "expected_version": "4.34.1",
+    "lean_sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+    "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+    "max_heartbeats": 400000,
+    "memory_limit_mib": 768,
+    "timeout_s": 20,
+    "toolchain_matches": false
+  },
+  "evidence_class": "native Lean proof and engineering checks",
+  "heldout_scored": false,
+  "independent_families": 1,
+  "module_axioms": {
+    "FeedbackChannel.RHCompactification.denominator_exact": [],
+    "FeedbackChannel.RHCompactification.denominator_exact_to_step": [],
+    "FeedbackChannel.RHCompactification.denominator_exact_unique": [
+      "Quot.sound"
+    ],
+    "FeedbackChannel.RHCompactification.denominator_step_equiv": [],
+    "FeedbackChannel.RHCompactification.denominator_step_to_exact": [],
+    "FeedbackChannel.RHCompactification.denominator_succ": [],
+    "FeedbackChannel.RHCompactification.denominator_unique": [
+      "Quot.sound"
+    ],
+    "FeedbackChannel.RHCompactification.denominator_zero": [],
+    "FeedbackChannel.RHCompactification.extend_at_new": [
+      "propext"
+    ],
+    "FeedbackChannel.RHCompactification.extend_before": [
+      "propext"
+    ],
+    "FeedbackChannel.RHCompactification.glue_agrees": [],
+    "FeedbackChannel.RHCompactification.glue_eq_orbit": [
+      "Quot.sound"
+    ],
+    "FeedbackChannel.RHCompactification.glue_succ": [],
+    "FeedbackChannel.RHCompactification.glue_zero": [],
+    "FeedbackChannel.RHCompactification.glued_graph_iff": [],
+    "FeedbackChannel.RHCompactification.joint_components_unique": [
+      "Quot.sound"
+    ],
+    "FeedbackChannel.RHCompactification.joint_denominator": [
+      "Quot.sound"
+    ],
+    "FeedbackChannel.RHCompactification.joint_succ": [],
+    "FeedbackChannel.RHCompactification.joint_unique": [
+      "Quot.sound"
+    ],
+    "FeedbackChannel.RHCompactification.joint_zero": [],
+    "FeedbackChannel.RHCompactification.numerator_succ": [
+      "Quot.sound"
+    ],
+    "FeedbackChannel.RHCompactification.orbit_isPrefix": [],
+    "FeedbackChannel.RHCompactification.orbit_recurrence": [],
+    "FeedbackChannel.RHCompactification.prefix_agreement": [],
+    "FeedbackChannel.RHCompactification.prefix_eq_orbit": [],
+    "FeedbackChannel.RHCompactification.prefix_exists": [
+      "propext"
+    ],
+    "FeedbackChannel.RHCompactification.prefix_extend": [
+      "propext"
+    ],
+    "FeedbackChannel.RHCompactification.prefix_graph_domain": [],
+    "FeedbackChannel.RHCompactification.prefix_graph_functional": [],
+    "FeedbackChannel.RHCompactification.prefix_graph_overlap": [],
+    "FeedbackChannel.RHCompactification.prefix_restrict": [],
+    "FeedbackChannel.RHCompactification.prefix_zero": [],
+    "FeedbackChannel.RHCompactification.recurrence_exists_unique": [
+      "Quot.sound"
+    ],
+    "FeedbackChannel.RHCompactification.recurrence_unique": [
+      "Quot.sound"
+    ],
+    "FeedbackChannel.RHCompactification.witness_denominator_six": [],
+    "FeedbackChannel.RHCompactification.witness_joint_six": []
+  },
+  "module_source_sha256": "e7c8c6282aed3fa1392bf18b2caff43958c5839919529e6863cf5fcc57799f79",
+  "module_theorems": 36,
+  "mutation_controls": [
+    {
+      "kernel_calls": 1,
+      "mutation": "invalid_equality",
+      "rejected": true,
+      "status": "rejected_axioms"
+    },
+    {
+      "kernel_calls": 0,
+      "mutation": "admission",
+      "rejected": true,
+      "status": "rejected_by_surface"
+    },
+    {
+      "kernel_calls": 0,
+      "mutation": "self_reference",
+      "rejected": true,
+      "status": "rejected_by_surface"
+    }
+  ],
+  "neural_effect_claim": false,
+  "passed": true,
+  "schema": "EvalMath/rh-compactification-native-suite/v1",
+  "teachers": {
+    "environment": {
+      "backend": "lean4_direct_compile_with_axiom_audit",
+      "checker_sha256": "f97269f0a49f5b57926a63b279a6c9813c52b326aa13b51205936b1aa1491d62",
+      "expected_version": "4.34.1",
+      "lean_sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+      "lean_version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+      "max_heartbeats": 400000,
+      "memory_limit_mib": 768,
+      "timeout_s": 20,
+      "toolchain_matches": false
+    },
+    "outcomes": [
+      {
+        "axioms": [
+          "propext"
+        ],
+        "charged_source_bytes": 2185,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.extend_before' depends on axioms: [propext]",
+        "id": "RHCG-001",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 84,
+        "proof_sha256": "a5467e77b40e1fdf9dafdd29cc339fe6b30c46fbe0af2585bf60ddea90c17ed1",
+        "returncode": 0,
+        "source_sha256": "07e1d4e45da3b016e1fcb9b1da2ba5b7fa2f63c8269339f104ab93670d45f0f5",
+        "statement_sha256": "f505139cfbc08bceaae71875c75b86ed7fbac6585039495fa27793403ac0c127",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 2736,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.prefix_restrict' does not depend on any axioms",
+        "id": "RHCG-002",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 73,
+        "proof_sha256": "b4823e8fc1b90a9a6ac1df1923b1d63775ed35ada92f3fd4b8f992dab3735049",
+        "returncode": 0,
+        "source_sha256": "3333d6a29a5b5c3a733dfb3ca52d8ccc516e3a227462de094d9d86eb03800a22",
+        "statement_sha256": "48f43821ed82b01ff0231150929ba93ddefe37202a26b1572f4b0c29b818e1de",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "charged_source_bytes": 3423,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.prefix_extend' depends on axioms: [propext]",
+        "id": "RHCG-003",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 418,
+        "proof_sha256": "1cb3b9eacb762184413a4ac337e28fe50c5049c7b38a814d62458975cbf5c5fe",
+        "returncode": 0,
+        "source_sha256": "baf72ec92fb27d13a92c14680ff5484bfc800d403583dd026c15b4b236c05c28",
+        "statement_sha256": "4509902803ca3781ba324a28db2b06b46184db5c5f9fd9180d39146369c5dba4",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 3968,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.prefix_agreement' does not depend on any axioms",
+        "id": "RHCG-004",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 249,
+        "proof_sha256": "b15e2083909b51df443ea57567b017c08caf93243b263d4ff4e8eb59eb38b762",
+        "returncode": 0,
+        "source_sha256": "9b07f50ac26620b2639a5e204b2484f08089d3031cf840690e4abd952d498424",
+        "statement_sha256": "a9b0e1d74e2e9f07a987f83be06140c692b06b41c3b9d7d6dcd040ec4e988449",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "propext"
+        ],
+        "charged_source_bytes": 4942,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.prefix_exists' depends on axioms: [propext]",
+        "id": "RHCG-005",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 179,
+        "proof_sha256": "df2420d72270a72c18c9ec05471b8a53d094ad2df6c3adc3f98fc77e882ee442",
+        "returncode": 0,
+        "source_sha256": "23d8bd29528aac4d9dfd52a8a6d1effd6c17b906f39e71df09c709b2492eea78",
+        "statement_sha256": "1b039f118c850720e608841b708f63f46f0ef57fd51cdf0f1c9c21ac8db0f97a",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 5555,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.prefix_graph_domain' does not depend on any axioms",
+        "id": "RHCG-006",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 104,
+        "proof_sha256": "c8fe6ab1971dcd26e770940dd29ea153cac2ac3ec29ef142b8e8d6c8f06ca529",
+        "returncode": 0,
+        "source_sha256": "5da619511a4bbaab9a436e72ec9c0b0741a0bdec6338f4ee74f1a91785019004",
+        "statement_sha256": "ec2e3cf3113e3474cadac7d7dd8b6d57ae1e9417862ea650ffd2c4a572337d90",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 6213,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.prefix_graph_overlap' does not depend on any axioms",
+        "id": "RHCG-007",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 71,
+        "proof_sha256": "597837be305d565961500b6e7dc8d8250b192b97b4d1d6351b44ab3d84f17f77",
+        "returncode": 0,
+        "source_sha256": "f6d9c45790eece2cb31dd3de17812e57305d2392f3e79dfae6a9c5797ba011ab",
+        "statement_sha256": "52a894aaa7eca3d909ab911c1c3bb66c24248b88542911b0fde662ed2e20bff6",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 7218,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.glue_agrees' does not depend on any axioms",
+        "id": "RHCG-008",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 83,
+        "proof_sha256": "20b9f5aac6ae76688573c07dfdba0b9387fc687a68295cf71e47a25464cb630f",
+        "returncode": 0,
+        "source_sha256": "a4092ca7d5f7be1a9436f0d09ad363cfa065f9b4930d67427bbbea76997ba08b",
+        "statement_sha256": "ca7ae6132eb471f1e84ac4dc8f5b858d7088ae96128a6e81b0b833d58a0cd33c",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 7919,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.glued_graph_iff' does not depend on any axioms",
+        "id": "RHCG-009",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 147,
+        "proof_sha256": "9859c333a0a234cca31c7854db20bbff1a753e9b8d56d0f7f8d573f221e4febf",
+        "returncode": 0,
+        "source_sha256": "f6deb24d8593d31c2e7d4508153f4271b3787752c39effe912c17522f9763e44",
+        "statement_sha256": "c1501b784f2659589fce8050eda61c51e916c4b03ee72d77b47956320cedbbda",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 8574,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.glue_succ' does not depend on any axioms",
+        "id": "RHCG-010",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 224,
+        "proof_sha256": "12c7cfdd8f3aec6cff64b785413935a5f2672f020a423379a6b98644663f60c2",
+        "returncode": 0,
+        "source_sha256": "e2ef824dd594e2461a21734b9447de03f53938845cfa49dcbab2ac9c39fd5a2d",
+        "statement_sha256": "5928f9078674c7b840d6858568da20b393a6670b8c054de71c8daed493dada88",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "charged_source_bytes": 9345,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.recurrence_unique' depends on axioms: [Quot.sound]",
+        "id": "RHCG-011",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 105,
+        "proof_sha256": "e61db756dbc140de02ef8f35eb3a9e44de6ee1842c4afb919515863185847bb5",
+        "returncode": 0,
+        "source_sha256": "f32ed991f652d6b84bef1efefeee36315972a6896170c7a3e8493cfefd1a5428",
+        "statement_sha256": "edc8a52c9000b16474c9e76ac0963b876446c84970a3a3fd4a588142bcf9fba8",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "charged_source_bytes": 9732,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.recurrence_exists_unique' depends on axioms: [Quot.sound]",
+        "id": "RHCG-012",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 120,
+        "proof_sha256": "8995418a8d159732c62371dfe0ee00f57fa29d3a2b0c1f3dec6e21d3f21e1783",
+        "returncode": 0,
+        "source_sha256": "91ac651686652dbdf0a56c3825fed01e48553c2b6f070c85079123d4c89e3c98",
+        "statement_sha256": "b40ff51b3fb0d726b703ae6dace20392ed086368b4ef3187bbc35bc3d055751c",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "charged_source_bytes": 10033,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.glue_eq_orbit' depends on axioms: [Quot.sound]",
+        "id": "RHCG-013",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 93,
+        "proof_sha256": "4f598a674600e33533e445d60b97479e37f80c8bcf954d41716a37df8ec1478a",
+        "returncode": 0,
+        "source_sha256": "a217ac43a2202fb0cffd23f1762672b1b6e984856859163504431e3621c78112",
+        "statement_sha256": "215c0e124904e03083d4f949d7929483e6efc6c6b02ff0d196c8b2c31e12f70f",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "charged_source_bytes": 10951,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.denominator_unique' depends on axioms: [Quot.sound]",
+        "id": "RHCG-014",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 95,
+        "proof_sha256": "a7a8b7d3ca4d785719608b75dbd7a3f65531f656e415fdf7eced4c90b909f47b",
+        "returncode": 0,
+        "source_sha256": "9c07c7a3ca0a544e2fac1b0c6ef13baf1963570aa4fd2547e2a0840541c9dfd3",
+        "statement_sha256": "d64b49bebd782653514090273664f88e1f873973f2659d6a2096981cdf608aac",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 11610,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.denominator_step_to_exact' does not depend on any axioms",
+        "id": "RHCG-015",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 90,
+        "proof_sha256": "39ebf76bae00839b3c9b8b1cb69bb3a457654fb499df395cdf4befe57f17cc6e",
+        "returncode": 0,
+        "source_sha256": "eb85df02dca6dec9737b30dd9e2a1e235e667fe358cd2c620001a7d2de253c91",
+        "statement_sha256": "2b1f00cf04c4be6d7c5ed124a75a3147d3a17d63217d7907a2d2c7ef141d57b7",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 12077,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.denominator_exact_to_step' does not depend on any axioms",
+        "id": "RHCG-016",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 207,
+        "proof_sha256": "5b2b8814fc6871c0dbd0ec0665bc280f65fb33f0a3565b548ddd5b0a05c70752",
+        "returncode": 0,
+        "source_sha256": "68dbfa35994adfc8887e5232ac8af55caf1613440abfc451fa955fb561b08401",
+        "statement_sha256": "ebac1f4b34600495224ab3729fb668833f0ee7e2daa92d539b2c6f784509f3ca",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "charged_source_bytes": 12954,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.denominator_exact_unique' depends on axioms: [Quot.sound]",
+        "id": "RHCG-017",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 58,
+        "proof_sha256": "56c2a10eb8dd9e593aa2a8f48d61367c62272bf8bb8c7e3ffdf72d327ed10405",
+        "returncode": 0,
+        "source_sha256": "5ddb68fde06238c1c3f74320e3f4c32715190158e3de3894c5fa45c225243975",
+        "statement_sha256": "24fdb0a7270166dba7b5f8e4c347188eea47d0eb433496e09f84855e67a415ef",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "charged_source_bytes": 14409,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.joint_denominator' depends on axioms: [Quot.sound]",
+        "id": "RHCG-018",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 143,
+        "proof_sha256": "704ca8acc1f891a526128a065fef77ffd7bb6a37fa3a09f351ce0050cc838769",
+        "returncode": 0,
+        "source_sha256": "89d47ba29441947a10daeea4c3483d54c98dbfd879a4c3bb3ee0fa50f21f22e5",
+        "statement_sha256": "2c63e670fa2a717387ba27848230efa3d5d4766863043236d8baf5a599655b07",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "charged_source_bytes": 14836,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.numerator_succ' depends on axioms: [Quot.sound]",
+        "id": "RHCG-019",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 129,
+        "proof_sha256": "634239775f80ac95080f57e9d564fc583767234c3a11de592ef9ea1032202ae5",
+        "returncode": 0,
+        "source_sha256": "134ff7a8fe40415fe041952ffb7120375f1e97fcb22702d1b67a98fec9de2c99",
+        "statement_sha256": "4e34898ab4e491fb00c34fb44e96d82aae432470c5364aabcec1c6dc66ab5e42",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "charged_source_bytes": 16001,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHCompactification.joint_components_unique' depends on axioms: [Quot.sound]",
+        "id": "RHCG-020",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 325,
+        "proof_sha256": "d204bd1dabbfcc03ff2ad56b73f26d892a2a42af71aee187640a864e9cf1d09d",
+        "returncode": 0,
+        "source_sha256": "18d585f703c5e05ade7acb8117737855143ef4c88bd212e5ddba3e68bb1d1304",
+        "statement_sha256": "8069ac2073bc9280c7fa6919abfcba7f9c426ebd7cfce167c3abd10e3d0a8e55",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      }
+    ],
+    "passes": 20,
+    "schema": "EvalMath/rh-compactification-native-replay/v1",
+    "source_sha256": "e7c8c6282aed3fa1392bf18b2caff43958c5839919529e6863cf5fcc57799f79",
+    "tasks": 20
+  }
+}

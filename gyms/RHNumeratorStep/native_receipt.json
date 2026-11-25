@@ -1,0 +1,351 @@
+{
+  "candidate_pack": {
+    "candidate_checks": 12,
+    "goals": 6,
+    "matches": true,
+    "negative": 6,
+    "positive": 6,
+    "rows": [
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_6711b984fac972a96f27",
+        "id": "rh_num_micro_affine_step_zero_iff",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_9df0673bd238b34198f5",
+        "id": "rh_num_micro_affine_step_zero_iff",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_d03a2d294a6aff45131a",
+        "id": "rh_num_micro_affine_step_succ_iff",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_d9b4965973c60a149945",
+        "id": "rh_num_micro_affine_step_succ_iff",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_3badbb7c543d88391508",
+        "id": "rh_num_micro_affine_step_iff_graph",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_3d2bbae093574a6424c3",
+        "id": "rh_num_micro_affine_step_iff_graph",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_6d378ae9b69ef35526f4",
+        "id": "rh_num_micro_affine_step_total",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_78342ef34021f549c5fc",
+        "id": "rh_num_micro_affine_step_total",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_bf48d0324839c4ca5926",
+        "id": "rh_num_micro_affine_step_functional",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_c40b38619190df018494",
+        "id": "rh_num_micro_affine_step_functional",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [],
+        "candidate": "c_950f41456e8ae74931bc",
+        "id": "rh_num_micro_affine_recurrence_iff",
+        "label": 1,
+        "matches": true,
+        "status": "accepted"
+      },
+      {
+        "axioms": [
+          "sorryAx"
+        ],
+        "candidate": "c_cdbdb984bd670e0d5531",
+        "id": "rh_num_micro_affine_recurrence_iff",
+        "label": 0,
+        "matches": true,
+        "status": "rejected_axioms"
+      }
+    ],
+    "trace_checks": 6,
+    "unknown": 0
+  },
+  "environment": {
+    "backend": "lean4_direct_compile_with_axiom_audit",
+    "checker_sha256": "f97269f0a49f5b57926a63b279a6c9813c52b326aa13b51205936b1aa1491d62",
+    "curriculum": "RHNumeratorStep-v1",
+    "expected_version": "4.34.1",
+    "lean_sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550",
+    "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+    "max_heartbeats": 400000,
+    "memory_limit_mib": 768,
+    "renderer_sha256": "186bd6f466f21bfd2182464b8f395d34f1f606a593c4fd13b9e37c4f2dbe5afd",
+    "timeout_s": 20,
+    "toolchain_matches": true
+  },
+  "evidence_class": "native Lean proof and engineering checks",
+  "heldout_scored": false,
+  "independent_families": 1,
+  "module_audit_source_sha256": "3c039025ddf9059d0a6d7138f7c08b75878ab5e482296d8dba7f5d4273bdc8ca",
+  "module_axioms": {
+    "FeedbackChannel.RHNumeratorStep.affine_recurrence_eq_joint_numerator": [
+      "Quot.sound"
+    ],
+    "FeedbackChannel.RHNumeratorStep.affine_recurrence_exists_unique": [
+      "Quot.sound"
+    ],
+    "FeedbackChannel.RHNumeratorStep.affine_recurrence_iff": [],
+    "FeedbackChannel.RHNumeratorStep.affine_step_functional": [],
+    "FeedbackChannel.RHNumeratorStep.affine_step_iff_graph": [],
+    "FeedbackChannel.RHNumeratorStep.affine_step_succ_iff": [],
+    "FeedbackChannel.RHNumeratorStep.affine_step_total": [],
+    "FeedbackChannel.RHNumeratorStep.affine_step_zero_iff": []
+  },
+  "module_theorems": 8,
+  "mutation_controls": [
+    {
+      "kernel_calls": 1,
+      "mutation": "invalid_equality",
+      "rejected": true,
+      "status": "rejected_axioms"
+    },
+    {
+      "kernel_calls": 0,
+      "mutation": "admission",
+      "rejected": true,
+      "status": "rejected_by_surface"
+    },
+    {
+      "kernel_calls": 0,
+      "mutation": "self_reference",
+      "rejected": true,
+      "status": "rejected_by_surface"
+    },
+    {
+      "kernel_calls": 0,
+      "mutation": "future_reference",
+      "rejected": true,
+      "status": "rejected_by_surface"
+    },
+    {
+      "kernel_calls": 1,
+      "mutated_source_sha256": "fa72c4eebc873d36e9b6dcba3c216e6ef3f39c299465c8f413617abca265e946",
+      "mutation": "zero_branch_shift",
+      "rejected": true,
+      "status": "rejected_axioms"
+    },
+    {
+      "kernel_calls": 1,
+      "mutated_source_sha256": "6d8db3aa6d2a7e7c2ecdea5b97e157b46ede53c1fa874ef6bc350ae093b13d70",
+      "mutation": "successor_denominator_index",
+      "rejected": true,
+      "status": "rejected_axioms"
+    }
+  ],
+  "native_proof_compilations": 30,
+  "neural_effect_claim": false,
+  "passed": true,
+  "schema": "EvalMath/rh-numerator-native-suite/v1",
+  "sources_sha256": {
+    "lean/FeedbackChannel/RHCompactification.lean": "e7c8c6282aed3fa1392bf18b2caff43958c5839919529e6863cf5fcc57799f79",
+    "lean/FeedbackChannel/RHNumeratorStep.lean": "9c3efa5c82409e7bc3ec337eb676be9345d1fd2e6ce7b26e4a38d3d2f8db1678",
+    "scripts/verify_rh_numerator_native.py": "dc6b1e8ddf79a70b4e319e873ded6e03afd0ec418eea046f297e322a40c0ace8",
+    "src/spiral_ln/rh_compactification_gym.py": "f97269f0a49f5b57926a63b279a6c9813c52b326aa13b51205936b1aa1491d62",
+    "src/spiral_ln/rh_numerator_gym.py": "186bd6f466f21bfd2182464b8f395d34f1f606a593c4fd13b9e37c4f2dbe5afd"
+  },
+  "teachers": {
+    "outcomes": [
+      {
+        "axioms": [],
+        "charged_source_bytes": 18537,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHNumeratorStep.affine_step_zero_iff' does not depend on any axioms",
+        "id": "RHCG-021",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 140,
+        "proof_sha256": "be137a77955576d09577e42d5b5a56e1ae15563dfd413799b5c6caa3af383a59",
+        "returncode": 0,
+        "source_sha256": "9aa48991c772ed1fe9cf68a162b927c3de8dcff0ee52f86fb5949c04b27013a0",
+        "statement_sha256": "b78bcfd9b2c369c22511b0c56a3735320138eadb8d54cec12e1168af50aee50a",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 19116,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHNumeratorStep.affine_step_succ_iff' does not depend on any axioms",
+        "id": "RHCG-022",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 303,
+        "proof_sha256": "59080b507d563ec643227cb3837dd06e3843cc4b44f444226f0b21ff5e741f53",
+        "returncode": 0,
+        "source_sha256": "a996b76e41be6975f84ca9bf188e421b67d5177e8614c25cd299d3f8d587c5a3",
+        "statement_sha256": "7b99079c64020be46b9afd4ca66a22901ee597be4cd2b9bbc94a128ab053cb44",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 19570,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHNumeratorStep.affine_step_iff_graph' does not depend on any axioms",
+        "id": "RHCG-023",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 122,
+        "proof_sha256": "7c803369730c12ba0aaafd8ea797561e5d13298a0ef51b575bbb00d1a33bb993",
+        "returncode": 0,
+        "source_sha256": "51be0f9db10347ce85d4e31a2deebb84173626041b483048be20b531fa3dacef",
+        "statement_sha256": "270a13c72d144b6d420ef1a5dcc70605b5be9e8e0be558f2a555a50594e33af7",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 19983,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHNumeratorStep.affine_step_total' does not depend on any axioms",
+        "id": "RHCG-024",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 120,
+        "proof_sha256": "7ab16a29c1bd13c6f783ff603c1fba4d17398ddb9a5e52b6726f2e811d1a9b56",
+        "returncode": 0,
+        "source_sha256": "f3308c858bd690bbee5df1babf1ff6cabc12e6922ce6a91c32e7afaafbab8603",
+        "statement_sha256": "b7fe69c2065eb9f397b2c68ce5861a71055ff465ff20443d60106ae85ce076cd",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 20369,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHNumeratorStep.affine_step_functional' does not depend on any axioms",
+        "id": "RHCG-025",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 118,
+        "proof_sha256": "aa36cad420652a4b042e973c0e960ffde9461a97fb0dd6d2fcb0642b8ac6b1f0",
+        "returncode": 0,
+        "source_sha256": "f267e6841039777a8fcd700b9eab121029292325d175ac0ff8a0a9e0e7359c0b",
+        "statement_sha256": "981fd35873cb1ade228ad75a2ed9c19163a37db1985f966c9eef73b9ab1557f1",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [],
+        "charged_source_bytes": 21285,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHNumeratorStep.affine_recurrence_iff' does not depend on any axioms",
+        "id": "RHCG-026",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 254,
+        "proof_sha256": "b592a6e97e1b0f38265cb8a5096d1f345e081e5d9087eb339e23cf2339e4522c",
+        "returncode": 0,
+        "source_sha256": "4c20e40d02b1d345922482062d50b033277809f383ff473ab31cffafb2a2ec4a",
+        "statement_sha256": "1c9d3d0357d47667011443e220db689c650bb9b5baaa8729268c6ea92a802c2a",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "charged_source_bytes": 21960,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHNumeratorStep.affine_recurrence_exists_unique' depends on axioms: [Quot.sound]",
+        "id": "RHCG-027",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 251,
+        "proof_sha256": "1129a5d028f7bd6f7853d985490e186b2d18c8d19540ed08dc6e062f39e2253e",
+        "returncode": 0,
+        "source_sha256": "4a6eabc6af0824c0f02d656d580555634c01c0e7e2a3e60d8647439e479539f3",
+        "statement_sha256": "ee46066db2a23932aab1ac43af512f8ab9643e9b3c8440493802e93867fc9655",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      },
+      {
+        "axioms": [
+          "Quot.sound"
+        ],
+        "charged_source_bytes": 22577,
+        "closed": true,
+        "diagnostic": "'FeedbackChannel.RHNumeratorStep.affine_recurrence_eq_joint_numerator' depends on axioms: [Quot.sound]",
+        "id": "RHCG-028",
+        "kernel_calls": 1,
+        "kernel_ok": true,
+        "label": 1,
+        "proof_bytes": 181,
+        "proof_sha256": "17369b4264f7d79d4638aded0e5a69b23a2976d7bb504b48e649a8b50e922da3",
+        "returncode": 0,
+        "source_sha256": "06162cf66d04a8e418d47ce3cfdd9ada911004639be999be87637aa1423b5d53",
+        "statement_sha256": "1b47bd8090d02981419028633a0637ac365ef3cb655f6b04474e060ba3611348",
+        "status": "accepted",
+        "verifier": "lean4_direct_compile_with_axiom_audit"
+      }
+    ],
+    "passes": 8,
+    "tasks": 8
+  },
+  "training_steps": 0
+}

@@ -1,0 +1,150 @@
+{
+  "target_git_blob": "a55f16f293a784ca91d9d52d65cbaea1e89f80dc",
+  "top_level_definition_clauses": 22,
+  "clause_sizes": [
+    {
+      "index": 0,
+      "unary": 732,
+      "compact": 143
+    },
+    {
+      "index": 1,
+      "unary": 6,
+      "compact": 3
+    },
+    {
+      "index": 2,
+      "unary": 28,
+      "compact": 6
+    },
+    {
+      "index": 3,
+      "unary": 7,
+      "compact": 3
+    },
+    {
+      "index": 4,
+      "unary": 113,
+      "compact": 29
+    },
+    {
+      "index": 5,
+      "unary": 5576,
+      "compact": 793
+    },
+    {
+      "index": 6,
+      "unary": 5579,
+      "compact": 793
+    },
+    {
+      "index": 7,
+      "unary": 1678,
+      "compact": 265
+    },
+    {
+      "index": 8,
+      "unary": 4371,
+      "compact": 613
+    },
+    {
+      "index": 9,
+      "unary": 1671,
+      "compact": 265
+    },
+    {
+      "index": 10,
+      "unary": 6157,
+      "compact": 827
+    },
+    {
+      "index": 11,
+      "unary": 2606,
+      "compact": 417
+    },
+    {
+      "index": 12,
+      "unary": 2609,
+      "compact": 417
+    },
+    {
+      "index": 13,
+      "unary": 2612,
+      "compact": 417
+    },
+    {
+      "index": 14,
+      "unary": 2615,
+      "compact": 417
+    },
+    {
+      "index": 15,
+      "unary": 5347,
+      "compact": 756
+    },
+    {
+      "index": 16,
+      "unary": 724,
+      "compact": 139
+    },
+    {
+      "index": 17,
+      "unary": 5060,
+      "compact": 715
+    },
+    {
+      "index": 18,
+      "unary": 724,
+      "compact": 139
+    },
+    {
+      "index": 19,
+      "unary": 726,
+      "compact": 139
+    },
+    {
+      "index": 20,
+      "unary": 7704,
+      "compact": 1013
+    },
+    {
+      "index": 21,
+      "unary": 4391,
+      "compact": 621
+    }
+  ],
+  "templates": [
+    {
+      "name": "left",
+      "lines": 50,
+      "unary": 3541,
+      "compact": 2349
+    },
+    {
+      "name": "right",
+      "lines": 42,
+      "unary": 3238,
+      "compact": 2100
+    }
+  ],
+  "meta_substitution_checks": 72,
+  "actual_interfaces": [
+    {
+      "name": "Definitions imply least-inductive Omega",
+      "lines": 59,
+      "unary": 11655148,
+      "compact": 1718205,
+      "target_unary": 61895,
+      "target_compact": 9155
+    },
+    {
+      "name": "Definitions imply zero belongs to Omega",
+      "lines": 106,
+      "unary": 24702350,
+      "compact": 3628419,
+      "target_unary": 61169,
+      "target_compact": 9015
+    }
+  ],
+  "actual_rh_proof": false
+}

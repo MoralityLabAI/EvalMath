@@ -1,0 +1,53 @@
+{
+  "rows": [
+    {
+      "context": "mul add : Nat → Nat → Nat\nden : Nat → Nat\na b : Nat\n⊢ AffineStep mul add den 0 a b ↔ b = a",
+      "gold_sha256": "be137a77955576d09577e42d5b5a56e1ae15563dfd413799b5c6caa3af383a59",
+      "id": "rh_num_micro_affine_step_zero_iff",
+      "template_sha256": "b9f8f9fc14462785f8adc163d08c89ba01c51b7d1b8a01cf1c693f872b146ca6",
+      "wrong_sha256": "971c148183420a998890fda23b32c9364b2db0d805b267873922e2c2df8c64a5"
+    },
+    {
+      "context": "mul add : Nat → Nat → Nat\nden : Nat → Nat\nx a b : Nat\n⊢ AffineStep mul add den (x + 1) a b ↔ b = add (mul (x + 1) a) (den x)",
+      "gold_sha256": "59080b507d563ec643227cb3837dd06e3843cc4b44f444226f0b21ff5e741f53",
+      "id": "rh_num_micro_affine_step_succ_iff",
+      "template_sha256": "5b8863885fb6fade2084dfb4d2005c170a9b42b3759d31e32f8009f53fded6ea",
+      "wrong_sha256": "15f314445bac6f61713e056c79b4b550bff088ac1b2f6c04391eb93acae9a6c7"
+    },
+    {
+      "context": "mul add : Nat → Nat → Nat\nden : Nat → Nat\ny a b : Nat\n⊢ AffineStep mul add den y a b ↔ b = affineValue mul add den y a",
+      "gold_sha256": "7c803369730c12ba0aaafd8ea797561e5d13298a0ef51b575bbb00d1a33bb993",
+      "id": "rh_num_micro_affine_step_iff_graph",
+      "template_sha256": "f5c6f82b64ebd02e957f7194c4e1e0db8097dcdbe2d83f6cbfe04cc23c71bd9c",
+      "wrong_sha256": "432749644321f86ad43cb1662f3ad020f5a42f38a1a26a59b99f60365a939051"
+    },
+    {
+      "context": "mul add : Nat → Nat → Nat\nden : Nat → Nat\ny a : Nat\n⊢ ∃ b, AffineStep mul add den y a b",
+      "gold_sha256": "7ab16a29c1bd13c6f783ff603c1fba4d17398ddb9a5e52b6726f2e811d1a9b56",
+      "id": "rh_num_micro_affine_step_total",
+      "template_sha256": "91fe2b4dc95d0fd1fe511fc4a4074a63cff0f1e9ccc61033ecac61f4a1f829cc",
+      "wrong_sha256": "74f2d06a312f343a9c3e59c7a2652ca54e54bd80b939d5657bf75a1bf4348c51"
+    },
+    {
+      "context": "mul add : Nat → Nat → Nat\nden : Nat → Nat\ny a b c : Nat\nhb : AffineStep mul add den y a b\nhc : AffineStep mul add den y a c\n⊢ b = c",
+      "gold_sha256": "aa36cad420652a4b042e973c0e960ffde9461a97fb0dd6d2fcb0642b8ac6b1f0",
+      "id": "rh_num_micro_affine_step_functional",
+      "template_sha256": "49a5c3e849c8a56c96ec0bc892b72f8720f1fce46a1c0000040dc05a64cbaa42",
+      "wrong_sha256": "4a196bf08c87766a80f627cd874c30517ab4cde968bac74119372b0e4857ec17"
+    },
+    {
+      "context": "mul add : Nat → Nat → Nat\nden : Nat → Nat\nseed : Nat\nf : Nat → Nat\n⊢ AffineRecurrence mul add den seed f ↔ Recurrence (fun n a => add (mul (n + 1) a) (den n)) seed f",
+      "gold_sha256": "b592a6e97e1b0f38265cb8a5096d1f345e081e5d9087eb339e23cf2339e4522c",
+      "id": "rh_num_micro_affine_recurrence_iff",
+      "template_sha256": "bbf65ef382717610e388209f8f0a1aac70096d4eaf07cce5af4f855e61cd9495",
+      "wrong_sha256": "b701ee7fb7ff234e8f5d641bb0177c3b7eb786142c0de914aa8bb0aa6460e0c0"
+    }
+  ],
+  "schema": "EvalMath/rh-numerator-native-contexts/v1",
+  "sources_sha256": {
+    "lean/FeedbackChannel/RHCompactification.lean": "e7c8c6282aed3fa1392bf18b2caff43958c5839919529e6863cf5fcc57799f79",
+    "lean/FeedbackChannel/RHNumeratorStep.lean": "9c3efa5c82409e7bc3ec337eb676be9345d1fd2e6ce7b26e4a38d3d2f8db1678",
+    "src/spiral_ln/rh_compactification_gym.py": "f97269f0a49f5b57926a63b279a6c9813c52b326aa13b51205936b1aa1491d62",
+    "src/spiral_ln/rh_numerator_gym.py": "186bd6f466f21bfd2182464b8f395d34f1f606a593c4fd13b9e37c4f2dbe5afd"
+  }
+}
