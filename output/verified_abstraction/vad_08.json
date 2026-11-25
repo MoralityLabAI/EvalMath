@@ -1,0 +1,25 @@
+{
+  "protocol": "VAD-08",
+  "evidence": "finite synthetic stopping; optional GRU; rational cross-checks",
+  "files": {
+    "scripts/verify_vad_reliability.py": "6502e5242aa83c04ca3d80e4626b4c5fd0379bbb2c08f5848d1a90c2c4b0d318",
+    "scripts/train_vad_reliability.py": "1fdca5843f53bff3f034160382c77c79072d802c2fbb4203842ab884faa6cf31",
+    "tests/test_vad_reliability.py": "dd0a2e2d0991e0355785816821bc1b50bf632b0826d0872a6b90131f3204e7d9"
+  },
+  "receipt_sha256": "c8a4ab172b957cbf4b2c5a74c8e7018d28c4cf23f6f640db3b30b1afa8d806fb",
+  "checkpoint_sha256": "2bd0edc80f10b5938b0d8b622e06f0c91eb88626e0810d6dc4bff7aa31dd8b43",
+  "training_families": 12288,
+  "calibration_families": 3072,
+  "test_families": 24576,
+  "stream_method_records": 2304,
+  "family_method_evaluations": 221184,
+  "parameters": 369,
+  "gate": "FAIL",
+  "paired_nominal_delta": -1.1705729166666667,
+  "paired_nominal_interval": [
+    -1.6171875,
+    -0.7486979166666666
+  ],
+  "retrained_byte_identical": true,
+  "local_tests": 4
+}
