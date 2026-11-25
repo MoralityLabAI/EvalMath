@@ -1,0 +1,68 @@
+{
+  "source_repo": "MoralityLabAI/GPTStoryworld",
+  "source_revision": "ee1c6918db77d1e0924877f59eca819bae3f1c8c",
+  "source_blob": "9067b02e536c9407cd90c466fed0f4ea2c3edc2e",
+  "runtime_blob": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+  "checks": {
+    "legacy_projection_rejected": true,
+    "legal_menu_both_guards": true,
+    "hidden_keyrings_not_in_player_observation": true,
+    "full_keyring_isolation": true,
+    "exact_equal_ties_last": true,
+    "explicit_first_tie": true,
+    "ineligible_high_score": true,
+    "ordered_dependent_writes": true,
+    "duplicate_writes_preserved": true,
+    "step_matches_selected_branch": true,
+    "counterfactual_no_mutation": true,
+    "state_energy": true,
+    "blocked_destination": true,
+    "blocked_step_rejected": true,
+    "illegal_action_rejected": true,
+    "unknown_pointer_rejected": true,
+    "unknown_operator_rejected": true,
+    "boolean_numeric_mismatch_rejected": true,
+    "unresolved_wild_rejected": true,
+    "missing_destination_rejected": true,
+    "out_of_range_initial_rejected": true,
+    "bounded_assignment_fail_closed": true,
+    "comparator_direction": true,
+    "blend_signed_weight": true,
+    "lazy_if": true,
+    "terminal_observation": true,
+    "tsun_all_terminal_routes": true,
+    "tsun_route_counts_match_srg02": true,
+    "tsun_explicit_gold_utility": true
+  },
+  "ts": {
+    "nodes": 22,
+    "leaves": 45,
+    "actions": 66,
+    "forced_eligible_branches": 132,
+    "blocked": 0,
+    "terminal_counts": {
+      "page_end_success_protected": 2,
+      "page_end_privacy_cost": 2,
+      "page_end_failure_silence": 18,
+      "page_end_failure_delay": 9,
+      "page_end_failure_unverified": 7,
+      "page_end_failure_privacy_unverified": 7
+    },
+    "uniform_legal_probability_numerator_over_81": {
+      "page_end_success_protected": 2,
+      "page_end_privacy_cost": 2,
+      "page_end_failure_silence": 36,
+      "page_end_failure_delay": 27,
+      "page_end_failure_unverified": 7,
+      "page_end_failure_privacy_unverified": 7
+    },
+    "protected_numerator": 4,
+    "protected_without_privacy_numerator": 1,
+    "max_energy_share": 0.9597984123898814
+  },
+  "counts": {
+    "checks_passed": 29,
+    "fixture_actions": 2,
+    "fixture_forced_branches": 3
+  }
+}
