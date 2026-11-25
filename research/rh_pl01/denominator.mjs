@@ -35,7 +35,7 @@ function denominator(tr,k,raw,mode='all'){
  });
  const updateQ=quantified(update,[G,x,y,u,j]);
  const row=(name,pf,cap=0)=>{const closed=p.close(pf),r=cap?p.replay(closed,cap):p.emit(closed);return {name,root_bytes:ns[closed.f].u,...r.cost,axioms:r.axioms,structural_replay:true,original_full_replay:!!r.original}};
- const rows=[row('exact_denominator_base',baseQ,16000000),row('exact_denominator_successor_normalization',updateQ,16000000)];
+ const rows=[row('exact_denominator_base',baseQ,24000000),row('exact_denominator_successor_normalization',updateQ,16000000)];
  const premiseIds=[0,1,2,6,14,19,21],premiseFormulas=[...premiseIds.map(i=>clauses[i]),denTotal(H),denInit(H),denRec(H)];
  if(mode==='local')return {rows,source_clauses:premiseIds,formula_nodes:ns.length-1,actual_rh_proof:false};
  const phi=gen(33,gen(34,imp(A(M(33,1),A(M(34,1),A(p.at(G,0,33),p.at(H,0,34)))),E(33,34))));
