@@ -1,0 +1,292 @@
+{
+  "evidence": "reused public development campaigns; one-step goal-gate geometry, not causal mediation over whole campaigns",
+  "seeds": [
+    1397887233,
+    1397887234,
+    1397887235
+  ],
+  "campaigns": 384,
+  "action_instances": 13047,
+  "gate_at_first_sirens": {
+    "roots": 384,
+    "passes": 100,
+    "suspicion_fails": 283,
+    "restraint_fails": 13,
+    "loyalty_fails": 0,
+    "selected_truce_zero_progress": 384,
+    "selected_truce_count": 384
+  },
+  "scenes": [
+    {
+      "page": "page_pink_ambush_theory",
+      "prefix_instances": 201,
+      "legal_actions": 603,
+      "goal_coordinate_effect_actions": 603,
+      "choice_goal_distance_range_sum": 7.2561000000000115,
+      "choice_goal_distance_range_max": 0.0361,
+      "nonzero_choice_range": 201,
+      "improving_actions": 402,
+      "worsening_actions": 201,
+      "best_progress_sum": 1.2863999999999958,
+      "goal_coordinate_changes": {
+        "suspicion": 603,
+        "restraint": 0,
+        "loyalty": 0
+      },
+      "mean_choice_goal_distance_range": 0.036100000000000056,
+      "mean_best_progress": 0.006399999999999979
+    },
+    {
+      "page": "page_eddie_and_blonde_story",
+      "prefix_instances": 279,
+      "legal_actions": 837,
+      "goal_coordinate_effect_actions": 837,
+      "choice_goal_distance_range_sum": 9.425746901316547,
+      "choice_goal_distance_range_max": 0.09214692978819758,
+      "nonzero_choice_range": 241,
+      "improving_actions": 196,
+      "worsening_actions": 482,
+      "best_progress_sum": 3.344767842974168,
+      "goal_coordinate_changes": {
+        "suspicion": 837,
+        "restraint": 0,
+        "loyalty": 837
+      },
+      "mean_choice_goal_distance_range": 0.03378403907281916,
+      "mean_best_progress": 0.011988415207792716
+    },
+    {
+      "page": "page_cadillac_trunk",
+      "prefix_instances": 359,
+      "legal_actions": 1077,
+      "goal_coordinate_effect_actions": 1077,
+      "choice_goal_distance_range_sum": 7.776960472901927,
+      "choice_goal_distance_range_max": 0.06143630475776528,
+      "nonzero_choice_range": 359,
+      "improving_actions": 226,
+      "worsening_actions": 718,
+      "best_progress_sum": 2.285210292546998,
+      "goal_coordinate_changes": {
+        "suspicion": 1077,
+        "restraint": 1077,
+        "loyalty": 0
+      },
+      "mean_choice_goal_distance_range": 0.021662842542902305,
+      "mean_best_progress": 0.006365488280075203
+    },
+    {
+      "page": "page_orange_gun_on_the_ramp",
+      "prefix_instances": 266,
+      "legal_actions": 798,
+      "goal_coordinate_effect_actions": 798,
+      "choice_goal_distance_range_sum": 0.015087634121977122,
+      "choice_goal_distance_range_max": 0.0007626582932707018,
+      "nonzero_choice_range": 35,
+      "improving_actions": 0,
+      "worsening_actions": 35,
+      "best_progress_sum": 0,
+      "goal_coordinate_changes": {
+        "suspicion": 0,
+        "restraint": 798,
+        "loyalty": 0
+      },
+      "mean_choice_goal_distance_range": 0.00005672042902998918,
+      "mean_best_progress": 0
+    },
+    {
+      "page": "page_start",
+      "prefix_instances": 384,
+      "legal_actions": 1536,
+      "goal_coordinate_effect_actions": 1536,
+      "choice_goal_distance_range_sum": 0,
+      "choice_goal_distance_range_max": 0,
+      "nonzero_choice_range": 0,
+      "improving_actions": 0,
+      "worsening_actions": 0,
+      "best_progress_sum": 0,
+      "goal_coordinate_changes": {
+        "suspicion": 0,
+        "restraint": 0,
+        "loyalty": 1536
+      },
+      "mean_choice_goal_distance_range": 0,
+      "mean_best_progress": 0
+    },
+    {
+      "page": "page_color_aliases_and_stash",
+      "prefix_instances": 316,
+      "legal_actions": 948,
+      "goal_coordinate_effect_actions": 0,
+      "choice_goal_distance_range_sum": 0,
+      "choice_goal_distance_range_max": 0,
+      "nonzero_choice_range": 0,
+      "improving_actions": 0,
+      "worsening_actions": 0,
+      "best_progress_sum": 0,
+      "goal_coordinate_changes": {
+        "suspicion": 0,
+        "restraint": 0,
+        "loyalty": 0
+      },
+      "mean_choice_goal_distance_range": 0,
+      "mean_best_progress": 0
+    },
+    {
+      "page": "page_blonde_arrives",
+      "prefix_instances": 160,
+      "legal_actions": 480,
+      "goal_coordinate_effect_actions": 480,
+      "choice_goal_distance_range_sum": 0,
+      "choice_goal_distance_range_max": 0,
+      "nonzero_choice_range": 0,
+      "improving_actions": 0,
+      "worsening_actions": 0,
+      "best_progress_sum": 0,
+      "goal_coordinate_changes": {
+        "suspicion": 0,
+        "restraint": 480,
+        "loyalty": 0
+      },
+      "mean_choice_goal_distance_range": 0,
+      "mean_best_progress": 0
+    },
+    {
+      "page": "page_chair_duct_tape",
+      "prefix_instances": 260,
+      "legal_actions": 780,
+      "goal_coordinate_effect_actions": 0,
+      "choice_goal_distance_range_sum": 0,
+      "choice_goal_distance_range_max": 0,
+      "nonzero_choice_range": 0,
+      "improving_actions": 0,
+      "worsening_actions": 0,
+      "best_progress_sum": 0,
+      "goal_coordinate_changes": {
+        "suspicion": 0,
+        "restraint": 0,
+        "loyalty": 0
+      },
+      "mean_choice_goal_distance_range": 0,
+      "mean_best_progress": 0
+    },
+    {
+      "page": "page_k_billy_razor",
+      "prefix_instances": 276,
+      "legal_actions": 1104,
+      "goal_coordinate_effect_actions": 1104,
+      "choice_goal_distance_range_sum": 0,
+      "choice_goal_distance_range_max": 0,
+      "nonzero_choice_range": 0,
+      "improving_actions": 0,
+      "worsening_actions": 0,
+      "best_progress_sum": 0,
+      "goal_coordinate_changes": {
+        "suspicion": 0,
+        "restraint": 1104,
+        "loyalty": 0
+      },
+      "mean_choice_goal_distance_range": 0,
+      "mean_best_progress": 0
+    },
+    {
+      "page": "page_nash_confession_shockwave",
+      "prefix_instances": 291,
+      "legal_actions": 873,
+      "goal_coordinate_effect_actions": 0,
+      "choice_goal_distance_range_sum": 0,
+      "choice_goal_distance_range_max": 0,
+      "nonzero_choice_range": 0,
+      "improving_actions": 0,
+      "worsening_actions": 0,
+      "best_progress_sum": 0,
+      "goal_coordinate_changes": {
+        "suspicion": 0,
+        "restraint": 0,
+        "loyalty": 0
+      },
+      "mean_choice_goal_distance_range": 0,
+      "mean_best_progress": 0
+    },
+    {
+      "page": "page_cabot_verdict",
+      "prefix_instances": 356,
+      "legal_actions": 1424,
+      "goal_coordinate_effect_actions": 1424,
+      "choice_goal_distance_range_sum": 0,
+      "choice_goal_distance_range_max": 0,
+      "nonzero_choice_range": 0,
+      "improving_actions": 0,
+      "worsening_actions": 0,
+      "best_progress_sum": 0,
+      "goal_coordinate_changes": {
+        "suspicion": 0,
+        "restraint": 0,
+        "loyalty": 1424
+      },
+      "mean_choice_goal_distance_range": 0,
+      "mean_best_progress": 0
+    },
+    {
+      "page": "page_sirens_at_the_rollup_door",
+      "prefix_instances": 384,
+      "legal_actions": 1152,
+      "goal_coordinate_effect_actions": 1152,
+      "choice_goal_distance_range_sum": 0,
+      "choice_goal_distance_range_max": 0,
+      "nonzero_choice_range": 0,
+      "improving_actions": 0,
+      "worsening_actions": 0,
+      "best_progress_sum": 0,
+      "goal_coordinate_changes": {
+        "suspicion": 0,
+        "restraint": 0,
+        "loyalty": 1152
+      },
+      "mean_choice_goal_distance_range": 0,
+      "mean_best_progress": 0
+    },
+    {
+      "page": "page_eddie_call_and_alibi",
+      "prefix_instances": 213,
+      "legal_actions": 639,
+      "goal_coordinate_effect_actions": 0,
+      "choice_goal_distance_range_sum": 0,
+      "choice_goal_distance_range_max": 0,
+      "nonzero_choice_range": 0,
+      "improving_actions": 0,
+      "worsening_actions": 0,
+      "best_progress_sum": 0,
+      "goal_coordinate_changes": {
+        "suspicion": 0,
+        "restraint": 0,
+        "loyalty": 0
+      },
+      "mean_choice_goal_distance_range": 0,
+      "mean_best_progress": 0
+    },
+    {
+      "page": "page_mexican_standoff",
+      "prefix_instances": 199,
+      "legal_actions": 796,
+      "goal_coordinate_effect_actions": 0,
+      "choice_goal_distance_range_sum": 0,
+      "choice_goal_distance_range_max": 0,
+      "nonzero_choice_range": 0,
+      "improving_actions": 0,
+      "worsening_actions": 0,
+      "best_progress_sum": 0,
+      "goal_coordinate_changes": {
+        "suspicion": 0,
+        "restraint": 0,
+        "loyalty": 0
+      },
+      "mean_choice_goal_distance_range": 0,
+      "mean_best_progress": 0
+    }
+  ],
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md": "cb174a3efb031eaa046b01a2acc526ef7d122345"
+  }
+}
