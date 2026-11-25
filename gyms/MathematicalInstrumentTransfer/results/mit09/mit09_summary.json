@@ -20,9 +20,9 @@
    "16",
    "None"
   ],
-  "elapsed_s": 328.5709377000021,
+  "elapsed_s": 269.6279704000008,
   "sources": {
-   "src/spiral_ln/evaluation_adaptive_precision.py": "1dac82b37730a70a3143af473f2dcbb7fc0ea2850ed4f25358cc3921a510f101",
+   "src/spiral_ln/evaluation_adaptive_precision.py": "951fe0a3ed57d0d6735c5e4506f64863001d858b8064ff4ca3a51c55819198f5",
    "src/spiral_ln/evaluation_decision_certificate.py": "a870b4377d8569d7bc8a5d741bd2f699393c9283f4807c81663003317e23b9b6",
    "gyms/MathematicalInstrumentTransfer/certified_precision.py": "52c0c0954e0775135811bb8c07b6b1d323fb34def125a28d75521e5bf2c5fc96"
   },
@@ -63,7 +63,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.0034542080538817466,
-   "mean_wall_ms": 6.923946875190268
+   "mean_wall_ms": 8.597078124807922
   },
   "random|1/100|random0_glob": {
    "mean_cost": 849.25,
@@ -72,7 +72,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.007820099592208862,
-   "mean_wall_ms": 15.272265624957981
+   "mean_wall_ms": 17.69214374985495
   },
   "random|1/100|random1_glob": {
    "mean_cost": 833.75,
@@ -81,7 +81,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.007825799271870437,
-   "mean_wall_ms": 15.147393750339688
+   "mean_wall_ms": 19.234462499753135
   },
   "random|1/100|random2_glob": {
    "mean_cost": 716.25,
@@ -90,7 +90,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.007823899388313293,
-   "mean_wall_ms": 14.69505625061629
+   "mean_wall_ms": 17.569046875451022
   },
   "random|1/100|greedy_glob": {
    "mean_cost": 667.96875,
@@ -99,7 +99,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.007826749235391617,
-   "mean_wall_ms": 20.418228124754023
+   "mean_wall_ms": 25.920999999925698
   },
   "random|1/100|costnorm_glob": {
    "mean_cost": 661.96875,
@@ -108,7 +108,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.007826749235391617,
-   "mean_wall_ms": 20.65884687522157
+   "mean_wall_ms": 24.619509375270354
   },
   "random|1/100|margin_glob": {
    "mean_cost": 992.375,
@@ -117,7 +117,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.007826749235391617,
-   "mean_wall_ms": 323.22403125010624
+   "mean_wall_ms": 375.6218437499683
   },
   "random|1/100|uniform_policy": {
    "mean_cost": 397.125,
@@ -126,7 +126,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.002857981777186284,
-   "mean_wall_ms": 61.94199687490709
+   "mean_wall_ms": 64.58682812512961
   },
   "random|1/100|random0_policy": {
    "mean_cost": 690.8125,
@@ -135,7 +135,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.0045676628191699785,
-   "mean_wall_ms": 152.64012500006174
+   "mean_wall_ms": 169.2049531251314
   },
   "random|1/100|random1_policy": {
    "mean_cost": 660.125,
@@ -144,7 +144,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.005712062961644829,
-   "mean_wall_ms": 140.75417187484618
+   "mean_wall_ms": 161.63056874995618
   },
   "random|1/100|random2_policy": {
    "mean_cost": 624.375,
@@ -153,7 +153,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.005482690654403928,
-   "mean_wall_ms": 146.20464999973137
+   "mean_wall_ms": 164.64608437502193
   },
   "random|1/100|greedy_policy": {
    "mean_cost": 609.90625,
@@ -162,7 +162,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.0052895788730869696,
-   "mean_wall_ms": 136.04441875031625
+   "mean_wall_ms": 164.13845937449878
   },
   "random|1/100|costnorm_policy": {
    "mean_cost": 613.28125,
@@ -171,7 +171,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.005527095203460993,
-   "mean_wall_ms": 141.40307499997107
+   "mean_wall_ms": 162.88963124964084
   },
   "random|1/100|margin_policy": {
    "mean_cost": 529.78125,
@@ -180,7 +180,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.005250897140699763,
-   "mean_wall_ms": 409.02314375011883
+   "mean_wall_ms": 476.02554999980384
   },
   "random|1/100|online_margin": {
    "mean_cost": 403.6276785714286,
@@ -189,7 +189,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.000219173482795586,
-   "mean_wall_ms": 393.22330312472786
+   "mean_wall_ms": 417.95240000067224
   },
   "random|1/20|oracle_glob": {
    "mean_cost": 256.46875,
@@ -225,7 +225,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.01267433911561966,
-   "mean_wall_ms": 5.829240624848353
+   "mean_wall_ms": 7.134400000154528
   },
   "random|1/20|random0_glob": {
    "mean_cost": 804.25,
@@ -234,7 +234,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00854681059718132,
-   "mean_wall_ms": 15.45143125042614
+   "mean_wall_ms": 18.581553125045502
   },
   "random|1/20|random1_glob": {
    "mean_cost": 796.25,
@@ -243,7 +243,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.010731693357229233,
-   "mean_wall_ms": 14.53418437529308
+   "mean_wall_ms": 18.067240625100567
   },
   "random|1/20|random2_glob": {
    "mean_cost": 698.25,
@@ -252,7 +252,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.009035084396600723,
-   "mean_wall_ms": 13.938203125121618
+   "mean_wall_ms": 18.614406250321736
   },
   "random|1/20|greedy_glob": {
    "mean_cost": 620.46875,
@@ -261,7 +261,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.011460304260253906,
-   "mean_wall_ms": 19.078775000025416
+   "mean_wall_ms": 23.88450000012199
   },
   "random|1/20|costnorm_glob": {
    "mean_cost": 620.46875,
@@ -270,7 +270,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.011460304260253906,
-   "mean_wall_ms": 19.88971875050538
+   "mean_wall_ms": 24.93891250003344
   },
   "random|1/20|margin_glob": {
    "mean_cost": 943.375,
@@ -279,7 +279,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.011460304260253906,
-   "mean_wall_ms": 321.2790624997979
+   "mean_wall_ms": 361.6878562502279
   },
   "random|1/20|uniform_policy": {
    "mean_cost": 276.125,
@@ -288,7 +288,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.012253128292981846,
-   "mean_wall_ms": 48.18486875012695
+   "mean_wall_ms": 58.5306781251802
   },
   "random|1/20|random0_policy": {
    "mean_cost": 663.9375,
@@ -297,7 +297,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.008899075991095576,
-   "mean_wall_ms": 152.29096562507038
+   "mean_wall_ms": 159.97345625009984
   },
   "random|1/20|random1_policy": {
    "mean_cost": 629.625,
@@ -306,7 +306,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.010002385770197998,
-   "mean_wall_ms": 136.88780000018141
+   "mean_wall_ms": 160.82555312482327
   },
   "random|1/20|random2_policy": {
    "mean_cost": 603.375,
@@ -315,7 +315,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.009986565831705796,
-   "mean_wall_ms": 148.45999374972507
+   "mean_wall_ms": 162.86223125007382
   },
   "random|1/20|greedy_policy": {
    "mean_cost": 576.15625,
@@ -324,7 +324,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.010743472928664824,
-   "mean_wall_ms": 134.68125312488155
+   "mean_wall_ms": 155.4308281251906
   },
   "random|1/20|costnorm_policy": {
    "mean_cost": 584.03125,
@@ -333,7 +333,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.010743472928664824,
-   "mean_wall_ms": 136.94171249983356
+   "mean_wall_ms": 149.31802499984315
   },
   "random|1/20|margin_policy": {
    "mean_cost": 484.65625,
@@ -342,7 +342,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.012772989267111354,
-   "mean_wall_ms": 419.03002812512113
+   "mean_wall_ms": 444.9134531251957
   },
   "random|1/20|online_margin": {
    "mean_cost": 298.5852638432996,
@@ -351,7 +351,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00784657515648637,
-   "mean_wall_ms": 338.9375187501855
+   "mean_wall_ms": 331.8605062502229
   },
   "random|1/5|oracle_glob": {
    "mean_cost": 182.96875,
@@ -387,7 +387,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.06394387036561966,
-   "mean_wall_ms": 5.36016562500663
+   "mean_wall_ms": 6.35115000022779
   },
   "random|1/5|random0_glob": {
    "mean_cost": 520.5,
@@ -396,7 +396,7 @@
    "max_regret": 0.006993006993006993,
    "over_eta": 0,
    "mean_cert": 0.12729418277740479,
-   "mean_wall_ms": 13.11563749970901
+   "mean_wall_ms": 14.837096874884992
   },
   "random|1/5|random1_glob": {
    "mean_cost": 509.125,
@@ -405,7 +405,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.12866121530532837,
-   "mean_wall_ms": 12.04406562510485
+   "mean_wall_ms": 14.276087499865753
   },
   "random|1/5|random2_glob": {
    "mean_cost": 492.375,
@@ -414,7 +414,7 @@
    "max_regret": 0.001288659793814433,
    "over_eta": 0,
    "mean_cert": 0.1275203824043274,
-   "mean_wall_ms": 12.202368750308779
+   "mean_wall_ms": 14.280006250032784
   },
   "random|1/5|greedy_glob": {
    "mean_cost": 545.21875,
@@ -423,7 +423,7 @@
    "max_regret": 0.006993006993006993,
    "over_eta": 0,
    "mean_cert": 0.1284332275390625,
-   "mean_wall_ms": 16.80959375016755
+   "mean_wall_ms": 19.401459375444574
   },
   "random|1/5|costnorm_glob": {
    "mean_cost": 542.21875,
@@ -432,7 +432,7 @@
    "max_regret": 0.006993006993006993,
    "over_eta": 0,
    "mean_cert": 0.1284332275390625,
-   "mean_wall_ms": 17.580396875473525
+   "mean_wall_ms": 20.24014062465085
   },
   "random|1/5|margin_glob": {
    "mean_cost": 755.59375,
@@ -441,7 +441,7 @@
    "max_regret": 0.006993006993006993,
    "over_eta": 0,
    "mean_cert": 0.1284332275390625,
-   "mean_wall_ms": 293.78241249969506
+   "mean_wall_ms": 306.04187500000535
   },
   "random|1/5|uniform_policy": {
    "mean_cost": 230.3125,
@@ -450,7 +450,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.06892123232436713,
-   "mean_wall_ms": 46.30900312497488
+   "mean_wall_ms": 50.22363437490185
   },
   "random|1/5|random0_policy": {
    "mean_cost": 456.21875,
@@ -459,7 +459,7 @@
    "max_regret": 0.006993006993006993,
    "over_eta": 0,
    "mean_cert": 0.12161378933639207,
-   "mean_wall_ms": 124.41508124982192
+   "mean_wall_ms": 134.82173750037418
   },
   "random|1/5|random1_policy": {
    "mean_cost": 414.1875,
@@ -468,7 +468,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.12329569107314317,
-   "mean_wall_ms": 110.20588750022853
+   "mean_wall_ms": 119.38090312526128
   },
   "random|1/5|random2_policy": {
    "mean_cost": 449.4375,
@@ -477,7 +477,7 @@
    "max_regret": 0.001288659793814433,
    "over_eta": 0,
    "mean_cert": 0.11206663409993983,
-   "mean_wall_ms": 123.56125937503748
+   "mean_wall_ms": 135.40262187473218
   },
   "random|1/5|greedy_policy": {
    "mean_cost": 499.1875,
@@ -486,7 +486,7 @@
    "max_regret": 0.006993006993006993,
    "over_eta": 0,
    "mean_cert": 0.12090465060974309,
-   "mean_wall_ms": 118.48157187546349
+   "mean_wall_ms": 126.05833437532965
   },
   "random|1/5|costnorm_policy": {
    "mean_cost": 504.8125,
@@ -495,7 +495,7 @@
    "max_regret": 0.006993006993006993,
    "over_eta": 0,
    "mean_cert": 0.12090465060974309,
-   "mean_wall_ms": 115.16998750005314
+   "mean_wall_ms": 124.06063749983787
   },
   "random|1/5|margin_policy": {
    "mean_cost": 429.6875,
@@ -504,7 +504,7 @@
    "max_regret": 0.006993006993006993,
    "over_eta": 0,
    "mean_cert": 0.13045672451572113,
-   "mean_wall_ms": 361.6426531249317
+   "mean_wall_ms": 372.14243437472305
   },
   "random|1/5|online_margin": {
    "mean_cost": 257.16416708291706,
@@ -513,7 +513,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.03018070841971751,
-   "mean_wall_ms": 317.43084687525425
+   "mean_wall_ms": 309.57625312453274
   },
   "margin|1/100|oracle_glob": {
    "mean_cost": 528.0,
@@ -549,7 +549,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 6.103469058871269e-05,
-   "mean_wall_ms": 14.483981250009492
+   "mean_wall_ms": 12.734287499711172
   },
   "margin|1/100|random0_glob": {
    "mean_cost": 1267.25,
@@ -558,7 +558,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.007833398878574371,
-   "mean_wall_ms": 33.83467499963899
+   "mean_wall_ms": 23.790031249859567
   },
   "margin|1/100|random1_glob": {
    "mean_cost": 1230.75,
@@ -567,7 +567,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.007832448929548264,
-   "mean_wall_ms": 35.593681250247755
+   "mean_wall_ms": 23.86213437500828
   },
   "margin|1/100|random2_glob": {
    "mean_cost": 1121.25,
@@ -576,7 +576,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.007836248725652695,
-   "mean_wall_ms": 32.86400000035883
+   "mean_wall_ms": 24.251565624581417
   },
   "margin|1/100|greedy_glob": {
    "mean_cost": 1176.0,
@@ -585,7 +585,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00784289836883545,
-   "mean_wall_ms": 48.838831250122894
+   "mean_wall_ms": 35.92801250033517
   },
   "margin|1/100|costnorm_glob": {
    "mean_cost": 1176.0,
@@ -594,7 +594,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00784289836883545,
-   "mean_wall_ms": 50.9921937504032
+   "mean_wall_ms": 34.388049999733994
   },
   "margin|1/100|margin_glob": {
    "mean_cost": 1176.0,
@@ -603,7 +603,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00784289836883545,
-   "mean_wall_ms": 837.7004593752417
+   "mean_wall_ms": 590.6801718747374
   },
   "margin|1/100|uniform_policy": {
    "mean_cost": 696.0,
@@ -612,7 +612,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 3.6074477734993804e-05,
-   "mean_wall_ms": 149.89962187519268
+   "mean_wall_ms": 107.49703750002482
   },
   "margin|1/100|random0_policy": {
    "mean_cost": 1245.75,
@@ -621,7 +621,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.007319887010650748,
-   "mean_wall_ms": 387.876981249633
+   "mean_wall_ms": 266.6086906251621
   },
   "margin|1/100|random1_policy": {
    "mean_cost": 1230.75,
@@ -630,7 +630,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.00744304347826386,
-   "mean_wall_ms": 390.0301312502279
+   "mean_wall_ms": 260.53914374983833
   },
   "margin|1/100|random2_policy": {
    "mean_cost": 1121.25,
@@ -639,7 +639,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.007258890940784667,
-   "mean_wall_ms": 378.87528125020253
+   "mean_wall_ms": 258.43236562513994
   },
   "margin|1/100|greedy_policy": {
    "mean_cost": 1172.75,
@@ -648,7 +648,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00722410967613883,
-   "mean_wall_ms": 393.524459375044
+   "mean_wall_ms": 268.9623531250618
   },
   "margin|1/100|costnorm_policy": {
    "mean_cost": 1172.75,
@@ -657,7 +657,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00722410967613883,
-   "mean_wall_ms": 375.9184562502469
+   "mean_wall_ms": 269.13318437459566
   },
   "margin|1/100|margin_policy": {
    "mean_cost": 1172.75,
@@ -666,7 +666,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00722410967613883,
-   "mean_wall_ms": 1128.771649999635
+   "mean_wall_ms": 822.6897968748972
   },
   "margin|1/100|online_margin": {
    "mean_cost": 696.0,
@@ -675,7 +675,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 4.314502076468294e-05,
-   "mean_wall_ms": 821.7431187499642
+   "mean_wall_ms": 586.0239343752482
   },
   "margin|1/20|oracle_glob": {
    "mean_cost": 336.0,
@@ -711,7 +711,7 @@
    "max_regret": 0.0008259002312520648,
    "over_eta": 0,
    "mean_cert": 0.015594482421875,
-   "mean_wall_ms": 11.683324999694378
+   "mean_wall_ms": 8.0415687501727
   },
   "margin|1/20|random0_glob": {
    "mean_cost": 1132.5,
@@ -720,7 +720,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.01146695390343666,
-   "mean_wall_ms": 31.632831249908122
+   "mean_wall_ms": 22.449871875210192
   },
   "margin|1/20|random1_glob": {
    "mean_cost": 1129.25,
@@ -729,7 +729,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.011466003954410553,
-   "mean_wall_ms": 32.11125000007087
+   "mean_wall_ms": 22.572931249669637
   },
   "margin|1/20|random2_glob": {
    "mean_cost": 1010.0,
@@ -738,7 +738,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.012196514755487442,
-   "mean_wall_ms": 31.739868749923517
+   "mean_wall_ms": 22.1886906247164
   },
   "margin|1/20|greedy_glob": {
    "mean_cost": 1072.0,
@@ -747,7 +747,7 @@
    "max_regret": 0.0003303600925008259,
    "over_eta": 0,
    "mean_cert": 0.015594482421875,
-   "mean_wall_ms": 44.904356250299315
+   "mean_wall_ms": 30.541584374759623
   },
   "margin|1/20|costnorm_glob": {
    "mean_cost": 1072.0,
@@ -756,7 +756,7 @@
    "max_regret": 0.0003303600925008259,
    "over_eta": 0,
    "mean_cert": 0.015594482421875,
-   "mean_wall_ms": 43.82445937483226
+   "mean_wall_ms": 32.91651875031221
   },
   "margin|1/20|margin_glob": {
    "mean_cost": 1072.0,
@@ -765,7 +765,7 @@
    "max_regret": 0.0003303600925008259,
    "over_eta": 0,
    "mean_cert": 0.015594482421875,
-   "mean_wall_ms": 749.0213718749601
+   "mean_wall_ms": 524.4784062495
   },
   "margin|1/20|uniform_policy": {
    "mean_cost": 384.0,
@@ -774,7 +774,7 @@
    "max_regret": 0.0008259002312520648,
    "over_eta": 0,
    "mean_cert": 0.015472888946533203,
-   "mean_wall_ms": 113.27894375017422
+   "mean_wall_ms": 81.14293437506603
   },
   "margin|1/20|random0_policy": {
    "mean_cost": 1132.5,
@@ -783,7 +783,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.00983725560164971,
-   "mean_wall_ms": 350.7222218753441
+   "mean_wall_ms": 243.80573749999712
   },
   "margin|1/20|random1_policy": {
    "mean_cost": 1129.25,
@@ -792,7 +792,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.011006884417147943,
-   "mean_wall_ms": 350.2228437503163
+   "mean_wall_ms": 254.49905937489348
   },
   "margin|1/20|random2_policy": {
    "mean_cost": 1010.0,
@@ -801,7 +801,7 @@
    "max_regret": 0.0004955401387512388,
    "over_eta": 0,
    "mean_cert": 0.011250924954414248,
-   "mean_wall_ms": 347.2213031247975
+   "mean_wall_ms": 248.96839374969204
   },
   "margin|1/20|greedy_policy": {
    "mean_cost": 1072.0,
@@ -810,7 +810,7 @@
    "max_regret": 0.0003303600925008259,
    "over_eta": 0,
    "mean_cert": 0.012931361640851522,
-   "mean_wall_ms": 352.49935312481284
+   "mean_wall_ms": 250.7687250001709
   },
   "margin|1/20|costnorm_policy": {
    "mean_cost": 1072.0,
@@ -819,7 +819,7 @@
    "max_regret": 0.0003303600925008259,
    "over_eta": 0,
    "mean_cert": 0.012931361640851522,
-   "mean_wall_ms": 350.22488750018965
+   "mean_wall_ms": 239.07545312511047
   },
   "margin|1/20|margin_policy": {
    "mean_cost": 1072.0,
@@ -828,7 +828,7 @@
    "max_regret": 0.0003303600925008259,
    "over_eta": 0,
    "mean_cert": 0.012931361640851522,
-   "mean_wall_ms": 1064.9922531251832
+   "mean_wall_ms": 749.8935999998366
   },
   "margin|1/20|online_margin": {
    "mean_cost": 384.0,
@@ -837,7 +837,7 @@
    "max_regret": 0.0008259002312520648,
    "over_eta": 0,
    "mean_cert": 0.023966203323202533,
-   "mean_wall_ms": 615.2682062499935
+   "mean_wall_ms": 435.17742187555086
   },
   "margin|1/5|oracle_glob": {
    "mean_cost": 288.0,
@@ -873,7 +873,7 @@
    "max_regret": 0.0008259002312520648,
    "over_eta": 0,
    "mean_cert": 0.015594482421875,
-   "mean_wall_ms": 11.345343750122083
+   "mean_wall_ms": 7.973028125434212
   },
   "margin|1/5|random0_glob": {
    "mean_cost": 739.0,
@@ -882,7 +882,7 @@
    "max_regret": 0.007698752464929041,
    "over_eta": 0,
    "mean_cert": 0.13072651624679565,
-   "mean_wall_ms": 28.201571875115405
+   "mean_wall_ms": 20.68653125002129
   },
   "margin|1/5|random1_glob": {
    "mean_cost": 757.25,
@@ -891,7 +891,7 @@
    "max_regret": 0.003436426116838488,
    "over_eta": 0,
    "mean_cert": 0.13049674034118652,
-   "mean_wall_ms": 27.29642499991769
+   "mean_wall_ms": 20.01668749971941
   },
   "margin|1/5|random2_glob": {
    "mean_cost": 735.75,
@@ -900,7 +900,7 @@
    "max_regret": 0.007698752464929041,
    "over_eta": 0,
    "mean_cert": 0.13049674034118652,
-   "mean_wall_ms": 28.829128124584713
+   "mean_wall_ms": 19.410890625408683
   },
   "margin|1/5|greedy_glob": {
    "mean_cost": 1016.0,
@@ -909,7 +909,7 @@
    "max_regret": 0.0003303600925008259,
    "over_eta": 0,
    "mean_cert": 0.13232421875,
-   "mean_wall_ms": 43.08732500032875
+   "mean_wall_ms": 29.175703125133623
   },
   "margin|1/5|costnorm_glob": {
    "mean_cost": 1016.0,
@@ -918,7 +918,7 @@
    "max_regret": 0.0003303600925008259,
    "over_eta": 0,
    "mean_cert": 0.13232421875,
-   "mean_wall_ms": 42.247706250464034
+   "mean_wall_ms": 30.84075937522357
   },
   "margin|1/5|margin_glob": {
    "mean_cost": 1016.0,
@@ -927,7 +927,7 @@
    "max_regret": 0.0003303600925008259,
    "over_eta": 0,
    "mean_cert": 0.13232421875,
-   "mean_wall_ms": 700.7592625000143
+   "mean_wall_ms": 493.46230000014657
   },
   "margin|1/5|uniform_policy": {
    "mean_cost": 378.75,
@@ -936,7 +936,7 @@
    "max_regret": 0.0008259002312520648,
    "over_eta": 0,
    "mean_cert": 0.020844459533691406,
-   "mean_wall_ms": 117.47767187421232
+   "mean_wall_ms": 82.24246874954133
   },
   "margin|1/5|random0_policy": {
    "mean_cost": 710.5,
@@ -945,7 +945,7 @@
    "max_regret": 0.007698752464929041,
    "over_eta": 0,
    "mean_cert": 0.1363657957946308,
-   "mean_wall_ms": 294.5436343750316
+   "mean_wall_ms": 215.02367500011133
   },
   "margin|1/5|random1_policy": {
    "mean_cost": 745.25,
@@ -954,7 +954,7 @@
    "max_regret": 0.003436426116838488,
    "over_eta": 0,
    "mean_cert": 0.13697355630891062,
-   "mean_wall_ms": 279.79739687486926
+   "mean_wall_ms": 209.73455312434908
   },
   "margin|1/5|random2_policy": {
    "mean_cost": 730.5,
@@ -963,7 +963,7 @@
    "max_regret": 0.007698752464929041,
    "over_eta": 0,
    "mean_cert": 0.1353473533840533,
-   "mean_wall_ms": 288.71367187491614
+   "mean_wall_ms": 210.91329062460318
   },
   "margin|1/5|greedy_policy": {
    "mean_cost": 995.0,
@@ -972,7 +972,7 @@
    "max_regret": 0.0009910802775024777,
    "over_eta": 0,
    "mean_cert": 0.14944568122785115,
-   "mean_wall_ms": 312.5317156250276
+   "mean_wall_ms": 220.01735625008223
   },
   "margin|1/5|costnorm_policy": {
    "mean_cost": 995.0,
@@ -981,7 +981,7 @@
    "max_regret": 0.0009910802775024777,
    "over_eta": 0,
    "mean_cert": 0.14944568122785115,
-   "mean_wall_ms": 311.90867812472334
+   "mean_wall_ms": 221.15381875016737
   },
   "margin|1/5|margin_policy": {
    "mean_cost": 995.0,
@@ -990,7 +990,7 @@
    "max_regret": 0.0009910802775024777,
    "over_eta": 0,
    "mean_cert": 0.14944568122785115,
-   "mean_wall_ms": 937.4062125000364
+   "mean_wall_ms": 690.6185531249776
   },
   "margin|1/5|online_margin": {
    "mean_cost": 384.0,
@@ -999,7 +999,7 @@
    "max_regret": 0.0008259002312520648,
    "over_eta": 0,
    "mean_cert": 0.023966203323202533,
-   "mean_wall_ms": 620.4716000004282
+   "mean_wall_ms": 440.9693062500537
   },
   "slack|1/100|oracle_glob": {
    "mean_cost": 389.0,
@@ -1035,7 +1035,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 6.103469058871269e-05,
-   "mean_wall_ms": 11.690040625012443
+   "mean_wall_ms": 9.313425000527786
   },
   "slack|1/100|random0_glob": {
    "mean_cost": 767.0,
@@ -1044,7 +1044,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.007834348827600479,
-   "mean_wall_ms": 23.850428125456347
+   "mean_wall_ms": 19.005965625183308
   },
   "slack|1/100|random1_glob": {
    "mean_cost": 879.5,
@@ -1053,7 +1053,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.007831498980522156,
-   "mean_wall_ms": 23.68167187501058
+   "mean_wall_ms": 18.435706249874784
   },
   "slack|1/100|random2_glob": {
    "mean_cost": 818.5,
@@ -1062,7 +1062,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.007834348827600479,
-   "mean_wall_ms": 24.660231249981734
+   "mean_wall_ms": 18.068731249400116
   },
   "slack|1/100|greedy_glob": {
    "mean_cost": 709.0,
@@ -1071,7 +1071,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00784289836883545,
-   "mean_wall_ms": 38.41893437561339
+   "mean_wall_ms": 26.81618750011694
   },
   "slack|1/100|costnorm_glob": {
    "mean_cost": 709.0,
@@ -1080,7 +1080,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00784289836883545,
-   "mean_wall_ms": 34.88299687546714
+   "mean_wall_ms": 26.287246875085657
   },
   "slack|1/100|margin_glob": {
    "mean_cost": 742.5,
@@ -1089,7 +1089,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.007840998470783234,
-   "mean_wall_ms": 472.21939687517533
+   "mean_wall_ms": 354.4472656250264
   },
   "slack|1/100|uniform_policy": {
    "mean_cost": 345.0,
@@ -1098,7 +1098,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.006953942727902095,
-   "mean_wall_ms": 88.69454062482873
+   "mean_wall_ms": 65.7559843745048
   },
   "slack|1/100|random0_policy": {
    "mean_cost": 647.5,
@@ -1107,7 +1107,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00641230525538969,
-   "mean_wall_ms": 210.8266593747885
+   "mean_wall_ms": 155.3748999997424
   },
   "slack|1/100|random1_policy": {
    "mean_cost": 801.75,
@@ -1116,7 +1116,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.0061559881637464646,
-   "mean_wall_ms": 224.38239687494388
+   "mean_wall_ms": 163.04149375025645
   },
   "slack|1/100|random2_policy": {
    "mean_cost": 755.75,
@@ -1125,7 +1125,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00648119325607719,
-   "mean_wall_ms": 224.93236249954407
+   "mean_wall_ms": 168.3255468757352
   },
   "slack|1/100|greedy_policy": {
    "mean_cost": 609.75,
@@ -1134,7 +1134,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.005273859129378661,
-   "mean_wall_ms": 198.88545312505812
+   "mean_wall_ms": 151.35789687485612
   },
   "slack|1/100|costnorm_policy": {
    "mean_cost": 609.75,
@@ -1143,7 +1143,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.005273859129378661,
-   "mean_wall_ms": 203.75464999995074
+   "mean_wall_ms": 153.16279999990456
   },
   "slack|1/100|margin_policy": {
    "mean_cost": 609.75,
@@ -1152,7 +1152,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.005273859129378661,
-   "mean_wall_ms": 588.8113374998056
+   "mean_wall_ms": 441.7216249996727
   },
   "slack|1/100|online_margin": {
    "mean_cost": 665.5,
@@ -1161,7 +1161,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.0001613534791064171,
-   "mean_wall_ms": 384.23726249993706
+   "mean_wall_ms": 296.0121781248972
   },
   "slack|1/20|oracle_glob": {
    "mean_cost": 258.0,
@@ -1197,7 +1197,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.015594482421875,
-   "mean_wall_ms": 9.930965624675991
+   "mean_wall_ms": 7.129478125534661
   },
   "slack|1/20|random0_glob": {
    "mean_cost": 666.5,
@@ -1206,7 +1206,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.010983429849147797,
-   "mean_wall_ms": 21.18898749984055
+   "mean_wall_ms": 17.55958437524896
   },
   "slack|1/20|random1_glob": {
    "mean_cost": 795.25,
@@ -1215,7 +1215,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.01122281700372696,
-   "mean_wall_ms": 21.09534687519954
+   "mean_wall_ms": 16.85812499988515
   },
   "slack|1/20|random2_glob": {
    "mean_cost": 756.5,
@@ -1224,7 +1224,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.010983429849147797,
-   "mean_wall_ms": 21.46182812521147
+   "mean_wall_ms": 17.459309375112753
   },
   "slack|1/20|greedy_glob": {
    "mean_cost": 614.0,
@@ -1233,7 +1233,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.015594482421875,
-   "mean_wall_ms": 31.882612500112373
+   "mean_wall_ms": 24.764815625303527
   },
   "slack|1/20|costnorm_glob": {
    "mean_cost": 614.0,
@@ -1242,7 +1242,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.015594482421875,
-   "mean_wall_ms": 31.121603124802277
+   "mean_wall_ms": 23.75243749997935
   },
   "slack|1/20|margin_glob": {
    "mean_cost": 653.5,
@@ -1251,7 +1251,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.015108108520507812,
-   "mean_wall_ms": 418.90987812485037
+   "mean_wall_ms": 320.75201562508937
   },
   "slack|1/20|uniform_policy": {
    "mean_cost": 298.0,
@@ -1260,7 +1260,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.009351598972570799,
-   "mean_wall_ms": 82.99201562488179
+   "mean_wall_ms": 63.107637500024794
   },
   "slack|1/20|random0_policy": {
    "mean_cost": 638.75,
@@ -1269,7 +1269,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.00842105159143905,
-   "mean_wall_ms": 214.73464999928638
+   "mean_wall_ms": 157.83606562547448
   },
   "slack|1/20|random1_policy": {
    "mean_cost": 771.75,
@@ -1278,7 +1278,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.008250972206743592,
-   "mean_wall_ms": 217.54681562470068
+   "mean_wall_ms": 163.52920937504223
   },
   "slack|1/20|random2_policy": {
    "mean_cost": 751.5,
@@ -1287,7 +1287,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.0068459774073928795,
-   "mean_wall_ms": 222.27612812537245
+   "mean_wall_ms": 169.1077124999083
   },
   "slack|1/20|greedy_policy": {
    "mean_cost": 593.0,
@@ -1296,7 +1296,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.011169681898300775,
-   "mean_wall_ms": 197.11984062485044
+   "mean_wall_ms": 154.18721562468818
   },
   "slack|1/20|costnorm_policy": {
    "mean_cost": 593.0,
@@ -1305,7 +1305,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.011169681898300775,
-   "mean_wall_ms": 198.95184374979635
+   "mean_wall_ms": 146.45129062512297
   },
   "slack|1/20|margin_policy": {
    "mean_cost": 593.0,
@@ -1314,7 +1314,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.011169681898300775,
-   "mean_wall_ms": 562.2095874997513
+   "mean_wall_ms": 419.8632250003129
   },
   "slack|1/20|online_margin": {
    "mean_cost": 584.9700091575091,
@@ -1323,7 +1323,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.0059441185665487966,
-   "mean_wall_ms": 347.7162312499331
+   "mean_wall_ms": 261.7057937497975
   },
   "slack|1/5|oracle_glob": {
    "mean_cost": 214.5,
@@ -1359,7 +1359,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.015594482421875,
-   "mean_wall_ms": 8.970253125085037
+   "mean_wall_ms": 7.023149999781708
   },
   "slack|1/5|random0_glob": {
    "mean_cost": 430.25,
@@ -1368,7 +1368,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.13072562217712402,
-   "mean_wall_ms": 17.937371875177632
+   "mean_wall_ms": 14.267893750002258
   },
   "slack|1/5|random1_glob": {
    "mean_cost": 530.25,
@@ -1377,7 +1377,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.13049674034118652,
-   "mean_wall_ms": 17.326599999933023
+   "mean_wall_ms": 13.609084375389102
   },
   "slack|1/5|random2_glob": {
    "mean_cost": 538.25,
@@ -1386,7 +1386,7 @@
    "max_regret": 0.007692307692307693,
    "over_eta": 0,
    "mean_cert": 0.13026785850524902,
-   "mean_wall_ms": 18.58644999970238
+   "mean_wall_ms": 14.50688437489589
   },
   "slack|1/5|greedy_glob": {
    "mean_cost": 562.5,
@@ -1395,7 +1395,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.13232421875,
-   "mean_wall_ms": 27.40436249985123
+   "mean_wall_ms": 21.4679875003867
   },
   "slack|1/5|costnorm_glob": {
    "mean_cost": 562.5,
@@ -1404,7 +1404,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.13232421875,
-   "mean_wall_ms": 27.17057499967268
+   "mean_wall_ms": 21.25138749988764
   },
   "slack|1/5|margin_glob": {
    "mean_cost": 562.5,
@@ -1413,7 +1413,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.13232421875,
-   "mean_wall_ms": 357.8413375000764
+   "mean_wall_ms": 280.79632187507286
   },
   "slack|1/5|uniform_policy": {
    "mean_cost": 278.25,
@@ -1422,7 +1422,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.03445286971843484,
-   "mean_wall_ms": 77.37484375002168
+   "mean_wall_ms": 60.64376874996924
   },
   "slack|1/5|random0_policy": {
    "mean_cost": 384.5,
@@ -1431,7 +1431,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.11325498530870143,
-   "mean_wall_ms": 164.80383437465207
+   "mean_wall_ms": 126.73885624928971
   },
   "slack|1/5|random1_policy": {
    "mean_cost": 526.75,
@@ -1440,7 +1440,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.1122814148851593,
-   "mean_wall_ms": 182.85467187490667
+   "mean_wall_ms": 134.60063749994333
   },
   "slack|1/5|random2_policy": {
    "mean_cost": 528.0,
@@ -1449,7 +1449,7 @@
    "max_regret": 0.007692307692307693,
    "over_eta": 0,
    "mean_cert": 0.12034964737144645,
-   "mean_wall_ms": 178.42888437485271
+   "mean_wall_ms": 134.25976249948235
   },
   "slack|1/5|greedy_policy": {
    "mean_cost": 531.5,
@@ -1458,7 +1458,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.09291993397673548,
-   "mean_wall_ms": 172.18828749957993
+   "mean_wall_ms": 124.50744999989638
   },
   "slack|1/5|costnorm_policy": {
    "mean_cost": 531.5,
@@ -1467,7 +1467,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.09291993397673548,
-   "mean_wall_ms": 169.71849374988324
+   "mean_wall_ms": 125.92752187492806
   },
   "slack|1/5|margin_policy": {
    "mean_cost": 531.5,
@@ -1476,7 +1476,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.09291993397673548,
-   "mean_wall_ms": 477.6560249998738
+   "mean_wall_ms": 370.8528437499581
   },
   "slack|1/5|online_margin": {
    "mean_cost": 518.5,
@@ -1485,7 +1485,7 @@
    "max_regret": 0.0,
    "over_eta": 0,
    "mean_cert": 0.021912683546891777,
-   "mean_wall_ms": 319.39665625009184
+   "mean_wall_ms": 244.26921874987784
   }
  }
 }

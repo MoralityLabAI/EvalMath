@@ -605,9 +605,9 @@
    4,
    8
   ],
-  "elapsed_s": 300.8018548,
+  "elapsed_s": 106.43666419999863,
   "sources": {
-   "src/spiral_ln/evaluation_adaptive_precision.py": "1dac82b37730a70a3143af473f2dcbb7fc0ea2850ed4f25358cc3921a510f101",
+   "src/spiral_ln/evaluation_adaptive_precision.py": "951fe0a3ed57d0d6735c5e4506f64863001d858b8064ff4ca3a51c55819198f5",
    "src/spiral_ln/evaluation_decision_certificate.py": "a870b4377d8569d7bc8a5d741bd2f699393c9283f4807c81663003317e23b9b6",
    "gyms/MathematicalInstrumentTransfer/decision_certificates.py": "7c82cba53ee5a16422fb1991b8aafe9333664a32c0f88ff391a43b471aa55886"
   },

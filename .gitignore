@@ -6,3 +6,8 @@ __pycache__/
 build/
 lean/.lake/
 _site/
+
+# MIT gym generated artifacts
+gyms/MathematicalInstrumentTransfer/results/mit12/work/
+gyms/MathematicalInstrumentTransfer/higher_order_result.json
+gyms/MathematicalInstrumentTransfer/results/*/run.log

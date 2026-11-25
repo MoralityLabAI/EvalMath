@@ -323,7 +323,7 @@
     "gyms/MathematicalInstrumentTransfer/depth_precision.py": "b0c58485a4a17d225c44922b983d1fd0e3bbecd9a51819dd9ea0d7b385af69fd",
     "lean/FeedbackChannel/CertifiedPrecision.lean": "f7f3bb655d5f1b8b827d22199c26f34d8a57590b4878e617fb129610eb926434",
     "scripts/verify_certified_precision.py": "7b61f92f1598c3ddd9b7ac59f73289c36e40609a98a54451e26b34c1dcf84822",
-    "src/spiral_ln/evaluation_adaptive_precision.py": "1dac82b37730a70a3143af473f2dcbb7fc0ea2850ed4f25358cc3921a510f101",
+    "src/spiral_ln/evaluation_adaptive_precision.py": "951fe0a3ed57d0d6735c5e4506f64863001d858b8064ff4ca3a51c55819198f5",
     "src/spiral_ln/evaluation_decision_certificate.py": "a870b4377d8569d7bc8a5d741bd2f699393c9283f4807c81663003317e23b9b6",
     "src/spiral_ln/evaluation_depth_precision.py": "48ff81d4139752ffe1e9540a29765b560f01c36e0c9c086a835374a844b4ea5a",
     "tests/test_certified_precision.py": "f0e1a71d026880787a96b56862a054d4ab1d170c61951e9602c3c7c1bec70963"
