@@ -215,5 +215,12 @@
   "claim": "Source facts: Anthropic FLT page dated 2026-09-04 (13M lines, 30,300 theorems, 11 days, dozens of agents); OpenAI page dated 2026-10-26 (local smoothing, auxiliary PDE, Lean next day, no peer review stated)",
   "evidence": "primary pages opened by delegated worker and lead",
   "caveat": "cited upstream claims, not reproduced; Lean files and statement fidelity of the OpenAI formalization not inspected"
+ },
+ {
+  "id": "VAD09D-3",
+  "level": "E",
+  "claim": "Exact mode probe is used at every price tested and stops paying near 7.08 (2 families) / 11.10 (3 families, 4-action menu); a law probe is never chosen",
+  "evidence": "output/verified_abstraction/vad_09d_probes.json",
+  "caveat": "probe is exact and priced by assumption; upper bound for a noisy probe"
  }
 ]
