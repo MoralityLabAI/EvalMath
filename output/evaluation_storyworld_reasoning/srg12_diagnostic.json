@@ -1,0 +1,1342 @@
+{
+  "evidence": "post-selection public development diagnostics; no validation retuning or promotion",
+  "constraints": [
+    {
+      "constraint": "opportunity",
+      "candidates_passing_every_development_cohort": 72
+    },
+    {
+      "constraint": "unique",
+      "candidates_passing_every_development_cohort": 12
+    },
+    {
+      "constraint": "unique_truce",
+      "candidates_passing_every_development_cohort": 0
+    },
+    {
+      "constraint": "margin",
+      "candidates_passing_every_development_cohort": 12
+    },
+    {
+      "constraint": "scope",
+      "candidates_passing_every_development_cohort": 247
+    },
+    {
+      "constraint": "displacement",
+      "candidates_passing_every_development_cohort": 288
+    },
+    {
+      "constraint": "energy",
+      "candidates_passing_every_development_cohort": 288
+    },
+    {
+      "constraint": "goal_progress",
+      "candidates_passing_every_development_cohort": 288
+    }
+  ],
+  "rootDiagnosis": [
+    {
+      "cohort": {
+        "seed": 1397887233,
+        "campaigns": 128
+      },
+      "roots": 128,
+      "positive_suspicion": 61,
+      "baseline_truce_eligible": 36,
+      "baseline_truce_wins": 2,
+      "baseline_other_action_wins": 9
+    },
+    {
+      "cohort": {
+        "seed": 1397887234,
+        "campaigns": 128
+      },
+      "roots": 128,
+      "positive_suspicion": 48,
+      "baseline_truce_eligible": 31,
+      "baseline_truce_wins": 3,
+      "baseline_other_action_wins": 10
+    },
+    {
+      "cohort": {
+        "seed": 1397887235,
+        "campaigns": 128
+      },
+      "roots": 128,
+      "positive_suspicion": 53,
+      "baseline_truce_eligible": 26,
+      "baseline_truce_wins": 3,
+      "baseline_other_action_wins": 11
+    }
+  ],
+  "maximin_unique_truce": {
+    "params": {
+      "bias": 0.125,
+      "recognition": 0.75,
+      "restraint": 0,
+      "reaction": 0
+    },
+    "metrics": [
+      {
+        "params": {
+          "bias": 0.125,
+          "recognition": 0.75,
+          "restraint": 0,
+          "reaction": 0
+        },
+        "roots": 128,
+        "actions": 384,
+        "opportunities": 27,
+        "unique": 10,
+        "unique_truce": 2,
+        "chosen": 55,
+        "low_margin": 5,
+        "eligible": 109,
+        "route_changes": 43,
+        "non_goal_route_changes": 0,
+        "truce_actions": 128,
+        "reaction_changes": 0,
+        "max_added_displacement": 0.10064612582399995,
+        "max_energy_ratio": 1.420018052432988,
+        "max_goal_distance_increase": 0,
+        "truce_mean_progress": 0.00017287780224443404,
+        "truce_baseline_mean_progress": 0,
+        "truce_mean_step_share": 0.08552100079618255,
+        "winning_truce": 19,
+        "opportunity_rate": 0.2109375,
+        "unique_fraction": 0.37037037037037035,
+        "unique_truce_share": 0.2,
+        "low_margin_fraction": 0.09090909090909091,
+        "checks": {
+          "opportunity": false,
+          "unique": false,
+          "unique_truce": false,
+          "margin": true,
+          "scope": true,
+          "displacement": true,
+          "energy": true,
+          "goal_progress": true
+        },
+        "pass": false
+      },
+      {
+        "params": {
+          "bias": 0.125,
+          "recognition": 0.75,
+          "restraint": 0,
+          "reaction": 0
+        },
+        "roots": 128,
+        "actions": 384,
+        "opportunities": 27,
+        "unique": 9,
+        "unique_truce": 1,
+        "chosen": 60,
+        "low_margin": 11,
+        "eligible": 94,
+        "route_changes": 44,
+        "non_goal_route_changes": 0,
+        "truce_actions": 128,
+        "reaction_changes": 0,
+        "max_added_displacement": 0.10064612582399995,
+        "max_energy_ratio": 1.4200112163636922,
+        "max_goal_distance_increase": 0,
+        "truce_mean_progress": 0.00012871958971630109,
+        "truce_baseline_mean_progress": 0,
+        "truce_mean_step_share": 0.08713695543412242,
+        "winning_truce": 19,
+        "opportunity_rate": 0.2109375,
+        "unique_fraction": 0.3333333333333333,
+        "unique_truce_share": 0.1111111111111111,
+        "low_margin_fraction": 0.18333333333333332,
+        "checks": {
+          "opportunity": false,
+          "unique": false,
+          "unique_truce": false,
+          "margin": true,
+          "scope": true,
+          "displacement": true,
+          "energy": true,
+          "goal_progress": true
+        },
+        "pass": false
+      },
+      {
+        "params": {
+          "bias": 0.125,
+          "recognition": 0.75,
+          "restraint": 0,
+          "reaction": 0
+        },
+        "roots": 128,
+        "actions": 384,
+        "opportunities": 22,
+        "unique": 3,
+        "unique_truce": 1,
+        "chosen": 55,
+        "low_margin": 10,
+        "eligible": 79,
+        "route_changes": 40,
+        "non_goal_route_changes": 0,
+        "truce_actions": 128,
+        "reaction_changes": 0,
+        "max_added_displacement": 0.10064612582399995,
+        "max_energy_ratio": 1.4202658090995046,
+        "max_goal_distance_increase": 0,
+        "truce_mean_progress": 0.00019366809968035973,
+        "truce_baseline_mean_progress": 0,
+        "truce_mean_step_share": 0.08588129153510433,
+        "winning_truce": 20,
+        "opportunity_rate": 0.171875,
+        "unique_fraction": 0.13636363636363635,
+        "unique_truce_share": 0.3333333333333333,
+        "low_margin_fraction": 0.18181818181818182,
+        "checks": {
+          "opportunity": true,
+          "unique": false,
+          "unique_truce": false,
+          "margin": true,
+          "scope": true,
+          "displacement": true,
+          "energy": true,
+          "goal_progress": true
+        },
+        "pass": false
+      }
+    ]
+  },
+  "maximin_progress": {
+    "params": {
+      "bias": 0,
+      "recognition": 0.75,
+      "restraint": 0.5,
+      "reaction": 0
+    },
+    "metrics": [
+      {
+        "params": {
+          "bias": 0,
+          "recognition": 0.75,
+          "restraint": 0.5,
+          "reaction": 0
+        },
+        "roots": 128,
+        "actions": 384,
+        "opportunities": 9,
+        "unique": 6,
+        "unique_truce": 0,
+        "chosen": 13,
+        "low_margin": 3,
+        "eligible": 109,
+        "route_changes": 3,
+        "non_goal_route_changes": 2,
+        "truce_actions": 128,
+        "reaction_changes": 0,
+        "max_added_displacement": 0.10064612582399995,
+        "max_energy_ratio": 1.420018052432988,
+        "max_goal_distance_increase": 0,
+        "truce_mean_progress": 0.0001735965032377212,
+        "truce_baseline_mean_progress": 0,
+        "truce_mean_step_share": 0.0855565322109727,
+        "winning_truce": 3,
+        "opportunity_rate": 0.0703125,
+        "unique_fraction": 0.6666666666666666,
+        "unique_truce_share": 0,
+        "low_margin_fraction": 0.23076923076923078,
+        "checks": {
+          "opportunity": false,
+          "unique": false,
+          "unique_truce": false,
+          "margin": false,
+          "scope": true,
+          "displacement": true,
+          "energy": true,
+          "goal_progress": true
+        },
+        "pass": false
+      },
+      {
+        "params": {
+          "bias": 0,
+          "recognition": 0.75,
+          "restraint": 0.5,
+          "reaction": 0
+        },
+        "roots": 128,
+        "actions": 384,
+        "opportunities": 11,
+        "unique": 5,
+        "unique_truce": 1,
+        "chosen": 20,
+        "low_margin": 10,
+        "eligible": 95,
+        "route_changes": 5,
+        "non_goal_route_changes": 1,
+        "truce_actions": 128,
+        "reaction_changes": 0,
+        "max_added_displacement": 0.10064612582399995,
+        "max_energy_ratio": 1.4735567857618395,
+        "max_goal_distance_increase": 0,
+        "truce_mean_progress": 0.00013467785763247845,
+        "truce_baseline_mean_progress": 0,
+        "truce_mean_step_share": 0.08720066535448037,
+        "winning_truce": 7,
+        "opportunity_rate": 0.0859375,
+        "unique_fraction": 0.45454545454545453,
+        "unique_truce_share": 0.2,
+        "low_margin_fraction": 0.5,
+        "checks": {
+          "opportunity": false,
+          "unique": false,
+          "unique_truce": false,
+          "margin": false,
+          "scope": true,
+          "displacement": true,
+          "energy": true,
+          "goal_progress": true
+        },
+        "pass": false
+      },
+      {
+        "params": {
+          "bias": 0,
+          "recognition": 0.75,
+          "restraint": 0.5,
+          "reaction": 0
+        },
+        "roots": 128,
+        "actions": 384,
+        "opportunities": 11,
+        "unique": 5,
+        "unique_truce": 0,
+        "chosen": 18,
+        "low_margin": 4,
+        "eligible": 79,
+        "route_changes": 6,
+        "non_goal_route_changes": 3,
+        "truce_actions": 128,
+        "reaction_changes": 0,
+        "max_added_displacement": 0.10064612582399995,
+        "max_energy_ratio": 1.4210940751434589,
+        "max_goal_distance_increase": 0,
+        "truce_mean_progress": 0.00019491813569084453,
+        "truce_baseline_mean_progress": 0,
+        "truce_mean_step_share": 0.08591430785942103,
+        "winning_truce": 6,
+        "opportunity_rate": 0.0859375,
+        "unique_fraction": 0.45454545454545453,
+        "unique_truce_share": 0,
+        "low_margin_fraction": 0.2222222222222222,
+        "checks": {
+          "opportunity": false,
+          "unique": false,
+          "unique_truce": false,
+          "margin": false,
+          "scope": true,
+          "displacement": true,
+          "energy": true,
+          "goal_progress": true
+        },
+        "pass": false
+      }
+    ]
+  },
+  "compiled_arms": [
+    {
+      "name": "recognition_only",
+      "p": {
+        "bias": 0,
+        "recognition": 0.25,
+        "restraint": 0,
+        "reaction": 0
+      },
+      "patch_lines": 3,
+      "metrics": [
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 2,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.25,
+              "restraint": 0,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 9,
+            "unique": 7,
+            "unique_truce": 0,
+            "chosen": 12,
+            "low_margin": 3,
+            "eligible": 109,
+            "route_changes": 2,
+            "non_goal_route_changes": 2,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.051457900407543056,
+            "max_energy_ratio": 1.0892070187163265,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.00006446952028114333,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08063918898460878,
+            "winning_truce": 2,
+            "opportunity_rate": 0.0703125,
+            "unique_fraction": 0.7777777777777778,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.25,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "unique_truce": false,
+              "margin": false,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 1,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.25,
+              "restraint": 0,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 11,
+            "unique": 8,
+            "unique_truce": 1,
+            "chosen": 17,
+            "low_margin": 9,
+            "eligible": 94,
+            "route_changes": 1,
+            "non_goal_route_changes": 0,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.051457900407543056,
+            "max_energy_ratio": 1.0892190718132186,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.000047358378816449925,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08298239469150204,
+            "winning_truce": 4,
+            "opportunity_rate": 0.0859375,
+            "unique_fraction": 0.7272727272727273,
+            "unique_truce_share": 0.125,
+            "low_margin_fraction": 0.5294117647058824,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "unique_truce": false,
+              "margin": false,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 2,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.25,
+              "restraint": 0,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 11,
+            "unique": 7,
+            "unique_truce": 0,
+            "chosen": 16,
+            "low_margin": 2,
+            "eligible": 79,
+            "route_changes": 2,
+            "non_goal_route_changes": 1,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.051457900407543056,
+            "max_energy_ratio": 1.0892070187163265,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.00007397837843033022,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08234613222692265,
+            "winning_truce": 4,
+            "opportunity_rate": 0.0859375,
+            "unique_fraction": 0.6363636363636364,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.125,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "unique_truce": false,
+              "margin": true,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "restraint_only",
+      "p": {
+        "bias": 0,
+        "recognition": 0,
+        "restraint": 0.25,
+        "reaction": 0
+      },
+      "patch_lines": 3,
+      "metrics": [
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 0,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0,
+              "restraint": 0.25,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 9,
+            "unique": 7,
+            "unique_truce": 0,
+            "chosen": 12,
+            "low_margin": 4,
+            "eligible": 108,
+            "route_changes": 0,
+            "non_goal_route_changes": 0,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.012630165268506688,
+            "max_energy_ratio": 1.0056961116277037,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 3.7930463364875533e-7,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.07989005665719505,
+            "winning_truce": 2,
+            "opportunity_rate": 0.0703125,
+            "unique_fraction": 0.7777777777777778,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.3333333333333333,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "unique_truce": false,
+              "margin": false,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 1,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0,
+              "restraint": 0.25,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 10,
+            "unique": 7,
+            "unique_truce": 0,
+            "chosen": 16,
+            "low_margin": 11,
+            "eligible": 93,
+            "route_changes": 1,
+            "non_goal_route_changes": 1,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.01758367924430987,
+            "max_energy_ratio": 1.016401911872779,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.000005171917526614055,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08232187932893423,
+            "winning_truce": 3,
+            "opportunity_rate": 0.078125,
+            "unique_fraction": 0.7,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.6875,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "unique_truce": false,
+              "margin": false,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 1,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0,
+              "restraint": 0.25,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 11,
+            "unique": 8,
+            "unique_truce": 0,
+            "chosen": 15,
+            "low_margin": 2,
+            "eligible": 78,
+            "route_changes": 1,
+            "non_goal_route_changes": 1,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.014479221229285355,
+            "max_energy_ratio": 1.0070617575819072,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 6.463670147620673e-7,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.0817069491215912,
+            "winning_truce": 3,
+            "opportunity_rate": 0.0859375,
+            "unique_fraction": 0.7272727272727273,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.13333333333333333,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "unique_truce": false,
+              "margin": true,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "reaction_only",
+      "p": {
+        "bias": 0,
+        "recognition": 0,
+        "restraint": 0,
+        "reaction": 0.1
+      },
+      "patch_lines": 3,
+      "metrics": [
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 5,
+          "reactionChanges": 14,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0,
+              "restraint": 0,
+              "reaction": 0.1
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 9,
+            "unique": 7,
+            "unique_truce": 0,
+            "chosen": 12,
+            "low_margin": 4,
+            "eligible": 108,
+            "route_changes": 5,
+            "non_goal_route_changes": 5,
+            "truce_actions": 128,
+            "reaction_changes": 14,
+            "max_added_displacement": 0,
+            "max_energy_ratio": 1.3682940618313613,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08215376680829958,
+            "winning_truce": 2,
+            "opportunity_rate": 0.0703125,
+            "unique_fraction": 0.7777777777777778,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.3333333333333333,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "unique_truce": false,
+              "margin": false,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 7,
+          "reactionChanges": 18,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0,
+              "restraint": 0,
+              "reaction": 0.1
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 10,
+            "unique": 7,
+            "unique_truce": 0,
+            "chosen": 16,
+            "low_margin": 11,
+            "eligible": 93,
+            "route_changes": 7,
+            "non_goal_route_changes": 7,
+            "truce_actions": 128,
+            "reaction_changes": 18,
+            "max_added_displacement": 0,
+            "max_energy_ratio": 1.3682940618313613,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08501084989055305,
+            "winning_truce": 3,
+            "opportunity_rate": 0.078125,
+            "unique_fraction": 0.7,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.6875,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "unique_truce": false,
+              "margin": false,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 9,
+          "reactionChanges": 24,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0,
+              "restraint": 0,
+              "reaction": 0.1
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 11,
+            "unique": 8,
+            "unique_truce": 0,
+            "chosen": 15,
+            "low_margin": 2,
+            "eligible": 78,
+            "route_changes": 9,
+            "non_goal_route_changes": 9,
+            "truce_actions": 128,
+            "reaction_changes": 24,
+            "max_added_displacement": 0,
+            "max_energy_ratio": 1.370968052805347,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08545032969115107,
+            "winning_truce": 3,
+            "opportunity_rate": 0.0859375,
+            "unique_fraction": 0.7272727272727273,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.13333333333333333,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "unique_truce": false,
+              "margin": true,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "combined_effect_and_score",
+      "p": {
+        "bias": 0,
+        "recognition": 0.25,
+        "restraint": 0.25,
+        "reaction": 0.1
+      },
+      "patch_lines": 3,
+      "metrics": [
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 7,
+          "reactionChanges": 14,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.25,
+              "restraint": 0.25,
+              "reaction": 0.1
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 9,
+            "unique": 7,
+            "unique_truce": 0,
+            "chosen": 12,
+            "low_margin": 3,
+            "eligible": 109,
+            "route_changes": 7,
+            "non_goal_route_changes": 7,
+            "truce_actions": 128,
+            "reaction_changes": 14,
+            "max_added_displacement": 0.051457900407543056,
+            "max_energy_ratio": 1.3682940618313613,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.00006484882491479207,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08292133203274833,
+            "winning_truce": 2,
+            "opportunity_rate": 0.0703125,
+            "unique_fraction": 0.7777777777777778,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.25,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "unique_truce": false,
+              "margin": false,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 9,
+          "reactionChanges": 18,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.25,
+              "restraint": 0.25,
+              "reaction": 0.1
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 11,
+            "unique": 8,
+            "unique_truce": 1,
+            "chosen": 17,
+            "low_margin": 9,
+            "eligible": 94,
+            "route_changes": 9,
+            "non_goal_route_changes": 8,
+            "truce_actions": 128,
+            "reaction_changes": 18,
+            "max_added_displacement": 0.051457900407543056,
+            "max_energy_ratio": 1.3682940618313613,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.00005253029634306398,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.0857045301071982,
+            "winning_truce": 4,
+            "opportunity_rate": 0.0859375,
+            "unique_fraction": 0.7272727272727273,
+            "unique_truce_share": 0.125,
+            "low_margin_fraction": 0.5294117647058824,
+            "checks": {
+              "opportunity": false,
+              "unique": true,
+              "unique_truce": false,
+              "margin": false,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 12,
+          "reactionChanges": 24,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.25,
+              "restraint": 0.25,
+              "reaction": 0.1
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 11,
+            "unique": 7,
+            "unique_truce": 0,
+            "chosen": 16,
+            "low_margin": 2,
+            "eligible": 79,
+            "route_changes": 12,
+            "non_goal_route_changes": 11,
+            "truce_actions": 128,
+            "reaction_changes": 24,
+            "max_added_displacement": 0.051457900407543056,
+            "max_energy_ratio": 1.370968052805347,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.00007462474544509229,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08610965670927577,
+            "winning_truce": 4,
+            "opportunity_rate": 0.0859375,
+            "unique_fraction": 0.6363636363636364,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.125,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "unique_truce": false,
+              "margin": true,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "maximin_unique_truce_diagnostic",
+      "p": {
+        "bias": 0.125,
+        "recognition": 0.75,
+        "restraint": 0,
+        "reaction": 0
+      },
+      "patch_lines": 4,
+      "metrics": [
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 43,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 1.1102230246251565e-16,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.75,
+              "restraint": 0,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 27,
+            "unique": 10,
+            "unique_truce": 2,
+            "chosen": 55,
+            "low_margin": 5,
+            "eligible": 109,
+            "route_changes": 43,
+            "non_goal_route_changes": 0,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.10064612582399995,
+            "max_energy_ratio": 1.420018052432988,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.00017287780224443404,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08552100079618255,
+            "winning_truce": 19,
+            "opportunity_rate": 0.2109375,
+            "unique_fraction": 0.37037037037037035,
+            "unique_truce_share": 0.2,
+            "low_margin_fraction": 0.09090909090909091,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "unique_truce": false,
+              "margin": true,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 44,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 1.1102230246251565e-16,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.75,
+              "restraint": 0,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 27,
+            "unique": 9,
+            "unique_truce": 1,
+            "chosen": 60,
+            "low_margin": 11,
+            "eligible": 94,
+            "route_changes": 44,
+            "non_goal_route_changes": 0,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.10064612582399995,
+            "max_energy_ratio": 1.4200112163636922,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.00012871958971630109,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08713695543412242,
+            "winning_truce": 19,
+            "opportunity_rate": 0.2109375,
+            "unique_fraction": 0.3333333333333333,
+            "unique_truce_share": 0.1111111111111111,
+            "low_margin_fraction": 0.18333333333333332,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "unique_truce": false,
+              "margin": true,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 40,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 1.1102230246251565e-16,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.75,
+              "restraint": 0,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 22,
+            "unique": 3,
+            "unique_truce": 1,
+            "chosen": 55,
+            "low_margin": 10,
+            "eligible": 79,
+            "route_changes": 40,
+            "non_goal_route_changes": 0,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.10064612582399995,
+            "max_energy_ratio": 1.4202658090995046,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.00019366809968035973,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08588129153510433,
+            "winning_truce": 20,
+            "opportunity_rate": 0.171875,
+            "unique_fraction": 0.13636363636363635,
+            "unique_truce_share": 0.3333333333333333,
+            "low_margin_fraction": 0.18181818181818182,
+            "checks": {
+              "opportunity": true,
+              "unique": false,
+              "unique_truce": false,
+              "margin": true,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "maximin_progress_diagnostic",
+      "p": {
+        "bias": 0,
+        "recognition": 0.75,
+        "restraint": 0.5,
+        "reaction": 0
+      },
+      "patch_lines": 3,
+      "metrics": [
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 3,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.75,
+              "restraint": 0.5,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 9,
+            "unique": 6,
+            "unique_truce": 0,
+            "chosen": 13,
+            "low_margin": 3,
+            "eligible": 109,
+            "route_changes": 3,
+            "non_goal_route_changes": 2,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.10064612582399995,
+            "max_energy_ratio": 1.420018052432988,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.0001735965032377212,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.0855565322109727,
+            "winning_truce": 3,
+            "opportunity_rate": 0.0703125,
+            "unique_fraction": 0.6666666666666666,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.23076923076923078,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "unique_truce": false,
+              "margin": false,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 5,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.75,
+              "restraint": 0.5,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 11,
+            "unique": 5,
+            "unique_truce": 1,
+            "chosen": 20,
+            "low_margin": 10,
+            "eligible": 95,
+            "route_changes": 5,
+            "non_goal_route_changes": 1,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.10064612582399995,
+            "max_energy_ratio": 1.4735567857618395,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.00013467785763247845,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08720066535448037,
+            "winning_truce": 7,
+            "opportunity_rate": 0.0859375,
+            "unique_fraction": 0.45454545454545453,
+            "unique_truce_share": 0.2,
+            "low_margin_fraction": 0.5,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "unique_truce": false,
+              "margin": false,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        },
+        {
+          "checked": 384,
+          "forcedBranchChecks": 1152,
+          "nonTruceNumeric": 256,
+          "routeChanges": 6,
+          "reactionChanges": 0,
+          "maxDelta": 0,
+          "maxScoreError": 0,
+          "metrics": {
+            "params": {
+              "bias": 0,
+              "recognition": 0.75,
+              "restraint": 0.5,
+              "reaction": 0
+            },
+            "roots": 128,
+            "actions": 384,
+            "opportunities": 11,
+            "unique": 5,
+            "unique_truce": 0,
+            "chosen": 18,
+            "low_margin": 4,
+            "eligible": 79,
+            "route_changes": 6,
+            "non_goal_route_changes": 3,
+            "truce_actions": 128,
+            "reaction_changes": 0,
+            "max_added_displacement": 0.10064612582399995,
+            "max_energy_ratio": 1.4210940751434589,
+            "max_goal_distance_increase": 0,
+            "truce_mean_progress": 0.00019491813569084453,
+            "truce_baseline_mean_progress": 0,
+            "truce_mean_step_share": 0.08591430785942103,
+            "winning_truce": 6,
+            "opportunity_rate": 0.0859375,
+            "unique_fraction": 0.45454545454545453,
+            "unique_truce_share": 0,
+            "low_margin_fraction": 0.2222222222222222,
+            "checks": {
+              "opportunity": false,
+              "unique": false,
+              "unique_truce": false,
+              "margin": false,
+              "scope": true,
+              "displacement": true,
+              "energy": true,
+              "goal_progress": true
+            },
+            "pass": false
+          }
+        }
+      ]
+    }
+  ],
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md": "cb174a3efb031eaa046b01a2acc526ef7d122345",
+    "integrations/sweepweave-ts/srg12/optimizer.mjs": "1b7888b0544dd6a9f2e9a09dee177134560ffaf6"
+  }
+}
