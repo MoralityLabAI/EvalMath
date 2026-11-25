@@ -1,0 +1,31 @@
+{
+  "all_passed": true,
+  "checks": {
+    "192_finite_rowspace_comparisons": true,
+    "30_bruteforce_posterior_counts": true,
+    "64_ambient_with_rank_2_posterior": true,
+    "full_observation_uniform_query_fraction": true,
+    "full_rank_exact_prediction": true,
+    "one_missing_goal_bit_floor": true,
+    "one_sparse_mask_not_identified_by_zero_samples": true,
+    "padding_rank_invariance": true,
+    "rank_zero_stability": true,
+    "single_sample_collision_probability": true,
+    "tiny_sparse_class_bound_zero": true,
+    "two_missing_goal_bit_floor": true,
+    "wide_world_sparse_bound_decays": true,
+    "zero_observation_uniform_query_fraction": true
+  },
+  "counts": {
+    "posterior_cases": 30,
+    "rowspace_oracle_cases": 192
+  },
+  "evidence_level": "algebraic arguments plus independent exhaustive small-F2 verification",
+  "generated_at_utc": "2026-11-17T09:19:05.265220+00:00",
+  "schema_version": "HG-07/exact-raw-observability-v1",
+  "source_sha256": {
+    "scripts/verify_evaluation_hypergames_raw.py": "3a4fb7b90a089b3d97f0f404a072dccfbbe48847a9becccda72ed9b34d9b26d3",
+    "src/spiral_ln/evaluation_hypergames_raw.py": "81589805b80e0a7f64d1485a78565afaca68a0a4b6edb1402b2c58c7cbc38115",
+    "tests/test_evaluation_hypergames_raw.py": "0d7251dfea6bdc4547518cb8bcdbaab7e6f7e83f9dce62effb4d64e175217d57"
+  }
+}
