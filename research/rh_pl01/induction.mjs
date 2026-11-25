@@ -167,7 +167,7 @@ function buildInduction(k,sp,a,it,c){
    let rejected=0;for(const f of bads){let ok=false;try{f()}catch{ok=true}assert(ok,'negative accepted');rejected++}
    return {omega_exact_source_bytes:ns[omega0].u,instances:rows,definition_bridge:{...r.cost,original_kernel_replay:r.original},original_kernel_replays:originalReplays,negative_rejected:rejected,formula_nodes:ns.length-1,proof_nodes:pid,actual_rh_proof:false};
  }
- return {prove,close,emit,replay,run,ar,omega0,at};
+ return {prove,close,emit,replay,run,ar,omega0,omegaW,at,logic:{E,M,A,F,O,X,fv,sub,split,exAt,qAt,hyp,ax,mp,generalize,abs,comp,left,right,conj,ui,introAt,exIntro,exElim}};
  }
  return {prepare,run:raw=>prepare(raw).run()};
 }
