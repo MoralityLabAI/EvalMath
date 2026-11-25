@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import * as runtime from '../srg05/swmd-runtime-v2.mjs';
+import {build,verify,verifySWMD,score,controls} from './benchmark.mjs';
+const expected=JSON.parse(fs.readFileSync(new URL('../../../output/evaluation_storyworld_reasoning/srg16_opportunity_balance.json',import.meta.url),"utf8"));
+const e=build(expected.seed,expected.reps);
+const actual={schema:expected.schema,evidence:expected.evidence,seed:e.seed,reps:e.reps,roots:e.roots.length,rows:e.tasks.length,tests:verify(e),swmd:verifySWMD(e,runtime),controls:{}};
+for(const mode of ["oracle","first","commit","wrong","greedy"])actual.controls[mode]=score(e,controls(e,mode));
+assert.deepEqual(actual,expected,"SRG16 receipt drift");
+console.log(JSON.stringify({status:"pass",roots:actual.roots,rows:actual.rows,tests:actual.tests,swmd:actual.swmd},null,2));
