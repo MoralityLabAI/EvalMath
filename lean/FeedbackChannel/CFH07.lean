@@ -1,6 +1,6 @@
 import Mathlib
 
-/-! CFH-07: sound sparse linear evaluation and partial-evidence elimination.
+/-! CFH-07: sound sparse linear evaluation and prediction-evidence elimination.
 The weighted-sum theorem applies over ZMod p after the coefficient weights and
 available entries have been established. It does not prove the graph formulas
 or the Python-to-Lean representation correspondence. -/
@@ -20,22 +20,22 @@ theorem sparse_sum {I R : Type*} [CommRing R]
   · simp [ha, hknown i hi ha]
   · simp [ha, hzero i hi ha]
 
-def restrict {H V : Type*} (S : Set H) (partial : H → Option V)
+def restrict {H V : Type*} (S : Set H) (prediction : H → Option V)
     (reply : V) : Set H :=
-  {h | h ∈ S ∧ (partial h = none ∨ partial h = some reply)}
+  {h | h ∈ S ∧ (prediction h = none ∨ prediction h = some reply)}
 
 theorem restrict_subset {H V : Type*} (S : Set H)
-    (partial : H → Option V) (reply : V) :
-    restrict S partial reply ⊆ S := by
+    (prediction : H → Option V) (reply : V) :
+    restrict S prediction reply ⊆ S := by
   intro h hh
   exact hh.1
 
 theorem restrict_retains {H V : Type*} (S : Set H)
-    (partial : H → Option V) (reply : V) (hidden : H)
+    (prediction : H → Option V) (reply : V) (hidden : H)
     (hS : hidden ∈ S)
-    (hsound : ∀ v, partial hidden = some v → v = reply) :
-    hidden ∈ restrict S partial reply := by
-  cases he : partial hidden with
+    (hsound : ∀ v, prediction hidden = some v → v = reply) :
+    hidden ∈ restrict S prediction reply := by
+  cases he : prediction hidden with
   | none => exact ⟨hS, Or.inl he⟩
   | some v =>
     exact ⟨hS, Or.inr (he.trans (congrArg some (hsound v he)))⟩
@@ -56,7 +56,7 @@ theorem replay_retains {H V : Type*} (S : Set H)
     change hidden ∈ replay (restrict S e.1 e.2) es
     apply ih
     · exact restrict_retains S e.1 e.2 hidden hS
-        (hsound e (List.mem_cons_self ..))
+        (hsound e (by simp))
     · intro z hz v hv
       exact hsound z (List.mem_cons_of_mem e hz) v hv
 
