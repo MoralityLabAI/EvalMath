@@ -1,0 +1,43 @@
+{
+  "pairs": 192,
+  "rows": 384,
+  "order_blind_accuracy_bound": 0.5,
+  "order_blind_pair_accuracy_bound": 0,
+  "order_blind_regret_lower_bound": 176,
+  "normalized_regret_lower_bound": 0.007681564245810056,
+  "controls": {
+    "oracle": {
+      "rows": 384,
+      "correct": 384,
+      "valid": 384,
+      "paired_correct": 192,
+      "pairs": 192,
+      "first_action_regret": 0,
+      "malformed": 0,
+      "duplicates": 0,
+      "unknown": 0
+    },
+    "audit": {
+      "rows": 384,
+      "correct": 192,
+      "valid": 384,
+      "paired_correct": 0,
+      "pairs": 192,
+      "first_action_regret": 248,
+      "malformed": 0,
+      "duplicates": 0,
+      "unknown": 0
+    },
+    "wait": {
+      "rows": 384,
+      "correct": 192,
+      "valid": 384,
+      "paired_correct": 0,
+      "pairs": 192,
+      "first_action_regret": 176,
+      "malformed": 0,
+      "duplicates": 0,
+      "unknown": 0
+    }
+  }
+}

@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {analyze,verify} from './planning.mjs';
+import {buildBelief,summarize,scoreBelief} from './epistemic.mjs';
+import {buildOrder,summarizeOrder} from './order-witness.mjs';
+const read=f=>JSON.parse(fs.readFileSync(new URL('../../../output/evaluation_storyworld_reasoning/'+f,import.meta.url),"utf8"));
+const expected=read("srg17_reasoning_phases.json");
+const p=analyze(expected.planning.seed,expected.planning.reps),e=buildBelief(),b=summarize(e),bs=scoreBelief(e,e.gold.map(g=>({id:g.id,action:g.answer})));
+assert.deepEqual(p,expected.planning,"planning receipt drift");
+assert.deepEqual(verify(),expected.tests,"verification drift");
+assert.deepEqual(b,expected.belief,"belief receipt drift");
+assert.deepEqual(bs,expected.belief_scorer,"belief scorer drift");
+const order=summarizeOrder(buildOrder());
+assert.deepEqual(order,read("srg17_order_witness.json"),"order witness drift");
+console.log(JSON.stringify({status:"pass",tests:expected.tests,belief:b,order},null,2));
