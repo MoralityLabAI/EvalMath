@@ -1,0 +1,2722 @@
+{
+  "evidence": "bounded calibration-selected authoring edits; deterministic public validation, no model calls",
+  "economics": {
+    "contract": {
+      "baseline": {
+        "cost": 2,
+        "settle": 12
+      },
+      "calibration": [
+        {
+          "a": 7,
+          "b": 6,
+          "strong": 7,
+          "weak": 4,
+          "aux": 7
+        },
+        {
+          "a": 6,
+          "b": 6,
+          "strong": 8,
+          "weak": 4,
+          "aux": 7
+        },
+        {
+          "a": 7,
+          "b": 5,
+          "strong": 7,
+          "weak": 5,
+          "aux": 8
+        }
+      ],
+      "validation": [
+        {
+          "a": 6,
+          "b": 7,
+          "strong": 7,
+          "weak": 4,
+          "aux": 6
+        },
+        {
+          "a": 8,
+          "b": 5,
+          "strong": 8,
+          "weak": 5,
+          "aux": 7
+        },
+        {
+          "a": 5,
+          "b": 6,
+          "strong": 6,
+          "weak": 5,
+          "aux": 6
+        },
+        {
+          "a": 7,
+          "b": 7,
+          "strong": 8,
+          "weak": 6,
+          "aux": 8
+        }
+      ],
+      "target": {
+        "minimum_query_cost": 1,
+        "blind_h1_unique_settle": true,
+        "blind_h3_unique_q": true,
+        "analyst_h2_context_choice": true,
+        "minimum_adaptive_gain": 1,
+        "minimum_analyst_margin": 2
+      },
+      "grid": {
+        "cost": [
+          1,
+          2,
+          3
+        ],
+        "settle": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    "grid": [
+      {
+        "params": {
+          "cost": 1,
+          "settle": 7
+        },
+        "edit_distance": 6,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 7
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 11.25,
+            "blind_fixed": 10,
+            "gain": 1.25,
+            "analyst_h2": 12.25,
+            "analyst_min_margin": 4.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 7
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 13,
+            "blind_fixed": 11,
+            "gain": 2,
+            "analyst_h2": 13,
+            "analyst_min_margin": 4
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 1,
+              "settle": 7
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 12,
+            "blind_fixed": 11,
+            "gain": 1,
+            "analyst_h2": 12.5,
+            "analyst_min_margin": 3
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 1,
+          "settle": 8
+        },
+        "edit_distance": 5,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 8
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 11.25,
+            "blind_fixed": 10,
+            "gain": 1.25,
+            "analyst_h2": 12.25,
+            "analyst_min_margin": 4.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 8
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 13,
+            "blind_fixed": 11,
+            "gain": 2,
+            "analyst_h2": 13,
+            "analyst_min_margin": 4
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 1,
+              "settle": 8
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 12,
+            "blind_fixed": 11,
+            "gain": 1,
+            "analyst_h2": 12.5,
+            "analyst_min_margin": 3
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 1,
+          "settle": 9
+        },
+        "edit_distance": 4,
+        "passed": 3,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 9
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": true,
+            "blind_h1": 9,
+            "blind_h3": 11.25,
+            "blind_fixed": 10,
+            "gain": 1.25,
+            "analyst_h2": 12.25,
+            "analyst_min_margin": 3.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 9
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": true,
+            "blind_h1": 9,
+            "blind_h3": 13,
+            "blind_fixed": 11,
+            "gain": 2,
+            "analyst_h2": 13,
+            "analyst_min_margin": 4
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 1,
+              "settle": 9
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": true,
+            "blind_h1": 9,
+            "blind_h3": 12,
+            "blind_fixed": 11,
+            "gain": 1,
+            "analyst_h2": 12.5,
+            "analyst_min_margin": 3
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 1,
+          "settle": 10
+        },
+        "edit_distance": 3,
+        "passed": 3,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": true,
+            "blind_h1": 10,
+            "blind_h3": 11.25,
+            "blind_fixed": 10.125,
+            "gain": 1.125,
+            "analyst_h2": 12.25,
+            "analyst_min_margin": 2.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": true,
+            "blind_h1": 10,
+            "blind_h3": 13,
+            "blind_fixed": 11,
+            "gain": 2,
+            "analyst_h2": 13,
+            "analyst_min_margin": 3
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 1,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": true,
+            "blind_h1": 10,
+            "blind_h3": 12,
+            "blind_fixed": 11,
+            "gain": 1,
+            "analyst_h2": 12.5,
+            "analyst_min_margin": 2.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 1,
+          "settle": 11
+        },
+        "edit_distance": 2,
+        "passed": 1,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 11
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 11,
+            "blind_h3": 11.25,
+            "blind_fixed": 11,
+            "gain": 0.25,
+            "analyst_h2": 12.25,
+            "analyst_min_margin": 1.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 11
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": true,
+            "blind_h1": 11,
+            "blind_h3": 13,
+            "blind_fixed": 11.5,
+            "gain": 1.5,
+            "analyst_h2": 13,
+            "analyst_min_margin": 2
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 1,
+              "settle": 11
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 11,
+            "blind_h3": 12,
+            "blind_fixed": 11.21875,
+            "gain": 0.78125,
+            "analyst_h2": 12.5,
+            "analyst_min_margin": 1.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 1,
+          "settle": 12
+        },
+        "edit_distance": 1,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 12.25,
+            "analyst_min_margin": 0.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 1,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 13,
+            "blind_fixed": 12,
+            "gain": 1,
+            "analyst_h2": 13,
+            "analyst_min_margin": 1
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 1,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 12.5,
+            "analyst_min_margin": 0.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 7
+        },
+        "edit_distance": 5,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 7
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 9.25,
+            "blind_fixed": 9,
+            "gain": 0.25,
+            "analyst_h2": 11.25,
+            "analyst_min_margin": 3.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 7
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 11,
+            "blind_fixed": 10,
+            "gain": 1,
+            "analyst_h2": 12,
+            "analyst_min_margin": 4
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 2,
+              "settle": 7
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 10,
+            "blind_fixed": 10,
+            "gain": 0,
+            "analyst_h2": 11.5,
+            "analyst_min_margin": 3
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 8
+        },
+        "edit_distance": 4,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 8
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 9.25,
+            "blind_fixed": 9,
+            "gain": 0.25,
+            "analyst_h2": 11.25,
+            "analyst_min_margin": 3.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 8
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 11,
+            "blind_fixed": 10,
+            "gain": 1,
+            "analyst_h2": 12,
+            "analyst_min_margin": 4
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 2,
+              "settle": 8
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 10,
+            "blind_fixed": 10,
+            "gain": 0,
+            "analyst_h2": 11.5,
+            "analyst_min_margin": 3
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 9
+        },
+        "edit_distance": 3,
+        "passed": 1,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 9
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 9,
+            "blind_h3": 9.25,
+            "blind_fixed": 9,
+            "gain": 0.25,
+            "analyst_h2": 11.25,
+            "analyst_min_margin": 2.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 9
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": true,
+            "blind_h1": 9,
+            "blind_h3": 11,
+            "blind_fixed": 10,
+            "gain": 1,
+            "analyst_h2": 12,
+            "analyst_min_margin": 3
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 2,
+              "settle": 9
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 9,
+            "blind_h3": 10,
+            "blind_fixed": 10,
+            "gain": 0,
+            "analyst_h2": 11.5,
+            "analyst_min_margin": 2.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 10
+        },
+        "edit_distance": 2,
+        "passed": 1,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 10,
+            "blind_h3": 10,
+            "blind_fixed": 10,
+            "gain": 0,
+            "analyst_h2": 11.25,
+            "analyst_min_margin": 1.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": true,
+            "blind_h1": 10,
+            "blind_h3": 11,
+            "blind_fixed": 10,
+            "gain": 1,
+            "analyst_h2": 12,
+            "analyst_min_margin": 2
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 2,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 10,
+            "blind_h3": 10,
+            "blind_fixed": 10,
+            "gain": 0,
+            "analyst_h2": 11.5,
+            "analyst_min_margin": 1.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 11
+        },
+        "edit_distance": 1,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 11
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 11,
+            "blind_h3": 11,
+            "blind_fixed": 11,
+            "gain": 0,
+            "analyst_h2": 11.25,
+            "analyst_min_margin": 0.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 11
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 11,
+            "blind_h3": 11,
+            "blind_fixed": 11,
+            "gain": 0,
+            "analyst_h2": 12,
+            "analyst_min_margin": 1
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 2,
+              "settle": 11
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 11,
+            "blind_h3": 11,
+            "blind_fixed": 11,
+            "gain": 0,
+            "analyst_h2": 11.5,
+            "analyst_min_margin": 0.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 2,
+          "settle": 12
+        },
+        "edit_distance": 0,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": false,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 12,
+            "analyst_min_margin": 0.75
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 2,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": false,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 12,
+            "analyst_min_margin": 0
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 2,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": false,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 12,
+            "analyst_min_margin": 0.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 7
+        },
+        "edit_distance": 6,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 7
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 8,
+            "blind_fixed": 8,
+            "gain": 0,
+            "analyst_h2": 10.25,
+            "analyst_min_margin": 2.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 7
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 9,
+            "blind_fixed": 9,
+            "gain": 0,
+            "analyst_h2": 11,
+            "analyst_min_margin": 3
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 3,
+              "settle": 7
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 9,
+            "blind_fixed": 9,
+            "gain": 0,
+            "analyst_h2": 10.5,
+            "analyst_min_margin": 2.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 8
+        },
+        "edit_distance": 5,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 8
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 8,
+            "blind_fixed": 8,
+            "gain": 0,
+            "analyst_h2": 10.25,
+            "analyst_min_margin": 2.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 8
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 9,
+            "blind_fixed": 9,
+            "gain": 0,
+            "analyst_h2": 11,
+            "analyst_min_margin": 3
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 3,
+              "settle": 8
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": false,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 8,
+            "blind_h3": 9,
+            "blind_fixed": 9,
+            "gain": 0,
+            "analyst_h2": 10.5,
+            "analyst_min_margin": 2.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 9
+        },
+        "edit_distance": 4,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 9
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 9,
+            "blind_h3": 9,
+            "blind_fixed": 9,
+            "gain": 0,
+            "analyst_h2": 10.25,
+            "analyst_min_margin": 1.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 9
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 9,
+            "blind_h3": 9,
+            "blind_fixed": 9,
+            "gain": 0,
+            "analyst_h2": 11,
+            "analyst_min_margin": 2
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 3,
+              "settle": 9
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 9,
+            "blind_h3": 9,
+            "blind_fixed": 9,
+            "gain": 0,
+            "analyst_h2": 10.5,
+            "analyst_min_margin": 1.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 10
+        },
+        "edit_distance": 3,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 10,
+            "blind_h3": 10,
+            "blind_fixed": 10,
+            "gain": 0,
+            "analyst_h2": 10.25,
+            "analyst_min_margin": 0.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 10,
+            "blind_h3": 10,
+            "blind_fixed": 10,
+            "gain": 0,
+            "analyst_h2": 11,
+            "analyst_min_margin": 1
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 3,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 10,
+            "blind_h3": 10,
+            "blind_fixed": 10,
+            "gain": 0,
+            "analyst_h2": 10.5,
+            "analyst_min_margin": 0.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 11
+        },
+        "edit_distance": 2,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 11
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": false,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 11,
+            "blind_h3": 11,
+            "blind_fixed": 11,
+            "gain": 0,
+            "analyst_h2": 11,
+            "analyst_min_margin": 0.75
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 11
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": false,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 11,
+            "blind_h3": 11,
+            "blind_fixed": 11,
+            "gain": 0,
+            "analyst_h2": 11,
+            "analyst_min_margin": 0
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 3,
+              "settle": 11
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": false,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 11,
+            "blind_h3": 11,
+            "blind_fixed": 11,
+            "gain": 0,
+            "analyst_h2": 11,
+            "analyst_min_margin": 0.5
+          }
+        ]
+      },
+      {
+        "params": {
+          "cost": 3,
+          "settle": 12
+        },
+        "edit_distance": 1,
+        "passed": 0,
+        "total": 3,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 6,
+              "strong": 7,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": false,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 12,
+            "analyst_min_margin": 1.75
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 6,
+              "strong": 8,
+              "weak": 4,
+              "aux": 7,
+              "cost": 3,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": false,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 12,
+            "analyst_min_margin": 1
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 5,
+              "strong": 7,
+              "weak": 5,
+              "aux": 8,
+              "cost": 3,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": false,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 12,
+            "analyst_min_margin": 1.5
+          }
+        ]
+      }
+    ],
+    "feasible_count": 2,
+    "baseline": {
+      "params": {
+        "cost": 2,
+        "settle": 12
+      },
+      "edit_distance": 0,
+      "passed": 0,
+      "total": 3,
+      "rows": [
+        {
+          "config": {
+            "family": "specialist",
+            "a": 7,
+            "b": 6,
+            "strong": 7,
+            "weak": 4,
+            "aux": 7,
+            "cost": 2,
+            "settle": 12
+          },
+          "checks": {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          "pass": false,
+          "blind_h1": 12,
+          "blind_h3": 12,
+          "blind_fixed": 12,
+          "gain": 0,
+          "analyst_h2": 12,
+          "analyst_min_margin": 0.75
+        },
+        {
+          "config": {
+            "family": "specialist",
+            "a": 6,
+            "b": 6,
+            "strong": 8,
+            "weak": 4,
+            "aux": 7,
+            "cost": 2,
+            "settle": 12
+          },
+          "checks": {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          "pass": false,
+          "blind_h1": 12,
+          "blind_h3": 12,
+          "blind_fixed": 12,
+          "gain": 0,
+          "analyst_h2": 12,
+          "analyst_min_margin": 0
+        },
+        {
+          "config": {
+            "family": "specialist",
+            "a": 7,
+            "b": 5,
+            "strong": 7,
+            "weak": 5,
+            "aux": 8,
+            "cost": 2,
+            "settle": 12
+          },
+          "checks": {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": false,
+            "specialist": false,
+            "adaptive_gain": false,
+            "margin": false
+          },
+          "pass": false,
+          "blind_h1": 12,
+          "blind_h3": 12,
+          "blind_fixed": 12,
+          "gain": 0,
+          "analyst_h2": 12,
+          "analyst_min_margin": 0.5
+        }
+      ]
+    },
+    "selected": {
+      "params": {
+        "cost": 1,
+        "settle": 10
+      },
+      "edit_distance": 3,
+      "passed": 3,
+      "total": 3,
+      "rows": [
+        {
+          "config": {
+            "family": "specialist",
+            "a": 7,
+            "b": 6,
+            "strong": 7,
+            "weak": 4,
+            "aux": 7,
+            "cost": 1,
+            "settle": 10
+          },
+          "checks": {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          },
+          "pass": true,
+          "blind_h1": 10,
+          "blind_h3": 11.25,
+          "blind_fixed": 10.125,
+          "gain": 1.125,
+          "analyst_h2": 12.25,
+          "analyst_min_margin": 2.25
+        },
+        {
+          "config": {
+            "family": "specialist",
+            "a": 6,
+            "b": 6,
+            "strong": 8,
+            "weak": 4,
+            "aux": 7,
+            "cost": 1,
+            "settle": 10
+          },
+          "checks": {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          },
+          "pass": true,
+          "blind_h1": 10,
+          "blind_h3": 13,
+          "blind_fixed": 11,
+          "gain": 2,
+          "analyst_h2": 13,
+          "analyst_min_margin": 3
+        },
+        {
+          "config": {
+            "family": "specialist",
+            "a": 7,
+            "b": 5,
+            "strong": 7,
+            "weak": 5,
+            "aux": 8,
+            "cost": 1,
+            "settle": 10
+          },
+          "checks": {
+            "positive_cost": true,
+            "settlement": true,
+            "context_query": true,
+            "specialist": true,
+            "adaptive_gain": true,
+            "margin": true
+          },
+          "pass": true,
+          "blind_h1": 10,
+          "blind_h3": 12,
+          "blind_fixed": 11,
+          "gain": 1,
+          "analyst_h2": 12.5,
+          "analyst_min_margin": 2.5
+        }
+      ]
+    },
+    "validation": {
+      "baseline": {
+        "params": {
+          "cost": 2,
+          "settle": 12
+        },
+        "edit_distance": 0,
+        "passed": 0,
+        "total": 4,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 7,
+              "strong": 7,
+              "weak": 4,
+              "aux": 6,
+              "cost": 2,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": false,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 12,
+            "analyst_min_margin": 1.5
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 8,
+              "b": 5,
+              "strong": 8,
+              "weak": 5,
+              "aux": 7,
+              "cost": 2,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 14,
+            "analyst_min_margin": 2
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 5,
+              "b": 6,
+              "strong": 6,
+              "weak": 5,
+              "aux": 6,
+              "cost": 2,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": false,
+              "adaptive_gain": false,
+              "margin": true
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 12,
+            "analyst_min_margin": 2
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 7,
+              "strong": 8,
+              "weak": 6,
+              "aux": 8,
+              "cost": 2,
+              "settle": 12
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 12,
+            "blind_h3": 12,
+            "blind_fixed": 12,
+            "gain": 0,
+            "analyst_h2": 13.5,
+            "analyst_min_margin": 1.5
+          }
+        ]
+      },
+      "selected": {
+        "params": {
+          "cost": 1,
+          "settle": 10
+        },
+        "edit_distance": 3,
+        "passed": 2,
+        "total": 4,
+        "rows": [
+          {
+            "config": {
+              "family": "specialist",
+              "a": 6,
+              "b": 7,
+              "strong": 7,
+              "weak": 4,
+              "aux": 6,
+              "cost": 1,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 10,
+            "blind_h3": 10.5,
+            "blind_fixed": 10,
+            "gain": 0.5,
+            "analyst_h2": 11.5,
+            "analyst_min_margin": 1.5
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 8,
+              "b": 5,
+              "strong": 8,
+              "weak": 5,
+              "aux": 7,
+              "cost": 1,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": true,
+            "blind_h1": 10,
+            "blind_h3": 13.25,
+            "blind_fixed": 12,
+            "gain": 1.25,
+            "analyst_h2": 15,
+            "analyst_min_margin": 5
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 5,
+              "b": 6,
+              "strong": 6,
+              "weak": 5,
+              "aux": 6,
+              "cost": 1,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": false,
+              "specialist": true,
+              "adaptive_gain": false,
+              "margin": false
+            },
+            "pass": false,
+            "blind_h1": 10,
+            "blind_h3": 10,
+            "blind_fixed": 10,
+            "gain": 0,
+            "analyst_h2": 10.25,
+            "analyst_min_margin": 0.25
+          },
+          {
+            "config": {
+              "family": "specialist",
+              "a": 7,
+              "b": 7,
+              "strong": 8,
+              "weak": 6,
+              "aux": 8,
+              "cost": 1,
+              "settle": 10
+            },
+            "checks": {
+              "positive_cost": true,
+              "settlement": true,
+              "context_query": true,
+              "specialist": true,
+              "adaptive_gain": true,
+              "margin": true
+            },
+            "pass": true,
+            "blind_h1": 10,
+            "blind_h3": 14,
+            "blind_fixed": 13,
+            "gain": 1,
+            "analyst_h2": 14.5,
+            "analyst_min_margin": 3
+          }
+        ]
+      }
+    },
+    "runtime_checks": [
+      {
+        "root_cells": 27,
+        "fixed_policy_cells": 117,
+        "continuation_cells": 108,
+        "observer_leak_checks": 512,
+        "copy_zero_information_checks": 0,
+        "copy_no_value_checks": 0
+      },
+      {
+        "root_cells": 27,
+        "fixed_policy_cells": 117,
+        "continuation_cells": 108,
+        "observer_leak_checks": 256,
+        "copy_zero_information_checks": 0,
+        "copy_no_value_checks": 0
+      },
+      {
+        "root_cells": 27,
+        "fixed_policy_cells": 117,
+        "continuation_cells": 108,
+        "observer_leak_checks": 256,
+        "copy_zero_information_checks": 0,
+        "copy_no_value_checks": 0
+      },
+      {
+        "root_cells": 27,
+        "fixed_policy_cells": 117,
+        "continuation_cells": 108,
+        "observer_leak_checks": 512,
+        "copy_zero_information_checks": 0,
+        "copy_no_value_checks": 0
+      },
+      {
+        "root_cells": 27,
+        "fixed_policy_cells": 117,
+        "continuation_cells": 108,
+        "observer_leak_checks": 128,
+        "copy_zero_information_checks": 0,
+        "copy_no_value_checks": 0
+      },
+      {
+        "root_cells": 27,
+        "fixed_policy_cells": 117,
+        "continuation_cells": 108,
+        "observer_leak_checks": 512,
+        "copy_zero_information_checks": 0,
+        "copy_no_value_checks": 0
+      },
+      {
+        "root_cells": 27,
+        "fixed_policy_cells": 117,
+        "continuation_cells": 108,
+        "observer_leak_checks": 128,
+        "copy_zero_information_checks": 0,
+        "copy_no_value_checks": 0
+      }
+    ]
+  },
+  "story": {
+    "contract": {
+      "calibration": {
+        "seed": 1397887233,
+        "campaigns": 128
+      },
+      "validation": [
+        {
+          "seed": 1397887234,
+          "campaigns": 256
+        },
+        {
+          "seed": 1397887235,
+          "campaigns": 256
+        }
+      ],
+      "deltas": [
+        -0.1,
+        -0.05,
+        0,
+        0.025,
+        0.05,
+        0.075,
+        0.1,
+        0.125,
+        0.15,
+        0.2,
+        0.3
+      ],
+      "target": {
+        "opportunity_min": 0.125,
+        "opportunity_max": 0.2,
+        "unique_fraction_min": 0.7,
+        "low_margin_fraction_max": 0.2,
+        "margin": 0.03
+      },
+      "scope": "single secret-ending priority bias; all eligibility, effects, other scores and prose frozen"
+    },
+    "grid": [
+      {
+        "delta": -0.1,
+        "roots": 128,
+        "opportunities": 2,
+        "unique": 2,
+        "chosen": 2,
+        "eligible": 108,
+        "all": 384,
+        "low_margin": 2,
+        "changed": 10,
+        "non_target_changes": 0,
+        "opportunity_rate": 0.015625,
+        "unique_fraction": 1,
+        "low_margin_fraction": 1,
+        "checks": {
+          "opportunity": false,
+          "unique": true,
+          "margin": false,
+          "scope": true
+        },
+        "pass": false
+      },
+      {
+        "delta": -0.05,
+        "roots": 128,
+        "opportunities": 5,
+        "unique": 4,
+        "chosen": 6,
+        "eligible": 108,
+        "all": 384,
+        "low_margin": 4,
+        "changed": 6,
+        "non_target_changes": 0,
+        "opportunity_rate": 0.0390625,
+        "unique_fraction": 0.8,
+        "low_margin_fraction": 0.6666666666666666,
+        "checks": {
+          "opportunity": false,
+          "unique": true,
+          "margin": false,
+          "scope": true
+        },
+        "pass": false
+      },
+      {
+        "delta": 0,
+        "roots": 128,
+        "opportunities": 9,
+        "unique": 7,
+        "chosen": 12,
+        "eligible": 108,
+        "all": 384,
+        "low_margin": 4,
+        "changed": 0,
+        "non_target_changes": 0,
+        "opportunity_rate": 0.0703125,
+        "unique_fraction": 0.7777777777777778,
+        "low_margin_fraction": 0.3333333333333333,
+        "checks": {
+          "opportunity": false,
+          "unique": true,
+          "margin": false,
+          "scope": true
+        },
+        "pass": false
+      },
+      {
+        "delta": 0.025,
+        "roots": 128,
+        "opportunities": 13,
+        "unique": 8,
+        "chosen": 21,
+        "eligible": 108,
+        "all": 384,
+        "low_margin": 9,
+        "changed": 9,
+        "non_target_changes": 0,
+        "opportunity_rate": 0.1015625,
+        "unique_fraction": 0.6153846153846154,
+        "low_margin_fraction": 0.42857142857142855,
+        "checks": {
+          "opportunity": false,
+          "unique": false,
+          "margin": false,
+          "scope": true
+        },
+        "pass": false
+      },
+      {
+        "delta": 0.05,
+        "roots": 128,
+        "opportunities": 16,
+        "unique": 11,
+        "chosen": 25,
+        "eligible": 108,
+        "all": 384,
+        "low_margin": 6,
+        "changed": 13,
+        "non_target_changes": 0,
+        "opportunity_rate": 0.125,
+        "unique_fraction": 0.6875,
+        "low_margin_fraction": 0.24,
+        "checks": {
+          "opportunity": true,
+          "unique": false,
+          "margin": false,
+          "scope": true
+        },
+        "pass": false
+      },
+      {
+        "delta": 0.075,
+        "roots": 128,
+        "opportunities": 21,
+        "unique": 16,
+        "chosen": 30,
+        "eligible": 108,
+        "all": 384,
+        "low_margin": 5,
+        "changed": 18,
+        "non_target_changes": 0,
+        "opportunity_rate": 0.1640625,
+        "unique_fraction": 0.7619047619047619,
+        "low_margin_fraction": 0.16666666666666666,
+        "checks": {
+          "opportunity": true,
+          "unique": true,
+          "margin": true,
+          "scope": true
+        },
+        "pass": true
+      },
+      {
+        "delta": 0.1,
+        "roots": 128,
+        "opportunities": 25,
+        "unique": 12,
+        "chosen": 49,
+        "eligible": 108,
+        "all": 384,
+        "low_margin": 20,
+        "changed": 37,
+        "non_target_changes": 0,
+        "opportunity_rate": 0.1953125,
+        "unique_fraction": 0.48,
+        "low_margin_fraction": 0.40816326530612246,
+        "checks": {
+          "opportunity": true,
+          "unique": false,
+          "margin": false,
+          "scope": true
+        },
+        "pass": false
+      },
+      {
+        "delta": 0.125,
+        "roots": 128,
+        "opportunities": 25,
+        "unique": 12,
+        "chosen": 49,
+        "eligible": 108,
+        "all": 384,
+        "low_margin": 5,
+        "changed": 37,
+        "non_target_changes": 0,
+        "opportunity_rate": 0.1953125,
+        "unique_fraction": 0.48,
+        "low_margin_fraction": 0.10204081632653061,
+        "checks": {
+          "opportunity": true,
+          "unique": false,
+          "margin": true,
+          "scope": true
+        },
+        "pass": false
+      },
+      {
+        "delta": 0.15,
+        "roots": 128,
+        "opportunities": 28,
+        "unique": 11,
+        "chosen": 60,
+        "eligible": 108,
+        "all": 384,
+        "low_margin": 11,
+        "changed": 48,
+        "non_target_changes": 0,
+        "opportunity_rate": 0.21875,
+        "unique_fraction": 0.39285714285714285,
+        "low_margin_fraction": 0.18333333333333332,
+        "checks": {
+          "opportunity": false,
+          "unique": false,
+          "margin": true,
+          "scope": true
+        },
+        "pass": false
+      },
+      {
+        "delta": 0.2,
+        "roots": 128,
+        "opportunities": 30,
+        "unique": 10,
+        "chosen": 68,
+        "eligible": 108,
+        "all": 384,
+        "low_margin": 2,
+        "changed": 56,
+        "non_target_changes": 0,
+        "opportunity_rate": 0.234375,
+        "unique_fraction": 0.3333333333333333,
+        "low_margin_fraction": 0.029411764705882353,
+        "checks": {
+          "opportunity": false,
+          "unique": false,
+          "margin": true,
+          "scope": true
+        },
+        "pass": false
+      },
+      {
+        "delta": 0.3,
+        "roots": 128,
+        "opportunities": 36,
+        "unique": 0,
+        "chosen": 108,
+        "eligible": 108,
+        "all": 384,
+        "low_margin": 6,
+        "changed": 96,
+        "non_target_changes": 0,
+        "opportunity_rate": 0.28125,
+        "unique_fraction": 0,
+        "low_margin_fraction": 0.05555555555555555,
+        "checks": {
+          "opportunity": false,
+          "unique": false,
+          "margin": true,
+          "scope": true
+        },
+        "pass": false
+      }
+    ],
+    "feasible_count": 1,
+    "baseline": {
+      "delta": 0,
+      "roots": 128,
+      "opportunities": 9,
+      "unique": 7,
+      "chosen": 12,
+      "eligible": 108,
+      "all": 384,
+      "low_margin": 4,
+      "changed": 0,
+      "non_target_changes": 0,
+      "opportunity_rate": 0.0703125,
+      "unique_fraction": 0.7777777777777778,
+      "low_margin_fraction": 0.3333333333333333,
+      "checks": {
+        "opportunity": false,
+        "unique": true,
+        "margin": false,
+        "scope": true
+      },
+      "pass": false
+    },
+    "selected": {
+      "delta": 0.075,
+      "roots": 128,
+      "opportunities": 21,
+      "unique": 16,
+      "chosen": 30,
+      "eligible": 108,
+      "all": 384,
+      "low_margin": 5,
+      "changed": 18,
+      "non_target_changes": 0,
+      "opportunity_rate": 0.1640625,
+      "unique_fraction": 0.7619047619047619,
+      "low_margin_fraction": 0.16666666666666666,
+      "checks": {
+        "opportunity": true,
+        "unique": true,
+        "margin": true,
+        "scope": true
+      },
+      "pass": true
+    },
+    "patch": {
+      "line": 266,
+      "before": "ENC page_secret_undercover_truce turn=6..20 | I:19 | A:AND(GE(P(char_white.Phase_Clock),C(0.55)),LE(ABS(ADD(P(char_white.Crew_Loyalty),C(-0.12))),C(0.65)),GE(P(char_pink.Rat_Suspicion),C(0.08)),LE(P(char_blonde.Sadistic_Escalation),C(0.35))) | Q:ADD(MUL(P(char_pink.Professional_Discipline),C(0.7)),MUL(P(char_pink.Rat_Suspicion),C(0.75)),ABS(MUL(P(char_white.Diamond_Leverage),C(0.45))),C(0.22)) | N:\"Secret Ending: The Commode Tell and the Culvert Exit\" | T:\"Catching the rehearsed squad-room cadence in Orange's anecdote without letting Blonde's razor blow the room apart, White and Pink force a quiet confession before Joe Cabot ever reaches the block. Leaving Marvin Nash alive beside Freddy with a ninety-second ambulance call, Larry and Pink slip down the dry storm culvert with the Karina satchel—no massacre, no cuffs, and one haunted debt paid in full.\"",
+      "after": "ENC page_secret_undercover_truce turn=6..20 | I:19 | A:AND(GE(P(char_white.Phase_Clock),C(0.55)),LE(ABS(ADD(P(char_white.Crew_Loyalty),C(-0.12))),C(0.65)),GE(P(char_pink.Rat_Suspicion),C(0.08)),LE(P(char_blonde.Sadistic_Escalation),C(0.35))) | Q:ADD(MUL(P(char_pink.Professional_Discipline),C(0.7)),MUL(P(char_pink.Rat_Suspicion),C(0.75)),ABS(MUL(P(char_white.Diamond_Leverage),C(0.45))),C(0.295)) | N:\"Secret Ending: The Commode Tell and the Culvert Exit\" | T:\"Catching the rehearsed squad-room cadence in Orange's anecdote without letting Blonde's razor blow the room apart, White and Pink force a quiet confession before Joe Cabot ever reaches the block. Leaving Marvin Nash alive beside Freddy with a ninety-second ambulance call, Larry and Pink slip down the dry storm culvert with the Karina satchel—no massacre, no cuffs, and one haunted debt paid in full.\""
+    },
+    "calibration_runtime": {
+      "checks": 384,
+      "unaffected": 366,
+      "routeChanges": 18,
+      "energyChanges": 0,
+      "maxNumeric": 0,
+      "maxScoreError": 1.1102230246251565e-16
+    },
+    "sham": {
+      "checks": 384,
+      "unaffected": 384,
+      "routeChanges": 0,
+      "energyChanges": 0,
+      "maxNumeric": 0,
+      "maxScoreError": 0
+    },
+    "validation": [
+      {
+        "cohort": {
+          "seed": 1397887234,
+          "campaigns": 256
+        },
+        "baseline": {
+          "delta": 0,
+          "roots": 256,
+          "opportunities": 19,
+          "unique": 14,
+          "chosen": 28,
+          "eligible": 177,
+          "all": 768,
+          "low_margin": 15,
+          "changed": 0,
+          "non_target_changes": 0,
+          "opportunity_rate": 0.07421875,
+          "unique_fraction": 0.7368421052631579,
+          "low_margin_fraction": 0.5357142857142857,
+          "checks": {
+            "opportunity": false,
+            "unique": true,
+            "margin": false,
+            "scope": true
+          },
+          "pass": false
+        },
+        "selected": {
+          "delta": 0.075,
+          "roots": 256,
+          "opportunities": 33,
+          "unique": 20,
+          "chosen": 57,
+          "eligible": 177,
+          "all": 768,
+          "low_margin": 12,
+          "changed": 29,
+          "non_target_changes": 0,
+          "opportunity_rate": 0.12890625,
+          "unique_fraction": 0.6060606060606061,
+          "low_margin_fraction": 0.21052631578947367,
+          "checks": {
+            "opportunity": true,
+            "unique": false,
+            "margin": false,
+            "scope": true
+          },
+          "pass": false
+        },
+        "runtime": {
+          "checks": 768,
+          "unaffected": 739,
+          "routeChanges": 29,
+          "energyChanges": 0,
+          "maxNumeric": 0,
+          "maxScoreError": 1.1102230246251565e-16
+        },
+        "full_replay": {
+          "campaigns": 256,
+          "baseline_complete": 256,
+          "candidate_complete": 256,
+          "baseline_goal": 28,
+          "candidate_goal": 39,
+          "changed_endings": 11,
+          "changed_paths": 13,
+          "pre_sirens_prefix_changes": 0
+        }
+      },
+      {
+        "cohort": {
+          "seed": 1397887235,
+          "campaigns": 256
+        },
+        "baseline": {
+          "delta": 0,
+          "roots": 256,
+          "opportunities": 23,
+          "unique": 19,
+          "chosen": 28,
+          "eligible": 168,
+          "all": 768,
+          "low_margin": 6,
+          "changed": 0,
+          "non_target_changes": 0,
+          "opportunity_rate": 0.08984375,
+          "unique_fraction": 0.8260869565217391,
+          "low_margin_fraction": 0.21428571428571427,
+          "checks": {
+            "opportunity": false,
+            "unique": true,
+            "margin": false,
+            "scope": true
+          },
+          "pass": false
+        },
+        "selected": {
+          "delta": 0.075,
+          "roots": 256,
+          "opportunities": 34,
+          "unique": 22,
+          "chosen": 58,
+          "eligible": 168,
+          "all": 768,
+          "low_margin": 10,
+          "changed": 30,
+          "non_target_changes": 0,
+          "opportunity_rate": 0.1328125,
+          "unique_fraction": 0.6470588235294118,
+          "low_margin_fraction": 0.1724137931034483,
+          "checks": {
+            "opportunity": true,
+            "unique": false,
+            "margin": true,
+            "scope": true
+          },
+          "pass": false
+        },
+        "runtime": {
+          "checks": 768,
+          "unaffected": 738,
+          "routeChanges": 30,
+          "energyChanges": 0,
+          "maxNumeric": 0,
+          "maxScoreError": 1.1102230246251565e-16
+        },
+        "full_replay": {
+          "campaigns": 256,
+          "baseline_complete": 256,
+          "candidate_complete": 256,
+          "baseline_goal": 29,
+          "candidate_goal": 44,
+          "changed_endings": 15,
+          "changed_paths": 16,
+          "pre_sirens_prefix_changes": 0
+        }
+      }
+    ]
+  },
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg10/curriculum.mjs": "058b7974b7111684c8b3f00a8058f7104a79892f",
+    "integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md": "cb174a3efb031eaa046b01a2acc526ef7d122345",
+    "integrations/sweepweave-ts/srg11/optimizer.mjs": "a6117a89ac1da147e03700cf16188fa4afbbd02b"
+  }
+}
