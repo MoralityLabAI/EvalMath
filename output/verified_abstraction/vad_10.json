@@ -1,0 +1,711 @@
+{
+  "cases": {
+    "chain2": {
+      "direct": "71/10",
+      "greedy0": "-1",
+      "greedy1": "71/10",
+      "greedy2": "71/10",
+      "optimal": "71/10",
+      "optimal_value": "71/10",
+      "random": "71/10",
+      "stop": "-1"
+    },
+    "chain3": {
+      "direct": "629/100",
+      "greedy0": "-1",
+      "greedy1": "-1",
+      "greedy2": "629/100",
+      "optimal": "629/100",
+      "optimal_value": "629/100",
+      "random": "629/100",
+      "stop": "-1"
+    },
+    "chain4": {
+      "direct": "5561/1000",
+      "greedy0": "-1",
+      "greedy1": "-1",
+      "greedy2": "-1",
+      "optimal": "5561/1000",
+      "optimal_value": "5561/1000",
+      "random": "5561/1000",
+      "stop": "-1"
+    },
+    "chain5": {
+      "direct": "49049/10000",
+      "greedy0": "-1",
+      "greedy1": "-1",
+      "greedy2": "-1",
+      "optimal": "49049/10000",
+      "optimal_value": "49049/10000",
+      "random": "49049/10000",
+      "stop": "-1"
+    },
+    "chain6": {
+      "direct": "431441/100000",
+      "greedy0": "-1",
+      "greedy1": "-1",
+      "greedy2": "-1",
+      "optimal": "431441/100000",
+      "optimal_value": "431441/100000",
+      "random": "431441/100000",
+      "stop": "-1"
+    },
+    "complementary": {
+      "direct": "-30",
+      "greedy0": "-30",
+      "greedy1": "-12",
+      "greedy2": "-12",
+      "optimal": "-12",
+      "optimal_value": "-12",
+      "random": "-12",
+      "stop": "-30"
+    },
+    "failed_attempt": {
+      "direct": "5",
+      "greedy0": "5",
+      "greedy1": "5",
+      "greedy2": "5",
+      "optimal": "5",
+      "optimal_value": "5",
+      "random": "5",
+      "stop": "-1"
+    },
+    "knapsack": {
+      "direct": "2",
+      "greedy0": "2",
+      "greedy1": "3",
+      "greedy2": "3",
+      "optimal": "3",
+      "optimal_value": "3",
+      "random": "8/3",
+      "stop": "-1"
+    },
+    "strategic": {
+      "direct": "-586/25",
+      "greedy0": "-18",
+      "greedy1": "-18",
+      "greedy2": "-18",
+      "optimal": "-18",
+      "optimal_value": "-18",
+      "random": "-108/5",
+      "stop": "-28"
+    }
+  },
+  "chain_lookahead_needed": {
+    "2": 1,
+    "3": 2,
+    "4": 3,
+    "5": 4,
+    "6": 5
+  },
+  "direct_equals_optimal_from_p": null,
+  "evidence": "exact finite oracle; seeded finite sweeps; no learned model",
+  "failed_attempt_decomposition": {
+    "base": "2",
+    "immediate": "3",
+    "information": "3/2",
+    "information_first": "3",
+    "interaction": "3/2",
+    "q": "5",
+    "reuse": "-3/2",
+    "reuse_after_information": "-3"
+  },
+  "misleading_scan": [
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "9",
+      "true_reliability": "0",
+      "trusting": "-1"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "17/2",
+      "true_reliability": "1/20",
+      "trusting": "-1/2"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "8",
+      "true_reliability": "1/10",
+      "trusting": "0"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "15/2",
+      "true_reliability": "3/20",
+      "trusting": "1/2"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "7",
+      "true_reliability": "1/5",
+      "trusting": "1"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "13/2",
+      "true_reliability": "1/4",
+      "trusting": "3/2"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "6",
+      "true_reliability": "3/10",
+      "trusting": "2"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "11/2",
+      "true_reliability": "7/20",
+      "trusting": "5/2"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "5",
+      "true_reliability": "2/5",
+      "trusting": "3"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "9/2",
+      "true_reliability": "9/20",
+      "trusting": "7/2"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "4",
+      "true_reliability": "1/2",
+      "trusting": "4"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "9/2",
+      "true_reliability": "11/20",
+      "trusting": "9/2"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "5",
+      "true_reliability": "3/5",
+      "trusting": "5"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "11/2",
+      "true_reliability": "13/20",
+      "trusting": "11/2"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "6",
+      "true_reliability": "7/10",
+      "trusting": "6"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "13/2",
+      "true_reliability": "3/4",
+      "trusting": "13/2"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "7",
+      "true_reliability": "4/5",
+      "trusting": "7"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "15/2",
+      "true_reliability": "17/20",
+      "trusting": "15/2"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "8",
+      "true_reliability": "9/10",
+      "trusting": "8"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "17/2",
+      "true_reliability": "19/20",
+      "trusting": "17/2"
+    },
+    {
+      "assumed_claim": "8",
+      "ignoring": "4",
+      "true_optimal": "9",
+      "true_reliability": "1",
+      "trusting": "9"
+    }
+  ],
+  "protocol": "VAD-10",
+  "source_sha256": {
+    "vad_agenda.py": "5277777eacce847b7e7c673eda63b71fb74682a0202534f7e6db3c61925c6804",
+    "vad_agenda_naive.py": "5ecdf5cc384f581fcc3eef1a8c348306ffb18dbbaff4bb56a1fd5233cb5fd2d0",
+    "verify_vad_agenda.py": "d8174d25a2a538a9935447a5bf7f1b2f16383fc674a7940008ff3f206be319db"
+  },
+  "strategic_decomposition": {
+    "('att', 0)": {
+      "base": "-124/5",
+      "immediate": "2",
+      "information": "0",
+      "information_first": "0",
+      "interaction": "0",
+      "q": "-114/5",
+      "reuse": "0",
+      "reuse_after_information": "0"
+    },
+    "('att', 1)": {
+      "base": "-92/5",
+      "immediate": "0",
+      "information": "-118/25",
+      "information_first": "2/5",
+      "interaction": "128/25",
+      "q": "-18",
+      "reuse": "128/25",
+      "reuse_after_information": "0"
+    }
+  },
+  "strategic_scan": [
+    {
+      "direct": "-92/5",
+      "first": "('att', 1)",
+      "greedy0": "-92/5",
+      "optimal": "-92/5",
+      "p_direct": "0"
+    },
+    {
+      "direct": "-2463/100",
+      "first": "('att', 1)",
+      "greedy0": "-367/20",
+      "optimal": "-367/20",
+      "p_direct": "1/40"
+    },
+    {
+      "direct": "-1223/50",
+      "first": "('att', 1)",
+      "greedy0": "-183/10",
+      "optimal": "-183/10",
+      "p_direct": "1/20"
+    },
+    {
+      "direct": "-2429/100",
+      "first": "('att', 1)",
+      "greedy0": "-73/4",
+      "optimal": "-73/4",
+      "p_direct": "3/40"
+    },
+    {
+      "direct": "-603/25",
+      "first": "('att', 1)",
+      "greedy0": "-91/5",
+      "optimal": "-91/5",
+      "p_direct": "1/10"
+    },
+    {
+      "direct": "-479/20",
+      "first": "('att', 1)",
+      "greedy0": "-363/20",
+      "optimal": "-363/20",
+      "p_direct": "1/8"
+    },
+    {
+      "direct": "-1189/50",
+      "first": "('att', 1)",
+      "greedy0": "-181/10",
+      "optimal": "-181/10",
+      "p_direct": "3/20"
+    },
+    {
+      "direct": "-2361/100",
+      "first": "('att', 1)",
+      "greedy0": "-361/20",
+      "optimal": "-361/20",
+      "p_direct": "7/40"
+    },
+    {
+      "direct": "-586/25",
+      "first": "('att', 1)",
+      "greedy0": "-18",
+      "optimal": "-18",
+      "p_direct": "1/5"
+    },
+    {
+      "direct": "-2327/100",
+      "first": "('att', 1)",
+      "greedy0": "-359/20",
+      "optimal": "-359/20",
+      "p_direct": "9/40"
+    },
+    {
+      "direct": "-231/10",
+      "first": "('att', 1)",
+      "greedy0": "-179/10",
+      "optimal": "-179/10",
+      "p_direct": "1/4"
+    },
+    {
+      "direct": "-2293/100",
+      "first": "('att', 1)",
+      "greedy0": "-357/20",
+      "optimal": "-357/20",
+      "p_direct": "11/40"
+    },
+    {
+      "direct": "-569/25",
+      "first": "('att', 1)",
+      "greedy0": "-89/5",
+      "optimal": "-89/5",
+      "p_direct": "3/10"
+    },
+    {
+      "direct": "-2259/100",
+      "first": "('att', 1)",
+      "greedy0": "-431/20",
+      "optimal": "-71/4",
+      "p_direct": "13/40"
+    },
+    {
+      "direct": "-1121/50",
+      "first": "('att', 1)",
+      "greedy0": "-213/10",
+      "optimal": "-177/10",
+      "p_direct": "7/20"
+    },
+    {
+      "direct": "-89/4",
+      "first": "('att', 1)",
+      "greedy0": "-421/20",
+      "optimal": "-353/20",
+      "p_direct": "3/8"
+    },
+    {
+      "direct": "-552/25",
+      "first": "('att', 1)",
+      "greedy0": "-104/5",
+      "optimal": "-88/5",
+      "p_direct": "2/5"
+    },
+    {
+      "direct": "-2191/100",
+      "first": "('att', 1)",
+      "greedy0": "-411/20",
+      "optimal": "-351/20",
+      "p_direct": "17/40"
+    },
+    {
+      "direct": "-1087/50",
+      "first": "('att', 1)",
+      "greedy0": "-203/10",
+      "optimal": "-35/2",
+      "p_direct": "9/20"
+    },
+    {
+      "direct": "-2157/100",
+      "first": "('att', 1)",
+      "greedy0": "-401/20",
+      "optimal": "-349/20",
+      "p_direct": "19/40"
+    },
+    {
+      "direct": "-107/5",
+      "first": "('att', 1)",
+      "greedy0": "-99/5",
+      "optimal": "-87/5",
+      "p_direct": "1/2"
+    },
+    {
+      "direct": "-2123/100",
+      "first": "('att', 1)",
+      "greedy0": "-391/20",
+      "optimal": "-347/20",
+      "p_direct": "21/40"
+    },
+    {
+      "direct": "-1053/50",
+      "first": "('att', 1)",
+      "greedy0": "-193/10",
+      "optimal": "-173/10",
+      "p_direct": "11/20"
+    },
+    {
+      "direct": "-2089/100",
+      "first": "('att', 1)",
+      "greedy0": "-381/20",
+      "optimal": "-69/4",
+      "p_direct": "23/40"
+    },
+    {
+      "direct": "-518/25",
+      "first": "('att', 1)",
+      "greedy0": "-94/5",
+      "optimal": "-86/5",
+      "p_direct": "3/5"
+    },
+    {
+      "direct": "-411/20",
+      "first": "('att', 1)",
+      "greedy0": "-371/20",
+      "optimal": "-343/20",
+      "p_direct": "5/8"
+    },
+    {
+      "direct": "-1019/50",
+      "first": "('att', 1)",
+      "greedy0": "-183/10",
+      "optimal": "-171/10",
+      "p_direct": "13/20"
+    },
+    {
+      "direct": "-2021/100",
+      "first": "('att', 1)",
+      "greedy0": "-361/20",
+      "optimal": "-341/20",
+      "p_direct": "27/40"
+    },
+    {
+      "direct": "-501/25",
+      "first": "('att', 1)",
+      "greedy0": "-89/5",
+      "optimal": "-17",
+      "p_direct": "7/10"
+    },
+    {
+      "direct": "-1987/100",
+      "first": "('att', 1)",
+      "greedy0": "-351/20",
+      "optimal": "-339/20",
+      "p_direct": "29/40"
+    },
+    {
+      "direct": "-197/10",
+      "first": "('att', 1)",
+      "greedy0": "-173/10",
+      "optimal": "-169/10",
+      "p_direct": "3/4"
+    },
+    {
+      "direct": "-1953/100",
+      "first": "('att', 1)",
+      "greedy0": "-341/20",
+      "optimal": "-337/20",
+      "p_direct": "31/40"
+    },
+    {
+      "direct": "-484/25",
+      "first": "('att', 0)",
+      "greedy0": "-84/5",
+      "optimal": "-84/5",
+      "p_direct": "4/5"
+    },
+    {
+      "direct": "-1919/100",
+      "first": "('att', 0)",
+      "greedy0": "-331/20",
+      "optimal": "-331/20",
+      "p_direct": "33/40"
+    },
+    {
+      "direct": "-951/50",
+      "first": "('att', 0)",
+      "greedy0": "-163/10",
+      "optimal": "-163/10",
+      "p_direct": "17/20"
+    },
+    {
+      "direct": "-377/20",
+      "first": "('att', 0)",
+      "greedy0": "-321/20",
+      "optimal": "-321/20",
+      "p_direct": "7/8"
+    },
+    {
+      "direct": "-467/25",
+      "first": "('att', 0)",
+      "greedy0": "-79/5",
+      "optimal": "-79/5",
+      "p_direct": "9/10"
+    },
+    {
+      "direct": "-1851/100",
+      "first": "('att', 0)",
+      "greedy0": "-311/20",
+      "optimal": "-311/20",
+      "p_direct": "37/40"
+    },
+    {
+      "direct": "-917/50",
+      "first": "('att', 0)",
+      "greedy0": "-153/10",
+      "optimal": "-153/10",
+      "p_direct": "19/20"
+    },
+    {
+      "direct": "-1817/100",
+      "first": "('att', 0)",
+      "greedy0": "-301/20",
+      "optimal": "-301/20",
+      "p_direct": "39/40"
+    },
+    {
+      "direct": "-18",
+      "first": "('att', 0)",
+      "greedy0": "-74/5",
+      "optimal": "-74/5",
+      "p_direct": "1"
+    }
+  ],
+  "sweeps": {
+    "correlated": {
+      "instances": 60,
+      "mean_nodes": {
+        "greedy0": "0",
+        "greedy1": "253/12",
+        "greedy2": "307/5",
+        "optimal": "1679/20"
+      },
+      "mean_qevals_one_episode": {
+        "greedy0": "193/12",
+        "greedy1": "734/15",
+        "greedy2": "1933/20",
+        "optimal": "2609/30"
+      },
+      "naive_checks": 0,
+      "policies": {
+        "direct": {
+          "max_regret": "549011/250000",
+          "mean_regret": "18053496239/69300000000",
+          "optimal_fraction": "7/12"
+        },
+        "greedy0": {
+          "max_regret": "88569/25000",
+          "mean_regret": "517031617/1260000000",
+          "optimal_fraction": "7/10"
+        },
+        "greedy1": {
+          "max_regret": "2863/2500",
+          "mean_regret": "1258657/33600000",
+          "optimal_fraction": "14/15"
+        },
+        "greedy2": {
+          "max_regret": "0",
+          "mean_regret": "0",
+          "optimal_fraction": "1"
+        },
+        "random": {
+          "max_regret": "160747/45000",
+          "mean_regret": "118089032454431/129729600000000",
+          "optimal_fraction": "3/20"
+        }
+      }
+    },
+    "layered": {
+      "instances": 150,
+      "mean_nodes": {
+        "greedy0": "0",
+        "greedy1": "917/75",
+        "greedy2": "1901/75",
+        "optimal": "533/25"
+      },
+      "mean_qevals_one_episode": {
+        "greedy0": "1859/150",
+        "greedy1": "114/5",
+        "greedy2": "887/30",
+        "optimal": "372/25"
+      },
+      "naive_checks": 22,
+      "policies": {
+        "direct": {
+          "max_regret": "15949447/2000000",
+          "mean_regret": "76928878919/175500000000",
+          "optimal_fraction": "46/75"
+        },
+        "greedy0": {
+          "max_regret": "31617/5000",
+          "mean_regret": "724613327441/2252250000000",
+          "optimal_fraction": "59/75"
+        },
+        "greedy1": {
+          "max_regret": "8691/8000",
+          "mean_regret": "4018969/210000000",
+          "optimal_fraction": "24/25"
+        },
+        "greedy2": {
+          "max_regret": "567/2000",
+          "mean_regret": "189/100000",
+          "optimal_fraction": "149/150"
+        },
+        "random": {
+          "max_regret": "493794/78125",
+          "mean_regret": "1961745164731511/1621620000000000",
+          "optimal_fraction": "13/75"
+        }
+      }
+    },
+    "modular": {
+      "instances": 150,
+      "mean_nodes": {
+        "greedy0": "0",
+        "greedy1": "1289/25",
+        "greedy2": "10079/75",
+        "optimal": "10684/75"
+      },
+      "mean_qevals_one_episode": {
+        "greedy0": "91/2",
+        "greedy1": "6491/50",
+        "greedy2": "2599/10",
+        "optimal": "34193/150"
+      },
+      "naive_checks": 35,
+      "policies": {
+        "direct": {
+          "max_regret": "607/120",
+          "mean_regret": "41105741/82046250",
+          "optimal_fraction": "38/75"
+        },
+        "greedy0": {
+          "max_regret": "0",
+          "mean_regret": "0",
+          "optimal_fraction": "1"
+        },
+        "greedy1": {
+          "max_regret": "0",
+          "mean_regret": "0",
+          "optimal_fraction": "1"
+        },
+        "greedy2": {
+          "max_regret": "0",
+          "mean_regret": "0",
+          "optimal_fraction": "1"
+        },
+        "random": {
+          "max_regret": "2697/550",
+          "mean_regret": "41036709113/27567540000",
+          "optimal_fraction": "31/150"
+        }
+      }
+    }
+  },
+  "trust_beats_ignoring_from_reliability": "11/20"
+}
