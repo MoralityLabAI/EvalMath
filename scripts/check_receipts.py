@@ -25,6 +25,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "srg01": ("scripts/verify_storyworld_reasoning.py",
+              "output/evaluation_storyworld_reasoning/srg01.json", [], False),
     "frozen_evidence": ("scripts/verify_evaluation_frozen_evidence.py",
                         "output/evaluation_frozen_evidence/fre01_v1.json", [], False),
     "finite_sample": ("scripts/verify_evaluation_finite_sample.py",
