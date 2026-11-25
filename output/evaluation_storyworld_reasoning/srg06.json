@@ -1,0 +1,617 @@
+{
+  "source_blobs": {
+    "integrations/sweepweave-ts/srg04/swmd-runtime.mjs": "ba4401a824f8cfdb4ae25525973a989c0047168e",
+    "integrations/sweepweave-ts/srg05/swmd-runtime-v2.mjs": "a687ad75e3c88683936b4b3d24324ced3f4cf874",
+    "integrations/sweepweave-ts/srg05/fixtures/reservoir-dogs.swmd.srg.md": "cb174a3efb031eaa046b01a2acc526ef7d122345"
+  },
+  "evidence": "source-pinned finite sampled authoring audit and snapshot oracle; binary64",
+  "edits": [
+    {
+      "id": "page_cadillac_trunk",
+      "old": 4,
+      "direct_lower": 3,
+      "latest": 6
+    },
+    {
+      "id": "page_chair_duct_tape",
+      "old": 5,
+      "direct_lower": 4,
+      "latest": 7
+    },
+    {
+      "id": "page_eddie_call_and_alibi",
+      "old": 6,
+      "direct_lower": 4,
+      "latest": 8
+    },
+    {
+      "id": "page_k_billy_razor",
+      "old": 7,
+      "direct_lower": 5,
+      "latest": 9
+    },
+    {
+      "id": "page_orange_gun_on_the_ramp",
+      "old": 8,
+      "direct_lower": 5,
+      "latest": 10
+    },
+    {
+      "id": "page_nash_confession_shockwave",
+      "old": 9,
+      "direct_lower": 6,
+      "latest": 11
+    },
+    {
+      "id": "page_eddie_and_blonde_story",
+      "old": 10,
+      "direct_lower": 6,
+      "latest": 12
+    },
+    {
+      "id": "page_cabot_verdict",
+      "old": 11,
+      "direct_lower": 7,
+      "latest": 13
+    },
+    {
+      "id": "page_mexican_standoff",
+      "old": 12,
+      "direct_lower": 7,
+      "latest": 14
+    },
+    {
+      "id": "page_sirens_at_the_rollup_door",
+      "old": 13,
+      "direct_lower": 8,
+      "latest": 16
+    }
+  ],
+  "calibration": {
+    "seed": 1397901061,
+    "n": 64,
+    "original_endings": {
+      "page_end_pink_ghosts_with_stones": 9,
+      "page_secret_undercover_truce": 13,
+      "page_end_white_mercy_hospital_trap": 19,
+      "page_end_mexican_standoff_collapse": 22,
+      "page_end_blonde_gasoline_inferno": 1
+    },
+    "strict_endings": {
+      "blocked_destination": 57,
+      "page_secret_undercover_truce": 1,
+      "page_end_mexican_standoff_collapse": 6
+    },
+    "global_window_endings": {
+      "page_end_mexican_standoff_collapse": 22,
+      "page_secret_undercover_truce": 12,
+      "page_end_white_mercy_hospital_trap": 19,
+      "page_end_pink_ghosts_with_stones": 11
+    },
+    "scoped_endings": {
+      "page_end_pink_ghosts_with_stones": 9,
+      "page_secret_undercover_truce": 13,
+      "page_end_white_mercy_hospital_trap": 19,
+      "page_end_mexican_standoff_collapse": 22,
+      "page_end_blonde_gasoline_inferno": 1
+    },
+    "strict_terminations": 7,
+    "global_window_terminations": 64,
+    "scoped_terminations": 64,
+    "original_terminations": 64,
+    "global_window_path_changes": 11,
+    "scoped_path_changes": 0,
+    "global_window_ending_changes": 5,
+    "scoped_ending_changes": 0,
+    "violations": 312,
+    "violation_reasons": {
+      "early": 312
+    },
+    "violation_targets": {
+      "page_k_billy_razor": 39,
+      "page_nash_confession_shockwave": 44,
+      "page_cabot_verdict": 55,
+      "page_sirens_at_the_rollup_door": 58,
+      "page_eddie_call_and_alibi": 20,
+      "page_orange_gun_on_the_ramp": 19,
+      "page_eddie_and_blonde_story": 36,
+      "page_mexican_standoff": 32,
+      "page_chair_duct_tape": 9
+    },
+    "violation_edges": {
+      "page_chair_duct_tape -> page_k_billy_razor": 23,
+      "page_k_billy_razor -> page_nash_confession_shockwave": 30,
+      "page_nash_confession_shockwave -> page_cabot_verdict": 21,
+      "page_cabot_verdict -> page_sirens_at_the_rollup_door": 26,
+      "page_cadillac_trunk -> page_eddie_call_and_alibi": 15,
+      "page_eddie_call_and_alibi -> page_orange_gun_on_the_ramp": 10,
+      "page_orange_gun_on_the_ramp -> page_eddie_and_blonde_story": 7,
+      "page_eddie_and_blonde_story -> page_mexican_standoff": 3,
+      "page_mexican_standoff -> page_sirens_at_the_rollup_door": 32,
+      "page_eddie_call_and_alibi -> page_k_billy_razor": 16,
+      "page_nash_confession_shockwave -> page_eddie_and_blonde_story": 29,
+      "page_eddie_and_blonde_story -> page_cabot_verdict": 34,
+      "page_cabot_verdict -> page_mexican_standoff": 29,
+      "page_orange_gun_on_the_ramp -> page_nash_confession_shockwave": 14,
+      "page_k_billy_razor -> page_orange_gun_on_the_ramp": 9,
+      "page_blonde_arrives -> page_chair_duct_tape": 9,
+      "page_chair_duct_tape -> page_eddie_call_and_alibi": 5
+    },
+    "selected_steps": 780
+  },
+  "validation": {
+    "seed": 1397901062,
+    "n": 128,
+    "original_endings": {
+      "page_end_blonde_gasoline_inferno": 40,
+      "page_end_cabot_executes_the_plant": 16,
+      "page_end_white_mercy_hospital_trap": 9,
+      "page_end_mexican_standoff_collapse": 42,
+      "page_end_pink_ghosts_with_stones": 14,
+      "page_secret_undercover_truce": 7
+    },
+    "strict_endings": {
+      "blocked_destination": 126,
+      "page_end_mexican_standoff_collapse": 2
+    },
+    "global_window_endings": {
+      "page_end_blonde_gasoline_inferno": 41,
+      "page_end_cabot_executes_the_plant": 22,
+      "page_end_white_mercy_hospital_trap": 9,
+      "page_end_mexican_standoff_collapse": 42,
+      "page_secret_undercover_truce": 5,
+      "page_end_pink_ghosts_with_stones": 9
+    },
+    "scoped_endings": {
+      "page_end_blonde_gasoline_inferno": 40,
+      "page_end_cabot_executes_the_plant": 16,
+      "page_end_white_mercy_hospital_trap": 9,
+      "page_end_mexican_standoff_collapse": 42,
+      "page_end_pink_ghosts_with_stones": 14,
+      "page_secret_undercover_truce": 7
+    },
+    "strict_terminations": 2,
+    "global_window_terminations": 128,
+    "scoped_terminations": 128,
+    "original_terminations": 128,
+    "global_window_path_changes": 47,
+    "scoped_path_changes": 0,
+    "global_window_ending_changes": 18,
+    "scoped_ending_changes": 0,
+    "violations": 877,
+    "violation_reasons": {
+      "early": 877
+    },
+    "violation_targets": {
+      "page_cadillac_trunk": 78,
+      "page_chair_duct_tape": 53,
+      "page_k_billy_razor": 97,
+      "page_orange_gun_on_the_ramp": 72,
+      "page_eddie_and_blonde_story": 95,
+      "page_cabot_verdict": 118,
+      "page_sirens_at_the_rollup_door": 133,
+      "page_eddie_call_and_alibi": 63,
+      "page_nash_confession_shockwave": 98,
+      "page_mexican_standoff": 70
+    },
+    "violation_edges": {
+      "page_color_aliases_and_stash -> page_cadillac_trunk": 78,
+      "page_cadillac_trunk -> page_chair_duct_tape": 53,
+      "page_chair_duct_tape -> page_k_billy_razor": 56,
+      "page_k_billy_razor -> page_orange_gun_on_the_ramp": 45,
+      "page_orange_gun_on_the_ramp -> page_eddie_and_blonde_story": 28,
+      "page_eddie_and_blonde_story -> page_cabot_verdict": 87,
+      "page_cabot_verdict -> page_sirens_at_the_rollup_door": 63,
+      "page_cadillac_trunk -> page_eddie_call_and_alibi": 44,
+      "page_eddie_call_and_alibi -> page_k_billy_razor": 41,
+      "page_k_billy_razor -> page_nash_confession_shockwave": 52,
+      "page_nash_confession_shockwave -> page_cabot_verdict": 31,
+      "page_cabot_verdict -> page_mexican_standoff": 60,
+      "page_mexican_standoff -> page_sirens_at_the_rollup_door": 70,
+      "page_orange_gun_on_the_ramp -> page_nash_confession_shockwave": 46,
+      "page_nash_confession_shockwave -> page_eddie_and_blonde_story": 67,
+      "page_chair_duct_tape -> page_eddie_call_and_alibi": 19,
+      "page_eddie_call_and_alibi -> page_orange_gun_on_the_ramp": 27,
+      "page_eddie_and_blonde_story -> page_mexican_standoff": 10
+    },
+    "selected_steps": 1460
+  },
+  "geometry": {
+    "calibration": {
+      "total_energy": {
+        "clock": 2.72425073,
+        "actual": 14.957208442,
+        "p1": 4.886624801,
+        "p2": 3.323014863,
+        "goal_continuous": 6.847453536,
+        "all": 25.891098836
+      },
+      "energy_share": {
+        "clock": 0.105219587,
+        "actual": 0.577696935,
+        "p1": 0.188737637,
+        "p2": 0.128345841,
+        "goal_continuous": 0.264471337
+      },
+      "path_max_step_share": {
+        "all_median": 0.106902482,
+        "all_p90": 0.120487239,
+        "goal_median": 0.177481177,
+        "goal_p90": 0.221988558,
+        "secret_all_median": 0.103963267,
+        "secret_goal_median": 0.170554912,
+        "positive_goal_progress_median": 1,
+        "secret_positive_goal_progress_median": 1
+      },
+      "zero_goal_movement_paths": 0,
+      "positive_progress": 0.481297573,
+      "negative_progress": 2.021695446,
+      "secret_terminal_goal_continuous_satisfied": 13,
+      "top_mean_goal_energy_events": [
+        {
+          "id": "page_cadillac_trunk",
+          "n": 55,
+          "mean": 0.017860647
+        },
+        {
+          "id": "page_eddie_and_blonde_story",
+          "n": 58,
+          "mean": 0.017098248
+        },
+        {
+          "id": "page_k_billy_razor",
+          "n": 53,
+          "mean": 0.012476548
+        },
+        {
+          "id": "page_start",
+          "n": 64,
+          "mean": 0.0121
+        },
+        {
+          "id": "page_pink_ambush_theory",
+          "n": 64,
+          "mean": 0.0121
+        }
+      ]
+    },
+    "validation": {
+      "total_energy": {
+        "clock": 5.291967044,
+        "actual": 29.138367099,
+        "p1": 9.176632775,
+        "p2": 6.858968381,
+        "goal_continuous": 13.001198716,
+        "all": 50.465935299
+      },
+      "energy_share": {
+        "clock": 0.104862161,
+        "actual": 0.577386844,
+        "p1": 0.181838159,
+        "p2": 0.135912836,
+        "goal_continuous": 0.257623259
+      },
+      "path_max_step_share": {
+        "all_median": 0.102673287,
+        "all_p90": 0.125461789,
+        "goal_median": 0.218672603,
+        "goal_p90": 0.264926934,
+        "secret_all_median": 0.095974444,
+        "secret_goal_median": 0.254426011,
+        "positive_goal_progress_median": 1,
+        "secret_positive_goal_progress_median": 1
+      },
+      "zero_goal_movement_paths": 0,
+      "positive_progress": 0.747198621,
+      "negative_progress": 4.029711275,
+      "secret_terminal_goal_continuous_satisfied": 7,
+      "top_mean_goal_energy_events": [
+        {
+          "id": "page_eddie_and_blonde_story",
+          "n": 124,
+          "mean": 0.021724748
+        },
+        {
+          "id": "page_cadillac_trunk",
+          "n": 128,
+          "mean": 0.018784812
+        },
+        {
+          "id": "page_cabot_verdict",
+          "n": 151,
+          "mean": 0.012420053
+        },
+        {
+          "id": "page_k_billy_razor",
+          "n": 101,
+          "mean": 0.012210692
+        },
+        {
+          "id": "page_start",
+          "n": 128,
+          "mean": 0.0121
+        }
+      ]
+    }
+  },
+  "difficulty": {
+    "task": "one-step secret-truce entry at sirens (snapshot only)",
+    "calibration_roots": 93,
+    "validation_roots": 184,
+    "calibration_full_information_success": 25,
+    "validation_full_information_success": 9,
+    "calibration_support_union": [
+      "char_blonde.Diamond_Leverage",
+      "char_blonde.Rat_Suspicion",
+      "char_blonde.Sadistic_Escalation",
+      "char_orange.Crew_Loyalty",
+      "char_orange.Diamond_Leverage",
+      "char_orange.Diamond_Leverage[char_white][char_blonde]",
+      "char_orange.Rat_Suspicion",
+      "char_pink.Diamond_Leverage",
+      "char_pink.Professional_Discipline",
+      "char_pink.Rat_Suspicion",
+      "char_white.Crew_Loyalty",
+      "char_white.Crew_Loyalty[char_orange]",
+      "char_white.Diamond_Leverage",
+      "char_white.Phase_Clock",
+      "char_white.Professional_Discipline",
+      "char_white.Sadistic_Escalation"
+    ],
+    "validation_support_union": [
+      "char_blonde.Diamond_Leverage",
+      "char_blonde.Rat_Suspicion",
+      "char_blonde.Sadistic_Escalation",
+      "char_orange.Crew_Loyalty",
+      "char_orange.Diamond_Leverage",
+      "char_orange.Diamond_Leverage[char_white][char_blonde]",
+      "char_orange.Rat_Suspicion",
+      "char_pink.Diamond_Leverage",
+      "char_pink.Professional_Discipline",
+      "char_pink.Rat_Suspicion",
+      "char_white.Crew_Loyalty",
+      "char_white.Crew_Loyalty[char_orange]",
+      "char_white.Diamond_Leverage",
+      "char_white.Phase_Clock",
+      "char_white.Professional_Discipline",
+      "char_white.Sadistic_Escalation"
+    ],
+    "support_size_min": 14,
+    "support_size_max": 15,
+    "static_feature_order": [
+      "char_white.Phase_Clock",
+      "char_white.Crew_Loyalty",
+      "char_pink.Rat_Suspicion",
+      "char_blonde.Sadistic_Escalation",
+      "char_blonde.Diamond_Leverage",
+      "char_blonde.Rat_Suspicion",
+      "char_orange.Crew_Loyalty",
+      "char_orange.Diamond_Leverage",
+      "char_orange.Diamond_Leverage[char_white][char_blonde]",
+      "char_pink.Diamond_Leverage",
+      "char_pink.Professional_Discipline",
+      "char_white.Crew_Loyalty[char_orange]",
+      "char_white.Diamond_Leverage",
+      "char_white.Professional_Discipline",
+      "char_white.Sadistic_Escalation",
+      "char_orange.Rat_Suspicion",
+      "char_white.Rat_Suspicion",
+      "char_pink.Phase_Clock",
+      "char_pink.Crew_Loyalty",
+      "char_pink.Sadistic_Escalation",
+      "char_orange.Phase_Clock",
+      "char_orange.Professional_Discipline",
+      "char_orange.Sadistic_Escalation",
+      "char_blonde.Phase_Clock",
+      "char_blonde.Professional_Discipline",
+      "char_blonde.Crew_Loyalty",
+      "char_orange.Professional_Discipline[char_white][char_orange]",
+      "char_pink.Rat_Suspicion[char_white]",
+      "char_white.Professional_Discipline[char_pink][char_blonde]",
+      "char_pink.Diamond_Leverage[char_orange]",
+      "char_orange.Crew_Loyalty[char_pink][char_white]",
+      "char_blonde.Sadistic_Escalation[char_white]",
+      "char_white.Professional_Discipline[char_blonde][char_pink]",
+      "char_blonde.Sadistic_Escalation[char_pink]",
+      "char_pink.Rat_Suspicion[char_blonde][char_orange]",
+      "char_white.Rat_Suspicion[char_pink]",
+      "char_pink.Sadistic_Escalation[char_white][char_blonde]",
+      "char_pink.Diamond_Leverage[char_blonde]",
+      "char_blonde.Rat_Suspicion[char_pink][char_white]",
+      "char_blonde.Sadistic_Escalation[char_orange]",
+      "char_orange.Crew_Loyalty[char_blonde][char_pink]",
+      "char_orange.Crew_Loyalty[char_blonde]",
+      "char_blonde.Sadistic_Escalation[char_orange][char_orange]",
+      "char_orange.Rat_Suspicion[char_pink]",
+      "char_pink.Professional_Discipline[char_orange][char_blonde]",
+      "char_white.Crew_Loyalty[char_pink]",
+      "char_pink.Rat_Suspicion[char_white][char_white]",
+      "char_orange.Rat_Suspicion[char_white][char_pink]",
+      "char_white.Sadistic_Escalation[char_pink]",
+      "char_pink.Professional_Discipline[char_white][char_orange]"
+    ],
+    "quantized_k_curve": [
+      {
+        "k": 0,
+        "bits": 2,
+        "cal_cells": 1,
+        "val_cells": 1,
+        "val_oracle": 7,
+        "calibrated_lookup": 5,
+        "unseen": 0,
+        "denominator": 184
+      },
+      {
+        "k": 1,
+        "bits": 2,
+        "cal_cells": 1,
+        "val_cells": 2,
+        "val_oracle": 7,
+        "calibrated_lookup": 5,
+        "unseen": 1,
+        "denominator": 184
+      },
+      {
+        "k": 2,
+        "bits": 2,
+        "cal_cells": 2,
+        "val_cells": 3,
+        "val_oracle": 7,
+        "calibrated_lookup": 5,
+        "unseen": 1,
+        "denominator": 184
+      },
+      {
+        "k": 4,
+        "bits": 2,
+        "cal_cells": 8,
+        "val_cells": 9,
+        "val_oracle": 7,
+        "calibrated_lookup": 5,
+        "unseen": 1,
+        "denominator": 184
+      },
+      {
+        "k": 8,
+        "bits": 2,
+        "cal_cells": 38,
+        "val_cells": 45,
+        "val_oracle": 9,
+        "calibrated_lookup": 3,
+        "unseen": 62,
+        "denominator": 184
+      },
+      {
+        "k": 16,
+        "bits": 2,
+        "cal_cells": 59,
+        "val_cells": 77,
+        "val_oracle": 9,
+        "calibrated_lookup": 5,
+        "unseen": 178,
+        "denominator": 184
+      },
+      {
+        "k": 32,
+        "bits": 2,
+        "cal_cells": 66,
+        "val_cells": 96,
+        "val_oracle": 9,
+        "calibrated_lookup": 5,
+        "unseen": 184,
+        "denominator": 184
+      },
+      {
+        "k": 50,
+        "bits": 2,
+        "cal_cells": 69,
+        "val_cells": 105,
+        "val_oracle": 9,
+        "calibrated_lookup": 5,
+        "unseen": 184,
+        "denominator": 184
+      }
+    ],
+    "k8_precision_curve": [
+      {
+        "k": 8,
+        "bits": 0,
+        "cal_cells": 1,
+        "val_cells": 1,
+        "val_oracle": 7,
+        "calibrated_lookup": 5,
+        "unseen": 0,
+        "denominator": 184
+      },
+      {
+        "k": 8,
+        "bits": 1,
+        "cal_cells": 38,
+        "val_cells": 44,
+        "val_oracle": 9,
+        "calibrated_lookup": 3,
+        "unseen": 61,
+        "denominator": 184
+      },
+      {
+        "k": 8,
+        "bits": 2,
+        "cal_cells": 38,
+        "val_cells": 45,
+        "val_oracle": 9,
+        "calibrated_lookup": 3,
+        "unseen": 62,
+        "denominator": 184
+      },
+      {
+        "k": 8,
+        "bits": 3,
+        "cal_cells": 50,
+        "val_cells": 65,
+        "val_oracle": 9,
+        "calibrated_lookup": 5,
+        "unseen": 153,
+        "denominator": 184
+      },
+      {
+        "k": 8,
+        "bits": 4,
+        "cal_cells": 60,
+        "val_cells": 90,
+        "val_oracle": 9,
+        "calibrated_lookup": 5,
+        "unseen": 184,
+        "denominator": 184
+      },
+      {
+        "k": 8,
+        "bits": 6,
+        "cal_cells": 60,
+        "val_cells": 94,
+        "val_oracle": 9,
+        "calibrated_lookup": 5,
+        "unseen": 184,
+        "denominator": 184
+      },
+      {
+        "k": 8,
+        "bits": 8,
+        "cal_cells": 60,
+        "val_cells": 94,
+        "val_oracle": 9,
+        "calibrated_lookup": 5,
+        "unseen": 184,
+        "denominator": 184
+      }
+    ],
+    "public_profile": {
+      "k": 24,
+      "bits": 2,
+      "cal_cells": 64,
+      "val_cells": 85,
+      "val_oracle": 9,
+      "calibrated_lookup": 5,
+      "unseen": 184,
+      "denominator": 184
+    },
+    "full_profile": {
+      "k": 50,
+      "bits": 2,
+      "cal_cells": 69,
+      "val_cells": 105,
+      "val_oracle": 9,
+      "calibrated_lookup": 5,
+      "unseen": 184,
+      "denominator": 184
+    },
+    "absent_coordinate_interventions": 1148,
+    "absent_coordinate_route_mismatches": 0
+  },
+  "checks": {
+    "srg05_reproduced": true,
+    "all_calibration_bypasses_early": true,
+    "scoped_calibration_preserves_paths": true,
+    "scoped_validation_preserves_paths": true,
+    "absent_interventions_preserve_signature": true
+  }
+}
