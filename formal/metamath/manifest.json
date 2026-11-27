@@ -1,0 +1,32 @@
+{
+  "schema": "lean-setmm-port-v1",
+  "source_commit": "958b3fc797cdc8fda927eff153d056b5e65be861",
+  "setmm_commit": "806509385370b29fe8b1723804777ac21b1ce194",
+  "ports": [
+    {
+      "metamath_label": "ml-ev-approx-transfer",
+      "source": "lean/FeedbackChannel/CPF03.lean",
+      "source_blob": "43c0efa6586d869e1691fd9024153c8c633b61f3",
+      "lean_declaration": "FeedbackChannel.CPF03.approximate_bound_transfer",
+      "scope": "set-valued translation",
+      "mapping": "Represent E,A,G predicates by subsets A,B,C of W. Inclusion exactly expresses universal implications.",
+      "hypotheses": [
+        "|- A C_ B",
+        "|- B C_ C"
+      ],
+      "statement": "|- A C_ C",
+      "proof_steps": 6
+    },
+    {
+      "metamath_label": "ml-ev-no-reverse-counterexample",
+      "source": "lean/FeedbackChannel/CPF03.lean",
+      "source_blob": "43c0efa6586d869e1691fd9024153c8c633b61f3",
+      "lean_declaration": "FeedbackChannel.CPF03.no_reverse_bound",
+      "scope": "countermodel certificate",
+      "mapping": "E=F., A=T., G=F. is a concrete counterexample to the reverse schema; not a higher-order quantifier translation.",
+      "hypotheses": [],
+      "statement": "|- -. ( ( F. -> T. ) -> ( ( F. -> F. ) -> ( T. -> F. ) ) )",
+      "proof_steps": 137
+    }
+  ]
+}
