@@ -1,0 +1,24 @@
+{
+  "artifacts_sha256": {
+    "cog03_input.json": "e167ceb172d4ed5b43bfc6c1dd4297d97d6c5149f3c50dc23a7751ae46a5d455",
+    "cog03_output.json": "a95663b228c849d540c03dfdfd01d028e85a9e3c2a3a479f39e95c72ddba4785"
+  },
+  "builder_sha256": "9d87ec6ca1e8465f70cf34aaeb97ac62ca46083edf81476eff8766d469fde4cd",
+  "planner_path": "skills/evalmath-mechinterp-power/scripts/preflight.py",
+  "planner_sha256": "c2621a7900930f81ed53799ce439ee1c8f2d7006918a04ef57b5381630d15494",
+  "producer_files_sha256": {
+    "research/cog03_ledger_router/analysis/SOURCE.json": "a405f0a1a292608378969af365da806b676cd0adf1d125a64e09abb55cb21ae5",
+    "research/cog03_ledger_router/data/SOURCE.json": "74a9511e57f7d7bf194403cb498d9f92bd1a32f036857e56b439c5251f2a6104",
+    "research/cog03_ledger_router/model.py": "fbe7496e3d29a59071714c5d5e75bd4887d454b63054bca1b9e383b442ced46b",
+    "research/cog03_ledger_router/results/episodes.jsonl": "e5f928dacb830e8cb31bfcfe7971ab02d57b5fa5523f194759da6289c3059350",
+    "research/cog03_ledger_router/results/registration.json": "9943994e4fe4076f1c72eb2f53a9f2728b61257bbcca381e59abc0a09713d9d2",
+    "research/cog03_ledger_router/run.py": "f570cdcfd0c13ae5519e0c95f7a6c0cd0eded391963dc0d23539a907b2ead0ae"
+  },
+  "producer_published_commit": "c1c903b3f0664ee19838fcba45bd67e24f779aab",
+  "producer_pull_request": "https://github.com/MoralityLabAI/LoopedTransformers/pull/394",
+  "producer_repository": "MoralityLabAI/LoopedTransformers",
+  "producer_tree": "6ab92a50b3c4c527d4be2d84e3de23a4cc6b7f0f",
+  "recorded_at": "2026-11-25T23:43:17Z",
+  "reproduction": "python research/cogentic_suite/preflight/cog03_retrospective.py --producer-root ../LoopedTransformers --recorded-at 2026-11-25T23:43:17Z",
+  "schema": "COG03/retrospective-resolution-sources/v1"
+}
