@@ -27,6 +27,23 @@
       "hypotheses": [],
       "statement": "|- -. ( ( F. -> T. ) -> ( ( F. -> F. ) -> ( T. -> F. ) ) )",
       "proof_steps": 138
+    },
+    {
+      "metamath_label": "ml-ev-conditional-audit",
+      "source": "lean/FeedbackChannel/CorrelatedProofFidelity.lean",
+      "source_blob": "db631f9537c3ee68a40031c62ca96a0606ed9e51",
+      "lean_declaration": "FeedbackChannel.CPF.conditional_audit",
+      "scope": "rational arithmetic translation",
+      "mapping": "A=r,B=c. Rational memberships and all three inequalities retained; real ordered-field theorems yield both product bounds.",
+      "hypotheses": [
+        "|- A e. QQ",
+        "|- B e. QQ",
+        "|- 0 <_ A",
+        "|- 0 <_ B",
+        "|- B <_ 1"
+      ],
+      "statement": "|- ( 0 <_ ( A x. B ) /\\ ( A x. B ) <_ A )",
+      "proof_steps": 168
     }
   ]
 }
