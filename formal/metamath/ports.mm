@@ -10,7 +10,7 @@ $}
 $( FeedbackChannel.CPF03.no_reverse_bound; countermodel certificate. $)
   ml-ev-no-reverse-counterexample $p |- -. ( ( F. -> T. ) -> ( ( F. -> F. ) -> ( T. -> F. ) ) ) $=
     wfal wn wfal wtru wi wfal wfal wi wtru wfal wi wi wi wn fal wfal wtru wi wfal wfal wi wtru wfal wi wi wi
-    wfal wfal wtru wi wfal wfal wi wtru wfal wi wi wi wtru wfal wi wfal wtru wi wfal wfal wi wtru wfal
+    wfal wfal wtru wi wfal wfal wi wtru wfal wi wi wi wtru wfal wi wfal wfal wtru wi wfal wfal wi wtru wfal
     wi wi wi wfal wfal wi wtru wfal wi wi wtru wfal wi wfal wtru wi wfal wtru wi wfal wfal wi wtru wfal wi wi
     wi wfal wfal wi wtru wfal wi wi wi wtru falim wfal wtru wi wfal wfal wi wtru wfal wi wi pm2.27 ax-mp wfal
     wfal wi wfal wfal wi wtru wfal wi wi wtru wfal wi wi wfal id wfal wfal wi wtru wfal wi pm2.27 ax-mp syl
