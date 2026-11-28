@@ -1,0 +1,466 @@
+{
+  "alpha": "1/20",
+  "confirm_units_planned": 256,
+  "experiment_id": "COL-EVAL-01",
+  "heldout_sealed": false,
+  "independent_unit": "parameter d; stochastic independence unverified",
+  "measurement_resolution": "0",
+  "pilot": [
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:5"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:25"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:41"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:49"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:77"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:137"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:185"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:209"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:233"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:305"
+    },
+    {
+      "paired_effect": "84/169",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:337"
+    },
+    {
+      "paired_effect": "26/205",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:409"
+    },
+    {
+      "paired_effect": "58/219",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:437"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:449"
+    },
+    {
+      "paired_effect": "129/265",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:529"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:545"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:569"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:589"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:593"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:617"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:661"
+    },
+    {
+      "paired_effect": "168/337",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:673"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:677"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:685"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:785"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:821"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:841"
+    },
+    {
+      "paired_effect": "232/495",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:989"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1037"
+    },
+    {
+      "paired_effect": "390/541",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1081"
+    },
+    {
+      "paired_effect": "241/553",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1105"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1121"
+    },
+    {
+      "paired_effect": "265/571",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1141"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1181"
+    },
+    {
+      "paired_effect": "450/601",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1201"
+    },
+    {
+      "paired_effect": "68/625",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1249"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1285"
+    },
+    {
+      "paired_effect": "166/649",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1297"
+    },
+    {
+      "paired_effect": "353/667",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1333"
+    },
+    {
+      "paired_effect": "313/669",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1337"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1385"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1397"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1433"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1477"
+    },
+    {
+      "paired_effect": "215/757",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1513"
+    },
+    {
+      "paired_effect": "546/769",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1537"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1589"
+    },
+    {
+      "paired_effect": "532/799",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1597"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1601"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1621"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1721"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1741"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1757"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1789"
+    },
+    {
+      "paired_effect": "39/83",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1825"
+    },
+    {
+      "paired_effect": "433/919",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1837"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1865"
+    },
+    {
+      "paired_effect": "155/937",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1873"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1961"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:1973"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:2005"
+    },
+    {
+      "paired_effect": "466/1005",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:2009"
+    },
+    {
+      "paired_effect": "80/1011",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:2021"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "d:2053"
+    }
+  ],
+  "pilot_from_development_only": true,
+  "planned_comparisons": 1,
+  "schema_version": 1,
+  "scientific_min_effect": "1/20",
+  "sham_confidence": "19/20",
+  "sham_quantile": "19/20",
+  "target_effect": "1/5",
+  "units_independent": false
+}
