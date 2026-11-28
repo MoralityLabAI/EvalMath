@@ -1,0 +1,35 @@
+name: AIRIS pinned native smoke
+on:
+  push:
+    paths: ['gyms/AIRIS/native_smoke.py', '.github/workflows/airis-native-smoke.yml']
+  pull_request:
+    paths: ['gyms/AIRIS/native_smoke.py', '.github/workflows/airis-native-smoke.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: singnet/AIRIS-general
+          ref: db19ad4e2cea33e6129c8bf03e85797da8cf7625
+          path: upstream-airis
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify upstream pin and run unmodified API
+        run: |
+          test "$(git -C upstream-airis rev-parse HEAD)" = db19ad4e2cea33e6129c8bf03e85797da8cf7625
+          python gyms/AIRIS/native_smoke.py upstream-airis/airis.py > AIRIS-02-smoke.json
+          cat AIRIS-02-smoke.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AIRIS-02-native-smoke
+          path: AIRIS-02-smoke.json

@@ -1,0 +1,41 @@
+{
+  "arms": [
+    "looped",
+    "one_pass",
+    "reset_history",
+    "reset_inner",
+    "shuffled_history",
+    "random",
+    "ready_first",
+    "goal_ancestry"
+  ],
+  "budget": 24,
+  "causal_confirmation": false,
+  "evidence_class": "finite verified example and trained model observations on synthetic tasks",
+  "expected_registry_sha256": "9ec838249928a39e25a7d2c5f1498bc8c9f09f7f6d17c07d95dbd9500e317751",
+  "expected_root_counts": {
+    "ood_test": 64,
+    "ordinary_test": 64
+  },
+  "expected_tasks_file_sha256": "aef151e3f7de099e9b5d7b51c92ad94aa3bab20a85b4f73b8f4fb5ac8ce7905a",
+  "experiment_id": "COG-08",
+  "independent_unit": "source proof DAG root",
+  "primary_metric": "root-averaged completion at budget 24",
+  "readout_exposure": "public development experiment; model training protocol preceded rollout; integration audit followed producer results",
+  "schema_version": 1,
+  "scorer": "independent Horn replay; every call charged, repeated conclusions deduplicated",
+  "secondary_metrics": [
+    "goal-ancestor facts per verifier call",
+    "completion by budget",
+    "missing run count",
+    "repeated and irrelevant accepted facts"
+  ],
+  "seeds": [
+    17,
+    29
+  ],
+  "splits": [
+    "ordinary_test",
+    "ood_test"
+  ]
+}

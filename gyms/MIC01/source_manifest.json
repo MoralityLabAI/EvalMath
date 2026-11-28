@@ -1,0 +1,206 @@
+{
+  "schema": "MIC-01/source-manifest/v1",
+  "upstream": "https://github.com/Louiealbp/DLMST",
+  "upstream_commit": "0072335716b145032b418760883daed2a89809db",
+  "publication": "https://eccc.weizmann.ac.il/report/2026/339/",
+  "chronology_source": "Section 1.4, printed pages 10–11; stage labels mapped from filenames only",
+  "license_status": "No repository license observed; metadata only; no PDF bytes or manuscript text copied; training release blocked",
+  "family_id": "dlmst-2026",
+  "split": "reference_only",
+  "independent_math_families": 1,
+  "reported_stages": [
+    "Chazelle baseline m alpha",
+    "m alpha / log(alpha)^(1/3)",
+    "m log(alpha)",
+    "m log*(alpha)",
+    "m alpha(alpha)",
+    "m Gamma(alpha)",
+    "m log(Gamma(alpha))",
+    "m log*(Gamma(alpha))",
+    "m Gamma(Gamma(alpha))",
+    "m"
+  ],
+  "documents": [
+    {
+      "path": "IntermediateMSTs/mst-O-m-Gamma-alpha.pdf",
+      "git_blob_sha1": "81db727bb37839376202f9add18b38c21c94926b",
+      "size_bytes": 403967,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/IntermediateMSTs/mst-O-m-Gamma-alpha.pdf",
+      "stage": 5,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "IntermediateMSTs/mst-O-m-alpha-over-log-alpha-cuberoot.pdf",
+      "git_blob_sha1": "36899e231e29670b634becad3c9e642f25239969",
+      "size_bytes": 379943,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/IntermediateMSTs/mst-O-m-alpha-over-log-alpha-cuberoot.pdf",
+      "stage": 1,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "IntermediateMSTs/mst-O-m-diagonal-G-alpha.pdf",
+      "git_blob_sha1": "7f740c71887400a61d33255fe5978d7c8d393a43",
+      "size_bytes": 372544,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/IntermediateMSTs/mst-O-m-diagonal-G-alpha.pdf",
+      "stage": null,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "IntermediateMSTs/mst-O-m-log-Gamma-alpha.pdf",
+      "git_blob_sha1": "5d69d1dd5bb107b0f19e1d6bc8778d6b274b8780",
+      "size_bytes": 354297,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/IntermediateMSTs/mst-O-m-log-Gamma-alpha.pdf",
+      "stage": 6,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "IntermediateMSTs/mst-O-m-log-alpha--full.pdf",
+      "git_blob_sha1": "26e234b4a94c32ff981ce5c983ff927c70a53c71",
+      "size_bytes": 415897,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/IntermediateMSTs/mst-O-m-log-alpha--full.pdf",
+      "stage": 2,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "IntermediateMSTs/mst-O-m-log-alpha--modular.pdf",
+      "git_blob_sha1": "2ee47ce4494eb2c6f8d475173c796fe4b46b12b5",
+      "size_bytes": 262641,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/IntermediateMSTs/mst-O-m-log-alpha--modular.pdf",
+      "stage": 2,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "IntermediateMSTs/mst-O-m-log-alpha--short.pdf",
+      "git_blob_sha1": "0c30d29e51ef0a328b3e87ec08a19577a7c86946",
+      "size_bytes": 269877,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/IntermediateMSTs/mst-O-m-log-alpha--short.pdf",
+      "stage": 2,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "IntermediateMSTs/mst-O-m-logstar-Gamma-alpha.pdf",
+      "git_blob_sha1": "c763ac96c97225c27741c62973b2e93071633e7e",
+      "size_bytes": 429348,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/IntermediateMSTs/mst-O-m-logstar-Gamma-alpha.pdf",
+      "stage": 7,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "IntermediateMSTs/mst-O-m-nested-Gamma-alpha.pdf",
+      "git_blob_sha1": "80cc8b9b60d45aa58dffa7bbfa237ee2e500e658",
+      "size_bytes": 411579,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/IntermediateMSTs/mst-O-m-nested-Gamma-alpha.pdf",
+      "stage": 8,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "IntermediateMSTs/mst-O-m-o-alpha.pdf",
+      "git_blob_sha1": "6ffbfb27fdd313165901f67533ba122e9bb69a4c",
+      "size_bytes": 360778,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/IntermediateMSTs/mst-O-m-o-alpha.pdf",
+      "stage": null,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "OptimalMSTs/mst-O-m--certificate-procedure.pdf",
+      "git_blob_sha1": "157eff720f01fbddc861c8d0801c230cd890c24b",
+      "size_bytes": 339683,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/OptimalMSTs/mst-O-m--certificate-procedure.pdf",
+      "stage": 9,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "OptimalMSTs/mst-O-m--color-class-scheduling.pdf",
+      "git_blob_sha1": "3133ae19cb757b19d4fedbfe77171aff841f5105",
+      "size_bytes": 306698,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/OptimalMSTs/mst-O-m--color-class-scheduling.pdf",
+      "stage": 9,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "OptimalMSTs/mst-O-m--illustrated-proof.pdf",
+      "git_blob_sha1": "a35b771f228e8fdbc5af04d7e050eda4be585b65",
+      "size_bytes": 456043,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/OptimalMSTs/mst-O-m--illustrated-proof.pdf",
+      "stage": 9,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "OptimalMSTs/mst-O-m--one-round-scheduling.pdf",
+      "git_blob_sha1": "1f6445390803e4089eab90fd664d0273a0be99b1",
+      "size_bytes": 306075,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/OptimalMSTs/mst-O-m--one-round-scheduling.pdf",
+      "stage": 9,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "OptimalMSTs/mst-O-m--portal-pairs.pdf",
+      "git_blob_sha1": "53966848a5373960cbf9bc0e6b921c8197ed7a29",
+      "size_bytes": 293563,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/OptimalMSTs/mst-O-m--portal-pairs.pdf",
+      "stage": 9,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "OptimalMSTs/mst-O-m--soft-heap-modular.pdf",
+      "git_blob_sha1": "8784924fc2f14b3b26eb799dd4cbf92b5cc4bf9a",
+      "size_bytes": 293874,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/OptimalMSTs/mst-O-m--soft-heap-modular.pdf",
+      "stage": 9,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "OptimalMSTs/mst-O-m--two-grade-training.pdf",
+      "git_blob_sha1": "84e469242ba259a4e619921613fcdfb3722876a6",
+      "size_bytes": 393867,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/OptimalMSTs/mst-O-m--two-grade-training.pdf",
+      "stage": 9,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    },
+    {
+      "path": "final.pdf",
+      "git_blob_sha1": "07226c41bcf7fa3dce336999b19f9816cc93267e",
+      "size_bytes": 511567,
+      "url": "https://github.com/Louiealbp/DLMST/blob/0072335716b145032b418760883daed2a89809db/final.pdf",
+      "stage": 9,
+      "stage_mapping": "filename hypothesis; manuscript dependencies not audited",
+      "family_id": "dlmst-2026",
+      "training_ready": false
+    }
+  ],
+  "unresolved": "Reported log*(alpha) and alpha(alpha) stages have no obvious separately named matching PDF in this inventory. Two intermediate filenames have unclear chronological positions; no inference of generation order among variants."
+}
