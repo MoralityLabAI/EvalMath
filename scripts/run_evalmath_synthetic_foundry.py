@@ -11,6 +11,7 @@ import json
 import re
 import subprocess
 from pathlib import Path
+from decimal import Decimal
 
 from spiral_ln.evaluation_synthetic_foundry import (
     FAMILIES, PROFILES, canonical, digest, generate, write_pack,
@@ -28,10 +29,10 @@ PANELS = {
 }
 LANES = {
     "feedback": ["judge","patch","reuse","capacity"],
-    "filtration": ["selection","covert","disclosure","revocation"],
-    "fidelity": ["cpf","audit","judge"],
+    "filtration": ["selection","covert","disclosure","revocation","adaptive_risk","filtration","private_stopping"],
+    "fidelity": ["cpf","audit","judge","adaptive_cpf"],
     "mechanisms": ["bpd","paired","revocation"],
-    "recursive": ["selection","audit","covert","disclosure"],
+    "recursive": ["selection","audit","covert","disclosure","adaptive_risk","private_stopping"],
     "frontier": list(FAMILIES),
 }
 SYSTEM = """You are Fable acting as EvalMath's mathematical referee and independent
@@ -77,6 +78,7 @@ def inventory(root, ref):
     selected=[p for p in paths if p.startswith("paper/") and p.endswith(".md")]
     selected += [p for p in paths if p.startswith("gyms/") and
                  Path(p).name in {"README.md","THEORY.md","PROTOCOL.md","RESULTS.md"}]
+    selected += [p for p in paths if p.startswith(("research/","experiments/","Hypergames/")) and Path(p).name in {"README.md","THEORY.md","PROTOCOL.md","RESULTS.md","REPORT.md"}]
     selected += [p for p in paths if p.startswith("skills/") and p.endswith("/SKILL.md")]
     selected += [p for p in ("README.md","lean/CLAIMS.md","reviews/FABLE_REFEREE_REPORT.md",
                  "reviews/FABLE_RESEARCH_PRIORITY.md","scripts/check_receipts.py") if p in paths]
@@ -146,6 +148,11 @@ def prepare(args):
             dg_context.append({"path":path,"sha256":sha,"git_blob_sha":blob,"content":body})
     out=args.out
     out.mkdir(parents=True,exist_ok=False)
+    tree=git(root,"ls-tree","-r",args.ref).decode().splitlines()
+    full_inventory=[{"git_blob_sha":line.split("\t",1)[0].split()[2],"path":line.split("\t",1)[1]}
+                    for line in tree if "\t" in line and line.split("\t",1)[1].startswith(
+                        ("paper/","lean/","src/spiral_ln/","tests/","scripts/","gyms/","research/","experiments/","Hypergames/","skills/"))]
+    write(out/"full_source_inventory.json",{"evalmath_ref":args.ref,"entries":full_inventory})
     requests=[]
     for name,rows in groups.items():
         if not rows:continue
@@ -157,6 +164,7 @@ def prepare(args):
         packet={"schema":"evalmath.esf01.review_packet.v1","evalmath_ref":args.ref,
                 "panel":name,"sources":data,"sources_without_excerpt":missing,
                 "source_scope":"distributed excerpts; claims may need full source review",
+                "complete_math_inventory_sha256":digest(full_inventory),
                 "whole_program_index":entries if name=="frontier" else
                     [{"path":e["path"],"panel":e["panel"]} for e in entries],
                 "datagoblin_context":dg_context if name in {"frontier","mechanisms"} else
@@ -211,6 +219,7 @@ def submit(args):
     if not fresh:raise ValueError("already reserved: reconcile existing batches, do not resend")
     if not all(r["custom_id"].startswith("esf01_") for r in fresh):raise ValueError("foreign request")
     cap=int(args.max_new_usd*1_000_000)
+    if cap<=0:raise ValueError("positive approved spending cap required")
     est=sum(estimate_max_cost_micro_usd(
         input_tokens_est=max(256,int((len(r["system"])+len(r["user"]))/3.2)),
         max_output_tokens=doc["max_output_tokens"],mode="batch") for r in fresh)
@@ -275,7 +284,7 @@ def continue_review(args):
                            "root_id":panel,"system":FOLLOWUP,
                            "user":canonical({"original":body,"observation":obs,
                                              "source_packet_sha256":digest(r)})})
-        except (ValueError,KeyError,TypeError) as e:
+        except (ValueError,KeyError,TypeError,AssertionError) as e:
             decisions.append({"panel":panel,"status":"rejected","reason":str(e)})
     write(args.out/"decisions.json",{"decisions":decisions,"teacher_selected_training_export":False})
     # Follow-up is optional: allow selecting the highest-value panels in a reviewed new manifest.
@@ -285,6 +294,60 @@ def continue_review(args):
     doc["request_sha256"]=digest(doc)
     write(args.out/"followup_requests.json",doc)
     print(json.dumps({"decisions":decisions,"followup_request_sha256":doc["request_sha256"]},indent=2))
+
+
+def preflight(args):
+    from datagoblin.training_gym.dg_cotp_02.budget import estimate_max_cost_micro_usd
+    doc=check_manifest(args.requests)
+    ledger=existing_ledger(args.ledger)
+    rows=[]
+    for r in doc["requests"]:
+        if ledger.has_request(r["custom_id"]):continue
+        est=estimate_max_cost_micro_usd(
+            input_tokens_est=max(256,int((len(r["system"])+len(r["user"]))/3.2)),
+            max_output_tokens=doc["max_output_tokens"],mode="batch")
+        rows.append({"custom_id":r["custom_id"],"estimated_max_micro_usd":est})
+    total=sum(r["estimated_max_micro_usd"] for r in rows)
+    remaining=ledger.summary()["remaining_usable_micro_usd"]
+    print(json.dumps({"request_sha256":doc["request_sha256"],"requests":rows,
+                      "estimated_max_micro_usd":total,"remaining_usable_micro_usd":remaining,
+                      "fits":total<=remaining,"paid_calls":0},indent=2))
+
+
+def synthesize(args):
+    """One integrated whole-program review with actual first-wave and followup evidence."""
+    records=[]
+    for p in args.results:
+        rows=json.loads(p.read_text(encoding="utf-8"))
+        for cid,row in sorted(rows.items()):
+            if not cid.startswith("esf01_"):continue
+            record={"custom_id":cid,"status":row.get("status"),"stop_reason":row.get("stop_reason"),
+                    "response_sha256":digest(row)}
+            if row.get("status")=="succeeded" and row.get("stop_reason")=="end_turn":
+                try:
+                    body=json.loads(row["visible_text"])
+                    record["review"]=excerpt(str(body.get("review_markdown","")),2500)
+                    for k in ("ranked_repairs","proposed_generators","repairs","next_experiments","claim_updates"):
+                        if k in body:
+                            record[k]=excerpt(canonical(body[k]),2200)
+                except (ValueError,TypeError):record["parse_error"]=True
+            records.append(record)
+    if not records:raise ValueError("no source results")
+    prompt=("Write a mathematically substantive integrated referee report on the whole EvalMath program. "
+            "Rank ten concrete repairs and ten independent exact synthetic generators, specifying domains, "
+            "input schemas, oracle derivations, boundary cases, counterexamples, independent verification, "
+            "family-disjoint split plans and expected scientific transfer to DataGoblin and looped models. "
+            "Separate source-supported findings, conditional claims and open questions; distinguish proposal "
+            "from test. Recommend a curriculum with explicit difficulty axes. Return JSON with review_markdown, "
+            "ranked_repairs, proposed_generators, open_mathematics, experiment_plan. Research-only.\n\n"
+            +canonical(records))
+    doc={"schema":"evalmath.esf01.review.v1","custody":"research_only","training_eligible":False,
+         "effort":"high","max_output_tokens":args.max_tokens,
+         "requests":[{"custom_id":f"esf01_synthesis_{digest(records)[:12]}","root_id":"synthesis",
+                      "system":FOLLOWUP,"user":prompt}]}
+    doc["request_sha256"]=digest(doc)
+    write(args.out,doc)
+    print(doc["request_sha256"])
 
 
 def main():
@@ -299,9 +362,13 @@ def main():
     a.add_argument("--family",choices=list(FAMILIES),nargs="+");a.add_argument("--profile",choices=PROFILES,default="baseline")
     a.add_argument("--count",type=int,default=32);a.add_argument("--seed",type=int,default=137)
     a.add_argument("--split",choices=("discovery","development"),default="discovery");a.add_argument("--out",type=Path,required=True)
+    a=sp.add_parser("preflight");a.set_defaults(fn=preflight)
+    a.add_argument("--requests",type=Path,required=True);a.add_argument("--ledger",type=Path,required=True)
+    a=sp.add_parser("synthesize");a.set_defaults(fn=synthesize)
+    a.add_argument("--results",type=Path,nargs="+",required=True);a.add_argument("--max-tokens",type=int,choices=(16384,24576,36000),default=24576);a.add_argument("--out",type=Path,required=True)
     a=sp.add_parser("submit");a.set_defaults(fn=submit)
     a.add_argument("--requests",type=Path,required=True);a.add_argument("--approved-sha",required=True)
-    a.add_argument("--ledger",type=Path,required=True);a.add_argument("--max-new-usd",type=float,required=True)
+    a.add_argument("--ledger",type=Path,required=True);a.add_argument("--max-new-usd",type=Decimal,required=True)
     a.add_argument("--confirm-paid",action="store_true");a.add_argument("--out",type=Path,required=True)
     a=sp.add_parser("collect");a.set_defaults(fn=collect)
     a.add_argument("--ledger",type=Path,required=True);a.add_argument("--batch-id",required=True)
