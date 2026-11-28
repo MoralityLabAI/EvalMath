@@ -1,0 +1,122 @@
+[
+  {
+    "id": "RH-D-001",
+    "difficulty": "warmup",
+    "category": "analytic_bridge",
+    "anchor": "analytic_window",
+    "description": "Rebuild the proposition-level Landau window-to-zero-free wrapper; analytic inputs are explicit hypotheses.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem window_to_zero_free (Window Bridge ZeroFree : Prop)\n    (hWindow : Window) (convert : Window → Bridge) (landau : Bridge → ZeroFree) : ZeroFree := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-002",
+    "difficulty": "warmup",
+    "category": "galois_bridge",
+    "anchor": "theta_galois",
+    "description": "Rebuild the theta-to-Galois application shell with visible assumptions.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem galois_from_theta (ThetaLift Galois : Prop)\n    (hTheta : ThetaLift) (hConstruct : ThetaLift → Galois) : Galois := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-003",
+    "difficulty": "medium",
+    "category": "analytic_bridge",
+    "anchor": "final_rh",
+    "description": "Prove critical-strip zeros lie on the central line from right zero-freeness and an explicitly assumed reflection principle.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem strip_symmetry_from_right_zero_free\n    (L : ℂ → ℂ)\n    (hRight : ∀ z : ℂ, 1 / 2 < z.re → L z ≠ 0)\n    (hFlip : ∀ z : ℂ, 0 < z.re → z.re < 1 → L z = 0 → L (1 - z) = 0)\n    (s : ℂ) (hs0 : 0 < s.re) (hs1 : s.re < 1) (hz : L s = 0) :\n    s.re = 1 / 2 := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-004",
+    "difficulty": "medium",
+    "category": "exponent_limit",
+    "anchor": "weighted_bound",
+    "description": "Remove arbitrarily small positive exponent slack over the reals.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem epsilon_squeeze (r : ℝ)\n    (h : ∀ ε : ℝ, 0 < ε → r ≤ (1 / 2 : ℝ) + ε) :\n    r ≤ (1 / 2 : ℝ) := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-005",
+    "difficulty": "medium",
+    "category": "exponent_accounting",
+    "anchor": "weighted_bound",
+    "description": "Reconstruct the exact +7-epsilon budget of the upstream core_gm proof, from a nonnegative sum of divisorial and loss exponents.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem exponent_budget (eD eL eps : ℝ) (h : 0 ≤ eD + eL) :\n    (1 / 2 : ℝ) + ((max (eD + eL) 0 + 3) + 3) * eps + eps =\n      (1 / 2 : ℝ) + (eD + eL + 7) * eps := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-006",
+    "difficulty": "medium",
+    "category": "exponent_accounting",
+    "anchor": "weighted_bound",
+    "description": "Absorb the excluded-character term into one additional x^eps factor under explicit large-x and comparison hypotheses.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem absorb_correction\n    (x eps K eD eL G : ℝ) (hx : 0 < x) (hK : 0 ≤ K)\n    (hErr : 1 + K ≤ x ^ eps)\n    (hSmall : x ^ ((1 / 2 : ℝ) + eps) ≤\n      x ^ ((1 / 2 : ℝ) + (eD + eL + 6) * eps))\n    (hMain : G ≤ x ^ ((1 / 2 : ℝ) + (eD + eL + 6) * eps) +\n      K * x ^ ((1 / 2 : ℝ) + eps)) :\n    G ≤ x ^ ((1 / 2 : ℝ) + (eD + eL + 7) * eps) := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-007",
+    "difficulty": "medium",
+    "category": "source_structural_equivalence",
+    "anchor": "all_characters",
+    "description": "Prove the observed three-field OpenLiteratureStatements interface collapses to a row proposition and a local Langlands-existence proposition; two fields have the same row type in the upstream source.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\nstructure OpenLiteratureProxy (Row RecTExists : Prop) : Prop where\n  caraianiLocalGlobalDual : Row\n  localLanglandsExists : RecTExists\n  galoisRepOfPolarizedPairLit : Row\n\ntheorem open_literature_duplicate_row (Row RecTExists : Prop) :\n    OpenLiteratureProxy Row RecTExists ↔ Row ∧ RecTExists := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-008",
+    "difficulty": "medium",
+    "category": "witness_transport",
+    "anchor": "weighted_bound",
+    "description": "Reconstruct the essential existential-witness projection used when ChainTied is reduced to a core-bound structure, with all geometric and arithmetic assertions treated as explicit variables.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ndef ChainTiedProxy {I : Type} (TiePts TieGlobal CoreWindow CoreBounds : I → Prop) : Prop :=\n  ∃ i : I, TiePts i ∧ TieGlobal i ∧ CoreWindow i ∧ CoreBounds i\n\ndef CoreAtHProxy {I : Type} (CoreWindow CoreBounds : I → Prop) : Prop :=\n  ∃ i : I, CoreWindow i ∧ CoreBounds i\n\ntheorem chain_tied_to_core {I : Type}\n    {TiePts TieGlobal CoreWindow CoreBounds : I → Prop}\n    (h : ChainTiedProxy TiePts TieGlobal CoreWindow CoreBounds) :\n    CoreAtHProxy CoreWindow CoreBounds := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-009",
+    "difficulty": "medium",
+    "category": "finite_character_averaging",
+    "anchor": "weighted_bound",
+    "description": "Recover the strict-cardinality cancellation step of CharacterBalanceMoves.core after averaging a pointwise error bound over a nonempty finite group.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem character_average_cancel\n    {ι : Type} [Fintype ι] [Nonempty ι]\n    (f : ι → ℝ) (A Err : ℝ)\n    (hpoint : ∀ i, f i ≤ Err)\n    (horth : (∑ i, f i) = (Fintype.card ι : ℝ) * A) :\n    A ≤ Err := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-010",
+    "difficulty": "medium",
+    "category": "finite_character_averaging",
+    "anchor": "weighted_bound",
+    "description": "Reconstruct the counted cost-window absorption in CharacterBalanceMoves.core: a local sum bounded by n·m copies of an error K inherits the exact 2nmb/x global correction.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem sum_local_kernel_error\n    {H : Type} (TT : Finset H) (m : ℕ)\n    (local_sum base_sum K b x : ℝ) (hx : 0 < x)\n    (hlocal : local_sum ≤ base_sum + (TT.card : ℝ) * (m : ℝ) * K)\n    (hcost : K ≤ 2 * b / x) :\n    local_sum ≤ base_sum + 2 * (TT.card : ℝ) * (m : ℝ) * b / x := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-011",
+    "difficulty": "medium",
+    "category": "size_window_power_bound",
+    "anchor": "weighted_bound",
+    "description": "Transport the error-window bound to the exponent budget by multiplying two nonnegative real powers, an isolated arithmetic obligation behind proposition_size_bound.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem window_error_power_bound\n    (x C eps Err bracket : ℝ) (hx : 0 < x)\n    (hErr : Err ≤ x ^ (C * eps) * bracket)\n    (hBracket : bracket ≤ x ^ ((1 / 2 : ℝ) + eps)) :\n    Err ≤ x ^ ((1 / 2 : ℝ) + (C + 1) * eps) := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-012",
+    "difficulty": "medium",
+    "category": "size_window_feasibility",
+    "anchor": "weighted_bound",
+    "description": "Prove a necessary source-derived size requirement n² ≥ x from the integer group-size, sampling-depth and k-window inequalities of the published SizeWindows predicate.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem size_window_group_card_floor\n    (x eps k : ℝ) (n m : ℕ) (hx : 0 < x)\n    (hm : x ^ ((1 / 2 : ℝ) - eps) ≤ (m : ℝ))\n    (hk_lower : x * (m : ℝ) ≤ k)\n    (hk_upper : k ≤ (n : ℝ) ^ 2 * x ^ ((1 / 2 : ℝ) - eps)) :\n    x ≤ (n : ℝ) ^ 2 := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-013",
+    "difficulty": "medium",
+    "category": "size_window_feasibility",
+    "anchor": "weighted_bound",
+    "description": "From the published SizeWindows bounds and positive x,n, prove that the TT, T2 and recurrence-depth counts are all nonzero.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem size_window_counts_positive\n    (x eps : ℝ) (n nT nT2 m : ℕ)\n    (hx : 0 < x) (hn : 0 < n)\n    (hTT : x ^ (-(eps / 8)) * (n : ℝ) / 2 ≤ (nT : ℝ))\n    (hT2 : x ^ (-eps) ≤ (nT2 : ℝ) / (n : ℝ))\n    (hm : x ^ ((1 / 2 : ℝ) - eps) ≤ (m : ℝ)) :\n    0 < nT ∧ 0 < nT2 ∧ 0 < m := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-014",
+    "difficulty": "medium",
+    "category": "small_cost_feasibility",
+    "anchor": "weighted_bound",
+    "description": "Derive the lower bound on b that follows from the published SmallCosts remainder inequality and nonnegative eta.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem small_cost_forces_large_b\n    (x f eta b : ℝ) (hx : 0 < x) (hf : 0 ≤ f) (heta : 0 ≤ eta)\n    (hcost : 6 * f * (x + 1) * (eta + 1) ≤ b / x) :\n    6 * f * x * (x + 1) ≤ b := by\n__PROOF__\n\nend RHGym\n"
+  },
+  {
+    "id": "RH-D-015",
+    "difficulty": "medium",
+    "category": "small_cost_feasibility",
+    "anchor": "weighted_bound",
+    "description": "Bound the theta tolerance from the SmallCosts normalized character error budget when f and x are positive.",
+    "template": "import Mathlib\n\nnamespace RHGym\n\ntheorem small_cost_caps_theta\n    (x f theta : ℝ) (hx : 0 < x) (hf : 0 < f)\n    (hcost : 2 * f * (x + 1) * theta ≤ 1 / x) :\n    theta ≤ 1 / (2 * f * x * (x + 1)) := by\n__PROOF__\n\nend RHGym\n"
+  }
+]

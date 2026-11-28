@@ -1,0 +1,9 @@
+{
+  "budget": 512,
+  "sampling_seed": "CPF05-v1",
+  "temperature": 0.3,
+  "models": {
+    "bonsai": {"url": "http://127.0.0.1:8080/v1", "model": "REPLACE_WITH_BONSAI_SERVED_ID"},
+    "inky": {"url": "http://127.0.0.1:8081/v1", "model": "REPLACE_WITH_INKY_SERVED_ID"}
+  }
+}

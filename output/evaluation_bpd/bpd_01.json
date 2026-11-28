@@ -1,14 +1,17 @@
 {
   "binary_matrices": 512,
   "branched_witness": {
-    "adaptive_cost": 2,
-    "batch_cost": 3
+    "minimum_test_collection_cost": 3,
+    "optimal_decision_tree_cost": 2,
+    "outside_h_outcome": "no hypothesis fits"
   },
   "checks": {
     "adaptive_strict_example": true,
     "all_binary_matrices_independent": true,
     "clock_fibre_gap": true,
     "early_repair_obscures_final": true,
+    "fc12_ledger_sum_204": true,
+    "no_hypothesis_fits_outside_h": true,
     "routing_collision": true,
     "visible_fibre_collision": true,
     "weighted_multiway_independent": true
@@ -19,6 +22,16 @@
     "visible_only": 1
   },
   "evidence": "finite exact deterministic oracle; mathematical proof in paper; no neural or Lean model measurements",
+  "fc12_unprobed_ledger": {
+    "families": 4,
+    "goals": 51,
+    "has_recorded_negatives": false,
+    "negative_cells": 0,
+    "positive_cells": 39,
+    "probed_fraction": 0.19117647058823528,
+    "total_cells": 204,
+    "untested_cells": 165
+  },
   "refill_witness": {
     "baseline": [
       1,
@@ -27,6 +40,12 @@
       1
     ],
     "persistent_cut_final": 0,
+    "persistent_cut_trajectory": [
+      0,
+      0,
+      0,
+      0
+    ],
     "single_cut_final": [
       1,
       1,
@@ -59,14 +78,15 @@
         0
       ]
     ],
-    "terminal_blind_early_cuts": 3
+    "terminal_blind_early_cuts": 3,
+    "update_rule": "s_0 = 0; s_{t+1} = 0 if cut_t else (s_t | source_bit)"
   },
-  "schema": "BPD-01-v1",
+  "schema": "BPD-01-v2",
   "source_sha256": {
-    "paper/bpd_interventional_separation.md": "a1738c49c47bf1efa1aa2ce177305711ce93852b8d4fef47b57d3bf2f18fd7ac",
-    "scripts/verify_evaluation_bpd.py": "a43cbbb642fe3b8d1283f1f4b8b91fbcebef3e50f6079f30b46f98bba54bc835",
-    "src/spiral_ln/evaluation_bpd.py": "9c0e1d386dd2335ab43b970e604e073c72afc3e2e4512a1f75a0cb0a1c6a8062",
-    "tests/test_evaluation_bpd.py": "76ba84ca0930e89ae5534a72d6688c5c80f3dc9462c1bdc924bf899a4b045412"
+    "paper/bpd_interventional_separation.md": "258b0aecab0b455fbf86af43e8b37981eb51ddddd0165e26b65515df9f404327",
+    "scripts/verify_evaluation_bpd.py": "64975b4cf3f9c09077131d2210376f40536cc3cc1cb8e0ab23d49d2c458aa783",
+    "src/spiral_ln/evaluation_bpd.py": "4b4fa07b52948340990ef0b652f14e60c77641598b784125cd3f979d99d809eb",
+    "tests/test_evaluation_bpd.py": "dcb018131be77028f252bf1b6fdadb6620d11a5dda3fa54c1fd7bc91d221ebae"
   },
   "weighted_categorical_cases": 96
 }

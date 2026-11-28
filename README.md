@@ -14,6 +14,12 @@ New: [capacity-sensitive leakage](paper/leak_capacity.md) certifies when a posit
 feedback fibre produces an actual binary-record collision at declared cell capacities,
 and computes exact collision probabilities with two independent finite algorithms.
 
+New: [Collatz basin readout ceilings](paper/collatz_basin_readout.md) supplies an
+exact finite reasoning benchmark with parameter-disjoint public exports,
+separate evaluator gold, arithmetic collision witnesses and source-hashed
+receipts. The quotient, gcd and constant readouts have exact accuracy ceilings;
+future learned comparisons require fresh confirmation roots.
+
 New: [adaptive disclosure](paper/adaptive_disclosure.md) derives exact pathwise
 feedback fibres, conditional collision reductions and an optimal-query recurrence.
 For a uniform one-hot item on a line, k adaptive interval queries identify up to
@@ -70,6 +76,14 @@ and `PYTHONPATH=src python scripts/verify_cryptomania_audit.py`.
 Reviewers: see [`REVIEW.md`](REVIEW.md).
 
 **New (BPD-01, 2026-11-15):** [interventional separation and looped Lean curriculum](paper/bpd_interventional_separation.md) formalizes routed mechanism-pair coverage, optimal fixed/adaptive probes, clock-versus-state observability floors and a recurrence-repair counterexample. Exact 512-matrix and 96 seeded audits are source-hashed in `output/evaluation_bpd/bpd_01.json`. Reproduce via `python scripts/check_receipts.py --only bpd`. It supplies design mathematics, not a neural decomposition result.
+
+**New (CPF-01):** [Correlated proof fidelity](paper/correlated_proof_fidelity.md) derives sharp conditional joint-error bounds and an exact adaptive certified-rejection audit oracle, with a preliminary OpenAI/Anthropic VP-VNP source crosswalk. Synthetic evidence; the interval and audit contraction are kernel-checked. Reproduce with `python scripts/check_receipts.py --only cpf`.
+
+**New (CPF-02):** [Canonical VP/VNP circuit bridge](paper/cpf02_canonical_circuit_bridge.md) pins both labs' interfaces, gives a constructive linear gate-budget translation with a finite formal-polynomial census, and kernel-checks the 4s+2 gate sandwich, bound normalization and VP and VNP equality across the OpenAI, canonical and Anthropic conventions. Geometric border closure and both upstream proofs remain open. Reproduce with `python scripts/check_receipts.py --only cpf02`.
+
+**New (CPF-03):** [Statement-mutation curriculum](paper/cpf03_semantic_mutations.md) provides 42 proof-fidelity prompts with group-disjoint public splits, separate reproducible gold exports, exact finite checks and candidate Lean logic witnesses. Reproduce with `python scripts/check_receipts.py --only cpf03`.
+
+**New (CPF-04–06):** [Prospective critique suite](paper/cpf04_06_prospective_critique_suite.md) provides a procedural semantic benchmark, matched-budget model inference runner and joint-error scoring protocol. Bonsai 2 27B dev preflight is complete; the primary 240-root panel is committed by hash and its collection is resumable ([continuation ledger](output/evaluation_cpf/runs/CONTINUATION.md), [report](paper/cpf_research_report.md), [CPF-07 spec](paper/cpf07_recurrent_critique_spec.md)). Reproduce with `python scripts/check_receipts.py --only cpf_suite`.
 
 ## Self-designed evaluation and FRC
 
@@ -170,3 +184,7 @@ remains open for review.
 ## License
 
 Apache License 2.0; see [`LICENSE`](LICENSE).
+
+## Agent skill: stop underpowered mechanistic evaluations early
+
+Future research agents should read [`skills/evalmath-mechinterp-power/SKILL.md`](skills/evalmath-mechinterp-power/SKILL.md) before designing AF, LS-SAE, SMC, PEF, Hypergames, or BPD evals. The skill and [`preflight.py`](skills/evalmath-mechinterp-power/scripts/preflight.py) estimate whether an independent-world evaluation can resolve a meaningful mechanism effect over matched-sham variation before committing compute. It distinguishes pilot diagnostics from sealed FSI-01 evidence and exact finite proofs.

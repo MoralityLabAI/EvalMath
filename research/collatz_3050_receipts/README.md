@@ -1,0 +1,7 @@
+# COL-EVAL-02: offline audit of the 3050 native gym
+
+Source: [BPD PR #150](https://github.com/MoralityLabAI/BPD/pull/150), fixed head `f1d489a000406e2d8732f4ea7a39e5473392efe2`. No model execution in EvalMath. This independent standard-library verifier replays arithmetic, observer classes, basins, labels and prompts, checks the frozen source hashes, recomputes two-choice probabilities from logits, checks recorded doses and independently recomputes the root-weighted contrast. It refuses duplicate records and rehashed false arithmetic traces.
+
+From this directory: `python audit.py PATH_TO_BPD_RUN`. It compares the rebuilt summary against the saved summary and reports missing, failed and ineligible cases. `python -m unittest -v` runs four focused tests using the actual pinned four-root manifest and explicitly synthetic logits. No pretrained results are included.
+
+The unit is source parameter d. All roots are exposed development data; the calibrated sham floor is null and the verdict is always PILOT_ONLY. This is a consistency check, not a signed hardware attestation or independent tensor replay. The source receipt's current-query equality and resource metadata remain assertions recorded by the native runner. No sealed data are accessed.

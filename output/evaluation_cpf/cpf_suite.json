@@ -1,0 +1,42 @@
+{
+  "census_roots": 5120,
+  "checks": {
+    "independent_oracle": true,
+    "unique_roots": true
+  },
+  "family_counts": {
+    "degree": 512,
+    "determinant": 512,
+    "gate": 512,
+    "implication": 512,
+    "joint": 512,
+    "polynomial": 512,
+    "quantifier": 512,
+    "scope": 512,
+    "threshold": 512,
+    "witness": 512
+  },
+  "gold_digest": "caa95dfb48840f1fed67dded9090db832539a06cdecf9f207b8d40a53e3259ce",
+  "label_counts": {
+    "counterexample": 2304,
+    "entailed": 2560,
+    "unresolved": 256
+  },
+  "prompt_digest": "1e9d4e0731d029d11c4076f8671e91547c75589d22282550d6966b1041acdc19",
+  "schema": "CPF-04-06.1",
+  "scope": "bounded procedural fixture; no model inference",
+  "source_sha256": {
+    "configs/cpf_suite_models.example.json": "a57b0063e60ce67c8f363254ae374197b1d335bbe7bea78a433ca68463d0d1f6",
+    "paper/cpf04_06_prospective_critique_suite.md": "cd11691852b9067a9b9f1844768f1c3cb96cd30fe154ce18ada97dd19ea47153",
+    "scripts/run_cpf_suite.py": "f16b18ca31175ceeb43bf76a7aab5d3f8a719ba48ffd5847d9e4fdd0e9f3e9bc",
+    "scripts/verify_evaluation_cpf_suite.py": "84b2a6d1b7114d781945b1d0f1c48a013d49a92096f35cdd9ac3ac4c0f2cd8fd",
+    "src/spiral_ln/evaluation_cpf_suite.py": "554ef2c9059c6435f86714cf17d67dbf5e8b4191264e7b8a5642b675fc37f1b6",
+    "tests/test_cpf_suite_runner.py": "5253bc7d55cbf284040faf26a2cb9cf390e8620d2222a1e7b5b9647f98deff84",
+    "tests/test_evaluation_cpf_suite.py": "cc007e352361cb431d126fcd2c8c35a8b1ef6d2006bd3a3adcfebde4b98d8549"
+  },
+  "split_counts": {
+    "dev": 512,
+    "test": 3072,
+    "train": 1536
+  }
+}

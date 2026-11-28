@@ -1,0 +1,219 @@
+{
+  "checks": {
+    "cost_forgery_rejected": true,
+    "duplicate_has_zero_new_credit": true,
+    "fake_goal_rejected": true,
+    "five_accepts": true,
+    "forged_receipt_rejected": true,
+    "goal_only_completed_on_sixth_call": true,
+    "goal_progress_rate_is_exact": true,
+    "irrelevant_lemma_has_zero_goal_credit": true,
+    "missing_run_retained_in_denominator": true,
+    "rejection_charged": true,
+    "seed_repeats_share_one_root": true,
+    "six_attempts_charged": true,
+    "zero_cost_rate_is_undefined": true
+  },
+  "evidence_level": "finite verified example",
+  "run_coverage_witness": [
+    {
+      "arm": "candidate",
+      "complete_trace_coverage": false,
+      "completed_runs_per_allocated_call": "1/12",
+      "completed_runs_per_call": null,
+      "cost_accounting_complete": false,
+      "duplicate_calls": 1,
+      "early_unsolved_runs": 1,
+      "goal_ancestor_facts_per_call": null,
+      "goal_ancestor_verified_facts": 3,
+      "independent_roots": 1,
+      "irrelevant_new_facts": 1,
+      "missing_runs": 1,
+      "model_seeds": 2,
+      "raw_acceptance_fraction": null,
+      "rejected_calls": 1,
+      "seed_runs": 2,
+      "solve_curve": [
+        {
+          "budget": 0,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 1,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 2,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 3,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 4,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 5,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 6,
+          "solve_fraction": "1/2",
+          "solved": 1
+        }
+      ],
+      "solve_fraction_exact": "1/2",
+      "solved_runs": 1,
+      "split": "development",
+      "unique_verified_facts": 4,
+      "verifier_calls": 6
+    },
+    {
+      "arm": "empty",
+      "complete_trace_coverage": false,
+      "completed_runs_per_allocated_call": "0",
+      "completed_runs_per_call": null,
+      "cost_accounting_complete": false,
+      "duplicate_calls": 0,
+      "early_unsolved_runs": 2,
+      "goal_ancestor_facts_per_call": null,
+      "goal_ancestor_verified_facts": 0,
+      "independent_roots": 1,
+      "irrelevant_new_facts": 0,
+      "missing_runs": 2,
+      "model_seeds": 2,
+      "raw_acceptance_fraction": null,
+      "rejected_calls": 0,
+      "seed_runs": 2,
+      "solve_curve": [
+        {
+          "budget": 0,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 1,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 2,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 3,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 4,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 5,
+          "solve_fraction": "0",
+          "solved": 0
+        },
+        {
+          "budget": 6,
+          "solve_fraction": "0",
+          "solved": 0
+        }
+      ],
+      "solve_fraction_exact": "0",
+      "solved_runs": 0,
+      "split": "development",
+      "unique_verified_facts": 0,
+      "verifier_calls": 0
+    }
+  ],
+  "schema": "EvalMath/cog08-audit/v1",
+  "source_sha256": {
+    "scripts/verify_cogentic_ledger.py": "e944933e92f91ef36f1e325554f25e0093850fddfdbc7ce443153a082096fd7e",
+    "src/spiral_ln/cogentic_ledger.py": "8fccc2b107a78b2cac0e7f18b76abea67198d05f868c595413eebd6bb8fc4c26"
+  },
+  "witness": {
+    "accepted": 5,
+    "budget": 6,
+    "calls": 6,
+    "duplicates": 1,
+    "empty_trace": false,
+    "family": "chain_with_distraction",
+    "final_known": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "first_solution_call": 6,
+    "goal_ancestor_facts_per_call": "1/2",
+    "goal_ancestor_verified_facts": 3,
+    "irrelevant_new_facts": 1,
+    "post_solution_calls": 0,
+    "prefixes": [
+      {
+        "calls": 0,
+        "goal_ancestor_facts": 0,
+        "solved": false,
+        "unique_facts": 0
+      },
+      {
+        "calls": 1,
+        "goal_ancestor_facts": 0,
+        "solved": false,
+        "unique_facts": 0
+      },
+      {
+        "calls": 2,
+        "goal_ancestor_facts": 0,
+        "solved": false,
+        "unique_facts": 1
+      },
+      {
+        "calls": 3,
+        "goal_ancestor_facts": 0,
+        "solved": false,
+        "unique_facts": 1
+      },
+      {
+        "calls": 4,
+        "goal_ancestor_facts": 1,
+        "solved": false,
+        "unique_facts": 2
+      },
+      {
+        "calls": 5,
+        "goal_ancestor_facts": 2,
+        "solved": false,
+        "unique_facts": 3
+      },
+      {
+        "calls": 6,
+        "goal_ancestor_facts": 3,
+        "solved": true,
+        "unique_facts": 4
+      }
+    ],
+    "rejected": 1,
+    "root_id": "accounting-witness",
+    "solved": true,
+    "split": "development",
+    "stopped_early_unsolved": false,
+    "task_id": "accounting-witness",
+    "unique_verified_facts": 4,
+    "unused_budget": 0,
+    "verified_facts_per_call": "2/3",
+    "world_sha256": "664dbc138a3fd9e80446c13d680c7ba54e1ac36808deebfd48dfcbcc4fc3d192"
+  }
+}

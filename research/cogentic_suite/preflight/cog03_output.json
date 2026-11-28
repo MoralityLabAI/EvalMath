@@ -1,0 +1,89 @@
+{
+  "calibration_solved_cases": {
+    "looped": 128,
+    "one_pass": 128,
+    "shuffled_history": 123
+  },
+  "causal_controls": {
+    "matched_sham": "absent",
+    "reset_history": "destructive memory ablation",
+    "reset_inner": "destructive inner-state ablation",
+    "shuffled_history": "destructive sensitivity control"
+  },
+  "causal_gate_open": false,
+  "checkpoint_seeds": [
+    17,
+    29
+  ],
+  "decision": "REDESIGN_OR_PILOT_ONLY",
+  "destructive_sensitivity_control": {
+    "affected_roots": 4,
+    "arm": "shuffled_history",
+    "confidence": "19/20",
+    "envelope_statistic": "maximum absolute seed-specific loss within each independent root",
+    "mean_completion_loss": "5/128",
+    "mean_completion_loss_percentage_points": 3.90625,
+    "observed_worst_seed_loss": "1",
+    "order_statistic_rank": 64,
+    "population_scope": "Conditional on fixed checkpoints and independent generated roots; this measures sensitivity to destructive permutation.",
+    "quantile": "19/20",
+    "role": "destructive sensitivity control",
+    "root_mean_loss_distribution": {
+      "0": 60,
+      "1": 1,
+      "1/2": 3
+    },
+    "upper_tolerance_bound": "1"
+  },
+  "estimated_resolvable_effect": null,
+  "estimated_roots_for_80_percent_power": null,
+  "evidence_class": "power-limited observation on trained tiny models and a synthetic finite Horn corpus",
+  "exact_evidence_provenance": "Producer receipts bind every attempt to a finite Horn interpreter. DataGoblin separately compiled all 256 source certificates in Lean 4.35.0. Those checks certify proof validity and source provenance.",
+  "experiment_id": "COG-03-retrospective-calibration",
+  "further_evidence_needed": "Collect physically matched development shams and an informative primary root contrast, freeze the comparison family, then evaluate new sealed roots after resolution planning.",
+  "matched_sham_confidence": null,
+  "matched_sham_floor": null,
+  "matched_sham_source": null,
+  "mean_primary_effect": "0",
+  "measurement_resolution": "1/128",
+  "mechanistic_variation_floor": null,
+  "n_cases": 128,
+  "n_units": 64,
+  "physical_dose": "Four tied inner passes with previous-decision state carry; one_pass uses one inner pass and no carry.",
+  "pilot_root_effect_sigma": 0,
+  "planned_and_actual_comparisons": {
+    "family_across_test_splits": 8,
+    "producer_declared_per_test_split": 4,
+    "producer_inferential_primary_reports": 2,
+    "producer_measured_arms_per_root": 8,
+    "retrospective_calibration_primary_contrasts": 1,
+    "test_splits": [
+      "ordinary_test",
+      "ood_test"
+    ]
+  },
+  "planner_execution": {
+    "exception": "ValueError",
+    "reason": "matched shams required per independent world",
+    "status": "input_rejected"
+  },
+  "power_limit": "All 64 primary root effects are zero, while matched-sham variation is unmeasured. Positive-effect power cannot be extrapolated from this pilot.",
+  "primary_contrast": "looped minus independently trained one_pass root completion within 24 verifier calls",
+  "primary_root_effect_distribution": {
+    "0": 64
+  },
+  "readout_selection_exposure": "calibration, ordinary_test and ood_test had been inspected before this diagnostic; only calibration rows enter this diagnostic; producer checkpoints and architecture remain unchanged",
+  "reasons": [
+    "matched_sham_calibration_absent",
+    "heldout_unsealed",
+    "retrospective_planning",
+    "zero_primary_effect_on_all_calibration_roots",
+    "zero_variance_pilot_power_uninformative"
+  ],
+  "recorded_at": "2026-11-25T23:43:17Z",
+  "schema": "COG03/retrospective-resolution-audit/v1",
+  "scientific_variation_floor": "1/10",
+  "scientific_variation_floor_percentage_points": 10,
+  "timing": "Retrospective: created after training, inspection of all producer readouts, and publication of producer PR 394.",
+  "unit": "source Horn DAG root; checkpoint seeds are repeated observations"
+}

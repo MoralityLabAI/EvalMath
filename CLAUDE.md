@@ -40,3 +40,7 @@ python scripts/check_receipts.py --all    # includes multigen --full-sweep and g
 
 The package is named `spiral_ln` for provenance (see `README.md`); do not rename it without
 regenerating every receipt.
+
+## Small-sample mechanistic evaluation preflight
+
+Before scoring or designing looped transformer, SAE, BPD or Hypergames experiments, **read `skills/evalmath-mechinterp-power/SKILL.md`**. Run its independent-world resolution planner and record the minimum meaningful causal variation, matched-sham calibration, familywise comparisons, effective sample size, sealing and statistical power. Treat repeated 64-case evaluations as exploratory when their independent-root variation exceeds the expected effect. Statistical significance and causal identification remain separate gates.

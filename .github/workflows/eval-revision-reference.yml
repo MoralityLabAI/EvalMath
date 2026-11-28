@@ -1,0 +1,22 @@
+name: EVAL-REV-01 independent source-only reference
+on:
+  push:
+    paths:
+      - 'research/delayed_revision_reference/**'
+      - '.github/workflows/eval-revision-reference.yml'
+  pull_request:
+    paths:
+      - 'research/delayed_revision_reference/**'
+      - '.github/workflows/eval-revision-reference.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/delayed_revision_reference -p 'test_*.py' -v

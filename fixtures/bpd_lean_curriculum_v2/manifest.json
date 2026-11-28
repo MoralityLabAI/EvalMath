@@ -1,0 +1,36 @@
+{
+  "cases": 288,
+  "depths": [
+    1,
+    2,
+    3
+  ],
+  "distinct_positive_normalized_hashes": 72,
+  "distinct_total_normalized_hashes": 288,
+  "families": [
+    "exact",
+    "rw",
+    "rcases",
+    "induction"
+  ],
+  "negative_refutations": 216,
+  "positive_theorems": 72,
+  "schema": "BPD-LG-01-v2",
+  "sha256": {
+    "dev.jsonl": "323f0d06ad4a611cb2646c6da4513507b974c26f2750d8da779eb735866c11cb",
+    "dev_negatives.lean": "c1757f630de5faf8d829579ef04501e466cf9395f105479f6f77b218b97c033c",
+    "dev_positives.lean": "cf4292bc1721d835437b432c3849e015f1ad713cff9e9a8e3b84d813b3ee2f22",
+    "test.jsonl": "bf60e3e20f5f7e9a141de3a5cdaae3373057ea75c784db58fdabec5e6cada096",
+    "test_negatives.lean": "cce3f7b54b2abe70a06efca9b27da29f915e75a5844c74f8fbdf685df47fa2c1",
+    "test_positives.lean": "a369c0fa5526cefe73bdbe2a68cec5b375d26b10a72a9ebc5ddc1ffad519ef34",
+    "train.jsonl": "c55b90214b0bfd6620d9fae6634d7f1a99d48d70df43ac3469f263db46884b2c",
+    "train_negatives.lean": "90982ecf147891427c8b32a87b377fa9431d88b8653f899e97360e8c67836e0f",
+    "train_positives.lean": "cd8e9ff66be106202c9b1b1877b9d8d244823e9d1b0511d6b0da53caab224bba"
+  },
+  "split_counts": {
+    "dev": 32,
+    "test": 50,
+    "train": 206
+  },
+  "zero_normalized_split_overlap": true
+}
