@@ -87,7 +87,7 @@ function selftest(){
  const biased=perfect.map((a,i)=>keys[i].actor===1?{...a,posterior:"1/1",action:"affirm"}:a);
  const drift=score(rows,biased);check(drift.diagnostics.actor.posterior_failures>0&&drift.diagnostics.actor.action_failures>0,"actor drift detection");
  let caught=false;try{score(rows,[perfect[0],perfect[0]])}catch{caught=true}check(caught,"duplicate detection");
- return {checks:11,items:rows.length,roots:36,split_items:splits.map(s=>s.length),perfect:p,drift_actor:drift.diagnostics.actor};
+ return {checks:12,items:rows.length,roots:36,split_items:splits.map(s=>s.length),perfect:p,drift_actor:drift.diagnostics.actor};
 }
 
 import fs from "node:fs";
