@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-26",
+  "focused_pytest": {
+    "command": "python -m pytest -q tests/test_cogentic_ledger.py tests/test_evaluation_finite_sample.py",
+    "passed": 28
+  },
+  "full_fast_receipt_registry": {
+    "command": "python scripts/check_receipts.py",
+    "exit_code": 1,
+    "passed": 33,
+    "scope": "Existing DCF-16 receipt cannot regenerate without its external corpus. All other registered fast receipts passed. The Cogentic receipt was rerun after final import cleanup.",
+    "total": 34,
+    "unavailable_dependency": "dcf16_decision: external Compactification-Theory/research/dcf16_decision_curriculum/MANIFEST.json",
+    "verifier_source_unchanged_from_base": true
+  },
+  "independent_replay": {
+    "comparisons": 14,
+    "decisions": 29788,
+    "episodes": 2048,
+    "missing_runs": 0
+  },
+  "native_lean": {
+    "compiled_proofs": 253,
+    "empty_axiom_lists": 253,
+    "episodes": 256,
+    "negative_sentinel_rejected": true,
+    "unsolved_runs_retained": 3,
+    "version": "4.35.0"
+  },
+  "registered_cogentic_receipt": {
+    "all_true": true,
+    "checks": 13,
+    "regenerates_identically": true,
+    "source_hashes_match": true
+  },
+  "ruff": {
+    "scope": "new ledger module, verifier, scorer, native exporter, tests, retrospective planner",
+    "status": "passed"
+  },
+  "schema": "CogenticSuite/local-validation/v1"
+}

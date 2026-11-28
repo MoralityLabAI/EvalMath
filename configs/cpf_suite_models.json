@@ -1,0 +1,11 @@
+{
+  "budget": 512,
+  "sampling_seed": "CPF05-v1",
+  "temperature": 0.3,
+  "models": {
+    "bonsai": {"url": "http://127.0.0.1:18110/v1", "model": "bonsai-2-27b-ptq1_0", "timeout": 900,
+               "request_extra": {"chat_template_kwargs": {"enable_thinking": true}}, "answer_reserve": 128},
+    "inky": {"url": "http://127.0.0.1:18111/v1", "model": "inky-mini-varloop", "timeout": 900,
+             "request_extra": {"chat_template_kwargs": {"enable_thinking": true}}, "answer_reserve": 128}
+  }
+}

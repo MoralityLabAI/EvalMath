@@ -1,0 +1,51 @@
+name: NW-01 exact public-pair Brier and authenticated-witness information boundary
+
+on:
+  push:
+    branches:
+      - research/nw01-paired-information-bound-20261118
+    paths:
+      - 'src/spiral_ln/evaluation_nw01_paired_information.py'
+      - 'tests/test_evaluation_nw01_paired_information.py'
+      - 'paper/nw01_recurrent_paired_information.md'
+      - '.github/workflows/nw01-paired-information.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/evaluation_nw01_paired_information.py'
+      - 'tests/test_evaluation_nw01_paired_information.py'
+      - 'paper/nw01_recurrent_paired_information.md'
+      - '.github/workflows/nw01-paired-information.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  exact_binary_world_information:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run exact-rational paired accuracy and Brier tests without neural model
+        run: |
+          PYTHONPATH=src python -m unittest discover -s tests \
+            -p 'test_evaluation_nw01_paired_information.py' -v
+      - name: Compile exact module and emit pure finite 64-pair gate diagnostic
+        run: |
+          python -m compileall -q src/spiral_ln/evaluation_nw01_paired_information.py
+          PYTHONPATH=src python - <<'PY'
+          from fractions import Fraction
+          from spiral_ln.evaluation_nw01_paired_information import (
+             PairedWorld,equal_prior_public_only_summary,
+             finite_world_check,witness_classification_responses)
+          a=[PairedWorld(str(i),(1,i%3),(-2,-1,1,2)[i%4])
+             for i in range(64)]
+          assert finite_world_check(a,8)['public_only_accuracy']=='1/2'
+          assert witness_classification_responses(a)==1
+          b=equal_prior_public_only_summary([Fraction(1,2)]*64)
+          assert b['mean_brier']==Fraction(1,4)
+          assert b['source_pairs']==64 and b['world_cases']==128
+          print('NW-01 EXACT 64-PAIR FIREWALL AND BRIER 1/4 PASS')
+          PY

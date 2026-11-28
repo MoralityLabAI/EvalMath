@@ -1,0 +1,76 @@
+name: RH source witness lineage and exact feasibility
+
+on:
+  push:
+    paths:
+      - 'src/spiral_ln/rh_window_feasibility.py'
+      - 'src/spiral_ln/rh_witness_lineage.py'
+      - 'tests/test_rh_window_feasibility.py'
+      - 'tests/test_rh_witness_lineage.py'
+      - 'src/spiral_ln/rh_joint_scalar_envelope.py'
+      - 'tests/test_rh_joint_scalar_envelope.py'
+      - '.github/workflows/rh-witness-lineage.yml'
+  pull_request:
+    paths:
+      - 'src/spiral_ln/rh_window_feasibility.py'
+      - 'src/spiral_ln/rh_witness_lineage.py'
+      - 'tests/test_rh_window_feasibility.py'
+      - 'tests/test_rh_witness_lineage.py'
+      - '.github/workflows/rh-witness-lineage.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  witness-structure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: evalmath
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: leanprover-community/riemann-hypothesis
+          ref: f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3
+          path: upstream
+          persist-credentials: false
+          sparse-checkout: |
+            src
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: CPU unit tests
+        working-directory: evalmath
+        run: |
+          python -m pip install -e '.[test]'
+          python -m pytest -q tests/test_rh_window_feasibility.py tests/test_rh_witness_lineage.py tests/test_rh_joint_scalar_envelope.py
+      - name: Exact rational feasibility and negative controls
+        working-directory: evalmath
+        run: |
+          mkdir -p rh-witness
+          python -m spiral_ln.rh_window_feasibility \
+            --source-root ../upstream \
+            --levels 5 --output rh-witness/exact-scalar-witnesses.json
+      - name: Check LargeX and SmallCosts sufficient scalar envelopes
+        working-directory: evalmath
+        run: |
+          python -m spiral_ln.rh_joint_scalar_envelope \
+            --source-root ../upstream \
+            --output rh-witness/joint-scalar-envelope.json
+      - name: Trace witness source declarations over complete pinned tree
+        working-directory: evalmath
+        run: |
+          python -m spiral_ln.rh_witness_lineage \
+            --source-root ../upstream \
+            --output rh-witness/witness-symbol-lineage.json
+      - name: Upload source attested feasibility and witness lineage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rh-witness-feasibility-lineage
+          path: evalmath/rh-witness/
+          if-no-files-found: ignore

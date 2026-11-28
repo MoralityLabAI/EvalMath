@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "kind": "published_compiled_Lean_expression_direct_refs",
+  "scope": "two analytic theorem roots only; bounded breadth-first reference expansion",
+  "source_commit": "f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3",
+  "evalmath_source_commit": "8939b7fc40a31ad0ab39da352580d33dc6194c3a",
+  "run_url": "https://github.com/MoralityLabAI/EvalMath/actions/runs/44897842450",
+  "raw_artifact_url": "https://github.com/MoralityLabAI/EvalMath/actions/runs/44897842450/artifacts/14704960346",
+  "raw_json_sha256": "b193e16ce3d824008b5b17217a282c174cd45c0cbefa53d9bf3c2f0852570093",
+  "source_anchors_matched": 6,
+  "selected_cache_modules": 143,
+  "selected_cache_artifact_sha256s_verified": 143,
+  "published_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+  "proof_term_data": true,
+  "roots": [
+    {
+      "id": "analytic_window",
+      "lean_constant": "Deduction.zeroFree_of_rpow_window",
+      "import_closure_modules": 30,
+      "direct_type_refs": 29,
+      "direct_value_refs": 30,
+      "visited_nodes": 22,
+      "emitted_edges": 2139,
+      "truncated": false,
+      "depth_limited": true,
+      "observed_direct_theorem_value_refs": [
+        "Deduction.lemmaL",
+        "Deduction.windowHyp_of_rpow"
+      ],
+      "verified_second_hop_references": {
+        "Deduction.lemmaL": [
+          "Deduction.landau_window",
+          "Deduction.windowHypU_of_windowHyp",
+          "Deduction.charFamily_LFunction_ne_zero_of_one_le_re"
+        ],
+        "Deduction.windowHyp_of_rpow": [
+          "Deduction.windowHyp_of_rpow_eventually"
+        ]
+      }
+    },
+    {
+      "id": "weighted_bound",
+      "lean_constant": "UpperTheory.Comparison₂.core_gm",
+      "import_closure_modules": 115,
+      "direct_type_refs": 40,
+      "direct_value_refs": 424,
+      "visited_nodes": 120,
+      "emitted_edges": 5621,
+      "queued_nodes": 403,
+      "truncated": true,
+      "depth_limited": true,
+      "observed_direct_theorem_value_refs": [
+        "Deduction.ch_core",
+        "Formalism.LFunctionChainParameters.LErr.large_x_eventually",
+        "Formalism.LFunctionChainParameters.LErr.ErrWindows._proof_1",
+        "Formalism.LFunctionChainParameters.LErr.ErrWindows0._proof_1",
+        "Formalism.LFunctionChainParameters.LErr.CErr._proof_1",
+        "Formalism.LFunctionChainParameters.LErr.KBig._proof_1",
+        "UpperTheory.Comparison₂.hostFactsS",
+        "UpperTheory.Comparison₂.charsA",
+        "Deduction.ch_top",
+        "UpperTheory.Comparison₂.sigA_le",
+        "UpperTheory.Comparison₂.gmA_eq"
+      ],
+      "verified_second_hop_references": {
+        "Deduction.ch_core": [
+          "Formalism.LFunctionChainParameters.ThickSetMeanBounds.derivative_integral_all",
+          "Deduction.CharacterBalanceMoves.core",
+          "Formalism.LFunctionChainParameters.ThickSetMeanBounds.proposition_size_bound"
+        ],
+        "Deduction.ch_top": [
+          "Deduction.ch_top_main_eq",
+          "Formalism.LFunctionChainParameters.WeightedSlopeBounds.each_unit_bound_statement",
+          "Formalism.LFunctionChainParameters.LChain.errX5at_le"
+        ]
+      }
+    }
+  ],
+  "caveats": [
+    "Observed direct value references are not mathematically necessary lemmas.",
+    "Theorem-ref lists cover project theorems classified among visited nodes; root value_refs also include definitions, lemmas and Mathlib tactics.",
+    "The core_gm graph reached its max_nodes=120 limit and is incomplete at depth two.",
+    "The Landau graph reached depth 2 with depth_limited=true.",
+    "Published cache is SHA-verified but not independently rebuilt by this run."
+  ]
+}

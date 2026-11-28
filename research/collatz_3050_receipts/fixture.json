@@ -1,0 +1,273 @@
+{
+  "cases": [
+    {
+      "all_same_basin": false,
+      "case_id": "COL3050-d000013-h1-arithmetic",
+      "current_observer": {
+        "branch_multiplier": 3,
+        "quotient": 1
+      },
+      "d": 13,
+      "effect_donor": {
+        "basin": 5,
+        "future_branch": 1,
+        "label": "B",
+        "n": 5,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000013, start=000005, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          5,
+          7
+        ]
+      },
+      "horizon": 1,
+      "label_map": {
+        "1": "B",
+        "3": "A"
+      },
+      "recipient": {
+        "basin": 1,
+        "future_branch": 3,
+        "label": "A",
+        "n": 1,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000013, start=000001, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          1,
+          1
+        ]
+      },
+      "root_id": 13,
+      "selection_role": "cross_basin_calibration",
+      "sham_donor": {
+        "basin": 5,
+        "future_branch": 3,
+        "label": "A",
+        "n": 9,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000013, start=000009, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          9,
+          5
+        ]
+      },
+      "tier": "arithmetic"
+    },
+    {
+      "all_same_basin": true,
+      "case_id": "COL3050-d000073-h1-arithmetic",
+      "current_observer": {
+        "branch_multiplier": 3,
+        "quotient": 1
+      },
+      "d": 73,
+      "effect_donor": {
+        "basin": 3,
+        "future_branch": 3,
+        "label": "A",
+        "n": 9,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000073, start=000009, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          9,
+          25
+        ]
+      },
+      "horizon": 1,
+      "label_map": {
+        "1": "B",
+        "3": "A"
+      },
+      "recipient": {
+        "basin": 3,
+        "future_branch": 1,
+        "label": "B",
+        "n": 1,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000073, start=000001, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          1,
+          19
+        ]
+      },
+      "root_id": 73,
+      "selection_role": "same_basin_exact_trace_sham",
+      "sham_donor": {
+        "basin": 3,
+        "future_branch": 1,
+        "label": "B",
+        "n": 37,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000073, start=000037, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          37,
+          23
+        ]
+      },
+      "tier": "arithmetic"
+    },
+    {
+      "all_same_basin": true,
+      "case_id": "COL3050-d000017-h1-arithmetic",
+      "current_observer": {
+        "branch_multiplier": 1,
+        "quotient": 1
+      },
+      "d": 17,
+      "effect_donor": {
+        "basin": 1,
+        "future_branch": 1,
+        "label": "B",
+        "n": 7,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000017, start=000007, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          7,
+          3
+        ]
+      },
+      "horizon": 1,
+      "label_map": {
+        "1": "B",
+        "3": "A"
+      },
+      "recipient": {
+        "basin": 1,
+        "future_branch": 3,
+        "label": "A",
+        "n": 3,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000017, start=000003, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          3,
+          5
+        ]
+      },
+      "root_id": 17,
+      "selection_role": "same_basin_development",
+      "sham_donor": {
+        "basin": 1,
+        "future_branch": 3,
+        "label": "A",
+        "n": 15,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000017, start=000015, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          15,
+          1
+        ]
+      },
+      "tier": "arithmetic"
+    },
+    {
+      "all_same_basin": true,
+      "case_id": "COL3050-d000025-h1-arithmetic",
+      "current_observer": {
+        "branch_multiplier": 1,
+        "quotient": 1
+      },
+      "d": 25,
+      "effect_donor": {
+        "basin": 1,
+        "future_branch": 3,
+        "label": "A",
+        "n": 7,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000025, start=000007, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          7,
+          1
+        ]
+      },
+      "horizon": 1,
+      "label_map": {
+        "1": "B",
+        "3": "A"
+      },
+      "recipient": {
+        "basin": 1,
+        "future_branch": 1,
+        "label": "B",
+        "n": 3,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000025, start=000003, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          3,
+          7
+        ]
+      },
+      "root_id": 25,
+      "selection_role": "same_basin_development",
+      "sham_donor": {
+        "basin": 1,
+        "future_branch": 1,
+        "label": "B",
+        "n": 19,
+        "prompt": "For odd x, set t=3*x+d when x mod 4=1, otherwise t=x+d. Divide t by 2 until odd; this is one step. Use d=000025, start=000019, steps=1. For the final x, answer A if x mod 4=1, or B if x mod 4=3. Reply with one letter. Answer:",
+        "trace": [
+          19,
+          11
+        ]
+      },
+      "tier": "arithmetic"
+    }
+  ],
+  "manifest_sha256": "0684ee7dc6c9663721eceb7f3528bb71dd9d49a9da0432b18bfc175762c57c39",
+  "n_cases": 4,
+  "n_roots": 4,
+  "root_ids": [
+    13,
+    73,
+    17,
+    25
+  ],
+  "schema": "BPD-COL-02/public-development-cases/v1",
+  "screening": [
+    {
+      "d": 13,
+      "eligible": true,
+      "horizon": 1,
+      "role": "cross_basin_calibration"
+    },
+    {
+      "d": 73,
+      "eligible": true,
+      "horizon": 1,
+      "role": "same_basin_exact_trace_sham"
+    },
+    {
+      "d": 1,
+      "eligible": false,
+      "horizon": 1,
+      "reason": "no_same_basin_triplet"
+    },
+    {
+      "d": 5,
+      "eligible": false,
+      "horizon": 1,
+      "reason": "no_same_basin_triplet"
+    },
+    {
+      "d": 17,
+      "eligible": true,
+      "horizon": 1,
+      "role": "same_basin_development"
+    },
+    {
+      "d": 25,
+      "eligible": true,
+      "horizon": 1,
+      "role": "same_basin_development"
+    }
+  ],
+  "source": {
+    "commit": "b3eb33ed10485264fe7a593e3b0ace418d9f9a6d",
+    "oracle_sha256": "24ff52171aedf890c33439896ab5e71de65d9b05d557ba61d162f3623aa5dbca",
+    "repository": "patrickdugan/MathCan"
+  },
+  "specification": {
+    "cases_per_root": 1,
+    "confirmation_authorized": false,
+    "horizons": [
+      1
+    ],
+    "information_contract": "seed is supplied; bounded computation or explicit trace readout",
+    "label_assignment": "alternate recipient A/B; displayed mapping in prompt",
+    "max_parameter": 1025,
+    "requested_roots": 4,
+    "selection": "deterministic exact oracle, before any model outcomes",
+    "source_population": "public previously exposed d<=1025 development",
+    "split": "development_only",
+    "tier": "arithmetic",
+    "unit": "parameter d; repeated cases and intervention arms share that root"
+  }
+}

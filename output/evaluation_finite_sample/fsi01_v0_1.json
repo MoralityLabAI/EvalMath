@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "conservative_planning_n": true,
+    "cp_64of64_is_outward": true,
+    "eight_roots_blocks_confirmation": true,
+    "exact_paired_p": true,
+    "iid_64_primary_confirms": true,
+    "reused_readout_blocks_confirmation": true,
+    "root_test_is_exact": true
+  },
+  "evidence_level": "synthetic exact arithmetic + finite code tests",
+  "experiment": "FSI-01",
+  "numbers": {
+    "eight_root_p": "1/64",
+    "independent_accuracy_cp_lower_outward": "247461/262144",
+    "n_bernoulli_95_halfwidth_5pct": 738,
+    "paired_p_exact": "247/32768"
+  },
+  "source_sha256": {
+    "paper/finite_sample_inference.md": "2be651eece0d7a8a332a9868e43e33e071a81ffc0973d10448e101371854e273",
+    "scripts/verify_evaluation_finite_sample.py": "20d5c8c9788bac181f3fc4f5b268cbb85333b1a3423f4134f7e0a5d634483dcf",
+    "src/spiral_ln/evaluation_finite_sample.py": "b882e762b6f762540a1551a355ee698d3845609922d3fe577dd78396df1c17c6",
+    "tests/test_evaluation_finite_sample.py": "c07cab45ab32d82cf718e16ed5af47bb3507a82216e47de4f6a11b8230c84661"
+  }
+}

@@ -1,0 +1,38 @@
+name: EVAL-AUTH-03 exact noisy audit
+on:
+  pull_request:
+    paths:
+      - 'src/spiral_ln/evaluation_noisy_authorization.py'
+      - 'tests/test_evaluation_noisy_authorization.py'
+      - 'scripts/verify_eval_auth03.py'
+      - 'paper/noisy_authorization_audit_budget.md'
+      - '.github/workflows/eval-auth03.yml'
+  push:
+    paths:
+      - 'src/spiral_ln/evaluation_noisy_authorization.py'
+      - 'tests/test_evaluation_noisy_authorization.py'
+      - 'scripts/verify_eval_auth03.py'
+      - 'paper/noisy_authorization_audit_budget.md'
+      - '.github/workflows/eval-auth03.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rational:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install tests
+        run: python -m pip install -e '.[test]'
+      - name: Independent exact rational tests
+        run: python -m pytest tests/test_evaluation_noisy_authorization.py -q
+      - name: Source-hashed receipt
+        run: PYTHONPATH=src python scripts/verify_eval_auth03.py --output "${{ runner.temp }}/eval_auth03.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eval-auth03-exact-receipt
+          path: ${{ runner.temp }}/eval_auth03.json

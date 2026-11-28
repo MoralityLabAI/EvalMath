@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "source_repository": "leanprover-community/riemann-hypothesis",
+  "source_commit": "f150e02623b1e2bbe1f1da8eab5ffee5e930a6a3",
+  "source_file": "src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChCore.lean",
+  "source_blob": "878f5077bc382426c7da988e5a375b85deeaa7de",
+  "cache_manifest_sha256": "292caa386a620d935cfc736b56fcceaab9fe7073086693b62e899c1ee4725f04",
+  "run_url": "https://github.com/MoralityLabAI/EvalMath/actions/runs/44899211767",
+  "artifact_url": "https://github.com/MoralityLabAI/EvalMath/actions/runs/44899211767/artifacts/14705705959",
+  "artifact_graph_json_sha256": "b80615a2d3f05d6862cb57c0d410b7e950b0ebfa29d35aa000c9e121b6aed9ba",
+  "module_count": 55,
+  "cache_artifacts_sha256_verified": 55,
+  "proof_term_data": true,
+  "method": "Lean 4.33.1 elaborated theorem Expr.getUsedConstants for types and values",
+  "roots": [
+    {
+      "id": "balance_core",
+      "constant": "Deduction.CharacterBalanceMoves.core",
+      "type_ref_count": 72,
+      "value_ref_count": 368,
+      "expanded_nodes": 26,
+      "depth_limited": true,
+      "truncated": false,
+      "observed_math_value_refs": [
+        "Deduction.CharacterBalanceMoves.sum_Th",
+        "Deduction.CharacterBalanceMoves.th_le",
+        "Deduction.ch_balance",
+        "Formalism.LFunctionChainParameters.ThickSetMeanBounds.lipschitz_weight_all"
+      ]
+    },
+    {
+      "id": "size_bound",
+      "constant": "Formalism.LFunctionChainParameters.ThickSetMeanBounds.proposition_size_bound",
+      "type_ref_count": 1,
+      "type_constant": "Formalism.LFunctionChainParameters.ThickSetMeanBounds.GrowthSizeBound",
+      "value_ref_count": 337,
+      "expanded_nodes": 13,
+      "depth_limited": true,
+      "truncated": false,
+      "observed_math_value_refs": [
+        "Formalism.LFunctionChainParameters.ThickSetMeanBounds.SZ.T1",
+        "Formalism.LFunctionChainParameters.ThickSetMeanBounds.SZ.T2",
+        "Formalism.LFunctionChainParameters.ThickSetMeanBounds.SZ.T3",
+        "Formalism.LFunctionChainParameters.ThickSetMeanBounds.SZ.T4",
+        "Formalism.LFunctionChainParameters.ThickSetMeanBounds.SZ.rp"
+      ]
+    }
+  ],
+  "caveat": "Original compiled-cache expression references, not a minimal necessary proof dependency graph or independent clean compilation."
+}

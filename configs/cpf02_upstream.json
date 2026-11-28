@@ -1,0 +1,82 @@
+{
+  "schema": "CPF-02-pins.0",
+  "sources": [
+    {
+      "repository": "openai/math",
+      "commit": "f5702854040e97fa7675c21ba37a9608f5f92dd3",
+      "upstream_path": "lean/ComparatorChallenges/VPVNP.lean",
+      "path": "fixtures/external/cpf02/openai/Comparator.lean",
+      "git_blob_sha": "617a845fc5b66da1635e73fbcbe6e6ca83fc0b90"
+    },
+    {
+      "repository": "openai/math",
+      "commit": "f5702854040e97fa7675c21ba37a9608f5f92dd3",
+      "upstream_path": "lean/OAI/Computability/VPVNP/ClassSeparation.lean",
+      "path": "fixtures/external/cpf02/openai/ClassSeparation.lean",
+      "git_blob_sha": "513ce5b4c02108143cadee0e1e612156349d2202"
+    },
+    {
+      "repository": "openai/math",
+      "commit": "f5702854040e97fa7675c21ba37a9608f5f92dd3",
+      "upstream_path": "lean/docs/379.md",
+      "path": "fixtures/external/cpf02/openai/Scope.md",
+      "git_blob_sha": "e138903e12a699f43601678a3a5153c607041e7c"
+    },
+    {
+      "repository": "openai/math",
+      "commit": "f5702854040e97fa7675c21ba37a9608f5f92dd3",
+      "upstream_path": "preprints/VP-and-VNP-are-different-November-23-2026/README.md",
+      "path": "fixtures/external/cpf02/openai/PaperREADME.md",
+      "git_blob_sha": "d1803d08a4831d63e986cf2a67a84c81cea27714"
+    },
+    {
+      "repository": "openai/math",
+      "commit": "f5702854040e97fa7675c21ba37a9608f5f92dd3",
+      "upstream_path": "LICENSE",
+      "path": "fixtures/external/cpf02/openai/LICENSE",
+      "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "repository": "anthropics/formal-math",
+      "commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+      "upstream_path": "vp-vnp/Statement.lean",
+      "path": "fixtures/external/cpf02/anthropic/Statement.lean",
+      "git_blob_sha": "e64db90a929defe35d5b76d6eaa9bc0c87843ad3"
+    },
+    {
+      "repository": "anthropics/formal-math",
+      "commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+      "upstream_path": "vp-vnp/Challenge.lean",
+      "path": "fixtures/external/cpf02/anthropic/Challenge.lean",
+      "git_blob_sha": "4bdf5196eb3660e259f858954f2d4e6c89ce1adb"
+    },
+    {
+      "repository": "anthropics/formal-math",
+      "commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+      "upstream_path": "vp-vnp/Solution.lean",
+      "path": "fixtures/external/cpf02/anthropic/Solution.lean",
+      "git_blob_sha": "f3244ce6578809af47489210bd270af0e0aef400"
+    },
+    {
+      "repository": "anthropics/formal-math",
+      "commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+      "upstream_path": "vp-vnp/README.md",
+      "path": "fixtures/external/cpf02/anthropic/README.md",
+      "git_blob_sha": "20bb96a82948c9e04ebba09a7b3ee46929cbda8b"
+    },
+    {
+      "repository": "anthropics/formal-math",
+      "commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+      "upstream_path": "vp-vnp/LICENSE",
+      "path": "fixtures/external/cpf02/anthropic/LICENSE",
+      "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "repository": "anthropics/formal-math",
+      "commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+      "upstream_path": "vp-vnp/NOTICE",
+      "path": "fixtures/external/cpf02/anthropic/NOTICE",
+      "git_blob_sha": "19f7fc0dd9ecc46f2de6c35ec26c94b9816ffdda"
+    }
+  ]
+}

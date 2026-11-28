@@ -1,0 +1,30 @@
+name: AIRIS native MeTTa
+on:
+  push:
+    paths: ['gyms/AIRIS/**', '.github/workflows/airis-metta.yml']
+  pull_request:
+    paths: ['gyms/AIRIS/**', '.github/workflows/airis-metta.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  metta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install hyperon==0.2.10
+      - run: python -m unittest discover -s gyms/AIRIS -p test_metta_bridge.py -v
+      - name: Generate native receipt twice
+        run: |
+          python gyms/AIRIS/metta_bridge.py > AIRIS-05.json
+          python gyms/AIRIS/metta_bridge.py > /tmp/AIRIS-05.json
+          cmp AIRIS-05.json /tmp/AIRIS-05.json
+          python -c 'import json; r=json.load(open("AIRIS-05.json")); print({k:r[k] for k in ("hyperon_version","public_single_episode_cases","lifecycle_cases","native_queries")})'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AIRIS-05-native-metta
+          path: AIRIS-05.json

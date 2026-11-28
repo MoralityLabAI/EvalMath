@@ -1,0 +1,42 @@
+name: ROC-01 EvalMath observer type and evidence scorer
+on:
+  push:
+    paths:
+      - 'research/observer_calculus/**'
+      - 'tests/test_roc01_evaluator.py'
+      - '.github/workflows/roc01-evalmath.yml'
+  pull_request:
+    paths:
+      - 'research/observer_calculus/**'
+      - 'tests/test_roc01_evaluator.py'
+      - '.github/workflows/roc01-evalmath.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-intervention-separation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject unverified ROC cards and score BPD-01 exact cover
+        env:
+          PYTHONPATH: src:.
+        run: |
+          python -m compileall -q research/observer_calculus
+          python -m unittest tests.test_roc01_evaluator -v
+      - name: Export hypothetical five-type intervention-card receipt
+        env:
+          PYTHONPATH: src:.
+        run: |
+          python - <<'PY'
+          import json
+          from research.observer_calculus.roc01_evaluator import idealized_example
+          r=idealized_example()
+          assert r["min_cost"]==3
+          assert r["causal_identification_ready"] is False
+          print(json.dumps(r,sort_keys=True))
+          PY

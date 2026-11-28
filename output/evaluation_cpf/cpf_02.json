@@ -1,0 +1,28 @@
+{
+  "census": {
+    "field_program_checks": {
+      "0": 12,
+      "1": 720,
+      "2": 64800
+    },
+    "maximum_charged_gates": {
+      "0": 2,
+      "1": 6,
+      "2": 10
+    }
+  },
+  "checks": {
+    "formal_polynomial_equality": true,
+    "gate_budget": true
+  },
+  "schema": "CPF-02.0",
+  "scope": "finite compiler census, not upstream proof verification",
+  "source_sha256": {
+    "lean/FeedbackChannel/CPF02/Bridges.lean": "f2442b9bc28701fa7389bbc8fed1c0c8bc1000ca3bb28d0fb53c610eb22d354b",
+    "lean/FeedbackChannel/CPF02/Canonical.lean": "871d2552a54cc18d4db62389533e423b8c23cbd0dabb1a2e81a6d1fdc41671e8",
+    "paper/cpf02_canonical_circuit_bridge.md": "a729340cc5ac4a85a11da8fa6fde85511b8d0cc3864c1fdc7d46347a188e153b",
+    "scripts/verify_evaluation_cpf02.py": "1ce220bef477a37b723474d098a5a63a7bd329b2651d9fbfa429fb96a31a3715",
+    "src/spiral_ln/evaluation_cpf02.py": "bc20223e1796a88dd499c063bc9306a0dfd2f71127a97d6cc95e572096fe1292",
+    "tests/test_evaluation_cpf02.py": "74d197c5d937dd7ac59ed492604e70bc7bd32ee2887b8e43067e6e0b21f0a65c"
+  }
+}
