@@ -360,3 +360,57 @@ def write_pack(out, public, gold, *, seed, split, profile):
           "generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
     (out/"manifest.json").write_text(json.dumps(meta,indent=2,sort_keys=True)+"\n",encoding="utf-8")
     return meta
+
+
+def score_pack(public, gold, predictions):
+    """Score one submission against a frozen exact fixture pack, without imputing misses.
+
+    Expected prediction shape: {"task_id": "...", "answer": {...}}.
+    Rational fields accept equivalent exact fraction strings or integer values;
+    booleans, lists and null retain their declared types. Unknown and duplicate
+    IDs fail closed. Missing/invalid rows stay in the denominator.
+    """
+    def index(rows):
+        result = {}
+        for row in rows:
+            key = row["task_id"]
+            if key in result:
+                raise ValueError("duplicate task ID")
+            result[key] = row
+        return result
+
+    def equal(expected, actual):
+        if isinstance(expected, bool) or expected is None:
+            return expected is actual
+        if isinstance(expected, int):
+            return type(actual) is int and expected == actual
+        if isinstance(expected, str):
+            try:
+                return type(actual) in (int, str) and F(expected) == F(actual)
+            except (ValueError, ZeroDivisionError):
+                return expected == actual
+        if isinstance(expected, list):
+            return isinstance(actual, list) and len(expected) == len(actual) and all(
+                equal(a, b) for a, b in zip(expected, actual))
+        if isinstance(expected, dict):
+            return isinstance(actual, dict) and expected.keys() == actual.keys() and all(
+                equal(v, actual[k]) for k, v in expected.items())
+        return False
+
+    tasks, answers, guesses = map(index, (public, gold, predictions))
+    if tasks.keys() != answers.keys() or not guesses.keys() <= tasks.keys():
+        raise ValueError("mismatched task/gold/prediction identities")
+    scores = defaultdict(lambda: {"correct": 0, "total": 0, "missing": 0})
+    for key, row in tasks.items():
+        stat = scores[row["family"]]
+        stat["total"] += 1
+        if key not in guesses:
+            stat["missing"] += 1
+        elif equal(answers[key]["answer"], guesses[key].get("answer")):
+            stat["correct"] += 1
+    total = len(tasks)
+    correct = sum(v["correct"] for v in scores.values())
+    return {"schema": SCHEMA, "evidence": "exact fixture answer agreement",
+            "correct": correct, "total": total,
+            "accuracy": str(F(correct, total)) if total else None,
+            "families": dict(scores)}
