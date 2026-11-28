@@ -74,3 +74,27 @@ jobs:
         run: |
           lake env lean axioms_check.lean > axioms.out 2>&1 || true
           python3 ../scripts/check_lean_axioms.py axioms.out axioms_check.lean
+      - name: VAD-05 isolated kernel replay
+        run: lake env python3 ../scripts/verify_vad_lean.py --out /tmp/vad05_kernel --lean lean
+      - name: Upload VAD-05 kernel receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vad05-kernel-receipt
+          path: |
+            /tmp/vad05_kernel/receipt.json
+            /tmp/vad05_kernel/kernel.json
+            /tmp/vad05_kernel/manifest.json
+          if-no-files-found: warn
+      - name: VAD-06 Horn kernel replay
+        run: lake env python3 ../scripts/verify_vad_horn.py --out /tmp/vad06_kernel --lean lean
+      - name: Upload VAD-06 kernel receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vad06-kernel-receipt
+          path: |
+            /tmp/vad06_kernel/receipt.json
+            /tmp/vad06_kernel/kernel.json
+            /tmp/vad06_kernel/manifest.json
+          if-no-files-found: warn

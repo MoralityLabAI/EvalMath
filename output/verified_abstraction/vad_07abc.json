@@ -1,0 +1,44 @@
+{
+  "protocols": [
+    "VAD-07A",
+    "VAD-07B",
+    "VAD-07C"
+  ],
+  "evidence": "exact finite Bayesian stopping plus synthetic Horn reference-cost model",
+  "A": {
+    "source_sha256": "5770d5a97a8ac3fceec938f24a4feb12fb29617a8416887825c6ac6b2644c825",
+    "receipt_sha256": "65add9511cbaa3650e84bff0cde4f9fc51d83fbec67402cfa518e6ae270838c0",
+    "checks": 117,
+    "training_trajectories": 512,
+    "base_cutoff": 2,
+    "scenario_policy_cells": 56
+  },
+  "B": {
+    "source_sha256": "bd8bf7498cd1dcbc8bca0120347d9bff28ba92cf83196ab9410e456429e4a3fc",
+    "receipt_sha256": "fdbb2ef1c12c3b1f785bc8e58e72808199628c440bf0599d82ea7e3c511485a9",
+    "checks": 11,
+    "pure_policy": "cut_2",
+    "protected_worst": "89/10",
+    "scenario_policy_cells": 112
+  },
+  "C": {
+    "source_sha256": "a2feaf996c209bb3e7cad87e2863ce04986ea6f8f686562e0306dbcba83f5728",
+    "receipt_sha256": "2706605324bb62e54ea40f37e2a3a1ba00cd491eff1b46173a3646bcd71beb56",
+    "calibration_families": 256,
+    "test_families": 512,
+    "checks": 2036550,
+    "fixed_cap": 24,
+    "cue_caps": {
+      "empty": 64,
+      "nonempty": 2
+    },
+    "weighted_base_baseline": 19289750,
+    "weighted_base_fixed": 17760955,
+    "weighted_base_cue": 15385990,
+    "weighted_base_cap64": 17958940,
+    "dependencies": {
+      "verify_vad_ancestor.py": "cc1a1cb9cd52e883cc615b6049cc6dc3c8c5ab7004c703db502cae98052cb4fa",
+      "verify_vad_horn.py": "0aa32bf2fe6661119c081f7365534070bbe7ddf907c988f14f22ad42e60be2e6"
+    }
+  }
+}

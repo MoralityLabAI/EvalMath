@@ -1,0 +1,144 @@
+{
+  "evidence": "finite exact synthetic control",
+  "exhaustive_cost_checks": 4096,
+  "families": 32,
+  "protocol": "VAD-01A",
+  "source_sha256": "4f4cabb568513b82131a436de854b0e8c2bd6d4cd39c5978ae9b96314c74c46b",
+  "summary": [
+    {
+      "baseline": 2560,
+      "gain": "16/17",
+      "horizon": 4,
+      "oracle": 1664,
+      "profitable": 4,
+      "regime": "shared",
+      "selected": 2720
+    },
+    {
+      "baseline": 5120,
+      "gain": "1280/1033",
+      "horizon": 8,
+      "oracle": 2944,
+      "profitable": 32,
+      "regime": "shared",
+      "selected": 4132
+    },
+    {
+      "baseline": 10240,
+      "gain": "128/87",
+      "horizon": 16,
+      "oracle": 5504,
+      "profitable": 32,
+      "regime": "shared",
+      "selected": 6960
+    },
+    {
+      "baseline": 20480,
+      "gain": "160/99",
+      "horizon": 32,
+      "oracle": 10624,
+      "profitable": 32,
+      "regime": "shared",
+      "selected": 12672
+    },
+    {
+      "baseline": 40960,
+      "gain": "10240/5999",
+      "horizon": 64,
+      "oracle": 20864,
+      "profitable": 32,
+      "regime": "shared",
+      "selected": 23996
+    },
+    {
+      "baseline": 2560,
+      "gain": "1280/1909",
+      "horizon": 4,
+      "oracle": 1664,
+      "profitable": 0,
+      "regime": "shifted",
+      "selected": 3818
+    },
+    {
+      "baseline": 5120,
+      "gain": "512/637",
+      "horizon": 8,
+      "oracle": 2944,
+      "profitable": 0,
+      "regime": "shifted",
+      "selected": 6370
+    },
+    {
+      "baseline": 10240,
+      "gain": "1024/1147",
+      "horizon": 16,
+      "oracle": 5504,
+      "profitable": 0,
+      "regime": "shifted",
+      "selected": 11470
+    },
+    {
+      "baseline": 20480,
+      "gain": "5120/5419",
+      "horizon": 32,
+      "oracle": 10624,
+      "profitable": 0,
+      "regime": "shifted",
+      "selected": 21676
+    },
+    {
+      "baseline": 40960,
+      "gain": "20480/21031",
+      "horizon": 64,
+      "oracle": 20864,
+      "profitable": 1,
+      "regime": "shifted",
+      "selected": 42062
+    },
+    {
+      "baseline": 2560,
+      "gain": "40/59",
+      "horizon": 4,
+      "oracle": 2560,
+      "profitable": 0,
+      "regime": "null",
+      "selected": 3776
+    },
+    {
+      "baseline": 5120,
+      "gain": "1280/1559",
+      "horizon": 8,
+      "oracle": 5120,
+      "profitable": 0,
+      "regime": "null",
+      "selected": 6236
+    },
+    {
+      "baseline": 10240,
+      "gain": "5120/5583",
+      "horizon": 16,
+      "oracle": 10240,
+      "profitable": 0,
+      "regime": "null",
+      "selected": 11166
+    },
+    {
+      "baseline": 20480,
+      "gain": "2048/2099",
+      "horizon": 32,
+      "oracle": 20480,
+      "profitable": 2,
+      "regime": "null",
+      "selected": 20990
+    },
+    {
+      "baseline": 40960,
+      "gain": "20480/20317",
+      "horizon": 64,
+      "oracle": 40960,
+      "profitable": 22,
+      "regime": "null",
+      "selected": 40634
+    }
+  ]
+}

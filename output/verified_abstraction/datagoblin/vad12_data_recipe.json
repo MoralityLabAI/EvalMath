@@ -1,0 +1,65 @@
+{
+  "claim_boundary": "small synthetic instances; tiny controllers; no claim about large models or real theorem proving",
+  "constitution_version": "0.1.0",
+  "environment_specification": {
+    "environment": "EvalMath VAD-10 dependency-hypergraph oracle (scripts/vad_agenda.py)",
+    "families_fresh_test": [
+      "wide",
+      "complementary",
+      "chain"
+    ],
+    "families_train": [
+      "layered",
+      "modular",
+      "correlated"
+    ],
+    "oracle": "exact Fraction Bellman recursion"
+  },
+  "falsification_criteria": [
+    "neural mean regret exceeds greedy-2 regret by more than 0.01 on any fresh family",
+    "shuffled-memory ablation matches the memory model (no use of memory)",
+    "memoryless parameter-matched model matches the recurrent model"
+  ],
+  "hypothesis_ids": [
+    "VAD-12-H1: a recurrent controller trained on exact research-agenda oracles beats bounded-lookahead symbolic selection on fresh structure at lower cost"
+  ],
+  "independent_verifier_requirements": "naive history-tree evaluator (scripts/vad_agenda_naive.py) agrees on 57 receipt and 60+ test instances",
+  "predicted_outcomes": {
+    "expected": "gate fails: greedy-2 is exact on these instance sizes"
+  },
+  "provenance": {
+    "branch": "research/vad01-verified-abstraction-20261125",
+    "repository": "MoralityLabAI/EvalMath",
+    "training_repository": "MoralityLabAI/LoopedTransformers experiments/vad12_agenda_controller"
+  },
+  "recipe_id": "vad12-agenda-controller-v1",
+  "reference_solver_requirements": "exact rational oracle in EvalMath; forward evaluation equals Bellman value on every instance",
+  "resource_budget": {
+    "device": "CPU, 1 thread",
+    "gpu": "RTX 5080 only if the gate passes",
+    "paid_cloud": false
+  },
+  "schema_version": "1.0",
+  "split_contract": {
+    "calibration_seeds": "91000-91249",
+    "fresh_families_structurally_disjoint_from_training": true,
+    "fresh_test_seeds": "95000+",
+    "in_distribution_test_seeds": "96000+",
+    "test_instances_generated_after_models_frozen": true,
+    "train_seeds": "90000-90999"
+  },
+  "trajectory_source_mixture": [
+    {
+      "source": "optimal oracle policy",
+      "weight": 2
+    },
+    {
+      "source": "greedy-0",
+      "weight": 1
+    },
+    {
+      "source": "uniform random attempts",
+      "weight": 3
+    }
+  ]
+}

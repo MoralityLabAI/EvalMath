@@ -1,0 +1,38 @@
+{
+  "protocols": [
+    "VAD-03B",
+    "VAD-04A"
+  ],
+  "evidence": "finite synthetic exact cost model; optional 545-parameter GRU",
+  "VAD03B": {
+    "source_sha256": "8effa19e08772a7d1c4f4f77e498ac4231a0f2bac4899285f94dfa788c06106c",
+    "checkpoint_sha256": "80c0547bb3bca374f0d3af978d3990cb2dec5ff9dbdde062ae846b145e8efdc3",
+    "full_receipt_sha256": "5da256b58d163e52bb08be4e59d1da22da8303c1bc62179135c1df630ca936bb",
+    "canonical_records_sha256": "2021cd074a729873c3543233b127fa25cd834d47a7bdc5e1e8c1e03cb5426c81",
+    "records": 4320,
+    "baseline": 4718592,
+    "chosen": "q6",
+    "symbolic_total": 4321291,
+    "learned_total": 4969088,
+    "learned_macs": 1028448,
+    "gate": "FAIL"
+  },
+  "VAD04A": {
+    "source_sha256": "b4b2260e5f0c8126c2b7bc4f6a64dbb601b749cfc4811bf6ed5296e0b49e39ee",
+    "full_receipt_sha256": "5c33d8387f9b7ff68d12b74923672ec19bc02ff3b33c44678b8c4cafa7c2344e",
+    "canonical_records_sha256": "8c5b4471ba27afa0eb06491479d787d861e3a4a7ffb7b067c161533444040f44",
+    "records": 7056,
+    "baseline": 7315712,
+    "chosen": [
+      "intersections",
+      "none"
+    ],
+    "invention_total": 6101081,
+    "privileged_pair_total": 6225642,
+    "empirical_gate_total": 6227049,
+    "margin_gate_total": 6401329,
+    "profitable_constructive": 238,
+    "constructive_families": 240,
+    "null_shift_vetoed": 96
+  }
+}

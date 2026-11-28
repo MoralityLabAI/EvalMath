@@ -1,0 +1,74 @@
+{
+  "actual_metrics": {
+    "regret": {
+      "fresh_chain": {
+        "direct": 0.16917388888888885,
+        "ff": 1.3505170039682541,
+        "fixed_depth": 0.307614126984127,
+        "greedy0": 2.2503079444444447,
+        "greedy1": 2.413974611111111,
+        "greedy2": 0.0,
+        "memoryless": 0.4240252380952381,
+        "random": 3.5349128190035275,
+        "shuffled_memory": 0.40440603174603174,
+        "stop": 5.570255227513226,
+        "trm": 0.3519103968253968,
+        "trm_oracle_features": 0.4167698412698413
+      },
+      "fresh_complementary": {
+        "direct": 4.293687124819625,
+        "ff": 1.9005186435786436,
+        "fixed_depth": 0.8729479662698412,
+        "greedy0": 0.18879182539682537,
+        "greedy1": 0.03368182539682539,
+        "greedy2": 0.0,
+        "memoryless": 0.8111257936507936,
+        "random": 2.367244871242184,
+        "shuffled_memory": 0.9764884830447331,
+        "stop": 8.181164092111592,
+        "trm": 0.8887747249278499,
+        "trm_oracle_features": 0.5009740367965367
+      },
+      "fresh_wide": {
+        "direct": 0.4651544366592667,
+        "ff": 0.6315814076238575,
+        "fixed_depth": 0.19900932786176787,
+        "greedy0": 0.11818253362193362,
+        "greedy1": 0.001078,
+        "greedy2": 0.0,
+        "memoryless": 0.1372503064898065,
+        "random": 1.4820935145685072,
+        "shuffled_memory": 0.11523579608687609,
+        "stop": 6.122742347770749,
+        "trm": 0.11371644366263367,
+        "trm_oracle_features": 0.14576990985310986
+      },
+      "in_distribution": {
+        "direct": 0.4037730454925075,
+        "ff": 0.2825465098517038,
+        "fixed_depth": 0.09047404135642136,
+        "greedy0": 0.11942679567499168,
+        "greedy1": 0.00046712121212121217,
+        "greedy2": 0.0,
+        "memoryless": 0.07608967044444445,
+        "random": 1.0524327196338616,
+        "shuffled_memory": 0.0824523523030303,
+        "stop": 5.530019170756353,
+        "trm": 0.11394369501587301,
+        "trm_oracle_features": 0.06369127877777778
+      }
+    },
+    "verdict": "FAIL"
+  },
+  "claim_boundary": "small synthetic instances; tiny controllers; no claim about large models or real theorem proving",
+  "constitution_hash": "cd5ec58ef74914b2dc721317110305cdad540d700853a711eb7baa2d5c7246d9",
+  "evidence_type": "SYNTHETIC_MECHANISM_NEURAL_NEGATIVE",
+  "experiment_id": "VAD-12-gate",
+  "recipe_hash": "4a599caea8a1fee02c7ab63fd7b44449d050be223da07529001b6a31b875479c",
+  "run_status": "EVALUATED",
+  "schema_version": "1.0",
+  "snapshot_hash": "59f1e2765c692fc4a2e656d521192f5e65e3565cd29fc5f68da4a024e5eb068e",
+  "timestamps": {
+    "evaluated": "2026-11-25"
+  }
+}

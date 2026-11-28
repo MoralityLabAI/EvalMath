@@ -1,0 +1,47 @@
+{
+  "protocols": [
+    "VAD-06D",
+    "VAD-06D2"
+  ],
+  "evidence": "exact synthetic reference cost; no new Lean replay",
+  "parent_sha256": "0aa32bf2fe6661119c081f7365534070bbe7ddf907c988f14f22ad42e60be2e6",
+  "D": {
+    "source_sha256": "ce545053bd1a1d1024c2ca0c4aa67169e5daf7c8278c8aab9f8a52bb955f7ad0",
+    "receipt_sha256": "40463904d3ee2f24cecbd2c91d880dfae309a7d805e903a6b1c15541dd4a1bf6",
+    "records_sha256": "68d3ad5853dd2b88a79d1181d70cd73a149853d444b45e1e7c0129d7f3683226",
+    "calibration_families": 132,
+    "test_families": 264,
+    "records": 7128,
+    "checks": 1085624,
+    "chosen_fixed": "prefix_4",
+    "chosen_adaptive": "unary_2_64",
+    "baseline": 618177,
+    "fixed_total": 439732,
+    "adaptive_total": 448601,
+    "arity_total": 465514,
+    "gate": "FAIL"
+  },
+  "D2": {
+    "source_sha256": "cc1a1cb9cd52e883cc615b6049cc6dc3c8c5ab7004c703db502cae98052cb4fa",
+    "receipt_sha256": "f17312ac89605949f031647ba2d7813edff8e095d86108ebf30fa8926968ebf3",
+    "records_sha256": "d914b12caf130022e4c00403d7c3289c145204321a9bf515c5805fda676107f7",
+    "calibration_families": 168,
+    "test_families": 336,
+    "records": 10080,
+    "checks": 1733328,
+    "chosen": "ancestor_3_2_64_all",
+    "comparator": "unary_2_64",
+    "baseline": 976880,
+    "chosen_total": 608497,
+    "comparator_total": 653833,
+    "prefix4_total": 764255,
+    "paired_wins": 312,
+    "profitable": 262,
+    "zero_savings_selected": 48,
+    "paired_total_saving": 45336,
+    "bootstrap_interval": [
+      39849,
+      50789
+    ]
+  }
+}

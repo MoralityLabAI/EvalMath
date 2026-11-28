@@ -1,0 +1,240 @@
+[
+ {
+  "id": "VAD01-1",
+  "level": "T",
+  "claim": "GF(2) cache saving Delta(t,a)=2max(0,2|supp t\u2229supp a|-|a|-1); aggregate gain identity",
+  "evidence": "output/verified_abstraction/vad_01a.json; tests/test_evaluation_vad.py",
+  "caveat": "4,096 checks; finite exhaustive plus algebra"
+ },
+ {
+  "id": "VAD02-1",
+  "level": "E",
+  "claim": "Savings are non-submodular: t=7,a=25,b=30 gives 6,6,6,4; F({7,15})=10 vs 14",
+  "evidence": "vad_02.json; test_evaluation_vad_composition.py",
+  "caveat": "exact BFS; GF(2) model only"
+ },
+ {
+  "id": "VAD03-1",
+  "level": "S",
+  "claim": "Signature index recovers planted pair 31/32 at 47,725 units vs 2,550,784 exhaustive",
+  "evidence": "vad_03a.json",
+  "caveat": "planted structure, public seeds; signature work exceeds random work"
+ },
+ {
+  "id": "VAD03B-1",
+  "level": "N",
+  "claim": "369/545-parameter GRU controllers fail advancement gate against calibrated symbolic q6",
+  "evidence": "vad_03b_04a.json",
+  "caveat": "GRU totals not reproducible without the external bundle (audit)"
+ },
+ {
+  "id": "VAD04-1",
+  "level": "S",
+  "claim": "Intersection invention 1.199x over direct proof; profitable 238/240 constructive, 0/96 null or shifted",
+  "evidence": "vad_03b_04a.json; tests/test_vad_invention_replay.py",
+  "caveat": "synthetic GF(2); privileged comparator is not an upper bound"
+ },
+ {
+  "id": "VAD05-1",
+  "level": "K",
+  "claim": "Generated conjunction batches kernel-checked in CI (Init-only); direct proof wins at H=8, shape cache 1.0959x at H=256 (reference cost)",
+  "evidence": "vad_05a_summary.json; CI lean job",
+  "caveat": "committed receipts keep kernel=NOT_RUN; kernel result lives in CI artifacts (audit finding 2)"
+ },
+ {
+  "id": "VAD06-1",
+  "level": "S",
+  "claim": "Horn support cache saves 4.75% at H=256; gains shared 1.72, mixed 1.12, shifted 0.81, null 0.90",
+  "evidence": "vad_06a.json",
+  "caveat": "reference-cost model; DP-scan sensitivity lowers pooled gain to 1.019"
+ },
+ {
+  "id": "VAD06-2",
+  "level": "S",
+  "claim": "Charged validation rejects 24/24 immediate-shift, accepts 24/24 late-shift with 0 savings",
+  "evidence": "vad_06bc.json",
+  "caveat": ""
+ },
+ {
+  "id": "VAD06-3",
+  "level": "S",
+  "claim": "Dominance screening fails its gate; bounded ancestor index 1.605x (1.155x after DP scan)",
+  "evidence": "vad_06d_d2.json",
+  "caveat": ""
+ },
+ {
+  "id": "VAD07-1",
+  "level": "T/E",
+  "claim": "Exact Bayesian stopping Bellman recursion on (n,k); minimax over cue channels immediate when protected set contains blind channel",
+  "evidence": "vad_07abc.json; tests/test_vad_stopping.py",
+  "caveat": "recursion exact; minimax argument trivial by construction"
+ },
+ {
+  "id": "VAD07-2",
+  "level": "S",
+  "claim": "Cue-conditioned cutoff 1.2537x on matched Horn prefixes (1.0863x DP-adjusted)",
+  "evidence": "vad_07abc.json",
+  "caveat": "gain depends on regime weights correlating cue with utility"
+ },
+ {
+  "id": "VAD08-1",
+  "level": "T/E",
+  "claim": "Censored-record likelihood L_r(n,k,h); exact filter; Ville bound 1/20 in exact arithmetic",
+  "evidence": "vad_08.json; tests/test_vad_reliability.py",
+  "caveat": "floating-point implementation not a machine-verified martingale"
+ },
+ {
+  "id": "VAD08-2",
+  "level": "S",
+  "claim": "Alarms weak 32/32, joint 29/32, Markov 1/32",
+  "evidence": "vad_08.json",
+  "caveat": ""
+ },
+ {
+  "id": "VAD08-3",
+  "level": "N",
+  "claim": "369-parameter GRU fails advancement gate",
+  "evidence": "vad_08.json",
+  "caveat": "GRU receipt not reproducible without torch (audit)"
+ },
+ {
+  "id": "VAD09-1",
+  "level": "E",
+  "claim": "Exact menu optima 9.3777027312/20.8631051452/37.8794532685; 1.8981 first-action advantage at h=3; 7.078 sacrifice",
+  "evidence": "vad_09abc.json; test_vad_meta.py; reproduced byte-identical (audit 6)",
+  "caveat": ""
+ },
+ {
+  "id": "VAD09-2",
+  "level": "N",
+  "claim": "Grid-policy 96-family advantage 8.344 total (0.49%), 0.0869/family; negative when hazard misspecified high",
+  "evidence": "vad_09abc.json",
+  "caveat": "float64 numbers, not interval-certified; 09B digest not reproduced byte-for-byte in this environment"
+ },
+ {
+  "id": "VAD09-3",
+  "level": "S",
+  "claim": "32-family planning has no reliable advantage over one-step in 24,576-family stress test",
+  "evidence": "vad_09abc.json",
+  "caveat": "practical gate FAIL"
+ },
+ {
+  "id": "VAD10-1",
+  "level": "T",
+  "claim": "Decomposition identity Q=V(b')+immediate+reuse+information (both telescoping orders)",
+  "evidence": "scripts/vad_agenda.py; test_vad_agenda.py",
+  "caveat": "order-dependent split"
+ },
+ {
+  "id": "VAD10-2",
+  "level": "T",
+  "claim": "Greedy-0 optimal on modular class (independent edges from facts, distinct conclusions, equal costs)",
+  "evidence": "paper/verified_abstraction_agenda.md; test_vad_agenda.py",
+  "caveat": "proved; referee fuzz of 3,000 instances found no counterexample"
+ },
+ {
+  "id": "VAD10-3",
+  "level": "T/E",
+  "claim": "Chain of k edges (lambda=0, N=1, future mass on a fact, ties toward stopping): V=p^k R-1 and greedy-j optimal iff j>=k-1 (k=2..6 verified)",
+  "evidence": "vad_10.json",
+  "caveat": ""
+ },
+ {
+  "id": "VAD10-4",
+  "level": "E",
+  "claim": "Complementary lemma pair: greedy-0 -30, optimal -12; knapsack 2 vs 3; strategic intermediate -18 vs direct -23.44",
+  "evidence": "vad_10.json",
+  "caveat": ""
+ },
+ {
+  "id": "VAD10-5",
+  "level": "S",
+  "claim": "Layered sweep (150): optimal fraction direct .613, g0 .787, g1 .960, g2 .993; correlated(60): .583/.700/.933/1.0",
+  "evidence": "vad_10.json",
+  "caveat": "tiny synthetic instances; same-author naive checker"
+ },
+ {
+  "id": "VAD09D-1",
+  "level": "E",
+  "claim": "H=3 exact: blind 26.700, myopic filter 27.295, finite-horizon 31.255, with mode probe 40.181 (receding h=2 equal), law-known planner 40.184, mode oracle 53.430 (= both known)",
+  "evidence": "output/verified_abstraction/vad_09d.json; tests/test_vad_voi.py",
+  "caveat": "menu of 7 actions plus two stipulated probes priced at 1; of the 12.89 gap to myopic, 3.96 is planning depth and 8.93 is the probe"
+ },
+ {
+  "id": "VAD09D-2",
+  "level": "E",
+  "claim": "No-probe planning advantage 3.96 over myopic: break-even about 3.3e-5 utility per Q-evaluation; with an exact mode probe, myopic filtering after the probe is already optimal",
+  "evidence": "vad_09d.json",
+  "caveat": "overhead in Q-evaluations, not measured physical compute"
+ },
+ {
+  "id": "VAD11-1",
+  "level": "K",
+  "claim": "200 instances x all strategies kernel-checked under Lean 4.19.0 and 4.35.0, 536 verifier calls per toolchain, 0 failures, axioms none/propext/Quot.sound only",
+  "evidence": "output/verified_abstraction/vad_11_gym.json; tests/test_vad_gym.py",
+  "caveat": "statements about checked instances; no Classical.choice reported"
+ },
+ {
+  "id": "VAD11-2",
+  "level": "E",
+  "claim": "3,000 statements: renderer agreement and Python semantic truth 3000/3000; dependency auditor rejects exactly the 15 planted leaks among 2,101 declarations",
+  "evidence": "vad_11_gym.json",
+  "caveat": "auditor is a parser over generated sources, not a general Lean dependency tool"
+ },
+ {
+  "id": "VAD11-3",
+  "level": "S",
+  "claim": "Strategies differ by factors of 1.1-2.4 in median work; F3 lemma route slower at small size; process start-up dominates wall time",
+  "evidence": "vad_11_gym.json",
+  "caveat": "single machine under load; one repeat"
+ },
+ {
+  "id": "VAD11-4",
+  "level": "S",
+  "claim": "Anti-unification lemmas hit 0/400 fresh F1 and F2 test targets and 62/400 F5",
+  "evidence": "vad_11_gym.json",
+  "caveat": "template-disjoint split by design"
+ },
+ {
+  "id": "VAD11E-1",
+  "level": "S",
+  "claim": "Replay of measured in-Lean work (Lean 4.35.0): Bayes-online 1.259, greedy0 1.195, support 1.128, lookahead 1.102, retrieval 0.492, best searched set 1.331; under Lean 4.19.0 1.087/1.101/1.043/1.016/0.510/1.270; per-file wall seconds (incl. start-up) 0.72-1.05 for every policy",
+  "evidence": "output/verified_abstraction/vad_11e_economics.json; tests/test_vad_gym_economics.py",
+  "caveat": "one 20-target session per family; calibration lemmas overlap test lemmas in 0-1 units for four of five families; library authored by the team; no horizon sweep; not an economic gain once verifier calls are counted"
+ },
+ {
+  "id": "VAD12-1",
+  "level": "N",
+  "claim": "Gate FAIL: no 12.2k-parameter controller within 0.01 of greedy-2 regret on any fresh family; memory and recurrence ablations indistinguishable from the full model at 2 seeds",
+  "evidence": "output/verified_abstraction/vad_12_gate.json; LoopedTransformers 181bb78c",
+  "caveat": "lossy features (no posterior over worlds), 1,000 training instances, labels tie toward stop, checkpoint by accuracy, shuffled-memory ablation off by one step, 2 seeds, CPU"
+ },
+ {
+  "id": "PAPER-1",
+  "level": "C",
+  "claim": "Cited: Anthropic FLT page dated 2026-09-04 (13M lines, 30,300 theorems, 11 days, dozens of agents); OpenAI page dated 2026-10-26 (local smoothing, auxiliary PDE, Lean next day, no peer review stated)",
+  "evidence": "primary web pages read 2026-11-25; no snapshot archived in the repository",
+  "caveat": "vendor claims, not reproduced; Lean files and statement fidelity of the OpenAI formalization not inspected"
+ },
+ {
+  "id": "VAD09D-3",
+  "level": "E",
+  "claim": "Exact mode probe is used at every price tested and stops paying near 7.08 (2 families) / 11.10 (3 families, 4-action menu); a law probe is never chosen",
+  "evidence": "output/verified_abstraction/vad_09d_probes.json",
+  "caveat": "probe is exact and priced by assumption; upper bound for a noisy probe"
+ },
+ {
+  "id": "VAD09D-4",
+  "level": "E",
+  "claim": "Decomposition: planning depth 3.96 and probe 8.93 over the myopic filter; law knowledge adds 0.97 to the no-probe planner, 0.003 with probes; probe-then-myopic equals the probe-using optimum exactly (40.18075)",
+  "evidence": "output/verified_abstraction/vad_09d_attribution.json; vad_09d_heuristic.json",
+  "caveat": "same model limits as VAD09D-1"
+ },
+ {
+  "id": "VAD13C-1",
+  "level": "S",
+  "claim": "Physical batch timings (generation included): calibration-selected vs direct pooled 1.075/1.118 at H=32 (4.19/4.35), 0.430/1.060 at H=8; family dependent (F1, F2, F4 lemma; F5 direct; F3 mixed)",
+  "evidence": "paper/verified_abstraction_calibrated_results.md; output/verified_abstraction/vad_13a.json; CI run 45583084890",
+  "caveat": "added by a parallel session; not re-executed by the paper's author; one test block per family and version; authored library"
+ }
+]

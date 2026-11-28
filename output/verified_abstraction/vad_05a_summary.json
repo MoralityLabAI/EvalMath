@@ -1,0 +1,42 @@
+{
+  "protocol": "VAD-05A",
+  "evidence": "restricted source-term grammar; kernel status separate",
+  "source_sha256": "79236cb4e91966aa7310642ac2018d5c76092f6f2e52b8ce960b414828a5fb1b",
+  "roots": 256,
+  "files": 1024,
+  "kernel": "NOT_RUN",
+  "summary": {
+    "concrete": {
+      "construction": 70,
+      "refs": 4442,
+      "source_bytes": 130487,
+      "total": 6227,
+      "uses": 64,
+      "work": 1715
+    },
+    "direct": {
+      "construction": 0,
+      "refs": 4626,
+      "source_bytes": 118719,
+      "total": 4626,
+      "uses": 0,
+      "work": 0
+    },
+    "global_shape": {
+      "construction": 5,
+      "refs": 4443,
+      "source_bytes": 154667,
+      "total": 5096,
+      "uses": 183,
+      "work": 648
+    },
+    "shape": {
+      "construction": 262,
+      "refs": 4160,
+      "source_bytes": 166367,
+      "total": 5898,
+      "uses": 190,
+      "work": 1476
+    }
+  }
+}

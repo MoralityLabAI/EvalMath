@@ -1,0 +1,455 @@
+{
+  "evidence": "replay of measured kernel-checked work_ms; no Lean executed",
+  "families": {
+    "F1": {
+      "all_build_ms": 300.68,
+      "break_even_horizon_all_lemmas": 8.926307789589933,
+      "direct_ms": 1654.62,
+      "gain_vs_direct": {
+        "bayes_online": 1.1653041332371765,
+        "direct": 1.0,
+        "greedy0": 0.9393063091600843,
+        "lookahead2": 0.9393063091600843,
+        "lookahead3": 0.9393063091600843,
+        "oracle_prebuilt_set": 1.3839301770248285,
+        "retrieval_on_demand": 1.4991777545223501,
+        "support_graph": 0.9230609594451659
+      },
+      "lemma_units_cal": 10,
+      "lemma_units_needed": 16,
+      "lemma_units_shared": 0,
+      "lemma_units_test": 6,
+      "mean_saving_per_target_ms": 33.6847,
+      "n_cal": 20,
+      "n_test": 20,
+      "policies_ms": {
+        "bayes_online": 1419.904,
+        "direct": 1654.62,
+        "greedy0": 1761.5339999999999,
+        "lookahead2": 1761.5339999999999,
+        "lookahead3": 1761.5339999999999,
+        "oracle_prebuilt_set": 1195.595,
+        "retrieval_on_demand": 1103.685,
+        "support_graph": 1792.536
+      },
+      "verifier_calls_per_session": 20
+    },
+    "F2": {
+      "all_build_ms": 472.439,
+      "break_even_horizon_all_lemmas": 7.1117356531373215,
+      "direct_ms": 2278.3,
+      "gain_vs_direct": {
+        "bayes_online": 1.4767497634140963,
+        "direct": 1.0,
+        "greedy0": 1.0,
+        "lookahead2": 0.8812816898575438,
+        "lookahead3": 0.8812816898575438,
+        "oracle_prebuilt_set": 1.9816628989876408,
+        "retrieval_on_demand": 1.9816628989876408,
+        "support_graph": 0.8812816898575438
+      },
+      "lemma_units_cal": 6,
+      "lemma_units_needed": 11,
+      "lemma_units_shared": 1,
+      "lemma_units_test": 6,
+      "mean_saving_per_target_ms": 66.4309,
+      "n_cal": 20,
+      "n_test": 20,
+      "policies_ms": {
+        "bayes_online": 1542.7800000000004,
+        "direct": 2278.3,
+        "greedy0": 2278.3,
+        "lookahead2": 2585.2119999999995,
+        "lookahead3": 2585.2119999999995,
+        "oracle_prebuilt_set": 1149.6910000000003,
+        "retrieval_on_demand": 1149.6910000000003,
+        "support_graph": 2585.2119999999995
+      },
+      "verifier_calls_per_session": 20
+    },
+    "F3": {
+      "all_build_ms": 91577.85,
+      "break_even_horizon_all_lemmas": 90.97484145836155,
+      "direct_ms": 26565.2,
+      "gain_vs_direct": {
+        "bayes_online": 1.0,
+        "direct": 1.0,
+        "greedy0": 0.9668792219892849,
+        "lookahead2": 0.8657319070237329,
+        "lookahead3": 0.8657319070237329,
+        "oracle_prebuilt_set": 1.0,
+        "retrieval_on_demand": 0.29632229378521846,
+        "support_graph": 0.896193777462912
+      },
+      "lemma_units_cal": 13,
+      "lemma_units_needed": 25,
+      "lemma_units_shared": 1,
+      "lemma_units_test": 13,
+      "mean_saving_per_target_ms": 1006.6283,
+      "n_cal": 20,
+      "n_test": 20,
+      "policies_ms": {
+        "bayes_online": 26565.2,
+        "direct": 26565.2,
+        "greedy0": 27475.2,
+        "lookahead2": 30685.25,
+        "lookahead3": 30685.25,
+        "oracle_prebuilt_set": 26565.2,
+        "retrieval_on_demand": 89649.68400000001,
+        "support_graph": 29642.25
+      },
+      "verifier_calls_per_session": 20
+    },
+    "F4": {
+      "all_build_ms": 1353.74,
+      "break_even_horizon_all_lemmas": 2.529196909826341,
+      "direct_ms": 18043.3,
+      "gain_vs_direct": {
+        "bayes_online": 2.0758179228590428,
+        "direct": 1.0,
+        "greedy0": 2.041028019411106,
+        "lookahead2": 2.041028019411106,
+        "lookahead3": 2.041028019411106,
+        "oracle_prebuilt_set": 2.32983921368104,
+        "retrieval_on_demand": 2.0758179228590428,
+        "support_graph": 2.0758179228590428
+      },
+      "lemma_units_cal": 4,
+      "lemma_units_needed": 4,
+      "lemma_units_shared": 4,
+      "lemma_units_test": 4,
+      "mean_saving_per_target_ms": 535.245,
+      "n_cal": 20,
+      "n_test": 20,
+      "policies_ms": {
+        "bayes_online": 8692.14,
+        "direct": 18043.3,
+        "greedy0": 8840.3,
+        "lookahead2": 8840.3,
+        "lookahead3": 8840.3,
+        "oracle_prebuilt_set": 7744.440000000001,
+        "retrieval_on_demand": 8692.14,
+        "support_graph": 8692.14
+      },
+      "verifier_calls_per_session": 20
+    },
+    "F5": {
+      "all_build_ms": 195.45,
+      "break_even_horizon_all_lemmas": 15.573022696216494,
+      "direct_ms": 1642.367,
+      "gain_vs_direct": {
+        "bayes_online": 1.0,
+        "direct": 1.0,
+        "greedy0": 1.0,
+        "lookahead2": 0.9771811944768877,
+        "lookahead3": 0.9771811944768877,
+        "oracle_prebuilt_set": 1.5846386152465677,
+        "retrieval_on_demand": 1.0963541353754873,
+        "support_graph": 0.9298257334329002
+      },
+      "lemma_units_cal": 6,
+      "lemma_units_needed": 10,
+      "lemma_units_shared": 2,
+      "lemma_units_test": 6,
+      "mean_saving_per_target_ms": 12.550550000000005,
+      "n_cal": 20,
+      "n_test": 20,
+      "policies_ms": {
+        "bayes_online": 1642.367,
+        "direct": 1642.367,
+        "greedy0": 1642.367,
+        "lookahead2": 1680.7189999999998,
+        "lookahead3": 1680.7189999999998,
+        "oracle_prebuilt_set": 1036.4299999999998,
+        "retrieval_on_demand": 1498.0260000000003,
+        "support_graph": 1766.317
+      },
+      "verifier_calls_per_session": 20
+    }
+  },
+  "metric": "work_ms",
+  "pooled_gain_vs_direct": {
+    "bayes_online": 1.2589256625374026,
+    "direct": 1.0,
+    "greedy0": 1.194917478935335,
+    "lookahead2": 1.101656761906978,
+    "lookahead3": 1.101656761906978,
+    "oracle_prebuilt_set": 1.331440211384276,
+    "retrieval_on_demand": 0.4915486459405249,
+    "support_graph": 1.128271811599571
+  },
+  "pooled_ms": {
+    "bayes_online": 39862.391,
+    "direct": 50183.787,
+    "greedy0": 41997.701,
+    "lookahead2": 45553.015,
+    "lookahead3": 45553.015,
+    "oracle_prebuilt_set": 37691.356,
+    "retrieval_on_demand": 102093.22600000001,
+    "support_graph": 44478.455
+  },
+  "protocol": "VAD-11E",
+  "receipt_sha256": "b859997243d5f52f198ad0eb176301f15ecbb41a9ad3f02309893d93f2c26c7e",
+  "sensitivity": {
+    "4.19.0/seconds": {
+      "per_family_gain": {
+        "F1": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 1.0,
+          "lookahead3": 1.0,
+          "oracle_prebuilt_set": 1.0,
+          "retrieval_on_demand": 0.884975723175819,
+          "support_graph": 0.7353201732523034
+        },
+        "F2": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 1.0,
+          "lookahead3": 1.0,
+          "oracle_prebuilt_set": 1.0,
+          "retrieval_on_demand": 0.8824529001117803,
+          "support_graph": 0.8310713606737397
+        },
+        "F3": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 1.0,
+          "lookahead3": 1.0,
+          "oracle_prebuilt_set": 1.0,
+          "retrieval_on_demand": 0.4128855837627598,
+          "support_graph": 0.8700753206740931
+        },
+        "F4": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.158763221094653,
+          "lookahead2": 1.158763221094653,
+          "lookahead3": 1.158763221094653,
+          "oracle_prebuilt_set": 1.158763221094653,
+          "retrieval_on_demand": 1.0347932043431358,
+          "support_graph": 1.0347932043431356
+        },
+        "F5": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 1.0,
+          "lookahead3": 1.0,
+          "oracle_prebuilt_set": 1.1207763821483228,
+          "retrieval_on_demand": 0.9995265608150169,
+          "support_graph": 0.8517391401796542
+        }
+      },
+      "pooled_gain_vs_direct": {
+        "bayes_online": 1.0,
+        "direct": 1.0,
+        "greedy0": 1.0299998303022209,
+        "lookahead2": 1.0299998303022209,
+        "lookahead3": 1.0299998303022209,
+        "oracle_prebuilt_set": 1.0512084052871609,
+        "retrieval_on_demand": 0.6858462158681627,
+        "support_graph": 0.8656526485820509
+      }
+    },
+    "4.19.0/work_ms": {
+      "per_family_gain": {
+        "F1": {
+          "bayes_online": 5.084033079023191,
+          "direct": 1.0,
+          "greedy0": 0.9770543001259584,
+          "lookahead2": 0.9736606810222785,
+          "lookahead3": 0.9732088637327132,
+          "oracle_prebuilt_set": 2.571591952833269,
+          "retrieval_on_demand": 5.084033079023191,
+          "support_graph": 0.966018129028837
+        },
+        "F2": {
+          "bayes_online": 1.871415853885209,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 0.8872079325473754,
+          "lookahead3": 0.8872079325473754,
+          "oracle_prebuilt_set": 2.1367632110983275,
+          "retrieval_on_demand": 2.1367632110983275,
+          "support_graph": 0.8872079325473754
+        },
+        "F3": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 0.9643539954414665,
+          "lookahead2": 0.8624188807098454,
+          "lookahead3": 0.8624188807098454,
+          "oracle_prebuilt_set": 1.0090805389399689,
+          "retrieval_on_demand": 0.33086853146606543,
+          "support_graph": 0.896293528542061
+        },
+        "F4": {
+          "bayes_online": 1.0064000909509623,
+          "direct": 1.0,
+          "greedy0": 1.624169361952367,
+          "lookahead2": 1.624169361952367,
+          "lookahead3": 1.624169361952367,
+          "oracle_prebuilt_set": 1.8419592433421632,
+          "retrieval_on_demand": 1.6411200425922317,
+          "support_graph": 1.6411200425922317
+        },
+        "F5": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 1.0,
+          "lookahead3": 1.0,
+          "oracle_prebuilt_set": 1.3936173600165576,
+          "retrieval_on_demand": 0.8805883532760378,
+          "support_graph": 0.9062175669624948
+        }
+      },
+      "pooled_gain_vs_direct": {
+        "bayes_online": 1.0870985002325355,
+        "direct": 1.0,
+        "greedy0": 1.1011005328132104,
+        "lookahead2": 1.0164952068485849,
+        "lookahead3": 1.0164590385142642,
+        "oracle_prebuilt_set": 1.27012149786628,
+        "retrieval_on_demand": 0.5100142344948656,
+        "support_graph": 1.0427717651620974
+      }
+    },
+    "4.35.0/seconds": {
+      "per_family_gain": {
+        "F1": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 1.0,
+          "lookahead3": 1.0,
+          "oracle_prebuilt_set": 1.0,
+          "retrieval_on_demand": 0.7797741331152062,
+          "support_graph": 0.7257827411025035
+        },
+        "F2": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 1.0,
+          "lookahead3": 1.0,
+          "oracle_prebuilt_set": 1.0,
+          "retrieval_on_demand": 0.8318811411077291,
+          "support_graph": 0.817076502494514
+        },
+        "F3": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 1.0,
+          "lookahead3": 1.0,
+          "oracle_prebuilt_set": 1.0,
+          "retrieval_on_demand": 0.46597539434235546,
+          "support_graph": 0.8454928193924228
+        },
+        "F4": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.0718689972309303,
+          "lookahead2": 1.0718689972309303,
+          "lookahead3": 1.0718689972309303,
+          "oracle_prebuilt_set": 1.0718689972309303,
+          "retrieval_on_demand": 0.9455310003099208,
+          "support_graph": 0.9455310003099208
+        },
+        "F5": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 1.0,
+          "lookahead3": 1.0,
+          "oracle_prebuilt_set": 1.031128986930132,
+          "retrieval_on_demand": 0.8586442491216552,
+          "support_graph": 0.838282594504777
+        }
+      },
+      "pooled_gain_vs_direct": {
+        "bayes_online": 1.0,
+        "direct": 1.0,
+        "greedy0": 1.0139050446058675,
+        "lookahead2": 1.0139050446058675,
+        "lookahead3": 1.0139050446058675,
+        "oracle_prebuilt_set": 1.0209095231499592,
+        "retrieval_on_demand": 0.721574313145134,
+        "support_graph": 0.8339536950255384
+      }
+    },
+    "4.35.0/work_ms": {
+      "per_family_gain": {
+        "F1": {
+          "bayes_online": 1.1653041332371765,
+          "direct": 1.0,
+          "greedy0": 0.9393063091600843,
+          "lookahead2": 0.9393063091600843,
+          "lookahead3": 0.9393063091600843,
+          "oracle_prebuilt_set": 1.3839301770248285,
+          "retrieval_on_demand": 1.4991777545223501,
+          "support_graph": 0.9230609594451659
+        },
+        "F2": {
+          "bayes_online": 1.4767497634140963,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 0.8812816898575438,
+          "lookahead3": 0.8812816898575438,
+          "oracle_prebuilt_set": 1.9816628989876408,
+          "retrieval_on_demand": 1.9816628989876408,
+          "support_graph": 0.8812816898575438
+        },
+        "F3": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 0.9668792219892849,
+          "lookahead2": 0.8657319070237329,
+          "lookahead3": 0.8657319070237329,
+          "oracle_prebuilt_set": 1.0,
+          "retrieval_on_demand": 0.29632229378521846,
+          "support_graph": 0.896193777462912
+        },
+        "F4": {
+          "bayes_online": 2.0758179228590428,
+          "direct": 1.0,
+          "greedy0": 2.041028019411106,
+          "lookahead2": 2.041028019411106,
+          "lookahead3": 2.041028019411106,
+          "oracle_prebuilt_set": 2.32983921368104,
+          "retrieval_on_demand": 2.0758179228590428,
+          "support_graph": 2.0758179228590428
+        },
+        "F5": {
+          "bayes_online": 1.0,
+          "direct": 1.0,
+          "greedy0": 1.0,
+          "lookahead2": 0.9771811944768877,
+          "lookahead3": 0.9771811944768877,
+          "oracle_prebuilt_set": 1.5846386152465677,
+          "retrieval_on_demand": 1.0963541353754873,
+          "support_graph": 0.9298257334329002
+        }
+      },
+      "pooled_gain_vs_direct": {
+        "bayes_online": 1.2589256625374026,
+        "direct": 1.0,
+        "greedy0": 1.194917478935335,
+        "lookahead2": 1.101656761906978,
+        "lookahead3": 1.101656761906978,
+        "oracle_prebuilt_set": 1.331440211384276,
+        "retrieval_on_demand": 0.4915486459405249,
+        "support_graph": 1.128271811599571
+      }
+    }
+  },
+  "source_sha256": {
+    "verify_vad_gym_economics.py": "9d27330c1ab23be4dde462684eac2b31ec01fa9d2c31f33dd5ddbe5a226924be"
+  },
+  "toolchain": "4.35.0"
+}

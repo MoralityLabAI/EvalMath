@@ -1,0 +1,50 @@
+{
+  "protocols": [
+    "VAD-09A",
+    "VAD-09B",
+    "VAD-09C"
+  ],
+  "evidence": "exact finite menu optimum; numerical synthetic stress tests",
+  "sources": {
+    "scripts/verify_vad_meta.py": "ecabf5e4b1d11db8e11a8d43817c9e1a1e0e4a34ef643abc94b6ffa23dd9df22",
+    "scripts/verify_vad_meta_grid.py": "0b0bb697f180fdcb1b118dafa4a490f36937fc074d3f257477d409e16d738ecb",
+    "scripts/verify_vad_meta_cert.py": "335a18840fa1e250b8fcc1ad19b746cb28fc5af534961043a3e75951907b6ced",
+    "tests/test_vad_meta.py": "03971a02a29ffa2f24bd1c180695a12c619e188639cdc500fa274e405bf66ccf"
+  },
+  "receipts": {
+    "A": "667a5c4debbe24108f116dea154f823aba419d5cbd80f0aed9cdbf5607dd1312",
+    "B": "4065b7081ca3961bccecba50a7377fca428a69bbcddb88bf0fd35e27362128d1",
+    "C": "1ac67b7a62356837ea5a422b6a064a0fdacfe1f8c6e3115a3c32890b9d5f6b13"
+  },
+  "A": {
+    "checks": 123,
+    "segments": [
+      1,
+      5,
+      187,
+      3785
+    ],
+    "h3_first": "cut24",
+    "h3_value": 37.879453268498885,
+    "h3_first_action_advantage": 1.8980957284334363
+  },
+  "B": {
+    "families": 24576,
+    "records": 2304,
+    "evaluations": 221184,
+    "nominal_delta": 0.013020833333333334,
+    "nominal_interval": [
+      -0.17447916666666666,
+      0.2109375
+    ],
+    "gate": "FAIL"
+  },
+  "C": {
+    "nominal_myopic_96": 1692.626321727071,
+    "nominal_policy_96": 1700.9703862886136,
+    "fine_policy": 1700.9705220648952,
+    "fine_upper_estimate": 1700.9709140789998,
+    "additional_utility_per_family": 0.08691733918273552
+  },
+  "local_tests": 4
+}
