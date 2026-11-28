@@ -1,0 +1,400 @@
+{
+  "alpha": "1/20",
+  "confirm_units_planned": 2,
+  "details": [
+    {
+      "evaluation": {
+        "fraction": "3/4",
+        "observations": 8,
+        "paths": [
+          {
+            "observations": [
+              0,
+              0
+            ],
+            "predictions": [
+              0,
+              0
+            ],
+            "states": [
+              0,
+              0,
+              0
+            ],
+            "targets": [
+              0,
+              0
+            ],
+            "word": 0
+          },
+          {
+            "observations": [
+              0,
+              1
+            ],
+            "predictions": [
+              0,
+              0
+            ],
+            "states": [
+              0,
+              0,
+              0
+            ],
+            "targets": [
+              0,
+              1
+            ],
+            "word": 1
+          },
+          {
+            "observations": [
+              1,
+              0
+            ],
+            "predictions": [
+              0,
+              0
+            ],
+            "states": [
+              0,
+              1,
+              0
+            ],
+            "targets": [
+              1,
+              0
+            ],
+            "word": 2
+          },
+          {
+            "observations": [
+              1,
+              1
+            ],
+            "predictions": [
+              1,
+              1
+            ],
+            "states": [
+              0,
+              1,
+              1
+            ],
+            "targets": [
+              1,
+              1
+            ],
+            "word": 3
+          }
+        ],
+        "reachable_state_counts": [
+          1,
+          2,
+          2
+        ],
+        "score": 6,
+        "state_maps": [
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "total": 8
+      },
+      "handoff": {
+        "capacity": 2,
+        "fraction": "3/4",
+        "outputs": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "partition": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "partition_count": 8,
+        "score": 6,
+        "task": "query",
+        "total": 8,
+        "width": 2
+      },
+      "online": {
+        "certified_optimal": true,
+        "controller": {
+          "capacity": 2,
+          "initial_state": 0,
+          "name": "exact-query-J2-K2",
+          "outputs": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "schema": "MIC-18/controller/v1",
+          "task": "query",
+          "transitions": [
+            [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          "width": 2
+        },
+        "final_partition_count": 8,
+        "reachable_partition_counts": [
+          1,
+          2,
+          8
+        ],
+        "score": 6,
+        "search_method": "canonical-causal-partitions",
+        "total": 8
+      },
+      "task": "query"
+    },
+    {
+      "evaluation": {
+        "fraction": "1",
+        "observations": 8,
+        "paths": [
+          {
+            "observations": [
+              0,
+              0
+            ],
+            "predictions": [
+              0
+            ],
+            "states": [
+              0,
+              0,
+              0
+            ],
+            "targets": [
+              0
+            ],
+            "word": 0
+          },
+          {
+            "observations": [
+              0,
+              1
+            ],
+            "predictions": [
+              1
+            ],
+            "states": [
+              0,
+              0,
+              1
+            ],
+            "targets": [
+              1
+            ],
+            "word": 1
+          },
+          {
+            "observations": [
+              1,
+              0
+            ],
+            "predictions": [
+              1
+            ],
+            "states": [
+              0,
+              1,
+              1
+            ],
+            "targets": [
+              1
+            ],
+            "word": 2
+          },
+          {
+            "observations": [
+              1,
+              1
+            ],
+            "predictions": [
+              0
+            ],
+            "states": [
+              0,
+              1,
+              0
+            ],
+            "targets": [
+              0
+            ],
+            "word": 3
+          }
+        ],
+        "reachable_state_counts": [
+          1,
+          2,
+          2
+        ],
+        "score": 4,
+        "state_maps": [
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            1,
+            0
+          ]
+        ],
+        "total": 4
+      },
+      "handoff": {
+        "capacity": 2,
+        "fraction": "1",
+        "outputs": [
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "partition": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "partition_count": 8,
+        "score": 4,
+        "task": "parity",
+        "total": 4,
+        "width": 2
+      },
+      "online": {
+        "certified_optimal": true,
+        "controller": {
+          "capacity": 2,
+          "initial_state": 0,
+          "name": "exact-parity-J2-K2",
+          "outputs": [
+            [
+              0
+            ],
+            [
+              1
+            ]
+          ],
+          "schema": "MIC-18/controller/v1",
+          "task": "parity",
+          "transitions": [
+            [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ]
+          ],
+          "width": 2
+        },
+        "final_partition_count": 8,
+        "reachable_partition_counts": [
+          1,
+          2,
+          8
+        ],
+        "score": 4,
+        "search_method": "canonical-causal-partitions",
+        "total": 4
+      },
+      "task": "parity"
+    }
+  ],
+  "experiment_id": "MIC-18 exact finite diagnostic",
+  "heldout_sealed": false,
+  "independent_unit": "constructed task family; independence is unverified",
+  "measurement_resolution": "1/24",
+  "notes": "Two families and identity shams are planner diagnostics. No model fits or population confirmation are authorized.",
+  "pilot": [
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "constructed-J2-query"
+    },
+    {
+      "paired_effect": "0",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "constructed-J2-parity"
+    }
+  ],
+  "pilot_from_development_only": true,
+  "planned_comparisons": 1,
+  "protocol_sha256": "55d440de4046213da39acc4636b8bcc57c5d6371922e62c0ee190cafc4708919",
+  "schema_version": 1,
+  "scientific_min_effect": "1/20",
+  "sham_confidence": "19/20",
+  "sham_quantile": "19/20",
+  "target_effect": "1/10",
+  "units_independent": false
+}

@@ -1,0 +1,995 @@
+{
+  "audit_source_sha256": "22bed5906b83eb29246d4bae75f80f5ab94c424c20739bc947790fc5b720bb63",
+  "constructive_cases": 42,
+  "exact_cases": 16,
+  "handoff_cases": 12,
+  "handoff_labeled_assignments": 72738,
+  "independence": "direct word replay; all labeled transition assignments; full labeled handoff assignments",
+  "input_sha256": "469fb3bd04e8105e94176148a9e2ea4a8f16c332d1a20356c044094a9cfdf7ad",
+  "labeled_transition_tables": 133509,
+  "parity_lower_bound": "perfect parity decoding requires two retained labels",
+  "primary": {
+    "capacity": 2,
+    "gap_handoff_minus_online": "1/24",
+    "handoff_fraction": "3/4",
+    "handoff_score": 18,
+    "handoff_total": 24,
+    "online_fraction": "17/24",
+    "online_score": 17,
+    "online_total": 24,
+    "status": "POSITIVE_EXACT_GAP",
+    "width": 3
+  },
+  "protocol_sha256": "55d440de4046213da39acc4636b8bcc57c5d6371922e62c0ee190cafc4708919",
+  "query_lower_bound": "perfect delayed coordinate decoding requires at least 2**J retained labels",
+  "rows": [
+    {
+      "capacity": 1,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        1
+      ],
+      "reachable_partition_counts": [
+        1,
+        1
+      ],
+      "score": 1,
+      "total": 2,
+      "verified_decisions": 2,
+      "verified_updates": 2,
+      "verified_words": 2,
+      "width": 1
+    },
+    {
+      "capacity": 2,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        4
+      ],
+      "reachable_partition_counts": [
+        1,
+        2
+      ],
+      "score": 2,
+      "total": 2,
+      "verified_decisions": 2,
+      "verified_updates": 2,
+      "verified_words": 2,
+      "width": 1
+    },
+    {
+      "capacity": 1,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        1,
+        1
+      ],
+      "reachable_partition_counts": [
+        1,
+        1,
+        1
+      ],
+      "score": 4,
+      "total": 8,
+      "verified_decisions": 8,
+      "verified_updates": 8,
+      "verified_words": 4,
+      "width": 2
+    },
+    {
+      "capacity": 2,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        4,
+        20
+      ],
+      "reachable_partition_counts": [
+        1,
+        2,
+        8
+      ],
+      "score": 6,
+      "total": 8,
+      "verified_decisions": 8,
+      "verified_updates": 8,
+      "verified_words": 4,
+      "width": 2
+    },
+    {
+      "capacity": 1,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        1,
+        1,
+        1
+      ],
+      "reachable_partition_counts": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "score": 12,
+      "total": 24,
+      "verified_decisions": 24,
+      "verified_updates": 24,
+      "verified_words": 8,
+      "width": 3
+    },
+    {
+      "capacity": 2,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        4,
+        20,
+        116
+      ],
+      "reachable_partition_counts": [
+        1,
+        2,
+        8,
+        44
+      ],
+      "score": 17,
+      "total": 24,
+      "verified_decisions": 24,
+      "verified_updates": 24,
+      "verified_words": 8,
+      "width": 3
+    },
+    {
+      "capacity": 1,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "reachable_partition_counts": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "score": 32,
+      "total": 64,
+      "verified_decisions": 64,
+      "verified_updates": 64,
+      "verified_words": 16,
+      "width": 4
+    },
+    {
+      "capacity": 2,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        4,
+        20,
+        116,
+        692
+      ],
+      "reachable_partition_counts": [
+        1,
+        2,
+        8,
+        44,
+        260
+      ],
+      "score": 42,
+      "total": 64,
+      "verified_decisions": 64,
+      "verified_updates": 64,
+      "verified_words": 16,
+      "width": 4
+    },
+    {
+      "capacity": 1,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "reachable_partition_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "score": 80,
+      "total": 160,
+      "verified_decisions": 160,
+      "verified_updates": 160,
+      "verified_words": 32,
+      "width": 5
+    },
+    {
+      "capacity": 2,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        4,
+        20,
+        116,
+        692,
+        4148
+      ],
+      "reachable_partition_counts": [
+        1,
+        2,
+        8,
+        44,
+        260,
+        1556
+      ],
+      "score": 101,
+      "total": 160,
+      "verified_decisions": 160,
+      "verified_updates": 160,
+      "verified_words": 32,
+      "width": 5
+    },
+    {
+      "capacity": 1,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "reachable_partition_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "score": 192,
+      "total": 384,
+      "verified_decisions": 384,
+      "verified_updates": 384,
+      "verified_words": 64,
+      "width": 6
+    },
+    {
+      "capacity": 2,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        4,
+        20,
+        116,
+        692,
+        4148,
+        24884
+      ],
+      "reachable_partition_counts": [
+        1,
+        2,
+        8,
+        44,
+        260,
+        1556,
+        9332
+      ],
+      "score": 234,
+      "total": 384,
+      "verified_decisions": 384,
+      "verified_updates": 384,
+      "verified_words": 64,
+      "width": 6
+    },
+    {
+      "capacity": 3,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        9,
+        90
+      ],
+      "reachable_partition_counts": [
+        1,
+        2,
+        14
+      ],
+      "score": 7,
+      "total": 8,
+      "verified_decisions": 8,
+      "verified_updates": 8,
+      "verified_words": 4,
+      "width": 2
+    },
+    {
+      "capacity": 4,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        16,
+        272
+      ],
+      "reachable_partition_counts": [
+        1,
+        2,
+        15
+      ],
+      "score": 8,
+      "total": 8,
+      "verified_decisions": 8,
+      "verified_updates": 8,
+      "verified_words": 4,
+      "width": 2
+    },
+    {
+      "capacity": 3,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        9,
+        90,
+        4950
+      ],
+      "reachable_partition_counts": [
+        1,
+        2,
+        14,
+        590
+      ],
+      "score": 19,
+      "total": 24,
+      "verified_decisions": 24,
+      "verified_updates": 24,
+      "verified_words": 8,
+      "width": 3
+    },
+    {
+      "capacity": 4,
+      "kind": "exact",
+      "labeled_tables_evaluated": [
+        16,
+        272,
+        91920
+      ],
+      "reachable_partition_counts": [
+        1,
+        2,
+        15,
+        2795
+      ],
+      "score": 20,
+      "total": 24,
+      "verified_decisions": 24,
+      "verified_updates": 24,
+      "verified_words": 8,
+      "width": 3
+    },
+    {
+      "capacity": 1,
+      "kind": "handoff",
+      "labeled_assignments": 1,
+      "partition_count": 1,
+      "score": 1,
+      "total": 2,
+      "width": 1
+    },
+    {
+      "capacity": 2,
+      "kind": "handoff",
+      "labeled_assignments": 4,
+      "partition_count": 2,
+      "score": 2,
+      "total": 2,
+      "width": 1
+    },
+    {
+      "capacity": 3,
+      "kind": "handoff",
+      "labeled_assignments": 9,
+      "partition_count": 2,
+      "score": 2,
+      "total": 2,
+      "width": 1
+    },
+    {
+      "capacity": 4,
+      "kind": "handoff",
+      "labeled_assignments": 16,
+      "partition_count": 2,
+      "score": 2,
+      "total": 2,
+      "width": 1
+    },
+    {
+      "capacity": 1,
+      "kind": "handoff",
+      "labeled_assignments": 1,
+      "partition_count": 1,
+      "score": 4,
+      "total": 8,
+      "width": 2
+    },
+    {
+      "capacity": 2,
+      "kind": "handoff",
+      "labeled_assignments": 16,
+      "partition_count": 8,
+      "score": 6,
+      "total": 8,
+      "width": 2
+    },
+    {
+      "capacity": 3,
+      "kind": "handoff",
+      "labeled_assignments": 81,
+      "partition_count": 14,
+      "score": 7,
+      "total": 8,
+      "width": 2
+    },
+    {
+      "capacity": 4,
+      "kind": "handoff",
+      "labeled_assignments": 256,
+      "partition_count": 15,
+      "score": 8,
+      "total": 8,
+      "width": 2
+    },
+    {
+      "capacity": 1,
+      "kind": "handoff",
+      "labeled_assignments": 1,
+      "partition_count": 1,
+      "score": 12,
+      "total": 24,
+      "width": 3
+    },
+    {
+      "capacity": 2,
+      "kind": "handoff",
+      "labeled_assignments": 256,
+      "partition_count": 128,
+      "score": 18,
+      "total": 24,
+      "width": 3
+    },
+    {
+      "capacity": 3,
+      "kind": "handoff",
+      "labeled_assignments": 6561,
+      "partition_count": 1094,
+      "score": 19,
+      "total": 24,
+      "width": 3
+    },
+    {
+      "capacity": 4,
+      "kind": "handoff",
+      "labeled_assignments": 65536,
+      "partition_count": 2795,
+      "score": 20,
+      "total": 24,
+      "width": 3
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "window/J1/B0",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 1,
+      "total": 2,
+      "verified_decisions": 2,
+      "verified_updates": 2,
+      "verified_words": 2,
+      "width": 1
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "window/J1/B1",
+      "proof": "injective_full_register_matches_counting_bound",
+      "score": 2,
+      "total": 2,
+      "verified_decisions": 2,
+      "verified_updates": 2,
+      "verified_words": 2,
+      "width": 1
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "parity/constant/J1",
+      "proof": "balanced_parity_classes_under_one_code",
+      "score": 1,
+      "total": 2,
+      "verified_decisions": 2,
+      "verified_updates": 2,
+      "verified_words": 2,
+      "width": 1
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "parity/xor/J1",
+      "proof": "parity_statistic_matches_two_label_lower_bound",
+      "score": 2,
+      "total": 2,
+      "verified_decisions": 2,
+      "verified_updates": 2,
+      "verified_words": 2,
+      "width": 1
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "window/J2/B0",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 4,
+      "total": 8,
+      "verified_decisions": 8,
+      "verified_updates": 8,
+      "verified_words": 4,
+      "width": 2
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "window/J2/B1",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 6,
+      "total": 8,
+      "verified_decisions": 8,
+      "verified_updates": 8,
+      "verified_words": 4,
+      "width": 2
+    },
+    {
+      "capacity": 4,
+      "kind": "constructive",
+      "label": "window/J2/B2",
+      "proof": "injective_full_register_matches_counting_bound",
+      "score": 8,
+      "total": 8,
+      "verified_decisions": 8,
+      "verified_updates": 8,
+      "verified_words": 4,
+      "width": 2
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "parity/constant/J2",
+      "proof": "balanced_parity_classes_under_one_code",
+      "score": 2,
+      "total": 4,
+      "verified_decisions": 4,
+      "verified_updates": 8,
+      "verified_words": 4,
+      "width": 2
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "parity/xor/J2",
+      "proof": "parity_statistic_matches_two_label_lower_bound",
+      "score": 4,
+      "total": 4,
+      "verified_decisions": 4,
+      "verified_updates": 8,
+      "verified_words": 4,
+      "width": 2
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "window/J3/B0",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 12,
+      "total": 24,
+      "verified_decisions": 24,
+      "verified_updates": 24,
+      "verified_words": 8,
+      "width": 3
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "window/J3/B1",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 16,
+      "total": 24,
+      "verified_decisions": 24,
+      "verified_updates": 24,
+      "verified_words": 8,
+      "width": 3
+    },
+    {
+      "capacity": 4,
+      "kind": "constructive",
+      "label": "window/J3/B2",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 20,
+      "total": 24,
+      "verified_decisions": 24,
+      "verified_updates": 24,
+      "verified_words": 8,
+      "width": 3
+    },
+    {
+      "capacity": 8,
+      "kind": "constructive",
+      "label": "window/J3/B3",
+      "proof": "injective_full_register_matches_counting_bound",
+      "score": 24,
+      "total": 24,
+      "verified_decisions": 24,
+      "verified_updates": 24,
+      "verified_words": 8,
+      "width": 3
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "parity/constant/J3",
+      "proof": "balanced_parity_classes_under_one_code",
+      "score": 4,
+      "total": 8,
+      "verified_decisions": 8,
+      "verified_updates": 24,
+      "verified_words": 8,
+      "width": 3
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "parity/xor/J3",
+      "proof": "parity_statistic_matches_two_label_lower_bound",
+      "score": 8,
+      "total": 8,
+      "verified_decisions": 8,
+      "verified_updates": 24,
+      "verified_words": 8,
+      "width": 3
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "window/J4/B0",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 32,
+      "total": 64,
+      "verified_decisions": 64,
+      "verified_updates": 64,
+      "verified_words": 16,
+      "width": 4
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "window/J4/B1",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 40,
+      "total": 64,
+      "verified_decisions": 64,
+      "verified_updates": 64,
+      "verified_words": 16,
+      "width": 4
+    },
+    {
+      "capacity": 4,
+      "kind": "constructive",
+      "label": "window/J4/B2",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 48,
+      "total": 64,
+      "verified_decisions": 64,
+      "verified_updates": 64,
+      "verified_words": 16,
+      "width": 4
+    },
+    {
+      "capacity": 8,
+      "kind": "constructive",
+      "label": "window/J4/B3",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 56,
+      "total": 64,
+      "verified_decisions": 64,
+      "verified_updates": 64,
+      "verified_words": 16,
+      "width": 4
+    },
+    {
+      "capacity": 16,
+      "kind": "constructive",
+      "label": "window/J4/B4",
+      "proof": "injective_full_register_matches_counting_bound",
+      "score": 64,
+      "total": 64,
+      "verified_decisions": 64,
+      "verified_updates": 64,
+      "verified_words": 16,
+      "width": 4
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "parity/constant/J4",
+      "proof": "balanced_parity_classes_under_one_code",
+      "score": 8,
+      "total": 16,
+      "verified_decisions": 16,
+      "verified_updates": 64,
+      "verified_words": 16,
+      "width": 4
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "parity/xor/J4",
+      "proof": "parity_statistic_matches_two_label_lower_bound",
+      "score": 16,
+      "total": 16,
+      "verified_decisions": 16,
+      "verified_updates": 64,
+      "verified_words": 16,
+      "width": 4
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "window/J6/B0",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 192,
+      "total": 384,
+      "verified_decisions": 384,
+      "verified_updates": 384,
+      "verified_words": 64,
+      "width": 6
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "window/J6/B1",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 224,
+      "total": 384,
+      "verified_decisions": 384,
+      "verified_updates": 384,
+      "verified_words": 64,
+      "width": 6
+    },
+    {
+      "capacity": 4,
+      "kind": "constructive",
+      "label": "window/J6/B2",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 256,
+      "total": 384,
+      "verified_decisions": 384,
+      "verified_updates": 384,
+      "verified_words": 64,
+      "width": 6
+    },
+    {
+      "capacity": 8,
+      "kind": "constructive",
+      "label": "window/J6/B3",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 288,
+      "total": 384,
+      "verified_decisions": 384,
+      "verified_updates": 384,
+      "verified_words": 64,
+      "width": 6
+    },
+    {
+      "capacity": 16,
+      "kind": "constructive",
+      "label": "window/J6/B4",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 320,
+      "total": 384,
+      "verified_decisions": 384,
+      "verified_updates": 384,
+      "verified_words": 64,
+      "width": 6
+    },
+    {
+      "capacity": 32,
+      "kind": "constructive",
+      "label": "window/J6/B5",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 352,
+      "total": 384,
+      "verified_decisions": 384,
+      "verified_updates": 384,
+      "verified_words": 64,
+      "width": 6
+    },
+    {
+      "capacity": 64,
+      "kind": "constructive",
+      "label": "window/J6/B6",
+      "proof": "injective_full_register_matches_counting_bound",
+      "score": 384,
+      "total": 384,
+      "verified_decisions": 384,
+      "verified_updates": 384,
+      "verified_words": 64,
+      "width": 6
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "parity/constant/J6",
+      "proof": "balanced_parity_classes_under_one_code",
+      "score": 32,
+      "total": 64,
+      "verified_decisions": 64,
+      "verified_updates": 384,
+      "verified_words": 64,
+      "width": 6
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "parity/xor/J6",
+      "proof": "parity_statistic_matches_two_label_lower_bound",
+      "score": 64,
+      "total": 64,
+      "verified_decisions": 64,
+      "verified_updates": 384,
+      "verified_words": 64,
+      "width": 6
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "window/J8/B0",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 1024,
+      "total": 2048,
+      "verified_decisions": 2048,
+      "verified_updates": 2048,
+      "verified_words": 256,
+      "width": 8
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "window/J8/B1",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 1152,
+      "total": 2048,
+      "verified_decisions": 2048,
+      "verified_updates": 2048,
+      "verified_words": 256,
+      "width": 8
+    },
+    {
+      "capacity": 4,
+      "kind": "constructive",
+      "label": "window/J8/B2",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 1280,
+      "total": 2048,
+      "verified_decisions": 2048,
+      "verified_updates": 2048,
+      "verified_words": 256,
+      "width": 8
+    },
+    {
+      "capacity": 8,
+      "kind": "constructive",
+      "label": "window/J8/B3",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 1408,
+      "total": 2048,
+      "verified_decisions": 2048,
+      "verified_updates": 2048,
+      "verified_words": 256,
+      "width": 8
+    },
+    {
+      "capacity": 16,
+      "kind": "constructive",
+      "label": "window/J8/B4",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 1536,
+      "total": 2048,
+      "verified_decisions": 2048,
+      "verified_updates": 2048,
+      "verified_words": 256,
+      "width": 8
+    },
+    {
+      "capacity": 32,
+      "kind": "constructive",
+      "label": "window/J8/B5",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 1664,
+      "total": 2048,
+      "verified_decisions": 2048,
+      "verified_updates": 2048,
+      "verified_words": 256,
+      "width": 8
+    },
+    {
+      "capacity": 64,
+      "kind": "constructive",
+      "label": "window/J8/B6",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 1792,
+      "total": 2048,
+      "verified_decisions": 2048,
+      "verified_updates": 2048,
+      "verified_words": 256,
+      "width": 8
+    },
+    {
+      "capacity": 128,
+      "kind": "constructive",
+      "label": "window/J8/B7",
+      "proof": "suffix_statistic_and_complete_replay",
+      "score": 1920,
+      "total": 2048,
+      "verified_decisions": 2048,
+      "verified_updates": 2048,
+      "verified_words": 256,
+      "width": 8
+    },
+    {
+      "capacity": 256,
+      "kind": "constructive",
+      "label": "window/J8/B8",
+      "proof": "injective_full_register_matches_counting_bound",
+      "score": 2048,
+      "total": 2048,
+      "verified_decisions": 2048,
+      "verified_updates": 2048,
+      "verified_words": 256,
+      "width": 8
+    },
+    {
+      "capacity": 1,
+      "kind": "constructive",
+      "label": "parity/constant/J8",
+      "proof": "balanced_parity_classes_under_one_code",
+      "score": 128,
+      "total": 256,
+      "verified_decisions": 256,
+      "verified_updates": 2048,
+      "verified_words": 256,
+      "width": 8
+    },
+    {
+      "capacity": 2,
+      "kind": "constructive",
+      "label": "parity/xor/J8",
+      "proof": "parity_statistic_matches_two_label_lower_bound",
+      "score": 256,
+      "total": 256,
+      "verified_decisions": 256,
+      "verified_updates": 2048,
+      "verified_words": 256,
+      "width": 8
+    }
+  ],
+  "schema": "MIC-18/audit/v1",
+  "source_sha256": {
+    "audit18.py": "22bed5906b83eb29246d4bae75f80f5ab94c424c20739bc947790fc5b720bb63",
+    "finite_memory.py": "9fa386bd52c6925e41e7151e163b34df01f553eb6a214fe4737960dfd2109abc",
+    "protocol.json": "55d440de4046213da39acc4636b8bcc57c5d6371922e62c0ee190cafc4708919",
+    "run18.py": "0213509c230aa48e16def5cadf39e8d0a3bc3c534d5d4bdc9594f831b6b4dbc4",
+    "test_mic18.py": "188c1ad966a82c8402074681826383153a8dde16405dc021aa68d86b56386d0d"
+  },
+  "status": "PASS",
+  "verified_decisions": 23612,
+  "verified_updates": 27972,
+  "verified_words": 3856
+}
