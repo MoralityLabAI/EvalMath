@@ -27,7 +27,7 @@ jobs:
       - name: Install
         run: python -m pip install -e ".[test]"
       - name: Tests
-        run: pytest -q
+        run: python -m pytest -q
       - name: Fetch pinned DCF-16 receipt inputs
         shell: bash
         run: |
