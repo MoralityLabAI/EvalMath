@@ -227,3 +227,59 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.RSISpectralThreshold.dominant_gt_one_iff
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance
 #print axioms FeedbackChannel.RSISpectralThreshold.budget_balance_attained
+
+-- CPF-01: sharp joint false-acceptance interval and audit contraction
+#print axioms FeedbackChannel.CPF.frechet
+#print axioms FeedbackChannel.CPF.witness
+#print axioms FeedbackChannel.CPF.atom_total
+#print axioms FeedbackChannel.CPF.conditional_audit
+-- CPF-01 §2: adaptive certified-rejection audit (CPFAudit.lean)
+#print axioms FeedbackChannel.CPFAudit.Model.value_le_mass
+#print axioms FeedbackChannel.CPFAudit.Model.value_le_residual
+#print axioms FeedbackChannel.CPFAudit.Model.exists_optimal
+#print axioms FeedbackChannel.CPFAudit.Model.residual_fixed
+#print axioms FeedbackChannel.CPFAudit.Model.valid_fixed
+#print axioms FeedbackChannel.CPFAudit.Model.value_le_fixed
+#print axioms FeedbackChannel.CPFAudit.witness_adaptive
+#print axioms FeedbackChannel.CPFAudit.witness_fixed
+#print axioms FeedbackChannel.CPFAudit.witness_lower
+
+-- CPF-02: statement-level circuit bridges (CPF02/Canonical.lean)
+#print axioms FeedbackChannel.CPF02.openai_exact_iff
+#print axioms FeedbackChannel.CPF02.anthropic_exact_to_canonical
+#print axioms FeedbackChannel.CPF02.anthropic_approx_to_canonical
+#print axioms FeedbackChannel.CPF02.lower_transfer
+
+-- CPF-02: reverse compiler, bound normalization, VP/VNP transports (CPF02/Bridges.lean)
+#print axioms FeedbackChannel.CPF02.computes_mono
+#print axioms FeedbackChannel.CPF02.statement_computes_mono
+#print axioms FeedbackChannel.CPF02.canonical_to_anthropic
+#print axioms FeedbackChannel.CPF02.charged_free_sandwich
+#print axioms FeedbackChannel.CPF02.lower_transfer_reverse
+#print axioms FeedbackChannel.CPF02.polyBounded_mono
+#print axioms FeedbackChannel.CPF02.allIndex_mono
+#print axioms FeedbackChannel.CPF02.polyBounded_iff_allIndex
+#print axioms FeedbackChannel.CPF02.openai_vp_iff
+#print axioms FeedbackChannel.CPF02.vp_iff_anthropic
+#print axioms FeedbackChannel.CPF02.computes_rename
+#print axioms FeedbackChannel.CPF02.witness_sum_reindex
+#print axioms FeedbackChannel.CPF02.openai_vnp_iff_canonical
+#print axioms FeedbackChannel.CPF02.vp_subset_vnp
+#print axioms FeedbackChannel.CPF02.aeval_bool_eq
+#print axioms FeedbackChannel.CPF02.canonical_vnp_to_anthropic
+#print axioms FeedbackChannel.CPF02.totalDegree_eval₂Hom_le
+#print axioms FeedbackChannel.CPF02.anthropic_vnp_to_canonical
+#print axioms FeedbackChannel.CPF02.vnp_iff_anthropic
+#print axioms FeedbackChannel.CPF02.computes_map
+#print axioms FeedbackChannel.CPF02.statement_computes_map
+#print axioms FeedbackChannel.CPF02.laurent_const_coeff
+#print axioms FeedbackChannel.CPF02.computes_approximates
+#print axioms FeedbackChannel.CPF02.statement_computes_approximates
+#print axioms FeedbackChannel.CPF02.vp_subset_vpbar
+#print axioms FeedbackChannel.CPF02.statement_vp_subset_vpbar
+
+-- CPF-03: semantic mutation witnesses
+#print axioms FeedbackChannel.CPF03.approximate_bound_transfer
+#print axioms FeedbackChannel.CPF03.no_reverse_bound
+#print axioms FeedbackChannel.CPF03.pointwise_threshold
+#print axioms FeedbackChannel.CPF03.no_uniform_threshold

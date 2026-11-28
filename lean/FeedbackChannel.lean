@@ -21,3 +21,8 @@ import FeedbackChannel.SelectionTieRules
 import FeedbackChannel.SelectionTieFree
 import FeedbackChannel.FRCAdaptiveAudit
 import FeedbackChannel.RSISpectralThreshold
+import FeedbackChannel.CorrelatedProofFidelity
+import FeedbackChannel.CPF02.Canonical
+import FeedbackChannel.CPF02.Bridges
+import FeedbackChannel.CPF03
+import FeedbackChannel.CPFAudit
