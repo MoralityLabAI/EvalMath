@@ -1,0 +1,36 @@
+name: AIRIS chronology curriculum
+on:
+  push:
+    paths: ['gyms/AIRIS/nonstationary.py', 'gyms/AIRIS/curriculum.py', 'gyms/AIRIS/test_nonstationary.py', 'gyms/AIRIS/NONSTATIONARY.md', 'gyms/AIRIS/partial.py', '.github/workflows/airis-curriculum.yml']
+  pull_request:
+    paths: ['gyms/AIRIS/nonstationary.py', 'gyms/AIRIS/curriculum.py', 'gyms/AIRIS/test_nonstationary.py', 'gyms/AIRIS/NONSTATIONARY.md', 'gyms/AIRIS/partial.py', '.github/workflows/airis-curriculum.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  curriculum:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s gyms/AIRIS -p test_nonstationary.py -v
+      - name: Generate and replay curriculum
+        run: |
+          python gyms/AIRIS/curriculum.py --out airis07
+          python gyms/AIRIS/curriculum.py --out /tmp/airis07
+          diff -r airis07 /tmp/airis07
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AIRIS-07-train-candidates
+          path: |
+            airis07/train_candidates.jsonl
+            airis07/train_manifest.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AIRIS-07-development-research
+          path: |
+            airis07/development_unlabeled.jsonl
+            airis07/AIRIS-07.json
