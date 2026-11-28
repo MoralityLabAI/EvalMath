@@ -1,0 +1,77 @@
+{
+  "id": "MIC-01",
+  "status": "draft_registration_blocked_pending_redesign_and_independent_development",
+  "question": "At fixed inference and verifier budgets, does chronological discovery context increase independently verified strict bound improvement relative to the same history in a shuffled order?",
+  "arms": [
+    {
+      "id": "A",
+      "context": "problem only"
+    },
+    {
+      "id": "B",
+      "context": "problem and background literature"
+    },
+    {
+      "id": "C",
+      "context": "latest intermediate result"
+    },
+    {
+      "id": "D",
+      "context": "complete ordered discovery prefix"
+    },
+    {
+      "id": "E",
+      "context": "same prefix, identical blocks independently permuted"
+    },
+    {
+      "id": "F",
+      "context": "ordered prefix with verified lemma state; charge verification cost"
+    },
+    {
+      "id": "G",
+      "context": "ordered prefix, persistent recurrent state; compare with stateless D at matched compute"
+    }
+  ],
+  "primary_contrast": "D-E",
+  "secondary_contrasts": [
+    "C-B",
+    "D-C",
+    "F-D",
+    "G-D"
+  ],
+  "familywise_alpha": "1/20",
+  "planned_comparisons": 5,
+  "independent_unit": "unseen mathematical problem family; descendants, variants, paraphrases and model repeats grouped by root",
+  "minimum_meaningful_effect": "1/20 absolute increase in independently verified strict improvement rate",
+  "initial_target": "1/10",
+  "match": [
+    "model checkpoint",
+    "sampling seeds by root",
+    "source blocks and rendered token counts D/E",
+    "maximum input/output tokens",
+    "model calls",
+    "verifier wall time and requests",
+    "search/retrieval tools",
+    "feedback visibility"
+  ],
+  "shams": "E1 vs E2 independent matched shuffled prefixes; calibrate on at least 59 independent development families before confirmation; no use of DLMST as independent families",
+  "candidate": "typed improvement with hypotheses, prior bound, proposed bound, derivation, and resource model; verifier returns pass/fail/unknown; unknown and budget exhaustion are failures",
+  "strict_improvement": "prove f=o(g) in the stated common asymptotic regime; numeric finite-size tests alone do not qualify; preserve quantifier and computational-model fidelity",
+  "scoring": [
+    "root-level verified strict improvement",
+    "invalid and unknown rate",
+    "proof length",
+    "input/output tokens",
+    "verifier requests and wall time",
+    "total cost",
+    "exact finite proxy objective gap"
+  ],
+  "confirmation": {
+    "planned_initial_roots": 128,
+    "seed_policy": "custodian private, generate distinct structural families, commit root manifest before opening",
+    "sealed": false,
+    "independent_families_verified": false,
+    "preflight": "required before confirmation; exact paired McNemar only for independent binary roots; Holm/Bonferroni for registered contrasts; clustered uncertainty across families"
+  },
+  "exposure": "DLMST and all 18 manuscripts public/reference-only. No public replay counts as held-out discovery. No model runs or held-out roots generated."
+}

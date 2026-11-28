@@ -1,0 +1,21 @@
+name: COL-EVAL-02 laptop receipt audit
+on:
+  pull_request:
+    paths:
+      - 'research/collatz_3050_receipts/**'
+      - '.github/workflows/col3050-receipt-audit.yml'
+  push:
+    paths:
+      - 'research/collatz_3050_receipts/**'
+      - '.github/workflows/col3050-receipt-audit.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: cd research/collatz_3050_receipts && python -m unittest -v

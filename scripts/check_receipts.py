@@ -25,6 +25,16 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # name: (verifier, committed receipt, extra arguments, slow)
 RECEIPTS = {
+    "hypergames_qwen_preflight": ("scripts/verify_hypergames_qwen_eval.py",
+                                  "output/evaluation_hypergames/hg03_qwen_preflight_v1.json", [], False),
+    "hypergames_singleplayer": ("scripts/verify_hypergames_single_player.py",
+                                "output/evaluation_hypergames/hg02_single_player_v1.json", [], False),
+    "hypergames": ("scripts/verify_evaluation_hypergames.py",
+                   "output/evaluation_hypergames/hg01.json", [], False),
+    "cogentic_ledger": ("scripts/verify_cogentic_ledger.py",
+                        "output/cogentic_ledger/cog08_v1.json", [], False),
+    "collatz_basin": ("scripts/verify_collatz_basin.py",
+                      "output/collatz_basin/col_eval_01.json", [], False),
     "cpf_suite": ("scripts/verify_evaluation_cpf_suite.py",
                   "output/evaluation_cpf/cpf_suite.json", [], False),
     "cpf03": ("scripts/verify_evaluation_cpf03.py",
@@ -78,6 +88,8 @@ RECEIPTS = {
                             "output/evaluation_adaptive_disclosure/adaptive_disclosure_v0_1.json", [], False),
     "selection_risk": ("scripts/verify_evaluation_selection_risk.py",
                        "output/evaluation_selection_risk/selection_risk_v0_1.json", [], False),
+    "ppt_reuse": ("scripts/verify_evaluation_ppt_reuse.py",
+                  "output/evaluation_ppt_reuse/ppt_reuse_v0_1.json", [], False),
     "covert_feedback": ("scripts/verify_evaluation_covert_feedback.py",
                         "output/evaluation_covert_feedback/covert_feedback_v0_2.json", [], False),
     "full_filtration": ("scripts/verify_evaluation_full_filtration.py",

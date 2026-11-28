@@ -1,0 +1,23 @@
+{
+  "provenance": {
+    "repository": "MoralityLabAI/GPTStoryworld",
+    "commit": "c8d46591f983473023daf0232e9b413baaa02194",
+    "source_path": "storyworld/examples/diplomacy_min.json",
+    "note": "Synthetic pre-decision turn row reconstructed from initial_state, not an actual recorded rollout"
+  },
+  "benchmark_id": "storyworld_reasoning_v2",
+  "acting_agent": "AgentA",
+  "visible_state": {
+    "active_node": "node_start",
+    "beliefs": {
+      "AgentA": {"trust": {"AgentA": 0, "AgentB": 0, "AgentC": 0}, "expected_payoff": 0},
+      "AgentB": {"trust": {"AgentA": 0, "AgentB": 0, "AgentC": 0}, "expected_payoff": 0},
+      "AgentC": {"trust": {"AgentA": 0, "AgentB": 0, "AgentC": 0}, "expected_payoff": 0}
+    },
+    "coalitions": [],
+    "world_vars": {"round": 0, "seed": 7},
+    "messages": []
+  },
+  "hidden_state_reveal": [{"key": "secret_payoff", "value": "sealed"}],
+  "realized_outcome": {"outcome": "sealed"}
+}
