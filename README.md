@@ -14,11 +14,24 @@ New: [capacity-sensitive leakage](paper/leak_capacity.md) certifies when a posit
 feedback fibre produces an actual binary-record collision at declared cell capacities,
 and computes exact collision probabilities with two independent finite algorithms.
 
+New: [Collatz basin readout ceilings](paper/collatz_basin_readout.md) supplies an
+exact finite reasoning benchmark with parameter-disjoint public exports,
+separate evaluator gold, arithmetic collision witnesses and source-hashed
+receipts. The quotient, gcd and constant readouts have exact accuracy ceilings;
+future learned comparisons require fresh confirmation roots.
+
 New: [adaptive disclosure](paper/adaptive_disclosure.md) derives exact pathwise
 feedback fibres, conditional collision reductions and an optimal-query recurrence.
 For a uniform one-hot item on a line, k adaptive interval queries identify up to
 2^k locations, versus 2k with fixed queries (within the number of locations).
 The paper includes independent exact enumeration and the reproducible receipt.
+
+**PPT-EVAL-01 (2026-11-02):** [Posterior Prefix Tuning under adaptive sample reuse](paper/ppt_adaptive_reuse.md)
+gives two exact rational selection-bias witnesses, including one with maximal importance-weight ESS,
+and a simultaneous bounded-ratio confidence guarantee for predeclared prompt/utility classes.
+It includes six tests, a source-hashed twelve-check receipt, and a reproduction command
+(`python scripts/check_receipts.py --only ppt_reuse`). This is a synthetic analysis;
+there are no transformer experiments or Lean theorems in this addition.
 
 New: [adaptive selection risk and continuation sufficiency](paper/selection_risk_continuations.md)
 computes exact false-authorization risk after a feedback transcript, with an independently
