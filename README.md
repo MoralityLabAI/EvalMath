@@ -26,6 +26,13 @@ For a uniform one-hot item on a line, k adaptive interval queries identify up to
 2^k locations, versus 2k with fixed queries (within the number of locations).
 The paper includes independent exact enumeration and the reproducible receipt.
 
+**PPT-EVAL-01 (2026-11-02):** [Posterior Prefix Tuning under adaptive sample reuse](paper/ppt_adaptive_reuse.md)
+gives two exact rational selection-bias witnesses, including one with maximal importance-weight ESS,
+and a simultaneous bounded-ratio confidence guarantee for predeclared prompt/utility classes.
+It includes six tests, a source-hashed twelve-check receipt, and a reproduction command
+(`python scripts/check_receipts.py --only ppt_reuse`). This is a synthetic analysis;
+there are no transformer experiments or Lean theorems in this addition.
+
 New: [adaptive selection risk and continuation sufficiency](paper/selection_risk_continuations.md)
 computes exact false-authorization risk after a feedback transcript, with an independently
 enumerated two-query example rising from 5% pre-query risk to 7.5% under fixed
@@ -188,3 +195,16 @@ Apache License 2.0; see [`LICENSE`](LICENSE).
 ## Agent skill: stop underpowered mechanistic evaluations early
 
 Future research agents should read [`skills/evalmath-mechinterp-power/SKILL.md`](skills/evalmath-mechinterp-power/SKILL.md) before designing AF, LS-SAE, SMC, PEF, Hypergames, or BPD evals. The skill and [`preflight.py`](skills/evalmath-mechinterp-power/scripts/preflight.py) estimate whether an independent-world evaluation can resolve a meaningful mechanism effect over matched-sham variation before committing compute. It distinguishes pilot diagnostics from sealed FSI-01 evidence and exact finite proofs.
+
+## Hypergames HG-01: Storyworld implied-goal geometry
+
+[Hypergames/README.md](Hypergames/README.md) connects GPTStoryworld's high-dimensional
+narrative states and nested agent beliefs to exact Clifford/Dirac distance,
+factorized categorical Hilbert embeddings, inverse-Voronoi goal regions,
+robust active probes, and projection-margin tests. The synthetic 140-coordinate
+reference case has 12 CPU tests and a source-hashed receipt. The
+[mathematics](paper/hypergames_dirac_goal_inference.md) and
+[HG-02 prospective protocol](Hypergames/PROTOCOL.md) distinguish a conditional
+one-step inference toy from claims about actual agents.
+
+Reproduce: `python scripts/check_receipts.py --only hypergames`.
