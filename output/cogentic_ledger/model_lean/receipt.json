@@ -1,0 +1,130 @@
+{
+  "cohorts": [
+    {
+      "compiled_complete_proofs": 64,
+      "episodes": 64,
+      "independent_roots": 64,
+      "recorded_finite_verifier_calls": 488,
+      "seed": 17,
+      "split": "ordinary_test"
+    },
+    {
+      "compiled_complete_proofs": 64,
+      "episodes": 64,
+      "independent_roots": 64,
+      "recorded_finite_verifier_calls": 466,
+      "seed": 29,
+      "split": "ordinary_test"
+    },
+    {
+      "compiled_complete_proofs": 61,
+      "episodes": 64,
+      "independent_roots": 64,
+      "recorded_finite_verifier_calls": 983,
+      "seed": 17,
+      "split": "ood_test"
+    },
+    {
+      "compiled_complete_proofs": 64,
+      "episodes": 64,
+      "independent_roots": 64,
+      "recorded_finite_verifier_calls": 944,
+      "seed": 29,
+      "split": "ood_test"
+    }
+  ],
+  "cost_accounting": {
+    "independent_replay_finite_step_checks": 2881,
+    "native_negative_sentinel_processes": 1,
+    "native_positive_batch_processes": 1,
+    "native_proof_compiler_processes": 2,
+    "native_version_queries": 1,
+    "note": "Model verifier calls are the recorded policy budget. Export validation and native batch compilation are separate costs.",
+    "recorded_finite_policy_verifier_calls": 2881,
+    "term_emission_event_visits": 2809
+  },
+  "counts": {
+    "accepted": 2819,
+    "all_attempt_rows_scanned": 40968,
+    "calls": 2881,
+    "compiled_axiom_free_theorems": 253,
+    "completed_episodes": 253,
+    "duplicates": 0,
+    "post_solution_calls": 0,
+    "rejected": 62,
+    "selected_arm_rows_scanned": 3836,
+    "selected_episode_rows": 2881,
+    "unique_verified_facts": 2819,
+    "unsolved_episodes_retained": 3
+  },
+  "evidence": "native Lean 4 kernel replay of model-produced finite Horn derivations",
+  "generated_files": {
+    "certificate_index.json": {
+      "bytes": 803008,
+      "sha256": "8f306dffd4b4fe864c66ba3c2e8355b29836121534a06f2991e7759c48b3bbf4"
+    },
+    "lean_stdout.txt": {
+      "bytes": 26818,
+      "sha256": "26df523490245068d7c22f3f5327c4f435ca3cd9e7c89e092789a1e789097494"
+    },
+    "model_proofs.lean": {
+      "bytes": 356865,
+      "sha256": "6f3adbed824f9ab88c1f5c5b11864fef3a637f836f40b86b3f50c0d0829abdbd"
+    },
+    "negative_sentinel.lean": {
+      "bytes": 62,
+      "sha256": "bb393b2626f1ed77bfa458b3c827fad59f1c90d511ac953b2e45e7cd8c01ee75"
+    },
+    "negative_stdout.txt": {
+      "bytes": 100,
+      "sha256": "6d4081bd999f10e7cecad141063bdbdf3d991f95355843bba9a5f1056f3730bb"
+    }
+  },
+  "input_files": {
+    "attempts": {
+      "filename": "attempts.jsonl.gz",
+      "sha256": "9b3a0412bdc683b95bc6bcf6a843801f947c288f23e9f32dfa354accd8c0f461"
+    },
+    "tasks": {
+      "filename": "tasks.jsonl",
+      "sha256": "aef151e3f7de099e9b5d7b51c92ad94aa3bab20a85b4f73b8f4fb5ac8ce7905a"
+    }
+  },
+  "native_lean": {
+    "all_axiom_lists_empty": true,
+    "axiom_report_count": 253,
+    "executable_sha256": "bf8d54e4714cc4b03d3f6bb34c83b7202b87e49c8bfcbff6895c085bb90ceb38",
+    "expected_theorems": 253,
+    "negative_exit_code": 1,
+    "negative_wrong_term_rejected": true,
+    "positive_exit_code": 0,
+    "version": "Lean (version 4.35.0, x86_64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)"
+  },
+  "passed": true,
+  "receipt_sha256": "45f2e974316aa473775c2a8583ad776a65e684eb3e3d3875ece1f96819653033",
+  "schema": "EvalMath/cog08/model-lean/v1",
+  "scope": "Synthetic public Horn worlds; quantified facts and rules are theorem hypotheses.",
+  "selection": {
+    "arm": "looped",
+    "budget": 24,
+    "expected_episodes": 256,
+    "full_registry_roots": 256,
+    "full_registry_sha256": "9ec838249928a39e25a7d2c5f1498bc8c9f09f7f6d17c07d95dbd9500e317751",
+    "observed_episodes": 256,
+    "seed_selection": "explicit",
+    "seeds": [
+      17,
+      29
+    ],
+    "selected_independent_roots": 128,
+    "selected_registry_sha256": "96c3b57d2447528290b7f1ed8522b54d8d873c396dcde291fd317d45514064f8",
+    "splits": [
+      "ordinary_test",
+      "ood_test"
+    ]
+  },
+  "source_sha256": {
+    "scripts/export_cogentic_lean.py": "4d77d5d97b071caf033ed05d5350530724553f228a743005cf21e4f8bc953fbb",
+    "src/spiral_ln/cogentic_ledger.py": "8fccc2b107a78b2cac0e7f18b76abea67198d05f868c595413eebd6bb8fc4c26"
+  }
+}

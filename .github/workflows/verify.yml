@@ -28,6 +28,16 @@ jobs:
         run: python -m pip install -e ".[test]"
       - name: Tests
         run: pytest -q
+      - name: Fetch pinned DCF-16 receipt inputs
+        shell: bash
+        run: |
+          dir="$RUNNER_TEMP/dcf16_decision_curriculum"
+          mkdir -p "$dir/data"
+          source_url=https://raw.githubusercontent.com/MoralityLabAI/Compactification-Theory/db1cc6d67e8fa22c32927fcff8c3785e7b7a5c0c/research/dcf16_decision_curriculum
+          curl --fail --silent --show-error --location --retry 3 --output "$dir/MANIFEST.json" "$source_url/MANIFEST.json"
+          curl --fail --silent --show-error --location --retry 3 --output "$dir/data/heldout.jsonl.gz" "$source_url/data/heldout.jsonl.gz"
+          printf '%s  %s\n' c128ee6896a5cb38b19cb4714d3c2dfde80c30afb12b29bdf24c7fa5933b84ac "$dir/data/heldout.jsonl.gz" | sha256sum --check
+          echo "DCF16_DIR=$dir" >> "$GITHUB_ENV"
       - name: Receipts (fast set; the two slow ones run under workflow_dispatch below)
         run: python scripts/check_receipts.py
 
