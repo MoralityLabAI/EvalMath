@@ -1,0 +1,27 @@
+name: MIC-13 exact CPU controls
+on:
+  pull_request:
+    paths:
+      - 'gyms/MIC13/**'
+      - '.github/workflows/mic13-cpu-controls.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mic13-exact-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install CPU test dependencies
+        run: |
+          python -m pip install 'numpy==2.3.5' 'pytest==8.4.2'
+          python -m pip install 'torch==2.9.1+cpu' --index-url https://download.pytorch.org/whl/cpu
+      - name: Run the scoped engineering checks
+        working-directory: gyms/MIC13
+        run: python -m pytest -q test_mic13.py
