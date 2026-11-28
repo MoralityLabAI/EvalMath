@@ -37,8 +37,10 @@ Blind reviewer to model identity and condition. Two reviewers independently mark
 
 ## R02 — adjudicated historical control (prospective)
 
-[ICJ 2007 Bosnia and Herzegovina v. Serbia and Montenegro judgment, official UN summary collection](https://legal.un.org/icjsummaries/documents/english/st_leg_serf1_add3.pdf): obtain and pin the judgment and earlier contemporaneous materials. Construct a dated pre-judgment packet and a post-judgment packet. Separate the finding of genocide at Srebrenica from the findings concerning Serbia's duty to prevent and its own responsibility. Do not leak later judgments into the earlier packet. This historical control is a legal-stage test, not a claim that the facts of distinct conflicts are interchangeable.
+[ICJ 2007 Bosnia and Herzegovina v. Serbia and Montenegro judgment, case 91](https://api.icj-cij.org/sites/default/files/case-related/91/091-20070226-JUD-01-00-EN.pdf): obtain and pin the judgment and earlier contemporaneous materials. Construct a dated pre-judgment packet and a post-judgment packet. Separate the finding of genocide at Srebrenica from the findings concerning Serbia's duty to prevent and its own responsibility. Do not leak later judgments into the earlier packet. This historical control is a legal-stage test, not a claim that the facts of distinct conflicts are interchangeable.
 
 ## Threat model
 
 Public material may have appeared in model training; real-world facts can change; model providers may apply different safety, browsing or citation defaults. These are confounders. Use identical frozen evidence and compare matched model versions and conditions. The study can establish observed response differences under a declared harness, not an explanation of their causes. A stronger causal claim requires independent information about deployment, system policies or interventions.
+
+Source-index verification (2026-11-29): the eight G1–G8 source destinations were located and their titles or relevant text cross-checked against the listed descriptions. G8 is dated October 14, 2026; the Commission's public release is dated October 26. This is a link/provenance check only, not independent adjudication or a byte-frozen record. Full document acquisition and review remain open.
