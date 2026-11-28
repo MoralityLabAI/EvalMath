@@ -44,3 +44,7 @@ The realistic lane in REAL_WORLD_PILOT.md is designed for independently adjudica
 ## Next gates
 
 AVB-02: paraphrase robustness, randomized opaque IDs and negative controls where affiliation really does supply evidence. Factorial loss changes and correlated-source traps. AVB-03: prospective expert-authored real-world factual dockets, including historical before/after adjudication snapshots. AVB-04: paired provider/version study with independent review and a preregistered analysis plan. AVB-05: only verified synthetic repairs can be considered for training; segregate all test roots and public-affairs judgments.
+
+## Implemented extension
+
+[AVB-02](AVB02.md) adds 3,456 factorial synthetic items, exact BigInt posterior and decision regret, informative-affiliation negative controls, duplicate-report controls and paired loss/pressure/wording diagnostics. The core self-test passed 20 checks. See the extension for separate commands and limitations.
