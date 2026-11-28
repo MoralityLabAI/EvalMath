@@ -1,0 +1,15 @@
+{
+  "schema": "proofcompactbench-v1-receipt",
+  "public_examples": 576,
+  "train": 384,
+  "calibration": 96,
+  "dev_test": 96,
+  "roots": 96,
+  "unique_prompts": 576,
+  "reference_gold_passes": 576,
+  "additional_stress_passes": 192,
+  "negative_controls": 9,
+  "source": "Original finite synthetic instances; native proof costs separate",
+  "training_ready": false,
+  "admitted_tokens": 0
+}
