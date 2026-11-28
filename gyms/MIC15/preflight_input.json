@@ -1,0 +1,46 @@
+{
+  "alpha": "1/20",
+  "confirm_units_planned": 128,
+  "experiment_id": "MIC-15-public-headroom",
+  "heldout_sealed": false,
+  "independent_unit": "generator lineage (independence unverified)",
+  "measurement_resolution": "0",
+  "pilot": [
+    {
+      "paired_effect": "20042635206051/886255996098400",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "partition"
+    },
+    {
+      "paired_effect": "255156601/27637954080",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "hub"
+    },
+    {
+      "paired_effect": "117/10864",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "overlap"
+    },
+    {
+      "paired_effect": "5/1044",
+      "sham_effects": [
+        "0"
+      ],
+      "unit_id": "alternatives"
+    }
+  ],
+  "pilot_from_development_only": true,
+  "planned_comparisons": 1,
+  "schema_version": 1,
+  "scientific_min_effect": "1/20",
+  "sham_confidence": "19/20",
+  "sham_quantile": "19/20",
+  "target_effect": "1/10",
+  "units_independent": false
+}
