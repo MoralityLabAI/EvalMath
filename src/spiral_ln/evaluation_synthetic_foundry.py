@@ -30,6 +30,10 @@ FAMILIES = {
     "bpd": ("paper/bpd_interventional_separation.md", "routed mechanism separation"),
     "paired": ("paper/nw01_recurrent_paired_information.md", "paired-world accuracy and Brier"),
     "revocation": ("paper/dynamic_filtration_validity.md", "provenance-dependent terminal decisions"),
+    "adaptive_risk": ("paper/selection_risk_continuations.md", "adaptive query trees"),
+    "adaptive_cpf": ("paper/correlated_proof_fidelity.md", "adaptive certified-rejection audit"),
+    "filtration": ("paper/stochastic_full_filtration.md", "private-signal arrival order"),
+    "private_stopping": ("paper/dynamic_filtration_validity.md", "pre-peek stopping inflation"),
 }
 PROFILES = ("baseline", "boundary", "structural_shift")
 
@@ -75,8 +79,24 @@ def make_case(family, rng, profile="baseline"):
     if family == "audit":
         return serial({"p": p(), "sensitivity": p(), "false_positive": p()})
     if family == "disclosure":
-        return {"n": rng.randint(8, 18) if shift else rng.randint(2, 8),
-                "budget": rng.randint(0 if edge else 1, 4 if shift else 3)}
+        return {"n": rng.randint(129, 512) if shift else rng.randint(2, 128),
+                "budget": rng.randint(0 if edge else 1, 12 if shift else 8)}
+    if family == "adaptive_risk":
+        n = rng.randint(6, 8) if shift else rng.randint(3, 5)
+        return {"weights":[rng.randint(1,d) for _ in range(n)],
+                "events":[[bool(rng.randrange(2)) for _ in range(n)] for _ in range(3)],
+                "queries":[[rng.randrange(3 if shift else 2) for _ in range(n)] for _ in range(4)],
+                "budget":2}
+    if family == "adaptive_cpf":
+        n = 7 if shift else 4
+        raw=[rng.randint(1,d) for _ in range(n)]
+        return serial({"weights":[F(w,2*sum(raw)) for w in raw],
+                       "rows":[[rng.choice(("reject","clear","A","B")) for _ in range(4)] for _ in raw],
+                       "budget":rng.randint(1,3)})
+    if family == "filtration":
+        return serial({"accuracy": (1+p())/2, "trigger_denominator":rng.randint(2,d)})
+    if family == "private_stopping":
+        return serial({"accuracy": (1+p())/2})
     if family in {"selection", "covert"}:
         n = rng.randint(5, 7) if shift else rng.randint(3, 5)
         m = rng.randint(3, 5)
@@ -155,16 +175,51 @@ def solve(family, x):
         n,b=x["n"],x["budget"]
         counts=one_hot_interval_law(n,b)
         # Enumerate adaptive splits using intervals, independent of the closed law.
-        queries=tuple(sum(1<<i for i in range(a,z)) for a in range(n) for z in range(a+1,n+1))
+        queries=tuple(sum(1<<i for i in range(a,z)) for a in range(n)
+                      for z in range(a+1,n+1)) if n <= 10 else ()
         @lru_cache(None)
         def dp(mask,k):
             if not mask:return 0
             if not k:return 1
             return max([1]+[dp(mask&q,k-1)+dp(mask&~q,k-1)
                              for q in queries if mask&q and mask&~q])
-        assert dp((1<<n)-1,b)==counts["adaptive"]
+        if n <= 10:
+            assert dp((1<<n)-1,b)==counts["adaptive"]
         return serial({**counts,"adaptive_success":F(counts["adaptive"],n),
                        "fixed_success":F(counts["fixed"],n)})
+    if family == "adaptive_risk":
+        from spiral_ln.evaluation_selection_risk import (
+            NullModel, adaptive_optimum, exhaustive_two_round_optimum, fixed_optimum,
+        )
+        model=NullModel(tuple(x["weights"]),tuple(map(tuple,x["events"])),tuple(map(tuple,x["queries"])))
+        adaptive=adaptive_optimum(model,x["budget"])["risk"]
+        fixed=fixed_optimum(model,x["budget"])
+        # fixed_optimum returns a dict in the native interface.
+        fixed=fixed["risk"] if isinstance(fixed,dict) else fixed[0]
+        assert adaptive==exhaustive_two_round_optimum(model) and adaptive>=fixed
+        return serial({"adaptive_risk":adaptive,"fixed_risk":fixed,"adaptive_advantage":adaptive-fixed})
+    if family == "adaptive_cpf":
+        from spiral_ln.evaluation_cpf import optimal, fixed
+        w=tuple(map(F,x["weights"])); rows=tuple(map(tuple,x["rows"])); b=x["budget"]
+        a=optimal(w,rows,b); f=fixed(w,rows,b)
+        assert 0<=a<=f<=sum(w)
+        return serial({"adaptive_residual":a,"fixed_residual":f,"adaptive_reduction":f-a})
+    if family == "filtration":
+        from spiral_ln.evaluation_full_filtration import (
+            rare_noisy_selector_fixture, optimal, independent_one_round_oracle,
+        )
+        model=rare_noisy_selector_fixture(F(x["accuracy"]),x["trigger_denominator"])
+        before=optimal(model,1,"before")["risk"]; after=optimal(model,1,"after")["risk"]
+        assert before==independent_one_round_oracle(model,"before")
+        assert after==independent_one_round_oracle(model,"after")
+        return serial({"risk_before":before,"risk_after":after,"order_advantage":before-after})
+    if family == "private_stopping":
+        from spiral_ln.evaluation_full_filtration import peeked_evalue
+        p=F(x["accuracy"]); result=peeked_evalue(p)
+        assert result["best_rich_stopping_expectation"]==F(1,2)+p
+        return serial({"public_expectation":result["coarse_one_step_expectation"],
+                       "private_stopping_value":result["best_rich_stopping_expectation"],
+                       "conditional_factor_expectations":result["conditional_factor_expectations"]})
     if family in {"selection","covert"}:
         from spiral_ln.evaluation_selection_risk import NullModel, risk_for_fibres
         from spiral_ln.evaluation_covert_feedback import covert_risk
@@ -255,6 +310,10 @@ def task(family, x, profile):
         "reuse":"Under independent equal-quality binomial candidates and reuse of one fixed eval, compute total draws including the initial record, expected reported maximum accuracy and phantom gain.",
         "bpd":"Find whether routed probes separate all mechanisms, minimum nonadaptive separating cost (null if impossible), and observational equivalence classes. Unrouted probes are missing.",
         "paired":"Compute paired public-only accuracy, Brier score for the given prediction and accuracy with the authenticated observation (or public-only if unavailable).",
+        "adaptive_risk":"Compute optimal fixed and adaptive false-selection risk with at most two public queries, and the difference. Each query row maps null worlds to integer responses.",
+        "adaptive_cpf":"Compute surviving unconditional false-authorization mass after adaptive versus fixed certified-rejection audits. Only reject blocks a world; other symbols may guide subsequent audits. No repeated queries.",
+        "filtration":"S,A are independent fair bits, R independently has probability 1/d. Test j falsely authorizes iff R=1 and A=j. Private signal reveals S. Query q reports A with supplied accuracy if q=S, otherwise an independent fair bit. With one query find optimum false-selection risk when S arrives before vs after choosing the query.",
+        "private_stopping":"X is a fair bit, M0=1, M1=2X. Before deciding stop or continue the actor sees a binary signal that guesses X with the specified accuracy. Compute public expectation, optimal private stopping value and conditional factor expectations for H=0,1.",
         "revocation":"The history bits have the supplied masses. Continuation requests XOR, bit 2 or bit 1 with weights in that order; memory is fixed before the request. Enumerate the best partition with at most the given states; return minimum regret and optimal success.",
     }
     y=solve(family,x)
