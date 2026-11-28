@@ -14,7 +14,7 @@ from pathlib import Path
 from decimal import Decimal
 
 from spiral_ln.evaluation_synthetic_foundry import (
-    FAMILIES, PROFILES, canonical, digest, generate, write_pack,
+    FAMILIES, PROFILES, canonical, digest, generate, score_pack, write_pack,
 )
 
 PIN = "3c9afc089d4e3ef57b876d19952a270fe44944dc"
@@ -192,6 +192,21 @@ def make(args):
     print(json.dumps(write_pack(args.out,public,gold,seed=args.seed,split=args.split,profile=args.profile),indent=2))
 
 
+def score(args):
+    def read_rows(path):
+        return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    meta=json.loads((args.pack/"manifest.json").read_text(encoding="utf-8"))
+    for name,key in (("tasks.jsonl","tasks_sha256"),("evaluator_gold.jsonl","gold_sha256")):
+        if hashlib.sha256((args.pack/name).read_bytes()).hexdigest()!=meta[key]:
+            raise ValueError("pack hash mismatch")
+    receipt=score_pack(read_rows(args.pack/"tasks.jsonl"),read_rows(args.pack/"evaluator_gold.jsonl"),
+                       read_rows(args.predictions))
+    receipt["pack_manifest_sha256"]=digest(meta)
+    receipt["prediction_sha256"]=hashlib.sha256(args.predictions.read_bytes()).hexdigest()
+    write(args.out,receipt)
+    print(json.dumps(receipt,indent=2))
+
+
 def existing_ledger(path):
     if not path.is_file():raise ValueError("existing shared DataGoblin ledger required")
     from datagoblin.training_gym.dg_cotp_02.budget import BudgetLedger
@@ -362,6 +377,9 @@ def main():
     a.add_argument("--family",choices=list(FAMILIES),nargs="+");a.add_argument("--profile",choices=PROFILES,default="baseline")
     a.add_argument("--count",type=int,default=32);a.add_argument("--seed",type=int,default=137)
     a.add_argument("--split",choices=("discovery","development"),default="discovery");a.add_argument("--out",type=Path,required=True)
+    a=sp.add_parser("score");a.set_defaults(fn=score)
+    a.add_argument("--pack",type=Path,required=True);a.add_argument("--predictions",type=Path,required=True)
+    a.add_argument("--out",type=Path,required=True)
     a=sp.add_parser("preflight");a.set_defaults(fn=preflight)
     a.add_argument("--requests",type=Path,required=True);a.add_argument("--ledger",type=Path,required=True)
     a=sp.add_parser("synthesize");a.set_defaults(fn=synthesize)
