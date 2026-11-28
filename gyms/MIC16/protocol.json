@@ -1,0 +1,14 @@
+{
+  "experiment": "MIC-16",
+  "status": "public-development oracle-first; no model fits authorized in this stage",
+  "families": ["local", "shared", "parity", "mixed"],
+  "seed_range_inclusive": [16000, 16011],
+  "budgets": [8, 12, 16],
+  "primary_budget": 12,
+  "worlds_per_root": 8,
+  "controls": ["direct_only_exact", "greedy_1", "lookahead_2", "lookahead_3", "lookahead_4", "bayes_no_probe", "clairvoyant"],
+  "primary_comparison": "exact Bayes vs strongest fixed nonclairvoyant lookahead heuristic (depths 1-4)",
+  "headroom_gate": "mean relative regret >= 0.05 AND >=20% roots have relative regret >=0.10 at primary budget; no model fit in this stage even if passed",
+  "cost_contract": "all attempts pay observed positive integer cost; legal only if worst possible cost under current posterior fits budget; declared units are not measured wall time",
+  "scope": "Static latent certificate catalog; observation includes verified success and cost, or a paid catalog bit. Full posterior is a sufficient statistic. No history order mechanism or sealed-family confirmation claim."
+}
