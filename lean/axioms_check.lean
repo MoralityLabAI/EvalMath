@@ -283,3 +283,20 @@ here; the expected output is only `propext`, `Classical.choice` and `Quot.sound`
 #print axioms FeedbackChannel.CPF03.no_reverse_bound
 #print axioms FeedbackChannel.CPF03.pointwise_threshold
 #print axioms FeedbackChannel.CPF03.no_uniform_threshold
+
+-- CFH-07: partial mathematical evidence
+#print axioms FeedbackChannel.CFH07.sparse_sum
+#print axioms FeedbackChannel.CFH07.restrict_subset
+#print axioms FeedbackChannel.CFH07.restrict_retains
+#print axioms FeedbackChannel.CFH07.replay_retains
+#print axioms FeedbackChannel.CFH07.replay_subset
+#print axioms FeedbackChannel.CFH07.singleton_identification
+
+-- CFH-16 abstract budget and checkpoint invariants
+#print axioms FeedbackChannel.CFH16.charge_preserves
+#print axioms FeedbackChannel.CFH16.charge_reject
+#print axioms FeedbackChannel.CFH16.merge_sound
+#print axioms FeedbackChannel.CFH16.merge_preserves
+#print axioms FeedbackChannel.CFH16.checkpoint_safe
+#print axioms FeedbackChannel.CFH16.interrupt_safe
+#print axioms FeedbackChannel.CFH16.observation_safe

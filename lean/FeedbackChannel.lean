@@ -26,3 +26,7 @@ import FeedbackChannel.CPF02.Canonical
 import FeedbackChannel.CPF02.Bridges
 import FeedbackChannel.CPF03
 import FeedbackChannel.CPFAudit
+
+import FeedbackChannel.CFH07
+
+import FeedbackChannel.CFH16

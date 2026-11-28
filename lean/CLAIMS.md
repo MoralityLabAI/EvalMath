@@ -289,3 +289,11 @@ Every theorem below is listed in `axioms_check.lean` with standard axioms only. 
 | CPF-02 | VP subset of VPBar | `FeedbackChannel.CPF02.vp_subset_vpbar`, `FeedbackChannel.CPF02.statement_vp_subset_vpbar` | FeedbackChannel/CPF02/Bridges.lean | full | Laurent notion only; no geometric-closure claim |
 | CPF-03 | approximate-inclusion transfer and its failed converse | `FeedbackChannel.CPF03.no_reverse_bound` | FeedbackChannel/CPF03.lean | full | logical countermodel only |
 | CPF-03 | pointwise vs uniform threshold | `FeedbackChannel.CPF03.no_uniform_threshold` | FeedbackChannel/CPF03.lean | full | with `pointwise_threshold` |
+
+## CFH-07 proof candidates (kernel status pending)
+
+`FeedbackChannel.CFH07.sparse_sum` proves the weighted-sum rule conditional on correct known entries and zero weights for missing entries (supporting lemma for modular coefficient screening). `restrict_subset`, `restrict_retains`, `replay_retains`, `replay_subset`, and `singleton_identification` state the full abstract partial-evidence retention and singleton soundness rules. They do not certify graph coefficient identities, actual acquisition charges, or the Python implementation. All six are wired into the axiom audit. Do not promote the candidates until CI verifies the build and axiom output.
+
+## CFH-16 abstract budget and checkpoint candidates (CI pending)
+
+`FeedbackChannel.CFH16.charge_preserves`, `charge_reject`, `merge_sound`, `merge_preserves`, `checkpoint_safe`, `interrupt_safe`, and `observation_safe` model abstract ledger charges, independently sound cache entries, and authenticated observation restriction. External verifier soundness and reply authentication are hypotheses. These are not a Lean refinement of Python, physical runtime limits, or a proof that independent reference generation is cheap. All seven statements are included in the axiom audit; kernel status pending.
